@@ -154,8 +154,19 @@ the toolchain must be re-pinned to a tagged release before any preflight.
 The critic's corrections to the Lean design are adopted: the Leray input is
 needed only on `L^2 ∩ L^3`, the heat generator only for `H^m` data,
 Bernstein is proved rather than assumed, the flow axiom must carry its
-variational equation, and existing declaration names are reused. A bounded
-prior-art search on the gradient-quotient functional is running (`cp01-prior-art-quotient.md`).
+variational equation, and existing declaration names are reused. The bounded
+prior-art search `cp01-prior-art-quotient.md` locates the mechanisms behind
+the quotient functional: coset minimization with a coclosed nonlinear
+representative is nonlinear Hodge theory (Sibner–Sibner 1970; Scott 1995;
+Iwaniec–Scott–Stroffolini 1999), stated there for closed forms, whereas the
+programme's shift `u` is divergence-free; `L^p` Lyapunov functions for
+Navier–Stokes under critical smallness, the unshifted heat-generator
+coercivity, and the `L^9` lower bound are Kato 1990 (LNM 1450, reproduced in
+Manna–Sritharan 2007). The manuscript's quotient section therefore carries a
+related-work remark and no novelty claim; the unlocated parts (the shifted
+`L^3` gradient quotient as a Navier–Stokes functional, the pressure-free
+evolution by inner variation, `D_Q = D_3(w)` for the shifted representative)
+are recorded as unlocated, not as new.
 
 ### Lean progress (Track A, parallel infrastructure)
 
