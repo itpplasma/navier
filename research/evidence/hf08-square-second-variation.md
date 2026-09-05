@@ -1,12 +1,29 @@
 # HF08: complete second variation of the finite-band square energy
 
-Status: finite-band, positive-regularization REPAIR calculation.  This note
+Status: finite-band, positive-regularization calculation with the domain
+repair supplied by `hf08-review-second-variation.md` applied.  This note
 retains the low-mode feedback and background-weight evolution omitted by the
 frozen-strain oracle.  It proves exact algebraic formulas but does not pass to
 all dyadic bands or claim a sign obstruction, pressure absorption, or
 regularity.
 
 ## 1. Functional and Euler rate
+
+Work on \(\mathbb R^3\) with real divergence-free Schwartz fields
+\(U,v\). Fix \(\epsilon>0\). Each dyadic operator below is a real
+self-adjoint Fourier multiplier with smooth compact annular symbol. The
+Leray projector is the orthogonal projector on \(L^2\). Products of the
+fields are Schwartz; applying an annular multiplier after the Leray projector
+also gives Schwartz functions. Thus the displayed differentiated integrals
+and Leray pairings are finite, with valid integration by parts. Directions
+in the derivative formulas are taken in this class, or among the displayed
+Euler directions whose annular images have the same decay. Pointwise
+shell-array orthogonality (7) is an explicit hypothesis, not a consequence
+of arbitrary overlapping Fourier supports.
+
+The same algebra holds separately on the flat torus for smooth fields and
+the periodic Leray projector. Periodic examples below are diagnostics only;
+no whole-space conclusion is inferred from them.
 
 Fix a finite set of real self-adjoint dyadic operators
 \(W=(\Delta_j)_{j\in I}\), and write the pointwise Euclidean inner product over

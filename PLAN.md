@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF07-square-function-energy-audit
+active_task: HF10-balanced-shell-spacetime-producer
 public_release: false
 ```
 
@@ -400,3 +400,45 @@ regularized identity, positive diffusion, frequency-boundary terms, limits,
 and low-high pressure/transport grouping. Any linearized strain model must
 be distinguished from the actual nonlinear cubic functional. No unspecified
 strain or Carleson condition is accepted as an arbitrary-data producer.
+
+
+### HF08–HF09: complete square-energy calculation
+
+The square-energy audit's first invalid bridge was promotion of a frozen
+unweighted strain term to the full nonlinear second variation. The repaired
+`hf08-square-second-variation.md` includes low-mode feedback, evolution of the
+weight, weighted Leray terms and finite-band defects, with the domain repair
+from `hf08-review-second-variation.md`. The same review checks the controller's
+exact periodic example: frozen strain is strictly positive while the full
+constant-weight coefficient vanishes. The original failed candidate remains
+recoverable at `f0196f75b2c8dd92e2ea32199baf608753e23aa5`.
+
+The stronger variable-weight diagnostic in `hf09-bounded-carrier.md` passes
+`hf09-review-bounded-carrier.md`. One fixed smooth tight frame and bounded-L2
+periodic high carriers give a complete coefficient tending to a nonzero
+constant with either sign; the retained Leray pressure correction is O(1/N).
+This rules out a uniform positive power of frequency-separation gain for
+that exact instantaneous coefficient. It does not refute viscous absorption,
+whole-space HF, or any signed time-integrated mechanism. The earlier
+unnormalized variable-weight example is superseded scratch and is not a new
+load-bearing claim.
+
+`hf09-square-limit.md` passes `hf09-review-square-limit.md`, conditional on its
+explicit Littlewood–Paley L3 analysis-operator premise. Strong Hilbert-array
+Sobolev convergence justifies the all-band and zero-regularization aggregate
+identity on each compact classical interval. No preservation of Schwartz
+spatial decay or separate paraproduct convergence is assumed. Its domination
+uses trajectory Sobolev bounds on that compact interval and supplies no
+input-only endpoint estimate.
+
+Next distinct action: investigate the signed spacetime producer for balanced
+high shells in the exact aggregate identity. Do not treat the periodic
+instantaneous obstruction as a reason to abandon the whole square-energy
+route, or spend a new wave merely localizing it to R3: fixed-background
+high-carrier diffusion grows quadratically with frequency, so the diagnosed
+order-one coefficient alone is no obstruction to absorption. A useful next
+candidate must construct a coercive temporal shell correction or a derived
+budget for the complete balanced-shell remainder on actual trajectories,
+with every term displayed. The earlier scalar full-heat correction and
+saturation obstructions remain constraints on those specific constructions.
+HIGH-PRESSURE and the terminal claim remain open; neither Lean phase starts.

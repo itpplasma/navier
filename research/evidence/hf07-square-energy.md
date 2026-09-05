@@ -1,11 +1,11 @@
 # HF07: a dyadic square-function cubic energy
 
-Status: mechanism test, 2026-09-05. This note tests a nonscalar frequency
-energy for smooth solutions of the unforced Navier--Stokes equation on
-\(\mathbb R^3\). It derives an exact regularized finite-band identity and
-identifies the first interaction for which the proposed pressure/transfer
-cancellation has no sign. It does not prove the universal high-frequency
-estimate.
+Status: failed mechanism candidate, repaired after `hf07-review-square.md`.
+The original candidate is preserved at commit `f0196f75b2c8dd92e2ea32199baf608753e23aa5`.
+The finite-band identity survives. The original promotion of the L2 strain
+oracle to the nonlinear cubic remainder is invalid; the complete second
+variation and its scope repair are in `hf08-square-second-variation.md`.
+No universal high-frequency estimate is proved.
 
 ## 1. Tight dyadic frame and regularized energy
 
@@ -37,8 +37,9 @@ This is equivalence of energies only, not a new estimate.
 
 ## 2. Exact finite-band evolution
 
-Let \(u,p\) be a Schwartz-class smooth solution at the time under
-consideration. Applying \(\Delta_j\) to
+For the finite-band identity, take a smooth divergence-free solution with
+sufficient decay/integrability to justify these finite sums and integrations
+by parts; this is a regular-time identity, not a decay persistence theorem. Applying \(\Delta_j\) to
 \[
  u_t+u\cdot\nabla u+\nabla p=\nu\Delta u,
  \qquad \nabla\cdot u=0,
@@ -61,7 +62,7 @@ and, with \(p_j=\Delta_jp\) and
  \boxed{\quad
  \mathcal R_{I,\epsilon}
  =-\sum_{j\in I}\int s_{I,\epsilon}u_j\cdot C_j\,dx
-   +\sum_{j\in I}\int p_j,u_j\cdot\nabla s_{I,\epsilon}\,dx.
+   +\sum_{j\in I}\int p_j\,u_j\cdot\nabla s_{I,\epsilon}\,dx.
  \quad}                                               \tag{6}
 \]
 Indeed,
@@ -112,71 +113,26 @@ removed by \(\mathbb P\), while (8) removes the large constant-transport
 piece from the differentiated square energy. If \(U\) is constant, (10) is
 skew under spatial integration and contributes zero, agreeing with (7).
 
-The first nonconstant coefficient does not cancel. In the unweighted
-divergence-free \(L^2\) pairing,
+The unweighted toy pairing satisfies
 \[
- \int q\cdot L_Uq\,dx
- =\int q_aq_b\,\partial_bU_a\,dx,                    \tag{11}
+ \int q\cdot L_Uq=\int q_aq_b\partial_b U_a.
 \]
-because \(\mathbb Pq=q\) and the transport part integrates to zero. Only
-the symmetric strain of \(\nabla U\) occurs, but it is indefinite. The
-square-cubic weight adds commutators of \(\mathbb P\) with multiplication by
-\(s_{I,\epsilon}\); those are also order \(\nabla U\) in the low--high
-regime. They do not negate (11). Equivalently, expanding (8) for
-\(|\eta|\ll|\xi|\) replaces the vanished zeroth-order translation by
-\[
- \nabla m_j(\xi)\cdot\eta,
-\]
-and (9) applies the order-zero matrix \(\mathbb P(\xi)\). The resulting
-matrix coefficient is linear in \(\widehat{\nabla U}(\eta)\), has a
-nonzero symmetric part, and has no factor \(2^{-j}\) after the derivative
-on the high mode and the multiplier difference are combined.
+It has an indefinite strain form. This is not the complete second variation
+of the cubic square energy: high-high feedback into the background, variation
+of its weight, and weighted Leray terms must also be retained. The prior
+claim that these terms do not negate the strain was unsupported. The exact
+constant-weight example in `hf08-controller-constant-weight.md` has nonzero
+toy strain but zero complete second variation.
 
-This supplies a concrete failure of the hoped-for sign: pressure cancels
-the longitudinal acceleration and the commutator cancels constant sweeping,
-but neither cancels low-frequency strain. Changing the signs of the
-eigenvalues of a trace-free strain matrix changes the sign of (11), so
-incompressibility supplies no one-sided bound.
+## 4. Remaining producer
 
-## 4. Exact missing coefficient
-
-The standard paraproduct estimate corresponding to (11) has the form
-\[
- |\mathcal R_{I,\epsilon}^{\rm low-high}|
- \lesssim
- \sum_{j\in I}\int
- |\nabla S_{j-4}u|\,s_{I,\epsilon}|u_j|^2dx
- +\text{balanced and band-boundary interactions}.    \tag{12}
-\]
-The displayed coefficient is critical. An absolute closure uses
-\[
- \sum_j\|\nabla S_{j-4}u\|_\infty
-       \int s_{I,\epsilon}|u_j|^2dx,                 \tag{13}
-\]
-or a sharper Carleson version retaining the sum inside space-time. Energy
-does not control either coefficient. Nor can viscosity absorb (12) with a
-fixed fraction merely by taking \(j\) large: the dimensionless coefficient
-\[
- 2^{-2j}\|\nabla S_{j-4}u\|_\infty                  \tag{14}
-\]
-has no energy-level uniform tail modulus, and balanced high--high
-interactions require an analogous square/Carleson summability bound.
-
-A sufficient repair would be an input-only space-time estimate for the
-positive part of the aggregate strain and balanced-shell form, strong enough
-that for some input-selected \(J\)
-\[
- \int_0^\tau \mathcal R_{>J,0}(t)\,dt
- \le \theta\nu\int_0^\tau\mathcal D_{>J,0}(t)\,dt+A,
-\qquad \theta<1,                                    \tag{15}
-\]
-uniformly up to the maximal time. Here \(\mathcal R_{>J,0}\) and
-\(\mathcal D_{>J,0}\) denote the limits of (6) and (5) over
-\(I=[J+1,N]\) as \(N\to\infty\) and \(\epsilon\downarrow0\), whenever
-those limits exist. This is a precise new producer, not a
-consequence of (3): controlling (12) requires a one-sided strain/Carleson
-input beyond kinetic energy. A time derivative normal form for the symmetric
-part in (11) would also repair the route, but none is obtained here.
+A low-high absolute paraproduct bound or an unnamed Carleson estimate cannot
+supply the missing arbitrary-data producer. One must first derive the full
+remainder, with all multipliers and regularizations declared, and then prove
+its signed spacetime absorption with an input-only finite remainder uniform
+through the maximal endpoint. Equivalence of square energy to L3 does not
+prove this absorption. A nonzero instantaneous coefficient also does not
+refute a spacetime estimate.
 
 ## 5. Removing the regularizations
 
@@ -192,28 +148,9 @@ For fixed finite \(I\), as \(\epsilon\downarrow0\), (2) converges to
 gives dominated convergence for smooth rapidly decreasing fields.
 All terms in (6) converge by the same finite-sum smooth bounds.
 
-For a Schwartz solution at a fixed regular time, the rapid high-frequency
-decay and the standard homogeneous low-frequency estimates permit
-\(M,N\to\infty\) in (2)--(6). The band-boundary portions already retained in
-\(C_j\) tend to zero. This produces the infinite-frame identity at every
-strictly regular time. It does not provide estimates uniform as a putative
-singular endpoint is approached; precisely that missing uniformity is (15).
-
-## Frontier record
-
-**MODE / RESULT:** DISCOVER/FALSIFY. The dyadic square energy has an exact
-positive diffusion and cancels common transport, but the combined pressure
-and transfer symbol leaves an indefinite low-frequency strain interaction.
-
-**FIRST GAP:** obtain an input-only one-sided space-time bound for the
-aggregate strain/Carleson coefficient in (12), together with the balanced
-high--high shell form, or construct a temporal normal form for their symmetric
-part. Energy and the tight-frame identity do not supply this bound.
-
-**SURVIVING CONDITIONAL SUFFIX:** estimate (15), plus control of the finite
-low-output portion, would give a cubic critical bound equivalent to
-\(\|u\|_3^3\) and feed the existing continuation argument.
-
-**NON-CLAIMS:** no new equivalence beyond the classical square-function
-theorem is claimed. There is no universal HF estimate, endpoint bound,
-blow-up construction, or global regularity theorem here.
+The all-band differentiated limit requires a separate argument with summable
+bounds for the aggregate remainder and diffusion. The earlier appeal to
+"standard homogeneous low-frequency estimates" did not supply that argument.
+In particular, no persistence of Schwartz spatial decay for the actual
+Navier--Stokes trajectory is assumed. Even a limit justified on every compact
+regular interval would not supply endpoint-uniform a priori control.

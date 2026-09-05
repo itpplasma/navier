@@ -94,7 +94,7 @@ nodes:
     mechanism: new signed time-integrated pressure estimate on actual trajectories
     paper_label: 'hyp:highpressure'
     evidence: research/evidence/frequency.md
-    review: Open. The existential assertion is equivalent to global continuation of the selected strong branch. A compact R3 profile with positive pressure work now has an audited construction; this rules out a universal sign argument, not spacetime HF. See hf02-r3-profile.md and hf02-review-profile.md. The corrected heat defect retains the same gap.
+    review: Open. The existential assertion is equivalent to global continuation of the selected strong branch. A compact R3 profile with positive pressure work now has an audited construction; this rules out a universal sign argument, not spacetime HF. See hf02-r3-profile.md and hf02-review-profile.md. The corrected heat defect retains the same gap. The square-energy second variation and compact-interval aggregate limit are audited in hf08-review-second-variation.md and hf09-review-square-limit.md. The periodic bounded-carrier diagnostic (hf09-review-bounded-carrier.md) excludes only an instantaneous frequency-separation gain; no spacetime producer is proved.
   - id: ESS
     title: Endpoint continuation
     statement: A maximal smooth finite-energy R3 solution with finite maximal time has unbounded L3 norm on that interval; a finite uniform L3 bound excludes finite-time breakdown.
