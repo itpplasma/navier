@@ -695,7 +695,7 @@ source is \(-\sigma\).  The analogy with vortex stretching
 **Split.** With \(K^S_L:=-\int|w|\,w\cdot S(u^{hi})\,w\),
 \[
  K_L-K^S_L=\int q\cdot((A\cdot\nabla)v)-\int A\cdot((w\cdot\nabla)v),\qquad
- |K_L-K^S_L|\le 2\|\nabla v\|_\infty\|w\|_3^3\le C2^{5L/2}E_0^{1/2}\mathcal Q ,
+ |K_L-K^S_L|\le (2+C_3)\|\nabla v\|_\infty\|w\|_3^3\le C2^{5L/2}E_0^{1/2}\mathcal Q ,
                                                                     \tag{3.7}
 \]
 (Bernstein \(\|\nabla S_Lu\|_\infty\le C2^{5L/2}\|u\|_2\); scaling \((a^4,\lambda^2)\) ✓),
