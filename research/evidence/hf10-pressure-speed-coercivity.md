@@ -189,12 +189,15 @@ the logarithmic support away from \(r=0\) makes
 \(w_T(r)=r^{-2/3}a_T(\log r)\) a smooth compactly supported swirl amplitude,
 so this sharpness occurs inside the admissible smooth class.
 
-Consequently, within nonnegative smooth compactly supported planar swirls,
+Consequently, for \(\kappa\ge0\), within nonnegative smooth compactly
+supported planar swirls,
 \[
  {1\over3}M+\kappa B
  \ge \left({1\over3}-{3\kappa\over4}\right)M.        \tag{17}
 \]
-It has a uniform positive lower bound in terms of \(M\) exactly when
+For \(\kappa<0\), the valid lower bound is instead \(M/3\), since
+\(B\le0\). Thus it has a uniform positive lower bound in terms of \(M\)
+exactly when
 \(\kappa<4/9\); at \(\kappa=4/9\) it is nonnegative but has no uniform
 positive coercivity; and for \(\kappa>4/9\), the smooth log-plateau sequence
 makes it negative.  Equivalently, the power diagnostic (6), extended to

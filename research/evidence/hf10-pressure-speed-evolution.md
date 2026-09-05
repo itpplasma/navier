@@ -16,8 +16,8 @@ Fix \(0<T<T_*\), and assume
 \]
 Write
 \[
- N=(u\cdot\nabla)u,qquad
- p=R_iR_j(u_i u_j),qquad V=-\mathbb P N.                         \tag{2}
+ N=(u\cdot\nabla)u,\qquad
+ p=R_iR_j(u_i u_j),\qquad V=-\mathbb P N.                         \tag{2}
 \]
 The pressure in (2) is the fixed Riesz-transform representative, not a
 pressure modulo a time-dependent spatial constant.  This choice is essential
@@ -125,8 +125,8 @@ they require no preservation of Schwartz decay.
 
 Let
 \[
- r=|u|,qquad n={u\over|u|}\mathbf1_{\{|u|>0\}},qquad
- F={1\over3}\int|u|^3\,dx,qquad B=\int p|u|\,dx.               \tag{14}
+ r=|u|,\qquad n={u\over|u|}\mathbf1_{\{|u|>0\}},\qquad
+ F={1\over3}\int|u|^3\,dx,\qquad B=\int p|u|\,dx.               \tag{14}
 \]
 The maps \(r_\epsilon-\epsilon\to r\) converge in \(L^2\), uniformly for
 \(t\in[0,T]\).  One way to see the uniformity is that the scalar maps are
@@ -143,7 +143,7 @@ set and \(\nabla u=0\) almost everywhere on that set.  Therefore
 \]
 while
 \[
- 0\le F_\epsilon-F\le C\epsilon\|u\|_2^2,qquad
+ 0\le F_\epsilon-F\le C\epsilon\|u\|_2^2,\qquad
  B_\epsilon\longrightarrow B.                                 \tag{16}
 \]
 It follows that, for every \(t\in[0,T]\),
@@ -158,17 +158,18 @@ It follows that, for every \(t\in[0,T]\),
  -\int p\,n\cdot\nabla p\,dx\Bigg]ds.                         \tag{17}
  \end{split}
 \]
-In particular, the nonlinear first variation of \(B\) in the direction
-\(V=-\mathbb P(u\cdot\nabla u)\) is
+The nonlinear contribution from the pressure--speed correction in the
+integrated identity, with \(V=-\mathbb P(u\cdot\nabla u)\), is
 \[
- DB(u)[V]
+ \mathcal N_B(u;V)
  =-P_3+2\int rR_iR_j(u_iV_j)\,dx
        -\int p\,n\cdot\nabla p\,dx,                            \tag{18}
 \]
-where \(P_3=\int p\,u\cdot\nabla r\,dx\).  Equation (18) is understood
-either as the nonlinear part of the rigorously obtained integrated identity
-or by the same Sobolev approximation; no differentiability of \(u/|u|\) at
-the zero set is needed.
+where \(P_3=\int p\,u\cdot\nabla r\,dx\). This is the contribution
+extracted from (17), not an assertion of a two-sided derivative of B at an
+arbitrary snapshot. At zeros of u, such a derivative can acquire distinct
+one-sided terms involving p|V|. The integrated identity avoids that claim;
+see `hf10-review-pressure-speed-evolution.md` for the exact scope repair.
 
 ## What the cancellation does not provide
 

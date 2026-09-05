@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF10-balanced-shell-spacetime-producer
+active_task: HF11-pressure-entropy-coercive-repair
 public_release: false
 ```
 
@@ -442,3 +442,36 @@ budget for the complete balanced-shell remainder on actual trajectories,
 with every term displayed. The earlier scalar full-heat correction and
 saturation obstructions remain constraints on those specific constructions.
 HIGH-PRESSURE and the terminal claim remain open; neither Lean phase starts.
+
+
+### HF10: pressure–speed cancellation and coercivity failure
+
+A different critical cubic correction, B(u)=integral p|u|, has an exact
+coefficient-one cancellation of the original pressure work in the integrated
+F+B balance. The regularized formula and compact-interval limit in
+`hf10-pressure-speed-evolution.md` pass the scoped review
+`hf10-review-pressure-speed-evolution.md`. Its repair avoids claiming a
+standalone two-sided derivative DB at velocity zeros; the surviving identity
+includes every displayed nonlinear and viscous residual.
+
+The coefficient-one functional is not coercive. The controller's planar swirl
+oracle has F+B=-pi/6. The smooth compact R3 transfer in
+`hf10-pressure-speed-coercivity.md` passes
+`hf10-review-pressure-speed-coercivity.md` after the sign-of-kappa repair in
+the optional planar bound. Anisotropic Riesz convergence controls the
+nonlocal pressure during the long-cylinder lift. This excludes positive
+critical-norm control by F+B alone, not the original HF target. Frozen
+candidates and reviews are preserved at `f546d25`.
+
+The bounded primary-source check `hf10-pressure-speed-sources.md` identifies
+existing conditional Bernoulli-pressure regularity work and the standard Lq
+pressure-work calculation. It supplies no arbitrary-data producer or novelty
+claim for this correction.
+
+Next repair: add integral (-p)_+^(3/2) to F+B. Pointwise Young inequality
+suggests this restores critical cubic coercivity while retaining the exact
+coefficient-one B term. The complete regularized pressure-entropy evolution
+is being derived, including its pressure-source term, cross gradients and
+zero-level behavior. No sign for its full heat part or endpoint bound may be
+inferred from pointwise positivity of the functional. HIGH-PRESSURE remains
+the first unsupported terminal bridge, and Phase I remains unstarted.
