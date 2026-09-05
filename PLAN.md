@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF15-low-pressure-gradient-elimination
+active_task: HF16-material-pressure-commutator
 public_release: false
 ```
 
@@ -596,3 +596,31 @@ energy estimates use low-kernel gradient norms and time Holder bounds.
 The resulting replacement velocity field is not divergence-free; do not
 reuse Leray cancellations after that split. The complete high-output
 aggregate remains unbounded, and neither formalization phase starts.
+
+
+### HF15: the remaining low-pressure Euler gradients are energy-controlled
+
+The instantaneous estimates in `hf15-low-pressure-gradient.md` pass review
+after adding H1 and distinguishing the chosen bounded zero-set vector from
+a derivative. The frozen candidate and review are at `156b2dc`.
+
+`hf15-regularized-low-pressure.md` passes its independent review without a
+scope repair. The pressure derivative is 1-Lipschitz in velocity, and centered
+convolution gives a pressure derivative bound uniform in the regularizer.
+Low-kernel gradient bounds in L1, L2, L6, and L-infinity then control both
+low-pressure Euler terms by finite energy-level remainders on every finite
+horizon. This is the actual fixed-regularizer identity, not an identification
+of derivatives at velocity zeros.
+
+After splitting V = W - grad(pL), where W = -(u dot grad)u - grad(pH), the
+coherent balance is J_eta' + nu D_eta = E_eta^H + H_eta^rem - A_eta - B_eta.
+The time integrals of |A_eta| and |B_eta| have input-only bounds, uniform in
+eta. D_eta is nonnegative. W has divergence Delta(pL), so no solenoidal
+cancellation is available for W. The complete remaining high-output sum
+E_eta^H + H_eta^rem still needs a uniform absorption bound; none is proved.
+
+Next task: rewrite the pressure source using the material derivative and
+inspect its low-velocity transport commutator. Any Calderon commutator bound
+must have verified hypotheses and cutoff constants before it is imported.
+An input-controlled Gronwall term would remove that contribution, but would
+not bound the remaining critical terms. HIGH-PRESSURE remains open.

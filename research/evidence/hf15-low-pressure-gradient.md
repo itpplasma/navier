@@ -9,6 +9,11 @@ the remaining high-output Euler sum.
 
 ## Setup and scalar coefficients
 
+For instantaneous estimates assume a solenoidal field in
+\(H^1(\mathbb R^3)\); the time-integrated statements apply on compact
+classical Navier--Stokes intervals with the energy identity. This supplies
+the gradient norm required by the interpolation estimates below.
+
 Let \(S_J\) be the fixed smooth low-pass from HF14 and write
 \[
  p^L=S_Jp,\qquad z=p^H=(I-S_J)p,
@@ -24,10 +29,12 @@ on them,
  b_k(r,z)={\partial_rg_k(r,z)\over r},\qquad
  a_k(r,z)=\partial_zg_k(r,z)-{3\over2}\sqrt{z_-}.              \tag{2}
 \]
-Only the products in the estimates below are needed. The scalar formulas
+Only the products in the estimates below are needed. Define the vector
+\(b_ku\) to be zero at \(u=0\). This is a chosen bounded representative,
+not an assertion of a vector derivative at \(u=0,z>0\). The scalar formulas
 give, pointwise and uniformly for \(k>0\),
 \[
- |b_k(r,z)u|=|\partial_rg_k(r,z)|\le|z|,                       \tag{3}
+ |b_k(r,z)u|\le|z|.                                          \tag{3}
 \]
 and
 \[
