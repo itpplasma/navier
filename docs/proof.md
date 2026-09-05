@@ -57,7 +57,7 @@ give uniform control through a putative singular endpoint.
 
 The endpoint theorem of Escauriaza–Seregin–Šverák, in the maximal L3 solution
 form of Gallagher–Koch–Planchon Theorem 4, rules out a finite Tstar when the
-L3 norm is uniformly bounded. Taking H=Tstar in the universally quantified
+L3 norm is uniformly bounded. Taking any finite H>Tstar in the universally quantified
 finite-horizon estimate gives the contradiction. Local uniqueness,
 persistence of regularity, and the energy identity yield the conditional
 Clay conclusion. The periodic alternative is not a consequence of this

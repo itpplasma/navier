@@ -3,7 +3,7 @@ title: Navier–Stokes whole-space regularity architecture
 terminal_claim: NS-R3
 phase_i_status: not-started-awaiting-user
 source_revision:
-  manuscript_commit: 3545e1726762556b672f320c8fae9cb711443692
+  manuscript_commit: d7563ef95ec12032e9f9ad06a8f45a2347648ab3
 nodes:
   - id: LOCAL
     title: Local classical solution
@@ -11,7 +11,7 @@ nodes:
     kind: imported
     depends_on: []
     mechanism: Sobolev local existence and uniqueness
-    paper_label: 'def:target'
+    paper_label: 'premise:local'
     evidence: literature/foundations.md
     review: Tao Theorem 5.4 directly inspected for whole-space local mild existence and Schwartz-data smooth velocity and pressure through the initial time.
   - id: ENERGY
@@ -88,7 +88,7 @@ nodes:
     review: Frequency audit passes the kernel and energy calculation; integrated in paper 3545e17. See research/evidence/review-frequency.md.
   - id: HIGH-PRESSURE
     title: Signed high-frequency control
-    statement: For each datum, viscosity and finite horizon, choose a finite input-determined cutoff J and prove accumulated high-frequency pressure work is at most theta nu times accumulated cubic dissipation plus a finite input-only remainder, uniformly up to min(H,Tstar), with theta less than one.
+    statement: There exists a fixed theta in [0,1) such that for every datum, viscosity and positive finite horizon H there exist an integer cutoff J and a finite nonnegative remainder making accumulated high-frequency pressure work at most theta nu times accumulated cubic dissipation plus that remainder, for every tau less than min(H,Tstar).
     kind: gap
     depends_on: []
     mechanism: new signed time-integrated pressure estimate on actual trajectories
@@ -112,7 +112,7 @@ nodes:
     mechanism: contradiction at a finite maximal time
     paper_label: 'thm:conditional'
     evidence: research/evidence/architecture.md
-    review: Pressure audit validates the conditional suffix after viscosity normalization and finite-horizon repair in paper 3545e17. Final integration audit pending; CRITICAL remains unproved.
+    review: Integration audit validates the conditional mathematics; its quantifier and label repairs are applied in paper d7563ef. See research/evidence/review-integration.md. CRITICAL remains unproved.
   - id: NS-R3
     title: Clay alternative A
     statement: Every smooth divergence-free rapidly decreasing initial velocity on R3 has a global smooth unforced Navier–Stokes velocity and pressure of uniformly bounded kinetic energy, for every positive viscosity.

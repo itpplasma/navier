@@ -84,6 +84,7 @@ Phase I: not started; awaiting the user. Phase II: not started.
 No terminal proof or counterexample is claimed.
 \end{center}
 \clearpage
+\raggedright
 ''', 'Graph SHA-256: '+r'\texttt{'+digest[:32]+'}'+r'\texttt{'+digest[32:]+'}.\n']
 for n in graph['nodes']:
     out += [r'\section*{'+esc(n['id']+': '+n['title'])+'}'+r'\phantomsection\label{node:'+n['id']+'}\n',
