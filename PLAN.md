@@ -3,11 +3,11 @@
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: cp1-paper-integration-audit
-phase_i_status: authorized-2026-09-05-in-progress
+phase: paper-proof-first
+phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: CP02-integration-audit-and-CP04-phase-i-kickoff
+active_task: CP02-integration-audit-then-HF19-track-b
 public_release: false
 ```
 
@@ -32,20 +32,24 @@ the repository split, model policy, and boundaries.
 
 ## Programme structure toward the Millennium result
 
-Two tracks run under one controller.
+Two tracks run under one controller. On 2026-09-05 (evening) the user
+re-sequenced them: **paper proofs of everything come first**; Lean
+formalization of any block waits until the complete paper route is proved
+and audited, so that no effort is spent formalizing steps that a later
+paper result might replace.
 
-- **Track A, checkpoint CP1.** The high-frequency / high-pressure reduction
-  block that the manuscript already contains: the complete conditional route
-  from Clay data to the terminal claim, modulo one explicitly open estimate.
-  It proceeds in the fixed order paper proof, then Phase I, then Phase II.
-  Obvious Lean infrastructure (definitions, calculus lemmas, Mathlib gap
-  fillers) may be developed in parallel with the paper work. Track A has
-  priority. The user authorized both phases on 2026-09-05.
-- **Track B, closing the gap.** Research on the missing arbitrary-data
-  critical producer, HIGH-PRESSURE or its alternative HIGH-STRAIN. Track B
-  continues after each Track A milestone and follows the ordered research
-  stages below. A Track B result enters Track A only after independent audit
-  and integration into the manuscript and graph.
+- **Track A, checkpoint CP1 on paper.** The reduction block is now written
+  in full (gate 1, pending the integration audit). Its Lean phases I and II
+  remain authorized but are deferred; the existing formal repository and
+  the CP04 design note are kept as a resumable starting point and are not
+  extended until the user reopens formalization.
+- **Track B, closing the gap on paper.** The priority is now the missing
+  arbitrary-data critical producer, HIGH-PRESSURE or its alternative
+  HIGH-STRAIN, following the ordered research stages below. Every
+  candidate is frozen and audited before integration into the manuscript
+  and graph. When the full route to Clay alternative A is proved on paper
+  and passes separate component and integration audits, formalization of
+  the whole route begins, Phase I then Phase II.
 
 CP1 is published, when the user decides, as a piece of the work. It is not
 the Millennium result. The programme does not stop at CP1.
@@ -104,12 +108,12 @@ Stage gates for CP1:
 | CP01 | Understand and specify: manuscript obligations, exact literature statements, Mathlib coverage, Lean statement design, Palomar checklist, completeness critic | `cp01-` |
 | CP02 | Paper proof: write complete proofs per obligation, adversarial audits, controller integration into the manuscript and graph | `cp02-` |
 | CP03 | Lean statement surface and infrastructure in parallel with CP02: definitions, Challenge/Solution skeleton, calculus and Lp lemmas that CP1 needs regardless of proof details | `cp03-` |
-| CP04 | Phase I modules per paper node, disjoint files per worker, `lake env lean` single-file checks | `cp04-` |
+| CP04 | Phase I modules per paper node (deferred until the full paper route is proved; design note `cp04-phase-i-design.md` kept) | `cp04-` |
 | CP05 | Phase I faithfulness audit and axiom report; gate 2 | `cp05-` |
 | CP06 | Phase II disposal: classify each literature axiom as M or F, decompose into published lemmas with sources, order by dependency | `cp06-` |
 | CP07+ | Phase II modules until gate 3; Palomar preflight | `cp07-` |
 
-Track B waves keep the `hf` prefix and continue from HF18.
+Track B waves keep the `hf` prefix and continue from HF19; they now run ahead of CP04–CP07.
 
 ## Integration log
 

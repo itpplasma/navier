@@ -37,9 +37,9 @@ text = paper.read_text()
 for n in nodes:
     assert '\\label{' + n['paper_label'] + '}' in text, f'missing paper label {n["id"]}'
 plan = (root / 'PLAN.md').read_text()
-assert 'phase_i_status: authorized-2026-09-05-in-progress' in plan
+assert 'phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof' in plan
 assert 'checkpoint: CP1' in plan
-assert graph['phase_i_status'] == 'authorized-2026-09-05-in-progress'
+assert graph['phase_i_status'] == 'authorized-2026-09-05-deferred-until-full-paper-proof'
 assert graph['phase_ii_status'] == 'authorized-2026-09-05-not-started'
 formal = root.parent / 'navier-formal/lakefile.toml'
 assert formal.is_file(), 'missing formal repository'

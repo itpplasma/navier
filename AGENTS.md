@@ -52,8 +52,10 @@ Phase I proves every manuscript-owned step in Lean down to exactly stated,
 directly verified published literature theorems, recorded as clearly labelled
 axioms with source records. Phase II discharges those statements from Mathlib.
 Both phases were authorized by the user on 2026-09-05 for the checkpoint
-block CP1 defined in `PLAN.md`, in the order paper proof, then Phase I, then
-Phase II, with obvious Lean infrastructure allowed in parallel. A conditional
+block CP1 defined in `PLAN.md`. Later the same day the user re-sequenced the
+programme: complete paper proofs of the whole route come first, and Lean
+work on any block is deferred until the paper route is proved and audited.
+Do not extend `../navier-formal` until `PLAN.md` reopens formalization. A conditional
 terminal theorem does not settle the Millennium problem, and no Lean result
 is promoted in the claim graph without a faithfulness audit of its statement.
 

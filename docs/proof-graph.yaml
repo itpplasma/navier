@@ -2,7 +2,7 @@ schema_version: 1
 title: Navier–Stokes whole-space regularity architecture
 terminal_claim: NS-R3
 checkpoint: CP1
-phase_i_status: authorized-2026-09-05-in-progress
+phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 formal_repository: itpplasma/navier-formal
 source_revision:
@@ -120,7 +120,7 @@ nodes:
     title: Existential equivalence of the high-frequency hypothesis
     statement: At its stated quantifiers, the high-frequency hypothesis holds if and only if every Schwartz-data classical branch is global; the forward direction runs through the conditional chain and the converse uses the local theory package on the global branch with cutoff zero and theta zero.
     kind: paper
-    depends_on: [LOW-PRESSURE, CONDITIONAL, LOCAL]
+    depends_on: [LOW-PRESSURE, PRESSURE, CONTINUATION, LOCAL]
     mechanism: chain of implications and an explicit witness on a global branch
     paper_label: 'prop:existential-equivalence'
     evidence: research/evidence/cp02-lowpressure.md
@@ -210,7 +210,7 @@ nodes:
     title: Pressure-free quotient evolution
     statement: Along the classical branch on every compact interval, the quotient functional is absolutely continuous with derivative minus nu times a nonnegative dissipation minus the transport pairing of the gradient part against the strain, the pressure gradient being annihilated; the low-strain part is bounded by an input coefficient times the functional.
     kind: paper
-    depends_on: [LOCAL, QUOTIENT-FUNCTIONAL]
+    depends_on: [LOCAL, ENERGY, QUOTIENT-FUNCTIONAL]
     mechanism: chain rule along a C1 curve in L3, heat generator sign, inner variation by the volume-preserving flow, Bernstein
     paper_label: 'prop:quotient-evolution'
     evidence: research/evidence/cp02-quotient-evolution.md
