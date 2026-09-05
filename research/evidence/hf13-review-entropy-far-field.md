@@ -1,0 +1,205 @@
+# Independent audit of the pressure-entropy far-field sign
+
+VERDICT: **PASS**
+
+REVIEWED SCOPE: research/evidence/hf13-entropy-far-field.md, frozen with
+SHA-256
+21db0f52da4b06ee26dd560e3f114c2ab80f81a797c935ffc33d478be1f4f300
+on base commit 7afbff88ef95b44beb2157fe5a4b43eaf3a796c0.
+
+FIRST BAD BRIDGE: none.
+
+EVIDENCE:
+
+1. Axisymmetry of \(U=f(r,z)e_\vartheta\) gives
+   \[
+   \int U_iU_j=\operatorname{diag}(A,A,0),\qquad
+   A={1\over2}\int|U|^2>0.
+   \]
+   With the convention that \(R_iR_j\) has multiplier
+   \(-\xi_i\xi_j/|\xi|^2\), its off-support kernel is
+   \[
+      K_{ij}(x)={3x_ix_j-|x|^2\delta_{ij}\over4\pi|x|^5}.
+   \]
+   Contracting its leading Taylor term with the stress tensor gives
+   \[
+   {A\{3(x_1^2+x_2^2)-2R^2\}\over4\pi R^5}
+   ={A\over4\pi}(1-3\mu^2)R^{-3}.
+   \]
+   Thus (2) has \(C=A/(4\pi)>0\), the polar sign is negative, and compact
+   support makes the next Taylor term \(O(R^{-4})\).  Hölder-\(1/2\)
+   continuity of \(z\mapsto\sqrt{z_+}\) then proves (3), including its
+   \(O(R^{-2})\) error and global \(O((1+R)^{-3/2})\) bound.
+
+2. For \(\alpha=1/2\),
+   \[
+      \Delta\{R^\alpha a(\omega)\}
+      =R^{\alpha-2}\{\Delta_{S^2}+\alpha(\alpha+1)\}a.
+   \]
+   Hence \(-\Delta(\sqrt C R^{1/2}a)=e_\infty\) is equivalent exactly to
+   (4).  Since the eigenvalues of \(-\Delta_{S^2}\) are \(l(l+1)\),
+   \(3/4\) is not an eigenvalue and the axisymmetric distributional solution
+   is unique.  The Legendre coefficient formula (5), including the factor
+   \(3/2\) and all denominator signs, follows.
+
+3. The function \(F(\mu)=\sqrt{3\mu^2-1}\) is concave on
+   \([1/\sqrt3,1]\).  Its endpoint chord has area
+   \[
+      {\sqrt2\over2}\left(1-{1\over\sqrt3}\right)>{2\over7},
+   \]
+   proving (6) with no quadrature.  The \(l=0\) term in (5) is
+   \(2F_0>4/7\).
+
+4. For \(l\ge2\),
+   \(D_l=l(l+1)-3/4\ge(7/8)l(l+1)\), and
+   \[
+   \sum_{l=2}^\infty{2l+1\over l^2(l+1)^2}
+   =\sum_{l=2}^\infty\left({1\over l^2}-{1\over(l+1)^2}\right)
+   ={1\over4}.
+   \]
+   Since \(e_l(1)^2=(2l+1)/2\), this proves (7).  In the orthonormal
+   Legendre basis, the squared constant coefficient of \(F\) is
+   \(2F_0^2\), while direct integration gives
+   \[
+      \|F\|_{L^2(-1,1)}^2
+      =2\int_{1/\sqrt3}^1(3\mu^2-1)d\mu
+      ={4\over3\sqrt3}<1.
+   \]
+   Parseval and Cauchy--Schwarz therefore bound the complete \(l\ge2\)
+   contribution by
+   \[
+      {3\sqrt2\over7}\sqrt{\|F\|_2^2-2F_0^2}
+      <{3\sqrt{82}\over49}.
+   \]
+   Subtracting this tail from the constant mode proves (9), and
+   \(28^2>9\cdot82\) certifies its strict positivity.
+
+5. In (10), as \(|y|\to\infty\),
+   \(\Gamma(x-y)-\Gamma(-y)=O(|y|^{-2})\).  Multiplication by
+   \(e_\infty(y)=O(|y|^{-3/2})\) and the radial volume element leaves the
+   integrable tail \(O(|y|^{-3/2})\,d|y|\).  Near \(y=0\), the subtraction
+   has size \(O(|y|^{-1})\), so the radial integrand is
+   \(O(|y|^{-1/2})\,d|y|\); near \(y=x\), the Newton singularity is locally
+   integrable.  Thus the renormalized potential converges and
+   \(-\Delta\Psi=e_\infty\).
+
+6. Scaling (10) changes \(\Psi\) by the factor \(R^{1/2}\) plus an additive
+   constant created by the renormalization.  The angular uniqueness from
+   Evidence 2 gives (11).  Double differentiation removes that constant and
+   equals \(R_3R_3e_\infty\).  Along the positive axis, \(\mu=1\) remains
+   fixed under the \(x_3\)-derivative, so
+   \[
+   \partial_3^2\{\sqrt C R^{1/2}a(1)\}
+   =-{1\over4}\sqrt C\,a(1)R^{-3/2}<0.
+   \]
+   This verifies the Riesz convention, radial Hessian sign, and coefficient
+   in (12).
+
+7. Riesz transforms commute with dilation, so for
+   \(e_R(y)=R^{3/2}e_U(Ry)\),
+   \[
+      R_3R_3e_R(e_3)
+      =R^{3/2}(R_3R_3e_U)(Re_3).
+   \]
+   Away from \(y=0\), the pressure multipole expansion gives pointwise
+   convergence \(e_R\to e_\infty\).  The global pressure estimate gives the
+   uniform majorant \(C|y|^{-3/2}\).  Near the pole \(e_3\), the limiting
+   pressure is strictly negative; differentiated multipole expansions and
+   the smooth square root give local \(C^2\) convergence.
+
+8. The principal-value passage is complete.  On a small pole ball, subtract
+   the first-order Taylor polynomial; the degree \(-3\), mean-zero Riesz
+   kernel and local \(C^2\) convergence control the remainder and any
+   convention-dependent local multiple.  On a ball of radius \(\eta\) about
+   the origin, the kernel centered at \(e_3\) is bounded and
+   \[
+      \int_{|y|<\eta}|y|^{-3/2}dy=O(\eta^{3/2}),
+   \]
+   uniformly in \(R\).  Dominated convergence applies on the intervening
+   annulus.  On the far tail, the product of the kernel
+   \(O(|y|^{-3})\) and (13) is \(O(|y|^{-9/2})\), integrable in three
+   dimensions.  Sending the small and large cutoffs to their endpoints
+   proves (14) with its strict negative sign.
+
+REPLACEMENT ARGUMENT: none.
+
+CONDITIONAL SUFFIX THAT SURVIVES: The full candidate survives.  The entropy
+derivative generated by a compact axisymmetric azimuthal stress has an exact
+negative \(R_3R_3\) far-field sign along the polar axis, with asymptotic
+coefficient \(-\frac14\sqrt C\,a(1)<0\).
+
+UNNECESSARY DEPENDENCIES: The angular sign needs no numerical quadrature.
+The far-field sign uses no high-frequency packet, heat-flow identity,
+Navier--Stokes trajectory, or continuation theorem.
+
+NON-CLAIMS: This audit supplies only the entropy negative projection.  It
+does not show that this term dominates the other quadratic packet terms,
+prove a heat-monotonicity counterexample for a complete functional, transfer
+an independently unaudited packet lemma, prove HIGH-PRESSURE, or imply
+regularity.
+
+REOPENING CONDITION: Combine (14) with a separately audited packet
+calculation that retains every quadratic term and proves dominance with
+uniform error bounds.
+
+## Separate controller-proposed extension: uniformity in \(k\)
+
+This extension is not part of the frozen candidate.  For the homogeneous
+coupling, define
+\[
+ m_k(x)=g_{k,p}(|U(x)|,p_U(x)).
+\]
+On \(p_U<0\), the audited scalar formula gives
+\[
+ m_k=(s-h)\left(1-{h\over2s}\right),\qquad
+ s=\sqrt{|U|^2+k(p_U)_-},\quad h=\sqrt{k(p_U)_-}.
+\]
+Both factors are nonnegative, and
+\[
+ m_k\le s-h={|U|^2\over s+h}\le |U|.
+\]
+On \(p_U>0\), \(m_k=|U|\); at the remaining cusps take the continuous
+zero extension where \(U=0\).  Consequently
+\[
+ 0\le m_k\le|U|,\qquad
+ \operatorname{supp}m_k\subseteq\operatorname{supp}U,\qquad
+ \|m_k\|_1\le\|U\|_1                                  \tag{E1}
+\]
+uniformly for every \(k>0\).
+
+At points whose distance from \(\operatorname{supp}U\) is comparable to
+\(R\), the off-support double-Riesz kernel and (E1) give
+\[
+ |R_3R_3m_k(x)|\le CR^{-3}\|U\|_1,                    \tag{E2}
+\]
+again uniformly in \(k\).  The frozen result gives, along the positive polar
+axis,
+\[
+ R_3R_3e_U(Re_3)=-c_0R^{-3/2}+o(R^{-3/2}),\qquad c_0>0.         \tag{E3}
+\]
+Choose one sufficiently large \(R\) so that the negative term in (E3)
+dominates the uniform bound (E2).  Off-support derivatives of the kernel
+also give uniform spatial continuity of \(R_3R_3m_k\), while
+\(R_3R_3e_U\) and \(p_U\) are continuous there.  After choosing one small
+ball \(B\) about \(Re_3\), independent of \(k\), there are
+\(\eta,c_B>0\) such that
+\[
+ U=0,\qquad p_U\le-c_B,\qquad
+ R_3R_3(m_k+e_U)\le-\eta
+ \quad\hbox{on }B,\quad\hbox{for every }k>0.          \tag{E4}
+\]
+The order of choices is essential: first choose the common distant center
+using the uniform \(R^{-3}\) bound, then choose the common ball using uniform
+kernel derivative bounds.
+
+EXTENSION CONSEQUENCE: Equation (E4) supplies the negative-projection premise
+for a separately audited high-frequency packet lemma for every fixed
+\(k>0\).  Conditional on that lemma retaining all quadratic terms, it yields
+\[
+ \forall k>0\ \exists h_k\in C_c^\infty,\ 
+ \nabla\cdot h_k=0,\ \exists t_k>0:
+ \quad \mathcal J_k(e^{\nu t_k\Delta}h_k)>\mathcal J_k(h_k).
+\]
+The field and time may depend on \(k\).  This does not assert a common
+counterexample for all \(k\), a Navier--Stokes trajectory result, HF, or
+regularity.
