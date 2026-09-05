@@ -27,21 +27,34 @@ For \(k>0\), define
                                                                \tag{3}
 \]
 
-The formulas below are classical where \(r>0\) and \(z\ne0\).  For a
-globally classical identity, take a \(C^2\) scalar approximation
-\(f^\eta(r,z)\), smooth as a radial function of \(u\), normalized by
-\[
- f^\eta(0,0)=0,\qquad f^\eta_z(0,0)=0,               \tag{4}
-\]
-and having the same cubic growth bounds.  The second normalization is needed
-on \(\mathbb R^3\), since \(p_H\) need not be integrable.  The exact generic
-identity in Section 2 applies to each fixed \(\eta>0\).  Passing
-\(\eta\downarrow0\) requires separate domination and is not asserted here.
-In particular, (3) is not claimed to be differentiable across
-\(\{u=0,z>0\}\), where \(g_k=z|u|\).
+The unregularized algebra below is asserted away from \(r=0\) and
+\(z=0\). For a globally classical identity, use the concrete radial
+four-variable mollifier \(F^\eta(v,z)=f^\eta(|v|,z)\) in
+`hf14-regularization.md`, with value and first derivative normalized to zero
+at \((0,0)\). Its independent audit is `hf14-review-regularization.md`;
+the frozen construction and review are at `c63ce81`.
 
-Let \(u\) be a smooth rapidly decreasing solution at the time considered,
-and write
+At fixed \(\eta>0\), this is a \(C^2\) function of \((v,z)\). On a
+bounded range of these variables its Hessian is bounded, and normalization
+implies \(|F^\eta|\le C_{\eta,M}(|v|^2+z^2)\) and
+\(|DF^\eta|\le C_{\eta,M}(|v|+|z|)\). Take an actual compact classical
+interval with
+\[
+ u\in C([0,T];H^m),\quad u_t\in C([0,T];H^{m-2}),\quad m\ge4.
+\]
+Then \(u,z\) are bounded, while their time and spatial derivatives used
+below are in \(L^2\); \(G_{ij}\in L^2\) follows from
+\(\nabla u\in L^\infty\cap L^2\). These bounds justify all pairings and
+integration by parts at fixed \(\eta\), without Schwartz persistence or
+an \(L^1\) pressure hypothesis.
+
+The regularization note proves convergence of functional values. It does
+not pass the differentiated terms to the limit. In particular, no derivative
+of (3) across \(\{u=0,z>0\}\) is asserted. This applies the scope repair
+from `hf14-review-high-output-evolution.md`; its original input is frozen
+at `6697f29`.
+
+Write
 \[
  u_t=\nu\Delta u+V,\qquad
  V=-\mathbb P((u\cdot\nabla)u)=-N-\nabla p.           \tag{5}
@@ -165,8 +178,7 @@ quadratic pressure derivative has been discarded.
 
 The standard fixed-cutoff low-pressure estimate controls the time integral
 of \(L_J\) on compact classical intervals by the energy-level remainder
-already recorded in the project.  After removing \(L_J\), the first
-uncontrolled sum is
+already recorded in the project.  The unregularized algebra nominates the formal combined sum
 \[
 \boxed{\begin{aligned}
  \mathfrak R_{k,J}(u)={}&
@@ -177,9 +189,9 @@ uncontrolled sum is
  +\mathcal H_{f_k}(u),
 \end{aligned}}                                       \tag{19}
 \]
-where \(\mathcal H_{f_k}\) is the complete expression (10), understood
-through a fixed smooth scalar regularization unless cusp domination has been
-proved.
+where \(\mathcal H_{f_k}\) denotes the formal expression (10). Equation
+(19) is not an established differentiated balance across the cusps. A fixed
+regularizer must be used consistently in both its Euler and heat terms.
 
 The cutoff therefore locates the known low-output producer but does not
 remove the unknown high-frequency mechanism.  In particular:
@@ -192,11 +204,47 @@ remove the unknown high-frequency mechanism.  In particular:
 * the heat expression contains mixed \((r,p_H)\) gradients and
   \(Q_JR_iR_j(G_{ij})\), with no established sign.
 
-Bounding the time integral of (19) by a strict fraction of dissipation plus
-an input-only remainder would be a new estimate, not a consequence of the
-cutoff or the static coercivity of \(\mathcal J_{k,J}\).
+## 5. Coherent fixed-regularizer balance and the missing bound
 
-## 5. Frontier record
+Let \(J^\eta=\int F^\eta(u,z)\) and use (9)--(10) consistently with
+\(f^\eta\). Let \(A^\eta(v)\) be the velocity mollification of
+\(|v|^3/3\), minus its value at zero, and set
+\[
+ D^\eta=\sum_\ell\int
+ D^2A^\eta(u)[\partial_\ell u,\partial_\ell u]\ge0.
+\]
+The sign follows from convexity preserved by convolution. Separate this
+part of the heat contribution exactly:
+\[
+ H^\eta=-\nu D^\eta+H^\eta_{\rm rem},\qquad
+ R^\eta=E^\eta-L_J+H^\eta_{\rm rem}.
+\]
+The genuine fixed-regularizer identity is
+\[
+ (J^\eta)' +\nu D^\eta=L_J+R^\eta.                 \tag{20}
+\]
+Here \(R^\eta\) includes all regularization changes in the Euler terms;
+it is not obtained by mixing (17) with a regularized heat expression.
+
+A sufficient, still unproved producer is an input-only bound, uniform in
+\(\eta\) and \(0<\tau<\min(H,T_*)\), of the form
+\[
+ \int_0^\tau R^\eta\le\theta\nu\int_0^\tau D^\eta+A,
+ \qquad 0\le\theta<1.                              \tag{21}
+\]
+The cutoff and coupling parameter must also be fixed by the input. Integrating
+(20) gives
+\[
+ J^\eta(\tau)+(1-\theta)\nu\int_0^\tau D^\eta
+ \le J^\eta(0)+\int_0^\tau L_J+A.
+\]
+Drop the nonnegative dissipation and use the proved convergence of functional
+values and the low-output energy bound. Static coercivity then gives the
+critical norm bound. No differentiated regularization limit is needed for
+this conditional implication. The closure and its exact scope were checked
+in `hf14-review-regularization.md`. Estimate (21) is not proved here.
+
+## 6. Frontier record
 
 CLAIM AND SCOPE: Equations (9)--(13) are exact for fixed smooth integrable
 scalar regularizations.  Equation (17) is the away-from-cusps algebra for the
@@ -207,20 +255,20 @@ EVIDENCE: Pressure differentiation (6)--(8), the Hessian heat calculation
 (10)--(13), and the cancellation reconstruction (14)--(18) retain every
 velocity, pressure-gradient, and nonlocal pressure-source term.
 
-FIRST GAP: prove a one-sided spacetime estimate for the complete sum (19),
+FIRST GAP: prove the uniform aggregate absorption estimate (21),
 uniformly up to the maximal classical time with the required input
 quantifiers.  No such estimate is derived here.
 
 SURVIVING CONDITIONAL SUFFIX: The known low-output estimate applies to
-\(L_J\).  Any independently established control of (19), together with
-coercivity and a justified removal of scalar regularization, could feed the
-existing continuation architecture.
+\(L_J\).  An independently established (21), with the proved convergence of
+functional values and static coercivity, would feed the continuation
+architecture.
 
 NON-CLAIMS: No differentiability across the positive-pressure velocity cusp,
-regularization limit, favorable heat sign, control of the high-output source,
+differentiated regularization limit, favorable heat sign, control of the high-output source,
 pressure absorption, HIGH-PRESSURE theorem, critical bound, or regularity
 result is asserted.
 
 NEXT DISTINCT ACTION: Test the combined high-output source and heat Hessian
-in (19) on an explicit compact solenoidal packet, rather than estimating its
-individual signed terms separately.
+in the coherent remainder of (20). First remove any remaining low-pressure
+gradient terms using energy estimates, retaining every high-output term.

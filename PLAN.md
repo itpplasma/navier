@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF14-fixed-high-output-correction
+active_task: HF15-low-pressure-gradient-elimination
 public_release: false
 ```
 
@@ -563,3 +563,36 @@ corrections. Then derive the complete high-output evolution using the full
 Navier--Stokes pressure gradient in the velocity equation. The far-field
 obstruction above does not itself survive removal of low outputs; do not
 promote it to an HF obstruction. HIGH-PRESSURE remains the missing producer.
+
+
+### HF14: high-output boundary control and a coherent remaining estimate
+
+`hf14-high-output-boundary.md` passes its independent review: the difference
+between the full-pressure and high-output functionals is bounded by an
+arbitrarily small critical-norm term plus an energy-controlled boundary
+remainder, uniformly in the coupling parameter. The actual low-pass Riesz
+kernel has an algebraic tail; the proof does not assume it is Schwartz.
+
+The scaling argument in `hf14-fixed-cutoff-heat-obstruction.md` also passes
+review. Every fixed cutoff admits some datum with a heat increase of the
+high-output functional. This has the order "for every cutoff, some datum";
+it does not refute choosing the cutoff from the datum and does not refute HF.
+
+The initial evolution candidate required repairs: unspecified scalar growth
+was insufficient for its derivatives, it mixed regularized and unregularized
+terms, and its proposed closure discarded the useful dissipation. The
+reviewed construction in `hf14-regularization.md` supplies an actual radial
+four-variable mollifier, rigorous fixed-regularizer Sobolev evolution, and
+convergence of functional values. The revised evolution note keeps one
+regularizer throughout and retains nonnegative cubic dissipation on the
+left. Its remaining requirement is a uniform input-only bound for the
+complete aggregate remainder. Functional-value convergence suffices for
+that conditional closure; no differentiated limit is asserted. Frozen
+inputs and reviews are at `6697f29` and `c63ce81`.
+
+Next task: estimate the two residual appearances of the low-pressure
+gradient, including their fixed-regularizer versions. The controller's
+energy estimates use low-kernel gradient norms and time Holder bounds.
+The resulting replacement velocity field is not divergence-free; do not
+reuse Leray cancellations after that split. The complete high-output
+aggregate remains unbounded, and neither formalization phase starts.
