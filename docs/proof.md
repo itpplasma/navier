@@ -93,7 +93,11 @@ closed L3 gradient space, is comparable to the critical norm on solenoidal
 fields. Its derivative annihilates pressure gradients and heat is
 nonincreasing. With w=u+q and A=|w|w, the evolution is
 Q'+nu D_Q=-integral q dot ((A dot grad)u), where D_Q=-DQ(u)[Delta u]>=0.
-The low strain is bounded by an input coefficient times Q. The remaining
-high-strain spacetime estimate is unproved. See the HF17 functional and
+The low strain is bounded by an input coefficient times Q. The audited HF18
+note identifies D_Q with the coercive weighted cubic dissipation of the
+representative, D_Q = integral (|grad V|^2 - |grad |V||^2/9) with
+V = |w|^{1/2} w in H1, and bounds the transport term by C Q^{1/3} D_Q, which
+closes only under critical smallness. The remaining high-strain spacetime
+estimate is unproved. See the HF17 functional and
 evolution notes and their independent reviews. This is an alternative
 producer, not a proof of HIGH-PRESSURE or a new dependency of the Clay claim.

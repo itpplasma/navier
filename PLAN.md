@@ -7,7 +7,7 @@ phase: cp1-paper-proof
 phase_i_status: authorized-2026-09-05-in-progress
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: CP01-understand-specify-wave
+active_task: CP02-paper-proof-wave-running
 public_release: false
 ```
 
@@ -110,6 +110,64 @@ Stage gates for CP1:
 | CP07+ | Phase II modules until gate 3; Palomar preflight | `cp07-` |
 
 Track B waves keep the `hf` prefix and continue from HF18.
+
+## Integration log
+
+### CP01 outcome and binding decisions (2026-09-05)
+
+The seven-lane specification wave is preserved at `cee98a7` (evidence
+`cp01-*.md`). No manuscript step was found false; only `prop:ode` was at
+full paper standard. Three items blocked a complete paper proof: the
+maximal-development premise (Tao Theorem 5.4 alone does not state it), the
+identification of the classical branch with the GKP maximal `L^3` solution
+(no named uniqueness or persistence source), and the quotient section (a
+summary of HF17, not a proof). The controller decided:
+
+- **D1 conventions.** Tao's Fourier convention; `p = R_iR_j(u_iu_j)` equals
+  Tao's normalised pressure; Littlewood–Paley low-pass is Tao's inhomogeneous
+  `P_{<=N}` with a fixed bump, `S_J = P_{<=2^J}`, which coincides with the
+  homogeneous sum on `L^2`.
+- **D2 regularity package R.** The local-theory lane proves, from Tao
+  Theorem 5.4 and Corollary 5.8 (maximal Cauchy development on R3, pp. 56–57,
+  directly inspected) plus a manuscript-owned gluing lemma, that on every
+  compact classical interval `u` and `p` lie in `C^j([0,T];H^k)` for all
+  `j,k`, with enstrophy blow-up if `T_*` is finite. Every other lane assumes R.
+- **D3 continuation route.** `thm:continuation` is restated as
+  "`T_* < inf` implies `sup_{t<T_*}||u||_3 = inf`" and proved through
+  ν-normalisation, membership of the classical branch in the Leray–Hopf
+  class, Escauriaza–Seregin–Šverák Theorem 1.3 (numbered, directly inspected:
+  Leray–Hopf plus `L^inf_t L^3_x` gives `L^5` in space-time), a
+  manuscript-owned Serrin-type enstrophy bound, and the blow-up alternative.
+  GKP Theorem 4 is corroboration. No `L^3` uniqueness theorem is imported.
+- **D4 pressure balance** in integrated form with `D_3`, `P_3` defined
+  through `(grad u)^T u` and zero integrands on the zero set; no `grad|u|`.
+- **D5 standard.** Every external fact stated exactly with a primary source
+  labelled directly inspected or metadata only.
+
+Phase I literature axioms are therefore `AX-TAO-5.4`, `AX-TAO-5.8`, and
+`AX-ESS-1.3`; Kato 1984 and FLRT uniqueness are not axioms. Palomar facts
+that bind the formal repository: `permitted_axioms` is closed to the three
+standard axioms, so Phase I results are registrable only with literature
+theorems as explicit hypotheses; `Challenge.lean` must inline every
+definition; `leanprover/lean4export` had no `v4.33.1` tag on 2026-09-05, so
+the toolchain must be re-pinned to a tagged release before any preflight.
+The critic's corrections to the Lean design are adopted: the Leray input is
+needed only on `L^2 ∩ L^3`, the heat generator only for `H^m` data,
+Bernstein is proved rather than assumed, the flow axiom must carry its
+variational equation, and existing declaration names are reused. A bounded
+prior-art search on the gradient-quotient functional is running (`cp01-prior-art-quotient.md`).
+
+### Lean progress (Track A, parallel infrastructure)
+
+`navier-formal` at `9c8b37d` holds 70 standard-axiom declarations:
+`prop:ode` complete (`scalar_obstruction_exists`), the norm half of
+`prop:scaling` for every finite exponent (`eLpNorm_dilate`), the
+interpolation-mismatch witness, and the pointwise regularisation calculus
+and a.e. speed-gradient lemmas behind `prop:pressure`. Wave CP03c is
+implementing the statement surface foundations (calculus objects, solution
+class, Clay target, critical hypothesis, quotient objects, integration by
+parts, interpolation). Wave CP02 (seven proof lanes with independent audits
+and one repair round) is writing the complete paper proof.
 
 ## Beyond the checkpoint
 
@@ -763,3 +821,29 @@ map to four, with 52 and 43 resolved internal links respectively. No undefined
 references or overfull boxes were reported; rendered argument and map pages
 were inspected. The 13-node structural verifier passes. These are document
 checks; the separate HF16/HF17 reviews supply the mathematical audit scope.
+
+
+### HF18: nonlinear Hodge regularity of the quotient minimizer (Track B)
+
+Two distinct lanes on the HF17 route, frozen at `cee98a7`. The regularity
+note `hf18-hodge-regularity.md` passes `hf18-review-hodge-regularity.md`
+after wording corrections S1–S3: at every fixed time of a classical `H^m`
+solution, `m >= 4`, the minimizer satisfies `V = |w|^{1/2} w in H^1(R3)` and
+`A = |w| w in W^{1,3/2}(R3)`, obtained by a global Bojarski–Iwaniec
+difference-quotient argument against the whole closed gradient space; the
+HF17 heat generator equals the coercive weighted cubic dissipation,
+`D_Q(u) = int(|grad V|^2 - |grad|V||^2/9)`, with `D_Q >= c ||u||_9^3`; the
+transport term has derivative-free forms and the scaling-sharp bound
+`|K| <= C_* Q^{1/3} D_3(w)`, so `Q` is a Lyapunov functional under critical
+smallness (recovering Kato's small-`L^3` theorem with ESS) and not
+otherwise. The cited `C^{1,alpha}` p-Laplace theorems do not apply: the
+ellipticity degenerates on `{u + grad phi = 0}` and the shift is not
+removable. No `W^{1,1}_loc` regularity of `w`, no time-integrated absorption,
+no HIGH-STRAIN or HIGH-PRESSURE result, and no novelty claim.
+
+The divergence–speed-link note `hf18-divergence-speed-link.md` received a
+REPAIR verdict (Riesz sign convention and weighted-inequality scope); its
+repair round and second audit are running. Next distinct actions from the
+audit: test whether `K` vanishes identically on `{u : div(|u|u) = 0}`, and
+seek a cancellation inside `K = -int q·grad Pi_{u,A}` rather than a size
+bound, since no monomial in `Q` and `D_3` can close by scaling.

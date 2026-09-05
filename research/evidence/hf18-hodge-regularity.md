@@ -1,6 +1,6 @@
 # HF18-A: Euler–Lagrange structure of the quotient minimizer, weighted dissipation identity, and the transport term
 
-Status: bounded analytic mechanism with self-check, 2026-09-05. Lane HF18-A of
+Status: bounded analytic mechanism with self-check, 2026-09-05. Independent audit `hf18-review-hodge-regularity.md`: PASS; the controller applied its wording corrections S1–S3 (the (N2) summary now uses the theorem-grade \(V\) form, the Section 4 sentence on absorption is restricted to what (4.2) proves, and inequality (VI) is labelled) on 2026-09-05. Lane HF18-A of
 the Track B frontier packet (PLAN.md "Frontier packet", "HF16–HF17"; inputs
 `hf17-quotient-functional.md`, `hf17-quotient-evolution.md` and their two PASS
 reviews; manuscript `sec:quotient`).
@@ -175,7 +175,7 @@ at both endpoints. At \(s=-\rho\rho'\): \(M-N=(\sqrt\rho-\sqrt{\rho'})^2\rho\rho
 \(N/M=(1+a+a^2)^2/((1+a)^2(1+a^2))\); the inequality \(N\le\frac98M\) is
 \(1+2a-6a^2+2a^3+a^4\ge0\), i.e. \(y^2+2y-8=(y+4)(y-2)\ge0\) with \(y=a+1/a\ge2\);
 and \(M\le N\), \(P\le N\) follow from \((1+a+a^2)^2\ge(1+a)^2(1+a^2)\).
-This gives (1.6) and (1.7). For (1.8), Lindqvist §10 (directly inspected) gives
+This gives (1.6) and (1.7). For (1.8), Lindqvist §10, inequality (VI) (directly inspected) gives
 \(|\,|b|^{p-2}b-|a|^{p-2}a\,|\le(p-1)(|a|^{(p-2)/2}+|b|^{(p-2)/2})\,|\,|b|^{(p-2)/2}b-|a|^{(p-2)/2}a\,|\)
 for \(p\ge2\); with \(p=3\) and \(|a|^{1/2}+|b|^{1/2}\le\sqrt2(|a|+|b|)^{1/2}\) this is (1.8).
 Cross-checks: Lindqvist (V) gives the weaker \(N\le\frac94M\); Lindqvist (I) gives
@@ -474,7 +474,7 @@ bound with no cancellation used.
    \(K\to a^4K\). The only monomial \(\mathcal Q^\alpha D_3^\beta\) consistent with both is
    \(\alpha=1/3\), \(\beta=1\). Hence (4.2) is the unique scaling-consistent size
    bound of \(K\) by \(\mathcal Q\) and \(D_3\), and any absorption
-   \(|K|\le\theta\nu D_3+A\) with \(\theta<1\) requires \(C_*\|w\|_3\le\theta\nu\), i.e.
+   \(|K|\le\theta\nu D_3+A\) with \(\theta<1\) is not obtainable from (4.2) alone unless \(C_*\|w\|_3\le\theta\nu\), i.e.
    smallness of the critical norm \(\|w\|_3\sim\|u\|_3\). That smallness is
    exactly the hidden-smallness falsifier; for arbitrary data it is unavailable.
 2. Alternative Hölder splits produce Gronwall coefficients instead:
@@ -489,7 +489,7 @@ bound with no cancellation used.
    \(\nu\int_0^\tau D_3\,dt\ge\frac{8\nu}{9S^2C_9^3}\int_0^\tau\|u\|_9^3dt\), so any
    input-only bound \(\int_0^\tau K\le\theta\nu\int_0^\tau D_3+A_{\rm input}\) would bound
    \(u\) in \(L^3_tL^9_x\), a Ladyzhenskaya–Prodi–Serrin class. This makes explicit
-   the packet's statement that the gap is equivalent to continuation.
+   the packet's statement that the gap implies continuation (via \(L^3_tL^9_x\) and ESS); the converse is the packet's statement, not proved here.
 
 ### Strictly new structural facts (claims with scope)
 
@@ -499,7 +499,7 @@ divergence-free, on \(\mathbb R^3\); no smallness, no decay beyond (0.1).
 - (N1) \(V=|w|^{1/2}w\in H^1(\mathbb R^3)\) with (1.9); \(A=|w|w\in W^{1,3/2}(\mathbb R^3)\)
   with (1.11); \(w\in L^3\cap L^9\cap B^{2/3}_{3,\infty}\). Proof global, cutoff-free,
   via (1.10).
-- (N2) \(D_{\mathcal Q}(u)=D_3(w)=\int(|w||\nabla w|^2+|w||\nabla|w||^2)\): the viscous
+- (N2) \(D_{\mathcal Q}(u)=\int(|\nabla V|^2-\tfrac19|\nabla|V||^2)\) with \(V=|w|^{1/2}w\in H^1\) (equal to \(D_3(w)=\int(|w||\nabla w|^2+|w||\nabla|w||^2)\) in the approximate-gradient sense of Section 2; \(w\in W^{1,1}_{loc}\) is not proved): the viscous
   term of the quotient evolution is the full weighted cubic dissipation of the
   representative \(w\), coercive: \(D_{\mathcal Q}(u)\ge\frac89\|\nabla V\|_2^2\ge c\|u\|_9^3\).
 - (N3) Derivative-free transport forms (F2), (F5), (F6), (F7); in particular
