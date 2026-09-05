@@ -3,11 +3,11 @@
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: cp1-paper-proof
+phase: cp1-paper-integration-audit
 phase_i_status: authorized-2026-09-05-in-progress
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: CP02-paper-proof-wave-running
+active_task: CP02-integration-audit-and-CP04-phase-i-kickoff
 public_release: false
 ```
 
@@ -52,21 +52,21 @@ the Millennium result. The programme does not stop at CP1.
 
 ## Checkpoint CP1: the high-frequency / high-pressure reduction block
 
-CP1 consists of the following manuscript-owned results and their imported
-premises, exactly as stated in `../navier-paper/main.tex` and the graph:
+CP1 consists of the following nodes of `docs/proof-graph.yaml`, with the
+manuscript labels of `../navier-paper/main.tex` at commit `909ff21`:
 
 | Graph node | Manuscript label | Kind |
 | --- | --- | --- |
-| LOCAL | `premise:local` | imported: Tao 2013 Theorem 5.4 |
-| ESS | `thm:continuation` premise | imported: Gallagher–Koch–Planchon Theorem 4 (ESS endpoint) |
-| ENERGY | `prop:energy` | paper |
-| SCALE | `prop:scaling` | paper |
-| ENSTROPHY | `prop:enstrophy` | paper |
-| ODE | `prop:ode` | paper |
-| PRESSURE | `prop:pressure` | paper |
-| LOW-PRESSURE | `prop:lowpressure` | paper |
-| CONDITIONAL | `thm:continuation`, `thm:conditional` | conditional on CRITICAL |
-| QUOTIENT (to be added) | `sec:quotient` results | paper (HF17, audited) |
+| TAO-LOCAL, TAO-MAXIMAL, TAO-MILD | `thm:tao54`, `thm:tao58`, `thm:tao43` | imported: Tao 2013 Theorem 5.4, Corollaries 5.8 and 4.3 |
+| ESS | `thm:ess` | imported: Escauriaza–Seregin–Šverák Theorem 1.3 |
+| LERAY-L3 | `lem:leray` | imported: Leray projection bounded on L3 |
+| LOCAL | `prop:localtheory` | paper: maximal development and regularity package |
+| ENERGY, SCALE, ENSTROPHY, ODE | `prop:energy`, `prop:scaling`, `prop:enstrophy`, `prop:ode` | paper |
+| PRESSURE, LOW-PRESSURE, EXISTENTIAL | `prop:pressure`, `prop:lowpressure`, `prop:existential-equivalence` | paper |
+| LERAY-HOPF, SERRIN, CONTINUATION | `lem:leray-hopf`, `lem:serrin-enstrophy`, `thm:continuation` | paper |
+| CONDITIONAL | `thm:conditional` | conditional on CRITICAL |
+| QUOTIENT-FUNCTIONAL, QUOTIENT-EVOLUTION | `prop:quotient-derivative`, `prop:quotient-evolution` | paper (HF17, audited) |
+| QUOTIENT-CONDITIONAL | `prop:quotient-conditional` | conditional on HIGH-STRAIN |
 
 The open nodes CRITICAL, ABSORPTION, HIGH-PRESSURE, and the alternative
 HIGH-STRAIN are not part of CP1's proved content. CP1 states them as explicit
@@ -167,6 +167,25 @@ related-work remark and no novelty claim; the unlocated parts (the shifted
 `L^3` gradient quotient as a Navier–Stokes functional, the pressure-free
 evolution by inner variation, `D_Q = D_3(w)` for the shifted representative)
 are recorded as unlocated, not as new.
+
+### CP02 outcome (2026-09-05)
+
+Seven proof lanes with independent audits and one repair round are
+preserved at `c437355`. No lane contained an invalid mathematical bridge;
+final verdicts are PASS for continuation, energy/enstrophy, quotient
+evolution, low-frequency pressure, and quotient functional, and textual
+REPAIR for local theory and pressure, applied at integration. The complete
+manuscript was assembled from the audited fragments and committed at
+`navier-paper` `909ff21` (81 pages, no undefined references, every graph
+label exactly once). The claim graph now has 25 nodes: Tao Theorem 5.4,
+Corollary 5.8 and Corollary 4.3, ESS Theorem 1.3 and the Leray projection
+on L3 as imported nodes; the local-theory package, the Leray–Hopf
+membership lemma, the Serrin-type enstrophy bound, the continuation theorem,
+the existential equivalence, and the quotient functional, evolution and
+conditional bound as paper or conditional nodes; HIGH-STRAIN as the
+alternative gap. The map generator lays nodes out by dependency depth.
+The cross-lane integration audit (`cp02-review-integration.md`) is the
+remaining gate-1 check; gate 1 is declared only after it passes.
 
 ### Lean progress (Track A, parallel infrastructure)
 

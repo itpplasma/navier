@@ -25,7 +25,9 @@ Navier–Stokes singular solution.
 ## Pressure route
 
 Define X3 = integral |u|^3, D3 = integral (|u||grad u|^2 +
-|u||grad |u||^2), and P3 = integral p u dot grad |u|. With pressure
+|(grad u)^T u|^2/|u|), and P3 = integral p u dot (grad u)^T u/|u|, with
+integrands zero where u vanishes; off the zero set these are the classical
+|u||grad|u||^2 and p u dot grad|u|. With pressure
 p = sum R_i R_j(u_i u_j), testing against |u|u gives
 
 ```text
@@ -55,13 +57,21 @@ needs a new absorption estimate. The cutoff J must be finite and chosen from
 input data; convergence of high tails at each fixed regular time does not
 give uniform control through a putative singular endpoint.
 
-The endpoint theorem of Escauriaza–Seregin–Šverák, in the maximal L3 solution
-form of Gallagher–Koch–Planchon Theorem 4, rules out a finite Tstar when the
-L3 norm is uniformly bounded. Taking any finite H>Tstar in the universally quantified
-finite-horizon estimate gives the contradiction. Local uniqueness,
-persistence of regularity, and the energy identity yield the conditional
-Clay conclusion. The periodic alternative is not a consequence of this
-whole-space argument.
+The continuation theorem is proved as follows. The local theory package
+(Tao Theorem 5.4, Corollaries 5.8 and 4.3, and a manuscript-owned gluing
+lemma) gives the maximal classical branch with all Sobolev norms continuous
+in time on compact intervals and enstrophy blow-up at a finite maximal time.
+Its unit-viscosity rescaling is a Leray–Hopf weak solution in the exact
+sense of Escauriaza–Seregin–Šverák on every finite space-time cylinder. If
+the L3 norm stayed bounded up to a finite maximal time, their Theorem 1.3
+would place the solution in L5 of space-time, and a manuscript-owned
+Serrin-type Gronwall estimate would keep the enstrophy bounded, contradicting
+the blow-up alternative. Hence a finite maximal time forces an unbounded L3
+norm. Taking any finite H>Tstar in the universally quantified finite-horizon
+estimate gives the contradiction, and the package plus the energy identity
+yield the conditional Clay conclusion. No uniqueness theorem for L3 mild
+solutions is imported; Gallagher–Koch–Planchon Theorem 4 is corroboration.
+The periodic alternative is not a consequence of this whole-space argument.
 
 ## Other analytic routes
 

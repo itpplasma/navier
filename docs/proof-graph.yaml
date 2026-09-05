@@ -1,93 +1,103 @@
 schema_version: 1
 title: Navier–Stokes whole-space regularity architecture
 terminal_claim: NS-R3
+checkpoint: CP1
 phase_i_status: authorized-2026-09-05-in-progress
 phase_ii_status: authorized-2026-09-05-not-started
 formal_repository: itpplasma/navier-formal
 source_revision:
-  manuscript_commit: d84950b50f068ec9d4c2dab44b994efa9e12dc3a
+  manuscript_commit: 909ff21fdbf9f702668f03a3f483ac62b78daadb
 nodes:
-  - id: LOCAL
-    title: Local classical solution
-    statement: Each divergence-free Schwartz datum on R3 and viscosity nu greater than zero has a unique maximal classical finite-energy solution on [0,Tstar).
+  - id: TAO-LOCAL
+    title: Tao local H1 theory
+    statement: Tao 2013 Theorem 5.4 at unit viscosity on R3, verbatim, with its H1 data, H1 mild solution and normalised pressure definitions, including uniqueness of H1 mild solutions and smoothness for Schwartz data.
     kind: imported
     depends_on: []
-    mechanism: Sobolev local existence and uniqueness
-    paper_label: 'premise:local'
-    evidence: literature/foundations.md
-    review: Tao Theorem 5.4 directly inspected for whole-space local mild existence and Schwartz-data smooth velocity and pressure through the initial time.
+    mechanism: published local well-posedness theorem
+    paper_label: 'thm:tao54'
+    evidence: research/evidence/cp01-literature-statements.md
+    review: Directly inspected at the published pages 52–53; transcribed in cp02-local-theory.md and checked in cp02-review-local-theory-r2.md. Not a statement about maximal development or about viscosity other than one.
+  - id: TAO-MAXIMAL
+    title: Tao maximal Cauchy development
+    statement: Tao 2013 Corollary 5.8 at unit viscosity on R3, verbatim, with the incomplete mild H1 solution definition, giving for every finite horizon either a mild H1 solution or enstrophy blow-up before that horizon.
+    kind: imported
+    depends_on: []
+    mechanism: published dichotomy
+    paper_label: 'thm:tao58'
+    evidence: research/evidence/cp01-literature-statements.md
+    review: Directly inspected at the published pages 56–57; the passage from the per-horizon dichotomy to one maximal time is manuscript-owned (LOCAL).
+  - id: TAO-MILD
+    title: Tao almost-smooth solutions are mild
+    statement: Tao 2013 Corollary 4.3, verbatim, at unit viscosity on R3, showing that an almost smooth H1 solution becomes an H1 mild solution after pressure normalisation.
+    kind: imported
+    depends_on: []
+    mechanism: published pressure normalisation
+    paper_label: 'thm:tao43'
+    evidence: research/evidence/cp01-literature-statements.md
+    review: Directly inspected at the published page 47 in cp02-local-theory.md; supplies the uniqueness class of classical solutions with arbitrary pressure.
+  - id: LOCAL
+    title: Local theory package
+    statement: For every viscosity and divergence-free Schwartz datum there is a maximal time Tstar in (0,infinity] and a classical branch, unique in the H1 mild class, such that on every compact interval of [0,Tstar) velocity and normalised pressure lie in C^j([0,T];H^k) for all j and k, are smooth with bounded derivatives, satisfy the equation pointwise with the given datum, and the enstrophy diverges as t tends to Tstar when Tstar is finite.
+    kind: paper
+    depends_on: [TAO-LOCAL, TAO-MAXIMAL, TAO-MILD]
+    mechanism: viscosity rescaling, gluing and supremum, Sobolev upgrade of the L-infinity-in-time bounds
+    paper_label: 'prop:localtheory'
+    evidence: research/evidence/cp02-local-theory.md
+    review: Round-two audit cp02-review-local-theory-r2.md finds no invalid bridge; three scope wordings repaired at integration. Every other paper node cites this package.
   - id: ENERGY
     title: Energy identity
-    statement: On every compact classical interval, E(t) + 2 nu integral_0^t Y(s) ds = E(0), where E is squared L2 velocity and Y is squared L2 gradient.
+    statement: On every compact classical interval, E(t) + 2 nu integral_0^t Y(s) ds = E(0), where E is squared L2 velocity and Y is squared L2 gradient; hence the kinetic energy never exceeds its initial value and the enstrophy is time integrable up to Tstar.
     kind: paper
     depends_on: [LOCAL]
-    mechanism: divergence cancellation and integration by parts
+    mechanism: divergence cancellation and integration by parts justified from the package
     paper_label: 'prop:energy'
-    evidence: research/evidence/enstrophy.md
-    review: Estimates audit at paper d3b60b7 passes this identity; see research/evidence/review-estimates.md.
+    evidence: research/evidence/cp02-energy-enstrophy.md
+    review: cp02-review-energy-enstrophy-r2.md PASS; every Fourier fact imported in one labelled lemma with an inspected source.
   - id: SCALE
     title: Critical scaling
-    statement: Velocity scaling lambda u(lambda x,lambda squared t) preserves L3; the energy estimates yield L4_t L3_x, which does not imply L-infinity_t L3_x.
+    statement: The critical rescaling maps solutions to solutions with the same viscosity, preserves L3, scales squared L2 by lambda to the minus one, and the energy bounds yield L4 in time of L3 in space but not L-infinity in time of L3.
     kind: paper
-    depends_on: [ENERGY]
-    mechanism: change of variables and Sobolev interpolation
+    depends_on: [ENERGY, LOCAL]
+    mechanism: change of variables, Hoelder interpolation, Sobolev inequality on H1
     paper_label: 'prop:scaling'
-    evidence: research/evidence/enstrophy.md
-    review: Estimates audit at paper d3b60b7 passes scaling and interpolation; see research/evidence/review-estimates.md.
+    evidence: research/evidence/cp02-energy-enstrophy.md
+    review: cp02-review-energy-enstrophy-r2.md PASS; the norm half is machine-checked in navier-formal (eLpNorm_dilate).
   - id: ENSTROPHY
     title: Enstrophy differential bound
-    statement: On a classical interval, Y prime is at most C nu to the power minus three times Y cubed.
+    statement: On a classical interval, one half Y prime plus nu over two times squared L2 Laplacian is at most C nu to the power minus three times Y cubed.
     kind: paper
     depends_on: [LOCAL]
-    mechanism: stretching identity, Sobolev estimates, and Young inequality
+    mechanism: stretching identity, Gagliardo–Nirenberg, Young
     paper_label: 'prop:enstrophy'
-    evidence: research/evidence/enstrophy.md
-    review: Estimates audit passes; Sobolev cutoff wording repair applied to evidence. See research/evidence/review-estimates.md and review-frequency.md.
+    evidence: research/evidence/cp02-energy-enstrophy.md
+    review: cp02-review-energy-enstrophy-r2.md PASS. Not used in the conditional chain.
   - id: ODE
     title: Energy closure obstruction
-    statement: A nonnegative scalar function can diverge at finite time while its time integral is finite and its derivative is bounded above by a constant times its cube.
+    statement: A positive scalar function can diverge at finite time while its time integral is finite and its derivative equals a constant times its cube.
     kind: paper
     depends_on: []
     mechanism: explicit inverse-square-root example
     paper_label: 'prop:ode'
-    evidence: research/evidence/enstrophy.md
-    review: Estimates audit passes the explicit scalar example. This is not a Navier–Stokes blowup solution.
-  - id: CRITICAL
-    title: A priori critical bound
-    statement: For each viscosity, Schwartz datum, and finite T, there exists a finite M depending only on these inputs such that the maximal solution obeys sup over 0 <= t < min(T,Tstar) of its L3 norm <= M.
-    kind: gap
-    depends_on: [PRESSURE, ABSORPTION]
-    mechanism: integrate the critical balance under the unproved absorption estimate
-    paper_label: 'hyp:critical'
-    evidence: research/evidence/architecture.md
-    review: Open. Energy and scaling do not prove this assertion.
+    evidence: research/evidence/cp02-energy-enstrophy.md
+    review: Complete on the page; machine-checked in navier-formal (scalar_obstruction_exists). Not a Navier–Stokes blowup solution.
   - id: PRESSURE
     title: Critical pressure balance
-    statement: One third of the derivative of the cubed L3 norm plus nu times the weighted cubic dissipation equals the signed pressure work integral p u dot gradient of absolute u.
+    statement: In integrated form on every compact classical interval, one third of the cubed L3 norm at time t minus at time s plus nu times the integrated weighted cubic dissipation D3 equals the integrated signed pressure work P3, with D3 and P3 defined through the transpose gradient applied to the velocity and vanishing integrands on the zero set.
     kind: paper
     depends_on: [LOCAL]
-    mechanism: test the velocity equation against absolute u times u
+    mechanism: regularised speed, spatial cutoff, two limits with displayed error terms
     paper_label: 'prop:pressure'
-    evidence: research/evidence/architecture.md
-    review: Pressure audit passes the identity with explicit regularization details integrated in paper 3545e17; see research/evidence/review-pressure.md.
-  - id: ABSORPTION
-    title: Signed pressure absorption
-    statement: For every datum, viscosity and finite horizon T there is a finite a priori A, and a fixed theta less than one, such that integrated signed pressure work up to every tau less than min(T,Tstar) is at most theta nu times integrated cubic dissipation plus A.
-    kind: gap
-    depends_on: [LOW-PRESSURE, HIGH-PRESSURE]
-    mechanism: split pressure work into controlled low frequencies and an unproved high-frequency estimate
-    paper_label: 'hyp:absorption'
-    evidence: research/evidence/architecture.md
-    review: Open. Strict absorption also controls weighted dissipation, but the ordinary existential finite-horizon assertion is not logically stronger than global strong continuation. See hf02-review-controller.md and hf03-review-paper.md. No energy-only producer.
+    evidence: research/evidence/cp02-pressure.md
+    review: cp02-review-pressure-r2.md finds no invalid bridge; the duplicate pressure-convention lemma is removed at integration in favour of the local-theory lemma. Differential form is a remark, not a claim.
   - id: LOW-PRESSURE
     title: Low-frequency pressure bound
-    statement: At any fixed dyadic cutoff J, the accumulated low-frequency pressure work up to tau less than min(H,Tstar) is bounded in absolute value by C 2^(3J) times the fourth power of initial L2 velocity times the square root of H/(2 nu).
+    statement: For the fixed inhomogeneous low-pass profile and every integer J, horizon H and tau below min(H,Tstar), the accumulated low-frequency pressure work is bounded by an explicit constant times 2^(3J) times the fourth power of the initial L2 norm times the square root of H/(2 nu).
     kind: paper
-    depends_on: [ENERGY]
-    mechanism: bounded low-frequency Riesz kernel and Cauchy–Schwarz in time
+    depends_on: [ENERGY, LOCAL]
+    mechanism: L1 frequency bound of the low-pass Riesz multiplier and Cauchy–Schwarz in time
     paper_label: 'prop:lowpressure'
-    evidence: research/evidence/frequency.md
-    review: Frequency audit passes the kernel and energy calculation; integrated in paper 3545e17. See research/evidence/review-frequency.md.
+    evidence: research/evidence/cp02-lowpressure.md
+    review: cp02-review-lowpressure.md PASS with two one-line insertions applied at integration; explicit constant path recorded.
   - id: HIGH-PRESSURE
     title: Signed high-frequency control
     statement: There exists a fixed theta in [0,1) such that for every datum, viscosity and positive finite horizon H there exist an integer cutoff J and a finite nonnegative remainder making accumulated high-frequency pressure work at most theta nu times accumulated cubic dissipation plus that remainder, for every tau less than min(H,Tstar).
@@ -96,25 +106,79 @@ nodes:
     mechanism: new signed time-integrated pressure estimate on actual trajectories
     paper_label: 'hyp:highpressure'
     evidence: research/evidence/frequency.md
-    review: Open. The existential assertion is equivalent to global continuation of the selected strong branch. A compact R3 profile with positive pressure work now has an audited construction; this rules out a universal sign argument, not spacetime HF. See hf02-r3-profile.md and hf02-review-profile.md. The corrected heat defect retains the same gap. The square-energy second variation and compact-interval aggregate limit are audited in hf08-review-second-variation.md and hf09-review-square-limit.md. The periodic bounded-carrier diagnostic (hf09-review-bounded-carrier.md) excludes only an instantaneous frequency-separation gain; no spacetime producer is proved. Every fixed cutoff admits a heat increase of the homogeneous high-output correction; hf14-review-fixed-cutoff-heat-obstruction.md audits the scaling transfer. The datum depends on the cutoff, so adaptive cutoff selection and HF remain unrefuted. The regularized low-pressure gradient terms are energy-controlled by hf15-review-regularized-low-pressure.md. The remaining high-output aggregate absorption bound is unproved. HF16 removes the low-velocity commutator using Taylor and a functional-value-limit Gronwall repair. HF17 supplies a coercive pressure-free quotient functional with nonpositive heat evolution; its high-strain flux remains unbounded. This is an alternative producer, not a proved dependency; see hf17-review-quotient-functional.md and hf17-review-quotient-evolution.md. HF18 (hf18-review-hodge-regularity.md) identifies the quotient heat generator with a coercive weighted cubic dissipation of the representative and bounds the transport term by C Q^(1/3) D_Q; this closes only under critical smallness and proves no arbitrary-data estimate.
+    review: Open. At these quantifiers equivalent to global continuation of the strong branch (prop:existential-equivalence). The HF02–HF16 obstructions constrain specific mechanisms; HF17–HF18 supply the alternative quotient route with an audited coercive dissipation identity. No arbitrary-data producer is proved.
+  - id: ABSORPTION
+    title: Signed pressure absorption
+    statement: There exists a fixed theta in [0,1) such that for every datum, viscosity and finite horizon H there is a finite a priori A with integrated signed pressure work up to every tau less than min(H,Tstar) at most theta nu times integrated cubic dissipation plus A.
+    kind: gap
+    depends_on: [LOW-PRESSURE, HIGH-PRESSURE]
+    mechanism: split pressure work into the proved low-frequency bound and the unproved high-frequency estimate
+    paper_label: 'hyp:absorption'
+    evidence: research/evidence/architecture.md
+    review: Open. Follows from LOW-PRESSURE and HIGH-PRESSURE with A the sum of the two remainders (lem:absorption-split).
+  - id: EXISTENTIAL
+    title: Existential equivalence of the high-frequency hypothesis
+    statement: At its stated quantifiers, the high-frequency hypothesis holds if and only if every Schwartz-data classical branch is global; the forward direction runs through the conditional chain and the converse uses the local theory package on the global branch with cutoff zero and theta zero.
+    kind: paper
+    depends_on: [LOW-PRESSURE, CONDITIONAL, LOCAL]
+    mechanism: chain of implications and an explicit witness on a global branch
+    paper_label: 'prop:existential-equivalence'
+    evidence: research/evidence/cp02-lowpressure.md
+    review: cp02-review-lowpressure.md PASS. This is a logical equivalence, not a method for proving either side.
+  - id: CRITICAL
+    title: A priori critical bound
+    statement: For each viscosity, Schwartz datum, and finite horizon H, there exists a finite M depending only on these inputs such that the classical branch obeys sup over 0 < t < min(H,Tstar) of its L3 norm at most M.
+    kind: gap
+    depends_on: [PRESSURE, ABSORPTION]
+    mechanism: integrate the pressure balance under the unproved absorption estimate
+    paper_label: 'hyp:critical'
+    evidence: research/evidence/architecture.md
+    review: Open. Implied by ABSORPTION with M cubed equal to the initial cubed L3 norm plus 3A (cor:absorption-consequence); alternatively by the quotient route under HIGH-STRAIN (prop:quotient-conditional).
   - id: ESS
-    title: Endpoint continuation
-    statement: A maximal smooth finite-energy R3 solution with finite maximal time has unbounded L3 norm on that interval; a finite uniform L3 bound excludes finite-time breakdown.
+    title: Escauriaza–Seregin–Šverák endpoint theorem
+    statement: ESS 2003 Theorem 1.3, verbatim, at unit viscosity on R3, with the Leray–Hopf weak solution conditions (1.3)–(1.7) and the mixed-norm convention, so that a Leray–Hopf weak solution on Q_T that lies in L-infinity in time of L3 in space belongs to L5 of Q_T and is smooth and unique on Q_T.
     kind: imported
     depends_on: []
-    mechanism: endpoint regularity and continuation
+    mechanism: published backward-uniqueness theorem
+    paper_label: 'thm:ess'
+    evidence: research/evidence/cp01-literature-statements.md
+    review: Directly inspected at the published pages 211–214 in cp02-continuation.md; the L3 in the theorem is the space norm and L_{3,infinity} means L-infinity in time. GKP Theorem 4 is corroboration only.
+  - id: LERAY-HOPF
+    title: Classical branch is a Leray–Hopf solution
+    statement: The unit-viscosity rescaling of the classical branch is a Leray–Hopf weak solution on every Q_T with T at most the rescaled maximal time, in the exact sense of ESS conditions (1.3)–(1.7), with bounds uniform up to the maximal time.
+    kind: paper
+    depends_on: [LOCAL, ENERGY]
+    mechanism: density of smooth compactly supported solenoidal fields, weak continuity, energy identity, weak limit at the endpoint
+    paper_label: 'lem:leray-hopf'
+    evidence: research/evidence/cp02-continuation.md
+    review: cp02-review-continuation-r2.md PASS; the solenoidal density lemma is proved in full via Biot–Savart, Hardy and mollification.
+  - id: SERRIN
+    title: Serrin-type enstrophy bound
+    statement: If the classical branch lies in L5 of space-time up to T, then its enstrophy stays bounded up to T by the initial enstrophy times an exponential of an explicit constant times nu to the minus four times the integrated fifth power of the L5 norm.
+    kind: paper
+    depends_on: [LOCAL]
+    mechanism: enstrophy identity, Hoelder, interpolation, Sobolev, Plancherel, Young, Gronwall
+    paper_label: 'lem:serrin-enstrophy'
+    evidence: research/evidence/cp02-continuation.md
+    review: cp02-review-continuation-r2.md PASS with every exponent recomputed.
+  - id: CONTINUATION
+    title: Endpoint continuation
+    statement: If the maximal time of the Schwartz-data classical branch is finite then the supremum of its L3 norm over [0,Tstar) is infinite; equivalently a finite uniform L3 bound forces a global branch.
+    kind: paper
+    depends_on: [LOCAL, LERAY-HOPF, ESS, SERRIN]
+    mechanism: viscosity normalisation, ESS gives L5, the Serrin-type bound contradicts the blow-up alternative
     paper_label: 'thm:continuation'
-    evidence: literature/critical-criteria.md
-    review: Published endpoint theorem; exact source scope recorded in literature dossier.
+    evidence: research/evidence/cp02-continuation.md
+    review: cp02-review-continuation-r2.md PASS. No L3 uniqueness theorem is imported; the identification step of the earlier manuscript is gone.
   - id: CONDITIONAL
     title: Conditional global theorem
-    statement: Assuming the CRITICAL estimate for every admissible input, LOCAL and ESS give infinite lifespan and ENERGY gives the Clay finite-energy bound.
+    statement: Assuming the critical bound for every admissible input, every Schwartz datum and viscosity give a global classical branch, smooth with the normalised pressure on R3 times the closed half-line, with kinetic energy never exceeding its initial value; this is Clay alternative A.
     kind: conditional
-    depends_on: [ENERGY, CRITICAL, ESS]
-    mechanism: contradiction at a finite maximal time
+    depends_on: [LOCAL, ENERGY, CONTINUATION, CRITICAL]
+    mechanism: contradiction at a finite maximal time, then the package on every compact interval
     paper_label: 'thm:conditional'
-    evidence: research/evidence/architecture.md
-    review: Integration audit validates the conditional mathematics; its quantifier and label repairs are applied in paper d7563ef. See research/evidence/review-integration.md. CRITICAL remains unproved.
+    evidence: research/evidence/cp02-continuation.md
+    review: cp02-review-continuation-r2.md PASS; Fefferman's clauses checked one by one. CRITICAL remains unproved.
   - id: NS-R3
     title: Clay alternative A
     statement: Every smooth divergence-free rapidly decreasing initial velocity on R3 has a global smooth unforced Navier–Stokes velocity and pressure of uniformly bounded kinetic energy, for every positive viscosity.
@@ -124,3 +188,48 @@ nodes:
     paper_label: 'def:target'
     evidence: docs/proof.md
     review: Open. No complete proof or counterexample.
+  - id: LERAY-L3
+    title: Leray projection on L3
+    statement: The Leray projection extends from L2 to a bounded operator on L3 of R3 that annihilates gradients; Calderón–Zygmund boundedness of the Riesz transforms.
+    kind: imported
+    depends_on: []
+    mechanism: Calderón–Zygmund theory
+    paper_label: 'lem:leray'
+    evidence: research/evidence/cp01-literature-statements.md
+    review: Stated in Tao 2013 page 38 (directly inspected) with Stein as the underlying source (metadata). Phase II must prove it from Mathlib; it is textbook, not a research theorem.
+  - id: QUOTIENT-FUNCTIONAL
+    title: Cubic gradient quotient
+    statement: The cubic L3 distance to the closed gradient subspace has a unique minimising representative w with divergence-free |w|w, is comparable to the cubed L3 norm on solenoidal fields, is cubic homogeneous and invariant under the critical scaling, is nonincreasing under heat, and is Fréchet differentiable with derivative the pairing against |w|w, which annihilates gradients.
+    kind: paper
+    depends_on: [LERAY-L3]
+    mechanism: reflexivity and strict convexity of L3, Leray projection, Gaussian convolution, uniform monotonicity of the cubic map
+    paper_label: 'prop:quotient-derivative'
+    evidence: research/evidence/cp02-quotient-functional.md
+    review: cp02-review-quotient-functional.md PASS. Related work is nonlinear Hodge theory and Kato's L^p Lyapunov functions; no novelty claim.
+  - id: QUOTIENT-EVOLUTION
+    title: Pressure-free quotient evolution
+    statement: Along the classical branch on every compact interval, the quotient functional is absolutely continuous with derivative minus nu times a nonnegative dissipation minus the transport pairing of the gradient part against the strain, the pressure gradient being annihilated; the low-strain part is bounded by an input coefficient times the functional.
+    kind: paper
+    depends_on: [LOCAL, QUOTIENT-FUNCTIONAL]
+    mechanism: chain rule along a C1 curve in L3, heat generator sign, inner variation by the volume-preserving flow, Bernstein
+    paper_label: 'prop:quotient-evolution'
+    evidence: research/evidence/cp02-quotient-evolution.md
+    review: cp02-review-quotient-evolution-r2.md PASS; Liouville's formula and the flow lemma are proved in full. HF18 identifies the dissipation with the coercive weighted cubic dissipation of the representative.
+  - id: HIGH-STRAIN
+    title: Signed high-strain control
+    statement: For every datum, viscosity, horizon and input-selected cutoff there is a finite input-only remainder such that the accumulated high-strain transport pairing is at most theta nu times the accumulated quotient dissipation plus that remainder, uniformly below min(H,Tstar), with theta at most one.
+    kind: gap
+    depends_on: []
+    mechanism: new signed time-integrated strain estimate on actual trajectories
+    paper_label: 'hyp:highstrain'
+    evidence: research/evidence/hf18-hodge-regularity.md
+    review: Open. The audited HF18 bound |K| <= C Q^(1/3) D_3(w) closes only under critical smallness. Alternative producer of CRITICAL, not an additional required lemma.
+  - id: QUOTIENT-CONDITIONAL
+    title: Conditional quotient bound
+    statement: Under the high-strain hypothesis, Gronwall bounds the quotient functional, hence the L3 norm, on every finite horizon by an input-only constant; this supplies the critical bound by the quotient route.
+    kind: conditional
+    depends_on: [QUOTIENT-EVOLUTION, HIGH-STRAIN]
+    mechanism: integration and Gronwall
+    paper_label: 'prop:quotient-conditional'
+    evidence: research/evidence/cp02-quotient-evolution.md
+    review: cp02-review-quotient-evolution-r2.md PASS. Conditional consumer; HIGH-STRAIN is unproved.
