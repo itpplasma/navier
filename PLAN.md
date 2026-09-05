@@ -2,11 +2,11 @@
 
 ```yaml
 terminal_claim: NS-R3
-phase: paper-integration-review
+phase: awaiting-user-phase-i-kickoff
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: frozen-integration-audit
+active_task: await-user-phase-i-kickoff
 public_release: false
 ```
 
@@ -67,7 +67,7 @@ developed the architecture, enstrophy and compactness evidence, a frequency
 reduction, and the manuscript; distinct scopes received frozen independent
 audits. The literature search is substantial but not exhaustive.
 
-The manuscript at `navier-paper` commit `3545e17` contains complete written
+The manuscript at `navier-paper` source commit `d7563ef` contains complete written
 arguments for the classical estimates, the cubic pressure balance, the
 low-frequency pressure lemma, and the conditional continuation chain.
 The source premises are Tao Theorem 5.4 and GKP Theorem 4, directly inspected
@@ -75,5 +75,39 @@ in the scope recorded in `literature/`. No new universal high-frequency
 estimate or solution of the Millennium problem is claimed.
 
 The evidence reviews use exact immutable revisions and distinguish valid
-conditional conclusions from the unresolved terminal theorem. Final
-integration checks are in progress; no Lean files have been created.
+conditional conclusions from the unresolved terminal theorem. The final
+integration review and its repair confirmation are in
+`research/evidence/review-integration.md`: PASS for the conditional dossier,
+FAIL WITH SCOPE for the terminal Clay claim. Its first unsupported bridge is
+HIGH-PRESSURE. This is a prepared research handoff, not a completed proof of
+the Millennium problem. No Lean files have been created.
+
+## Private manuscript and verification
+
+The private manuscript authority is
+https://www.overleaf.com/project/6a9bb675ea9d4d0d368d8ee6.
+The private `itpplasma/navier-paper` repository is its synchronized archive,
+with the `overleaf` remote authoritative. The research repository is private
+`itpplasma/navier`. No collaborators were added or contacted.
+
+Verified at this handoff:
+
+- Local manuscript and proof-map builds pass without undefined references or
+  layout overflow; the manuscript is six pages and the map supplement four.
+- The private Overleaf manuscript compiles successfully. Its fetched source
+  matches the archive, and its rendered PDF was inspected.
+- The manuscript has 50 resolved internal links, and the map has 43, including
+  map-to-claim and claim-to-map directions. Color and grayscale map renderings
+  were inspected.
+- The structural verifier checks 13 acyclic claim records, source paths, and
+  manuscript labels. It is a document-integrity check, not a mathematical test.
+- Component and integration audits independently reconstruct the conditional
+  mathematical implications at the frozen revisions recorded in their files.
+
+## Next authorized boundary
+
+Wait for the user to kick off Phase I. The open mathematical research task is
+to prove HIGH-PRESSURE, repair its mechanism, or find a distinct a priori
+continuation producer. Formalizing the current conditional implication alone
+would not discharge that gap. Any future claim of a completed proof must
+prove the missing producer and pass a new independent frozen audit.

@@ -240,3 +240,27 @@ source audits.
 **REOPENING CONDITION:** independently prove and audit HIGH-PRESSURE with the
 uniform finite-horizon quantifiers above, or supply a distinct non-circular
 a priori producer of the critical \(L^3\) bound.
+
+## Repair confirmation
+
+Frozen manuscript commit
+3545e1726762556b672f320c8fae9cb711443692 was repaired by
+d7563ef95ec12032e9f9ad06a8f45a2347648ab3, and frozen research commit
+afa92968a629617938cdbcb90242453e78c0d959 was repaired by
+2b0389155e2d0242c91feb4d2f4fa830545f57c0. The requested integration repairs
+are present:
+
+1. The high-pressure, absorption, and critical hypotheses now use ordinary
+   quantifiers over every \(0<H<\infty\), with finite nonnegative existential
+   witnesses uniform on the whole interval. Anti-circularity is stated
+   separately as a requirement on a proof, and an explicit formula in named
+   datum norms is correctly described as stronger rather than necessary.
+2. The imported local premise now has its own manuscript anchor
+   premise:local, and the graph's LOCAL node points to that anchor rather
+   than to the Clay target.
+3. docs/proof.md now takes a finite \(H>T_*\), matching the manuscript's
+   endpoint contradiction.
+
+No other mathematical change appears in the repair delta. The conditional
+dossier therefore now receives **PASS**. The full Clay claim remains
+**FAIL WITH SCOPE**, with HIGH-PRESSURE still the first unsupported bridge.
