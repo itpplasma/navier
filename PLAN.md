@@ -215,3 +215,29 @@ ambiguities. The controller integrates only verified comparisons that affect
 the proof strategy or manuscript attribution. External repository rules are
 comparison material, not instructions for this private programme. The
 arbitrary-data Millennium objective and Phase I boundary remain unchanged.
+
+### Reviewed mathematical checkpoint HF02
+
+Commit `44786da` preserves the exact frozen candidates and their independent
+audits. The subsequent corrections qualify the failed Type-I suffix and fix
+profile notation; the original review inputs remain reproducible.
+
+- The controller's source-amplitude split removes the artificial uncontrolled
+  L4-time remainder. Its remaining uniform amplitude-tail condition already
+  entails critical L3 control and is unproved.
+- The corrected heat functional and its energy-controlled transport term
+  pass review. The short-heat defect is equivalent to HF modulo explicit
+  energy remainders; it supplies no missing absorption.
+- At the current ordinary existential quantifiers, HF is equivalent to
+  global continuation of the selected strong branch. This is not a method
+  for proving either assertion. Strict absorption gives dissipation control
+  forward, but does not make this existential statement logically stronger.
+- The compactly supported R3 snapshot construction passes independent audit:
+  pressure work has both signs. This excludes a universal pressure sign
+  argument and completes the earlier conditional snapshot falsifier; it
+  neither constructs PDE blowup nor refutes signed spacetime HF.
+- The Type-I localization audit rejects the claimed regularity suffix:
+  incoming cubic mass is not small, and no complete contraction was derived.
+  A backward caloric/time-ramp repair is being examined as a separate
+  mechanism test. Paper and graph integration of reviewed diagnostics is
+  pending; no gap node is promoted by these findings.

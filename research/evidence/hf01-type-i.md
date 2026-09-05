@@ -244,9 +244,19 @@ normalized enstrophy.
 **FIRST GAP:** prove (10) in the pointwise Type-I regime; for the general
 local target, first produce the missing small annular bounds from (LR-1.11).
 
-**SURVIVING CONDITIONAL SUFFIX:** either missing estimate, combined with the
-localized identity and an epsilon-regularity iteration, would be a local
-regularity mechanism at the tested point only.
+**SURVIVING CONDITIONAL SUFFIX (corrected after independent audit):** even
+granting (10) and small boundary errors, the identity gives only
+\(X_\eta(0^-)+(1-\theta)\nu\mathcal D_\eta
+\le X_\eta(-r^2)+o(1)\), with the endpoint interpreted through compact
+classical intervals. The incoming cubic mass is not small under arbitrary
+pointwise Type I; a long logarithmic cutoff can introduce a
+\(C_*^3\log(\rho/r)\) upper bound. No epsilon-regularity iteration follows
+from the displayed estimates. A proved contraction of a complete velocity
+and pressure functional, or the full smallness hypotheses of an exact
+epsilon criterion, is an additional missing input. Likewise, harmonic
+pressure oscillation decay must be paired with the local velocity factor
+and an appropriate time-integrable outer pressure norm before calling its
+cubic flux perturbative. See `hf02-review-type-i.md` for the frozen audit.
 
 **NON-CLAIMS:** Theorem D is used only in its axisymmetric class. This note
 does not prove general Type-I regularity, does not show that every point at a

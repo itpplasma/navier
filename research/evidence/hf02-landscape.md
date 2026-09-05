@@ -6,13 +6,13 @@ Snapshot date: 2026-09-05. This is a source-access record, not a novelty review 
 
 [Brown's 26 August 2026 report](https://www.brown.edu/news/2026-08-26/javier-gomez-serrano-lab) is accessible and identifies Javier Gómez-Serrano's use of physics-informed neural networks to search for singularities. The article says the demonstrated work concerns related, simpler one- or two-dimensional equations; it describes the Navier–Stokes application as ongoing and says any candidate would still require a mathematical proof. It therefore reports a discovery programme and no Clay result. This is institutional journalism, not a theorem or peer-reviewed primary paper.
 
-## arXiv:2607.08866
-
 The Brown article discusses DeepMind/AlphaEvolve in a separate section on
 other mathematical problems. It does not itself establish that the reported
 PINN fluid-singularity work is a joint Brown–DeepMind Navier–Stokes project.
 The supplied opinion conflates these two parts of the article; retain the
 verified AI-assisted fluid-discovery claim without that inferred partnership.
+
+## arXiv:2607.08866
 
 [arXiv:2607.08866v2](https://arxiv.org/abs/2607.08866) is accessible. The record identifies Zoran Grujić, “Logarithmic Depletion of Vortex Stretching and Singularity Evasion in the 3D Navier–Stokes Equations,” submitted 9 July 2026 and revised 13 July 2026. Its abstract proposes a conditional geometric-analytic mechanism: under a logarithmically weighted BMO condition on vorticity direction, it claims depletion of vortex stretching and avoidance of finite-time blow-up for a specified critical concentration regime. The abstract itself does not state that arbitrary Clay-admissible data satisfy the directional hypothesis. It is a preprint claim; this file makes no independent proof judgment and no inference from the Clay problem remaining open.
 

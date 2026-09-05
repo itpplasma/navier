@@ -5,7 +5,7 @@ operator on \(\mathbb R^3\).  It supplies a smooth compactly supported
 divergence-free field \(u\) for which
 
 \[
- P_3[u]=\int_{\mathbb R^3}p[u],u\cdot\nabla|u|\,dx>0,
+ P_3[u]=\int_{\mathbb R^3}p[u]\,u\cdot\nabla|u|\,dx>0,
  \qquad p[u]=R_iR_j(u_i u_j).
 \]
 
@@ -25,7 +25,7 @@ On \(\mathbb T^2=(\mathbb R/2\pi\mathbb Z)^2\), put
 Thus \(v\) is divergence free and
 
 \[
- v_1=\cos Y+\sin(X+Y),qquad
+ v_1=\cos Y+\sin(X+Y),\qquad
  \partial_Xv_1=\cos(X+Y).                             \tag{2}
 \]
 
@@ -48,8 +48,8 @@ and, for \(v=(\psi_Y,-\psi_X)\),
 Writing \(Z=X+Y\),
 
 \[
- \psi_{XX}=-\sin X+\cos Z,quad
- \psi_{YY}=-\sin Y+\cos Z,quad
+ \psi_{XX}=-\sin X+\cos Z,\quad
+ \psi_{YY}=-\sin Y+\cos Z,\quad
  \psi_{XY}=\cos Z,
 \]
 
@@ -191,7 +191,7 @@ Apply the lemma componentwise to \(R_iR_j\) and the nonzero Fourier modes of
 boundedness of the Riesz transforms, and the lemma,
 
 \[
- p_{V_n}=a^2p_v(nx,ny)+q_0+e_n,qquad
+ p_{V_n}=a^2p_v(nx,ny)+q_0+e_n,\qquad
  \|e_n\|_2\leq C_an^{-1},                              \tag{14}
 \]
 
@@ -201,7 +201,7 @@ where, if \(M_{ij}=\langle v_i v_j\rangle\),
  q_0=R_iR_j(M_{ij}a^2)                                 \tag{15}
 \]
 
-is a fixed smooth low-frequency term.  Formula (14) also absorbs all terms
+is a fixed smooth nonoscillatory term, not a band-limited term. Formula (14) also absorbs all terms
 containing the \(n^{-1}r_n\) correction in (9).  The constants are independent
 of \(n\).
 
@@ -225,7 +225,7 @@ the smooth compact amplitude, gives
 \[
  \int_{\mathbb R^3}a^3(x)p_v(nx,ny)
               \partial_Xv_1(nx,ny)\,dx
- ={1\over4}\int_{mathbb R^3}a^3(x)dx+O_a(n^{-1}).     \tag{17}
+ ={1\over4}\int_{\mathbb R^3}a^3(x)dx+O_a(n^{-1}).     \tag{17}
 \]
 
 Indeed, the product is a finite Fourier series whose mean is (5); every
@@ -237,7 +237,7 @@ Combining (12), (14), (16), and (17) gives
 \[
  \boxed{\displaystyle
  P_3[u_{n,\varepsilon}]
- ={n\varepsilon^3\over4}\int_{mathbb R^3}a^3dx
+ ={n\varepsilon^3\over4}\int_{\mathbb R^3}a^3dx
   +O_a(n\varepsilon^4)+O_{a,B,\varepsilon}(1).}        \tag{18}
 \]
 

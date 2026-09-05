@@ -104,6 +104,9 @@ The accumulated remainder in (4) is at most
 This repairs the L4-time-integrability obstruction in the first attempt.
 The only unproved absorption input left in this method is a fixed K for
 which U B_K is uniformly small through the possible endpoint.
+Precisely, for a chosen theta in (0,1), take epsilon=theta nu/2 and
+require \(\sup_{t<\min(H,T_*)}U(t)B_K(t)
+\le(\theta\nu/(2C))^2\). This threshold is an additional unproved input.
 
 That remaining input already encodes critical control. Since
 \[
