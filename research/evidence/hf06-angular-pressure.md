@@ -12,7 +12,7 @@ Take two complex solenoidal modes
 
 \[
  u_k(x)=a e^{ik\cdot x},\qquad u_l(x)=b e^{il\cdot x},
- \qquad k\cdot a=0,quad l\cdot b=0,                  \tag{1}
+ \qquad k\cdot a=0,\quad l\cdot b=0,                \tag{1}
 \]
 
 and set \(q=k+l\ne0\).  Pressure is normalized by
@@ -63,7 +63,7 @@ Assume \(|k|\simeq|l|\simeq K\), and let \(\alpha\in[0,\pi]\) be the angle
 between \(k\) and \(l\).  Solenoidality gives
 
 \[
- |l\cdot a|\leq |l|\sin\alpha,|a|,qquad
+ |l\cdot a|\leq |l|\sin\alpha\,|a|,\qquad
  |k\cdot b|\leq |k|\sin\alpha,|b|.                  \tag{4}
 \]
 
@@ -77,7 +77,7 @@ Hence
 If the inputs are near parallel, \(\alpha\ll1\), then \(|q|\simeq K\), and
 
 \[
- |p_{k,l}(q)|\leq C\sin^2\alpha,|a||b|.              \tag{6}
+ |p_{k,l}(q)|\leq C\sin^2\alpha\,|a||b|.            \tag{6}
 \]
 
 This is a genuine quadratic angular null factor.
@@ -102,7 +102,7 @@ gain is cancelled by the inverse Laplacian when nearly antiparallel waves
 have comparable radial frequency.  Requiring \(|q|>2^J\) for a fixed cutoff
 does not repair this: one can have \(2^J\ll|q|\ll K\).
 
-## 4. The output derivative restores exactly one low-output factor
+## 4. The output derivative yields a low-output bound
 
 Pressure work is better written with its derivative:
 
@@ -132,13 +132,13 @@ and therefore
 \[
 \boxed{
  |\widehat{\nabla p}_{k,l}(q)|
- \leq C|q|,|a||b|.}                                 \tag{11}
+ \leq C|q|\,|a||b|.}                               \tag{11}
 \]
 
 Thus the output derivative restores a factor \(|q|/K\) relative to a generic
-one-input-derivative bound of size \(K|a||b|\).  It does not restore the
-near-parallel \(\sin^2\alpha\) gain in the high-high-to-low sector; it gives
-exactly the output derivative already visible in
+one-input-derivative bound of size \(K|a||b|\). This calculation alone
+establishes an upper bound, not a lower bound or exclusion of further
+polarization cancellation. It uses the output derivative visible in
 
 \[
  \nabla p=\nabla(-\Delta)^{-1}\partial_i\partial_j(u_i u_j).       \tag{12}
@@ -176,7 +176,7 @@ This gain survives at the operator level as
 \[
  \|\Delta_j\nabla p(u_k,u_{k'})\|_s
  \leq C2^j\|u_k u_{k'}\|_s,
- \qquad |k-k'|\leq C,quad k\geq j+C_0.               \tag{14}
+ \qquad |k-k'|\leq C,\quad k\geq j+C_0.             \tag{14}
 \]
 
 For \(s=1\), (14) remains valid because the output is localized to one
@@ -184,8 +184,8 @@ annulus: its smooth band-limited multiplier has an \(L^1\) convolution kernel
 of norm \(O(2^j)\).  This endpoint statement is not unlocalized Riesz
 \(L^1\)-boundedness.
 
-Pairing with the matching output of \(w=|u|u\), one obtains the exact
-absolute shell ledger
+Pairing with the matching output of \(w=|u|u\), one obtains the
+absolute shell upper bound
 
 \[
  |H_J^{\rm hh\to low}|
@@ -286,7 +286,7 @@ pressure flux.  The two mechanisms must not be conflated.
 
 **Actual result:** comparable near-parallel inputs have a quadratic angular
 null factor.  Comparable near-antiparallel inputs can cancel that factor in
-the pressure symbol, while \(\nabla p\) retains exactly the lower output
+the pressure symbol, while the bound for \(\nabla p\) retains the lower output
 frequency \(|q|\).  Equations (14)--(18) give the resulting sector/shell
 estimate with explicit exponents.
 

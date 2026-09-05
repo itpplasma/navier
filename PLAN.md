@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF06-angular-pressure-symbol-audit
+active_task: HF07-square-function-energy-audit
 public_release: false
 ```
 
@@ -375,3 +375,22 @@ whereas nearly opposite modes can lose that factor in pressure when their
 output is small. The pressure gradient retains an output-frequency factor.
 Its shell estimates and any claimed summation gain are under independent
 audit. No angular-coherence hypothesis is assumed for arbitrary solutions.
+
+### Angular audit and square-function energy
+
+The angular audit in `hf06-review-angular.md` checks the pressure coefficient,
+localized multipliers, and shell upper bounds, while rejecting an unsupported
+sharpness claim. The controller supplies the missing *symbol-level* example
+in `hf07-controller-symbol.md`, independently checked in
+`hf07-review-symbol.md`: nearly opposite modes attain the output-frequency
+gradient bound and preclude an additional uniform positive power of the
+output/input ratio. This does not give a lower bound for the signed cubic
+pressure pairing or its time integral.
+
+The current distinct repair uses cubic Littlewood--Paley square-function
+energy, rather than a scalar function of the earlier heat inverse. The
+candidate `hf07-square-energy.md` is under audit for its finite-band
+regularized identity, positive diffusion, frequency-boundary terms, limits,
+and low-high pressure/transport grouping. Any linearized strain model must
+be distinguished from the actual nonlinear cubic functional. No unspecified
+strain or Carleson condition is accepted as an arbitrary-data producer.
