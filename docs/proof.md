@@ -84,3 +84,16 @@ paper step down to exact verified literature results; it cannot declare
 pressure absorption a published theorem. A formal conditional implication
 would remain conditional. Phase II would discharge the imported results
 from Mathlib. The user has reserved the Phase I kickoff.
+
+
+## Reviewed quotient alternative (HF17 checkpoint)
+
+The cubic distance Q(u)=inf_{q in G3} ||u+q||_3^3/3, where G3 is the
+closed L3 gradient space, is comparable to the critical norm on solenoidal
+fields. Its derivative annihilates pressure gradients and heat is
+nonincreasing. With w=u+q and A=|w|w, the evolution is
+Q'+nu D_Q=-integral q dot ((A dot grad)u), where D_Q=-DQ(u)[Delta u]>=0.
+The low strain is bounded by an input coefficient times Q. The remaining
+high-strain spacetime estimate is unproved. See the HF17 functional and
+evolution notes and their independent reviews. This is an alternative
+producer, not a proof of HIGH-PRESSURE or a new dependency of the Clay claim.

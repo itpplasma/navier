@@ -2,11 +2,11 @@
 
 ```yaml
 terminal_claim: NS-R3
-phase: active-paper-research
+phase: paper-research-checkpoint
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF16-material-pressure-commutator
+active_task: awaiting-user-after-HF17-checkpoint
 public_release: false
 ```
 
@@ -624,3 +624,44 @@ inspect its low-velocity transport commutator. Any Calderon commutator bound
 must have verified hypotheses and cutoff constants before it is imported.
 An input-controlled Gronwall term would remove that contribution, but would
 not bound the remaining critical terms. HIGH-PRESSURE remains open.
+
+
+### HF16–HF17: final paper checkpoint at the user's request
+
+The user requested conclusion and signed pushes of the current work; no new
+research wave is running. Phase I and Phase II remain unstarted.
+
+HF16 removes the low-velocity transport commutator with Taylor's verified
+order-one commutator theorem and explicit cutoff dilation. The input
+coefficient is C_k(2^{J+3L/2}+2^{5L/2})E0^{1/2}. The stronger derivative-only
+premise is unnecessary. Gronwall is justified only after the functional-value
+limit, conditional on an unproved bound for the remaining high-output sum.
+The candidate inputs and reviews are preserved at `174a79c` before repair.
+
+HF17 changes the functional to the cubic distance from u to the closed L3
+gradient subspace. Its unique minimizing representative w=u+q obeys
+Q=||w||_3^3/3, Q comparable to ||u||_3^3 for solenoidal u, and
+DQ(u)h=integral |w|w dot h. The independent functional audit passes:
+pressure gradients are annihilated and linear heat cannot increase Q.
+The evolution note uses a volume-preserving flow and gradient pullback;
+it does not differentiate the L3 minimizer. Its independent review records
+the exact scope of the strain rewrite and low-frequency bound.
+
+The alternative missing producer is signed high-strain control. Define
+D_Q=-DQ(u)[Delta u]>=0 and
+K_L=-integral q dot ((|w|w dot grad)(u-S_Lu)). Then
+Q'+nu D_Q=K_L+K_low, with |K_low|<=M_input Q.
+A sufficient unproved estimate is integral K_L <= theta nu integral D_Q+A
+uniformly for tau<min(H,Tstar), with theta<=1 and input-only finite A.
+Integration and Gronwall would bound Q and hence L3. No such estimate is
+proved, and no novelty claim is made for the quotient construction.
+
+HIGH-PRESSURE remains the selected graph gap. HIGH-STRAIN is an alternative
+route to the same missing critical bound, not an additional required lemma.
+The paper remains conditional; no Millennium solution is claimed.
+
+Checkpoint verification: the final manuscript builds to eight pages and the
+map to four, with 52 and 43 resolved internal links respectively. No undefined
+references or overfull boxes were reported; rendered argument and map pages
+were inspected. The 13-node structural verifier passes. These are document
+checks; the separate HF16/HF17 reviews supply the mathematical audit scope.

@@ -6,7 +6,7 @@ Status: exact analytic reorganization with one explicit imported estimate,
 This note rewrites the high-output pressure evolution using its material
 derivative. The identity is rigorous for the fixed radial regularization from
 HF15 on compact classical intervals. A low-band advecting-field commutator is
-then bounded conditionally on a stated Calderon commutator estimate. The bound
+then bounded using the audited Taylor commutator estimate. The bound
 is an input-dependent Gronwall coefficient, not a terminal absorption.
 
 ## Material derivative of high-output pressure
@@ -99,45 +99,39 @@ and use linearity in the advecting field:
  =[v\cdot\nabla,T_J](u_i u_j)
   +[w\cdot\nabla,T_J](u_i u_j).                               \tag{7}
 \]
-The following standard-looking estimate is the sole external premise in
-this subsection and must be independently verified in the exact cutoff
-convention before use:
+The independently reviewed `hf16-taylor-commutator.md` applies Taylor's
+Proposition 7.2 to the order-one operators \(Q_JR_iR_j\partial_a\),
+then rescales the fixed cutoff. It proves the sufficient bound
 \[
- \boxed{\quad
  \|[v\cdot\nabla,Q_JR_iR_j]f\|_{3/2}
- \le C\|\nabla v\|_\infty\|f\|_{3/2},
- \quad \nabla\cdot v=0,
- \quad}                                                       \tag{C}
+ \le C(2^J\|v\|_\infty+\|\nabla v\|_\infty)\|f\|_{3/2}.
 \]
-with \(C\) independent of \(J\). Formally, its kernel is
-\((v(x)-v(y))\cdot\nabla K_J(x-y)\); the Lipschitz difference restores an
-order-zero Calderon--Zygmund kernel. This explains the claimed scaling but
-is not recorded here as a substitute for verification of the full
-\(L^{3/2}\) theorem, including the smooth cutoff part.
+The constant is independent of J; the displayed cutoff factor is retained.
+The stronger derivative-only premise in the frozen candidate is unnecessary.
+Holder, Bernstein, the energy identity, and the HF15 uniform bound
+\(\|F_{\eta,z}\|_3\le C_k\|u\|_3\) give
+\[
+ \left|\int F_{\eta,z}[S_Lu\cdot\nabla,T_J](u_i u_j)\right|
+ \le M\|u\|_3^3,\qquad
+ M=C_k(2^{J+3L/2}+2^{5L/2})E_0^{1/2}.
+\]
+This is uniform in eta and time, for input-selected J, L, and k.
 
-The audited regularizer bound is
+The Gronwall step requires care. Assume, without claiming to prove it,
+that the remaining aggregate has a uniform integrated absorption bound.
+Integrate the coherent fixed-eta balance and drop its residual nonnegative
+dissipation. For each fixed classical time t, pass eta to zero only in
+functional endpoint values. The term \(M\int_0^t\|u\|_3^3\) is independent
+of eta and finite on that compact interval. Thus
 \[
- \|F_{\eta,z}(u,z)\|_3\le C_k\|u\|_3,                         \tag{8}
+ J(t)\le C_{\rm input}+M\int_0^t\|u(s)\|_3^3ds
+ \le C_{\rm input}+6M\int_0^t J(s)ds.
 \]
-uniformly in \(0<\eta\le1\). Bernstein at the fixed input frequency gives
-\[
- \|\nabla S_Lu\|_\infty
- \le C2^{5L/2}\|u\|_2.                                      \tag{9}
-\]
-Assuming (C), Holder's inequality, (8), and (9) yield
-\[
- \begin{split}
- &\left|\int F_{\eta,z}(u,z)
-       [v\cdot\nabla,T_J](u_i u_j)dx\right|\\
- &\qquad\le C_k2^{5L/2}E(t)^{1/2}\|u(t)\|_3^3\\
- &\qquad\le C_k2^{5L/2}E_0^{1/2}\|u(t)\|_3^3.                \tag{10}
- \end{split}
-\]
-This coefficient depends only on \(k,L\), the cutoff profiles, and the
-initial kinetic energy. It is uniform in \(J\), \(\eta\), and the terminal
-time. It can act as a Gronwall coefficient if every other term has already
-been controlled. It is not a strict viscous absorption and does not bound
-the high-band commutator with advecting field \(w\).
+Unregularized coercivity and Gronwall give
+\(J(t)\le C_{\rm input}e^{6Mt}\). No uniform coercivity of J_eta and no
+differentiated eta limit are assumed. The independent review's endpoint-limit
+extension validates this conditional suffix. The remaining aggregate bound
+is still unproved.
 
 ## Relation to the low-pressure extraction
 
@@ -151,18 +145,15 @@ applied to \(W\).
 
 ## Frontier record
 
-**MODE / RESULT:** DISCOVER. Equations (3) and (6) give a cusp-safe exact
-material-pressure reorganization at fixed \(\eta\). Conditional on (C), the
-low-band advecting commutator has the input-only coefficient bound (10).
+**MODE / RESULT:** REPAIR. The exact material-pressure identities and the
+sourced low-band commutator estimate are retained. Frozen inputs are at
+`174a79c`; the independent reviews record the replacement and limit repair.
 
-**FIRST GAP:** verify (C) in the precise smooth-cutoff convention, then
-control the high-band advecting commutator and the remaining high-pressure
-gradient together with the heat remainder. The low-pressure pieces alone do
-not close the estimate.
+**FIRST GAP:** control the high-band advecting commutator and remaining
+high-pressure gradient together with the heat remainder.
 
-**SURVIVING CONDITIONAL SUFFIX:** once (C) is verified, (10) is a legitimate
-Gronwall term with an input-selected coefficient.
+**SURVIVING CONDITIONAL SUFFIX:** an input-only remaining-aggregate absorption
+bound gives Gronwall after the functional-value limit, as above.
 
-**NON-CLAIMS:** no estimate for the remaining high-output aggregate, strict
-absorption, differentiated \(\eta\)-limit, HF estimate, or regularity theorem
-is asserted.
+**NON-CLAIMS:** no remaining-aggregate estimate, differentiated eta limit,
+HF producer, or global regularity theorem is proved.

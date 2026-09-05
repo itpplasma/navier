@@ -149,7 +149,10 @@ claim is unnecessary.
 high-pressure gradient together with the heat remainder.
 
 **SURVIVING CONDITIONAL SUFFIX:** the low-band commutator may be included as
-an input-dependent Gronwall term in the fixed-\(\eta\) identity.
+an input-dependent term in the fixed-\(\eta\) identity. Gronwall is applied
+only after integration and the functional-value limit, using coercivity of
+the unregularized functional; see the endpoint-limit extension in
+`hf16-review-material-pressure.md`. No uniform regularized coercivity is assumed.
 
 **NON-CLAIMS:** Taylor's proposition is not said to provide the dilation
 uniformity; no high-output absorption, HF estimate, or regularity theorem is
