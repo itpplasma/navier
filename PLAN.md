@@ -842,8 +842,18 @@ removable. No `W^{1,1}_loc` regularity of `w`, no time-integrated absorption,
 no HIGH-STRAIN or HIGH-PRESSURE result, and no novelty claim.
 
 The divergence–speed-link note `hf18-divergence-speed-link.md` received a
-REPAIR verdict (Riesz sign convention and weighted-inequality scope); its
-repair round and second audit are running. Next distinct actions from the
+REPAIR verdict (Riesz sign convention and weighted-inequality scope); the
+repaired version passes `hf18-review-divergence-speed-link-r2.md` after the
+controller applied its scope corrections (Lemma A identifying the weak
+gradient under `w in W^{1,1}_loc`, Lemma B lower bounds for the witness
+family, the second hypothesis `sigma in L^{3/2}` in both summaries, three
+constant and label slips). Unconditionally: `div w = -ŵ·grad|w|` a.e. on
+`{w != 0}` in the approximate-gradient sense, `int |w| sigma^2 <= D_3(w)/2`,
+`int |q|^2 |w|^3 <= C Q^{2/3} D_3(w)`, and the transport term is the work of
+a mixed pressure, `K_L = int q·grad Pi_L`. The classification of weighted
+inequalities between the gradient part and the dissipation is recorded with
+proofs or scaling counterexamples; the weighted Calderón–Zygmund inequality
+and the `L^2` bound for the nonlinear projection remain open. Next distinct actions from the
 audit: test whether `K` vanishes identically on `{u : div(|u|u) = 0}`, and
 seek a cancellation inside `K = -int q·grad Pi_{u,A}` rather than a size
 bound, since no monomial in `Q` and `D_3` can close by scaling.
