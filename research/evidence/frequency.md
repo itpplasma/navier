@@ -9,7 +9,9 @@ high-frequency estimate and not global regularity.
 
 ## 1. Pressure work and Littlewood--Paley splitting
 
-Use a smooth homogeneous Littlewood--Paley partition
+Use a smooth homogeneous Littlewood--Paley partition with real, even
+annular multipliers, so all low- and high-pass operators are self-adjoint
+on \(L^2\). Use \(P_{>J}=I-S_J\) below. The partition satisfies
 \(\sum_{j\in\mathbb Z}\Delta_j=I\) away from frequency zero and write
 \[
  S_J=\sum_{j\leq J}\Delta_j,\qquad p_{\leq J}=S_Jp,\qquad
@@ -170,17 +172,18 @@ The energy tends to zero while the high signed pressure work and cubic
 dissipation have critical size \(N^2\); their ratio has a nonzero
 scale-invariant limit.
 
-Therefore no estimate of the form
+One might seek a spacetime estimate of the form
 \[
  \left|\int_0^\tau H_Jdt\right|
  \leq \varepsilon(J)\,\nu\int_0^\tau D_3dt
       +F(\|u_0\|_2,\nu,H),\qquad \varepsilon(J)\to0,    \tag{10}
 \]
-can be justified from instantaneous energy size and frequency separation
-alone. A family of scaled snapshots is not a family of trajectories with
-one fixed datum, so (9) does not refute the spacetime assertion (HF).
-It does refute the proposed proof mechanism that obtains a small high tail
-solely from energy and Bernstein factors.
+but (9) does not refute it. If one supplies a divergence-free Schwartz
+profile with \(P_3[\phi]\ne0\), (9)--(9a) obstruct a decaying pointwise
+high-tail factor derived solely from energy size and a fixed output cutoff.
+No such profile is constructed here. Scaled snapshots are not trajectories
+with uniformly controlled initial data, so this conditional calculation
+does not refute (HF) or (10).
 
 The same scaling diagnoses termwise absolute summation. Any order-zero
 commutator estimate applied to (2) is critical under (9); it has no factor
@@ -189,11 +192,12 @@ additional regularity, a temporal cancellation across the parabolic life
 \(N^{-2}\) of the packet, or a signed interaction law between shells. None
 of those follows from the energy identity by the calculations above.
 
-## 5. One cancellation attempt and its limit
+## 5. Leray projection and adjacent output frequencies
 
 Identity (2) repairs one overly crude step: instead of estimating pressure as
 an unrelated scalar, retain its origin as the gradient projection of the
-transport term. Since Fourier projections commute with \(I-\mathbb P\),
+transport term. Strong Sobolev bounds give \(w,N\in L^2\). Since the
+self-adjoint real-even Fourier operators commute with \(I-\mathbb P\),
 \[
  H_J=\int P_{>J}w\cdot(I-\mathbb P)N\,dx.
 \]
@@ -234,8 +238,8 @@ almost-orthogonality do not prove it.
 finite-horizon critical \(L^3\) bound (6) and the conditional ESS continuation
 chain already recorded in architecture.md.
 
-**Non-claims:** scaled snapshots in (9) are a mechanism falsifier, not
-Navier--Stokes blow-up solutions and not a refutation of (HF). No signed
+**Non-claims:** scaled snapshots in (9) provide a conditional mechanism
+test, not Navier--Stokes blow-up solutions or a refutation of (HF). No signed
 telescoping law, universal \(\theta<1\), or new a priori trajectory estimate
 has been established.
 

@@ -38,7 +38,7 @@ Taking the \(L^2\) inner product of the velocity equation with \(u\) gives
  \frac12E'(t)+\nu\|\nabla u(t)\|_2^2=0.
 \]
 
-Indeed, incompressibility and decay give
+Indeed, incompressibility and the cutoff limit give
 
 \[
  \int_{\mathbb R^3}(u\mathbin\cdot\nabla)u\mathbin\cdot u\,dx

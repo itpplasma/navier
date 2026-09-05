@@ -75,13 +75,22 @@ Weak existence is global in time but does not provide the smoothness required by
 
 For smooth enough three-dimensional data, local strong (and hence classical for positive time) existence follows from the Fujita–Kato theory. The primary bibliographic record is [Fujita and Kato, *On the Navier–Stokes initial value problem. I*, Archive for Rational Mechanics and Analysis 16 (1964), 269–315, DOI 10.1007/BF00276188](https://doi.org/10.1007/BF00276188). The record identifies the result as unique local-in-time three-dimensional solutions and global unique solutions in two dimensions; it is metadata and abstract information, not a direct inspection of every theorem hypothesis.
 
-A conservative integer-order formulation, pending direct inspection of an R3 theorem statement, is: if (u_0\in H^m_\sigma(\mathbb R^3)) with integer (m\ge3), then there is (T=T(\|u_0\|_{H^m})>0) and a unique strong solution on ([0,T)), in a class such as
+A directly inspected whole-space source is Tao, [*Localisation and compactness properties of the Navier–Stokes global regularity problem*, Theorem 5.4](https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf), pp. 52–55 (PDF lines 2811–2968). It defines smooth data on \(\mathbb R^3\) by smooth divergence-free \(u_0\) and smooth forcing, and defines an \(H^1\) mild solution. For sufficiently small absolute \(c>0\), the condition
 
 \[
- u\in C([0,T);H^m)\cap C((0,T);H^{m+2})\cap C^1((0,T);H^m),
+ T\bigl(\|u_0\|_{H^1_x(\mathbb R^3)}+
+ \|f\|_{L^1_tH^1_x([0,T]\times\mathbb R^3)}\bigr)^4\le c
 \]
 
-For Schwartz data, the local solution is smooth. If (T_*<\infty) is its maximal strong lifespan, continuation fails only when the controlling strong norm becomes unbounded; in particular, a uniform bound in a continuation class extends the solution. A directly inspected author-source formulation is Tao's [254A Notes 1, Theorem 37](https://terrytao.wordpress.com/2018/09/16/254a-notes-1-local-well-posedness-of-the-navier-stokes-equations/), which states local existence and uniqueness for divergence-free H^s data on the torus when s>d/2, with an explicit time lower bound. The same notes state that the R^d analogue follows by repeating the proof, but leave that analogue as an exercise (lines 1057–1062), so they do not close the requested directly inspected R3 premise. The notes also derive smooth pressure and time regularity for classical solutions (lines 1048–1052), in the periodic setting. The exact Fujita–Kato R3 theorem statement and its t=0 pressure formulation therefore remain pending direct inspection.
+gives an \(H^1\) mild solution; the theorem states uniqueness among such solutions. It also states that if the data are Schwartz, then \(u\) and \(p\) are smooth on the closed interval \([0,T]\times\mathbb R^3\), with all time derivatives controlled in \(L^\infty_tH^k_x\), including at \(t=0\). More generally, the theorem gives \(X^k\) regularity from \(u_0\in H^k\) and forcing in \(L^1_tH^k_x\) for every integer \(k\ge1\). Thus for unforced Schwartz data, taking any integer \(m\ge3\) supplies the requested local \(H^m\) solution and smooth pressure at \(t=0\).
+
+The corresponding conservative integer-order class is
+
+\[
+ u\in C([0,T];H^m)\cap L^2([0,T];H^{m+1}),
+\]
+
+If \(T_*<\infty\) is a maximal strong lifespan, the standard continuation statement is that a solution can be extended whenever its controlling strong norm remains finite; the cited theorem supplies the local well-posedness step, while a particular continuation norm should be cited separately when used.
 
 ## Weak–strong uniqueness and Serrin criteria
 

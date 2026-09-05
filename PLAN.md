@@ -2,11 +2,11 @@
 
 ```yaml
 terminal_claim: NS-R3
-phase: paper-preparation
+phase: paper-integration-review
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
-paper_status: architecture-under-development
-active_task: source-audit-and-paper-architecture
+paper_status: conditional-manuscript-with-explicit-high-frequency-gap
+active_task: frozen-integration-audit
 public_release: false
 ```
 
@@ -43,8 +43,11 @@ Clay data, with global smoothness and finite energy.
 ESTABLISHED: local classical solvability, energy dissipation, and published
 continuation criteria, subject to exact source-hypothesis verification.
 
-FIRST GAP: derive from arbitrary initial data an a priori critical-norm or
-equivalent continuation bound valid up to any putative finite singular time.
+FIRST GAP: HIGH-PRESSURE in the graph. Prove a signed high-output pressure
+absorption estimate for every arbitrary-data classical trajectory, uniform
+for tau < min(H,Tstar), with a finite input-only remainder. The low-output
+pressure work is already bounded by energy. Alternative producers of a
+critical continuation bound remain possible.
 
 FALSIFIER: an invalid norm interpolation, a hidden smallness hypothesis, a
 bound that depends on the very norm it must control, or a change of equation.
@@ -55,3 +58,22 @@ its missing hypothesis; weak nonuniqueness refutes Clay smooth existence.
 
 CHECK: direct proof and independent falsification of the proposed critical
 bound, plus audit of every continuation-theorem hypothesis.
+
+## Paper preparation
+
+Four Luna research lanes collected the official statement, foundational and
+critical results, blowup barriers, and recent developments. Four Sol workers
+developed the architecture, enstrophy and compactness evidence, a frequency
+reduction, and the manuscript; distinct scopes received frozen independent
+audits. The literature search is substantial but not exhaustive.
+
+The manuscript at `navier-paper` commit `3545e17` contains complete written
+arguments for the classical estimates, the cubic pressure balance, the
+low-frequency pressure lemma, and the conditional continuation chain.
+The source premises are Tao Theorem 5.4 and GKP Theorem 4, directly inspected
+in the scope recorded in `literature/`. No new universal high-frequency
+estimate or solution of the Millennium problem is claimed.
+
+The evidence reviews use exact immutable revisions and distinguish valid
+conditional conclusions from the unresolved terminal theorem. Final
+integration checks are in progress; no Lean files have been created.

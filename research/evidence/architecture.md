@@ -62,10 +62,9 @@ an unspecified nonlinear remainder.
 
 There exists a universal \(\theta\in[0,1)\) such that, for every \(\nu>0\),
 divergence-free Schwartz datum \(u_0\), and finite horizon \(H>0\), one can
-give a finite number \(A(\nu,u_0,H)\), computed solely from \(\nu,H\) and
-finitely many explicitly named norms or seminorms of \(u_0\), for which the
-maximal classical solution of (NS) obeys every
-\(0<\tau<\min\{H,T_*\}\):
+give a finite bound \(A(\nu,u_0,H)\) from the input data alone, for which
+the maximal classical solution obeys, for every
+\(0<\tau<\min\{H,T_*\}\),
 
 \[
  \int_0^\tau P_3(t)\,dt
@@ -73,13 +72,14 @@ maximal classical solution of (NS) obeys every
       +A(\nu,u_0,H).                                   \tag{PA}
 \]
 
-The quantifiers include arbitrary large data.  The displayed recipe for
-\(A\) must be part of the lemma; saying only that some datum-dependent finite
-number exists is vacuous because the unknown trajectory is determined by the
-datum.  The remainder may not depend on \(\tau,T_*\), the trajectory, the
+The quantifiers include arbitrary large data. A proof must establish the
+finiteness of the bound without defining it through an unbounded trajectory
+supremum. A recipe using explicitly named initial norms would accomplish
+this; uniformity on bounded initial Sobolev sets is an optional stronger
+target. The remainder may not depend on \(\tau,T_*\), the trajectory, the
 unknown supremum of \(\|u(t)\|_3\), or any higher solution norm whose
 finiteness is equivalent to continuation.  Dependence on \(H\) is allowed,
-but \(A(\nu,u_0,H)\) must be finite for every finite \(H\).  No
+but \(A(\nu,u_0,H)\) must be finite for every finite \(H\). No
 smallness, symmetry, sign, spectral support, or modified nonlinearity is
 allowed.  A proof with \(\theta=1\) gives no coercive spacetime estimate but
 still bounds \(Y\) through (1); hence the strictly subunit value is included
@@ -94,7 +94,7 @@ Integrating (1) and applying (PA) yields the two simultaneous estimates
 \]
 \[
  3(1-\theta)\nu\int_0^{\min\{H,T_*\}}D_3(t)\,dt
- \leq \|u_0\|_3^3+3A(\nu,u_0,H).                     \tag{3}
+ \leq \|u_0\|_3^3+3A(\nu,u_0,H),                      \tag{3}
 \]
 
 Here (2) is read on \([0,\min\{H,T_*\})\).  If \(T_*<\infty\), choose any
@@ -219,8 +219,7 @@ statement.  None is asserted.
 For a proposed explicit recipe \(A\), the earliest decisive falsifier is a
 family of genuine smooth unforced solutions \(u^{(n)}\), a fixed finite
 horizon \(H\), times \(\tau_n<\min\{H,T_*^{(n)}\}\), and data for which the
-named initial quantities (hence the proposed \(A\)) stay uniformly bounded,
-but
+recipe values \(A(\nu,u_0^{(n)},H)\) stay uniformly bounded, but
 
 \[
  \int_0^{\tau_n}P_3^{(n)}dt-\theta\nu
@@ -237,7 +236,7 @@ Reject a purported proof immediately if it contains any of the following:
 * replacing \(P_3\) by \(|P_3|\) and invoking an estimate whose remainder
   requires \(L^\infty_tL^3_x\), \(L^1_tL^\infty_x\), or a higher continuation
   norm;
-* replacing the universal remainder in (PA) by a functional that depends on
+* replacing the uniform remainder in (PA) by a functional that depends on
   \(T_*\), \(\tau\), the full trajectory, or its unknown critical supremum;
 * using (5) as if time integrability implied an essential supremum;
 * importing small-data, axisymmetric, averaged, hyperdissipative, forced,
@@ -259,9 +258,10 @@ energy equality then give the R3 conclusion.
 **First gap:** prove (PA) for every divergence-free Schwartz datum and its
 maximal unforced R3 solution, with the stated non-circular dependence.
 
-**Non-claims:** (PA) is unproved; the ESS hypotheses have not yet been audited
-line by line from the primary theorem; no Phase I formalization has begun; no
-Clay alternative is settled.
+**Non-claims:** (PA) is unproved; the source audit and exact maximal-solution
+form of ESS/GKP are recorded separately in `literature/critical-criteria.md`
+and `review-pressure.md`. No Phase I formalization has begun and no Clay
+alternative is settled.
 
 **Next distinct action:** attack (PA) through signed dyadic pressure flux while
 an independent falsification pass searches for smooth trajectory segments
