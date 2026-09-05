@@ -6,7 +6,7 @@ phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 formal_repository: itpplasma/navier-formal
 source_revision:
-  manuscript_commit: 909ff21fdbf9f702668f03a3f483ac62b78daadb
+  manuscript_commit: 0e0322c7ebe860810fe543dd61dbd246b474f65b
 nodes:
   - id: TAO-LOCAL
     title: Tao local H1 theory

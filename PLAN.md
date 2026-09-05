@@ -6,8 +6,8 @@ checkpoint: CP1
 phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
-paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: CP02-integration-audit-then-HF19-track-b
+paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
+active_task: HF19-track-b-running
 public_release: false
 ```
 
@@ -191,6 +191,22 @@ alternative gap. The map generator lays nodes out by dependency depth.
 The cross-lane integration audit (`cp02-review-integration.md`) is the
 remaining gate-1 check; gate 1 is declared only after it passes.
 
+### Gate 1 declared (2026-09-05, navier-paper `0e0322c`)
+
+The cross-lane integration audit `cp02-review-integration.md` passed with
+ten editorial items, all applied. The user-supplied prior-art audit was
+source-checked (`cp02-prior-art-related-work.md`) and woven into the
+manuscript as the subsection "Related work and scope", into the literature
+dossier, and into this plan; its over-claim audit
+(`cp02-review-related-work.md`) returned eight precision corrections, all
+applied. The manuscript at `0e0322c7ebe860810fe543dd61dbd246b474f65b` (83 pages) is the complete paper proof of
+checkpoint CP1: every manuscript-owned step is proved in full, the imported
+premises are Tao Theorem 5.4, Corollaries 4.3 and 5.8, ESS Theorem 1.3, and
+the Leray projection on L3, and the only open content is the critical bound
+with its two unproved sufficient conditions (HIGH-PRESSURE, HIGH-STRAIN).
+Gate 1 of CP1 is closed. Formalization is deferred by the user's
+re-sequencing; the programme continues on Track B.
+
 ### Lean progress (Track A, parallel infrastructure)
 
 `navier-formal` at `9c8b37d` holds 70 standard-axiom declarations:
@@ -204,6 +220,18 @@ parts, interpolation). Wave CP02 (seven proof lanes with independent audits
 and one repair round) is writing the complete paper proof.
 
 ## Beyond the checkpoint
+
+Prior-art audit (2026-09-05): The 2026-09-05 audit's research priorities are
+now sorted by `cp02-prior-art-related-work.md`. Done: the explicit
+divergence-free profile with nonzero pressure work (HF02,
+`hf02-r3-profile.md`). Folded into Track B: a partial HF theorem under a
+natural Type-I or critical-concentration class; a telescoping law for the L3
+pressure flux, to be built and stated as distinct from Yu's local
+coarse-grained G^ell; and a constructive J_0 / A in named initial-data norms.
+Out of scope: publication-strategy forecasts, workflow comparisons with public
+AI proof labs, and any priority or "first" claim; the manuscript's related-work
+subsection states distinctions by objects and quantifiers only, and the audit's
+Zhou-2004 and Beirao-da-Veiga-1995 attributions are corrected there.
 
 The first gap after CP1 is unchanged: an arbitrary-data signed high-output
 pressure absorption estimate, or the alternative signed high-strain estimate
