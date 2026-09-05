@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF13-pressure-entropy-far-field-test
+active_task: HF14-fixed-high-output-correction
 public_release: false
 ```
 
@@ -535,3 +535,31 @@ The angular sign, Riesz asymptotic, and conditional packet expansion are
 separate obligations. Numerical angular coefficients can nominate a sign,
 but require an analytic certificate before integration. HIGH-PRESSURE and
 the Millennium claim remain open, and Phase I remains unstarted.
+
+
+### HF13: full-pressure homogeneous heat monotonicity is excluded
+
+The far-field sign in `hf13-entropy-far-field.md` passes its independent
+review. An elementary Legendre/Parseval bound certifies the angular sign;
+principal-value rescaling transfers it to the actual compact swirl pressure.
+The numerical angular calculation only nominated this sign and is not part
+of the proof. The entropy contribution decays like distance to the power
+minus 3/2, while the remaining compact pressure derivative has a uniform
+parameter-independent distance-to-the-power-minus-3 bound.
+
+That comparison supplies the premise of the independently reviewed
+`hf13-conditional-packet.md` on one common far ball. The controller's
+`hf13-homogeneous-heat-obstruction.md` integrates the two audited inputs,
+frozen at `59ccce3`: for every positive homogeneous coupling parameter,
+some compact smooth solenoidal datum has a finite linear heat step on which
+the functional increases. The datum and time may depend on the parameter.
+Cubic coercivity survives; universal heat monotonicity for this entire
+specific family does not. No input-controlled spacetime remainder is ruled
+out, and no Navier--Stokes counterexample is asserted.
+
+Next task is the original fixed high-output split. First quantify the
+energy-controlled boundary difference between full-pressure and high-output
+corrections. Then derive the complete high-output evolution using the full
+Navier--Stokes pressure gradient in the velocity equation. The far-field
+obstruction above does not itself survive removal of low outputs; do not
+promote it to an HF obstruction. HIGH-PRESSURE remains the missing producer.
