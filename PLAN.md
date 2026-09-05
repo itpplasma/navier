@@ -96,7 +96,7 @@ Verified at this handoff:
   layout overflow; the manuscript is six pages and the map supplement four.
 - The private Overleaf manuscript compiles successfully. Its fetched source
   matches the archive, and its rendered PDF was inspected.
-- The manuscript has 50 resolved internal links, and the map has 43, including
+- The manuscript has 49 resolved internal links, and the map has 43, including
   map-to-claim and claim-to-map directions. Color and grayscale map renderings
   were inspected.
 - The structural verifier checks 13 acyclic claim records, source paths, and
