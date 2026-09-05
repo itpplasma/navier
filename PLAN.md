@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF04-saturated-normal-form-repair
+active_task: HF05-geometric-pressure-identity-audit
 public_release: false
 ```
 
@@ -299,3 +299,24 @@ so saturation can restore cubic size. It must also preserve the required
 pressure cancellation and control its new derivative terms. This is a
 concrete mechanism test; the criterion for completion remains universal HF
 or another independently verified arbitrary-data continuation producer.
+
+### Saturation result and geometric test
+
+The saturation calculation and its audit are in
+`hf04-saturated-normal-form.md` and `hf04-review-saturation.md`; commit
+`3d5642a` preserves the frozen candidate. Saturation restores cubic coercivity,
+but leaves a pressure coefficient bounded below by 1/2 for the stated small
+parameter choice. Coefficientwise exact pressure cancellation on the ambient
+scalar domain forces F=f(X-B). The explicit fixed-energy family has X-B=0
+and X tending to infinity, so that scalar cannot control the critical norm.
+This is a restriction on a precisely specified class of functionals, not on
+all cancellation possible along actual PDE trajectories.
+
+A distinct geometric test writes full pressure work as a Lamb-vector
+commutator and keeps the exact low-output correction after frequency
+cutoff. Its candidate is under independent audit. The controller reduced
+its proposed commutator norm bound to ordinary pressure Holder estimates:
+the formula exposes speed increments but currently proves no stronger
+bound. The remaining critical integral of speed-gradient depletion times
+squared enstrophy is unproved. Further work must obtain an actual sharper
+signed estimate; another equivalent identity alone will not discharge HF.

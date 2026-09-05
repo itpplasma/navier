@@ -107,7 +107,8 @@ algebraic conclusions below require only (11) at states where it is defined.
 
 ## 3. Exact chain rule and the saturation defect
 
-Let \(F=F(X,\mathcal B)\) be \(C^1\). Along a strong trajectory, (11) gives
+Let \(F=F(X,\mathcal B)\) be \(C^1\) on the ambient domain
+\(\Omega=(0,\infty)\times\mathbb R\). Along a strong trajectory, (11) gives
 \[
 \begin{aligned}
  {d\over dt}F(X,\mathcal B)
@@ -117,12 +118,13 @@ Let \(F=F(X,\mathcal B)\) be \(C^1\). Along a strong trajectory, (11) gives
                                                                \tag{12}
 \end{aligned}
 \]
-Thus exact algebraic cancellation of the full pressure work for all states
-requires
+Here exact algebraic cancellation means coefficientwise cancellation of the
+displayed pressure term at every point of Omega. By this definition it requires
 \[
  F_X+F_{\mathcal B}=0.                                \tag{13}
 \]
-On each connected component, the \(C^1\) solutions of (13) are precisely
+The characteristic fibers X-B=constant, X>0 are connected in Omega, so the
+\(C^1\) solutions of (13) are precisely
 \[
  F(X,\mathcal B)=f(X-\mathcal B).                     \tag{14}
 \]
@@ -136,9 +138,12 @@ Then
  F_X+F_{\mathcal B}
  =1-\delta q(X)-\delta q'(X)\mathcal B.               \tag{15}
 \]
-For the small \(\delta\) required by coercivity, the coefficient in (15)
-remains generically of order one, rather than becoming a universal small
-factor. Applying the absolute estimate (2) produces
+This does not infer independence of the quantities realized along actual
+PDE trajectories; other cancellations involving them are outside this test.
+More quantitatively, write |B| <= C_B U^4/nu. Since
+\(q'=-\nu/[U^2(\nu+U)^2]\), we have |q' B| <= C_B. For
+\(\delta\le1/[2(1+C_B)]\), the coefficient in (15) is at least 1/2
+uniformly. Choose delta smaller as needed for (8). Applying (2) produces
 \[
  |P_3|\le CUD_3,
 \]
@@ -214,8 +219,11 @@ work. Conversely, exact cancellation forces dependence only on
 \(X-\mathcal B\), and that scalar is noncoercive by the explicit path and
 amplitude construction.
 
-This excludes all \(C^1\) scalar modified energies depending only on
-\((X,\mathcal B)\) that demand exact algebraic cancellation of \(P_3\). It
+This excludes coercivity for \(C^1\) scalar modified energies depending only on
+\((X,\mathcal B)\) that demand coefficientwise cancellation on Omega. The
+same fixed-energy construction allows energy as a passive extra parameter:
+F(X,B,E)=f(X-B,E) still cannot control X at fixed E. This conclusion does
+not cover cancellation restricted to an unproved trajectory-dependent domain. It
 does not exclude approximate signed cancellation proved by another argument,
 a functional depending on further norms or frequency profiles, a
 time-nonlocal correction, or a direct estimate of
