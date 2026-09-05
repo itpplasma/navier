@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF05-radial-dynamics-and-transfer-test
+active_task: HF06-whole-space-speed-transfer-test
 public_release: false
 ```
 
@@ -337,3 +337,21 @@ dominance. The controller supplied an independent periodic-shear oracle:
 constant initial speed need not remain spatially constant under diffusion
 when its direction varies nonuniformly. This is a diagnostic for a proposed
 mechanism, not a transfer of a torus result to the R3 terminal claim.
+
+### Radial audit and whole-space transfer test
+
+The radial audit in `hf05-review-radial.md` preserves all fixed-epsilon
+identities and the periodic shear expansion. It rejects the inference that
+positivity of the zero-set defect justifies passing every signed evolution
+term to epsilon=0. The repaired note keeps those limits conditional; the
+frozen candidate remains reproducible at `ef07bda`.
+
+The controller has specified a whole-space version of the dynamic test:
+localize a rapidly oscillating, constant-speed periodic shear with a curl
+potential, evolve for its parabolic time, and compare the nonlinear solution
+with its heat evolution. The required bounds are uniform initial L-infinity
+control, global L2 errors of order 1/k, and gradient errors of order one.
+These would test whether a vanishing initial speed-gradient ratio can become
+positive on actual R3 trajectories. Envelope zeros and nonlocal pressure
+must be included in the proof. This tests propagation of a proposed geometric
+depletion mechanism, not existence of singularities or failure of HF.

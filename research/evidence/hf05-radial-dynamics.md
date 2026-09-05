@@ -111,8 +111,12 @@ At points where \(r>0\),
  Z_\varepsilon\longrightarrow r|\nabla n|^2.          \tag{11}
 \]
 
-At zeros, (10) retains the nonnegative defect needed to justify limiting
-inequalities; it must not simply be deleted by defining an arbitrary direction.
+At zeros, positivity of (10) does not by itself justify a limiting evolution
+inequality. Indeed Z_eps=|grad u|^2/eps there, and no uniform-integrability
+bound for the signed products below has been proved. Retain (9)--(15) at
+each eps>0. Statements using the direction n are pointwise or formal on
+{r>0} unless an additional limiting argument is supplied. An arbitrary
+definition of n at zeros does not resolve this issue.
 
 ## 3. Exact evolution of radial cubic dissipation
 
@@ -159,6 +163,9 @@ term by parts gives
 
 All terms in (15) are exact for \(\varepsilon>0\), after ordinary spatial
 cutoffs.  This is the requested evolution law for radial cubic dissipation.
+The quantities A_eps converge to A by dominated convergence, using
+A_eps's density <= (r+1)|grad u|^2 for eps<=1 on the strong class.
+This convergence does not justify passing each term of (15) to the limit.
 
 The angular-transfer term is not damping.  Formally on \(r>0\), integrate it
 by parts and use (11):
