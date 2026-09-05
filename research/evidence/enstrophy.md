@@ -10,10 +10,13 @@ Navier--Stokes equation on \(\mathbb R^3\).  Let
  \qquad \nu>0,
 \]
 
-and suppose initially that \(u\) is a smooth solution whose spatial
-derivatives decay sufficiently rapidly to justify every integration by parts.
-This is the relevant calculation on the maximal classical interval arising
-from smooth divergence-free Schwartz data.  Set
+and let \(u\) be the strong Sobolev solution arising from smooth
+divergence-free Schwartz data. On each compact interval before its maximal
+time, use sufficiently high Sobolev bounds and positive-time smoothing.
+Insert spatial cutoffs \(\chi(x/R)\) in the pairings below; Hölder and Sobolev
+estimates make the errors containing \(R^{-1}\) or \(R^{-2}\) vanish as
+\(R\to\infty\). Regularize nonlinear tests when needed, then take their
+limit. No persistence of Schwartz spatial decay is assumed. Set
 
 \[
  E(t)=\|u(t)\|_{L^2}^2,\qquad
