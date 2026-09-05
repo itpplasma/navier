@@ -3,7 +3,7 @@ title: Navier–Stokes whole-space regularity architecture
 terminal_claim: NS-R3
 phase_i_status: not-started-awaiting-user
 source_revision:
-  manuscript_commit: d7563ef95ec12032e9f9ad06a8f45a2347648ab3
+  manuscript_commit: d84950b50f068ec9d4c2dab44b994efa9e12dc3a
 nodes:
   - id: LOCAL
     title: Local classical solution
@@ -76,7 +76,7 @@ nodes:
     mechanism: split pressure work into controlled low frequencies and an unproved high-frequency estimate
     paper_label: 'hyp:absorption'
     evidence: research/evidence/architecture.md
-    review: Open sufficient route, stronger than critical boundedness because it also controls weighted dissipation. No energy-only producer.
+    review: Open. Strict absorption also controls weighted dissipation, but the ordinary existential finite-horizon assertion is not logically stronger than global strong continuation. See hf02-review-controller.md and hf03-review-paper.md. No energy-only producer.
   - id: LOW-PRESSURE
     title: Low-frequency pressure bound
     statement: At any fixed dyadic cutoff J, the accumulated low-frequency pressure work up to tau less than min(H,Tstar) is bounded in absolute value by C 2^(3J) times the fourth power of initial L2 velocity times the square root of H/(2 nu).
@@ -94,7 +94,7 @@ nodes:
     mechanism: new signed time-integrated pressure estimate on actual trajectories
     paper_label: 'hyp:highpressure'
     evidence: research/evidence/frequency.md
-    review: Open. Frequency separation and critical snapshot scaling supply no proof or spacetime counterexample.
+    review: Open. The existential assertion is equivalent to global continuation of the selected strong branch. A compact R3 profile with positive pressure work now has an audited construction; this rules out a universal sign argument, not spacetime HF. See hf02-r3-profile.md and hf02-review-profile.md. The corrected heat defect retains the same gap.
   - id: ESS
     title: Endpoint continuation
     statement: A maximal smooth finite-energy R3 solution with finite maximal time has unbounded L3 norm on that interval; a finite uniform L3 bound excludes finite-time breakdown.

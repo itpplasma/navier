@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF01-mechanism-discovery-and-falsification
+active_task: HF04-trajectory-obstruction-and-caloric-repair
 public_release: false
 ```
 
@@ -241,3 +241,33 @@ profile notation; the original review inputs remain reproducible.
   A backward caloric/time-ramp repair is being examined as a separate
   mechanism test. Paper and graph integration of reviewed diagnostics is
   pending; no gap node is promoted by these findings.
+
+### Current checkpoint HF03 and next trajectory test
+
+The manuscript now contains the independently audited existential-equivalence
+paragraph at source commit `d84950b`; archive `42742bf` includes the regenerated
+map. Both private Overleaf and GitHub are synchronized. Local and Overleaf
+manuscripts compile to seven pages; the map remains four pages. Rendered
+changes and 50 manuscript / 43 map internal links were checked. These are
+document checks, separate from `hf03-review-paper.md`.
+
+The fixed-energy snapshot obstruction in `hf03-fixed-energy-obstruction.md`
+passes `hf03-review-fixed-energy.md`: for every exact positive kinetic energy,
+fixed viscosity and cutoff, and finite nonnegative dissipation coefficient,
+the instantaneous high-pressure excess has infinite supremum over smooth
+compactly supported solenoidal fields. The proof controls the separated
+reservoir's nonlocal pressure interactions. It excludes instantaneous
+energy-only absorption, not the datum-dependent spacetime target.
+
+The controller found that the attempted Type-I coefficient-one obstruction
+was overbroad: a backward heat cutoff can reduce its incoming weighted cubic
+mass by (r/R)^3. The repaired caloric ledger is under independent audit;
+absolute transport bounds near the final scale remain order one. An upper
+bound of that size is not a proof that signed cancellation is impossible.
+
+Next, test an actual-trajectory energy-only spacetime obstruction using a
+uniform short-time Sobolev bound at viscosity nu/a, followed by amplitude and
+space-time scaling at fixed original kinetic energy. This would test a
+strictly stronger uniform energy-only proposal; it must not be confused with
+HF, whose remainder and cutoff may depend on the whole datum. The original
+universal HF target remains open and Phase I remains unstarted.
