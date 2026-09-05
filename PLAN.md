@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF19-track-b-running
+active_task: none-session-closed-2026-09-05
 public_release: false
 ```
 
@@ -919,3 +919,36 @@ and the `L^2` bound for the nonlinear projection remain open. Next distinct acti
 audit: test whether `K` vanishes identically on `{u : div(|u|u) = 0}`, and
 seek a cancellation inside `K = -int q·grad Pi_{u,A}` rather than a size
 bound, since no monomial in `Q` and `D_3` can close by scaling.
+
+
+### HF19: temporal normal forms, second-order behaviour, difference functional
+
+The user stopped this wave before any audit ran, so **all three candidate
+notes are UNAUDITED** and nothing in them is promoted; they are recorded as
+research leads only. The fourth lane (regularity of the shifted 3-Laplace
+minimizer) never wrote its note; its reviewer certified the absence and
+that certificate is kept as `hf19-review-shifted-hodge-regularity.md`.
+
+- `hf19-temporal-normal-form.md` (DISCOVER, negative). Claims that a temporal
+  normal form for the transport term is exactly equivalent to a coercive
+  critical Lyapunov functional, so the content of any such form lies wholly
+  in the explicit corrector; computes three explicit classes and reports each
+  failing, in one case only under a hidden smallness condition. Reports the
+  route-level conclusion that temporal normal forms are exhausted on the
+  quotient route as they were on the pressure route (HF01, HF04, HF10-HF13).
+- `hf19-second-order-falsifier.md` (FALSIFY, target survived). Reports an
+  exact first-order expansion of the transport term at the nonlinear-Hodge
+  class that never differentiates the minimizer, and finds the favourable
+  sign on an explicit swirl class, i.e. the intended refutation of a
+  Lyapunov mechanism did not occur there. Its open sub-question is a
+  minimizer-free weighted-potential inequality.
+- `hf19-difference-functional.md` (DISCOVER, two claimed obstructions).
+  Reports an exact evolution for the difference of the two cubic functionals
+  in terms of the Hodge defect, and retires the difference route as a
+  producer because that difference is not coercive and its balance carries
+  the same critical absorption as the two audited balances.
+
+None of this changes the graph. Before any of it is used, each note needs
+the independent audit the wave did not run, and the numerics in them are
+bounded evidence at finite resolution, not proof. HIGH-PRESSURE and
+HIGH-STRAIN remain the open producers and NS-R3 remains open.
