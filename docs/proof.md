@@ -79,11 +79,17 @@ claims. Review records identify immutable inputs and their exact scope.
 
 ## Formalization boundary
 
-No Lean implementation is present. Phase I would prove every project-owned
-paper step down to exact verified literature results; it cannot declare
-pressure absorption a published theorem. A formal conditional implication
-would remain conditional. Phase II would discharge the imported results
-from Mathlib. The user has reserved the Phase I kickoff.
+Both Lean phases were authorized on 2026-09-05 for checkpoint CP1, in the
+order paper proof, Phase I, Phase II (see `PLAN.md`). The private repository
+`itpplasma/navier-formal` holds the Palomar-shaped development; at this
+writing it contains supporting lemmas with standard axioms only (the scalar
+obstruction, dilation scaling, the interpolation-mismatch witness, and the
+regularisation calculus of the pressure balance). Phase I proves every
+project-owned paper step down to exact verified literature results (Tao
+Theorem 5.4 and Corollary 5.8, Escauriaza–Seregin–Šverák Theorem 1.3); it
+cannot declare pressure absorption a published theorem, and a formal
+conditional implication remains conditional. Phase II discharges the
+imported results from Mathlib.
 
 
 ## Reviewed quotient alternative (HF17 checkpoint)
