@@ -138,7 +138,7 @@ standard no-slip boundary problem is materially different.  Consequently it
 cannot be promoted to a full Clay solution without deriving the geometric
 modulus from the energy-level hypotheses.
 
-## What these barriers do—and do not—establish
+## Scope of the barriers
 
 Together, the results constrain several attractive blowup pictures: energy
 alone leaves a supercritical gap; energy-preserving averaged dynamics can still
