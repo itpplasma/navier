@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF05-geometric-pressure-identity-audit
+active_task: HF05-radial-dynamics-and-transfer-test
 public_release: false
 ```
 
@@ -320,3 +320,20 @@ the formula exposes speed increments but currently proves no stronger
 bound. The remaining critical integral of speed-gradient depletion times
 squared enstrophy is unproved. Further work must obtain an actual sharper
 signed estimate; another equivalent identity alone will not discharge HF.
+
+### Geometric identity audit and radial dynamics
+
+`hf05-review-lamb.md` checks the Lamb-vector identity, the high-cutoff
+correction, and its energy remainder. The frozen input is preserved at
+`652b672`. Its wording corrections remove unsupported novelty language.
+The speed-gradient estimate is classical Holder/Sobolev bookkeeping and
+does not improve the available arbitrary-data bound.
+
+The next test retains radial dissipation A=integral |u| |grad |u||^2 in
+the pressure estimate |P3| <= C ||u||3 A, while total cubic dissipation is
+2A plus angular dissipation. A Sol calculation is deriving the regularized
+evolution of A to test whether the equation preserves or generates angular
+dominance. The controller supplied an independent periodic-shear oracle:
+constant initial speed need not remain spatially constant under diffusion
+when its direction varies nonuniformly. This is a diagnostic for a proposed
+mechanism, not a transfer of a torus result to the R3 terminal claim.

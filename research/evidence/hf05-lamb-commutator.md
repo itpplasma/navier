@@ -11,8 +11,8 @@ high-pressure or global regularity theorem is claimed.
 Let
 
 \[
- \omega=\nabla\times u,qquad L=u\times\omega,qquad
- k={|u|^2\over2},qquad q=p+k.                         \tag{1}
+ \omega=\nabla\times u,\qquad L=u\times\omega,\qquad
+ k={|u|^2\over2},\qquad q=p+k.                       \tag{1}
 \]
 
 The vector identity
@@ -41,7 +41,7 @@ Therefore, using spatial cutoffs and then passing to the limit,
 \[
 \begin{aligned}
  P_3
- &=\int p,u\cdot\nabla|u|
+ &=\int p\,u\cdot\nabla|u|
    =\int q\,\operatorname{div}w\\
  &=-\langle w,\nabla q\rangle
    =-\langle w,(I-\mathbb P)L\rangle.                 \tag{5}
@@ -132,7 +132,7 @@ identity.  Keeping \(\nabla|u|\) instead of immediately replacing it by
 (set to zero if the denominator vanishes), and becomes
 
 \[
- |P_3(t)|\leq C\delta_{\rm sp}(t)Y(t)^2,qquad
+ |P_3(t)|\leq C\delta_{\rm sp}(t)Y(t)^2,\qquad
  Y(t)=\|\nabla u(t)\|_2^2.                            \tag{12}
 \]
 
@@ -157,7 +157,7 @@ cutoffs.  Starting from \(p=q-k\), not from the full transport cancellation,
 \[
 \begin{aligned}
  H_J
- &=\int Q_Jp,\operatorname{div}w
+ &=\int Q_Jp\,\operatorname{div}w
   =-\langle Q_Jw,\nabla p\rangle\\
  &=-\langle Q_Jw,(I-\mathbb P)L-\nabla k\rangle\\
  &=-\langle Q_Jw,L\rangle
@@ -184,7 +184,7 @@ Also \(\langle w,\nabla k\rangle=0\) by (4), so the final term is low output:
 Consequently the exact high-pressure formula is
 
 \[
- \boxed{H_J=langle Q_J[\mathbb P,|u|]u,L\rangle
+ \boxed{H_J=\langle Q_J[\mathbb P,|u|]u,L\rangle
                  -\langle S_J(|u|u),\nabla(|u|^2/2)\rangle.}       \tag{16}
 \]
 
@@ -254,7 +254,7 @@ bound on \(\mathcal G_H\), or a signed estimate comparing it to
 One can state a sharper persistence condition: if, on every finite horizon,
 
 \[
- \delta_{\rm sp}(t)Y(t)\leq g(t)quad\hbox{a.e.},
+ \delta_{\rm sp}(t)Y(t)\leq g(t)\quad\hbox{a.e.},
  \qquad g\in L^1(0,H)                                 \tag{23}
 \]
 
@@ -264,7 +264,7 @@ both \(g\) and \(Y\) are only \(L^1\).  The actually sufficient factorization
 is instead
 
 \[
- \delta_{\rm sp}(t)Y(t)\leq G_Hquad\hbox{a.e.},       \tag{24}
+ \delta_{\rm sp}(t)Y(t)\leq G_H\quad\hbox{a.e.},     \tag{24}
 \]
 
 with an input-only finite \(G_H\), which gives
@@ -315,7 +315,7 @@ not refute a complete-datum-dependent estimate along one trajectory.
 
 ## 6. Frontier result
 
-**New exact reduction:** full pressure work is the Lamb-vector commutator (6),
+**Derived exact reduction:** full pressure work is the Lamb-vector commutator (6),
 and high pressure work is the commutator plus the explicitly energy-controlled
 low kinetic correction (16)--(19).
 
