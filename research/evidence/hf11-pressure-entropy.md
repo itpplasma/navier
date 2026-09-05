@@ -59,7 +59,7 @@ pressure--speed counterexample.
 Let
 \[
  r_\epsilon=(\epsilon^2+|u|^2)^{1/2},\qquad
- \rho_\epsilon=r_\epsilon-\epsilon,qquad \epsilon>0.           \tag{7}
+ \rho_\epsilon=r_\epsilon-\epsilon,\qquad \epsilon>0.           \tag{7}
 \]
 For \(\phi(q)=q_-^{3/2}\), choose an even nonnegative scalar mollifier
 \(\chi_\delta\in C_c^\infty(\mathbb R)\) of mass one and define
@@ -98,12 +98,25 @@ not by itself prove convergence of their derivatives.
 
 ## 3. Exact fixed-regularizer evolution
 
-Let \(u(t)\) be a smooth rapidly decreasing solution on a compact time
-interval of
+Let \(u\in C([0,T];H^m(\mathbb R^3))\),
+\(u_t\in C([0,T];H^{m-2}(\mathbb R^3))\), \(m\ge4\), be a classical
+solution on a compact interval strictly before its maximal endpoint, of
 \[
  u_t=\nu\Delta u+V(u),\qquad
  V(u)=-\mathbb P((u\cdot\nabla)u).                  \tag{11}
 \]
+No preservation of Schwartz decay is assumed. At fixed positive
+\(\epsilon,\delta\), the pressure and its time derivative belong to
+\(L^2\), while \(\rho_\epsilon\) and \(\Phi_\delta'(p)\) belong to
+\(H^1\cap L^2\). Here \(\Phi_\delta''\) is bounded for fixed
+\(\delta\), and \(\Phi_\delta'(0)=0\). Sobolev embedding gives
+\(\nabla u\in L^\infty\cap L^2\), so \(G_{ij}\in L^2\).
+These bounds justify the displayed pairings, differentiation, and
+integration by parts by Sobolev approximation on the compact interval.
+They do not assert uniform derivative bounds as the regularizers vanish.
+This is the applicability repair from `hf11-review-pressure-entropy.md`;
+the original candidate and audit are frozen at `f3e7605`.
+
 Differentiating the Riesz pressure and using symmetry in \(i,j\) gives
 \[
  p_t=2R_iR_j(u_i u_{j,t})
