@@ -43,6 +43,7 @@ out = [r'''\documentclass[10pt]{article}
 \usetikzlibrary{arrows.meta}
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \usepackage{parskip}
+\usepackage{needspace}
 \pagestyle{plain}
 \begin{document}
 \begin{center}
@@ -87,7 +88,7 @@ No terminal proof or counterexample is claimed.
 \raggedright
 ''', 'Graph SHA-256: '+r'\texttt{'+digest[:32]+'}'+r'\texttt{'+digest[32:]+'}.\n']
 for n in graph['nodes']:
-    out += [r'\section*{'+esc(n['id']+': '+n['title'])+'}'+r'\phantomsection\label{node:'+n['id']+'}\n',
+    out += [r'\Needspace{10\baselineskip}\section*{'+esc(n['id']+': '+n['title'])+'}'+r'\phantomsection\label{node:'+n['id']+'}\n',
             r'\textbf{Class:} '+tags[n['kind']]+r'. \textbf{Phase I/II:} not started.'+'\n\n',
             esc(n['statement'])+'\n\n',
             r'\textbf{Mechanism:} '+esc(n['mechanism'])+'.\n\n',
