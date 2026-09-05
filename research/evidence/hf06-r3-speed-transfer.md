@@ -203,7 +203,8 @@ proves (19). The \(k^{-1}r_k\) term in (6) contributes \(O(k^{-1})\) in
 \(L^2\) and \(O(1)\) after one derivative.
 
 Because \(w_{s_0}\) is bounded away from zero, the speed-gradient comparison
-behind (8), now with \(q=w_{s_0}/|w_{s_0}|\), combines (18)--(19) to give
+behind (8), now with the full nonvanishing profile \(q=w_{s_0}\),
+combines (18)--(19) to give
 \[
 \begin{aligned}
  k^{-1}\|\nabla u_k(t_k)\|_2

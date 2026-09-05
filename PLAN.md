@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF06-whole-space-speed-transfer-test
+active_task: HF06-angular-pressure-symbol-audit
 public_release: false
 ```
 
@@ -355,3 +355,23 @@ These would test whether a vanishing initial speed-gradient ratio can become
 positive on actual R3 trajectories. Envelope zeros and nonlocal pressure
 must be included in the proof. This tests propagation of a proposed geometric
 depletion mechanism, not existence of singularities or failure of HF.
+
+### Whole-space transfer result and pressure geometry
+
+The construction in `hf06-r3-speed-transfer.md` passes the repair audit
+`hf06-review-speed-transfer.md`: use the full heat-evolved profile in the
+speed-gradient comparison, rather than its normalized direction. The
+localized curl fields have speed-gradient ratio tending to zero initially
+and a positive limiting ratio at their parabolic times. Global L2/H1 errors
+and envelope zeros are controlled. Initial L3 norms stay bounded, and the
+solutions have a common regular interval. This rejects automatic propagation
+of that particular depletion ratio, not regularity or HF.
+
+The controller notes that the leading shear has zero pressure. Radial
+variation is therefore too coarse a diagnostic to identify dangerous
+pressure flux by itself. A separate calculation is testing the exact Fourier
+pressure symbol: comparable near-parallel modes have an angular null factor,
+whereas nearly opposite modes can lose that factor in pressure when their
+output is small. The pressure gradient retains an output-frequency factor.
+Its shell estimates and any claimed summation gain are under independent
+audit. No angular-coherence hypothesis is assumed for arbitrary solutions.
