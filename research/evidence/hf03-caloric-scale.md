@@ -4,8 +4,9 @@ Status: correction and mechanism test for a local pointwise Type-I regime.
 This note retracts the universal “coefficient one prevents gain” conclusion
 of the earlier cutoff test.  A backward caloric cutoff has a spatial spreading
 factor that can make its incoming weighted cubic mass small.  The remaining
-loss is computed explicitly: transport and pressure-boundary leakage are
-critical and concentrate near the final parabolic time \(s=-t\sim r^2\).
+limitation of the absolute-value estimate is computed explicitly: its
+comparison integrals remain critical near \(s=-t\sim r^2\). This is not
+a lower bound or a no-cancellation theorem for the actual signed flux.
 No Type-I regularity or global high-pressure theorem is claimed.
 
 ## 1. Assumptions and the caloric cutoff
@@ -161,7 +162,8 @@ Split at \(s=r^2\).  On \((0,r^2)\),
 Both integrals approach nonzero constants as \(R/r\to\infty\).  More
 precisely, the first equals \(2\), and the second equals
 \(\frac23(1-(r/R)^3)\).  The incoming face gains \((r/R)^3\), but the
-transport boundary does not.  Its loss comes from \(s\lesssim r^2\) and the
+displayed transport upper bound has no such gain. Its comparison integral
+comes from \(s\lesssim r^2\) and the
 adjacent parabolic times \(s\gtrsim r^2\), where the cutoff has not spread far
 enough to lower its gradient.
 
@@ -193,6 +195,10 @@ the pressure envelope
 This is an additional diagnostic hypothesis, not a consequence of (PTI)
 asserted here.  Equations (5), (10), (PTI), and (PPI) give
 
+Use the same replacement p -> p-c in both terms of (13), or retain its
+unsplit gauge-invariant pairing; the constant contributions cancel only
+when the two pieces are taken together.
+
 \[
 \begin{aligned}
  \mathcal P^{\rm bd}_{r,R}
@@ -204,7 +210,7 @@ asserted here.  Equations (5), (10), (PTI), and (PPI) give
 \end{aligned}
 \]
 
-It has exactly the same near-final order-one loss as transport.  A formulation
+Its upper bound has the same near-final comparison integral as transport. A formulation
 using scale-invariant annular \(L^{3/2}\) pressure bounds gives the same
 conclusion after a dyadic shell sum: bounded leakage depending on the pressure
 constant, without a factor tending to zero in \(r/R\).  That annular bound
@@ -212,7 +218,8 @@ must be proved from local pressure decomposition and outer data; harmonicity
 alone does not supply the cubic-flux estimate.
 
 Therefore even a hypothetical strict signed estimate for the first term of
-(13) leaves the order-one absolute errors (12) and (14).  The caloric cutoff
+(13) leaves the available bounds (12) and (14) too coarse to prove smallness.
+The actual signed errors may still decay or cancel. The caloric cutoff
 repairs the incoming face, but moves the first unresolved boundary issue to
 the near-final parabolic layer.
 
@@ -272,15 +279,15 @@ mass from critical order one to
 The prior universal coefficient-one no-go is therefore false and is retracted
 for this mechanism.
 
-**Exact surviving loss.**  Absolute estimates for transport leakage and,
+**Surviving limitation of the absolute-value estimate.** Bounds for transport leakage and,
 under an explicit pressure hypothesis, pressure-boundary leakage satisfy
 
 \[
  |\mathcal T_{r,R}|\lesssim C_\nu C_*^4,qquad
- |\mathcal P^{\rm bd}_{r,R}|lesssim C_\nu P_*C_*^2,   \tag{19}
+ |\mathcal P^{\rm bd}_{r,R}|\lesssim C_\nu P_*C_*^2,   \tag{19}
 \]
 
-with no decay as \(r/R\to0\).  The integral calculation locates this loss at
+without a proved decay factor as \(r/R\to0\). The comparison integral is largest at
 \(s\lesssim r^2\), not at the incoming face.  The active signed pressure work
 also remains unestimated.
 

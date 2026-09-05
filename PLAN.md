@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF04-trajectory-obstruction-and-caloric-repair
+active_task: HF04-saturated-normal-form-repair
 public_release: false
 ```
 
@@ -271,3 +271,31 @@ space-time scaling at fixed original kinetic energy. This would test a
 strictly stronger uniform energy-only proposal; it must not be confused with
 HF, whose remainder and cutoff may depend on the whole datum. The original
 universal HF target remains open and Phase I remains unstarted.
+
+### Audited HF04 consequences
+
+The trajectory test succeeds after the interior-endpoint repair in
+`hf04-review-spacetime.md`: actual smooth solution segments of fixed initial
+kinetic energy have unbounded integrated high-pressure excess at a fixed
+cutoff. Initial L3 norms diverge across the constructed sequence. Thus this
+refutes an energy-only uniform spacetime remainder, but supplies neither a
+counterexample to HF nor information about one fixed solution's endpoint.
+
+The controller's full-heat inverse calculation passes
+`hf04-review-coercivity.md`. Starting the heat inverse at zero gives a finite
+functional on each Schwartz snapshot, but the direct additive modified
+energy is unbounded below even at fixed kinetic energy. This prevents that
+particular correction from controlling the critical norm through an
+energy-only coercivity estimate.
+
+The caloric audit preserves the incoming (r/R)^3 gain and corrects an
+overclaim: uniform upper bounds for signed boundary flux do not establish
+nonzero flux or rule out cancellation. The audited original and repairs
+are preserved separately.
+
+Next repair: test nonlinear saturation of the full-heat functional. The
+controller's heat-flow calculation suggests |B(u)| <= C nu^-1 ||u||_3^4,
+so saturation can restore cubic size. It must also preserve the required
+pressure cancellation and control its new derivative terms. This is a
+concrete mechanism test; the criterion for completion remains universal HF
+or another independently verified arbitrary-data continuation producer.

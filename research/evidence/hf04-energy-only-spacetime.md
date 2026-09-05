@@ -133,9 +133,9 @@ divergence free, and
 \]
 
 The normalized solution exists at least until \(s=T\), so the original
-solution exists at least until
+solution exists at least until T/(aN^2). Choose the strictly interior time
 \[
- \tau_a={T\over aN^2}.                                \tag{13}
+ \tau_a={T/2\over aN^2}.                              \tag{13}
 \]
 Since \(N\simeq a^2\), \(\tau_a\simeq a^{-5}\), and
 \(\tau_a<H\) for all sufficiently large \(a\).
@@ -150,7 +150,7 @@ Changing time variables in (14),
 \begin{aligned}
  \int_0^{\tau_a}
  \bigl(P_3[u_a]-\theta\nu D_3[u_a]\bigr)\,dt
- &=a^3\int_0^T
+ &=a^3\int_0^{T/2}
  \bigl(P_3[v_\mu]-\theta\mu D_3[v_\mu]\bigr)\,ds.
                                                                \tag{15}
 \end{aligned}
@@ -160,7 +160,7 @@ By (9)--(10), once \(a\) is also large enough that
 \[
  \int_0^{\tau_a}
  \bigl(P_3[u_a]-\theta\nu D_3[u_a]\bigr)\,dt
- \ge {TP_\phi\over4}\,a^3.                            \tag{16}
+ \ge {TP_\phi\over8}\,a^3.                            \tag{16}
 \]
 
 ## 4. Removing the fixed low-output pressure
@@ -180,7 +180,7 @@ Since \(H_J=P_3-L_J\), equations (16)--(18) yield
 \[
  \int_0^{\tau_a}
  \bigl(H_J(u_a)-\theta\nu D_3(u_a)\bigr)\,dt
- \ge {TP_\phi\over4}a^3-o(1)
+ \ge {TP_\phi\over8}a^3-o(1)
  \longrightarrow+\infty.                             \tag{19}
 \]
 This proves (1).
