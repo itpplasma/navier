@@ -2,11 +2,11 @@
 
 ```yaml
 terminal_claim: NS-R3
-phase: awaiting-user-phase-i-kickoff
+phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: await-user-phase-i-kickoff
+active_task: HF01-mechanism-discovery-and-falsification
 public_release: false
 ```
 
@@ -32,8 +32,9 @@ Paper preparation precedes the two formalization phases. Phase I proves all
 project-owned manuscript steps in Lean down to precisely stated, directly
 verified literature theorems. Phase II proves the remaining literature
 theorems from Mathlib. No Lean implementation begins before the user kicks
-off Phase I. The present request ends with a reviewed paper handoff, with any
-unresolved mathematics stated explicitly.
+off Phase I. The user has now authorized persistent paper research until the
+high-frequency estimate is proved and independently verified. The previous
+paper handoff is a checkpoint, not the stopping condition for this work.
 
 ## Frontier packet
 
@@ -104,10 +105,89 @@ Verified at this handoff:
 - Component and integration audits independently reconstruct the conditional
   mathematical implications at the frozen revisions recorded in their files.
 
-## Next authorized boundary
+## Detailed high-frequency research plan
 
-Wait for the user to kick off Phase I. The open mathematical research task is
-to prove HIGH-PRESSURE, repair its mechanism, or find a distinct a priori
-continuation producer. Formalizing the current conditional implication alone
-would not discharge that gap. Any future claim of a completed proof must
-prove the missing producer and pass a new independent frozen audit.
+The objective is to prove HIGH-PRESSURE for every original unforced R3
+Schwartz-data trajectory, uniformly to any putative finite singular time.
+A conditional consumer, a small-data theorem, a numerical trajectory, or
+another statement of the same unknown finiteness does not complete this
+objective. Phase I remains unstarted.
+
+### Exact target and conventions
+
+Write P3 = integral p u dot grad |u| and
+D3 = integral (|u||grad u|^2 + |u||grad |u||^2). Fix a smooth real-even
+low-pass multiplier S_J and Q_J = integral (p-S_J p) u dot grad |u|.
+The target quantifier order is
+
+```text
+exists theta in [0,1), for every nu > 0, Schwartz solenoidal u0 and H > 0,
+exists integer J and finite A >= 0, for every 0 < tau < min(H,Tstar):
+  integral_0^tau Q_J <= theta nu integral_0^tau D3 + A.
+```
+
+The existential assertion is nontrivial. A proof cannot assume finiteness
+of the unknown trajectory supremum to produce its witness. An explicit
+formula in declared initial norms would be stronger; it is not silently
+required by the existing statement. Every candidate will declare whether it
+addresses this exact target or a stronger sufficient mechanism.
+
+### Ordered research stages
+
+1. **Audit the reduction.** Determine whether finite-horizon existential HF
+   is equivalent to global strong continuation, and identify exactly what
+   additional information an effective estimate would provide. Check signs,
+   amplitude scaling, viscosity, pressure gauge, endpoint uniformity, and
+   the cutoff quantifiers before pursuing a mechanism.
+2. **Derive distinct mechanisms.** Investigate weighted pressure absorption,
+   an explicit modified-energy or temporal normal-form identity, and a
+   concentration/time-scale budget. Each lane must return an actual
+   inequality, identity, or obstruction. A proposal that only names the
+   desired cancellation is incomplete evidence.
+3. **Falsify before extending.** Test instantaneous assertions on declared
+   divergence-free fields, spatial and amplitude rescalings, and local
+   solution segments. Test time-integrated claims on actual trajectories or
+   prove a relevant implication; arbitrary snapshots cannot refute them.
+   Numerical examples require an independent formula and refinement checks
+   and remain numerical until an analytic certificate is supplied.
+4. **Repair and escalate.** Luna handles source extraction, arithmetic,
+   reproducible probes, and already specified implementation. A failed Luna
+   task with a mathematical ambiguity goes to Sol. Distinct hard analytic
+   questions go directly to Sol. The controller reconstructs every failed
+   Sol bridge, seeks an exact repair or a different intermediate functional,
+   and chooses the next lane from that evidence rather than repeating the
+   same question. Record the failed inference, not a ban on an entire field.
+5. **Audit coherent candidate blocks.** Freeze exact commits, or a base
+   commit plus complete patch digest including new files. An independent
+   reviewer reconstructs the argument and external premises. Repair findings
+   are applied by the controller; workers never promote their own results.
+6. **Integrate a mathematical change.** Update the paper, logical graph, and
+   this plan after a verified lemma, obstruction, or repaired route changes
+   the frontier. Keep the private Overleaf authority and GitHub mirrors
+   synchronized; run structural checks, paper compilation, PDF inspection,
+   and explicit-path commits. None of these replaces mathematical review.
+7. **Check completion against the original target.** A complete paper proof
+   must cover every admissible datum and all horizons, discharge HF rather
+   than postulate it, and pass separate estimate, endpoint/source, and final
+   integration audits. If the exact HF mechanism is disproved, repair or
+   replace it while preserving the Millennium objective. Do not declare the
+   goal achieved merely because the current wave ends.
+
+### Current wave HF01
+
+Frozen starting research commit: `1240e98d78f1745f089efb9c6c282db520e00363`.
+Frozen starting paper archive: `95cbf22885bb374cf83b6f485db97ce292e623f8`.
+The controller owns all authoritative changes. Worker files are evidence.
+
+| Lane | Model and role | Information target | Evidence file |
+| --- | --- | --- | --- |
+| Quantifier and producer audit | Controller | Exact relation of existential HF to continuation; identify noncircular mechanisms | `research/evidence/hf01-controller.md` |
+| Weighted cubic estimate | Sol | Derive usable pressure bound; attempt amplitude/geometry repair for large data | `research/evidence/hf01-weighted.md` |
+| Temporal modified energy | Sol | Construct one actual boundary functional or symbol and expose its remainder | `research/evidence/hf01-normal-form.md` |
+| Concentration budget | Sol | Compute spike persistence and dissipation costs with the frequency scale retained | `research/evidence/hf01-concentration.md` |
+| Primary-source table | Luna | Exact pressure criteria and their unproved input requirements | `research/evidence/hf01-source-table.md` |
+| Pressure-work probe | Luna | Reproducible nonzero Fourier snapshot; independent pressure identities | `research/evidence/hf01-snapshot.md` and `.py` |
+
+The next integration selects a surviving mechanism from these results.
+Unproved HF remains the first mathematical gap. Formalization remains
+reserved for the user's separate Phase I kickoff.
