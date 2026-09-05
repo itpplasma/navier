@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF11-pressure-entropy-coercive-repair
+active_task: HF12-pressure-speed-cusp-repair
 public_release: false
 ```
 
@@ -475,3 +475,29 @@ is being derived, including its pressure-source term, cross gradients and
 zero-level behavior. No sign for its full heat part or endpoint bound may be
 inferred from pointwise positivity of the functional. HIGH-PRESSURE remains
 the first unsupported terminal bridge, and Phase I remains unstarted.
+
+### HF11: coercivity survives, heat monotonicity fails
+
+The pressure-entropy functional K = F + integral p|u| + integral p_-^(3/2)
+obeys ||u||_3^3/6 <= K <= C||u||_3^3. Its fixed-regularizer evolution is
+valid on compact classical Sobolev intervals after the applicability repair
+in `hf11-review-pressure-entropy.md`. The candidate and audit were frozen
+at `f3e7605`; the Sobolev repair was committed at `4338abe`.
+
+The controller's remote-pressure construction now rules out universal heat
+monotonicity of the original, unregularized K. A compact azimuthal field has
+negative pressure in a ball where its velocity vanishes. Adding a small
+solenoidal oscillatory packet there changes p|u| at first order in amplitude
+and the pressure entropy only at second order. A short exact heat step
+attenuates the packet and increases K. The proof uses L3 continuity and an
+explicit heat residual estimate, avoiding derivatives at velocity zeros.
+See `hf11-heat-finite-step.md` and its independent review
+`hf11-review-heat-finite-step.md`, frozen at `3a5844d`; the only review repair
+makes the viscosity quantifier explicit. This is a linear-heat obstruction,
+not a Navier--Stokes trajectory counterexample or a failure of HF.
+
+Next task: determine which pressure-only additions share this obstruction,
+then change the pressure--speed coupling near zero velocity and identify
+exactly which pressure-work cancellation is lost. A replacement must retain
+critical-norm control and account for its entire evolution; positivity of
+the functional alone is insufficient. No new terminal dependency is proved.

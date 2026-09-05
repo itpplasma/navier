@@ -14,12 +14,16 @@ one fixed regularization and avoids differentiating the speed at a zero set.
 
 ## Statement
 
-There are \(h\in C_c^\infty(\mathbb R^3;\mathbb R^3)\),
-\(\nabla\cdot h=0\), and \(t>0\) such that
+There is \(h\in C_c^\infty(\mathbb R^3;\mathbb R^3)\),
+\(\nabla\cdot h=0\), such that for every \(\nu>0\) there is
+\(t_\nu>0\) with
 \[
- \mathcal K(e^{\nu t\Delta}h)>\mathcal K(h).                    \tag{2}
+ \mathcal K(e^{\nu t_\nu\Delta}h)>\mathcal K(h).                \tag{2}
 \]
 The pressure in (1) is always the fixed Riesz-transform representative.
+This explicit viscosity quantifier is the sole repair from
+`hf11-review-heat-finite-step.md`; the original candidate and review are
+frozen at `3a5844d`.
 
 ## A remote swirl with negative pressure
 
