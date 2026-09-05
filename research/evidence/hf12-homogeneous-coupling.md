@@ -46,7 +46,7 @@ For \(r>0\) and \(p\ne0\), set
 \]
 If \(p>0\), then
 \[
- g_k=pr,\qquad \partial_rg_k=p,qquad \partial_pg_k=r.          \tag{5}
+ g_k=pr,\qquad \partial_rg_k=p,\qquad \partial_pg_k=r.          \tag{5}
 \]
 If \(p<0\), then
 \[
@@ -55,7 +55,7 @@ If \(p<0\), then
 and direct differentiation gives
 \[
  \boxed{\quad
- \partial_rg_k={pr\over s},qquad
+ \partial_rg_k={pr\over s},\qquad
  \partial_pg_k=(s-h){2s-h\over2s}.
  \quad}                                                       \tag{6}
 \]
@@ -89,7 +89,7 @@ The second term in (8) is the derivative of \(q^{3/2}\) with respect to
 
 Let
 \[
- N=(u\cdot\nabla)u,qquad V=-\mathbb P N=-N-\nabla p,qquad
+ N=(u\cdot\nabla)u,\qquad V=-\mathbb P N=-N-\nabla p,\qquad
  p_V=2R_iR_j(u_iV_j).                                         \tag{10}
 \]
 At points where \(r>0\) and \(p\ne0\), the formal first variation of (2)
@@ -163,6 +163,31 @@ power of \(k\).  In particular \(a_k\to r-(3/2)\sqrt q\) on \(p<0\) for
 fixed \(r>0\) as \(k\downarrow0\), while \(a_k=r\) on \(p>0\).
 Therefore (15) alone supplies no closure, even if the integral on its
 right-hand side were otherwise controlled.
+
+## Small-parameter heat obstruction
+
+The controller's extension, checked in
+`hf12-review-homogeneous-coupling.md`, compares this functional with the
+original \(\mathcal K\). On \(p<0\),
+\[
+ 0\le g_k(r,p)-pr
+ =q\bigl(r-\sqrt{r^2+kq}+\sqrt{kq}\bigr)
+ \le\sqrt{k}\,q^{3/2}.
+\]
+On \(p\ge0\), the difference vanishes. Consequently
+\[
+ 0\le\mathcal J_k(u)-\mathcal K(u)\le\sqrt{k}E_p(u),
+ \qquad E_p(u)=\int p[u]_-^{3/2}.
+\]
+Choose the fixed \(h,t\) in the reviewed HF11 heat counterexample and write
+\(\Delta=\mathcal K(e^{t\Delta_x}h)-\mathcal K(h)>0\). Then
+\[
+ \mathcal J_k(e^{t\Delta_x}h)-\mathcal J_k(h)
+ \ge\Delta-\sqrt{k}E_p(h)>0
+\]
+for all sufficiently small \(k>0\). This excludes universal heat monotonicity
+in that parameter regime; it does not decide arbitrary or large \(k\).
+The frozen scalar candidate and audit are preserved at `7afbff8`.
 
 ## Scope
 

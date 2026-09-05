@@ -6,7 +6,7 @@ phase: active-paper-research
 phase_i_status: not-started-awaiting-user
 phase_ii_status: not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: HF12-pressure-speed-cusp-repair
+active_task: HF13-pressure-entropy-far-field-test
 public_release: false
 ```
 
@@ -501,3 +501,37 @@ then change the pressure--speed coupling near zero velocity and identify
 exactly which pressure-work cancellation is lost. A replacement must retain
 critical-norm control and account for its entire evolution; positivity of
 the functional alone is insufficient. No new terminal dependency is proved.
+
+
+### HF12: pressure-only and fixed-scale repairs are insufficient
+
+The centered-Holder pressure-only obstruction in `hf12-cusp-repair.md`
+passes `hf12-review-cusp-repair.md` after replacing an unjustified moving-
+argument continuity step by a direct estimate relative to the background
+pressure. Every pressure-only correction with exponent greater than 1/2 in
+that estimate changes too slowly to remove the linear negative-pressure
+speed term. The general coupling condition is explicitly restricted to
+uniform expansion hypotheses. The complete fixed-scale Euler identity now
+retains the restored pressure work and every remaining pressure term.
+
+For every fixed positive smoothing scale, the repaired functional can still
+increase under a finite linear heat step. `hf12-fixed-scale-obstruction.md`
+passes its independent review: choose the remote background amplitude,
+then the packet amplitude, then its frequency. All nonlocal pressure and
+entropy terms are included.
+
+The homogeneous alternative in `hf12-homogeneous-coupling.md` has uniform
+cubic coercivity and reviewed scalar derivatives. One Euler defect has a
+square-root parameter coefficient multiplying an uncontrolled critical
+integral; the other Euler terms are not small. The reviewed comparison with
+HF11 transfers the heat obstruction to every sufficiently small parameter.
+Original candidates and reviews are frozen at `7afbff8`; no HF producer is
+obtained, and no Navier--Stokes trajectory counterexample is asserted.
+
+Next test: inspect the far-field Riesz pressure-entropy contribution for a
+compact azimuthal background. A negative directional quadratic coefficient
+in a negative-pressure region would test the remaining parameter regime.
+The angular sign, Riesz asymptotic, and conditional packet expansion are
+separate obligations. Numerical angular coefficients can nominate a sign,
+but require an analytic certificate before integration. HIGH-PRESSURE and
+the Millennium claim remain open, and Phase I remains unstarted.

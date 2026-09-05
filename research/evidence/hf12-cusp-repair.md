@@ -1,10 +1,10 @@
 # HF12: the pressure-speed cusp and a minimal coupling repair
 
-MODE / RESULT: **FALSIFY / REPAIR.**  Conditional on the finite-step theorem
+MODE / RESULT: **FALSIFY / REPAIR.**  Using the reviewed finite-step theorem
 in hf11-heat-finite-step.md, the obstruction applies to every pressure-only
 correction that is locally Hölder with exponent greater than \(1/2\) on
 \(L^{3/2}\).  Such a correction cannot remove the linear negative-pressure
-speed cusp.  A necessary local change is to replace \(pr\) by a coupling
+speed cusp.  Under the explicit expansion hypotheses below, a necessary local change is to replace \(pr\) by a coupling
 \(g(r,p)\) whose right speed derivative at \(r=0\) is nonnegative when
 \(p<0\).  The explicit coupling
 \[
@@ -14,12 +14,11 @@ speed cusp.  A necessary local change is to replace \(pr\) by a coupling
 does this and preserves static coercivity, but loses the exact
 coefficient-one Euler cancellation by the displayed residual below.
 
-CLAIM AND SCOPE: The source construction is the pending-review finite-step
-candidate research/evidence/hf11-heat-finite-step.md, SHA-256
-326f24a3ffe0e1f46de065c493ce83dff2e5698b5137f21acf0ab7489333e516.
-The abstraction here does not independently promote that theorem.  Assuming
-its remote background \(U\), packets \(w_N\), heat time
-\(t_N=s/(\nu N^2)\), and estimates, the conclusions below are exact.
+CLAIM AND SCOPE: The source is the reviewed and repaired finite-step theorem
+`hf11-heat-finite-step.md` at `d43dfe7`. The original HF12 candidate and
+independent audit are frozen at `dd04732`. This version applies the centered
+pressure estimate, expansion hypotheses, and Euler-identity repairs from
+`hf12-review-cusp-repair.md`.
 
 EVIDENCE:
 
@@ -60,12 +59,25 @@ satisfies
  \mathcal J_{\mathfrak P}(U+bw_N)
  =\mathcal J_{\mathfrak P}(U)-bA_N+o(b)             \tag{7}
 \]
-uniformly along the construction.  Replacing \(b=a\) by
-\(b=e^{-s}a\) under the short high-frequency heat step reverses this linear
-decrease.  The proof of the pending finite-step theorem then applies with
-\(o(a)\) in place of \(O(a^2)\): choose \(a\) first, then \(N\).  Thus no
-pressure-only correction satisfying (2) can make (6) universally
-nonincreasing under the heat semigroup.
+uniformly along the construction. For the actual heat endpoint
+\(z_N=e^{\nu t_N\Delta}(U+aw_N)\), put \(\lambda=e^{-s}\).
+The pressure map is locally Lipschitz from \(L^3\) to \(L^{3/2}\), so
+\[
+ \|p[z_N]-p_U\|_{3/2}\le o_N(1)+Ca^2.
+\]
+Apply the centered hypothesis (2) directly to this pressure, obtaining
+\( |\mathfrak P(p[z_N])-\mathfrak P(p_U)|
+\le C(o_N(1)+Ca^2)^\alpha\). No continuity between two moving pressure
+arguments is assumed. The cubic and pressure-speed terms are locally
+Lipschitz in \(L^3\), so their heat-endpoint expansion is the ideal damped
+packet expansion plus \(o_N(1)\). Subtracting the static expansion gives
+\[
+ \mathcal J_{\mathfrak P}(z_N)-\mathcal J_{\mathfrak P}(U+aw_N)
+ =a(1-\lambda)A_N+O(a^2)+O(a^{2\alpha})+o_N(1).
+\]
+Choose \(a>0\) sufficiently small and then \(N\) large. Since
+\(2\alpha>1\), the increment is positive. Thus no pressure-only correction
+satisfying (2) makes (6) universally nonincreasing under the heat semigroup.
 
 The exponent threshold in this argument is exact for its information:
 pressure changes by \(O(b^2)\), so \(2\alpha>1\) is what makes the correction
@@ -74,25 +86,33 @@ such a correction could itself contribute at order \(b\).
 
 ## 2. Necessary local condition on a velocity-pressure coupling
 
-Replace \(pr\) by a scalar coupling \(g(r,p)\), and suppose the right
-derivative \(g_r(0+,p)\) exists and is continuous in \(p\) on the negative
-pressure range used by the remote background.  On the ball where
-\(U=0\), \(p_U<0\), and the packet is supported, disjointness and
-\(p[U+bw_N]=p_U+O_{L^{3/2}}(b^2)\) give the formal first-order term
+Replace \(pr\) by a scalar coupling \(g(r,p)\). This subsection requires
+more than continuity of its derivative. On a compact negative pressure
+interval containing the background values on the packet ball, assume
 \[
- b\int_B g_r(0+,p_U(x))\,|w_N(x)|\,dx.               \tag{8}
+ \sup_p\left|{g(r,p)-g(0,p)\over r}-\gamma(p)\right|\longrightarrow0
+ \quad(r\downarrow0),
 \]
-Under the same local continuity and domination needed to justify this
-expansion, heat damping replaces \(b\) by \(\lambda b\), \(0<\lambda<1\).
-For a universally nonincreasing heat functional, (8) therefore cannot be
-negative for packets localized near any point.  The necessary pointwise
-condition is
+with \(\gamma\) continuous and an integrable envelope for this expansion.
+Also assume that replacing the background pressure by the actual packet or
+heat-endpoint pressure changes the integrated coupling by \(o(b)\), uniformly
+in the choose-amplitude-then-frequency order, and that the heat approximation
+for the remaining coupling terms has the same control. These are explicit
+hypotheses, not consequences of derivative continuity alone.
+
+Under them, the first-order packet term is
 \[
- \boxed{\quad g_r(0+,p)\ge0\quad\text{for every accessible }p<0.\quad}       \tag{9}
+ b\int_B\gamma(p_U(x))|w_N(x)|\,dx.                 \tag{8}
 \]
-The original coupling \(g(r,p)=pr\) has \(g_r(0+,p)=p<0\), which is exactly
-the failed cusp.  Condition (9) is necessary for this mechanism; it is not
-sufficient for heat monotonicity.
+Heat damping replaces \(b\) by \(\lambda b\), \(0<\lambda<1\).
+Localizing where \(\gamma(p_U)<0\) would therefore give a positive heat
+increment. Universal heat nonincrease requires
+\[
+ \gamma(p)\ge0\quad\text{at each accessible negative pressure value}. \tag{9}
+\]
+This is a necessary condition under the stated expansion hypotheses, not
+an unrestricted theorem about every scalar coupling. It is not sufficient
+for heat monotonicity. The original coupling has \(\gamma(p)=p<0\).
 
 ## 3. A minimal smooth-speed repair
 
@@ -113,6 +133,10 @@ Consequently
 The matching cubic upper bound follows as before from
 \(\rho_\tau(r)\le r\) and Riesz boundedness.
 
+The repaired coupling still need not decrease under heat. For every fixed
+scale, `hf12-fixed-scale-obstruction.md` gives an independently audited
+finite heat-step increase. Removing the linear cusp alone is insufficient.
+
 ## 4. Exact Euler-cancellation defect
 
 Let \(V=-\mathbb P((u\cdot\nabla)u)\), and write
@@ -126,44 +150,43 @@ derivative
  =\int {p\over\sqrt{r^2+\tau^2}}\,u\cdot V
    +\int\rho_\tau(r)p_V.                            \tag{13}
 \]
-Where the unregularized derivative is legitimate, its corresponding formula
-is
+The complete Euler contribution should be written directly, without
+subtracting an unregularized derivative at velocity zeros. Set
+\(r_\tau=\sqrt{r^2+\tau^2}\). Since \(V=-(u\cdot\nabla)u-\nabla p\),
 \[
- D\!\left[\int pr\right][V]
- =\int {p\over r}\,u\cdot V+\int r p_V.             \tag{14}
+ \begin{aligned}
+ D(F+B_\tau)(u)[V]={}&
+ \int p\left(1-{r\over r_\tau}\right)u\cdot\nabla r
+ -\int {p\over r_\tau}u\cdot\nabla p
+ +\int\rho_\tau(r)p_V,                             \tag{14}
+ \end{aligned}
 \]
-Thus the exact defect introduced into any coefficient-one cancellation is
-\[
- \boxed{\begin{aligned}
- \mathcal D_\tau(u;V)={}&
- \int p\left({1\over\sqrt{r^2+\tau^2}}-{1\over r}\right)u\cdot V\\
- &+\int\left(\sqrt{r^2+\tau^2}-\tau-r\right)p_V .
- \end{aligned}}                                    \tag{15}
-\]
-Formula (15) is asserted on \(\{r>0\}\) under hypotheses that justify (14);
-equivalently, (13) is the globally valid fixed-\(\tau\) formula and should be
-used at velocity zero sets.  If an earlier identity gives exact cancellation
-between \(D(\|u\|_3^3/3)[V]\) and \(D(\int pr)[V]\), replacing \(pr\) by
-\(p\rho_\tau(r)\) leaves precisely \(\mathcal D_\tau(u;V)\).  No sign or
-closure for this defect follows from (15).
+where \(B_\tau=\int p\rho_\tau(r)\). All terms are defined on velocity
+zero sets. This follows from \(DF[V]=P_3\) and the transport contribution
+\(-\int p(r/r_\tau)u\cdot\nabla r\) in (13). Only the original pressure
+work was canceled by the old coupling; its other Euler terms never vanished.
+The first term of (14) is precisely the pressure-work contribution restored
+by smoothing. For the full functional in (11), add
+\(-\frac32\int\sqrt{p_-}\,p_V\) to (14), by the differentiability of the
+pressure entropy integral on \(L^{3/2}\). No sign or input-only bound for
+this complete expression has been established.
 
-FIRST GAP: Control the full repaired Euler defect (13), or find a different
+FIRST GAP: Control the complete Euler expression (14), including its entropy term, or find a different
 coupling satisfying the necessary cusp condition (9) while retaining a
 usable pressure-work cancellation.  Static coercivity and removal of the
 linear cusp do not provide that control.
 
-SURVIVING CONDITIONAL SUFFIX: Subject to review of the cited finite-step
-candidate, pressure-only locally Lipschitz corrections are excluded as a
+SURVIVING CONDITIONAL SUFFIX: Pressure-only locally Lipschitz corrections are excluded as a
 route to universal heat monotonicity.  The coupling (1) is a concrete
 statically coercive replacement that removes the exact local obstruction and
 exposes the new Euler remainder without claiming it is bounded.
 
 NON-CLAIMS: This note does not prove the cited finite-step theorem anew,
 exclude pressure corrections with Hölder exponent at most \(1/2\), prove heat
-monotonicity for (1), bound \(\mathcal D_\tau\), establish a Navier--Stokes
+monotonicity for (1), bound the Euler remainder, establish a Navier--Stokes
 estimate, prove HIGH-PRESSURE, or imply regularity.
 
-NEXT DISTINCT ACTION: Evaluate (13) together with the cubic Euler derivative
+NEXT DISTINCT ACTION: Evaluate (14), including its entropy term,
 on the complete bounded-carrier or localized-packet families.  The test must
-retain \(p_V\); estimating only the first line of (15) would repeat the
+retain \(p_V\); estimating only the first term of (14) would repeat the
 frozen-weight omission.
