@@ -85,13 +85,19 @@ the Millennium problem. No Lean files have been created.
 
 ## Private manuscript and verification
 
-The private manuscript authority is
-https://www.overleaf.com/project/6a9bb675ea9d4d0d368d8ee6.
-The private `itpplasma/navier-paper` repository is its synchronized archive,
-with the `overleaf` remote authoritative. The research repository is private
-`itpplasma/navier`. No collaborators were added or contacted.
+The manuscript authority is the private GitHub repository
+`itpplasma/navier-paper`; the research repository is private `itpplasma/navier`.
+Both use signed commits and local builds. On 2026-09-05 the owner requested
+GitHub-only work and deletion of the Navier Overleaf project
+`6a9bb675ea9d4d0d368d8ee6`. Its sources matched GitHub before deletion; the
+project-list comparison confirmed that only this project was removed.
+The Overleaf remote is removed. No collaborators were added or contacted.
 
-Verified at this handoff:
+Historical commit IDs in existing evidence resolve through each repository's
+`docs/history-signing/2026-09-05-map.json`; source trees were preserved during
+re-signing. Global signing defaults are managed through chezmoi.
+
+Historical verification at the initial handoff (before Overleaf removal):
 
 - Local manuscript and proof-map builds pass without undefined references or
   layout overflow; the manuscript is six pages and the map supplement four.
@@ -163,8 +169,8 @@ addresses this exact target or a stronger sufficient mechanism.
    are applied by the controller; workers never promote their own results.
 6. **Integrate a mathematical change.** Update the paper, logical graph, and
    this plan after a verified lemma, obstruction, or repaired route changes
-   the frontier. Keep the private Overleaf authority and GitHub mirrors
-   synchronized; run structural checks, paper compilation, PDF inspection,
+   the frontier. Keep the private GitHub repositories current;
+   run structural checks, local paper compilation, PDF inspection,
    and explicit-path commits. None of these replaces mathematical review.
 7. **Check completion against the original target.** A complete paper proof
    must cover every admissible datum and all horizons, discharge HF rather
@@ -246,8 +252,8 @@ profile notation; the original review inputs remain reproducible.
 
 The manuscript now contains the independently audited existential-equivalence
 paragraph at source commit `d84950b`; archive `42742bf` includes the regenerated
-map. Both private Overleaf and GitHub are synchronized. Local and Overleaf
-manuscripts compile to seven pages; the map remains four pages. Rendered
+map. At that checkpoint, Overleaf and GitHub were synchronized (Overleaf
+has since been removed). Local and Overleaf manuscripts compiled to seven pages; the map remains four pages. Rendered
 changes and 50 manuscript / 43 map internal links were checked. These are
 document checks, separate from `hf03-review-paper.md`.
 

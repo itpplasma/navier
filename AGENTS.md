@@ -30,3 +30,8 @@ Run `python3 research/verify.py` and `git diff --check` for graph/status edits.
 Build the manuscript and map with `latexmk -pdf`, reject undefined references,
 inspect rendered pages and link annotations. These check document integrity,
 not mathematical truth.
+
+GitHub is the only remote workflow for this dossier and `../navier-paper`.
+Use signed commits and tags with the global Git defaults managed by chezmoi;
+do not bypass signing if ssh-agent is unavailable. The Navier Overleaf project
+was deleted at the owner's request on 2026-09-05 and must not be recreated.
