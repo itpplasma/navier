@@ -2,11 +2,12 @@
 
 ```yaml
 terminal_claim: NS-R3
-phase: paper-research-checkpoint
-phase_i_status: not-started-awaiting-user
-phase_ii_status: not-started
+checkpoint: CP1
+phase: cp1-paper-proof
+phase_i_status: authorized-2026-09-05-in-progress
+phase_ii_status: authorized-2026-09-05-not-started
 paper_status: conditional-manuscript-with-explicit-high-frequency-gap
-active_task: awaiting-user-after-HF17-checkpoint
+active_task: CP01-understand-specify-wave
 public_release: false
 ```
 
@@ -24,17 +25,104 @@ problem is a separate alternative, not an automatic corollary of the R3 proof.
 `docs/proof-graph.yaml` is the dependency map; `docs/proof.md` gives the
 paper argument and exact open bridge. `literature/` holds source evidence.
 `research/verify.py` checks structural consistency only. Independent review
-of mathematical implications is required separately.
+of mathematical implications is required separately. The manuscript lives in
+`../navier-paper`; the Lean development, its coverage manifest, and its
+literature-assumption register live in `../navier-formal`. `AGENTS.md` holds
+the repository split, model policy, and boundaries.
 
-## Phase boundary
+## Programme structure toward the Millennium result
 
-Paper preparation precedes the two formalization phases. Phase I proves all
-project-owned manuscript steps in Lean down to precisely stated, directly
-verified literature theorems. Phase II proves the remaining literature
-theorems from Mathlib. No Lean implementation begins before the user kicks
-off Phase I. The user has now authorized persistent paper research until the
-high-frequency estimate is proved and independently verified. The previous
-paper handoff is a checkpoint, not the stopping condition for this work.
+Two tracks run under one controller.
+
+- **Track A, checkpoint CP1.** The high-frequency / high-pressure reduction
+  block that the manuscript already contains: the complete conditional route
+  from Clay data to the terminal claim, modulo one explicitly open estimate.
+  It proceeds in the fixed order paper proof, then Phase I, then Phase II.
+  Obvious Lean infrastructure (definitions, calculus lemmas, Mathlib gap
+  fillers) may be developed in parallel with the paper work. Track A has
+  priority. The user authorized both phases on 2026-09-05.
+- **Track B, closing the gap.** Research on the missing arbitrary-data
+  critical producer, HIGH-PRESSURE or its alternative HIGH-STRAIN. Track B
+  continues after each Track A milestone and follows the ordered research
+  stages below. A Track B result enters Track A only after independent audit
+  and integration into the manuscript and graph.
+
+CP1 is published, when the user decides, as a piece of the work. It is not
+the Millennium result. The programme does not stop at CP1.
+
+## Checkpoint CP1: the high-frequency / high-pressure reduction block
+
+CP1 consists of the following manuscript-owned results and their imported
+premises, exactly as stated in `../navier-paper/main.tex` and the graph:
+
+| Graph node | Manuscript label | Kind |
+| --- | --- | --- |
+| LOCAL | `premise:local` | imported: Tao 2013 Theorem 5.4 |
+| ESS | `thm:continuation` premise | imported: Gallagher–Koch–Planchon Theorem 4 (ESS endpoint) |
+| ENERGY | `prop:energy` | paper |
+| SCALE | `prop:scaling` | paper |
+| ENSTROPHY | `prop:enstrophy` | paper |
+| ODE | `prop:ode` | paper |
+| PRESSURE | `prop:pressure` | paper |
+| LOW-PRESSURE | `prop:lowpressure` | paper |
+| CONDITIONAL | `thm:continuation`, `thm:conditional` | conditional on CRITICAL |
+| QUOTIENT (to be added) | `sec:quotient` results | paper (HF17, audited) |
+
+The open nodes CRITICAL, ABSORPTION, HIGH-PRESSURE, and the alternative
+HIGH-STRAIN are not part of CP1's proved content. CP1 states them as explicit
+hypotheses. A CP1 theorem in Lean therefore has the shape "literature inputs
+and the open estimate imply the Clay conclusion", plus unconditional proofs
+of every paper node.
+
+Stage gates for CP1:
+
+1. **Paper proof complete.** Every manuscript-owned step is written out in
+   full, self-contained, with exact function spaces, regularization and limit
+   arguments, and primary sources for every external fact. Each result has
+   passed a within-family adversarial audit with a different tier or lens
+   than its author. The quotient section is restructured into labelled
+   propositions with complete proofs. Gate check: `cp02-review-*.md` PASS
+   records, rebuilt manuscript and map, graph nodes updated.
+2. **Phase I complete.** `../navier-formal` proves every paper node in Lean,
+   with literature theorems as named axioms in `NavierFormal/Literature/`
+   carrying verified source records, and Challenge/Solution state the
+   conditional theorem with those literature inputs as explicit hypotheses.
+   Gate check: `lake build` with zero sorries outside the deliberate
+   Challenge holes, axiom reports listing only standard axioms plus the
+   declared literature axioms, and a faithfulness audit comparing each Lean
+   statement with the manuscript (`docs/paper-lean-specification.md`).
+3. **Phase II complete.** Every literature axiom is proved from Mathlib, or
+   decomposed into published lemmas that are proved from Mathlib. Gate
+   check: standard axioms only, Palomar Comparator preflight passing
+   locally, coverage manifest regenerated. Registration itself remains a
+   separate user decision.
+
+## Execution order
+
+| Wave | Content | Evidence prefix |
+| --- | --- | --- |
+| CP01 | Understand and specify: manuscript obligations, exact literature statements, Mathlib coverage, Lean statement design, Palomar checklist, completeness critic | `cp01-` |
+| CP02 | Paper proof: write complete proofs per obligation, adversarial audits, controller integration into the manuscript and graph | `cp02-` |
+| CP03 | Lean statement surface and infrastructure in parallel with CP02: definitions, Challenge/Solution skeleton, calculus and Lp lemmas that CP1 needs regardless of proof details | `cp03-` |
+| CP04 | Phase I modules per paper node, disjoint files per worker, `lake env lean` single-file checks | `cp04-` |
+| CP05 | Phase I faithfulness audit and axiom report; gate 2 | `cp05-` |
+| CP06 | Phase II disposal: classify each literature axiom as M or F, decompose into published lemmas with sources, order by dependency | `cp06-` |
+| CP07+ | Phase II modules until gate 3; Palomar preflight | `cp07-` |
+
+Track B waves keep the `hf` prefix and continue from HF18.
+
+## Beyond the checkpoint
+
+The first gap after CP1 is unchanged: an arbitrary-data signed high-output
+pressure absorption estimate, or the alternative signed high-strain estimate
+for the cubic gradient quotient. The reviewed obstructions of HF02–HF16 are
+constraints on specific constructions, not on the target. Track B follows
+the ordered research stages under the detailed research plan below; each
+wave returns an actual inequality, identity, or obstruction, and every
+promising candidate is frozen and audited before integration. Completion
+is checked against the original target: every admissible datum, every
+horizon, the original unforced equation, the strong branch selected by the
+local theory, and no hidden smallness.
 
 ## Frontier packet
 
@@ -59,6 +147,14 @@ its missing hypothesis; weak nonuniqueness refutes Clay smooth existence.
 
 CHECK: direct proof and independent falsification of the proposed critical
 bound, plus audit of every continuation-theorem hypothesis.
+
+## Research history (HF01–HF17)
+
+The sections below are the chronological record of the research waves that
+produced the checkpoint. Status sentences inside them ("Phase I remains
+unstarted", "neither Lean phase starts") describe the situation at the time
+of each wave; the live status is the YAML header and the programme sections
+above. Lane tables naming Luna or Sol record the models that ran historically.
 
 ## Paper preparation
 
@@ -156,13 +252,15 @@ addresses this exact target or a stronger sufficient mechanism.
    prove a relevant implication; arbitrary snapshots cannot refute them.
    Numerical examples require an independent formula and refinement checks
    and remain numerical until an analytic certificate is supplied.
-4. **Repair and escalate.** Luna handles source extraction, arithmetic,
-   reproducible probes, and already specified implementation. A failed Luna
-   task with a mathematical ambiguity goes to Sol. Distinct hard analytic
-   questions go directly to Sol. The controller reconstructs every failed
-   Sol bridge, seeks an exact repair or a different intermediate functional,
-   and chooses the next lane from that evidence rather than repeating the
-   same question. Record the failed inference, not a ban on an entire field.
+4. **Repair and escalate.** Opus workers handle source extraction,
+   arithmetic, reproducible probes, and already specified implementation.
+   A failed Opus task with a mathematical ambiguity goes to a Fable analysis
+   lane. Distinct hard analytic questions go directly to Fable lanes. The
+   controller reconstructs every failed bridge, seeks an exact repair or a
+   different intermediate functional, and chooses the next lane from that
+   evidence rather than repeating the same question. Record the failed
+   inference, not a ban on an entire field. All lanes are Claude models;
+   see `AGENTS.md`.
 5. **Audit coherent candidate blocks.** Freeze exact commits, or a base
    commit plus complete patch digest including new files. An independent
    reviewer reconstructs the argument and external premises. Repair findings

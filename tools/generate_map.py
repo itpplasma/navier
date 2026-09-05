@@ -81,7 +81,7 @@ for n in graph['nodes']:
             out.append(r'\draw[edge] ('+dep+') -- node[lab,sloped,above]{'+label+'} ('+n['id']+');\n')
 out += [r'''\end{tikzpicture}
 
-Phase I: not started; awaiting the user. Phase II: not started.
+Phase I: '''+esc(graph['phase_i_status'])+r'''. Phase II: '''+esc(graph['phase_ii_status'])+r'''.
 No terminal proof or counterexample is claimed.
 \end{center}
 \clearpage
@@ -89,7 +89,7 @@ No terminal proof or counterexample is claimed.
 ''', 'Graph SHA-256: '+r'\texttt{'+digest[:32]+'}'+r'\texttt{'+digest[32:]+'}.\n']
 for n in graph['nodes']:
     out += [r'\Needspace{10\baselineskip}\section*{'+esc(n['id']+': '+n['title'])+'}'+r'\phantomsection\label{node:'+n['id']+'}\n',
-            r'\textbf{Class:} '+tags[n['kind']]+r'. \textbf{Phase I/II:} not started.'+'\n\n',
+            r'\textbf{Class:} '+tags[n['kind']]+r'. \textbf{Formal:} '+esc(n.get('formal','not started'))+'.'+'\n\n',
             esc(n['statement'])+'\n\n',
             r'\textbf{Mechanism:} '+esc(n['mechanism'])+'.\n\n',
             r'\textbf{Review:} '+esc(n['review'])+'\n\n',
