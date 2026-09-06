@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF21-audits-and-HF19-repairs
+active_task: HF21-note-repairs-then-attack-G
 public_release: false
 ```
 
@@ -1019,7 +1019,23 @@ nothing is corrected, only narrowed.
    Section 5 numerics are not reproducible because the probe script lived
    only in session scratch. The note records both as parsable
    `- needs review:` lines rather than quietly dropping them.
-4. **Continue Track B** on the surviving mechanism question. After HF18-A,
+4. **Apply the two HF21 note repairs** (running), then **attack (G)**:
+   `int_0^tau ||q(t)||_3 D_3(w(t)) dt <= A_input(nu,u_0,H)` uniformly for
+   `tau < min(H,T_*)`. By the audited normalisation this single joint
+   spacetime statement about the pair (distance to the nonlinear-Hodge
+   class, dissipation) is the whole of the frozen gap with contraction
+   factor zero, with no Gronwall term and no frequency cutoff. It has the
+   scaling of the quotient itself, so an input-only right side is
+   scaling-consistent. Three sub-questions, in order: (a) is the quotient
+   dissipation at most the velocity dissipation at fixed time, which is
+   minimizer-free and scaling-consistent on both sides and whose affirmative
+   deletes a term from the distance balance; (b) is the nonlinear projection
+   Lipschitz at points of the nonlinear-Hodge class, noting that Lipschitz
+   REFUTES an exponent above one rather than permitting it; (c) is any
+   input-only bound available for the dissipation restricted to the good set
+   where the distance is small, the only good-set statement that survived
+   audit.
+5. **Continue Track B** on whatever (G) leaves. After HF18-A,
    HF19 and HF20 the excluded classes are: size bounds in `Q` and `D_3` by
    scaling, temporal normal forms with correctors in the computed classes,
    the difference functional as a producer, universal monotonicity of the
@@ -1074,3 +1090,30 @@ absorption, one of them a circularity that would assume the Serrin
 conclusion the gap must produce.
 
 Both lanes state that the first gap is unchanged and not closed.
+
+**Audited 2026-09-06, both REPAIR, integration done.** The shifted-Hodge
+audit found a genuine proof gap: the rigidity theorem's realized directions
+range over the sphere intersected with the range of the derivative, which is
+open only at full rank, so the argument failed exactly at the rank-two case
+the witness family needs. The auditor supplied a rank-stratified replacement
+lemma, verified it numerically over random matrices of each rank, and the
+theorem and both corollaries survive with the corrected proof; it also
+confirmed against the primary source that the object here is the canonical
+primitive of Stern's lemma, for which no regularity is stated there, and
+that the smoothness credited to Uhlenbeck attaches to additionally closed
+forms. The crossing audit found the note's exponent claim logically
+inverted, since a bound with exponent above one would force the nonlinear
+projection to be non-Lipschitz rather than require it to be Lipschitz, and
+found an omitted term of the same order in one expansion. It confirmed the
+crux, that the two balances may legitimately be subtracted, and it
+strengthened the crossing-measure bound from one growing in time to one
+uniform in time.
+
+Three manuscript edits were licensed and applied at `navier-paper`
+`4478bde`: `rem:highstrain-normalisation`, showing the Gronwall term and the
+frequency split in the high-strain hypothesis are cosmetic; a sentence in
+`rem:highstrain-scope` recording that signed pressure absorption implies the
+quotient gap with an explicit remainder, so the two open routes are ordered;
+and `rem:distance-balance`, the exact difference of the two balances with
+the warning that the two dissipations are distinct objects. The graph's
+HIGH-STRAIN review records both. No node is promoted.
