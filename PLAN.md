@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF23-audit-and-HF22-attack-G
+active_task: HF22-and-HF23-audits
 public_release: false
 ```
 
@@ -1160,3 +1160,52 @@ extension to `H^1` data, the behaviour across the zero set, and consistency
 with HF21-A's two statements about that zero set.
 
 Nothing is promoted and the manuscript is untouched pending audit.
+
+
+### HF22: attacking (G) and its three sub-questions (UNAUDITED)
+
+Four lanes, delivered 2026-09-06, **all unaudited**; nothing is promoted and
+the manuscript is untouched. (G) is neither proved nor refuted, and each lane
+says so.
+
+- **Sub-question (a) is answered NO** (`hf22-dissipation-comparison.md`).
+  Neither dissipation dominates the other: both signs occur, already settled in
+  the audited HF19-D and here re-derived independently by a third route. The
+  lane adds an exact minimizer-free inversion: the map taking a solenoidal
+  field to its normalised square root is a bijection onto the nonlinear-Hodge
+  class, so the velocity and the defect are recovered with no minimisation and
+  no perturbation, and sub-question (a) becomes a question about that
+  parametrisation. It also records that the affirmative branch would not have
+  closed (G) anyway, since it would only have moved (G) onto the pressure
+  route, which the audited ordering already covers. The corresponding term in
+  the distance balance therefore has no sign and may not be dropped, which
+  confirms rather than corrects the manuscript.
+- **Sub-question (c) is decided NO, with an exact obstruction**
+  (`hf22-good-set-dissipation.md`), strengthening the audited HF21-B
+  obstruction from unavailability to non-derivability: an explicit family
+  satisfies every constraint the audited record imposes while the good-set
+  dissipation integral diverges, with bad-set measure tending to zero. The
+  positive by-product is that the good set is free in (G), so (G) is
+  equivalent to its bad-set restriction with explicit constants. The lane also
+  proves that realising the obstruction profile on an actual trajectory is
+  logically equivalent to finite-time loss of the classical branch, so the
+  family obstructs derivability only and can be neither excluded nor
+  constructed short of settling the problem.
+- **Sub-question (b) is not decided** (`hf22-projection-regularity.md`), but
+  its interval is cut and its residual is identified as one named external
+  input, the weighted Calderón–Zygmund estimate, which is the same open item
+  class as HF18-B. So (b) is not independent of an already-open question.
+- **The direct attack** (`hf22-direct-attack.md`) contributes the pressure-route
+  mirror, the exact deficit of the natural interpolation attempt computed once
+  and for all, a closure theorem retiring the state-weighted localisation
+  mechanism for the whole class of time-integrations by parts available from
+  the record, and one conditional reduction resting on a new hypothesis.
+
+**Convergence worth noting.** Two lanes that did not share a question arrive
+independently at the same next target: an input-only modulus of continuity for
+the distance along the trajectory at the critical level, equivalently an
+input-only bound on the number of crossings of that level. It would upgrade the
+audited crossing-measure bound to a crossing-count bound and, with the good-set
+result above, reduce (G) to its bad-set part. It is a question about time
+regularity of the nonlinear projection along the flow, distinct from every
+sub-question posed so far.
