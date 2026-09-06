@@ -43,22 +43,40 @@ cites that framework for the natural distance, and states that the research
 record warns against novelty claims for the weighted linearization. It disclaims
 novelty in the underlying mechanisms explicitly.
 
-**It states its own gap concretely, and the gap is arithmetic rather than
-conceptual.** The certificate needs the discounted stress integral to obey a
-*logarithmic* bound in the truncation index. What energy and Sobolev supply is
-*quadratic* growth. The document says plainly that the discounted estimate
+**It states its own gap concretely. This note called that gap "arithmetic
+rather than conceptual", and the audit found that wrong and load-bearing: the
+gap is Clay alternative A itself.** The certificate needs the discounted stress
+integral to obey a logarithmic bound in the truncation index, and the audit
+computed the exact requirement. But it also proved that the inequality holds
+exactly when continuation past the horizon holds, so the shortfall is neither
+arithmetic nor structural — the inequality is true if and only if the conjecture
+is true, and when true it holds with the integral *bounded*, not merely
+logarithmic. This note also repeated as fact the document's statement that
+energy and Sobolev supply only quadratic growth; the audit found that excludes
+the document's own spectral enstrophy inequality, which does better. The document says plainly that the discounted estimate
 cannot fix this alone, because the outer amplification factor survives. It then
 gives a countermodel of globally smooth band-limited curves sharing one datum
 which satisfy the exact energy identity and the same enstrophy inequality while
 concentrating logarithmically, so the scalar budgets do not decide the question.
 
-**The obvious first audit question, given every prior wave.** Every producer
-this programme has generated is equivalent to global continuation at the
-quantifiers except the HF24 corridor hypothesis. Determine where this
-certificate falls, and do not accept a disclaimer as an answer. The claim that
-the left side contains no norm of the unknown solution is exactly the kind of
-statement that has previously survived inspection of the *proof* while failing
-at the *quantifiers*.
+**Existential status, audited: EQUIVALENT, a fifth member of the class.** The
+structural difference this note flagged is **real** — the audit confirmed that
+the witness used against every previous certificate, taking the comparison to be
+the solution itself, is genuinely unavailable here, because the comparison is
+canonically fixed by the datum and the index and no member of the witness class
+is the solution. The test really does contain no norm of the unknown solution.
+Equivalence was nonetheless re-established, by theorem rather than by
+substitution: the audit proved directly that some index succeeds if and only if
+the branch continues past the horizon, via a bootstrap on the difference between
+comparison and solution. The corridor escape is unavailable here, since every
+object is defined for every input, so there is no set a singularity can vacate.
+
+**A framing error of mine.** I wrote that the audit should "not accept a
+disclaimer as an answer". That mis-describes the document, which does not
+disclaim but **concedes**: it states the equivalence itself and identifies its
+own membership in the class. What it omits is only the final quantifier step to
+the Clay statement. It is the most honest of the five continuations on this
+point, and my framing implied the opposite.
 
 ## Points an audit must examine first
 
@@ -89,9 +107,14 @@ at the *quantifiers*.
 norm on its testable side, three dependency removals, and one countermodel
 against the scalar budgets.
 
-**FIRST GAP:** stated by the document itself and arithmetic in form. The
-certificate needs a logarithmic bound in the truncation index; energy and
-Sobolev give quadratic.
+**FIRST GAP:** Clay alternative A, per the audit. The certificate needs a
+logarithmic bound in the truncation index, and that bound holds exactly when the
+branch continues, so the gap is the target and not an arithmetic shortfall. The
+audit adds that the certificate's provably-firing region today is exactly the
+region where the same two estimates applied directly to the solution already
+give global regularity, with the identical constant, so as a proved matter it
+certifies nothing new. What is genuinely new in form is that the test quantity
+is free of the unknown solution, which no previous producer achieved.
 
 **NON-CLAIMS:** the document states it does not prove the certificate succeeds
 for every input; no regularity or blowup result for general data; no promotion
