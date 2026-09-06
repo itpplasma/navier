@@ -1,0 +1,1078 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{microtype,booktabs,longtable,array,xcolor,fancyhdr,enumitem,needspace}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!40!black,citecolor=blue!40!black,urlcolor=blue!40!black]{hyperref}
+\usepackage{xurl}
+\input{glyphtounicode}\pdfgentounicode=1
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\G}{\mathcal G_3}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\Sch}{\mathcal S_\sigma(\R^3)}
+\newcommand{\rstar}{r_*}
+\newcommand{\Csharp}{C_\sharp}
+\newcommand{\kin}{\kappa_0}
+\newcommand{\Kinf}{K_\infty}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[2]
+\setlength{\parskip}{4pt}\setlength{\parindent}{1.2em}
+\setlist{nosep,leftmargin=*}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Navier--Stokes / weighted spectral continuation}
+\fancyhead[R]{\small 6 September 2026}\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\hypersetup{pdftitle={Beyond critical residual certification: weighted spectral control and a finite horizon to global regularity},pdfauthor={Research continuation prepared for Christopher Albert},pdfsubject={Detailed candidate proofs and an explicit unresolved logarithmic estimate}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\thispagestyle{empty}
+\vspace*{7mm}
+{\sffamily\small\color{blue!40!black} NAVIER--STOKES / DETAILED PAPER-PROOF CONTINUATION\par}
+\vspace{10mm}
+{\LARGE\bfseries Beyond critical residual certification\par}
+\vspace{6mm}
+{\Large Weighted spectral control\par and a finite horizon to global regularity\par}
+\vspace{9mm}
+Prepared for Christopher Albert\par
+6 September 2026\par
+\vspace{8mm}
+\noindent\textbf{The main additional estimate.} The critical stress residual of the global cube-truncated comparisons is controlled after retaining the certificate's time weight. Its weighted squared norm is at most a fixed multiple of $\nu\norm{\nabla u_0}_2^2/N$, even when the comparison's unweighted critical budget is large.
+
+\noindent\textbf{What this removes.} The stress residual is no longer an independent quantity to estimate. The resulting sufficient test uses only one comparison-flow integral. The proof also removes the unweighted div--curl lemma and the endpoint $L^3$ theorem from this particular continuation route. A single explicitly selected finite horizon suffices for the global conclusion.
+
+\noindent\textbf{What the remaining estimate says.} The comparison-flow integral must beat an explicit logarithmic threshold in the cutoff. A spatial countermodel with common initial data, exact energy balance and the same scalar enstrophy inequality shows why those scalar estimates alone do not force that threshold.\par
+\vspace{4mm}
+\noindent\fbox{\begin{minipage}{0.94\textwidth}
+\textbf{Proof boundary.} The arbitrary-data logarithmic threshold is \textbf{not proved} here. Thus the specified full NS-R3 / Clay alternative A is \textbf{not unblocked}. The completed component arguments below are self-checked candidate proofs, not independently audited or Lean-verified results. No novelty or priority claim is made.
+\end{minipage}}\par
+\vfill
+{\small Both uploaded files were inspected. All three repositories were freshly read at pinned revisions. No repository was edited, committed, pushed or promoted; no local Lean build was run.}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+{\small\setlength{\parskip}{0pt}\tableofcontents}
+\newpage
+
+\section{Target, inspected sources, and the actual change}
+\label{sec:scope}
+\subsection{The original equation and the external local input}
+Fix $\nu>0$ and a real divergence-free Schwartz datum $u_0\in\Sch$. The target remains
+\begin{equation}\label{eq:NS}
+ u_t+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad\diver u=0,\qquad u(0)=u_0\quad\text{on }\R^3,
+\end{equation}
+with $u,p\in C^\infty(\R^3\times[0,\infty))$ and
+\begin{equation}\label{eq:energytarget}
+ \sup_{t\ge0}\norm{u(t)}_2^2\le\norm{u_0}_2^2<\infty.
+\end{equation}
+These are the unforced whole-space requirements of Fefferman's alternative A \cite{Clay}. Neither a truncated equation nor an equation with a residual is substituted for \eqref{eq:NS}.
+
+We use the manuscript's local package \cite{Paper}: there is a selected maximal classical branch on $[0,T_*)$, with $u,p\in C^j([0,T];H^m)$ for every $j,m\ge0$ and $T<T_*$, unique in the stated $H^1$ mild class, and
+\begin{equation}\label{eq:H1alternative}
+ T_*<\infty\quad\Longrightarrow\quad
+ \norm{u(t)}_{H^1}\longrightarrow\infty\quad(t\uparrow T_*).
+\end{equation}
+Its external basis is Tao's local $H^1$ theory and maximal-development result \cite{Tao}. Those theorems were located in the primary preprint, including Theorem 5.4 and Corollary 5.8; the manuscript's gluing and full smoothness package is an explicitly imported project result. It is not re-proved in this note. Standard unweighted Sobolev, Fourier, reflexivity and weak-chain-rule facts are also used \cite{Stein,Brezis}. All continuation arguments \emph{after} this local package are proved below; the ESS endpoint theorem is not needed for them.
+
+\subsection{Pinned repository and attachment provenance}
+\begin{center}\small
+\begin{tabular}{@{}lp{102mm}@{}}\toprule
+Repository & Freshly inspected revision\\\midrule
+\texttt{itpplasma/navier} & \texttt{afbc0764536e2fc8fee261}\\[-2pt]
+ & \texttt{fd4d947ab1ae704120}\\
+\texttt{itpplasma/navier-paper} & \texttt{c435bee70d28607f5729}\\[-2pt]
+ & \texttt{0fa4c75490b63cb504a7}\\
+\texttt{itpplasma/navier-formal} & \texttt{54f8e89119e90399044b}\\[-2pt]
+ & \texttt{ae8dcd404dc405a381f9}\\\bottomrule
+\end{tabular}
+\end{center}
+The split pieces in each row concatenate. Reads include the research plan, agent rules, complete claim graph, structural verifier, recent commit records and the temporal-producer audit; the manuscript's target and local package; and the formal verification-status record. The comparison between the attachment's research pin and the pin above contains six commits. This is a frontier-focused inspection, not an independent audit of the entire 105-page manuscript or a kernel replay.
+
+The plan still records the arbitrary-data critical estimate as open. HF25's weighted dissipation is imported into the manuscript. The newer HF26 temporal audit accepts its conditional proof but identifies its hypothesis as a continuation condition, not an independently obtained arbitrary-data bound \cite{Research,TemporalAudit}. The formal repository has supporting checked lemmas and statement surfaces, not a proved critical hypothesis or a proved Clay theorem \cite{Formal}. The recent research record also warns against novelty claims for the weighted linearization \cite{ResearchCommit}.
+
+Both supplied artifacts, \emph{Beyond HF26: critical residual certification and the remaining arbitrary-data estimate}, were inspected \cite{Attachment}. The exact SHA-256 values computed from their mounted bytes are:
+\begin{center}\footnotesize\ttfamily
+\begin{tabular}{@{}ll@{}}
+TeX & 3898e9a020d31c4fc58c9f1289ea4794\\[-2pt]
+    & ec9f787b885086e411b98b0cb1f97488\\[3pt]
+PDF & 6cfd7127b14a2b3df929a28eeee9d00a\\[-2pt]
+    & aa83dda6c49163abcab2db34ebd05382
+\end{tabular}
+\end{center}
+The attachment's statement that no upload was present describes its own earlier session; it is not true of this session. The PDF and TeX agree on the mathematical continuation and the unresolved quantified estimate in their Section 7.
+
+\subsection{The additional result in one display}
+Set
+\begin{equation}\label{eq:initial}
+ E_0=\norm{u_0}_2^2,\quad Y_0=\norm{\nabla u_0}_2^2,
+ \quad\kin=Y_0/\nu^2.
+\end{equation}
+For the globally defined cube-truncated solution $v_N$ constructed in Section~\ref{sec:spectral}, write
+\begin{equation}\label{eq:aNintro}
+ a_N(H)=\nu^{-3}\int_0^H\norm{v_N(t)}_6^4\dd t.
+\end{equation}
+There are fixed explicit constants $\beta>0$, $\Kinf>0$ and $\rstar>0$, defined in \eqref{eq:constants} and \eqref{eq:weightedconstants}, such that
+\begin{equation}\label{eq:mainintro}
+ \boxed{\quad
+ \Kinf\frac{\kin}{N}\exp\!\bigl(\beta a_N(H)\bigr)<\rstar^2
+ \quad\Longrightarrow\quad T_*>H.\quad}
+\end{equation}
+No norm of the unknown exact solution occurs on the left. All its comparisons exist on the full requested horizon for every input. For $u_0\ne0$, one need only test
+\begin{equation}\label{eq:HEintro}
+ H=H_E:=16S^6 E_0^2/\nu^5
+\end{equation}
+to conclude global regularity. Here $S$ is a fixed Sobolev constant, not a data-dependent parameter.
+
+The proof gains the $N^{-1}$ factor by retaining the \emph{discounted} stress integral rather than estimating the two factors of the attachment's unweighted certificate separately. It does not prove that \eqref{eq:mainintro} succeeds for every input.
+
+\subsection{Prior-art boundary}
+A posteriori regularity and conditional eventual success of approximation hierarchies are established ideas: Chernyshenko--Constantin--Robinson--Titi treat a periodic setting \cite{CCRT}. More directly relevant than that periodic result, Pham treats approximate solutions on $\R^3$ and combines a finite comparison horizon with an eventual-regularity argument \cite{Pham}. Neither an arbitrary-data termination theorem nor the present constants are imported from those sources. The natural nonlinear distance used below belongs to the established $p$-Laplace/quasi-norm framework \cite{DieningKreuzer}. The contribution claimed here is only a set of explicit derivations relative to the supplied continuation, not novelty in these underlying mechanisms.
+
+\section{Analytic conventions and a direct enstrophy continuation estimate}
+\label{sec:enstrophy}
+All spatial norms are on $\R^3$, with Euclidean vector and Frobenius tensor norms. Put $(\nabla v)_{ij}=\partial_jv_i$ and $(\diver F)_i=\partial_jF_{ij}$, summing repeated indices. Use the unitary Fourier transform with derivative multiplier $i\xi$, as in the attachment's spectral section. The manuscript's $2\pi$ frequency coordinate is thereby rescaled; physical-space identities are unchanged.
+
+Let $\PP$ be the Leray projection, and let $C_p=\norm{\PP}_{L^p\to L^p}$ for $1<p<\infty$. It is self-adjoint under duality, commutes with derivatives and fixes solenoidal fields. Fix $S>0$ so that
+\begin{equation}\label{eq:Sobolev}
+ \norm f_6\le S\norm{\nabla f}_2
+\end{equation}
+for the scalar, vector and tensor fields used here. The scalar constant suffices in every finite dimension by applying the scalar inequality to $|f|$, whose weak gradient has norm at most $|\nabla f|$.
+
+\begin{lemma}[The $L^4_tL^6_x$ enstrophy estimate]\label{lem:serrin}
+For a classical solution of \eqref{eq:NS}, let $Y=\norm{\nabla u}_2^2$ and $P=\norm{\Delta u}_2^2$. Then
+\begin{equation}\label{eq:serrin}
+ Y'+\nu P\le k\nu^{-3}\norm u_6^4Y,
+ \qquad k=\frac{27}{16}S^2.
+\end{equation}
+Consequently, finiteness of $\int_0^{T_*}\norm{u(t)}_6^4\dd t$ contradicts a finite $T_*$.
+\end{lemma}
+\begin{proof}
+Test the projected equation with $-\Delta u$. On a compact classical interval all products are integrable; the pressure pairing vanishes by solenoidality and integration by parts. Plancherel gives $\norm{\nabla^2u}_2=\norm{\Delta u}_2$. Thus
+\begin{align*}
+ \tfrac12Y'+\nu P
+ &\le\norm u_6\norm{\nabla u}_3\norm{\Delta u}_2\\
+ &\le S^{1/2}\norm u_6Y^{1/4}P^{3/4}.
+\end{align*}
+Here $\norm{\nabla u}_3\le\norm{\nabla u}_2^{1/2}\norm{\nabla u}_6^{1/2}$ and \eqref{eq:Sobolev} applied to $\nabla u$ were used. For $a,x\ge0$,
+\begin{equation}\label{eq:Young}
+ ax^{3/4}\le\varepsilon x+\frac{27a^4}{256\varepsilon^3},
+ \qquad ax^{1/2}\le\varepsilon x+\frac{a^2}{4\varepsilon}.
+\end{equation}
+These follow by maximizing the difference on $x\ge0$. Taking $\varepsilon=\nu/2$ in the first inequality and multiplying by two gives \eqref{eq:serrin}. Gronwall bounds $Y$ by $Y(0)\exp(k\nu^{-3}\int\norm u_6^4)$. The energy identity bounds $\norm u_2$, so \eqref{eq:H1alternative} excludes the asserted finite endpoint. No endpoint $L^3$ theorem is involved.
+\end{proof}
+
+The original energy identity is obtained by testing \eqref{eq:NS} with $u$:
+\begin{equation}\label{eq:energy}
+ E(t)+2\nu\int_0^tY(s)\dd s=E_0,
+ \qquad E(t)=\norm{u(t)}_2^2.
+\end{equation}
+Indeed $\int u\cdot(u\cdot\nabla)u=\frac12\int u\cdot\nabla|u|^2=0$, the pressure term vanishes, and $\int u\cdot\Delta u=-Y$. Spatial cutoffs and the compact-interval $H^m$ bounds justify these steps. Equation \eqref{eq:energy} holds below $T_*$; its bounds pass to a finite endpoint by monotone convergence.
+
+\section{The quotient dissipation without an unweighted div--curl premise}
+\label{sec:natural}
+This section removes an imported hypothesis used in the attachment's Appendix A. Only the natural variable $V=|w|^{1/2}w$ will be differentiated. We do not need to assert $w\in W^{1,2}_{\mathrm{loc}}$ or $w\in L^2$.
+
+\subsection{The minimizer and its derivative}
+Define
+\begin{equation}\label{eq:Qdef}
+ \G=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{L^3},
+ \quad w(a)=\arg\min_{z\in a+\G}\tfrac13\norm z_3^3,
+ \quad\Q(a)=\tfrac13\norm{w(a)}_3^3.
+\end{equation}
+Write $q(a)=w(a)-a$ and $A(a)=|w(a)|w(a)$.
+\begin{lemma}\label{lem:Qbasic}
+For every $a\in L^3$, the minimizer exists uniquely, $A$ annihilates $\G$, and $\diver A=0$. The map $\Q$ is continuously Fr\'echet differentiable with $\mathrm D\Q(a)h=\ip{A(a)}h$. For solenoidal $a$,
+\begin{equation}\label{eq:Qcoercive}
+ a=\PP w,\qquad
+ \norm a_3\le3^{1/3}C_3\Q(a)^{1/3},\qquad
+ \norm q_3\le c_q\Q(a)^{1/3},\qquad c_q=3^{1/3}(1+C_3).
+\end{equation}
+Also $\Q(a)\le\norm a_3^3/3$.
+\end{lemma}
+\begin{proof}
+Reflexivity gives a weak limit of a bounded minimizing sequence in the closed affine subspace; weak lower semicontinuity gives existence and strict convexity gives uniqueness. Differentiation along $g\in\G$ gives $\ip Ag=0$, hence the distributional divergence assertion.
+
+For $j(z)=|z|z$, the pointwise identities and inequalities
+\begin{align}
+ (j(x)-j(y))\cdot(x-y)
+ &=\frac{|x|+|y|}{2}\bigl(|x-y|^2+(|x|-|y|)^2\bigr),\label{eq:monotone}\\
+ |j(x)-j(y)|&\le(|x|+|y|)|x-y|\label{eq:jLip}
+\end{align}
+imply, by integration along the segment from $z$ to $z+h$,
+\begin{equation}\label{eq:Bregman}
+ \tfrac16|h|^3\le\tfrac13|z+h|^3-\tfrac13|z|^3-j(z)\cdot h
+ \le |z||h|^2+\tfrac13|h|^3.
+\end{equation}
+For the lower bound in particular, apply \eqref{eq:monotone} with $x=z+th,y=z$, divide by $t>0$, use $|x|+|y|\ge t|h|$, and integrate $0<t<1$.
+
+Since $w(a+h)-w(a)-h\in\G$, convexity and the competitor $w(a)+h$ give
+\begin{equation}\label{eq:Qrem}
+ 0\le\Q(a+h)-\Q(a)-\ip{A(a)}h
+ \le\norm{w(a)}_3\norm h_3^2+\tfrac13\norm h_3^3.
+\end{equation}
+This proves differentiability. The lower bound in \eqref{eq:Bregman}, together with \eqref{eq:Qrem}, gives
+\[
+ \norm{w(a+h)-w(a)}_3^3
+ \le6\norm{w(a)}_3\norm h_3^2+2\norm h_3^3.
+\]
+Thus $w$ and then $A$ are continuous in $L^3$ and $L^{3/2}$. Finally $\PP q=0$ and $\PP a=a$, so \eqref{eq:Qcoercive} follows. Taking $a$ as a competitor proves the last bound.
+\end{proof}
+
+\subsection{The natural two-point inequality}
+For $V(z)=|z|^{1/2}z$,
+\begin{equation}\label{eq:naturaldistance}
+ \frac89|V(x)-V(y)|^2
+ \le(j(x)-j(y))\cdot(x-y)
+ \le2|V(x)-V(y)|^2.
+\end{equation}
+Here is a proof, included to fix the constants. Put $r=|x|$, $s=|y|$ and let $c$ be their angle cosine. Each of the inequalities is affine in $c$, so it suffices to check $c=1,-1$. For $c=1$, the middle expression is $(r+s)(r-s)^2$ and the natural squared distance is $(r^{3/2}-s^{3/2})^2$. For $r\ge s$,
+\[
+ (r^{3/2}-s^{3/2})^2
+ =\left(\tfrac32\int_s^r t^{1/2}\dd t\right)^2
+ \le\tfrac98(r+s)(r-s)^2,
+\]
+while $r^{3/2}-s^{3/2}\ge\sqrt r(r-s)$ and $r+s\le2r$ give the other bound. For $c=-1$, the two expressions are $(r+s)(r^2+s^2)$ and $(r^{3/2}+s^{3/2})^2$. The first is at least the second by $r+s\ge2\sqrt{rs}$, and at most twice it because $rs(r+s)\le r^3+s^3$. Zero cases follow by continuity.
+
+\begin{theorem}[Natural dissipation directly from the affine minimization]\label{thm:natural}
+Let $a$ be solenoidal and belong to every $H^m$. With $w=w(a)$, $A=|w|w$ and $V=|w|^{1/2}w$, put $D(a)=-\ip A{\Delta a}$. Then
+\begin{align}
+ V&\in H^1,\quad A\in W^{1,3/2},\label{eq:Vreg}\\
+ D(a)&=\norm{\nabla V}_2^2-\tfrac19\norm{\nabla|V|}_2^2
+ \ge\tfrac89\norm{\nabla V}_2^2,\label{eq:Dnatural}\\
+ \norm w_9^3&\le a_0D(a),\qquad a_0=\tfrac98 S^2,\label{eq:w9}\\
+ |\nabla A|&\le\tfrac43|V|^{1/3}|\nabla V|\quad\text{a.e.}\label{eq:gradA}
+\end{align}
+No unweighted weak derivative of $w$ is used in the proof.
+\end{theorem}
+\begin{proof}
+\emph{Step 1: obtain $H^1$ regularity in the correct variable.}
+Fix a coordinate and let $\delta_hf=(f(\cdot+he_k)-f)/h$. Translation invariance of $\G$ implies that $\delta_hA$ annihilates $\G$ and $\delta_hq\in\G$. Hence
+\begin{equation}\label{eq:finiteM}
+ M_h:=\int\delta_hA\cdot\delta_hw
+ =\int\delta_hA\cdot\delta_ha
+ =-\int A\cdot\delta_{-h}\delta_ha.
+\end{equation}
+All products are integrable for $h\ne0$. Since $a\in W^{2,3}$, the last expression converges to $-\ip A{\partial_{kk}a}$ and is bounded uniformly as $h\to0$. Equation \eqref{eq:naturaldistance} gives
+\[
+ \tfrac89\norm{\delta_hV}_2^2\le M_h.
+\]
+Since $V\in L^2$, the difference-quotient characterization of Sobolev space proves $V\in H^1$. This step never differentiates $w$.
+
+\emph{Step 2: differentiate only locally Lipschitz functions of $V$.}
+We have
+\[
+ A=f(V),\quad f(z)=|z|^{1/3}z,
+ \qquad w=g(V),\quad g(z)=|z|^{-1/3}z\ (z\ne0),\quad g(0)=0.
+\]
+The map $f$ is locally Lipschitz, with $|Df(z)|\le(4/3)|z|^{1/3}$. Truncating $f$ outside large balls, applying the weak chain rule, and then using H\"older gives
+\[
+ \norm{\partial_k A}_{3/2}
+ \le\tfrac43\norm V_2^{1/3}\norm{\partial_kV}_2<\infty.
+\]
+The truncated values converge to $A$ in $L^{3/2}$ and the derivatives converge in $L^{3/2}$ by the integrable majorant $|V|^{1/3}|\partial_kV|$. Thus \eqref{eq:Vreg} and \eqref{eq:gradA} hold. No chain rule for $g$ at zero is asserted.
+
+\emph{Step 3: identify the exact dissipation through two-point products.}
+For $z\ne0$ and $e=z/|z|$,
+\[
+ Df(z)=|z|^{1/3}(I+\tfrac13e\otimes e),\qquad
+ Dg(z)=|z|^{-1/3}(I-\tfrac13e\otimes e).
+\]
+Consequently
+\begin{equation}\label{eq:matrixnatural}
+ Df(z)^T Dg(z)=I-\tfrac19e\otimes e.
+\end{equation}
+Take any sequence $h\to0$. Along a subsequence, $\delta_hV\to\partial_kV$ and translated $V\to V$ almost everywhere; the first convergence also holds strongly in $L^2$ without passing to a subsequence. At points where $V\ne0$, ordinary differentiability of $f,g$ and \eqref{eq:matrixnatural} give
+\[
+ \delta_hA\cdot\delta_hw\longrightarrow
+ |\partial_kV|^2-\tfrac19|\partial_k|V||^2.
+\]
+At almost every point of $\{V=0\}$ the weak derivative $\partial_kV$ is zero, by the Sobolev level-set property. On that set \eqref{eq:naturaldistance} gives the same limiting value, namely zero. Globally,
+\[
+ 0\le\delta_hA\cdot\delta_hw\le2|\delta_hV|^2.
+\]
+The majorants converge in $L^1$ to $2|\partial_kV|^2$. Generalized dominated convergence applies, including the tails of $\R^3$: one may split into a large finite-measure set and its complement, using $L^1$ convergence of the majorants on the latter. Thus
+\[
+ -\ip A{\partial_{kk}a}
+ =\int\bigl(|\partial_kV|^2-\tfrac19|\partial_k|V||^2\bigr).
+\]
+Every subsequence has the same further-subsequence limit, so this identifies the full limit. Sum over $k$ to obtain \eqref{eq:Dnatural}. Since $|\nabla|V||\le|\nabla V|$, the coercivity follows. Finally $\norm w_9^3=\norm V_6^2$ and \eqref{eq:Sobolev} give \eqref{eq:w9}.
+\end{proof}
+
+\begin{lemma}[The transport cancellation in natural variables]\label{lem:transport}
+If $b$ is smooth, solenoidal and bounded, then
+\begin{equation}\label{eq:transport}
+ \int w\cdot(b\cdot\nabla)A
+ =\tfrac23\int b\cdot\nabla|V|^2=0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+On $\{V\ne0\}$, the formula for $Df$ gives $g(V)\cdot\partial_kf(V)=\frac43V\cdot\partial_kV$. On the zero set the same identity holds with both sides zero. Since $|V|^2\in W^{1,1}$, its derivative is $2V\cdot\partial_kV$ and all the displayed pairings are integrable. Integrate against cutoffs tending to one. The boundary error is bounded by $C\norm b_\infty R^{-1}\int_{|x|>R}|V|^2$, which tends to zero. Solenoidality then gives the last equality.
+\end{proof}
+
+\section{The critical residual certificate, with direct \texorpdfstring{$H^1$}{H1} continuation}
+\label{sec:certificate}
+\subsection{Identity and constants}
+An admissible comparison on $[0,H]$ is a real solenoidal $v\in C^j([0,H];H^m)$ for all $j,m$. Its full-equation residual is
+\begin{equation}\label{eq:residual}
+ R_v=v_t+\PP\diver(v\otimes v)-\nu\Delta v.
+\end{equation}
+Suppose $R_v=\PP\diver F$ in distributions, where $F\in L^2(0,H;L^3)$; no smoothness of $F$ is required. Put $e=u-v$ on $[0,\min(H,T_*))$ and use $w,q,A,V,Q,D$ for the quotient objects of $e$.
+
+The constants inherited from the attachment are
+\begin{align}
+ a_0&=\tfrac98S^2,&
+ \Csharp&=\sqrt2\,C_9a_0^{1/2},&
+ c_q&=3^{1/3}(1+C_3),\notag\\
+ b&=\sqrt2\,3^{1/4}a_0^{1/4}(1+2C_{9/2}),&
+ c_b&=81a_0(1+2C_{9/2})^4,&
+ \rstar&=(4\Csharp c_q)^{-1}.
+ \label{eq:constants}
+\end{align}
+These are explicit expressions in fixed analytic constants. They are not optimized. Rigorous upper bounds for the multiplier and Sobolev constants can be substituted consistently.
+
+\begin{proposition}[Relative quotient identity and its three estimates]\label{prop:relative}
+On compact classical subintervals,
+\begin{equation}\label{eq:relidentity}
+ Q'+\nu D=K(e)+\mathcal C_v(e)+\int\nabla A:F,
+\end{equation}
+where
+\begin{align}
+ K(e)&=-\int q\cdot(e\cdot\nabla)A,\label{eq:K}\\
+ \mathcal C_v(e)&=\int v\cdot(e\cdot\nabla)A
+                 -\int q\cdot(v\cdot\nabla)A.\label{eq:cross}
+\end{align}
+The bounds are
+\begin{align}
+ |K(e)|&\le\Csharp c_qQ^{1/3}D,\label{eq:Kbound}\\
+ |\mathcal C_v(e)|&\le b\norm v_6Q^{1/4}D^{3/4},\label{eq:crossbound}\\
+ \left|\int\nabla A:F\right|&\le\sqrt2\,3^{1/6}\norm F_3Q^{1/6}D^{1/2}.
+ \label{eq:Fbound}
+\end{align}
+\end{proposition}
+\begin{proof}
+Subtract the comparison equation from the projected original equation:
+\[
+ e_t+\PP\bigl((e\cdot\nabla)e+(v\cdot\nabla)e+(e\cdot\nabla)v\bigr)
+ =\nu\Delta e-R_v.
+\]
+Lemma~\ref{lem:Qbasic} gives $Q'=\ip A{e_t}$. Since $\PP A=A$ and $\PP$ is self-adjoint under $L^{3/2}$--$L^3$ duality, projection disappears in the pairing. Integrating self-convection by parts and writing $e=w-q$, Lemma~\ref{lem:transport} gives
+\[
+ -\int A\cdot(e\cdot\nabla)e
+ =\int e\cdot(e\cdot\nabla)A
+ =-\int q\cdot(e\cdot\nabla)A.
+\]
+The transport by $v$ similarly gives the second term of \eqref{eq:cross}. Integrating $-\int A\cdot(e\cdot\nabla)v$ gives its first term because $\diver e=0$. Finally $-\ip A{R_v}=\int\nabla A:F$. The distributional pairing extends to $A\in W^{1,3/2}$ by density and $F\in L^3$. All integrations use spatial cutoffs; the undifferentiated products are integrable because $e,v$ are bounded and in all $H^m$ on compact classical intervals, while $A\in L^{3/2}$ and $w,q\in L^3$. The differentiated terms are controlled by the following bounds.
+
+For self-convection, use \eqref{eq:gradA}, \eqref{eq:Dnatural} and H\"older with exponents $(3,9,18,2)$:
+\begin{align*}
+ |K(e)|&\le\tfrac43\norm q_3\norm e_9\norm w_9^{1/2}\norm{\nabla V}_2\\
+ &\le\sqrt2 C_9\norm q_3\norm w_9^{3/2}D^{1/2}
+ \le\Csharp\norm q_3D.
+\end{align*}
+Equation \eqref{eq:Qcoercive} proves \eqref{eq:Kbound}. For the cross terms, use exponents $(6,9/2,9,2)$, $e=\PP w$, and $q=(I-\PP)w$:
+\[
+ |\mathcal C_v(e)|\le\sqrt2(1+2C_{9/2})\norm v_6
+ \norm w_{9/2}^{3/2}D^{1/2}.
+\]
+Interpolation gives
+\[
+ \norm w_{9/2}^{3/2}\le\norm w_3^{3/4}\norm w_9^{3/4}
+ \le(3Q)^{1/4}(a_0D)^{1/4},
+\]
+which proves \eqref{eq:crossbound}. For the residual use exponents $(3,6,2)$:
+\[
+ \left|\int\nabla A:F\right|
+ \le\tfrac43\norm F_3\norm w_3^{1/2}\norm{\nabla V}_2
+ \le\sqrt2\,3^{1/6}\norm F_3Q^{1/6}D^{1/2}.
+\]
+Here $(4/3)\sqrt{9/8}=\sqrt2$.
+\end{proof}
+
+\subsection{Continuation without the endpoint \texorpdfstring{$L^3$}{L3} theorem}
+Set
+\begin{equation}\label{eq:M}
+ m(t)=c_b\nu^{-3}\norm{v(t)}_6^4,\qquad M(t)=\int_0^tm(s)\dd s,
+ \qquad Q_0=\Q(u_0-v(0)),
+\end{equation}
+and define the \emph{weighted} certificate
+\begin{equation}\label{eq:Z}
+ Z_H^2=e^{2M(H)/3}\left[Q_0^{2/3}
+ +\frac4{3^{2/3}\nu}\int_0^H e^{-2M(t)/3}\norm{F(t)}_3^2\dd t\right].
+\end{equation}
+\begin{theorem}[Critical stress-residual continuation]\label{thm:certificate}
+If $Z_H<\rstar\nu$, then $T_*>H$ and
+\begin{equation}\label{eq:err}
+ \sup_{0\le t\le H}\Q(u(t)-v(t))^{1/3}\le Z_H,
+ \quad\norm{u(t)}_3\le\norm{v(t)}_3+3^{1/3}C_3Z_H.
+\end{equation}
+Moreover, with $D=D(u-v)$,
+\begin{equation}\label{eq:integratedD}
+ \frac\nu4\int_0^H D\dd t
+ \le Q_0+M(H)Z_H^3+\frac{2\,3^{1/3}}\nu Z_H\norm F_{L^2_tL^3_x}^2.
+\end{equation}
+The proof needs the local $H^1$ blow-up alternative, but neither ESS nor unweighted div--curl regularity of the minimizer.
+\end{theorem}
+\begin{proof}
+\emph{Step 1: derive the differential inequality in the bootstrap region.}
+While $Q^{1/3}\le\rstar\nu$, \eqref{eq:Kbound} gives $|K|\le\nu D/4$. Applying \eqref{eq:Young} to the cross and stress bounds, in both cases with $\varepsilon=\nu/4$, gives
+\begin{equation}\label{eq:QODE}
+ Q'+\frac\nu4D\le mQ+\frac{2\,3^{1/3}}\nu\norm F_3^2Q^{1/3}.
+\end{equation}
+Indeed $b^4=12a_0(1+2C_{9/2})^4$ and $27b^4/[256(\nu/4)^3]=c_b\nu^{-3}$.
+
+\emph{Step 2: avoid division at zero error.}
+For $\epsilon>0$ multiply \eqref{eq:QODE}, with $D$ discarded, by $(2/3)(Q+\epsilon)^{-1/3}$. Since $Q\le Q+\epsilon$ and $Q^{1/3}(Q+\epsilon)^{-1/3}\le1$,
+\[
+ \frac{\dd}{\dd t}(Q+\epsilon)^{2/3}
+ \le\frac23m(Q+\epsilon)^{2/3}+\frac4{3^{2/3}\nu}\norm F_3^2.
+\]
+Apply an integrating factor and send $\epsilon\downarrow0$ to obtain
+\begin{equation}\label{eq:timeZ}
+ Q(t)^{2/3}\le e^{2M(t)/3}\left[Q_0^{2/3}
+ +\frac4{3^{2/3}\nu}\int_0^t e^{-2M(s)/3}\norm{F(s)}_3^2\dd s\right]
+ \le Z_H^2.
+\end{equation}
+The last inequality uses monotonicity of both nonnegative factors in the middle expression.
+
+\emph{Step 3: first exit.}
+Initially $Q_0^{1/3}\le Z_H<\rstar\nu$. If the permitted region had a first exit at a classical time, continuity would give $Q^{1/3}=\rstar\nu$ there, whereas \eqref{eq:timeZ} and its limiting form give $Q^{1/3}\le Z_H$. This is a contradiction. Thus \eqref{eq:timeZ} holds for every $t<\min(H,T_*)$.
+
+\emph{Step 4: retain the dissipation before extending the solution.}
+Integrate \eqref{eq:QODE} to any $\tau<\min(H,T_*)$, use $Q\le Z_H^3$ and $Q^{1/3}\le Z_H$, and discard $Q(\tau)\ge0$. This gives the right side of \eqref{eq:integratedD} as a bound independent of $\tau$. In particular $\int_0^{\min(H,T_*)}D<\infty$ before any endpoint continuation is invoked. Interpolation and Theorem~\ref{thm:natural} imply
+\begin{equation}\label{eq:eSerrin}
+ \norm e_6^4\le\norm e_3\norm e_9^3
+ \le3^{1/3}C_3C_9^3a_0Z_H D.
+\end{equation}
+Therefore $e\in L^4_tL^6_x$ up to that endpoint. The comparison belongs to the same space on all of $[0,H]$, so $u=e+v$ does too, using $(x+y)^4\le8(x^4+y^4)$.
+
+\emph{Step 5: continue the original equation.}
+If $T_*\le H$, Lemma~\ref{lem:serrin} now bounds $\norm{\nabla u}_2$ up to $T_*$, and \eqref{eq:energy} bounds $\norm u_2$. This contradicts \eqref{eq:H1alternative}. Thus $T_*>H$. Continuity includes $t=H$ in the estimates. This proves every assertion.
+\end{proof}
+
+\begin{remark}[Dependency reduction, not a stronger arbitrary-data theorem]
+The attachment obtained the endpoint conclusion through its imported $L^\infty_tL^3_x$ continuation theorem. Retaining the already available $\int D$ gives the nonendpoint $L^4_tL^6_x$ condition directly. The hypotheses on the comparison have not been weakened by this change; a substantial external endpoint theorem has simply become unnecessary for this route.
+\end{remark}
+
+\section{Global spectral comparisons and their unconditional identities}
+\label{sec:spectral}
+Let $J_N$ be the Fourier multiplier $\mathbf1_{[-N,N]^3}$, for integers $N\ge1$. It is self-adjoint and idempotent on $L^2$, commutes with derivatives and $\PP$, and is uniformly bounded on $L^p$, $1<p<\infty$. For the last fact, each one-dimensional interval projection is the difference of two modulated half-line projections; half-line projections are linear combinations of the identity and the Hilbert transform. Apply the three coordinate operators successively and use Fubini. Strong convergence $J_Nf\to f$ follows from density of smooth compact-Fourier-support functions and uniform boundedness \cite{Stein}.
+
+\begin{proposition}[Global comparisons for every input]\label{prop:spectral}
+There is a unique global real solenoidal solution
+\begin{equation}\label{eq:spectral}
+ (v_N)_t+J_N\PP\diver(v_N\otimes v_N)=\nu\Delta v_N,
+ \qquad v_N(0)=J_Nu_0,\qquad J_Nv_N=v_N.
+\end{equation}
+For each finite horizon it lies in $C^j([0,H];H^m)$ for all $j,m$, and
+\begin{equation}\label{eq:specenergy}
+ \norm{v_N(t)}_2^2+2\nu\int_0^t\norm{\nabla v_N(s)}_2^2\dd s
+ =\norm{J_Nu_0}_2^2\le E_0.
+\end{equation}
+Its exact full-equation stress is
+\begin{equation}\label{eq:FN}
+ R_{v_N}=\PP\diver F_N,\qquad F_N=(I-J_N)(v_N\otimes v_N).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Work in the closed real solenoidal subspace of $L^2$ with Fourier support in the cube. On this subspace $\Delta$ is bounded. Fourier inversion gives $\norm v_\infty\le C N^{3/2}\norm v_2$, so
+\[
+ \norm{J_N\PP\diver(v\otimes v)}_2
+ \le C N\norm{v\otimes v}_2\le C N^{5/2}\norm v_2^2.
+\]
+Polarization gives local Lipschitz continuity. The Hilbert-space ODE theorem produces a local solution, preserving support, reality and solenoidality. Test with $v_N$: the projections disappear by self-adjointness and $J_Nv_N=\PP v_N=v_N$. The convection integral vanishes by divergence cancellation. This gives \eqref{eq:specenergy}; cutoffs are justified by $v_N\in L^2\cap L^\infty$. The bounded $L^2$ norm precludes finite-time escape of the ODE on bounded balls. Frequency support then supplies every spatial Sobolev norm, and the polynomial vector field supplies every time derivative. Finally subtract \eqref{eq:spectral} from \eqref{eq:residual} to obtain \eqref{eq:FN}.
+\end{proof}
+
+\begin{remark}
+This spectral space is infinite-dimensional on $\R^3$. The construction is not a finite numerical algorithm. A computed certificate would additionally require validated spatial, frequency-quadrature and temporal errors. No such numerical computation is claimed here. A sharp ball projection cannot replace the cube without checking the required $L^p$ bounds.
+\end{remark}
+
+Put
+\begin{equation}\label{eq:specnotation}
+ f_N(t)=\norm{v_N(t)}_6,\quad
+ Y_N(t)=\norm{\nabla v_N(t)}_2^2,\quad
+ P_N(t)=\norm{\Delta v_N(t)}_2^2,\quad
+ a_N(t)=\nu^{-3}\int_0^tf_N(s)^4\dd s.
+\end{equation}
+The constants $k$ and $S$ are those already fixed, independent of $N$.
+\begin{lemma}[Integrating-factor enstrophy budget]\label{lem:weightedY}
+For every $N,t$,
+\begin{align}
+ Y_N'+\nu P_N&\le k\nu^{-3}f_N^4Y_N,\label{eq:specY}\\
+ e^{-ka_N(t)}Y_N(t)+\nu\int_0^t e^{-ka_N(s)}P_N(s)\dd s&\le Y_0.\label{eq:weightedY}
+\end{align}
+In particular $Y_N(t)\le Y_0e^{ka_N(t)}$.
+\end{lemma}
+\begin{proof}
+Test \eqref{eq:spectral} with $-\Delta v_N$. This test is itself in the range of $J_N$ and $\PP$, so both projections disappear exactly. The proof of Lemma~\ref{lem:serrin} now gives \eqref{eq:specY}, without any assertion about the unknown exact solution. Multiply by $e^{-ka_N(t)}$ and use $a_N'=\nu^{-3}f_N^4$, then integrate. Since $Y_N(0)\le Y_0$, \eqref{eq:weightedY} follows.
+\end{proof}
+
+\section{The weighted residual estimate: no independent stress bound remains}
+\label{sec:weightedresidual}
+\subsection{A high-pass inequality using only ordinary Sobolev}
+\begin{lemma}\label{lem:highpass}
+For a vector or tensor $G\in H^1$,
+\begin{equation}\label{eq:highpass}
+ \norm{(I-J_N)G}_3^2\le\frac SN\norm{\nabla G}_2^2.
+\end{equation}
+Consequently, with $d_N=\norm{(I-J_N)u_0}_3$,
+\begin{align}
+ d_N^2&\le S Y_0/N,\label{eq:dN}\\
+ \norm{F_N(t)}_3^2&\le\frac{4S^2}{N} f_N(t)^2Y_N(t)^{1/2}P_N(t)^{1/2}.
+ \label{eq:Fpoint}
+\end{align}
+\end{lemma}
+\begin{proof}
+Outside the cube, $|\xi|\ge N$. Plancherel gives $\norm{(I-J_N)G}_2\le N^{-1}\norm{\nabla G}_2$ and $\norm{\nabla(I-J_N)G}_2\le\norm{\nabla G}_2$. Interpolation and Sobolev give
+\[
+ \norm{(I-J_N)G}_3^2
+ \le\norm{(I-J_N)G}_2\norm{(I-J_N)G}_6
+ \le\frac SN\norm{\nabla G}_2^2.
+\]
+This proves \eqref{eq:highpass} and \eqref{eq:dN}. For $G=v_N\otimes v_N$, the pointwise product rule yields $|\nabla G|\le2|v_N||\nabla v_N|$. Thus
+\[
+ \norm{\nabla G}_2^2\le4f_N^2\norm{\nabla v_N}_3^2
+ \le4S f_N^2Y_N^{1/2}P_N^{1/2},
+\]
+where interpolation, Sobolev for $\nabla v_N$, and Plancherel were used. This proves \eqref{eq:Fpoint}.
+\end{proof}
+
+Define
+\begin{equation}\label{eq:weightedconstants}
+ \beta=\frac{2c_b}{3},\qquad
+ \delta=\beta-k>0,\qquad
+ \Phi(a)=\left(\frac{1-e^{-2\delta a}}{2\delta}\right)^{1/2},\qquad
+ \Kinf=3^{-2/3}\left(S+\frac{16S^2}{\sqrt{2\delta}}\right).
+\end{equation}
+Positivity of $\delta$ is explicit:
+\begin{equation}\label{eq:betaoverk}
+ \frac\beta k=36(1+2C_{9/2})^4>1.
+\end{equation}
+In particular $\Phi(0)=0$, $0\le\Phi(a)\le(2\delta)^{-1/2}$ and $\Phi(a)\le\sqrt a$.
+
+\begin{theorem}[Discounted critical stress estimate]\label{thm:weightedF}
+For every datum, every $N\ge1$ and every finite $H>0$,
+\begin{equation}\label{eq:weightedF}
+ \boxed{\quad
+ \int_0^H e^{-\beta a_N(t)}\norm{F_N(t)}_3^2\dd t
+ \le\frac{4S^2\nu Y_0}{N}\Phi(a_N(H))
+ \le\frac{4S^2\nu Y_0}{N\sqrt{2\delta}}.\quad}
+\end{equation}
+No regularity assumption on the exact solution beyond its local existence is made; in fact this estimate is purely about the global comparisons.
+\end{theorem}
+\begin{proof}
+Use \eqref{eq:Fpoint} and $Y_N\le Y_0e^{ka_N}$:
+\begin{align*}
+ &\int_0^H e^{-\beta a_N}\norm{F_N}_3^2\dd t\\
+ &\quad\le\frac{4S^2\sqrt{Y_0}}N
+ \int_0^H f_N^2 e^{-(\beta-k)a_N}
+                \bigl(e^{-ka_N}P_N\bigr)^{1/2}\dd t\\
+ &\quad\le\frac{4S^2\sqrt{Y_0}}N
+ \left(\int_0^H f_N^4e^{-2\delta a_N}\dd t\right)^{1/2}
+ \left(\int_0^H e^{-ka_N}P_N\dd t\right)^{1/2}.
+\end{align*}
+The second squared integral is at most $Y_0/\nu$ by \eqref{eq:weightedY}. For the first, the chain rule and $a_N'=\nu^{-3}f_N^4$ give the exact identity
+\begin{equation}\label{eq:exacttimeintegral}
+ \int_0^H f_N^4e^{-2\delta a_N}\dd t
+ =\nu^3\frac{1-e^{-2\delta a_N(H)}}{2\delta}.
+\end{equation}
+This remains true when $a_N$ has flat pieces; no inverse change of variables or division by $a_N'$ is required. Multiplying the factors gives \eqref{eq:weightedF}.
+\end{proof}
+
+\begin{remark}[Why the time weight must not be discarded]
+An unweighted version of the same argument gives
+\begin{equation}\label{eq:unweightedB}
+ \int_0^H\norm{F_N}_3^2\dd t
+ \le\frac{4S^2\nu Y_0}{N}
+ \left(\frac{e^{2ka_N(H)}-1}{2k}\right)^{1/2}.
+\end{equation}
+It follows by replacing $\beta$ by zero in the calculation, not in the definition of $\delta$. Substitution into the attachment's simplified certificate carries an additional exponential enstrophy cost. In \eqref{eq:weightedF}, the certificate's discount defeats that cost because $\beta>k$. This is an actual estimate from the truncated equation, not an assumed critical-norm convergence theorem.
+\end{remark}
+
+\begin{theorem}[One-budget spectral certificate]\label{thm:onebudget}
+Let $u_0\ne0$. Define
+\begin{align}
+ \mathfrak U_N(H)
+ &=3^{-2/3}\frac{\kin}{N}e^{\beta a_N(H)}
+       \bigl[S+16S^2\Phi(a_N(H))\bigr],\label{eq:UN}\\
+ \mathfrak V_N(H)
+ &=\Kinf\frac{\kin}{N}e^{\beta a_N(H)}.\label{eq:VN}
+\end{align}
+Either $\mathfrak U_N(H)<\rstar^2$ or the stronger condition $\mathfrak V_N(H)<\rstar^2$ for one integer $N$ implies $T_*>H$.
+\end{theorem}
+\begin{proof}
+Take $v=v_N$, $F=F_N$ in Theorem~\ref{thm:certificate}. Here $M(t)=c_ba_N(t)$, so the weight in \eqref{eq:Z} is exactly $e^{-\beta a_N(t)}$. By Lemmas~\ref{lem:Qbasic} and~\ref{lem:highpass},
+\[
+ Q_0^{2/3}\le3^{-2/3}d_N^2\le3^{-2/3}S Y_0/N.
+\]
+Theorem~\ref{thm:weightedF} therefore yields
+\begin{align*}
+ \frac{Z_H^2}{\nu^2}
+ &\le3^{-2/3}\frac{Y_0}{\nu^2N}e^{\beta a_N(H)}
+       \bigl[S+16S^2\Phi(a_N(H))\bigr]\\
+ &=\mathfrak U_N(H)\le\mathfrak V_N(H).
+\end{align*}
+Either strict condition supplies $Z_H<\rstar\nu$. The residual has finite unweighted norm for each fixed $N,H$, by smoothness of $v_N$ or \eqref{eq:unweightedB}, so all hypotheses of Theorem~\ref{thm:certificate} hold.
+\end{proof}
+
+\begin{corollary}[A logarithmic sufficient condition and a necessary failure rate]\label{cor:log}
+Write $r_N=N/\kin=N\nu^2/Y_0$. If
+\begin{equation}\label{eq:logtest}
+ \beta a_N(H)-\log r_N<\log(\rstar^2/\Kinf)
+\end{equation}
+for one $N$, then $T_*>H$. In particular, if along some $N_j\to\infty$
+\begin{equation}\label{eq:sublog}
+ \limsup_{j\to\infty}\frac{a_{N_j}(H)}{\log r_{N_j}}<\frac1\beta,
+\end{equation}
+then $T_*>H$. Conversely, a hypothetical $T_*\le H$ forces, for every $N$,
+\begin{equation}\label{eq:lowerlog}
+ a_N(H)\ge\frac1\beta\left[\log r_N+\log(\rstar^2/\Kinf)\right].
+\end{equation}
+Thus $a_N(H)\to\infty$, and $\liminf_{N\to\infty}a_N(H)/\log r_N\ge1/\beta$.
+\end{corollary}
+\begin{proof}
+Take logarithms of \eqref{eq:VN}. Under \eqref{eq:sublog}, there is $\epsilon>0$ such that $\beta a_{N_j}\le(1-\epsilon)\log r_{N_j}$ for all sufficiently large $j$. Then $\mathfrak V_{N_j}\le\Kinf r_{N_j}^{-\epsilon}\to0$. For the converse, if $T_*\le H$, Theorem~\ref{thm:onebudget} implies $\mathfrak V_N(H)\ge\rstar^2$ for every $N$; taking logarithms gives \eqref{eq:lowerlog}. If its right side is negative it is merely a vacuous lower bound; the asserted limiting conclusions concern $r_N\to\infty$.
+\end{proof}
+
+\section{One input-selected finite horizon gives the entire global conclusion}
+\label{sec:finitehorizon}
+\begin{lemma}[Small energy--enstrophy product]\label{lem:smallEY}
+If at a classical time $t_0<T_*$ one has
+\begin{equation}\label{eq:smallEY}
+ E(t_0)Y(t_0)<\frac{\nu^4}{16S^6},
+\end{equation}
+then the original branch is global. Its enstrophy is nonincreasing for $t\ge t_0$.
+\end{lemma}
+\begin{proof}
+The enstrophy identity and a different H\"older estimate give
+\begin{align*}
+ \tfrac12Y'+\nu P
+ &\le\norm u_3\norm{\nabla u}_6\norm{\Delta u}_2
+ \le S\norm u_3 P\\
+ &\le S^{3/2}(EY)^{1/4}P.
+\end{align*}
+The last step uses $\norm u_3\le\norm u_2^{1/2}\norm u_6^{1/2}\le S^{1/2}(EY)^{1/4}$. Whenever $EY\le\nu^4/(16S^6)$, this gives $Y'+\nu P\le0$. The energy $E$ is also nonincreasing. Starting from the strict inequality \eqref{eq:smallEY}, a first exit of $EY$ from this region is therefore impossible: up to such an exit both factors have only decreased. Thus $Y(t)\le Y(t_0)$ for every $t_0\le t<T_*$. The local $H^1$ blow-up alternative rules out finite $T_*$.
+\end{proof}
+
+\begin{theorem}[An explicit sufficient horizon]\label{thm:finitehorizon}
+For $u_0\ne0$, let $H_E$ be \eqref{eq:HEintro}. If $T_*>H_E$, then $T_*=\infty$. Consequently, a single index satisfying
+\begin{equation}\label{eq:globaltest}
+ \mathfrak V_N(H_E)<\rstar^2
+\end{equation}
+proves the full global conclusion \eqref{eq:NS}--\eqref{eq:energytarget} for this datum and viscosity.
+\end{theorem}
+\begin{proof}
+By \eqref{eq:energy},
+\[
+ \int_0^{H_E}Y(t)\dd t\le\frac{E_0}{2\nu}.
+\]
+Continuity supplies a $t_0\in[0,H_E]$ with
+\[
+ Y(t_0)\le\frac{E_0}{2\nu H_E}
+ =\frac{\nu^4}{32S^6E_0}.
+\]
+Since $E(t_0)\le E_0$, Lemma~\ref{lem:smallEY} applies with a factor-of-two strict margin. Condition \eqref{eq:globaltest} gives $T_*>H_E$ by Theorem~\ref{thm:onebudget}. Once $T_*=\infty$, the local package on every compact time interval gives smooth velocity and normalized pressure, including at $t=0$, and \eqref{eq:energy} gives \eqref{eq:energytarget}.
+\end{proof}
+
+If $u_0=0$, the solution $u=p=0$ is global and no cutoff, logarithm, $\kin^{-1}$ or positive $H_E$ is needed. Conversely, a nonzero $L^2$ datum cannot have $Y_0=0$, because a field with zero distributional gradient is constant and an $L^2$ constant on $\R^3$ is zero.
+
+The finite-horizon idea is consistent with classical eventual-regularity arguments and with Pham's one-approximation global criterion \cite{Pham}; no novelty is claimed for it. The point here is to supply the exact constant and the complete positive implication for the present certificate.
+
+\subsection{Scaling check}
+Under $u_\lambda(t,x)=\lambda u(\lambda^2t,\lambda x)$, the initial quantities transform as
+\[
+ E_{0,\lambda}=\lambda^{-1}E_0,\qquad
+ Y_{0,\lambda}=\lambda Y_0,\qquad
+ \kappa_{0,\lambda}=\lambda\kin,\qquad H_{E,\lambda}=\lambda^{-2}H_E.
+\]
+The corresponding cutoff is $N_\lambda=\lambda N$, so $N/\kin$ and the critical integral $a_N(H)$ are invariant under the simultaneous transformation. Thus the logarithm in \eqref{eq:logtest} is of a dimensionless ratio. The Fourier construction and estimates also work for positive real cutoffs; restricting to integers is a countable testing convention, not a claim that the integer lattice of cutoffs is itself dilation-invariant.
+
+\section{Conditional completeness: no unconditional termination is smuggled in}
+\label{sec:complete}
+\begin{theorem}[Eventual success on a regular interval]\label{thm:complete}
+If $T_*>H$, then $a_N(H)$ remains bounded as $N\to\infty$ and
+\begin{equation}\label{eq:Vzero}
+ \mathfrak V_N(H)\longrightarrow0.
+\end{equation}
+In particular, for each nonzero datum,
+\begin{equation}\label{eq:equivalence}
+ T_*=\infty
+ \quad\Longleftrightarrow\quad
+ \exists N\ge1:\ \mathfrak V_N(H_E)<\rstar^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+We give the convergence argument so that its conditional constants are visible. Fix an integer $m\ge3$ and set
+\[
+ U_j=\sup_{0\le t\le H}\norm{u(t)}_{H^j}<\infty.
+\]
+These are norms of the \emph{assumed regular} exact solution. For $m\ge3$, the Fourier convolution product estimate implies
+\begin{equation}\label{eq:product}
+ \norm{(v\cdot\nabla)v-(u\cdot\nabla)u}_{H^{m-1}}
+ \le C_m(\norm v_{H^m}+\norm u_{H^m})\norm{v-u}_{H^m}.
+\end{equation}
+For completeness, $H^{m-1}$ is an algebra: distribute its Fourier weight onto either factor in the convolution, apply Young, and use $\norm{\widehat f}_1\le C\norm f_{H^{m-1}}$, since $m-1>3/2$. Apply the resulting estimate to $(v-u)\cdot\nabla v+u\cdot\nabla(v-u)$.
+
+Put $h_N=v_N-J_Nu$ and $\theta_N=(I-J_N)u$. Then $h_N(0)=0$ and
+\[
+ (h_N)_t-\nu\Delta h_N
+ =-J_N\PP\bigl((v_N\cdot\nabla)v_N-(u\cdot\nabla)u\bigr).
+\]
+For any integer $\ell\ge1$,
+\begin{equation}\label{eq:tailHm}
+ \sup_{t\le H}\norm{\theta_N(t)}_{H^m}\le N^{-\ell}U_{m+\ell}.
+\end{equation}
+This is Plancherel and $|\xi|\ge N$ outside the cube.
+
+Let $W_N=\norm{h_N}_{H^m}^2$ and $X_N=\norm{\nabla h_N}_{H^m}^2$. While $W_N\le1$, $\norm{v_N}_{H^m}\le U_m+1$. With $B=C_m(2U_m+1)$, duality between $H^{m-1}$ and the one-higher derivative of $h_N$ gives
+\begin{align*}
+ \tfrac12 W_N'+\nu X_N
+ &\le B\bigl(\sqrt{W_N}+\norm{\theta_N}_{H^m}\bigr)\sqrt{X_N+W_N}\\
+ &\le\tfrac\nu2(X_N+W_N)
+       +\frac{B^2}{\nu}\bigl(W_N+\norm{\theta_N}_{H^m}^2\bigr).
+\end{align*}
+We used $\norm{h_N}_{H^{m+1}}^2=X_N+W_N$ in the Fourier definition of the inhomogeneous norm. Consequently, with $A=\nu+2B^2/\nu$,
+\begin{equation}\label{eq:conditionalconvergence}
+ W_N(t)\le\frac{2B^2H}{\nu}e^{AH}N^{-2\ell}U_{m+\ell}^2
+ \quad(0\le t\le H)
+\end{equation}
+as long as $W_N\le1$. For sufficiently large $N$ this right side is less than $1/2$, so a first-exit argument closes the bootstrap on $[0,H]$. Thus $v_N\to u$ in $C([0,H];H^m)$ and, in particular, in $C([0,H];L^6)$. Hence
+\[
+ a_N(H)\longrightarrow\nu^{-3}\int_0^H\norm{u(t)}_6^4\dd t<\infty.
+\]
+Equation \eqref{eq:Vzero} follows from \eqref{eq:VN}. For \eqref{eq:equivalence}, the forward direction uses \eqref{eq:Vzero} at $H_E$; the reverse direction is Theorem~\ref{thm:finitehorizon}.
+\end{proof}
+
+\begin{remark}[The converse is not an input-only proof of termination]
+The constants $U_m,U_{m+\ell}$ in \eqref{eq:conditionalconvergence} are unavailable at a hypothetical singular endpoint. They are legitimate in a proof conditional on $T_*>H$, but cannot select a successful $N$ before establishing that premise. Equation \eqref{eq:equivalence} states the exact logical strength of the producer, rather than disguising it as an already weaker solved assertion.
+\end{remark}
+
+\section{Attempting the logarithmic bound: what energy and enstrophy do not decide}
+\label{sec:attempt}
+\subsection{The immediate energy estimate still grows quadratically}
+The global comparisons satisfy $Y_N(t)\le3N^2E_0$ by their Fourier support. Sobolev and energy therefore give
+\begin{equation}\label{eq:crudea}
+ a_N(H)\le\nu^{-3}S^4\int_0^H Y_N(t)^2\dd t
+ \le\frac{3S^4}{2\nu^4}N^2E_0^2.
+\end{equation}
+This does not imply \eqref{eq:logtest}. The needed upper bound is logarithmic, with a specified coefficient and offset, whereas \eqref{eq:crudea} permits quadratic growth. The discounted stress estimate \eqref{eq:weightedF} cannot fix this alone: its outer amplification factor $e^{\beta a_N(H)}$ remains in \eqref{eq:VN}.
+
+The enstrophy inequality \eqref{eq:specY} supplies additional information, but is a one-sided growth bound. It does not supply a bound on $a_N$ by reversing Gronwall. The following construction checks this limitation with smooth spatial fields, common initial data and the \emph{same} scalar enstrophy inequality. It is stronger in these respects than an abstract blowing-up scalar ODE or a comparison curve undefined after its concentration time.
+
+\subsection{A common-datum, globally smooth, band-limited countermodel}
+\begin{theorem}[The scalar budgets allow logarithmic concentration]\label{thm:capped}
+For each fixed $\nu>0$ there is a nonzero real solenoidal Schwartz datum $W$ with Fourier support in the unit ball, and globally smooth real solenoidal Schwartz-valued curves $z_N$, $N\ge1$, such that:
+
+\smallskip
+\noindent (i) $z_N(0)=W=J_NW$ and $J_Nz_N=z_N$ for every $N$.
+
+\smallskip
+\noindent (ii) They obey the exact scalar energy identity
+\begin{equation}\label{eq:cappedenergy}
+ \norm{z_N(t)}_2^2+2\nu\int_0^t\norm{\nabla z_N(s)}_2^2\dd s=\norm W_2^2.
+\end{equation}
+
+\smallskip
+\noindent (iii) With the same $S,k$ as above, they obey
+\begin{equation}\label{eq:cappedens}
+ \frac{\dd}{\dd t}\norm{\nabla z_N}_2^2+\nu\norm{\Delta z_N}_2^2
+ \le k\nu^{-3}\norm{z_N}_6^4\norm{\nabla z_N}_2^2.
+\end{equation}
+
+\smallskip
+\noindent (iv) For a fixed $T>0$ and every fixed $H\ge T$,
+\begin{equation}\label{eq:cappedlog}
+ \nu^{-3}\int_0^H\norm{z_N(t)}_6^4\dd t
+ =\alpha_W\log N+O_W(1),\qquad
+ \alpha_W=2T\nu^{-3}\norm W_6^4>0,
+\end{equation}
+where $\alpha_W$ can be made arbitrarily large by one amplitude choice, independent of $N$. In particular $W$ can be chosen so that the analogue of \eqref{eq:globaltest} fails for every $N$ at $H_E(W)$.
+
+\smallskip
+\noindent (v) Their full projected residuals and time derivatives are uniformly bounded in $L^{4/3}(0,\infty;\dot H^{-1})$.
+
+These curves do \textbf{not} solve \eqref{eq:spectral} or \eqref{eq:NS}; their equation defect is already nonzero at time zero. They refute a derivation of the logarithmic producer from (i)--(iii) alone, not the sought estimate on the actual $v_N$.
+\end{theorem}
+\begin{proof}
+\emph{Step 1: an even solenoidal frequency-localized seed.}
+Choose a nonzero real even $\phi\in C_c^\infty(\{1/2<|\xi|<3/5\})$, for example radial, and set
+\[
+ \widehat{W_0}(\xi)=\left(I-\frac{\xi\otimes\xi}{|\xi|^2}\right)e_1\phi(\xi).
+\]
+The support avoids zero. Thus $W_0$ is real, even, solenoidal, Schwartz and nonzero. Write $\overline E=\norm{W_0}_2^2$, $\overline Y=\norm{\nabla W_0}_2^2$, $\overline P=\norm{\Delta W_0}_2^2$ and $\overline L=\norm{W_0}_6^4$. These are positive. The support gives
+\begin{equation}\label{eq:seedratio}
+ \frac{\overline P\,\overline E}{\overline Y^2}
+ \le\frac{(3/5)^2}{(1/2)^2}=\frac{36}{25}<2.
+\end{equation}
+Indeed $\overline P\le(3/5)^2\overline Y$ and $\overline Y\ge(1/2)^2\overline E$.
+
+Let $W=A W_0$ for a positive amplitude $A$ selected below. Put
+\begin{equation}\label{eq:cappedT}
+ c=\frac{\norm{\nabla W}_2^2}{\norm W_2^2}
+   =\frac{\overline Y}{\overline E},
+ \qquad T=\frac1{4\nu c}.
+\end{equation}
+The time $T$ is independent of $A$.
+
+\emph{Step 2: cap the concentration smoothly at the spectral cutoff.}
+Choose a fixed $C^\infty$ function $\eta:\R\to[0,1]$ equal to one for $s\le1/4$, equal to zero for $s\ge3/4$, and satisfying $\eta(1-s)=1-\eta(s)$. For an explicit construction let
+\[
+ \vartheta(r)=\frac{e^{-1/r}}{e^{-1/r}+e^{-1/(1-r)}}\quad(0<r<1),
+\]
+extend it by zero and one outside that interval, and take $\eta(s)=1-\vartheta(2s-1/2)$. For $\tau\ge0$ put
+\begin{equation}\label{eq:capshape}
+ \chi(\tau)=\int_0^\tau\eta(s)\dd s,\quad
+ L(\tau)=(1-\chi(\tau))^{-1/2},\quad
+ B(\tau)=L(\tau)^{1/2}
+       \exp\!\left(-\tfrac14\int_0^\tau L(s)^2\dd s\right).
+\end{equation}
+Symmetry gives $\int_0^1\eta=1/2$, and $\eta=0$ after $3/4$; thus $\chi=1/2$ and $L=\sqrt2$ there. On $[0,1/4]$, $L=(1-\tau)^{-1/2}$. Also $1\le L\le\sqrt2$ and $B$ decays exponentially after $3/4$.
+
+For $N\ge4$ let $\kappa=N/2$, $t_N=T(1-\kappa^{-2})$ and define
+\begin{equation}\label{eq:lambdaN}
+ \lambda_N(t)=
+ \begin{cases}
+ (1-t/T)^{-1/2},&0\le t\le t_N,\\
+ \kappa L(\tau),\quad \tau=(t-t_N)\kappa^2/T,&t\ge t_N.
+ \end{cases}
+\end{equation}
+The pieces agree on a neighborhood of the joining point, not just to finitely many derivatives. Define
+\begin{equation}\label{eq:bN}
+ b_N(t)=\lambda_N(t)^{1/2}
+   \exp\!\left(-\nu c\int_0^t\lambda_N(s)^2\dd s\right),
+ \qquad z_N(t,x)=b_N(t)\lambda_N(t)W(\lambda_N(t)x).
+\end{equation}
+On $[0,t_N]$, $b_N=1$. For $t\ge t_N$, $b_N=B(\tau)$, because $\nu cT=1/4$ and
+\[
+ \int_0^{t_N}\lambda_N^2\dd t=T\log\kappa^2,
+ \qquad \int_{t_N}^{t}\lambda_N^2\dd s=T\int_0^\tau L(s)^2\dd s.
+\]
+The maximum frequency-dilation factor is $N/\sqrt2<N$. The initial support of $W$ is in the unit ball, so $z_N$ stays inside the cube. Every curve is smooth for all time, solenoidal, real and Schwartz-valued, and $z_N(0)=W$.
+
+For the finitely many $N=1,2,3$, set $\lambda_N=1$, $b_N=e^{-\nu ct}$ and use \eqref{eq:bN}. These also have the required support and initial value.
+
+\emph{Step 3: exact energy balance.}
+For every $N$,
+\[
+ E_z=b_N^2\lambda_N^{-1}E_W,
+ \quad Y_z=b_N^2\lambda_N Y_W,
+ \quad P_z=b_N^2\lambda_N^3P_W,
+\]
+where $E_W=\norm W_2^2$, $Y_W=\norm{\nabla W}_2^2$, $P_W=\norm{\Delta W}_2^2$. Since
+\[
+ E_z=E_W\exp\!\left(-2\nu c\int_0^t\lambda_N^2\dd s\right),
+\]
+one has $E_z'=-2\nu Y_z$. Integrate and use $E_z(0)=E_W$ to obtain \eqref{eq:cappedenergy}.
+
+\emph{Step 4: logarithmic critical cost with no singular endpoint.}
+For $N\ge4$, $\norm{z_N}_6^4=b_N^4\lambda_N^2\norm W_6^4$. Up to $t_N$, therefore,
+\begin{equation}\label{eq:logpart}
+ \int_0^{t_N}\norm{z_N}_6^4\dd t
+ =T\norm W_6^4\log\kappa^2.
+\end{equation}
+After $t_N$, use $\tau=(t-t_N)\kappa^2/T$ to get
+\[
+ \int_{t_N}^H\norm{z_N}_6^4\dd t
+ =T\norm W_6^4\int_0^{\tau(H)}B(\tau)^4L(\tau)^2\dd\tau.
+\]
+This integral is nonnegative and uniformly bounded for all upper limits, because
+\[
+ B(\tau)^4L(\tau)^2
+ =L(\tau)^4\exp\!\left(-\int_0^\tau L(s)^2\dd s\right)
+ \le4e^{-\tau}.
+\]
+For $H=T$, $\tau(H)=1$ exactly. For every $H\ge T$, combining this with \eqref{eq:logpart} proves \eqref{eq:cappedlog}. Since $\norm W_6^4=A^4\overline L$ while $T$ is independent of $A$, the leading coefficient can be arbitrarily large.
+
+\emph{Step 5: the same scalar enstrophy inequality.}
+For $N\ge4$, interpret $\eta=1$ before $t_N$, and $\eta=\eta(\tau)$ afterwards. Then
+\[
+ \frac{\lambda_N'}{\lambda_N^3}=\frac{\eta}{2T}=2\nu c\eta.
+\]
+Differentiating $Y_z=b_N^2\lambda_NY_W$ gives
+\begin{equation}\label{eq:cappedYexact}
+ Y_z'+\nu P_z
+ =\nu b_N^2\lambda_N^3\bigl[(4\eta-2)cY_W+P_W\bigr].
+\end{equation}
+When $\eta=0$, the bracket is negative by \eqref{eq:seedratio}. During the transition, $B\ge e^{-3/8}$ on $0\le\tau\le3/4$, since $L\ge1$ and $\int_0^\tau L^2\le3/2$. Before the transition $b_N=1$. Thus every possibly positive bracket in \eqref{eq:cappedYexact} occurs where $b_N^4\ge e^{-3/2}$. Choose
+\begin{equation}\label{eq:Athreshold}
+ A^4\ge\frac{\nu^4e^{3/2}(2c\overline Y+\overline P)}
+                      {k\overline L\,\overline Y}.
+\end{equation}
+Since $\norm{z_N}_6^4Y_z=b_N^6\lambda_N^3 A^6\overline L\,\overline Y$, this proves \eqref{eq:cappedens}. For $N=1,2,3$ one always has $\eta=0$, so the inequality also holds.
+
+\emph{Step 6: failure of the one-budget test can hold at every index.}
+Increase $A$ further so that $H_E(W)\ge T$, $\beta\alpha_W\ge2$, and $\Kinf\kappa_W/3\ge\rstar^2$, where $\kappa_W=Y_W/\nu^2$. All three conditions hold for sufficiently large $A$. For $N\ge4$, \eqref{eq:logpart} gives
+\[
+ \Kinf\frac{\kappa_W}{N}
+ \exp\!\left(\beta\nu^{-3}\int_0^{H_E(W)}\norm{z_N}_6^4\dd t\right)
+ \ge\Kinf\frac{\kappa_W}{N}(N/2)^2
+ =\Kinf\kappa_W N/4\ge\rstar^2.
+\]
+For $N=1,2,3$ the exponential is at least one and the same conclusion follows from the amplitude choice. Thus the scalar inputs of the argument do not force a successful index.
+
+\emph{Step 7: uniform weak time regularity and residual bounds.}
+Before $t_N$, the full residual is
+\begin{equation}\label{eq:RW}
+ R_{z_N}(t,x)=\lambda_N^3\mathcal R_W(\lambda_Nx),\quad
+ \mathcal R_W=\frac1{2T}\Lambda W+\PP\diver(W\otimes W)-\nu\Delta W,
+ \quad\Lambda W=W+(x\cdot\nabla)W.
+\end{equation}
+The profile belongs to $\dot H^{-1}$: the linear terms are Schwartz in dimension three, and
+$\norm{\PP\diver(W\otimes W)}_{\dot H^{-1}}\le\norm{W\otimes W}_2$.
+Scaling gives $\norm{R_{z_N}}_{\dot H^{-1}}=\lambda_N^{1/2}\norm{\mathcal R_W}_{\dot H^{-1}}$, and
+\[
+ \int_0^{t_N}\lambda_N^{2/3}\dd t\le\int_0^T(1-t/T)^{-1/3}\dd t=3T/2.
+\]
+The same bound applies to $(z_N)_t$ with profile $(2T)^{-1}\Lambda W$.
+
+After $t_N$, write $z_N(t,x)=\kappa Z(\tau,\kappa x)$, with
+$Z(\tau,y)=B(\tau)L(\tau)W(L(\tau)y)$. Then
+\[
+ R_{z_N}=\kappa^3\mathcal R(\tau,\kappa x),\quad
+ \mathcal R=T^{-1}Z_\tau+\PP\diver(Z\otimes Z)-\nu\Delta Z.
+\]
+All profile $\dot H^{-1}$ norms are bounded on $0\le\tau\le3/4$ and decay exponentially afterwards. Hence
+\[
+ \int_{t_N}^\infty\norm{R_{z_N}}_{\dot H^{-1}}^{4/3}\dd t
+ =T\kappa^{-4/3}\int_0^\infty\norm{\mathcal R(\tau)}_{\dot H^{-1}}^{4/3}\dd\tau,
+\]
+which is uniformly bounded. The calculation for $(z_N)_t$ is identical. The finitely many low indices have exponential time decay as well.
+
+\emph{Step 8: exhibit the missing vector equation.}
+For $N\ge4$, at $t=0$ the linear part of $\mathcal R_W$ in \eqref{eq:RW} is even, whereas its nonlinear part is odd; $\PP$ preserves parity. The even part is nonzero, since
+\[
+ \ip{(2T)^{-1}\Lambda W-\nu\Delta W}{-\Delta W}
+ =\frac{Y_W}{4T}+\nu P_W>0.
+\]
+Here $\ip{\Lambda W}{-\Delta W}=Y_W/2$, obtained by one integration by parts or differentiation of the dilation law for enstrophy. The odd term cannot cancel this even field. All terms at time zero have Fourier support in the cube for $N\ge4$, including the quadratic product, so the truncated-equation defect is also nonzero.
+
+For $N=1,2,3$, the even part of the defect is $-\nu cW-\nu\Delta W$, and
+\[
+ \ip{-\nu cW-\nu\Delta W}{-\Delta W}
+ =\nu(P_W-Y_W^2/E_W)>0.
+\]
+Strictness follows from strict Cauchy--Schwarz: a nonzero smooth Fourier profile occupying an annulus is not supported on one sphere. The nonlinear term remains odd, also after $J_N\PP$, so it cannot cancel this part. This proves the final assertion and completes the construction.
+\end{proof}
+
+\begin{remark}[Exact scope of the countermodel]
+The curves in Theorem~\ref{thm:capped} do not have the vanishing high-output residual of the actual spectral equations. Their weak residual norms are uniformly bounded, not asserted to tend to zero. Thus the theorem excludes closure from the displayed scalar energy/enstrophy information, even with global smoothness, common initial data and band limitation. It does not exclude a proof using the full truncated equation, its frequency-specific residual structure or another genuinely additional estimate.
+\end{remark}
+
+\section{The first unresolved implication and the exact handoff}
+\label{sec:boundary}
+The attachment's missing inequality involved the jointly unfavorable behavior of the critical residual and its stability cost. Theorems~\ref{thm:weightedF} and~\ref{thm:onebudget} remove the residual as an independent producer. The remaining sufficient statement is now the following.
+
+\begin{hypothesis}[Unproved one-budget producer]\label{hyp:producer}
+For every $\nu>0$ and every nonzero $u_0\in\Sch$, the actual global solutions of \eqref{eq:spectral} satisfy, for at least one integer $N\ge1$,
+\begin{equation}\label{eq:missing}
+ \boxed{\quad
+ \beta a_N\!\left(\frac{16S^6E_0^2}{\nu^5}\right)
+ -\log\!\left(\frac{N\nu^2}{Y_0}\right)
+ <\log\!\left(\frac{\rstar^2}{\Kinf}\right).
+ \quad}
+\end{equation}
+\end{hypothesis}
+All terms in this statement are defined without assuming continuation of the exact solution. This does not make the statement proved: it asserts a quantitative fact about solutions of the nonlinear truncated equations. Conditional completeness cannot supply it, because that argument assumes precisely the regular exact interval one is trying to establish.
+
+The positive implication is completely specified:
+\[
+ \eqref{eq:missing}\ \Longrightarrow\ Z_{H_E}<\rstar\nu
+ \ \Longrightarrow\ u-v_N\in L^4_tL^6_x
+ \ \Longrightarrow\ T_*>H_E
+ \ \Longrightarrow\ T_*=\infty.
+\]
+The last step to the official target is \eqref{eq:energytarget} and the smoothness package, already proved in Theorem~\ref{thm:finitehorizon}. The zero datum is handled explicitly. No forcing, periodic domain, hyperviscosity, weak nonuniqueness or restriction of the data class enters the target.
+
+The attempted elementary closure supplies \eqref{eq:crudea}, not \eqref{eq:missing}. The countermodel of Theorem~\ref{thm:capped} shows that no further manipulation of just the scalar energy identity and the displayed scalar enstrophy inequality, even with these spectral supports and initial data, can guarantee the producer. Any successful continuation of this route must use additional information from the actual truncated vector equation, or replace the comparison construction with one for which its amplification budget can genuinely be controlled. This is a precise failure of the tested mechanism, not a claim that a different proof cannot work.
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{91mm}>{\raggedright\arraybackslash}p{63mm}@{}}\toprule
+Statement & Status in this continuation\\\midrule
+Local classical branch and $H^1$ blow-up alternative & Explicitly imported manuscript/literature input.\\[3pt]
+Natural dissipation identity without unweighted div--curl & Full candidate proof, including the zero set and the whole-space limit.\\[3pt]
+Critical residual certificate without ESS & Re-derived with the additional $L^4_tL^6_x$ continuation step.\\[3pt]
+Discounted residual bound and one-budget spectral test & Full candidate proofs from the actual truncated equation.\\[3pt]
+One explicit horizon suffices for global regularity & Full proof of the positive implication; established type of mechanism.\\[3pt]
+Common-datum scalar-budget countermodel & Full construction; explicitly not a solution of either vector equation.\\[3pt]
+The arbitrary-data producer \eqref{eq:missing} & Not proved.\\[3pt]
+Full NS-R3 / Clay alternative A & Not established by this note.\\\bottomrule
+\end{tabular}
+\end{center}
+No authoritative repository node should be promoted on the strength of this note alone. An independent mathematical audit is required even for the completed component proofs. The requested terminal result remains blocked specifically at \eqref{eq:missing}, not at the weighted stress estimate, the construction of comparisons, the critical certificate, or its all-time continuation suffix.
+
+\appendix
+\section{Which spectral assumptions are actually used}
+\label{app:cutoffs}
+The cube was retained to match the attachment. In fact, the new proof does not use its uniform $L^p$ operator bound: it obtains the initial $L^3$ error from \eqref{eq:dN}, the residual from \eqref{eq:highpass}, and conditional convergence from $H^m$ norms.
+
+More generally, let $K_N\subset\R^3$ be measurable and symmetric under $\xi\mapsto-\xi$, with $B_N\subseteq K_N\subseteq B_{cN}$ for a fixed $c\ge1$. Let $J_N$ have symbol $\mathbf1_{K_N}$. It remains an orthogonal projection on $L^2$, preserves real fields and solenoidality, and commutes with derivatives. Bounded support supplies the Hilbert-space ODE and all spatial regularity. The complement lies in $\{|\xi|\ge N\}$, so every high-pass and conditional convergence estimate above is unchanged. The enstrophy test removes $J_N$ by self-adjointness. Therefore the one-budget certificate holds for this family as well, with the same analytic constants in its displayed test.
+
+In particular a sharp ball is allowed \emph{for this revised proof}, without asserting that its multiplier is bounded on general $L^p$. This is not the unsupported $L^p$ substitution rejected in the attachment; the estimates have changed so that this premise is no longer used.
+
+\section{Reproducibility and audit checklist}
+\label{app:checks}
+The accompanying file \texttt{check\_weighted\_spectral.py} checks the algebraic identities
+\[
+ (I+\tfrac13 e\otimes e)(I-\tfrac13e\otimes e)=I-\tfrac19e\otimes e,
+\]
+\[
+ \frac{27b^4}{256(\nu/4)^3}=c_b\nu^{-3},\qquad
+ k=\frac{27S^2}{16},\qquad \beta/k=36(1+2C_{9/2})^4,
+\]
+the time-weight primitive in \eqref{eq:exacttimeintegral}, the powers in the weighted residual estimate, the factor-of-two margin at $H_E$, and the cap's energy/enstrophy differentiation formulas. A deterministic randomized test samples the two-point natural-distance inequality. These are arithmetic and finite-sample checks, not verification of the Sobolev arguments or of the arbitrary-data producer.
+
+An independent review should focus first on the natural-variable difference-quotient limit in Theorem~\ref{thm:natural}, especially at $V=0$ and at spatial infinity; then on the exact residual sign and tensor convention in Proposition~\ref{prop:relative}; and on the use of the integrated error dissipation \emph{before} continuation. For the main estimate it should recompute \eqref{eq:Fpoint}, the two integrating factors in Theorem~\ref{thm:weightedF}, the positivity of $\delta$ and the division by $\nu^2$ in Theorem~\ref{thm:onebudget}. The small-product threshold and the horizon in Section~\ref{sec:finitehorizon} should be checked separately. The countermodel must be audited as a statement about non-solution curves, not mistaken for a singular solution.
+
+The PDF was built from the accompanying source and checked for reference integrity and rendered layout. Such checks say nothing about the truth of \eqref{eq:missing}. There was no local build of the formal repository, no new Lean theorem, no independent agent audit and no repository change.
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{References and pinned sources}
+\bibitem{Clay} C. Fefferman, \emph{Existence and Smoothness of the Navier--Stokes Equation}, official Clay Mathematics Institute problem statement. Alternative A and its referenced whole-space conditions inspected; not an imported regularity proof.\newline
+\url{https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf}
+
+\bibitem{Tao} T. Tao, \emph{Localisation and compactness properties of the Navier--Stokes global regularity problem}, arXiv:1108.1165. Theorem 5.4 and Corollary 5.8 located in the primary preprint; the latter inspected on its printed page 38. The manuscript's assembled smooth maximal-branch package remains an explicit project-level import.\newline
+\url{https://arxiv.org/abs/1108.1165}
+
+\bibitem{CCRT} S. I. Chernyshenko, P. Constantin, J. C. Robinson and E. S. Titi, \emph{A posteriori regularity of the three-dimensional Navier--Stokes equations from numerical computations}, Journal of Mathematical Physics 48 (2007), 065204; arXiv:math/0607181. Primary preprint inspected for the periodic setting and the conditional verification framework.\newline
+\url{https://arxiv.org/abs/math/0607181}
+
+\bibitem{Pham} T. N. Pham, \emph{Global regularity criteria for the Navier--Stokes equations based on one approximate solution}, arXiv:1910.05501, version 6, 1 September 2021. Theorems 1.1--1.2 and Corollary 1.3 inspected in the primary PDF. Whole-space a posteriori and finite-horizon-to-global prior art; no theorem or constant imported into our derivations.\newline
+\url{https://arxiv.org/abs/1910.05501}
+
+\bibitem{DieningKreuzer} L. Diening and C. Kreuzer, \emph{Linear convergence of an adaptive finite element method for the $p$-Laplacian equation}, Universit\"at Augsburg preprint 024/2007. Primary text inspected for $F(a)=|A(a)|^{1/2}|a|^{-1/2}a$ and the monotonicity/natural-distance comparison. This is a prior-art pointer, not a claimed theorem about the shifted whole-space quotient.\newline
+\url{https://opus.bibliothek.uni-augsburg.de/opus4/files/549/mpreprint_07_024.pdf}
+
+\bibitem{Stein} E. M. Stein, \emph{Singular Integrals and Differentiability Properties of Functions}, Princeton University Press, 1970. Standard unweighted multiplier and Sobolev foundations; not re-audited here.
+
+\bibitem{Brezis} H. Brezis, \emph{Functional Analysis, Sobolev Spaces and Partial Differential Equations}, Springer, 2011. Standard reflexivity, approximation, Sobolev chain-rule and difference-quotient foundations; not re-audited here.
+
+\bibitem{Attachment} User-supplied \emph{Beyond HF26: critical residual certification and the remaining arbitrary-data estimate}, 6 September 2026, PDF (21 pages) and LaTeX source. Both actual uploads inspected; exact hashes recorded in Section~\ref{sec:scope}. In particular Sections 2--4, 6--9 and Appendix A supplied the starting framework. Its claims are candidate project arguments, not independently verified literature.
+
+\bibitem{Research} \texttt{itpplasma/navier}, \texttt{PLAN.md}, \path{docs/proof-graph.yaml}, \texttt{AGENTS.md} and \path{research/verify.py}, at the research pin in Section~\ref{sec:scope}. The plan and graph explicitly retain the arbitrary-data gap.\newline
+\url{https://github.com/itpplasma/navier/blob/afbc0764536e2fc8fee261fd4d947ab1ae704120/PLAN.md}
+
+\bibitem{ResearchCommit} \texttt{itpplasma/navier}, commit \texttt{afbc0764536e2fc8fee261fd4d947ab1ae704120}, 6 September 2026. Freshly inspected record of the HF26 prior-art assessment. The underlying full 835-line literature audit was not independently re-audited in this session.\newline
+\url{https://github.com/itpplasma/navier/commit/afbc0764536e2fc8fee261fd4d947ab1ae704120}
+
+\bibitem{TemporalAudit} \texttt{itpplasma/navier}, \path{research/evidence/hf26-review-temporal-producer.md}, at the same pin. Opening scope, verdict and equivalence argument inspected. Its PASS WITH SCOPE is the repository's review status, not a new independent audit conducted for this note.\newline
+\url{https://github.com/itpplasma/navier/blob/afbc0764536e2fc8fee261fd4d947ab1ae704120/research/evidence/hf26-review-temporal-producer.md}
+
+\bibitem{Paper} \texttt{itpplasma/navier-paper}, \texttt{main.tex}, at the paper pin in Section~\ref{sec:scope}. Fresh reads of the target, local package and source/dependency statements; the weighted lemma's status was also checked against the pinned commit and research graph. No full manuscript audit is claimed.\newline
+\url{https://github.com/itpplasma/navier-paper/blob/c435bee70d28607f57290fa4c75490b63cb504a7/main.tex}
+
+\bibitem{Formal} \texttt{itpplasma/navier-formal}, \path{docs/verification-status.md}, at the formal pin in Section~\ref{sec:scope}. Freshly inspected: supporting checked declarations and statement surfaces, with no proved arbitrary-data critical hypothesis or target.\newline
+\url{https://github.com/itpplasma/navier-formal/blob/54f8e89119e90399044bae8dcd404dc405a381f9/docs/verification-status.md}
+\end{thebibliography}
+\end{document}
