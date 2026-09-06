@@ -1,3 +1,14 @@
+> **STOPPED MID-REPAIR, 2026-09-06. DO NOT RELY ON THIS FILE.**
+> This lane was halted by the controller while it was in the middle of fixing a
+> defect it had itself just found: a vacuity bug in the corollary to its own
+> Theorem D. That fix was never completed, so the file is an interrupted draft,
+> not a finished lane report, and it has not been audited. It is preserved
+> because its failed strategies have value, not because its conclusions stand.
+> The adversarial half of the same wave *did* complete and is recorded in
+> `hf29-corridor-obstruction.md` and in `PLAN.md`; that half already establishes
+> the hypothesis is unfalsifiable here, is not derivable from the record's
+> scalar closure, and is not an estimate.
+
 # HF29: can the corridor hypothesis (C) be proved unconditionally?
 
 **STATUS. NOTHING IN THIS FILE IS AUDITED.** Lane HF29, **MODE: DISCOVER**,
@@ -403,10 +414,11 @@ in the amplitude. Three consequences, in increasing order of interest.
 >    d_1(v) = c ,      ||v||_3 >= N ,     ||grad v||_2 >= Lambda .         (2.7)
 > ```
 >
-> Consequently no inequality of the form `d_1(v) >= F(||v||_3, ||grad v||_2,
-> ||v||_2, nu)` with `F -> infinity` in any argument, and more generally no
-> pointwise-in-time relation forcing `d_1` upward when the trajectory is
-> singular, can hold. Any proof of (T) must be dynamical.
+> Consequently no lower bound `d_1(v) >= F(||v||_3, ||grad v||_2, ||v||_2, nu)`
+> that is unbounded as `||v||_3 -> infinity`, or as `||grad v||_2 -> infinity`,
+> can hold on solenoidal Schwartz fields; more generally no pointwise-in-time
+> relation can force `d_1` upward from the fact that the trajectory is
+> singular. Any proof of (T) must be dynamical.
 
 *Proof.* Let `U, h` be the audited HF20 fields (§§3–4 of
 `hf20-harmonic-strain-test.md`): `U, h in C_c^infinity`, solenoidal, `U != 0`,
@@ -707,12 +719,19 @@ it is a statement about the ledger, not about the equation.
 
 ## 4. Refuting the lane's own best attempt
 
-The best positive output is Theorem D ("shape convergence implies (C)").
-Three attacks:
+The best positive output is Theorem D ("`d_1` convergent implies (C)"), with
+Corollary D'. Four attacks:
 
+0. **Is Theorem D's hypothesis nonempty?** Its naive reading is empty, and
+   catching that is the main correction this lane made to itself: see
+   Remark D.1 — `L^3`-shape convergence forces a bounded critical norm and
+   hence `T_* = infinity`. What survives is the hypothesis on `d_1` itself,
+   which is not empty (it holds, for instance, whenever the normalized shape
+   and the amplitude both converge), and Corollary D', whose case (b) is the
+   honest statement of what is left undecided.
 1. **Does Theorem D extend to convergence along a subsequence?** No, and the
-   failure is instructive. `d_1(t_n) -> d_infinity` along `t_n -> T_*` gives
-   nothing: Theorem A's failure mode has `d_1` converging along two different
+   failure is instructive. `d_1(t_n) -> d_infinity` along one sequence
+   `t_n -> T_*` gives nothing: Theorem A's failure mode has `d_1` converging along two different
    subsequences to `0.4` and `0.8` (in the units of Proposition H). The proof
    of Theorem D uses the full limit at the single point where it converts a
    pointwise limit into a *final interval*, and no subsequential hypothesis
@@ -816,8 +835,12 @@ RESULT: NOT PROVED, NOT REFUTED. Proved unconditionally here (all UNAUDITED):
   C  D_Q >= kappa_0 Q^{7/3}; on {C_sharp d_1 <= (1-delta)nu} the quotient obeys
      Q(t) <= ((4/3)delta nu kappa_0 (t-a))^{-3/4}, independently of Q(a); every
      interval of length > L_delta contains a time with C_sharp d_1 > (1-delta)nu.
-  D  If d_1(t) has a limit as t -> T_* then (C) holds; in particular every
-     shape-convergent (e.g. asymptotically self-similar) blow-up satisfies (C).
+  D  If d_1(t) has a limit as t -> T_* then (C) holds, and that limit is
+     >= nu/C_sharp. L^3-shape convergence without amplitude is vacuous at a
+     singularity (that vacuity is ESS); in the normalized class (Cor. D') (C)
+     holds whenever the limiting normalized shape is off M and ||u||_3 has a
+     matching lower bound, and the undetermined case is exactly a normalized
+     shape approaching M at the rate 1/||u||_3.
   E  For every c,N,Lambda there is a smooth compact solenoidal v with
      d_1(v) = c, ||v||_3 >= N, ||grad v||_2 >= Lambda: no instantaneous route.
   F  No currency admits a modulus for d_1 without a supercritical endpoint
@@ -839,8 +862,9 @@ SURVIVING CONDITIONAL SUFFIX: everything downstream of (C) in the audited
   (bad set of (G) covered by 1 + 8 Theta Gamma^3 intervals) and the reduction
   of (G) to its bad-set part with HF22-C Theorem B. Additionally, and
   unconditionally, the class of blow-ups for which (C) must be assumed has
-  shrunk: by Theorem D it excludes every shape-convergent blow-up, so any
-  counterexample to (C) has a permanently oscillating critical shape.
+  shrunk: by Theorem D it excludes every blow-up along which d_1 converges, so
+  any counterexample to (C) has a permanently oscillating critical shape whose
+  relative distance to M oscillates about nu/(C_sharp ||u||_3).
 
 NON-CLAIMS. (T) is not proved. (C) is not proved and not refuted. No blow-up,
   no counterexample, no regularity criterion, no continuation theorem, and no
