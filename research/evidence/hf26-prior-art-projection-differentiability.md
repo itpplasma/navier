@@ -1488,3 +1488,64 @@ genuinely uncovered.  Until that is done,
 JOTA paper** alongside arXiv:2311.00942, and to say that the comparison is
 **pending**, not merely "would be required".
 
+
+---
+
+## 9. CONTROLLER RESOLUTION of item 7.1 (2026-09-06)
+
+The lane recorded the applicability of Li's Theorem 7.2 as **undetermined**,
+because the exponent ordering in Definition 7.1 could not be verified from the
+openly available text, and flagged obtaining the printed JOTA article as the
+next distinct action. That was recorded in `PLAN.md` as a blocking external
+dependency.
+
+**It is no longer blocking.** The lane's obstacle was tooling, not access: it
+read the preprint through a text-extraction proxy, which is exactly the wrong
+instrument for a mathematical definition. Re-read through a PDF reader, the
+arXiv preprint `arXiv:2303.16265` yields Definition 7.1 and the proof of
+Theorem 7.2 verbatim. The third-party file was read and then deleted; nothing
+is retained.
+
+**Definition 7.1, verbatim in substance.** `X` is *p-q uniformly convex and
+uniformly smooth* if there are `a, b >= 1` and `1 < p < q` with
+
+    (c)  delta(eps) >= a eps^p   for eps in (0,2],
+    (d)  rho(t)     <= b t^q     for t > 0,
+
+where `delta` is the modulus of convexity and `rho` the modulus of smoothness.
+The proof of Theorem 7.2 uses the ordering essentially: its convergence factor
+is `t^(q/p - 1)`, and the proof's closing step is the observation
+`q/p - 1 > 0`.
+
+**Finding 1 — Theorem 7.2 does not apply to our space, for a reason independent
+of any convention.** `L^3(R^3)` has modulus of convexity of power type
+`max(3,2) = 3` and modulus of smoothness of power type `min(3,2) = 2`, so in
+Li's notation `p = 3` and `q = 2`. The hypothesis `p < q` fails, and the proof's
+convergence factor becomes `t^(2/3 - 1) = t^(-1/3)`, which **diverges** as
+`t` decreases to zero rather than vanishing. So the theorem's mechanism does not
+merely fail to be verifiable for `L^3`; it runs backwards there.
+
+**Finding 2 — as stated in the preprint the hypothesis class is empty, so the
+theorem is vacuous.** By Nordlander's theorem every Banach space satisfies
+`delta_X <= delta_Hilbert ~ eps^2/8` and `rho_X >= rho_Hilbert ~ t^2/2`.
+Condition (c) with `a >= 1` therefore forces `p > 2`, and condition (d) forces
+`q <= 2`. Hence `p > 2 >= q` for every Banach space, contradicting the required
+`p < q`. Verified numerically against the Hilbert moduli. Relatedly, the
+preprint attributes (c) and (d) to the Pisier renorming theorem, which gives the
+**opposite** ordering, convexity of power type at least two and smoothness of
+power type at most two.
+
+**Verdict.** Li's Theorem 7.2 **does not subsume** the candidate's weighted
+linearization, and could not subsume anything as the hypothesis is stated. The
+programme still may not claim novelty for the linearization — every other ground
+in section 6 stands untouched, and those grounds are what matter — but this
+particular paper is not the reason.
+
+**Scope of this resolution.** This reads the March 2023 arXiv preprint, not the
+published J. Optim. Theory Appl. 200 (2024) 923-950, which may have been
+corrected in review. Finding 1 is independent of that: it depends only on the
+power types of `L^3` and on the direction of the proof's convergence factor, so
+a corrected ordering in the published version would still leave `L^3` outside
+the theorem's reach unless the proof were changed as well. Finding 2 is a claim
+about the preprint only. This is a controller derivation and has not been
+independently audited.

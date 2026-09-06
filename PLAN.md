@@ -1013,12 +1013,24 @@ list had duplicate numbering and described completed waves as running.
    prior art. **Decision recorded: do not import.** See the HF27 section for the
    reasons and for the corrected prior-art map, which is the wave's lasting
    value.
-2. **Blocked on an external dependency.** Settling whether the refereed 2024
-   JOTA paper on directional differentiability of metric projections subsumes
-   HF26's linearization requires the printed text, which the prior-art lane
-   could not obtain from open sources. Institutional access or interlibrary
-   loan is needed. This blocks only a novelty claim we are not making; it is
-   recorded so that no import asserts originality before it is settled.
+2. ~~Blocked on an external dependency~~ **resolved 2026-09-06, and it was not
+   an access problem.** The lane recorded the 2024 metric-projection theorem's
+   applicability as undetermined because it read the preprint through a
+   text-extraction proxy, which is the wrong instrument for a mathematical
+   definition. Read with a PDF reader, the definition and proof are plain, and
+   the answer is decisive: the theorem **does not** subsume the linearization.
+   Its hypothesis orders the convexity exponent below the smoothness exponent,
+   whereas our space has convexity of power type three and smoothness of power
+   type two, so the ordering fails and the proof's convergence factor diverges
+   rather than vanishing. As stated in the preprint the hypothesis class is in
+   fact empty, since Nordlander's theorem forces every Banach space to the
+   opposite ordering, so the theorem is vacuous there; the preprint also
+   attributes the condition to a renorming theorem that gives the opposite
+   ordering. The programme still may not claim novelty for the linearization —
+   every other ground in the prior-art lane's findings stands untouched, and
+   those are the ones that matter — but this paper is not the reason. Recorded
+   in `hf26-prior-art-projection-differentiability.md` section 9, from the
+   preprint rather than the published text, and not yet independently audited.
 3. **Preconditions for any HF26 import**, all from its four audits: re-base the
    departure section on the audit's two-line argument so it does not inherit
    the linearization's risk; resolve the notation collision with HF22-B, which
@@ -1622,14 +1634,15 @@ names. And the failure of the weighted derivative to control the ambient norm,
 which HF26 treats as its characteristic difficulty, is the **two-norm
 discrepancy**, named and studied since 1979 and routine in PDE optimal control.
 
-**One item needs settling before any import.** A refereed 2024 paper in the
-Journal of Optimization Theory and Applications states directional
-differentiability of the metric projection in uniformly convex and uniformly
-smooth Banach spaces, a class containing our space, and if its hypothesis reads
-as the usual power-type moduli it would cover our subspace and give a *stronger*
-conclusion than HF26's theorem, namely convergence in the ambient norm itself.
-The lane could not verify one exponent ordering from the openly available text
-and records the applicability as undetermined. HF26's bibliography also cites a
+**That item is now settled, and the answer is no.** The lane flagged a refereed
+2024 paper stating directional differentiability of the metric projection in a
+class of spaces containing ours, which if applicable would have covered our
+subspace with a *stronger* conclusion. Reading the preprint properly rather than
+through a text proxy settles it: its hypothesis requires the convexity exponent
+to be *below* the smoothness exponent, our space has convexity of power type
+three against smoothness of power type two, and the proof's convergence factor
+therefore diverges instead of vanishing. As the preprint states it the class is
+empty outright, by Nordlander's theorem. The theorem subsumes nothing. HF26's bibliography also cites a
 different, superseded preprint by the same author and calls it unpublished when
 it has since appeared. Neither is a defect in our repository, since we have
 imported none of this; both are blocking for any future import.
