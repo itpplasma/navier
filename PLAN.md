@@ -53,7 +53,7 @@ primary references are in
 That note is not a second live task list. It adds no promoted graph claims.
 The scheduling labels K0, K1, K2, A and G below are NOT formalization phases.
 
-## 2. Work backward: smallest useful kinetic certificate
+## 2. Work backward: a less demanding sufficient kinetic certificate
 
 The established terminal suffix is LOCAL + ENERGY + CONTINUATION, once an
 input-derived finite bound on the classical branch's L-infinity_t L3_x norm
@@ -239,7 +239,7 @@ transverse momentum and identify its degenerate directions, then check the
 proposed estimate against KPC's small-drift Gramian. Full algebraic rank can
 coexist with an arbitrarily bad coercivity constant. The identity
 Qmic T(U.v)=(v tensor v-|v|^2 I/3):D U already shows that symmetric strain,
-not only vorticity, is the coupling to the stress modes. Its Gaussian norm
+not only vorticity, is the coupling to the stress modes. Its squared Gaussian L2 norm
 is 2|D U|^2. This is a calibration identity, not a terminal bound.
 
 Only request an A-lane result after specifying the exact output estimate
