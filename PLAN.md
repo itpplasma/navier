@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF22-and-HF23-audits
+active_task: HF23-manuscript-import-and-HF22-audits
 public_release: false
 ```
 
@@ -287,7 +287,7 @@ audits. The literature search is substantial but not exhaustive.
 The manuscript at `navier-paper` source commit `d7563ef` contains complete written
 arguments for the classical estimates, the cubic pressure balance, the
 low-frequency pressure lemma, and the conditional continuation chain.
-The source premises are Tao Theorem 5.4 and GKP Theorem 4, directly inspected
+The source premises are Tao Theorem 5.4 and ESS Theorem 1.3, with GKP Theorem 4 as corroboration only, directly inspected
 in the scope recorded in `literature/`. No new universal high-frequency
 estimate or solution of the Millennium problem is claimed.
 
@@ -1146,6 +1146,30 @@ this establishes the arbitrary-data signed spacetime bound, and that the
 natural absolute estimate leaves the square of the enstrophy in time rather
 than the energy integral.
 
+**Audited 2026-09-06, both scopes PASS.** Scope A, the regularity core, passes
+with three expository repairs that change no statement or constant, so
+hypothesis (H1) is discharged unconditionally in the global form
+`grad w in L^2(R^3)`, with the stated constants, for every solenoidal `H^1`
+field and with no smallness. Every HF18-B item gated on it becomes
+unconditional, and the mixed-pressure pairing holds in the `L^2 x L^2` form, so
+(H2) is bypassed; the residual content of the old pair (H1) and (H2) is
+therefore exactly (H2). The auditor ran nine refutation attempts, including
+independent spectral minimisations on data whose minimizer genuinely vanishes,
+all failing, and added a forced consequence the candidate had not stated: the
+vorticity vanishes almost everywhere on the zero set of the representative.
+That resolves the consistency question HF21 left open and was confirmed on an
+explicit flow whose minimizer vanishes on a surface. Scope B passes with scope:
+its spacetime obstruction is genuinely new relative to the audited HF20,
+supplying precisely the two upgrades the HF20 audit had named as unsupported,
+namely from instantaneous to time-integrated and from the full transport term
+to the low-passed one for every fixed cutoff.
+
+**Correction to the controller's own record.** The paragraph below claimed that
+the audited HF21-A curl identity is a pillar of this candidate. The audit shows
+otherwise: the candidate re-derives that identity itself for its regularized
+problem, so it is logically self-contained and inherits no risk from the HF21-A
+repair. The audited theorem corroborates rather than supports it.
+
 Controller check of the core, not an audit: the mechanism is a Cordes-type
 argument resting on a constrained matrix inequality and the two Fourier
 div–curl identities. The matrix inequality is *not* the false unconstrained
@@ -1159,7 +1183,8 @@ audit is the regularized problem, the uniformity and passage to the limit, the
 extension to `H^1` data, the behaviour across the zero set, and consistency
 with HF21-A's two statements about that zero set.
 
-Nothing is promoted and the manuscript is untouched pending audit.
+No graph node is promoted; what changes is that a standing hypothesis is
+discharged. The manuscript import is in progress.
 
 
 ### HF22: attacking (G) and its three sub-questions (UNAUDITED)

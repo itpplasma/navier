@@ -1,8 +1,13 @@
 # HF23: an unweighted div–curl estimate for the cubic minimizer
 
-Status: **UNAUDITED candidate**, imported 2026-09-06. Nothing is promoted, the
-manuscript is untouched, and no graph node changes until an independent audit
-returns.
+Status: **audited 2026-09-06, both scopes PASS**. Scope A (the regularity
+core) passes with three expository repairs that change no statement or
+constant; see `hf23-review-regularity-core.md`. Scope B (the HF20
+reconstruction, the spacetime obstruction, the conditional continuation and
+the literature section) passes with scope, with four statement- and
+citation-level repairs required before import; see
+`hf23-review-reconstruction-boundary.md`. No graph node is promoted: what
+changes is that a standing hypothesis is discharged.
 
 Provenance. Arrived as a LaTeX source on the work capture surface, 1129 lines,
 dropped 2026-09-06 09:14. The source is committed verbatim beside this note as
@@ -76,8 +81,12 @@ The mechanism is a Cordes-type argument with two pillars.
    `||grad z||_2^2 = ||curl z||_2^2 + ||div z||_2^2` and
    `||sym grad z||_2^2 = (1/2)||curl z||_2^2 + ||div z||_2^2`. Verified.
 
-Since `q` is curl free, `curl w = curl u`, which is exactly the audited HF21-A
-Theorem 1, so an audited repository result is one pillar of this candidate.
+Since `q` is curl free, `curl w = curl u`. **Correction, from the audit:** the
+controller wrote here that this made the audited HF21-A Theorem 1 "one pillar
+of this candidate". That is wrong. The candidate re-derives the identity itself
+for the regularized problem, so it is logically self-contained and inherits no
+risk from the HF21-A repair; the audited theorem is corroboration, not a
+dependency.
 Writing `C = ||curl u||_2^2 = ||grad u||_2^2` for solenoidal `u` and
 `D = ||div w||_2^2`, the integrated inequality gives `D <= (1/3)(D + C/2)`,
 hence `D <= C/4` and `||grad w||_2^2 = C + D <= 5C/4`. Verified.
@@ -129,5 +138,17 @@ resolution of the weighted Calderón–Zygmund question; no regularity or blowup
 result; no promotion of any graph node; no novelty or priority claim. NS-R3
 remains open.
 
-**NEXT DISTINCT ACTION:** independent audit at a different lens, freezing the
-hash above and checking the points listed in the previous section.
+**AUDIT OUTCOME:** both scopes PASS. Scope A discharges hypothesis (H1)
+unconditionally in the global form `grad w in L^2(R^3)`, and the auditor added
+a forced consequence the candidate did not state: the vorticity vanishes almost
+everywhere on the zero set of the representative, which resolves the
+consistency question with HF21-A and was confirmed on a nontrivial explicit
+flow. Nine refutation attempts failed, including independent spectral
+minimisations probing data whose minimizer genuinely vanishes. Scope B finds
+the spacetime obstruction genuinely new relative to the audited HF20, supplying
+exactly the two upgrades the HF20 audit had named as unsupported.
+
+**NEXT DISTINCT ACTION:** import the Scope A results into the manuscript with
+repairs R1 to R3, and the Scope B spacetime exclusion as a second paragraph of
+the existing no-monotone remark with repairs R1 to R4. The frozen `.tex` is
+never edited; repairs live in the import.
