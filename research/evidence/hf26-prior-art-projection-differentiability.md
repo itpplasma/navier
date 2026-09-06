@@ -111,7 +111,8 @@ Supporting inequalities used, both **already standard** (see §3.1):
   function-space example is \(L^2[0,1]\).  No \(L^p\), \(p\ne2\); no weighted
   space.
 - **D. Noll, "Directional differentiability of the metric projection in Hilbert
-  space", Pacific J. Math. 170 (1995) 567–592.**  **[DI]** (MSP open PDF read
+  space", Pacific J. Math. 170 (1995) 567–592**, DOI 10.2140/pjm.1995.170.567.
+  **[DI]** (MSP open PDF read
   through a text proxy).  *This is the closest methodological ancestor of the
   candidate's proof.*  Thm 3.3: \(P_C\) is directionally Gâteaux differentiable
   at \(x\notin C\) **iff** the support function \(\sigma_C\) is **twice Mosco
@@ -170,9 +171,12 @@ Supporting inequalities used, both **already standard** (see §3.1):
   Res. 23 (1998) 806–831**, DOI 10.1287/moor.23.4.806 **[MO]**.
 - **R. T. Rockafellar**, the epi-derivative programme: "First- and second-order
   epi-differentiability in nonlinear programming", Trans. Amer. Math. Soc. 307
-  (1988) 75–108; "Proto-differentiability of set-valued mappings and its
-  applications in optimization", Ann. Inst. H. Poincaré Anal. Non Linéaire 6
-  (1989) 449–482 **[MO]**.  The controlling general fact, confirmed in several
+  (1988) 75–108, DOI 10.1090/S0002-9947-1988-0936806-9; "Proto-differentiability
+  of set-valued mappings and its applications in optimization", Ann. Inst.
+  H. Poincaré Anal. Non Linéaire 6 (1989) 449–482, DOI
+  10.1016/S0294-1449(17)30034-3; "Second-order optimality conditions in
+  nonlinear programming obtained by way of epi-derivatives", Math. Oper. Res. 14
+  (1989) 462–484, DOI 10.1287/moor.14.3.462.  All **[MO]**.  The controlling general fact, confirmed in several
   secondary sources **[AB]**: a convex function is **twice epi-differentiable in
   the Mosco sense iff its subdifferential is proto-differentiable**, the proof
   going through **Attouch's theorem** (Mosco epi-convergence of convex functions
@@ -227,8 +231,11 @@ theorem is the same statement in the Hilbert case.
   uniformly smooth Banach space and C a nonempty closed and convex subset of X.
   Then \(P_C\) is directionally differentiable on X."
 - **Jinlu Li, "Directional differentiability of the metric projection in Bochner
-  spaces", arXiv:2311.00942 (2 Nov 2023)** **[AB]** — the reference already
-  carried by the candidate as `\cite{Li}`.  \(L^p(S;X)\) with \(X\) uniformly
+  spaces", Applicable Nonlinear Analysis 1 (2024) 79–109**, DOI
+  10.69829/apna-024-0101-ta05; preprint arXiv:2311.00942 (2 Nov 2023).
+  **[AB]** — the reference already carried by the candidate as `\cite{Li}`,
+  which cites it **as an unpublished 2023 preprint**; it is in fact published
+  and must be cited as such.  \(L^p(S;X)\) with \(X\) uniformly
   convex and uniformly smooth; the three projections treated are onto the
   **support subspace** \(L^p(A;X)\), the ball \(B_A(c;r)\) and the cylinder
   \(C_A(c;r)\).  The candidate's characterization of this as not directly
@@ -274,8 +281,10 @@ as licence to ignore the paper.
   \(1<p<\infty\), the metric projection onto a linear subspace is **Lipschitz
   continuous**, with a \(p\)-dependent constant.  This is the earliest located
   reference for regularity of the \(L^p\) subspace projection.
-- **B. O. Björnestål, "Local Lipschitz continuity of the metric projection
-  operator", Banach Center Publ. 4 (1979) 43–53** **[MO]**; generalized and
+- **B. Björnestål, "Local Lipschitz continuity of the metric projection
+  operator", Banach Center Publ. 4 (1979), no. 1, 43–53**, ISSN 0137-6934
+  (identity verified on the EuDML record, `eudml.org/doc/208992`; MSC 46B20,
+  41A50, 41A65) **[MO]**; generalized and
   improved in **"Continuity of metric projections in uniformly convex and
   uniformly smooth Banach spaces", J. Approx. Theory 39 (1983)** (ScienceDirect
   pii 0021904583900746; the record returned HTTP 403 and pages/authors were not
@@ -304,7 +313,7 @@ as licence to ignore the paper.
   functions on certain Banach spaces" / "Smooth functions on Banach manifolds",
   1965/1966** **[MO]**; **I. E. Leonard and K. Sundaresan, "Geometry of
   Lebesgue–Bochner function spaces — smoothness", Trans. Amer. Math. Soc. 198
-  (1974) 229–251** **[AB]**.  For \(p=3\) this gives exactly: \(\|\cdot\|_3^3\)
+  (1974) 229–251**, DOI 10.1090/S0002-9947-1974-0367652-5 **[AB]**.  For \(p=3\) this gives exactly: \(\|\cdot\|_3^3\)
   is twice continuously differentiable on \(L^3\), with Lipschitz second
   derivative — which is Lemma 3.2 and equation (2.19) `eq:Qprime` of the
   candidate.
@@ -663,7 +672,11 @@ Each item would be false, or unoriginal, if asserted.
    Alber (1993), Holmes–Kripke (1968) are the classical regularity line for
    projections onto **subspaces** of \(L^p\).
 2. **Not**: "Li's work is only about \(L^p\) Bochner projections onto support
-   subspaces, balls and cylinders."  That describes arXiv:2311.00942 only.  The
+   subspaces, balls and cylinders", and **not**: that it is an unpublished
+   preprint.  That description fits arXiv:2311.00942 only, and that paper is
+   published — Applicable Nonlinear Analysis 1 (2024) 79–109, DOI
+   10.69829/apna-024-0101-ta05 — so the candidate's bibliography entry
+   (`\bibitem{Li}` … "arXiv:2311.00942v1 (2023)") is out of date.  The
    candidate's `sec:ledger` sentence is accurate about that preprint but
    **incomplete as a prior-art statement**, because the same author's *published*
    JOTA paper treats general closed convex subsets of uniformly convex and

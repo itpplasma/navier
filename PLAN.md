@@ -1463,9 +1463,23 @@ are in flight, one per scope. Nothing below is promoted.
 It offers four things. It replaces the *formal* linearization of the nonlinear
 projection, which the repaired HF22 note could only treat formally, with a
 strong-limit theorem in a fixed degenerate weighted Hilbert space, plus a strong
-Hadamard derivative of the dual field into `L^{3/2}`. It upgrades the departure
-from the nonlinear-Hodge class from linear heat flow, where HF19-D and HF25 both
-established it, to the **actual Navier–Stokes flow** at every viscosity. It
+Hadamard derivative of the dual field into `L^{3/2}`. It upgrades the departure from the nonlinear-Hodge class from linear heat flow,
+where HF19-D and HF25 both established it, to the **actual Navier–Stokes flow**
+at every viscosity. That scope is **audited PASS WITH SCOPE**
+(`hf26-review-actual-flow-departure.md`) and was *strengthened* by the auditor:
+the document's hedge "except possibly one amplitude" is deleted, because an
+exceptional amplitude would force an identity between an odd and an even field
+and hence the identically zero case, which the explicit nonzero value
+contradicts. The theorem therefore holds for every positive amplitude. The
+value on which it rests was recomputed from scratch and agrees to forty digits.
+Two qualifications belong with it. The strengthening is of the *departure* half
+only: the field, the scalar and the constant are inherited from HF19-D and the
+quadratic rate from HF25, so what is new is the actual flow in place of a heat
+proxy, an exact coefficient, and explicit dependence on viscosity and
+amplitude, while the dissipation-comparison half is untouched. And as written
+the section inherits the risk of the linearization scope, though the auditor
+supplied a two-line proof of the only half the conclusion needs, so it can be
+re-based to stand alone. It
 gives a one-scale temporal criterion producing the full target from a supremum
 bound on the strong `L^3` temporal residual of the correction at a single
 input-selected scale. And it proves unconditionally, from energy alone and with

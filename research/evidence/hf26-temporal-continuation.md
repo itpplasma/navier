@@ -42,11 +42,36 @@ and more serious question.
    unweighted `L^3` topology of the correction.
 2. **Defect creation under the actual Navier–Stokes flow** (`thm:NSdeparture`).
    For the inherited explicit ellipse field, at every viscosity and every
-   amplitude except possibly one, data in the nonlinear-Hodge class leave it
-   immediately under the *original equation*, with an explicit `t^2` rate. This
-   is a genuine strengthening of HF19-D and of HF25's `thm:counter`, both of
-   which used linear heat flow. A corollary refutes any homogeneous
-   defect-feedback law that would preserve a zero gap.
+   amplitude, data in the nonlinear-Hodge class leave it immediately under the
+   *original equation*, with an explicit `t^2` rate. A corollary refutes any
+   homogeneous defect-feedback law that would preserve a zero gap.
+
+   **Audited PASS WITH SCOPE, and strengthened by the auditor**
+   (`hf26-review-actual-flow-departure.md`). The document's own hedge, "except
+   possibly one amplitude", is deleted: an exceptional amplitude would force a
+   parity identity between an odd and an even field, hence the identically zero
+   case, which the explicit nonzero value contradicts. Verified symbolically, so
+   the theorem holds for *every* positive amplitude and the hedge should not be
+   carried forward as a limitation. The nonzero heat-normal component, on which
+   the whole theorem rests, was recomputed from scratch and agrees to forty
+   digits.
+
+   **Correction to this note.** I called this a genuine strengthening of HF19-D
+   and of HF25's `thm:counter`. That is true only of the *departure* half. The
+   ellipse field itself, the relevant scalar and the constant are all inherited
+   from HF19-D, and HF25 supplied the quadratic rate; what is new is that the
+   flow is the actual classical branch rather than a heat proxy, which
+   discharges HF19-D's own stated next action, together with an exact
+   coefficient in place of a single-competitor bound and explicit dependence on
+   viscosity and amplitude. The dissipation-comparison half of `thm:counter` is
+   untouched, since that used heat-flow identities. Reassuringly, the exact
+   coefficient specialised to the heat instance reproduces HF25's constant and
+   dominates it, so the two audited records agree.
+
+   One robustness repair matters for import order: as written this section
+   inherits the risk of the still-unaudited weighted linearization, but the
+   auditor supplied a two-line proof of the only half the conclusion uses, so
+   the section can be re-based to stand independently of it.
 3. **A one-scale temporal criterion** (`thm:temporal`). If the strong `L^3`
    temporal residual of `q` against its own backward average is smaller than
    `ν/(4C♯)` at a *single* input-selected scale `δ`, then `Q`, the dissipation
@@ -151,7 +176,11 @@ before anything from that wave is promoted.
   density/approximation steps in `H_U`.
 - `thm:NSdeparture`: the initial tangent from the projected equation, the
   `C^2(L^3)` time regularity drawn from the local package, the amplitude
-  argument excluding at most one `a`, and the inherited ellipse field.
+  argument, and the inherited ellipse field. **This checklist omitted the prior
+  question**, namely that the quadratic gap proposition depends on the weighted
+  linearization of the previous section, so a failure there would propagate
+  here; and it pointed the auditor at the wrong appendix, which holds the
+  axisymmetric swirl seed for the comparison curve and no ellipse field at all.
 - `thm:temporal`: the Young step `eq:Young34`, the constant `M_δ`, and whether
   the scale is genuinely selected before the stopping time rather than from a
   continuation norm.
