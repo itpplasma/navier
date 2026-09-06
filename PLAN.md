@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF23-manuscript-import-and-HF22-repairs
+active_task: HF24-modulus-of-continuity
 public_release: false
 ```
 
@@ -1183,8 +1183,20 @@ audit is the regularized problem, the uniformity and passage to the limit, the
 extension to `H^1` data, the behaviour across the zero set, and consistency
 with HF21-A's two statements about that zero set.
 
-No graph node is promoted; what changes is that a standing hypothesis is
-discharged. The manuscript import is in progress.
+**Integrated 2026-09-06.** The Scope A results are now manuscript theorems:
+`prop:quotient-divcurl` with `lem:trace-control`, and the corollaries
+`cor:quotient-defect`, `cor:quotient-vorticity-zero`,
+`lem:quotient-mixed-pressure` and `cor:quotient-budgets`, at `navier-paper`
+`80a62fd`, 95 pages. The section's opening no longer claims it proves no
+regularity theorem, and `rem:quotient-scope` records the limits. The import
+cites the section's existing lemmas instead of reproving them and avoids
+uniform convexity, so the standing remark that no Clarkson inequality is used
+remains true. The graph gains the node QUOTIENT-REGULARITY; no gap node is
+promoted.
+
+**Held back.** The Scope B spacetime exclusion is not yet in the manuscript:
+its audit requires four repairs first. That is the one outstanding integration
+item from HF23.
 
 
 ### HF22: attacking (G) and its three sub-questions (UNAUDITED)
@@ -1246,6 +1258,9 @@ derivability from a listed set had been shown, or as new when the manuscript
 already contained it. The controller's own plan summary repeated three of
 those overclaims before the audits returned and is corrected above.
 
+**Repairs applied 2026-09-06.** Each note now carries its audit verdict and
+the prescribed replacements, with every overclaim removed rather than patched.
+
 **Convergence worth noting.** Two lanes that did not share a question arrive
 independently at the same next target: an input-only modulus of continuity for
 the distance along the trajectory at the critical level, equivalently an
@@ -1253,4 +1268,8 @@ input-only bound on the number of crossings of that level. It would upgrade the
 audited crossing-measure bound to a crossing-count bound and, with the good-set
 result above, reduce (G) to its bad-set part. It is a question about time
 regularity of the nonlinear projection along the flow, distinct from every
-sub-question posed so far.
+sub-question posed so far. **This is now the next wave, HF24**, and the newly
+proved regularity of the representative is a genuine new tool for it: the
+representative's gradient and the divergence defect are now controlled in
+`L^2` by the datum, with input-only spacetime budgets, which was not available
+when the two lanes posed the question.

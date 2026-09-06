@@ -6,7 +6,7 @@ phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 formal_repository: itpplasma/navier-formal
 source_revision:
-  manuscript_commit: 4478bde51689b16dc2a11de314b786175afd5a63
+  manuscript_commit: 80a62fd5396e13c07640810931aa6c668c8642aa
 nodes:
   - id: TAO-LOCAL
     title: Tao local H1 theory
@@ -197,6 +197,15 @@ nodes:
     paper_label: 'lem:leray'
     evidence: research/evidence/cp01-literature-statements.md
     review: Stated in Tao 2013 page 38 (directly inspected) with Stein as the underlying source (metadata). Phase II must prove it from Mathlib; it is textbook, not a research theorem.
+  - id: QUOTIENT-REGULARITY
+    title: Unweighted regularity of the minimizing representative
+    statement: For every solenoidal H1 field on R3 the cubic minimizing representative has weak derivatives in L2, with squared gradient at most five quarters of the datum's and squared divergence at most one quarter, with no smallness; the divergence defect lies in L2 and equals the radial speed derivative almost everywhere including across the zero set, the vorticity vanishes almost everywhere on that zero set, and the mixed-pressure pairing holds with no hypothesis on the defect.
+    kind: paper
+    depends_on: [LERAY-L3, QUOTIENT-FUNCTIONAL]
+    mechanism: regularized minimization, a matrix inequality conditioned on the Euler-Lagrange relation, and the two Fourier div-curl identities
+    paper_label: 'prop:quotient-divcurl'
+    evidence: research/evidence/hf23-divcurl-continuation.md
+    review: Audited PASS in hf23-review-regularity-core.md with three expository repairs applied at import; nine independent refutation attempts failed, including spectral minimisations on data whose minimizer vanishes. Discharges the weak-derivative hypothesis the earlier evidence carried, so every item gated on it is unconditional; the remaining hypothesis of that pair, the defect in L three halves, is bypassed rather than proved. Bounds no time integral of the squared enstrophy, so the open producer is untouched.
   - id: QUOTIENT-FUNCTIONAL
     title: Cubic gradient quotient
     statement: The cubic L3 distance to the closed gradient subspace has a unique minimising representative w with divergence-free |w|w, is comparable to the cubed L3 norm on solenoidal fields, is cubic homogeneous and invariant under the critical scaling, is nonincreasing under heat, and is Fréchet differentiable with derivative the pairing against |w|w, which annihilates gradients.
@@ -223,7 +232,7 @@ nodes:
     mechanism: new signed time-integrated strain estimate on actual trajectories
     paper_label: 'hyp:highstrain'
     evidence: research/evidence/hf18-hodge-regularity.md
-    review: Open. The audited HF18 bound |K| <= C Q^(1/3) D_3(w) closes only under critical smallness. The audited HF20 sign test (hf20-review-harmonic-strain-test.md) excludes two further mechanism classes, namely universal monotonicity of the quotient and instantaneous absorption of the full transport term with an energy-only remainder; it leaves this spacetime hypothesis untouched, since that concerns the high-strain part with a datum-dependent remainder. Recorded in the manuscript as rem:no-monotone. The audited HF21 crossing lane (hf21-review-crossing-sign-structure.md) further normalises this hypothesis; by rem:highstrain-normalisation the Gronwall term and the frequency split are removable up to an input-only change of remainder, and by the added sentence of rem:highstrain-scope signed pressure absorption implies this hypothesis with an explicit remainder, so the two open routes are ordered rather than independent. Alternative producer of CRITICAL, not an additional required lemma.
+    review: Open. The audited HF18 bound |K| <= C Q^(1/3) D_3(w) closes only under critical smallness. The audited HF20 sign test (hf20-review-harmonic-strain-test.md) excludes two further mechanism classes, namely universal monotonicity of the quotient and instantaneous absorption of the full transport term with an energy-only remainder; it leaves this spacetime hypothesis untouched, since that concerns the high-strain part with a datum-dependent remainder. Recorded in the manuscript as rem:no-monotone. The audited HF23 regularity result (QUOTIENT-REGULARITY) discharges the weak-derivative hypothesis this route carried, but bounds no time integral of the squared enstrophy and so leaves this hypothesis untouched. The audited HF21 crossing lane (hf21-review-crossing-sign-structure.md) further normalises this hypothesis; by rem:highstrain-normalisation the Gronwall term and the frequency split are removable up to an input-only change of remainder, and by the added sentence of rem:highstrain-scope signed pressure absorption implies this hypothesis with an explicit remainder, so the two open routes are ordered rather than independent. Alternative producer of CRITICAL, not an additional required lemma.
   - id: QUOTIENT-CONDITIONAL
     title: Conditional quotient bound
     statement: Under the high-strain hypothesis, Gronwall bounds the quotient functional, hence the L3 norm, on every finite horizon by an input-only constant; this supplies the critical bound by the quotient route.
