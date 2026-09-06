@@ -182,3 +182,38 @@ The first is spatial and the second places the unknown fourth-power integral
 on its right side. No gap is promoted. The complete proof, precise extra
 integrability hypothesis, source attribution and review questions are indexed
 in `research/evidence/2026-09-06-defect-extensions.md`.
+
+
+## Conformal inversion and spatial moments (2026-09-06; review pending)
+
+The main manuscript component `sections/conformal_moment.tex` proves that
+conformal inversion of one-forms is an isometry of the cubic gradient
+quotient: `w(Ku)=K w(u)`. Applying the accepted div-curl theorem to `P K u`
+and then Hardy answers the finite-energy representative and L^(3/2) defect
+questions when `|x| grad u in L2`. With `A=|| |x| grad u ||2`, `U=||u||2`,
+`F=sqrt(5)(A+2sqrt(3)U)/2` and `c1=1+4sqrt(3)`, the derived bounds are
+
+    ||w||2 <= 2F,              ||q||2 <= 2F+U,
+    || |x| grad w ||2 <= c1F,  || |x|sigma ||2 <= c1F/sqrt(3),
+    ||sigma||_(3/2) <= 2^(2/3)(4pi/3)^(1/6) (||sigma||2 || |x|sigma ||2)^(1/2).
+
+Inversion is not a solenoidality-preserving or NS-preserving operation.
+The projection, cutoff density, weak derivative at the puncture and
+noncircular Hardy argument are all explicit in the source.
+
+On the original Schwartz-data branch the weight is not assumed to persist:
+testing with bounded approximations to |x|^2 proves
+`M(t)+2nu integral W <= L_H^2` uniformly below min(H,Tstar), where
+`M=|| |x|u ||2^2`, `W=|| |x|grad u ||2^2` and L_H is explicit in initial
+energy, initial moment, horizon and viscosity. A separate compact-interval
+estimate makes W finite at every classical time. This yields input-only
+integrals of `||w||2^2`, `|| |x|sigma ||2^2` and `||sigma||_(3/2)^2`.
+
+These full component derivations are independently unaudited. They resolve
+the spatial questions for weighted data and for this branch, not for every
+bare H1 field. Their defect time-space pair (2,3/2) is supercritical and
+does not supply the critical fourth-power time bound. The source gives an
+energy-exact, self-similar non-solution curve demonstrating that the new
+finiteness statements alone do not imply it. No open producer is promoted.
+See `research/evidence/2026-09-06-conformal-moment.md` for the frozen source,
+constants, primary-source attribution and independent-review obligations.

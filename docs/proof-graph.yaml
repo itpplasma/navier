@@ -298,3 +298,13 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-defect-extensions.md
     paper_labels: ['de:quotient-clock', 'de:no-separation']
     scope: Quantitative defect-enstrophy finiteness equivalence on actual branches; no arbitrary-data fourth-power estimate and no node promotion.
+  - id: CONFORMAL-MOMENT
+    title: Conformal moment and spatial defect bounds
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 464a13d1c99318431cba1ed5d954528d1a31c95b
+    source_path: sections/conformal_moment.tex
+    source_sha256: 54a6cdfb7d4173550141027d3dd5d3205115a43d37bab484d818d7275a0dca5c
+    evidence: research/evidence/2026-09-06-conformal-moment.md
+    paper_labels: ['cm:covariance', 'cm:inverted-h1', 'cm:snapshot', 'cm:moment', 'cm:spacetime', 'cm:scaling-test']
+    scope: Finite-energy representative and L3/2 defect under a weighted-gradient hypothesis, proved at every classical time with input-only integrated moment budgets for Schwartz data; supercritical time control only, no arbitrary-data critical producer or node promotion.

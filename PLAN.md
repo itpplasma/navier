@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: active-paper-proof-work-2026-09-06
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: arbitrary-data-producer-and-dissipation-clock-audit
+active_task: conformal-moment-audit-and-arbitrary-data-temporal-producer
 public_release: false
 ```
 
@@ -2126,3 +2126,43 @@ privacy, and every open/terminal graph kind are unchanged.
 
 Evidence, source checks, failed closure and independent-review obligations:
 `research/evidence/2026-09-06-defect-extensions.md`.
+
+
+## Conformal moment component: spatial blockers resolved for the branch (2026-09-06)
+
+Frozen paper proof: `navier-paper` `464a13d1c99318431cba1ed5d954528d1a31c95b`,
+`sections/conformal_moment.tex`. Status: author-checked, independent audit
+pending; no graph node or formal result is promoted.
+
+Conformal pullback of one-forms is an L3 isometric involution preserving the
+closed gradient cosets. Thus `w(Ku)=K w(u)`. Applying the accepted div-curl
+estimate to `P K u`, then Hardy, proves `w,q in H1` and `sigma in L^(3/2)`
+whenever `u in H1` is solenoidal and `|x| grad u in L2`. The projection is
+essential: inversion does not preserve solenoidality or the NS equation.
+The proof also controls `|x| grad w` and `|x| sigma` in L2 without assuming
+w in L2 at any earlier step.
+
+The extra hypothesis holds at every classical time for Schwartz data.
+With `M=|| |x|u ||2^2` and `W=|| |x|grad u ||2^2`, bounded radial weights
+and the actual equation give `M(t)+2nu integral W <= L_H^2`, with explicit
+`L_H` depending only on viscosity, horizon, initial energy and initial second
+moment. A separate local differentiated estimate proves pointwise W
+finiteness; only the integrated budget is claimed uniform at Tstar.
+Combining the spatial result with energy gives input-only time-square
+budgets for w in L2, weighted sigma in L2, and sigma in L^(3/2).
+
+This supersedes the old unproved spatial-membership statements for the
+Schwartz-data branch, not for every bare H1 snapshot. The new time-space
+pair `(2,3/2)` for the defect is supercritical, not on the critical line.
+The explicit self-similar non-solution diagnostic satisfies the finiteness
+budgets and the energy identity while its fourth-power L2 defect integral
+diverges. It refutes only that inference, not the PDE target.
+
+Next mathematical gate: independent audit of the conformal/moment component,
+then use additional vector-dynamical information to establish the critical
+temporal producer. HIGH-PRESSURE, HIGH-STRAIN, DEFECT-L4 and NS-R3 remain
+unproved. Do not repeat the two spatial questions as unresolved on the
+selected branch, and do not report their resolution as global regularity.
+Formal phases, the privacy boundary and all graph node kinds are unchanged.
+Full derivations, source checks and audit obligations are indexed in
+`research/evidence/2026-09-06-conformal-moment.md`.

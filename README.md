@@ -39,3 +39,20 @@ from the fourth-power defect integral to the squared-enstrophy integral.
 See `research/evidence/2026-09-06-defect-extensions.md`. Independent review
 is pending; these are not an arbitrary-data regularity proof. The missing
 producer and all terminal/gap statuses remain explicit in `PLAN.md`.
+
+
+## Conformal moment checkpoint (2026-09-06)
+
+The review-pending `navier-paper/sections/conformal_moment.tex` now answers
+two spatial questions on the Schwartz-data branch: the cubic representative
+has finite L2 energy, and its divergence defect belongs to L^(3/2).
+Conformal inversion, the accepted div-curl bound and a noncircular Hardy
+argument give the snapshot theorem under `|x| grad u in L2`; weighted energy
+on the original equation supplies input-only spacetime moment budgets.
+The proof, precise quantifiers and source checks are indexed in
+`research/evidence/2026-09-06-conformal-moment.md`.
+
+The new time-square defect norm is supercritical. The arbitrary-data
+critical temporal producer and NS-R3 remain unproved. Independent audit is
+pending, no formal status changes, and the graph records a separate pending
+component instead of promoting a claim. `PLAN.md` remains the live authority.
