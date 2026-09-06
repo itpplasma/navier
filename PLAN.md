@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: none-session-closed-2026-09-05
+active_task: HF20-audit-then-track-b
 public_release: false
 ```
 
@@ -952,3 +952,64 @@ None of this changes the graph. Before any of it is used, each note needs
 the independent audit the wave did not run, and the numerics in them are
 bounded evidence at finite resolution, not proof. HIGH-PRESSURE and
 HIGH-STRAIN remain the open producers and NS-R3 remains open.
+
+
+### HF20: a local harmonic-strain sign test (arrived 2026-09-06, UNAUDITED)
+
+A typeset candidate arrived on the work capture surface rather than as a
+repository note, written against research `30d715d` and paper `39ccb66`. It
+is transcribed into `research/evidence/hf20-harmonic-strain-test.md`; the
+PDF is frozen by SHA-256
+`4be9a53b244ba385e7b1e18bf02bee9b10db44a4329438612742ac32b7e15009` at
+`~/Nextcloud/navier/navier-hf20-candidate-proof.pdf` and is not committed,
+because generated PDFs stay out of the repository.
+
+It claims an analytic two-sign certificate for the transport term of the
+cubic gradient quotient: an explicit swirl `U` on the nonlinear-Hodge class
+and a compact solenoidal `h` that coincides with a harmonic gradient near
+the swirl give `K(U + eps h) = -eps ||U||_3^3 + O(|eps|^{3/2})`, the gain
+coming from a competitor gradient with disjoint exterior support, never
+from a derivative of the minimizer. It then transfers this to actual
+classical trajectories: for every viscosity and every prescribed squared L2
+norm, some compact smooth solenoidal datum makes the quotient strictly
+increase at time zero, and the fixed-energy supremum of
+`K - beta nu D_Q` is infinite. Consequently no monotone function of the
+quotient decreases along all trajectories, and no energy-only instantaneous
+absorption bound exists.
+
+Scope, as the candidate itself states: this refutes universal monotonicity
+and one instantaneous energy-only estimate. It is not a singular solution,
+gives no unbounded critical norm on a fixed trajectory, and does not touch
+the datum-dependent spacetime hypotheses `hyp:highstrain` or
+`hyp:highpressure`, which remain the open producers. Structurally it is the
+quotient-route analogue of the audited HF03 and HF04 fixed-energy
+obstructions on the pressure route.
+
+**Nothing is promoted and the manuscript is untouched until an independent
+audit runs.** That audit is the next action; §7 of the transcription lists
+the points it must examine first.
+
+## Ordered next actions
+
+1. **Audit HF20** independently, at a different tier and lens, freezing the
+   transcription and the PDF hash. Return PASS, REPAIR, FAIL WITH SCOPE, or
+   INVALID with an exact first bad bridge.
+2. **Integrate the audited outcome.** On PASS or repaired PASS: add a scope
+   remark to `sec:quotient` recording that no monotone or instantaneous
+   energy-only mechanism is available for the quotient, extend the
+   HIGH-STRAIN review text in the graph with the excluded class, rebuild the
+   manuscript and map, and keep every non-claim. On FAIL: record the failed
+   implication at its exact scope and retire only that implication.
+3. **Audit the three stopped HF19 notes**, which are still unaudited leads;
+   use each note's own next-action list only after its audit.
+4. **Continue Track B** on the surviving mechanism question. After HF18-A,
+   HF19 and HF20 the excluded classes are: size bounds in `Q` and `D_3` by
+   scaling, temporal normal forms with correctors in the computed classes,
+   the difference functional as a producer, universal monotonicity, and
+   instantaneous energy-only absorption. What remains open is a genuine
+   cancellation inside the transport term, the time-integrated sign
+   structure along trajectories that cross the nonlinear-Hodge class, and
+   the weighted Calderon-Zygmund and `L^2`-projection questions recorded in
+   HF18-B.
+5. **Formalization stays deferred** until the full paper route is proved and
+   audited, per the user's re-sequencing of 2026-09-05.
