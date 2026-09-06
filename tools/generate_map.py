@@ -11,7 +11,9 @@ import yaml
 
 root = Path(__file__).resolve().parents[1]
 source = Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'docs/proof-graph.yaml'
-target = Path(sys.argv[2]) if len(sys.argv) > 2 else root.parent / 'navier-paper/proof_map.tex'
+# The manuscript repository is read-only from 2026-09-06 (see AGENTS.md), so the
+# default output moved into this repository. Pass an explicit path to override.
+target = Path(sys.argv[2]) if len(sys.argv) > 2 else root / 'docs/proof_map.tex'
 graph = yaml.safe_load(source.read_text())
 digest = hashlib.sha256(source.read_bytes()).hexdigest()
 nodes = graph['nodes']
