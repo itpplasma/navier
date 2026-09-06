@@ -1,4 +1,18 @@
-# HF21-A: regularity of the shifted 3-Laplace minimizer — the admissibility constraint, the scalar reduction, and the sharp integrability criterion
+# HF21-A: regularity of the shifted 3-Laplace minimizer — the admissibility constraint, the scalar reduction, and the integrability criterion
+
+**STATUS (2026-09-06).** Independently audited by
+`research/evidence/hf21-review-shifted-hodge-regularity.md`: **VERDICT REPAIR**. The
+controller applied that review's prescribed repairs to this file on 2026-09-06. Applied
+here: the rank-stratified **Lemma R1** replaces the invalid open-set step in the proof of
+Theorem 2 (the statement of Theorem 2 and both corollaries survive unchanged); the error
+order in (2.3) is corrected from `O(r^{1/2})` to `o(r^{-1/2})`; Theorem 6' is corrected to
+`(6.1')` with the boundary term on `supp ∇ζ`; Theorem 6 carries the added gradient
+hypothesis and its exponent is confined to the interval `(1/2, 1]` rather than pinned; the
+four cosmetic corrections, the scope caveat on the word "sharp", and the dependency
+findings of the review are recorded. No statement is strengthened beyond what the review
+licenses. **The first gap is unchanged and is not closed**, and no HIGH-PRESSURE,
+HIGH-STRAIN, CRITICAL or NS-R3 result is asserted anywhere. The review's REOPENING
+CONDITIONS apply to this repaired note.
 
 Lane HF21-A of the Track B frontier packet, **MODE: DISCOVER with a falsifier arm**, 2026-09-06.
 This is the lane commissioned in wave HF19 whose absence was certified by
@@ -46,12 +60,15 @@ hypothesis displayed.
    `hf19-review-shifted-hodge-regularity.md` §3 — is sufficient but **strictly not
    necessary**. An explicit element of the minimizer class is exhibited on which
    `∫_B |w|^{-1} = ∞` while `w ∈ C^∞(B)` and `u ∈ C^∞(B)`, `curl u = e_3 ≠ 0`.
-   The sharp criterion is the layered one of Theorem 4, which that example satisfies.
+   The criterion that replaces it is the layered one of Theorem 4, which that example
+   satisfies; its part (b) is a sharpness statement about the abstract layered
+   inequality only (see the scope caveat there).
 4. **Vorticity non-degeneracy (Theorem 5).** An unconditional lower bound obtained from
    Stokes' theorem alone: `⨍_{B_r(x_0)}|w| ≥ (r/32)·max_n inf_{B_r} (ω·n)`, `ω = curl u`.
    So `|w|` cannot vanish faster than first order at any point where the vorticity is
-   nonzero. With Theorem 2 this is a **pincer**: at a nondegenerate model zero the order
-   of vanishing of `|w|` is forced to be exactly `1`, and there (H1) is automatic.
+   nonzero. With Theorem 2 this is a **pincer**: at a `C^1` model zero the order of
+   vanishing of `|w|` is confined to `(1/2, 1]`. It is **not** pinned: nothing proved
+   here excludes any `β ∈ (1/2, 1)`.
 5. **The positive route runs and then stops at a named place (Theorem 6, §6.2).** The
    localized difference-quotient argument does produce a genuine local Caccioppoli
    inequality for `V`. Gehring cannot be started from it: the right-hand side carries
@@ -115,6 +132,16 @@ u ∈ H^m(R^3; R^3),   m >= 4,   div u = 0.                                    (
   `DΨ(V)∇V` a.e. on `{w ≠ 0}` and `0` a.e. on `{w = 0}`, and then
   `div w = −σ` in `D'(R^3)` with `σ = ŵ·∇|w| ∈ L^1_loc`.
 
+**Dependency status (audit, 2026-09-06).** The audit checked which of the imports above
+are load-bearing. Genuinely used, and each checked against its audited source: (P1)–(P3),
+(A5), (A6), (B1), (B2). **Not** used anywhere below, and retained only as context:
+**(A4)** (`D_Q(u) = D_3(w) >= c‖u‖_9^3`); the quantitative half of **(A1)**, which enters
+only the consistency check after Theorem 6'. Likewise non-load-bearing: §1.3 in its
+entirety, Theorem 3(d) (quoted, never used), and this note's own numerics (`chk.py`),
+which are bounded evidence only — Theorem 2 is proved symbolically via Lemma R1 and
+Corollary 2.1 in closed form. Theorem 6 and Theorem 6' are terminal: no other statement in
+this note depends on either.
+
 **Hypothesis under test.** `(H1)`: `w ∈ W^{1,1}_loc(R^3)`, equivalently `q ∈ W^{1,1}_loc`,
 equivalently `φ ∈ W^{2,1}_loc`, where `q = ∇φ` with `φ ∈ W^{1,3}_loc` (de Rham; `φ ∈ BMO`,
 determined up to an additive constant — HF18-A §1.1).
@@ -164,7 +191,14 @@ with HF18-B's scope note.
 **The decisive reading.** The regularity statement in that paper attaches to
 `h ∈ Z_p^k`, i.e. to forms that are **closed and nonlinearly coclosed**. Our `w` is
 nonlinearly coclosed and has `dw = curl u ≠ 0`. Asked directly, the source states **no**
-regularity whatsoever for `β_∞` of Lemma 2.2. This is a stronger and more precise
+regularity whatsoever for `β_∞` of Lemma 2.2. (The audit fetched and read the same
+source independently and confirms this reading, including the load-bearing detail that
+the paper *defines* `H_p^k(M) := {h ∈ Z_p^k(M) : d*(|h|^{p-2}h) = 0}`, so that
+"`p`-harmonic form" there means **closed** and nonlinearly coclosed and the
+Uhlenbeck-credited smoothness attaches to that class only. The audit does not certify by
+exhaustive reading that no regularity statement for `β_∞` appears anywhere in that paper;
+it confirms it for §§2–3 and by targeted query. Nothing below uses a regularity theorem.)
+This is a stronger and more precise
 statement of the situation than HF18-B's scope note ("our `w` is not closed, so no
 regularity transfers"): the object *is* named in the literature, and the literature is
 silent about its regularity. Nothing here is an impossibility statement.
@@ -295,50 +329,143 @@ In particular `curl w ∉ L^∞_loc(x_0)`. If moreover `A ∈ L^{3/2}(R^3)` glob
 `curl u = curl w ∉ L^∞_loc`, hence `u ∉ W^{1,∞}_loc` and `u ∉ H^s_loc` for any `s > 5/2`.
 **Such a `w` is not the minimizer of any datum satisfying (0.1).**
 
-*Proof.* Write `x = x_0 + rθ`, `|θ| = 1`. Since `L ≠ 0`, choose a unit `θ_0` with
-`Lθ_0 ≠ 0` and let `Γ_1` be a small open cone around `θ_0` on which `|Lθ| >= κ > 0`.
-Then `A(x) = rLθ + O(r^2)` and `|A| >= κ r/2` for `r` small, so `A ≠ 0` and `w` is `C^1`
-there, with (differentiating `f(z) = |z|^{-1/2}z`, `Df(z) = |z|^{-1/2}(I − (1/2)ẑ⊗ẑ)`)
+**Why the proof is stratified by rank (repair, audit 2026-09-06).** The directions that
+actually occur in the proof are not free: on the cone `Γ_1` one has `n(x) = Â(x)` and
+`n(x) → \widehat{Lθ}`, so the set of limiting directions is
 ```
-∂_i w_j = |A|^{-1/2}( ∂_i A_j − (1/2) Â_j Â_k ∂_i A_k ),
+N(L) := { \widehat{Lθ} : θ ∈ Γ_1, Lθ ≠ 0 }  ⊆  S^2 ∩ Range(L),
 ```
-whence, with `n := Â` and `(∇A)_{ij} = ∂_i A_j`,
-```
-2 sk(∇w) = |A|^{-1/2} · [ −2 sk(L) + (1/2)( n⊗L^T n − L^T n⊗n ) ] + O(1)
-        =: |A|^{-1/2} M(n) + O(1),                                            (2.3)
-```
-the `O(1)` collecting the `O(r)` corrections to `∇A` and to `n` multiplied by
-`|A|^{-1/2} = O(r^{-1/2})`, hence itself `O(r^{1/2})`; and `n → Lθ/|Lθ|` as `r ↓ 0`,
-uniformly on `Γ_1`.
+which is an open subset of `S^2` **only if `L` is invertible**: for `rank L = 2` it is an
+open arc of a great circle (measure zero in `S^2`), for `rank L = 1` a single point
+`±\hat a`. An argument that `M` cannot vanish on an *open subset of the sphere* therefore
+says nothing about `M` on `N(L)`, and real-analytic continuation is likewise unavailable
+from a measure-zero set. The earlier draft of this note argued exactly that way, and the
+audit `hf21-review-shifted-hodge-regularity.md` identified the step as the first bad
+bridge. The gap bites precisely where the application needs it: the HF18-B oscillation
+model of §2.3 has, near its zero line, `F ≈ (−3b, a, 0)`, i.e.
+`L = [[0, −3, 0], [1, 0, 0], [0, 0, 0]]`, of `rank 2`. The following lemma, quantified
+over `S^2 ∩ Range(L)` only and proved by cases on `rank L`, replaces that step.
 
-Suppose `M(n) = 0` for all `n` in some open subset `U` of the unit sphere. Applying the
-matrix identity to the vector `n` itself, and using
-`(n⊗v − v⊗n)n = n(v·n) − v` with `v = L^T n`:
+**Lemma R1 (rank-stratified non-vanishing of `M`).** Let `L ∈ R^{3×3}`, `L ≠ 0`,
+`tr L = 0`, and let
 ```
-sk(L) n = (1/4)[ n (n·Ln) − L^T n ],     i.e.   2Ln − L^T n = (n·Ln) n .        (2.4)
+M(n) := −2 sk(L) + (1/2)( n⊗L^T n − L^T n⊗n ),      n ∈ S^2 .
 ```
-Both sides of (2.4) are real-analytic in `n` after homogenization
-(`2Lx − L^T x = (x·Lx)x/|x|^2` on `R^3 \ {0}`), so validity on the open set `U` forces
-validity for all `x ≠ 0`. Thus `Bx ∥ x` for all `x`, with `B := 2L − L^T`, which forces
-`B = μI`. Transposing, `2L^T − L = μI`; adding and subtracting gives `L = L^T` and then
-`L = μI`; `tr L = 0` gives `μ = 0`, i.e. `L = 0`, contradicting the hypothesis.
+Then `M(n) ≠ 0` for at least one `n ∈ S^2 ∩ Range(L)`.
 
-Hence `M` does not vanish identically on any open set of directions, so by continuity
-there are an open cone `Γ ⊆ Γ_1` and `c_1 > 0` with `|M(n(θ))| >= c_1` on `Γ`. Insert
-`|A| ≤ C r` into (2.3):
-`|sk(∇w)| >= (1/2)(Cr)^{-1/2} c_1 − O(r^{1/2}) >= c_0 r^{-1/2}` for `r < r_0`, which is
-(2.2). The last statement: `curl u = curl w` by Theorem 1; `u ∈ H^s_loc` with `s > 5/2`
-would give `∇u ∈ H^{s-1}_loc ⊂ L^∞_loc` since `s − 1 > 3/2`, contradicting (2.2). ∎
+*Proof.* By rank.
 
-*Numerical cross-check (bounded, not part of the proof).* 200 random traceless
-normalized `L`, 2000 random directions each with `|Lθ| > 0.3`: the minimum over `L` of
-`max_θ |M|` was `0.532`, i.e. `M` was never close to identically zero
-(scratchpad `chk.py`, §10).
+**rank `L` = 3.** `Range(L) = R^3`. Suppose `M(n) = 0` for all `n` in some nonempty open
+`U ⊆ S^2` (which is what `Range(L) = R^3` makes available: `θ ↦ \widehat{Lθ}` is an open
+map). Applying `M(n)` to the vector `n` itself, and using `(n⊗v − v⊗n)n = n(v·n) − v`
+with `v = L^T n` together with `n·L^T n = n·Ln`,
+```
+sk(L) n = (1/4)[ n (n·Ln) − L^T n ],     i.e.   2Ln − L^T n = (n·Ln) n         (2.4)
+```
+on `U`. Homogenize: `H(x) := 2Lx − L^T x − (x·Lx)x/|x|^2` is real-analytic on the
+connected set `R^3\{0}` and vanishes on the nonempty open cone over `U`, hence everywhere.
+Thus `B := 2L − L^T` has every `x ≠ 0` as an eigenvector, so `B = μI`. Transposing,
+`2L^T − L = μI`; subtracting, `3(L − L^T) = 0`, so `L = L^T`; then `2L − L = L = μI` and
+`tr L = 0` gives `μ = 0`, `L = 0` — contradiction. So `M` does not vanish on any open
+subset of `S^2`, and in particular not on all of `S^2 ∩ Range(L)`.
+
+**rank `L` = 1.** Write `L = a⊗b`, i.e. `Lx = a(b·x)`, `a,b ≠ 0`; `tr L = a·b = 0`.
+`Range(L) = span(a)`, so `n = ±\hat a` and, `M` being quadratic in `n`, it is enough to
+evaluate at `n = \hat a`. Then `L^T\hat a = b(a·\hat a) = |a| b`, and
+`sk(L) = (1/2)(a⊗b − b⊗a)`, so
+```
+M(\hat a) = −(a⊗b − b⊗a) + (1/2)( |a| \hat a⊗b − |a| b⊗\hat a )
+          = −(a⊗b − b⊗a) + (1/2)( a⊗b − b⊗a ) = −(1/2)( a⊗b − b⊗a ).
+```
+This vanishes iff `a ∥ b`, which with `a·b = 0` and `a ≠ 0` forces `b = 0`, i.e. `L = 0`.
+Hence `M(\hat a) ≠ 0`, with the exact value `|M(\hat a)|_F = |a||b|/√2` (`= 1/√2` for
+`|L|_F = 1`).
+
+**rank `L` = 2.** Let `R := Range(L)` and pick an orthonormal basis `f_1, f_2` of `R`;
+extend by `f_3 ⊥ R`. In these coordinates `Lx ∈ R` for all `x`, so the third row of `L`
+vanishes,
+```
+L = [[α, β, γ], [δ, ε, ζ], [0, 0, 0]],      tr L = α + ε = 0 .
+```
+Suppose `M(n) = 0` for every unit `n ∈ R`; write `n = (cos t, sin t, 0)`. `M(n) = 0` says
+```
+n⊗L^T n − L^T n⊗n = 4 sk(L)                                                (R1.1)
+```
+for all `t`. With `L^T n = (αn_1+δn_2, βn_1+εn_2, γn_1+ζn_2)`, the components of the left
+side of (R1.1) are
+```
+(1,3)- and (2,3)-entries:  γ n_1n_2 + ζ n_2^2   and   −γ n_1^2 − ζ n_1n_2 ,
+(1,2)-entry:               β n_1^2 + (ε−α) n_1n_2 − δ n_2^2 .
+```
+Constancy in `t` of the first two forces, via `n_1n_2 = (1/2)sin 2t`,
+`n_2^2 = (1/2)(1−cos 2t)`, `n_1^2 = (1/2)(1+cos 2t)`,
+```
+γ = 0,   ζ = 0 ;
+```
+constancy of the third forces `β + δ = 0` and `ε − α = 0`, which with `α + ε = 0` gives
+`α = ε = 0`. Hence `L = β(e_1⊗e_2 − e_2⊗e_1)` is skew. But then a direct evaluation gives
+`n⊗L^T n − L^T n⊗n = L` for every unit `n ∈ R` (with `L^T n = −Ln`, the `(1,2)`-entry is
+`n_1(L^T n)_2 − (L^T n)_1 n_2 = β(cos^2 t + sin^2 t) = β`), while the right side of (R1.1)
+is `4 sk(L) = 4L`. So `3L = 0`, i.e. `L = 0` — contradiction. ∎
+
+*(Only an open arc of `t` is actually available in the application; the entries above are
+trigonometric polynomials in `t`, so constancy on an arc is constancy everywhere and the
+argument is unchanged.)*
+
+*Proof of Theorem 2.* Write `x = x_0 + rθ`, `|θ| = 1`. Since `L ≠ 0`, choose a unit `θ_0`
+with `Lθ_0 ≠ 0` and let `Γ_1` be a small open cone around `θ_0` on which `|Lθ| >= κ > 0`,
+so that `A(x) = rLθ + o(r)` and `|A| >= κ r/2` for `r` small; hence `A ≠ 0` and `w` is
+`C^1` there, with (differentiating `f(z) = |z|^{-1/2}z`,
+`Df(z) = |z|^{-1/2}(I − (1/2)ẑ⊗ẑ)`)
+```
+∂_i w_j = |A|^{-1/2}( ∂_i A_j − (1/2) Â_j Â_k ∂_i A_k ).
+```
+Since `A ∈ C^1`, `∇A(x) = L^T + o(1)` and `n(x) = \widehat{Lθ} + o(1)`, uniformly on
+`Γ_1`, so, with `n := Â` and `(∇A)_{ij} = ∂_i A_j`,
+```
+2 sk(∇w)(x) = |A|^{-1/2} · [ −2 sk(L) + (1/2)( n⊗L^T n − L^T n⊗n ) ] + o(r^{-1/2})
+            =: |A(x)|^{-1/2} M(n(x)) + o(r^{-1/2}).                           (2.3)
+```
+The error is the `o(1)` correction to `∇A` and to `n` multiplied by
+`|A|^{-1/2} = O(r^{-1/2})`. (Under the stated hypothesis `A ∈ C^1` the correction to `∇A`
+is only `o(1)` — `O(r)` would need `A ∈ C^{1,1}` — so the rate here is `o(r^{-1/2})`; the
+`O(r^{1/2})` displayed in the earlier draft is wrong and must not be quoted.)
+
+By Lemma R1 there is `n_* ∈ S^2 ∩ Range(L)` with `M(n_*) ≠ 0`; choose `θ_*` with
+`\widehat{Lθ_*} = n_*` (possible because `n_* ∈ Range(L)`) and shrink `Γ_1` to an open
+cone `Γ ∋ θ_*` on which `|M(\widehat{Lθ})| >= c_1 := (1/2)|M(n_*)| > 0`, by continuity of
+`θ ↦ M(\widehat{Lθ})` on `{Lθ ≠ 0}`. With `|A| ≤ C r`,
+```
+|sk(∇w)(x)| >= (1/2)(Cr)^{-1/2} c_1 − o(r^{-1/2}) >= c_0 r^{-1/2}
+```
+for `r < r_0`, which is (2.2). The last statement: `curl u = curl w` by Theorem 1;
+`u ∈ H^s_loc` with `s > 5/2` would give `∇u ∈ H^{s-1}_loc ⊂ L^∞_loc` since `s − 1 > 3/2`,
+contradicting (2.2). ∎
+
+Two features of this proof are essential and were not present in the earlier draft: the
+quantifier runs over `S^2 ∩ Range(L)` rather than over an open subset of `S^2`, and the
+error rate is `o(r^{-1/2})`. With them, Theorem 2, Corollary 2.1, Corollary 2.2 and §7
+constraint 3 stand exactly as stated.
+
+*Numerical cross-check (bounded evidence, never proof; not part of the proof above).*
+This note's own sampling — 200 random traceless normalized `L`, 2000 random directions
+each with `|Lθ| > 0.3`, minimum over `L` of `max_θ |M|` equal to `0.532` (scratchpad
+`chk.py`, §10) — draws generically *full-rank* `L` and is therefore evidence for the
+`rank L = 3` case only. The audit reports an independent rank-stratified sampling
+(`aud3.py`, `hf21-review-shifted-hodge-regularity.md` §E8): over `400` random normalized
+traceless `L` of each rank, `max_{n ∈ S^2 ∩ Range(L)}|M(n)|` had minima `0.7071` (rank 1,
+matching the exact value `|a⊗b − b⊗a|_F/2` of Lemma R1), `0.576` (rank 2), `0.5367`
+(rank 3); and for the HF18-B oscillation model `L = [[0,−3,0],[1,0,0],[0,0,0]]`,
+`min_{n ∈ Range L}|M(n)| = 3.5355`, `max = 4.9497`. Both samplings are bounded evidence;
+Lemma R1 is what is proved.
 
 **Reading of Theorem 2.** `|A| = |w|^2`, so a linear zero of `A` is `|w| ≍ d^{1/2}`.
 Theorem 2 says: *a minimizer of a smooth datum never vanishes to order `1/2`.*
-Together with Theorem 5 below (which excludes order `> 1`), the order at a nondegenerate
-model zero is pinned to `1`, where `∇w` is bounded and (H1) is trivial.
+Together with Theorem 5 below (which excludes order `> 1`), the order at a `C^1` model
+zero is confined to `(1/2, 1]`: `A ∈ C^1` with `A(x_0) = 0` gives `|A| = O(d)`, i.e.
+`β >= 1/2`; Theorem 2 removes the endpoint `β = 1/2` when `DA(x_0) ≠ 0`, and a degenerate
+zero has `|A| = o(d)`, i.e. `β > 1/2`. The interval is **not** narrowed further here: no
+order is pinned, and `β = 3/4` (say) survives every argument in this note.
 
 ### 2.3 Consequence: the HF18-B witness family is inadmissible (computed)
 
@@ -372,11 +499,23 @@ on the axis.
 `u_δ = P w_δ ∉ H^s_loc` for `s > 5/2`, and no member of the HF18-B witness family — bulk,
 oscillation, or their sum — is the minimizer of a datum satisfying (0.1).
 
+*Note on dependence.* Corollary 2.1 is established by the two closed-form computations
+displayed above and does **not** route through Theorem 2; it was therefore untouched by
+the defect in the earlier proof of Theorem 2 and is unaffected by the repair. The audit
+recomputed both closed forms by hand and by machine and confirmed them by centred
+differences *off* the ray as well as on it (`(a,b) = (10^{-3}, 2·10^{-3})`: `32.4011`
+numeric against `32.4011` closed form; `(3·10^{-4}, −10^{-4})`: `145.6475` against
+`145.6475`) — bounded evidence, not proof.
+
 **Scope, stated precisely so this is not read as a re-audit.** HF18-B Prop. 2.2 is a
 statement about the class `M` (all minimizers, `L^3` data), and on that class it stands
 exactly as audited: this note re-derives nothing of it and contradicts nothing in it. The
 observation here is only that *the family cannot be reused as a candidate for the (H1)
-question*, whose standing hypothesis is (0.1). Whether the HF18-B classification of
+question*, whose standing hypothesis is (0.1). The audit checked the two for logical
+compatibility and found none broken: Corollary 2.1 asserts the same fact as HF18-B
+Prop. 2.2's own `|∇w_δ| ∼ d^{-1/2}` at the zero lines, and `d^{-1/2}` is locally
+integrable across a codimension-two set (`∫_0 t^{-1/2}·t\,dt < ∞`), hence consistent with
+(H1) for that family. Whether the HF18-B classification of
 weighted inequalities changes when restricted to the admissible class is a **separate,
 unexamined question**, flagged in §9 as a non-claim and in §10 as a next action.
 
@@ -420,9 +559,13 @@ Let `N(x) = −1/(4π|x|)` and `ψ := N * f`. By the Calderón–Zygmund theorem
 `1 < p < ∞` only]. Now `Δ(φ − ψ) = T − f = 0` in `D'(B_r)`, and `φ − ψ ∈ L^1_loc`, so by
 Weyl's lemma `φ − ψ` is harmonic, hence smooth, in `B_r`; interior estimates for harmonic
 functions give
-`‖D^2(φ − ψ)‖_{L^∞(B_{r/2})} ≤ C r^{-2}‖∇(φ − ψ)‖_{L^1(B_r)} ≤ C(r)(‖q‖_{L^3(B_{2r})} + ‖∇ψ‖_{L^3(B_r)})`,
-and `‖∇ψ‖_{L^3(B_r)} ≤ C(p,r)‖f‖_p` by the Sobolev embedding applied to `ψ ∈ W^{2,p}`
-(or, for small `p`, by the Riesz-potential bound for `N * f`, `f` compactly supported).
+`‖D^2(φ − ψ)‖_{L^∞(B_{r/2})} ≤ C r^{-4}‖∇(φ − ψ)‖_{L^1(B_r)} ≤ C(r)(‖q‖_{L^3(B_{2r})} + ‖∇ψ‖_{L^1(B_r)})`
+(the derivative estimate for the harmonic vector field `h = ∇(φ − ψ)`,
+`‖Dh‖_{L^∞(B_{r/2})} ≤ C r^{-4}‖h‖_{L^1(B_r)}`; the exponent `r^{-2}` displayed in the
+earlier draft was wrong, and is harmless because the statement carries the constant as
+`C(p,r)`), and only the `L^1` norm of `∇ψ` is needed, which follows from
+`∇ψ = (∇N) * f ∈ L^q_loc` with `1/q = 1/p − 1/3` when `p < 3` (`q > 1`) and from
+`ψ ∈ W^{2,p}` with Sobolev embedding otherwise.
 Therefore `Hess φ ∈ L^p(B_{r/2})`, and `∇w = ∇u + Hess φ` with `∇u ∈ L^∞`. This is (a).
 (b) is immediate: the distributional divergence of a `W^{1,p}` field is the a.e. trace of
 its weak gradient. (c) is (a) with `L^p_loc ⊂ L^1_loc`. (d) replaces the CZ bound by the
@@ -430,7 +573,9 @@ corresponding endpoint statements; both are quoted, not used elsewhere.
 For the global claim, `q = ∇φ ∈ L^3(R^3)` and, as tempered distributions,
 `∂_i q_j = −R_i R_j (div q)` (Fourier: `(∂_i q_j)^ = −4π^2 ξ_i ξ_j φ̂ = (ξ_iξ_j/|ξ|^2)(div q)^`),
 so `T ∈ L^{3/2}(R^3)` gives `Hess φ ∈ L^{3/2}(R^3)` by the `L^{3/2}` boundedness of the
-Riesz transforms. ∎
+Riesz transforms. (The two tempered distributions agree only up to a polynomial; a nonzero
+polynomial lies neither in `L^{3/2}` nor in `W^{-1,3}`, so the polynomial is `0` and the
+conclusion is unchanged.) ∎
 
 **Remark 3.1 (this is not circular).** Theorem 3 is a statement about the distribution
 `Δφ`, available before any regularity of `w`. It uses nothing about the nonlinear equation
@@ -456,7 +601,7 @@ proof of either, and not a re-audit of that note.
 
 ---
 
-## 4. The sharp integrability criterion, and the failure of the standard obstacle
+## 4. The integrability criterion, and the failure of the standard obstacle
 
 ### 4.1 The exact statement of what is needed
 
@@ -478,7 +623,7 @@ sets), so the integrand of (4.1) is `0` there and the zero set contributes nothi
 `{V = 0}` both sides vanish a.e. Closedness of the weak gradient gives `w ∈ W^{1,1}(E)`
 with `∇w = G`. ∎
 
-**Theorem 4 (layered criterion; sharp).** Let `E` be open and bounded and put
+**Theorem 4 (layered criterion).** Let `E` be open and bounded and put
 `E_j := E ∩ {2^{-j-1} ≤ |w| < 2^{-j}}`, `j ∈ Z`. If
 ```
 S(E) := Σ_j 2^{(j+1)/2} |E_j|^{1/2} ‖∇V‖_{L^2(E_j)} < ∞ ,                       (4.2)
@@ -505,6 +650,12 @@ by Cauchy–Schwarz, then sum. (a): Cauchy–Schwarz in `j`, with
 (b): put `c_j := 2^{(j+1)/2}|E_j|^{1/2}`, so `Σ_j c_j^2 = ∞`; for any sequence with
 `Σ c_j^2 = ∞` there is `a ∈ ℓ^2` with `Σ c_j a_j = ∞` (else `c ∈ (ℓ^2)^* = ℓ^2`).
 (c): Hölder with exponents `p, p'`. ∎
+
+**Scope of the word "sharp" in part (b).** Part (b) is sharpness of the **abstract layered
+inequality**, not of the criterion for (H1): it exhibits an admissible *sequence*
+`a_j = ‖∇V‖_{L^2(E_j)}` compatible with a finite Dirichlet budget, and does **not**
+exhibit a field `V` realizing it. The "Equivalently:" sentence in (b) says exactly this,
+and no stronger reading is claimed anywhere in this note.
 
 **Answer to the lane's question about the singular inverse map.** `Ψ(V) = |V|^{-1/3}V`
 is singular at `V = 0` with `|DΨ| = |V|^{-1/3} = |w|^{-1/2}`. The exact integrability of
@@ -546,7 +697,8 @@ Then:
     representative of `u := Pw ∈ L^3`, with `q = (I − P)w ∈ G_3`; the Euler–Lagrange
     condition holds against **all** of `G_3`.
 (ii) On `B`: `A = (0, |x_1|x_1, 0)` and `w = (0, x_1, 0)`, so `w ∈ C^∞(B)`,
-     `∇w = e_2⊗e_1` is constant, `div w = 0` on `B`, `curl w = e_3`.
+     `∇w = e_1⊗e_2` is constant (with the convention `(∇w)_{ij} = ∂_i w_j`),
+     `div w = 0` on `B`, `curl w = e_3`.
 (iii) `Δφ = div q = div w = 0` in `D'(B)`, so `φ` is harmonic hence real-analytic on `B`;
       therefore `q ∈ C^∞(B)` and `u = w − q ∈ C^∞(B)`, with `div u = 0` and
       `curl u = e_3 ≠ 0` on `B`.
@@ -626,19 +778,31 @@ as `x → x_0` for some `α > 1`, then `ω(x_0) = 0`. In particular at every poi
 **Corollary 5.2 (no flat spots inside `{ω ≠ 0}`).** If `w = 0` a.e. on an open set `U`,
 then `ω = 0` on `U`. (Immediate from (5.1), or from `curl w = ω` in `D'(U)`.)
 
-**Theorem 6 (the pincer at a nondegenerate model zero).** Let `x_0 ∈ {w = 0}` with
+**Theorem 6 (the pincer at a `C^1` model zero: an interval, not a point).** Let `x_0 ∈ {w = 0}` with
 `ω(x_0) ≠ 0`, and suppose `|w| ≍ d(x, Z)^β` near `x_0` for a closed set `Z ∋ x_0` and some
 `β > 0`. Then:
 - `β ≤ 1` by Corollary 5.1;
 - `β = 1/2` — i.e. `A = |w|w` vanishing linearly — is excluded by Theorem 2 whenever `A`
   is `C^1` near `x_0` with `DA(x_0) ≠ 0`;
-- for `0 < β ≤ 1` and `Z` a `C^1` submanifold of codimension `1` or `2`,
-  `|∇w| ≲ d^{β-1}` is locally integrable (codimension `1`: `∫_0 t^{β-1}dt < ∞`;
-  codimension `2`: `∫_0 t^{β-1} t\,dt < ∞`), so **(H1) holds locally**.
+- if in addition `|∇w| ≲ d(x,Z)^{β−1}` near `x_0` (a hypothesis on the model, **not** a
+  consequence of `|w| ≍ d^β`) and `Z` is a `C^1` submanifold of codimension `1` or `2`,
+  then `d^{β−1} ∈ L^1_loc` for every `β > 0` (codimension 1: `∫_0 t^{β−1}dt < ∞`;
+  codimension 2: `∫_0 t^{β−1}·t dt < ∞`), so (H1) holds locally.
 
-So the entire model class of power-law vanishing on rectifiable zero sets is settled
-affirmatively, and the admissible exponent is pinned near `β = 1` — which is exactly the
-`C^1` picture of Proposition 4.4.
+So within the model class in which the gradient scales with the amplitude, power-law
+vanishing on a `C^1` zero set of codimension `1` or `2` is compatible with (H1). What is
+proved about the exponent itself is only `β ≤ 1` (Corollary 5.1) and, in the `C^1` model
+with `DA(x_0) ≠ 0`, the exclusion of `β = 1/2` (Theorem 2); the interval
+`β ∈ (1/2, 1]` is not narrowed.
+
+*Why the gradient hypothesis cannot be dropped (audit, defect D3).* `|w| ≍ d^β` alone does
+**not** give `|∇w| ≲ d^{β−1}`: it is compatible with arbitrarily fast oscillation of `w` at
+fixed amplitude, and the only structural gradient bound available is
+`|∇w| ≤ |w|^{-1/2}|∇V|` (A6), which needs a bound on `|∇V|` that is not hypothesised. The
+earlier draft asserted the bullet without that hypothesis and concluded that "the entire
+model class of power-law vanishing on rectifiable zero sets is settled affirmatively";
+that sentence is withdrawn, and the bullet is stated above only in the conditional form
+the argument supports.
 
 **Exactly how far Theorem 5 falls short (no overclaim).** (5.1) is an *averaged* lower
 bound and does not control a negative moment. Quantitatively: from (5.1) with
@@ -661,8 +825,12 @@ one needs a *local* inequality. It exists, and here it is.
 minimizer, `q = ∇φ`. Then for every `ζ ∈ C_c^∞(R^3)` with `0 ≤ ζ ≤ 1` and every constant
 vector `c ∈ R^3`,
 ```
-∫ ζ^2 |∇V|^2 dx  ≤  (81/2) ∫ ζ^2 |w| |∇u|^2 dx  +  162 ‖∇ζ‖_∞^2 ∫ ζ^2 |w| |q − c|^2 dx .   (6.1)
+∫ ζ^2 |∇V|^2 dx  ≤  (81/2) ∫ ζ^2 |w| |∇u|^2 dx  +  162 ‖∇ζ‖_∞^2 ∫_{supp ∇ζ} |w| |q − c|^2 dx .   (6.1')
 ```
+The boundary term carries **no** `ζ^2` weight: it is confined to `supp ∇ζ` only. (The
+earlier draft displayed `∫ζ^2|w||q−c|^2` there, which since `ζ^2 ≤ 1` is a strictly
+stronger inequality than the argument delivers; the audit identified this as defect D2 and
+`(6.1')` is the corrected form. Both constants are unchanged.)
 
 *Proof.* Fix `k` and `h ≠ 0`; `τ_h f = f(· + h e_k)`, `D_h f = (τ_h f − f)/h`.
 `G_3` is translation invariant, so the Euler–Lagrange condition (P1) applied to `w` and to
@@ -680,8 +848,10 @@ all integrals absolutely convergent (`D_hA ∈ L^{3/2}`, `∇ψ ∈ L^3`). With 
 ```
 By (A5), pointwise `D_hA·D_hw = h^{-2}(Ã(τ_hw) − Ã(w))·(τ_hw − w) >= (8/9)|D_hV|^2` and
 `|D_hA| ≤ 2√2 (|τ_hw| + |w|)^{1/2}|D_hV|`. Writing `X := (∫ζ^2|D_hV|^2)^{1/2}`,
-`Y_1 := (∫ζ^2(|τ_hw|+|w|)|D_hu|^2)^{1/2}`, `Y_2 := (∫ζ^2(|τ_hw|+|w|)|D_hφ − c_k|^2)^{1/2}`,
-Cauchy–Schwarz gives
+`Y_1 := (∫ζ^2(|τ_hw|+|w|)|D_hu|^2)^{1/2}`,
+`Y_2 := (∫_{supp∇ζ}(|τ_hw|+|w|)|D_hφ − c_k|^2)^{1/2}`,
+Cauchy–Schwarz gives (in the boundary integrand the single factor `ζ` is allocated to
+`|D_hV|` to form `X`, and `|∇ζ| ≤ ‖∇ζ‖_∞ 1_{supp∇ζ}` is used on the other factor)
 ```
 (8/9) X^2 ≤ 2√2 X Y_1 + 4√2 ‖∇ζ‖_∞ X Y_2 ,   hence   X ≤ (9/8)(2√2 Y_1 + 4√2 ‖∇ζ‖_∞ Y_2)
 ```
@@ -689,21 +859,22 @@ Cauchy–Schwarz gives
 Now let `h → 0`: `D_hV → ∂_k V` in `L^2(R^3)` (HF18-A Theorem 1), `τ_h w → w` in `L^3`,
 `D_h u → ∂_k u` uniformly on compacts (`u ∈ C^2`), and `D_hφ → ∂_kφ = q_k` in `L^3_loc`
 (`φ ∈ W^{1,3}_loc`); hence `X → (∫ζ^2|∂_kV|^2)^{1/2}`,
-`Y_1 → (2∫ζ^2|w||∂_ku|^2)^{1/2}`, `Y_2 → (2∫ζ^2|w||q_k − c_k|^2)^{1/2}`. Squaring,
-using `(a+b)^2 ≤ 2a^2+2b^2`, and summing over `k = 1,2,3` gives (6.1). ∎
+`Y_1 → (2∫ζ^2|w||∂_ku|^2)^{1/2}`, `Y_2 → (2∫_{supp∇ζ}|w||q_k − c_k|^2)^{1/2}`. Squaring,
+using `(a+b)^2 ≤ 2a^2+2b^2`, and summing over `k = 1,2,3` gives (6.1'). ∎
 
 *Consistency check.* Taking `ζ ↑ 1`, `c = 0` and Hölder gives
 `‖∇V‖_2^2 ≤ (81/2)‖w‖_3‖∇u‖_3^2`, of the same form and within a factor `2` of the audited
 global bound (A1) — the factor being the extra Young step. No boundary term at infinity
-appears (check C6): (6.1) is proved with a compactly supported `ζ`, and the global
-statement is only quoted for the check.
+appears (check C6): (6.1') is proved with a compactly supported `ζ`, and the global
+statement is only quoted for the check. The check is unaffected by the correction to the
+boundary term, since with `ζ ↑ 1` one may take `‖∇ζ‖_∞ → 0`.
 
 ### 6.2 Exactly why Gehring cannot be started (the obstruction)
 
 A Gehring/Giaquinta–Modica iteration needs a **reverse Hölder inequality**: the same
 quantity on both sides, with a lower exponent on the right,
 `⨍_{B_r} |∇V|^2 ≤ C (⨍_{B_{2r}} |∇V|^{2σ})^{1/σ} + (data)` for some `σ < 1`. Inequality
-(6.1) is not of this form and cannot be brought to it:
+(6.1') is not of this form and cannot be brought to it:
 
 - **(O1) The test class is only `G_3`.** In the scalar `p`-Laplace situation one tests with
   `ζ^2(φ − c)`, a *scalar* multiple of a cutoff, and the Caccioppoli produced has
@@ -712,8 +883,10 @@ quantity on both sides, with a lower exponent on the right,
   admissible variations include `ζ^2(V − V_B)`. Every admissible variation is `∇ψ ∈ G_3`,
   and `ζ^2(V − V_B)` is not a gradient. **No Caccioppoli inequality with `V − V_B` on the
   right is derivable from the Euler–Lagrange condition of this problem.**
-- **(O2) The right-hand side of (6.1) is not convertible.** Its dangerous term is
-  `r^{-2}∫_{B_{2r}}|w||q − c|^2` (choosing `‖∇ζ‖_∞ ≍ r^{-1}`). To dominate it by a lower
+- **(O2) The right-hand side of (6.1') is not convertible.** Its dangerous term is
+  `r^{-2}∫_{B_{2r}\B_r}|w||q − c|^2` (choosing `‖∇ζ‖_∞ ≍ r^{-1}`, the term being carried
+  on the annulus `supp ∇ζ` — which is the shape a reverse-Hölder attempt would want, and
+  which is why the correction to (6.1') leaves O1–O4 untouched). To dominate it by a lower
   power of `∫|∇V|^2` one needs a Sobolev–Poincaré inequality for `q` on `B_{2r}` — i.e.
   one needs `q ∈ W^{1,s}_loc` for some `s`. That is (H1). **The iteration is circular at
   its first step**, and the circularity is exhibited, not conjectured.
@@ -746,7 +919,8 @@ Collecting Theorems 1, 2, 4, 5, a counterexample to (H1) must satisfy **all** of
 4. `|w|` vanishes at most to first order in the mean at every point of `{ω ≠ 0}`
    (Theorem 5), so the vanishing cannot be "fast";
 5. and yet `Σ_j 2^{j/2}|E_j|^{1/2}‖∇V‖_{L^2(E_j)} = ∞` on some bounded set (Theorem 4),
-   which by Theorem 4(b) requires at minimum `∫_E |w|^{-1} = ∞`, i.e. the level-set
+   which by Theorem 4(a) requires at minimum `∫_E |w|^{-1} = ∞` (finiteness of that
+   integral is what (a) makes sufficient), i.e. the level-set
    measures must satisfy `Σ_j 2^j |E_j| = ∞` — *and* the finite Dirichlet budget
    `Σ_j ‖∇V‖^2_{L^2(E_j)} ≤ ‖∇V‖_2^2` must be adversarially allocated across those
    levels.
@@ -766,8 +940,10 @@ veto is what Corollary 2.1 applies to the HF18-B family, where the blow-up is
 impossible. What is produced is the veto on the entire linear-zero mechanism, which is the
 mechanism every construction in the programme so far has used, together with the exact
 list 1–5 that a future construction must satisfy simultaneously. The constraints 3 and 5
-pull in opposite directions: 3 forces `|w|` to vanish *slowly* (order `>= 1`, since
-`|A| = |w|^2` must vanish to order `> 2` in the `C^1` model), while 5 forces the level-set
+pull in opposite directions: 3 forces `|w|` to vanish *slowly* (order `> 1/2`: a
+degenerate zero of a `C^1` field has `|A| = o(d)`, i.e. `|A| = |w|^2` vanishes to order
+`> 1`, so `β > 1/2` — and with constraint 4, `β ∈ (1/2, 1]`; no order is forced beyond
+that interval), while 5 forces the level-set
 measures `|E_j|` to be *large* at small `|w|`; whether they are jointly satisfiable is the
 open question this lane leaves.
 
@@ -848,9 +1024,21 @@ Gehring provably cannot be started (O1–O2) and which, even if it could, would 
 the linear-zero mechanism used by every construction in the programme, verified on the
 HF18-B family by explicit computation (Corollary 2.1). Net: the question is reshaped —
 Theorem 1 discharges the skew half of `∇w`, Theorem 3 reduces (H1) to a scalar
-distributional statement, Theorem 4 replaces the standard obstacle by a sharp criterion,
-Proposition 4.4 shows the standard obstacle was not necessary, and Theorem 5 supplies the
-first quantitative lower bound on `|w|` in the programme.
+distributional statement, Theorem 4 replaces the standard obstacle by the layered
+criterion, Proposition 4.4 shows the standard obstacle was not necessary, and Theorem 5
+supplies the first quantitative lower bound on `|w|` in the programme.
+
+**AUDIT STATUS.** Audited 2026-09-06 by `hf21-review-shifted-hodge-regularity.md`,
+**VERDICT REPAIR**, repairs applied here on the same date. What the audit changed: the
+proof of Theorem 2 (its open-set step was invalid at `rank L ≤ 2`, i.e. exactly at the
+witness family; replaced by the rank-stratified Lemma R1, statement and both corollaries
+unchanged), the error order in (2.3) (`o(r^{-1/2})`, not `O(r^{1/2})`), the boundary term
+of Theorem 6' (`(6.1')`, no `ζ^2` weight), Theorem 6 (added gradient hypothesis; exponent
+confined to `(1/2, 1]`, never pinned), and four cosmetic items. What the audit confirmed
+unchanged: Theorems 1, 3, 4, 5, Propositions 4.1 and 4.4, Corollaries 2.1, 2.2, 3.3, 5.1,
+5.2, the constants `81/2`, `162` and `32`, the obstruction list O1–O4, the scale budget of
+§7, the answers to C1–C7, and §1.1 against the primary source. The audit's REOPENING
+CONDITIONS (its §"REOPENING CONDITION") govern this repaired note.
 
 **CLAIM AND SCOPE.** All claims are at one fixed time of a classical solution with
 `u ∈ H^m(R^3;R^3)`, `m >= 4`, `div u = 0`, unless narrower.
@@ -867,7 +1055,9 @@ first quantitative lower bound on `|w|` in the programme.
    `div w`); (H1) follows from `div w ∈ L^p_loc` for a single `p > 1`.
    (Corollary 3.3) (H1) ∧ (H2) ⟺ `div w ∈ L^{3/2}(R^3)`.
 4. (Theorem 4) `w ∈ W^{1,1}(E)` whenever `Σ_j 2^{(j+1)/2}|E_j|^{1/2}‖∇V‖_{L^2(E_j)} < ∞`;
-   this is implied by `|w|^{-1} ∈ L^1(E)` and is sharp in the sense of 4(b);
+   this is implied by `|w|^{-1} ∈ L^1(E)`; part (b) is a sharpness statement about the
+   **abstract layered inequality** only (an admissible allocation of the Dirichlet budget
+   is exhibited, not a field `V` realizing it), and is not claimed in any stronger sense;
    `∇V ∈ L^p` plus `|w|^{-p'/2} ∈ L^1` suffices for every `p ∈ [2,∞]`.
    (Proposition 4.4) There is a genuine element of `M`, certified minimal against all of
    `G_3` by the audited (B1), with `∫_B|w|^{-1} = ∞`, `w ∈ C^∞(B)`, `u ∈ C^∞(B)`,
@@ -875,19 +1065,28 @@ first quantitative lower bound on `|w|` in the programme.
    Scope: `u` smooth on `B`, not claimed globally `H^m`.
 5. (Theorem 5) `⨍_{B_r(x_0)}|w| >= (r/32)·max_n inf_{B_r}(ω·n)` for every `w ∈ L^3` with
    continuous `curl w = ω`; hence `|w|` vanishes at most to first order at points of
-   `{ω ≠ 0}`. (Theorem 6) At a power-law zero on a `C^1` set of codimension `1` or `2`
-   inside `{ω ≠ 0}`, the exponent satisfies `β ≤ 1`, `β = 1/2` is excluded in the `C^1`
-   model, and (H1) holds locally.
-6. (Theorem 6') Local Caccioppoli (6.1) with explicit constants `81/2` and `162`.
+   `{ω ≠ 0}`. (Theorem 6, in the corrected form only) At a power-law zero on a `C^1` set
+   of codimension `1` or `2` inside `{ω ≠ 0}`, the exponent satisfies `β ≤ 1` and, in the
+   `C^1` model with `DA(x_0) ≠ 0`, `β = 1/2` is excluded — so `β ∈ (1/2, 1]`, an interval
+   and **not** a pinned value; and (H1) holds locally **under the added hypothesis**
+   `|∇w| ≲ d^{β−1}`, which does not follow from `|w| ≍ d^β` and is a hypothesis on the
+   model. The unrestricted model class is **not** settled.
+6. (Theorem 6') Local Caccioppoli `(6.1')` with explicit constants `81/2` and `162`, the
+   boundary term carried on `supp ∇ζ` and with **no** `ζ^2` weight. Only `(6.1')` is
+   proved.
 7. (§1.1) Our `w` is exactly the canonical `p`-coclosed primitive `β_∞` of Stern
    Lemma 2.2 [DI]; that paper states no regularity for `β_∞`, and the Uhlenbeck-credited
    smoothness of Prop. 3.1 [DI] is for the closed-and-coclosed forms of Theorem 2.9.
 
 **EVIDENCE.** For 1: (P3) plus Sobolev embedding, and the level-set property of Sobolev
 functions. For 2: the exact derivative `Df(z) = |z|^{-1/2}(I − (1/2)ẑ⊗ẑ)`, the
-homogenized identity `2Lx − L^Tx = (x·Lx)x/|x|^2` and its real-analytic continuation from
-an open cone, and `tr L = 0`; cross-checked numerically over 200 random traceless `L`
-(min over `L` of `max_θ|M| = 0.532`). For Corollary 2.1: the closed-form
+rank-stratified **Lemma R1** of §2.2 — `rank L = 3` by the homogenized identity
+`2Lx − L^Tx = (x·Lx)x/|x|^2` and its real-analytic continuation from an open cone,
+`rank L = 2` by constancy in `t` of the trigonometric-polynomial entries of (R1.1),
+`rank L = 1` by the exact value `|M(\hat a)|_F = |a||b|/√2` — together with `tr L = 0` and
+the error order `o(r^{-1/2})` from `A ∈ C^1`; bounded numerical cross-checks only (this
+note's 200 random traceless `L`, generically full rank, `min_L max_θ|M| = 0.532`, and the
+audit's rank-stratified sampling reported in §2.2). For Corollary 2.1: the closed-form
 `(curl G)_3 = 4ρ^{-1/2} − (1/2)ρ^{-5/2}(a^2 + 27b^2)`, equal to `(7/2)|a|^{-1/2}` on
 `b = 0`, confirmed by centred differences at `a = 10^{-2}, 10^{-3}, 10^{-4}` to four
 figures; and `ρ^{-1}∂_ρ(ρ^{3/2}) = (3/2)ρ^{-1/2}` for the azimuthal bulk. For 3:
@@ -938,11 +1137,21 @@ difference-quotient mechanism is Bojarski–Iwaniec, and the Calderón–Zygmund
 inputs of §§3, 5 are classical. Uhlenbeck, Sibner–Sibner, Iwaniec–Scott–Stroffolini,
 Manfredi–Weitsman, Stein's `L\log L` endpoint and the CZ weak-type estimate are cited
 metadata-only and none is load-bearing. The three HF19 notes and HF20 are unused.
+Added at the repair pass, and binding: no order of vanishing is claimed **pinned** —
+`β ∈ (1/2, 1]` is an interval and the interior is not excluded; Theorem 6 is **not**
+claimed for the unrestricted model class, only with the added gradient hypothesis
+`|∇w| ≲ d^{β−1}`, and the earlier sentence that the model class "is settled affirmatively"
+is withdrawn; Theorem 6' is claimed only in the form `(6.1')`, so no `ζ^2`-weighted
+boundary term and no term localized more tightly than `supp ∇ζ` is available to any
+downstream argument; the sharpness in Theorem 4(b) is claimed only for the abstract
+layered inequality; and the error rate in (2.3) is `o(r^{-1/2})`, with the `C^1`
+hypothesis on `A` used in a full neighbourhood — nothing weaker was checked, so Theorem 2
+must not be invoked for `A` merely differentiable at `x_0`.
 
 **NEXT DISTINCT ACTION.** Decide the joint satisfiability of constraints 3 and 5 of §7 by
 attacking the scalar question directly: **is `div w` (the distribution `Δφ`) locally a
 function of class `L^p` for some `p > 1`, for admissible data?** By Theorem 3 that settles
-(H1) affirmatively; by Theorem 4(b) a counterexample needs `Σ_j 2^j|E_j| = ∞` together
+(H1) affirmatively; by Theorem 4(a) a counterexample needs `Σ_j 2^j|E_j| = ∞` together
 with an adversarial allocation of the Dirichlet budget. Two concrete sub-actions, in
 order: (i) construct, or prove impossible, a **globally admissible** minimizer with a
 nonempty zero set — Proposition 4.4 gives the local model (`|w| ≍ d` on a hyperplane,
@@ -956,6 +1165,11 @@ the two new tools of this note meet, and it is not attempted here.
 ---
 
 ## 11. Sources
+
+**Audit record.** `research/evidence/hf21-review-shifted-hodge-regularity.md`
+(independent proof audit, 2026-09-06, VERDICT **REPAIR**; freeze `sha256`
+`4dfa00cc...49c8e` of this file at repository `HEAD 1c0f68e`). Its REPLACEMENT ARGUMENT
+(R1–R4) is what the present version implements; its REOPENING CONDITIONS apply.
 
 **Directly inspected [DI] this session:**
 - M. A. Stern, *L_p-cohomology and the geometry of p-harmonic forms*, arXiv:2403.19481v2
@@ -1009,4 +1223,9 @@ of `(curl G)_3` for `G = ρ^{-1/2}(−3b, a, 0)` at `b = 0`, `a = 10^{-2}, 10^{-
 `35.0000, 110.6795, 349.9332` against the closed form `3.5 a^{-1/2} =
 35.0000, 110.6797, 350.0000`. Declared range: finite sampling and finite differences;
 these support but do not prove Theorem 2 and Corollary 2.1, both of which are proved
-symbolically above.
+symbolically above. Neither check is needed for either proof, and check (i) samples
+generically full-rank `L`, so it is evidence for the `rank L = 3` case of Lemma R1 only;
+the audit's own independent computations (`aud3.py`, `aud4.py`, `aud5.py`, reported in
+`hf21-review-shifted-hodge-regularity.md`, not re-run here) cover the rank-stratified
+minima and the off-ray values of `(curl G)_3`. Numerics are bounded evidence in this note
+and are never offered as proof.
