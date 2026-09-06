@@ -12,6 +12,8 @@ on:
       - 'research/verify.py'
       - 'tools/*signed*'
       - 'research/evidence/2026-09-06-signed-defect.md'
+      - 'tools/*speed_shell*'
+      - 'research/evidence/2026-09-06-speed-shell.md'
       - '.github/workflows/dissipation-clock.yml'
 permissions:
   contents: write
@@ -33,7 +35,7 @@ jobs:
       - name: Refresh and integrate without promoting claims
         run: |
           git pull --ff-only origin main
-          python3 tools/integrate_signed_defect.py
+          python3 tools/integrate_speed_shell.py
           python3 research/verify.py --research-only
           python3 tools/generate_map.py
           git diff --check
@@ -41,11 +43,11 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add PLAN.md AGENTS.md README.md docs/proof.md docs/proof-graph.yaml docs/proof_map.tex tools/generate_map.py
+          git add PLAN.md README.md docs/proof.md docs/proof-graph.yaml docs/proof_map.tex
           if ! git diff --cached --quiet; then
-            git -c commit.gpgsign=false commit -m 'Integrate signed-defect checkpoint and explicit missing-bound target without promoting claims'
+            git -c commit.gpgsign=false commit -m 'Integrate speed-shell cancellation and explicit remaining temporal bound without promoting claims'
             git pull --rebase origin main
-            python3 tools/integrate_signed_defect.py --check
+            python3 tools/integrate_speed_shell.py --check
             python3 research/verify.py --research-only
             python3 tools/generate_map.py
             git diff --exit-code -- docs/proof_map.tex
