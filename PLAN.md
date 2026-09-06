@@ -954,7 +954,7 @@ bounded evidence at finite resolution, not proof. HIGH-PRESSURE and
 HIGH-STRAIN remain the open producers and NS-R3 remains open.
 
 
-### HF20: a local harmonic-strain sign test (arrived 2026-09-06, UNAUDITED)
+### HF20: a local harmonic-strain sign test (AUDITED: REPAIR, applied)
 
 A typeset candidate arrived on the work capture surface rather than as a
 repository note, written against research `30d715d` and paper `39ccb66`. It
@@ -1005,57 +1005,54 @@ nothing is corrected, only narrowed.
 
 ## Ordered next actions
 
-1. ~~Audit HF20~~ **done**: REPAIR, repair applied.
-2. ~~Integrate the audited outcome~~ **done**: `rem:no-monotone` in the
-   manuscript at `bdad8a1`, the HIGH-STRAIN review text in the graph, and the
-   regenerated map.
-3. ~~Apply the three HF19 audit repairs~~ **done, 2026-09-06.** All three
-   returned REPAIR with no invalid mathematics, and each note now carries its
-   audit status, the prescribed replacement text, and a weakened or removed
-   version of every claim the audit found unsupported. Two by-products are
-   recorded rather than hidden: the temporal-normal-form note's transfer
-   corollary does not deliver `hyp:absorption` as the manuscript states it,
-   since it carries a Gronwall term and no fixed `theta < 1`, and its
-   Section 5 numerics are not reproducible because the probe script lived
-   only in session scratch. The note records both as parsable
-   `- needs review:` lines rather than quietly dropping them.
-4. ~~Apply the two HF21 note repairs~~ **done**. **Audit HF23**, which if it
-   stands discharges hypothesis (H1) and would let the quotient section drop a
-   standing hypothesis. Then **attack (G)** (wave HF22 running):
-   `int_0^tau ||q(t)||_3 D_3(w(t)) dt <= A_input(nu,u_0,H)` uniformly for
-   `tau < min(H,T_*)`. By the audited normalisation this single joint
-   spacetime statement about the pair (distance to the nonlinear-Hodge
-   class, dissipation) SUFFICES to close the frozen gap with contraction
-   factor zero, with no Gronwall term and no frequency cutoff; the converse is
-   not derivable per trajectory. It has the
-   scaling of the quotient itself, so an input-only right side is
-   scaling-consistent. Three sub-questions, in order: (a) is the quotient
-   dissipation at most the velocity dissipation at fixed time, which is
-   minimizer-free and scaling-consistent on both sides and whose affirmative
-   deletes a term from the distance balance; (b) is the nonlinear projection
-   Lipschitz at points of the nonlinear-Hodge class, noting that Lipschitz
-   REFUTES an exponent above one rather than permitting it; (c) is any
-   input-only bound available for the dissipation restricted to the good set
-   where the distance is small, the only good-set statement that survived
-   audit.
-5. **Continue Track B** on whatever (G) leaves. After HF18-A,
-   HF19 and HF20 the excluded classes are: size bounds in `Q` and `D_3` by
-   scaling, temporal normal forms with correctors in the computed classes,
-   the difference functional as a producer, universal monotonicity of the
-   quotient, and instantaneous energy-only absorption of the transport term.
-   Wave HF21 is running on two of the questions this leaves. What remains open is a genuine
-   cancellation inside the transport term, the time-integrated sign
-   structure along trajectories that cross the nonlinear-Hodge class, and
-   the weighted Calderon-Zygmund and `L^2`-projection questions recorded in
-   HF18-B.
-5. **Formalization stays deferred** until the full paper route is proved and
-   audited, per the user's re-sequencing of 2026-09-05.
+Rewritten 2026-09-06 after the HF24, HF25 and HF26 audit waves. The previous
+list had duplicate numbering and described completed waves as running.
 
+1. **HF27 audits — in flight.** Three disjoint scopes: the certificate with its
+   prior-art comparison against the robustness / a posteriori regularity line
+   and its existential status; the oscillatory positive test and the comparison
+   hierarchy, with the scale-invariant norms of the data family computed to
+   check it is not a known small-data case in disguise; and the energy attempt
+   with the concentration test, including whether the reused backward
+   self-similar curve is cited as such. Apply repairs, then decide import.
+2. **Blocked on an external dependency.** Settling whether the refereed 2024
+   JOTA paper on directional differentiability of metric projections subsumes
+   HF26's linearization requires the printed text, which the prior-art lane
+   could not obtain from open sources. Institutional access or interlibrary
+   loan is needed. This blocks only a novelty claim we are not making; it is
+   recorded so that no import asserts originality before it is settled.
+3. **Preconditions for any HF26 import**, all from its four audits: re-base the
+   departure section on the audit's two-line argument so it does not inherit
+   the linearization's risk; resolve the notation collision with HF22-B, which
+   uses the same symbol for a different space; cite Nečas, Růžička and Šverák
+   and Tsai for the comparison curve; cite the metric-projection and convex
+   sensitivity line; and drop the "except possibly one amplitude" hedge, which
+   the audit removed. Nothing from HF26 is in the manuscript.
+4. **Track B continues** on what the excluded classes leave. The exclusions now
+   are: size bounds in `Q` and `D_3` by scaling; temporal normal forms with
+   correctors in the computed classes; the difference functional as a producer;
+   universal monotonicity of the quotient; instantaneous energy-only absorption;
+   fixed-cutoff energy-only spacetime remainders; and, from HF26, derivation of
+   the absolute target from instantaneous structure with energy and any scalar
+   modulus or crossing information under a bounded critical norm — the last
+   leaving the signed route at the endpoint parameter untouched. What remains
+   open is a genuine cancellation inside the transport term, the time-integrated
+   sign structure along trajectories crossing the nonlinear-Hodge class, and the
+   weighted Calderón–Zygmund and `L^2`-projection questions of HF18-B.
+5. **The one hypothesis outside the equivalence class.** Every producer the
+   programme has generated is equivalent to global continuation at the
+   quantifiers except the HF24 corridor hypothesis, which by Proposition R1 is
+   strictly weaker and whose whole content is the exclusion of a blow-up staying
+   above the upper corridor wall on a final interval. That asymmetry is the most
+   promising structural fact currently on the table and deserves its own wave.
+6. **Formalization stays deferred** until the full paper route is proved and
+   audited, per the user's re-sequencing of 2026-09-05. `../navier-formal` is
+   not to be extended until this plan reopens it.
 
-### HF21: shifted-Hodge regularity and the crossing sign structure (UNAUDITED)
+### HF21: shifted-Hodge regularity and the crossing sign structure (AUDITED)
 
-Two lanes, both delivered 2026-09-06, **both unaudited**; nothing is promoted
-and the manuscript is untouched. Their audits are the next action.
+Two lanes, both delivered 2026-09-06, **both audited 2026-09-06**; the audit
+outcomes and applied repairs are recorded below.
 
 `hf21-shifted-hodge-regularity.md` delivers the lane HF19 never wrote and
 reshapes the (H1) regularity question rather than settling it. It reports:
@@ -1122,7 +1119,7 @@ the warning that the two dissipations are distinct objects. The graph's
 HIGH-STRAIN review records both. No node is promoted.
 
 
-### HF23: an unweighted div–curl estimate for the minimizer (arrived 2026-09-06, UNAUDITED)
+### HF23: an unweighted div–curl estimate for the minimizer (AUDITED: PASS, imported)
 
 A second external candidate arrived on the work capture surface, this time as
 LaTeX source, written against the current heads and quoting the HF20 hash
@@ -1207,7 +1204,7 @@ regularity criterion, so that route is unusable rather than merely
 insufficient. No HF23 integration item remains.
 
 
-### HF22: attacking (G) and its three sub-questions (UNAUDITED)
+### HF22: attacking (G) and its three sub-questions (AUDITED)
 
 Four lanes, delivered 2026-09-06, **all unaudited**; nothing is promoted and
 the manuscript is untouched. (G) is neither proved nor refuted, and each lane
@@ -1283,7 +1280,7 @@ representative's gradient and the divergence defect are now controlled in
 when the two lanes posed the question.
 
 
-### HF25: dissipation comparison, sharp defect order, defect criterion (UNAUDITED)
+### HF25: dissipation comparison, sharp defect order, defect criterion (AUDITED, imported)
 
 A second external continuation arrived 2026-09-06 as LaTeX source, 1293 lines,
 committed verbatim as `research/evidence/hf25-beyond-hf21-continuation.tex`
@@ -1450,7 +1447,7 @@ mechanism, not as a weaker hypothesis, and nothing here is progress toward a
 proof until one of these is discharged without a continuation norm.
 
 
-### HF26: weighted linearization, actual-flow departure, temporal criterion (UNAUDITED)
+### HF26: weighted linearization, actual-flow departure, temporal criterion (AUDITED: four scopes, all PASS WITH SCOPE)
 
 A third external continuation arrived 2026-09-06 as LaTeX source, 1432 lines,
 committed verbatim as `research/evidence/hf26-temporal-continuation.tex` with an
@@ -1646,3 +1643,47 @@ distance or shifted `N`-function and which has a standard citation line. The
 manuscript currently cites none of it. This is a genuine prior-art omission in
 committed work and is queued for repair once the two sub-lanes covering that
 literature report.
+
+
+### HF27: a full-equation critical residual certificate (UNAUDITED)
+
+A fourth external continuation arrived 2026-09-06 as LaTeX source, 996 lines,
+committed verbatim as `research/evidence/hf27-critical-residual-continuation.tex`
+with an index note, frozen by SHA-256
+`3898e9a020d31c4fc58c9f1289ea4794ec9f787b885086e411b98b0cb1f97488`. Both pinned
+revisions verify with `git rev-parse`, one of them our own HF25 import from
+earlier the same day. Three audits are in flight; nothing is promoted and the
+manuscript is untouched.
+
+**It changes direction, and says why in our own terms.** It abandons the
+quotient of the solution for the quotient of the *error against a comparison
+flow*, with the comparison supplied on the whole horizon and its equation defect
+retained and estimated. Its stated reasons are our audited findings: the
+temporal route needs a uniform bound that integration in time does not supply,
+small measure of the exceptional set does not bound the dissipation there, and
+the concentrating curve shows scalar balances can miss a nonzero residual.
+
+It claims a certificate producing global regularity from one comparison flow
+whose critical residual stays below an absolute multiple of the viscosity; an
+explicit oscillatory Schwartz family with **unbounded** critical norm certified
+global by that certificate; a comparison hierarchy with global band-limited
+comparisons for every datum and completeness in the regular case; unconditional
+energy-level residual convergence; and two obstructions, that exact energy
+balance does not control the critical residual and that an arbitrarily small
+energy-level residual is still insufficient, together with a quantitative
+dichotomy every certificate must satisfy if the solution is singular.
+
+**Two controller observations.** It reuses the dilation curve HF26 used, which
+our countermodel audit identified as exactly the backward self-similar ansatz;
+the citation requirement for Nečas, Růžička and Šverák and for Tsai transfers
+unchanged, and the audit checks whether it is met. And its prior-art posture is
+markedly better than its predecessors': it names the robustness and
+conditional-Galerkin literature, notes that the version it read works on a
+periodic cube in high regularity, explicitly declines to import a torus theorem
+to the whole space, and names the oscillatory large-data literature while
+calling its own family a test rather than a novelty claim. Whether that
+discipline is substantive or decorative is the first audit question, not the
+last. It also disclaims any claim to be logically weaker than regularity at the
+existential level, which is the right posture but is a disclaimer rather than a
+determination; the audit decides it.
+
