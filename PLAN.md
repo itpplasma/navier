@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF24-modulus-of-continuity
+active_task: HF25-audit-and-HF24
 public_release: false
 ```
 
@@ -1273,3 +1273,45 @@ proved regularity of the representative is a genuine new tool for it: the
 representative's gradient and the divergence defect are now controlled in
 `L^2` by the datum, with input-only spacetime budgets, which was not available
 when the two lanes posed the question.
+
+
+### HF25: dissipation comparison, sharp defect order, defect criterion (UNAUDITED)
+
+A second external continuation arrived 2026-09-06 as LaTeX source, 1293 lines,
+committed verbatim as `research/evidence/hf25-beyond-hf21-continuation.tex`
+with an index note, frozen by SHA-256
+`3ce562bb59346fc700c522bf5e857e3500b318e283febed0c9db9b7f652c6d4f`. It pins
+the current heads and compares against the **repaired** HF21 notes, not the
+superseded ones.
+
+It reports: an explicit compactly supported witness leaving the nonlinear-Hodge
+class under linear heat flow, so the dissipation comparison is false with a
+constructed field rather than an existence argument, which is exactly the
+witness the audited HF22-A said it had not delivered; exclusion of every
+superlinear defect exponent, closing the interval HF21 and HF22-B left open;
+a quantitative criterion bounding the quotient's growth by the fourth power of
+the divergence defect in `L^2`; a conditional producer giving the target
+inequality with explicit input-only constants whenever that fourth-power
+defect integral is input-bounded; a critical family with the scaling relation
+`2/s + 3/a = 2`, a Serrin-type line stated for the divergence defect rather
+than the velocity gradient; and the failure of the energy-only version of the
+target on actual trajectories.
+
+Its own boundary, stated plainly: the defect is controlled in square
+integrability in time by the energy identity and the new div–curl estimate,
+while the criterion needs fourth power, and nothing in it supplies that
+upgrade for arbitrary data, so it is not an unconditional regularity theorem.
+
+**A correction to this plan's own framing, to be confirmed by the audit.**
+This plan has described the target inequality as "the whole of the frozen
+gap". That is too strong. The target is an *absolute* sufficient condition
+obtained by discarding the sign, whereas the manuscript's hypothesis is signed
+and permits cancellation; it is therefore a stronger proof mechanism, not an
+algebraic restatement. The audited equivalence from HF22-D holds at the level
+of quantifiers, where both are equivalent to global continuation, which does
+not make them equivalent as mechanisms.
+
+**Note for the audit.** HF25 cites the div–curl attachment by a hash that does
+not match our HF23 file and calls it 23 pages, so the two artifacts must not
+be assumed identical; anything HF25 attributes to it must be checked against
+what our audited HF23 actually proves.
