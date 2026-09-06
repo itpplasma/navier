@@ -7,6 +7,8 @@ on:
       - 'research/evidence/2026-09-06-defect-extensions.md'
       - 'tools/integrate_dissipation_clock.py'
       - 'tools/integrate_defect_extensions.py'
+      - 'research/evidence/2026-09-06-conformal-moment.md'
+      - 'tools/*conformal*'
       - 'research/verify.py'
       - '.github/workflows/dissipation-clock.yml'
 permissions:
@@ -29,8 +31,7 @@ jobs:
       - name: Refresh and integrate without promoting claims
         run: |
           git pull --ff-only origin main
-          python3 tools/integrate_dissipation_clock.py
-          python3 tools/integrate_defect_extensions.py
+          python3 tools/integrate_conformal_moment.py
           python3 research/verify.py --research-only
           python3 tools/generate_map.py
           git diff --check
@@ -40,10 +41,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add PLAN.md AGENTS.md README.md docs/proof.md docs/proof-graph.yaml docs/proof_map.tex tools/generate_map.py
           if ! git diff --cached --quiet; then
-            git -c commit.gpgsign=false commit -m 'Update main research documents with pending near-2 and quotient-clock proofs'
+            git -c commit.gpgsign=false commit -m 'Integrate conformal moment checkpoint without promoting critical producer claims'
             git pull --rebase origin main
-            python3 tools/integrate_dissipation_clock.py --check
-            python3 tools/integrate_defect_extensions.py --check
+            python3 tools/integrate_conformal_moment.py --check
             python3 research/verify.py --research-only
             python3 tools/generate_map.py
             git diff --exit-code -- docs/proof_map.tex
