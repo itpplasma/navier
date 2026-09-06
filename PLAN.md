@@ -28,6 +28,8 @@ local_energy_only_status: source-statement-checked-consequence-author-checked
 pointwise_helical_falsification_status: author-checked-independent-audit-pending
 prepared_fisher_falsification_status: author-checked-independent-audit-pending
 stress_output_falsification_status: author-checked-independent-audit-pending
+local_velocity_entropy_status: author-checked-independent-audit-pending
+single_channel_transfer_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: unchanged
 formal_work_this_run: deferred
@@ -119,6 +121,46 @@ The stochastic absolute-deformation estimate was also abandoned because it
 returned unknown accumulated strain; no broader stochastic no-go is claimed.
 Preserve the prior geometric/ancient-limit falsifiers. Do not restart any
 of these failed steps under new terminology.
+
+### 1.2 Local-entropy and single-channel exclusions from the attack at 0543d0c
+
+Read [the local-entropy classification and single-channel transfer proof](research/evidence/2026-09-07-local-entropy-and-single-channel-transfer.md).
+These are author derivations with independent mathematical audit pending.
+NS-R3 is not proved and its terminal obstruction is unchanged.
+
+For fixed nu>0, let eta be C2 on velocity space, eta(0)=0 and D eta(0)=0.
+If integral eta(u) is nonincreasing even just initially on every actual
+compact-solenoidal-data classical NS solution on R3, then
+
+    eta(z) = (c/2)|z|^2,  c>=0.
+
+No convexity, evenness, isotropy or homogeneity is assumed. The proof uses
+fixed-viscosity spatial dilation, reflected initial data, compact constant-
+velocity plateaus and a localized pressure triad, including its zero mode.
+It constructs actual local NS entropy-growth counterexamples to every
+excluded density. The surviving energy cannot control L3 even when supplied
+alongside itself. Retire the fixed velocity-local nonlinear monotone-entropy
+producer, not just its quadratic special case. This also constrains a
+kinetic argument that transfers exactly to such a local entropy inequality
+with matched initial value. It does not exclude nonlocal or derivative
+quantities, datum/time-dependent densities, or nonmonotone controlled
+production. Do not merge this scope with the earlier nonlocal quadratic
+functional exclusion.
+
+Separately, the exact original Leray-projected nonlinearity of
+V=(cos y,cos x,cos x+cos y) is (0,0,-sin(x+y)). The two noncollinear parent
+pairs feed only the sum pair, not the difference pair. Compact whole-space
+solenoidal localizations have arbitrarily small relative nonlinear output
+outside the sum channel. Retire instantaneous geometry-only compulsory
+branching and its uniform localized version. This is not a sustained
+unbranched cascade and does not retire a genuinely dynamical finite-segment
+branching/volume mechanism; that mechanism and its nonsummable energy
+accounting remain unproved. No positive closure architecture is established.
+
+K1 still requires the actual signed trajectory-specific remainder estimate.
+The unsuccessful absolute-value convective-flux estimate is not a new
+producer or a new stress no-go. Preserve all existing evidence, the canonical
+proof graph, kinetic/microscopic contracts, manuscripts and formalization.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
