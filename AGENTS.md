@@ -93,3 +93,16 @@ GitHub is the only remote workflow for all three repositories. Use signed
 commits and tags with the global Git defaults managed by chezmoi; do not
 bypass signing if ssh-agent is unavailable. The Navier Overleaf project was
 deleted at the owner's request on 2026-09-05 and must not be recreated.
+
+
+## Current task authorization (2026-09-06)
+
+
+The owner explicitly requested paper-proof work, updates to main documents,
+and commits/pushes in `navier` and `navier-paper`, including unsigned commits.
+This supersedes read-only and signed-only instructions above for the present
+task. Existing formalization remains separately authorized; no formal claim
+is promoted here. Keep the repositories private, preserve concurrent edits,
+refresh before non-force pushes, and distinguish complete derivations,
+author checks, independent audits, and unproved estimates. Repository-specific
+build automation is mechanical work, not a delegated mathematical reviewer.

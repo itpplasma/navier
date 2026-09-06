@@ -11,8 +11,8 @@ import yaml
 
 root = Path(__file__).resolve().parents[1]
 source = Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'docs/proof-graph.yaml'
-# The manuscript repository is read-only from 2026-09-06 (see AGENTS.md), so the
-# default output moved into this repository. Pass an explicit path to override.
+# Keep the research output local by default. The current task authorizes
+# synchronizing the manuscript map by an explicit target path.
 target = Path(sys.argv[2]) if len(sys.argv) > 2 else root / 'docs/proof_map.tex'
 graph = yaml.safe_load(source.read_text())
 digest = hashlib.sha256(source.read_bytes()).hexdigest()
@@ -103,6 +103,13 @@ for n in nodes:
             + r'Manuscript label: \texttt{' + esc(n['paper_label']) + '}.\n\n',
             r'\textbf{Dependencies:} ' + (', '.join(r'\hyperref[node:' + d + ']{' + esc(d) + '}' for d in n['depends_on']) or 'none') + '. '
             + r'\hyperref[map]{Back to map}.' + '\n\n']
+# Review-pending supplements are not claim nodes.
+for candidate in graph.get('candidate_supplements', []):
+    out += [r'\clearpage\section*{Review-pending component: ' + esc(candidate['title']) + '}\n',
+            r'\textbf{Not a promoted claim or an arbitrary-data producer.}' + '\n\n',
+            esc(candidate['status']) + '. ' + esc(candidate['scope']) + '\n\n',
+            r'\textbf{Evidence:} \texttt{' + esc(candidate['evidence']) + '}.\n\n',
+            r'\textbf{Manuscript labels:} ' + ', '.join(r'\texttt{' + esc(x) + '}' for x in candidate['paper_labels']) + '.\n']
 out.append(r'\end{document}' + '\n')
 target.write_text(''.join(out))
 print(target)

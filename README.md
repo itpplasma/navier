@@ -18,3 +18,15 @@ A standalone paper-proof continuation and its author checks are indexed in
 This is an unpromoted review input, not a second live status record. It gives
 a direct continuation path from strict absorption without ESS and a larger
 family of conditional defect criteria; no arbitrary-data estimate is claimed.
+
+
+## Current paper continuation (2026-09-06)
+
+
+`PLAN.md` now records the explicitly authorized writable paper workflow.
+The manuscript includes a review-pending dissipation-clock component; see
+`research/evidence/2026-09-06-dissipation-clock.md` for its exact scope.
+It removes ESS from the strict-pressure suffix and admits finite/logarithmic
+dissipation barriers, but supplies no arbitrary-data pressure producer.
+Run `python3 research/verify.py` with the paper and formal repositories
+present. `--research-only` is an explicitly narrower structural check.

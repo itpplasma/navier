@@ -269,3 +269,14 @@ nodes:
     paper_label: 'prop:quotient-conditional'
     evidence: research/evidence/cp02-quotient-evolution.md
     review: cp02-review-quotient-evolution-r2.md PASS. Conditional consumer; HIGH-STRAIN is unproved.
+
+candidate_supplements:
+  - id: DISSIPATION-CLOCK
+    title: Direct nonendpoint dissipation-clock continuation
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 7748a9816d0fd9003205684761c219a0b57d9c14
+    source_path: sections/dissipation_clock.tex
+    evidence: research/evidence/2026-09-06-dissipation-clock.md
+    paper_labels: ['dc:l9', 'dc:clock', 'dc:strict', 'dc:barrier', 'dc:nonlinear', 'dc:scalar']
+    scope: Full component derivations only; no arbitrary-data producer and no graph-node promotion.

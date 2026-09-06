@@ -117,3 +117,38 @@ closes only under critical smallness. The remaining high-strain spacetime
 estimate is unproved. See the HF17 functional and
 evolution notes and their independent reviews. This is an alternative
 producer, not a proof of HIGH-PRESSURE or a new dependency of the Clay claim.
+
+
+## Dissipation-clock continuation component (2026-09-06; review pending)
+
+
+The main manuscript now includes `sections/dissipation_clock.tex`, with full
+derivations of the direct estimates
+
+```text
+||u||_9^3 <= (9 S^2/8) D3,
+Y'+nu Z <= (4 S^3/(3 nu^2)) D3 Y,
+Y(t)+nu integral_0^t Z <= Y0 exp(4 S^3 B(t)/(3 nu^2)),
+B(t)=integral_0^t D3.
+```
+
+Thus a finite B budget gives continuation without an endpoint theorem. Under
+the existing strict signed pressure absorption, the bound is
+`B <= (X0+3A)/(3(1-theta)nu)`. The resulting direct exponent is
+`4 S^3 (X0+3A)/(9(1-theta)nu^3)`. This alternative suffix does not require
+ESS or quotient-minimizer regularity. The separately stated bare-L3 endpoint
+theorem retains its original dependency.
+
+A single first-crossing pressure barrier also suffices. More generally,
+`integral Q_J <= nu B-Phi(B)+A_high` prevents crossing any finite b with
+`Phi(b)>X0/3+A_high+L_J(H)`. A logarithmic Phi is enough despite a vanishing
+fractional absorption margin. The source proves the endpoint-uniform
+first-crossing argument and a scalar boundary example, with their exact
+scope. These sharpenings are author-checked and await independent audit;
+the graph lists a separate pending supplement, not a promoted theorem.
+
+The missing arbitrary-data pressure estimate is still missing. Absolute
+pressure estimates produce only a B-to-the-three-halves upper bound. No
+choice of Phi, existence of a certificate in the already-regular case, or
+successful build provides a noncircular producer. See the dated evidence
+note for the derivations, failed inference, and review questions.

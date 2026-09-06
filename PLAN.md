@@ -6,10 +6,10 @@ checkpoint: CP1
 phase: formalization-reopened-2026-09-06
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
-paper_status: external-from-2026-09-06
-paper_repo: read-only-pull-only
+paper_status: active-paper-proof-work-2026-09-06
+paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: phase-i-to-phase-ii-in-navier-formal
+active_task: arbitrary-data-producer-and-dissipation-clock-audit
 public_release: false
 ```
 
@@ -2042,3 +2042,40 @@ upgrade of a proved superior limit to an unproved inferior one at the same level
 One tension recorded: sharpening the transport constant widens the Lyapunov range
 but strictly *strengthens* the hypothesis.
 
+
+
+## Current paper task: dissipation-clock suffix (2026-09-06)
+
+
+This dated entry and the live YAML supersede older read-only/signed-only
+workflow paragraphs for this task. The user explicitly requested paper proof
+work, main-document updates and commits/pushes in both private repositories,
+including unsigned commits. Ongoing formalization stays authorized and its
+phase fields are unchanged; this task does not claim Phase I or II completion.
+
+The paper component `sections/dissipation_clock.tex` derives
+`Y'+nu Z <= (4 S^3/(3 nu^2)) D3 Y`, hence a uniform cubic-dissipation budget
+continues the original branch directly through the nonendpoint pair `(3,9)`.
+Strict pressure absorption then gives exponent
+`4 S^3 (X0+3A)/(9 (1-theta) nu^3)`. A single finite first-crossing barrier
+also suffices; in particular a logarithmic deficit can replace a constant
+fractional margin. The previous `(4,6)` suffix is not the shortest route.
+
+These are full written derivations, author-checked and independently unaudited.
+The graph records them as a separate pending supplement, NOT a promoted node.
+The accepted graph and all open/terminal kinds stay unchanged. The bare
+critical-norm continuation theorem still retains ESS; the strict-pressure
+suffix does not. The old claim that ESS is unavoidable for every route to a
+conditional theorem must not guide implementation of this alternative.
+
+The actual mathematical target remains an arbitrary-data producer, uniform
+to a putative endpoint. The absolute-pressure attempt only gives growth of
+order `B^(3/2)` and does not establish the needed signed deficit. The finite
+barrier's existential formulation is again equivalent to continuation, not
+a new proof of it. Full details and audit questions are in
+`research/evidence/2026-09-06-dissipation-clock.md`.
+
+Next substantive gate: independently reconstruct the dissipation-clock
+component, then derive a signed pressure estimate from the vector equation
+rather than assuming a critical budget. Do not report main-document builds,
+regression checks, or this new sufficient condition as closure of NS-R3.
