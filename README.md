@@ -11,4 +11,10 @@ authority; both repositories use signed commits and local builds. The former
 Navier Overleaf project was deleted at the owner’s request on 2026-09-05.
 The independently audited argument remains conditional on signed
 high-frequency pressure control. No solution or completed formalization is
-claimed; Phase I awaits the user.
+claimed; formalization status is tracked in `PLAN.md`.
+
+A standalone paper-proof continuation and its author checks are indexed in
+[the 6 September dissipation-budget evidence](research/evidence/2026-09-06-dissipation-budget-continuation.md).
+This is an unpromoted review input, not a second live status record. It gives
+a direct continuation path from strict absorption without ESS and a larger
+family of conditional defect criteria; no arbitrary-data estimate is claimed.
