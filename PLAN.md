@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF21-note-repairs-then-attack-G
+active_task: HF23-audit-and-HF22-attack-G
 public_release: false
 ```
 
@@ -1019,7 +1019,9 @@ nothing is corrected, only narrowed.
    Section 5 numerics are not reproducible because the probe script lived
    only in session scratch. The note records both as parsable
    `- needs review:` lines rather than quietly dropping them.
-4. **Apply the two HF21 note repairs** (running), then **attack (G)**:
+4. ~~Apply the two HF21 note repairs~~ **done**. **Audit HF23**, which if it
+   stands discharges hypothesis (H1) and would let the quotient section drop a
+   standing hypothesis. Then **attack (G)** (wave HF22 running):
    `int_0^tau ||q(t)||_3 D_3(w(t)) dt <= A_input(nu,u_0,H)` uniformly for
    `tau < min(H,T_*)`. By the audited normalisation this single joint
    spacetime statement about the pair (distance to the nonlinear-Hodge
@@ -1117,3 +1119,44 @@ quotient gap with an explicit remainder, so the two open routes are ordered;
 and `rem:distance-balance`, the exact difference of the two balances with
 the warning that the two dissipations are distinct objects. The graph's
 HIGH-STRAIN review records both. No node is promoted.
+
+
+### HF23: an unweighted div–curl estimate for the minimizer (arrived 2026-09-06, UNAUDITED)
+
+A second external candidate arrived on the work capture surface, this time as
+LaTeX source, written against the current heads and quoting the HF20 hash
+correctly. The source is committed verbatim as
+`research/evidence/hf23-divcurl-continuation.tex` with an index note beside
+it, so no transcription stands between the repository and the artifact; both
+are frozen by SHA-256
+`abe74421ef6a8a7bacc108c0c08834e32f2a6116530fceb00368c8e67b129075`.
+
+It claims that for every solenoidal `H^1` field the cubic minimizing
+representative has genuine unweighted weak derivatives, with
+`||grad w||_2^2 <= (5/4)||grad u||_2^2` and
+`||grad q||_2^2 = ||div w||_2^2 <= (1/4)||grad u||_2^2`, no smallness required.
+If that survives audit it discharges hypothesis (H1), which HF18-B introduced
+and HF21-A reduced but left open, in the stronger form `W^{1,2}_loc` and with
+explicit constants. It further claims the divergence defect is in `L^2`, that
+the mixed-pressure pairing is unconditional in `L^2 x L^2` without the
+separate `L^{3/2}` hypothesis (H2), and spacetime budgets for the
+representative and the defect. It reconstructs HF20 with explicit constants
+and adds a fixed-energy spacetime obstruction. It states plainly that none of
+this establishes the arbitrary-data signed spacetime bound, and that the
+natural absolute estimate leaves the square of the enstrophy in time rather
+than the energy integral.
+
+Controller check of the core, not an audit: the mechanism is a Cordes-type
+argument resting on a constrained matrix inequality and the two Fourier
+div–curl identities. The matrix inequality is *not* the false unconstrained
+statement it superficially resembles; it is conditioned on the Euler–Lagrange
+relation, and under that constraint the proof is correct with equality exactly
+at the endpoint. The identities and the combination giving the two constants
+were verified. One pillar is the identity that the curl of the representative
+equals the curl of the velocity, which is the audited HF21-A Theorem 1, so an
+audited repository result supports the new candidate. What remains for the
+audit is the regularized problem, the uniformity and passage to the limit, the
+extension to `H^1` data, the behaviour across the zero set, and consistency
+with HF21-A's two statements about that zero set.
+
+Nothing is promoted and the manuscript is untouched pending audit.

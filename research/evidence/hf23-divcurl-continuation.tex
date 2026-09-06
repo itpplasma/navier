@@ -1,0 +1,1129 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=25mm,headheight=15pt]{geometry}
+\usepackage{booktabs,array,longtable,xcolor}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{enumitem}
+\usepackage{xurl}
+\setlist{nosep,leftmargin=*}
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\G}{\mathcal G_3}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Sch}{\mathcal S}
+\newcommand{\dd}{\,\mathrm dx}
+\newcommand{\dt}{\,\mathrm dt}
+\newcommand{\ds}{\,\mathrm ds}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\DeclareMathOperator{\diver}{div}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\repo}[1]{\texttt{#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Cubic gradient quotient: proof continuation}
+\fancyhead[R]{\small 6 September 2026}
+\fancyfoot[C]{\thepage}
+\hypersetup{pdftitle={A div-curl continuation of the cubic gradient-quotient programme},pdfauthor={Research note prepared for Christopher Albert},pdfsubject={HF18 regularity closure, HF20 review, and the remaining Navier-Stokes estimate}}
+
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{12mm}
+{\large NAVIER--STOKES RESEARCH NOTE\par}
+\vspace{12mm}
+{\Huge\bfseries A div--curl continuation of the cubic gradient-quotient programme\par}
+\vspace{8mm}
+{\Large HF18 regularity closure, HF20 review, and the remaining signed-spacetime estimate\par}
+\vspace{9mm}
+{\large Prepared for Christopher Albert\par}
+{\large 6 September 2026\par}
+\vspace{12mm}
+\noindent\textbf{Main result developed here.} For every solenoidal $u\in H^1(\R^3)^3$, its cubic minimizing representative $w\in u+\G$ has genuine unweighted weak derivatives, with
+\[
+ \boxed{\ \|\nabla w\|_2^2\le\frac54\|\nabla u\|_2^2,\qquad
+ \|\nabla(w-u)\|_2^2\le\frac14\|\nabla u\|_2^2.\ }
+\]
+The proof uses a nondegenerate variational approximation, a pointwise symmetric-matrix inequality, and the global div--curl identity. It removes the weak-derivative hypothesis left open in HF18. It also gives an unconditional mixed-pressure pairing in $L^2\times L^2$, without assuming the separate $L^{3/2}$ hypothesis on the divergence defect.
+
+\vspace{5mm}
+\noindent\textbf{Further result.} The attached HF20 sign construction is reconstructed in full and extended to a fixed-energy, fixed-viscosity, actual-solution spacetime obstruction, including every fixed high-strain cutoff.
+
+\vspace{5mm}
+\noindent\textbf{Proof boundary.} These results do not establish the arbitrary-data signed-spacetime bound required by the manuscript. The precise remaining inequality and its conditional implication to Clay alternative A are stated and proved below. This is a self-checked proof contribution, not an independently audited or Lean-verified solution of the global regularity problem. No repository status is promoted by this document, and no priority claim is made.
+\vfill
+{\small Based on the three pinned repository revisions, the supplied seven-page HF20 candidate, and the recovered literature/novelty reports. Source coverage and limitations are recorded in Sections~\ref{sec:provenance} and~\ref{sec:literature}.}
+\end{titlepage}
+
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Target, source state, and mathematical advance}\label{sec:provenance}
+
+\subsection{The original target is retained}
+We consider the original unforced three-dimensional equations
+\begin{equation}\label{eq:NS}
+ \partial_tu+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad \diver u=0,\qquad u(0)=u_0,
+\end{equation}
+on $\R^3$, for every $\nu>0$ and every real, divergence-free Schwartz datum $u_0$. The target is a global solution $u,p\in C^\infty(\R^3\times[0,\infty))$ with $\sup_{t\ge0}\|u(t)\|_2^2<\infty$. This is the whole-space positive alternative A in the official problem description~\cite{Clay}. No periodic conclusion, forcing, fractional viscosity, weakened data quantifier, or nonunique weak branch is substituted for it.
+
+Write $[0,T_*)$ for the maximal classical branch used in the manuscript~\cite{Paper}. On every compact interval before $T_*$ it has all the Sobolev and time regularity required below, and normalized pressure $p=\sum_{i,j}R_iR_j(u_i u_j)$. This local/maximal package is imported from the manuscript's implementation of Tao's local theory~\cite{Tao}. No global conclusion is assumed when using this package.
+
+\subsection{Pinned materials and actual scope of inspection}
+The repository reads in this session were pinned to the following revisions. The research frontier, the relevant manuscript definitions and conclusion, the formalization status, and the HF18--HF20 notes were inspected. This is a targeted frontier review, not a fresh line-by-line audit of the entire assembled manuscript or a local Lean build.
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}\toprule
+Repository & Revision inspected\\\midrule
+\repo{itpplasma/navier} & \texttt{1014e7e3c33af4a341a5}\\
+ & \texttt{f46156a22b808170257b}\\[2pt]
+\repo{itpplasma/navier-paper} & \texttt{39ccb664bf055fac94b3}\\
+ & \texttt{cfac97bf00a60191373d}\\[2pt]
+\repo{itpplasma/navier-formal} & \texttt{54f8e89119e90399044b}\\
+ & \texttt{ae8dcd404dc405a381f9}\\\bottomrule
+\end{tabular}
+\end{center}
+The two lines of each revision concatenate to its full SHA. The attached file, \emph{A local harmonic-strain test for the cubic gradient quotient}, is dated 5 September 2026 and has SHA-256
+\begin{center}\small\ttfamily
+4be9a53b244ba385e7b1e18bf02bee9b10\\
+db44a4329438612742ac32b7e15009.
+\end{center}
+Its seven pages were inspected. Its hash agrees with the frozen HF20 candidate recorded in \repo{navier/PLAN.md}. Its content is cited as~\cite{HF20}.
+
+Three earlier conversation reports were recovered from the file library, not reconstructed from memory: the German \emph{Neuheits- und Literaturaudit}, \emph{Current State, Literature Position, and Research Strategy}, and \emph{Signed High-Frequency Pressure Absorption: Repository Audit, Literature Review, and Novelty Assessment}~\cite{Survey1,Survey2,Survey3}. Their relevant findings were compared with the later pinned repository state. In particular, old recommendations to construct a nonzero pressure-work snapshot have already been superseded by HF02--HF04; the current manuscript already permits $\theta=1$ in its high-strain hypothesis.
+
+At the pinned revisions, the main paper is conditional. The formal repository contains statement surfaces and supporting proofs, not a proof of the arbitrary-data estimate. The HF19 candidate notes remain unaudited in the research plan. None of their weighted linearization or route-exhaustion claims is needed here.
+
+\subsection{What changes mathematically}
+The new derivation in Sections~\ref{sec:regularity}--\ref{sec:mixed} attacks an actual open assumption of HF18, rather than renaming the critical bound. It proves
+\begin{equation}\label{eq:advance-summary}
+ w\in W^{1,2}_{\mathrm{loc}},\qquad
+ \sigma:=-\diver w\in L^2,
+ \qquad K_L=\int_{\R^3}\sigma\,\Pi_{u-S_Lu}\dd.
+\end{equation}
+Here $w$ is the \emph{actual} minimizing representative, not a formal linearization, and $\Pi_b=\sum R_iR_j(b_i|w|w_j)$. The $L^{3/2}$ assumption on $\sigma$ is not proved; a different, rigorous $L^2$ pairing makes it unnecessary for this formula.
+
+Section~\ref{sec:hf20} reconstructs the attached argument with its explicit constants. Section~\ref{sec:spacetime} supplies a further trajectory theorem. Section~\ref{sec:frontier} then states exactly why neither advance yet closes the original target. ``Additional derivation in this note'' and ``previously unpublished theorem'' are different assertions; only the first is asserted.
+
+\section{Variational and evolution preliminaries}\label{sec:prelim}
+
+\subsection{Conventions and standard analytic inputs}
+All norms and spatial integrals are on $\R^3$. Jacobians are $(\nabla v)_{ij}=\partial_jv_i$, and matrix norms are Frobenius norms. We use
+\[
+ R_j=\partial_j(-\Delta)^{-1/2},\qquad
+ \PP_{ij}=\delta_{ij}+R_iR_j,
+\]
+so the Riesz symbols are $i\xi_j/|\xi|$. Thus $\PP$ is the Leray projection and $I-\PP$ is the projection onto gradients. These formulas are unchanged if the Fourier transform is written with $2\pi$ in the exponential.
+
+We use reflexivity and uniform convexity of $L^p$, weak lower semicontinuity of convex integral functionals, the Sobolev chain rule and difference-quotient criterion, Plancherel, density of smooth functions, and the boundedness of Riesz transforms on $L^p$, $1<p<\infty$. The multiplier input is standard Calder\'on--Zygmund theory~\cite{Stein}. Set
+\[
+ C_{\PP}=\|\PP\|_{L^3\to L^3},\qquad
+ \|f\|_6\le S\|\nabla f\|_2\quad(f\in\dot H^1(\R^3)),
+\]
+where $S$ is any valid scalar Sobolev constant, also valid for vector fields by applying the inequality to $|f|$. Here $\dot H^1$ is represented by $L^6$ functions with gradient in $L^2$; it does not assert membership in $L^2$.
+
+\begin{definition}
+Let
+\[
+ \G=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{\,L^3},
+ \quad F(v)=\frac13\|v\|_3^3,\quad j(z)=|z|z.
+\]
+For $v\in L^3(\R^3)^3$, let $w(v)$ minimize $F$ on $v+\G$, and set
+\begin{equation}\label{eq:objects}
+ q(v)=w(v)-v,\quad A(v)=j(w(v)),\quad \Q(v)=F(w(v)).
+\end{equation}
+For smooth $v$ with the indicated terms in $L^3$, define
+\begin{equation}\label{eq:KD}
+ N(v)=(v\cdot\nabla)v,\quad
+ K(v)=-\ip{A(v)}{N(v)},\quad
+ D_Q(v)=-\ip{A(v)}{\Delta v}.
+\end{equation}
+$D\Q(v)[h]$ below denotes a Fr\'echet derivative; $D_Q(v)$ denotes the nonnegative heat dissipation. They are different objects.
+\end{definition}
+
+\begin{lemma}[Minimum, stationarity, and coercivity]\label{lem:min}
+The minimum exists uniquely. It satisfies
+\begin{equation}\label{eq:stationary}
+ \ip{j(w(v))}{g}=0\quad(g\in\G),\qquad
+ \|w(v)\|_3\le\|v\|_3.
+\end{equation}
+Conversely, stationarity characterizes the minimum. For solenoidal $v$,
+\begin{equation}\label{eq:coercive}
+ \PP w(v)=v,\qquad
+ \frac{\|v\|_3^3}{3C_{\PP}^3}\le\Q(v)\le\frac{\|v\|_3^3}{3},\qquad
+ \|q(v)\|_3\le(1+C_{\PP})\|w(v)\|_3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+A minimizing sequence of representatives is bounded in the reflexive space $L^3$. The associated gradients are bounded by the triangle inequality. The closed linear subspace $\G$ is weakly closed. Weak lower semicontinuity gives a minimum, and strict convexity gives uniqueness. Differentiating $F(w+tg)$ at $t=0$ gives stationarity; the derivative is justified by H\"older and $|j(w)|=|w|^2$. Convexity makes stationarity sufficient. The competitor $g=0$ gives the norm bound. The Leray projection annihilates compact gradients, hence $\G$ by continuity, and fixes solenoidal $L^3$ fields. Applying it to $w=v+q$ proves the first assertion of~\eqref{eq:coercive}; the others follow by its operator norm and the triangle inequality.
+\end{proof}
+
+\begin{lemma}[Elementary convexity]\label{lem:convex}
+For $a,d\in\R^3$, put $B(a,d)=|a+d|^3/3-|a|^3/3-j(a)\cdot d$. Then
+\begin{equation}\label{eq:convex}
+ B(a,d)\ge\frac14|a||d|^2,\qquad
+ B(a,d)\ge\frac16|d|^3,\qquad
+ |j(a+d)-j(a)|\le(2|a|+|d|)|d|.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Direct expansion gives
+\[
+ (j(a)-j(b))\cdot(a-b)
+ =\frac{|a|+|b|}{2}\bigl(|a-b|^2+(|a|-|b|)^2\bigr).
+\]
+Apply this to $a+td,a$ and divide by $t>0$. Integrating over $0<t<1$ shows
+\[
+ B(a,d)\ge\frac12\int_0^1t\bigl(|a+td|+|a|\bigr)|d|^2\,dt.
+\]
+Keeping $|a|$ gives the first bound; using $|a+td|+|a|\ge t|d|$ gives the second. Finally,
+$j(a+d)-j(a)=|a+d|d+(|a+d|-|a|)a$, which proves the last bound.
+\end{proof}
+
+\begin{lemma}[Continuity and the derivative of the value function]\label{lem:derivative}
+$w:L^3\to L^3$ and $A:L^3\to L^{3/2}$ are continuous, and $\Q$ is continuously Fr\'echet differentiable, with
+\begin{equation}\label{eq:derivative}
+ D\Q(v)[h]=\ip{A(v)}{h}.
+\end{equation}
+On bounded $L^3$ sets the maps $w$ and $A$ are locally $1/2$-H\"older.
+\end{lemma}
+\begin{proof}
+Write $w_1=w(v+h)$, $w_0=w(v)$, and $d=w_1-w_0$. Since $d-h\in\G$, stationarity and the monotonicity identity give
+\[
+ \frac12\|d\|_3^3
+ \le\ip{j(w_1)-j(w_0)}{d}
+ =\ip{j(w_1)-j(w_0)}{h}
+ \le(\|w_1\|_3+\|w_0\|_3)\|d\|_3\|h\|_3.
+\]
+After division when $d\ne0$,
+\begin{equation}\label{eq:holderw}
+ \|d\|_3^2\le2(\|w_1\|_3+\|w_0\|_3)\|h\|_3.
+\end{equation}
+The pointwise bound in Lemma~\ref{lem:convex} gives continuity of $A$ and its local $1/2$-H\"older estimate.
+
+The integrated Taylor remainder for $F$ obeys
+\[
+ |F(a+h)-F(a)-\ip{j(a)}h|
+ \le C(\|a\|_3+\|h\|_3)\|h\|_3^2.
+\]
+Use $w_0+h$ as a competitor at $v+h$ and $w_1-h$ as a competitor at $v$. These bounds place $\Q(v+h)-\Q(v)-\ip{A(v)}h$ between an $O(\|h\|_3^2)$ upper bound and
+$\ip{A(v+h)-A(v)}h-O(\|h\|_3^2)$ as a lower bound. Both are $o(\|h\|_3)$. Continuity of $A$ gives continuous Fr\'echet differentiability. No derivative of the minimizing map is asserted.
+\end{proof}
+
+\begin{lemma}[Heat sign, scaling, and actual evolution]\label{lem:evolution}
+For $T_\lambda v(x)=\lambda v(\lambda x)$ and $b,\lambda>0$,
+\begin{equation}\label{eq:wscale}
+ w(bv)=bw(v),\qquad w(T_\lambda v)=T_\lambda w(v).
+\end{equation}
+For $v\in W^{2,3}$,
+\begin{equation}\label{eq:heatbound}
+ 0\le D_Q(v)\le\|v\|_3^2\|\Delta v\|_3.
+\end{equation}
+On the classical branch of~\eqref{eq:NS},
+\begin{equation}\label{eq:evolution}
+ \frac{d}{dt}\Q(u(t))+\nu D_Q(u(t))=K(u(t)).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Amplitude and dilation map $\G$ onto itself and multiply $F$ by $b^3$ and $1$, respectively; uniqueness proves~\eqref{eq:wscale}. Let $G_s=e^{s\Delta}$. This contracts $L^3$ and preserves $\G$. For preservation, convolve a compact smooth gradient; its potential is Schwartz and can be cut off in gradient $L^3$. Then use density and contraction. Consequently
+\[
+ \Q(G_sv)\le F(G_sw(v))\le\Q(v).
+\]
+For $v\in W^{2,3}$, $(G_sv-v)/s\to\Delta v$ in $L^3$, from
+$G_sv-v=\int_0^sG_r\Delta v\,dr$. The derivative formula gives $D_Q\ge0$; H\"older gives its upper bound.
+
+On a compact classical interval, $u\in C^1_tL^3$ and $\Delta u,N(u),\nabla p\in C_tL^3$. Moreover $p\in W^{1,3}$: this follows from the normalized Riesz formula and the high Sobolev bounds on $u$. Gradients of $W^{1,3}$ functions lie in $\G$ by cutoffs and mollification. Thus $\ip{A}{\nabla p}=0$. The Banach-space chain rule applied to the original equation proves~\eqref{eq:evolution}. These regularity facts are local, not continuation assumptions.
+\end{proof}
+
+\begin{remark}
+The preceding arguments reproduce the value-function layer needed from HF17 and the attached HF20 note. Neither the stronger weighted identity $D_Q=D_3(w)$ from HF18 nor a time derivative of $w$ is required to prove the main unweighted theorem below.
+\end{remark}
+
+\section{An unweighted div--curl estimate for the actual minimizer}\label{sec:regularity}
+
+\begin{theorem}[Unweighted regularity and quantitative bounds]\label{thm:main}
+Let $u\in H^1(\R^3)^3$ be solenoidal, and let $w=w(u)$ and $q=w-u$ be the objects of~\eqref{eq:objects}. Then
+\begin{equation}\label{eq:mainspaces}
+ w,q\in L^6\cap W^{1,2}_{\mathrm{loc}},\qquad
+ \nabla w,\nabla q\in L^2,
+\end{equation}
+and
+\begin{align}
+ \|\nabla w\|_2^2&\le\frac54\|\nabla u\|_2^2,\label{eq:mainw}\\
+ \|\nabla q\|_2^2&=\|\diver w\|_2^2
+ \le\frac14\|\nabla u\|_2^2.\label{eq:mainq}
+\end{align}
+In particular, $w$ has genuine distributional first derivatives in $L^2$, including across its zero set. No critical smallness is required. These statements do not assert $w\in L^2$.
+\end{theorem}
+
+\subsection{A nondegenerate problem in \texorpdfstring{$L^2\cap L^3$}{L2 intersection L3}}
+We first suppose $u\in H^m$ for an integer $m\ge4$. This ensures $u\in L^2\cap L^3$ and $\nabla u\in L^2\cap L^3$. The general $H^1$ case will follow by a separate approximation.
+
+Set
+\[
+ X=L^2(\R^3)^3\cap L^3(\R^3)^3,
+ \qquad \|z\|_X=\|z\|_2+\|z\|_3,
+\]
+\[
+ G_X=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{\,X}.
+\]
+$X$ is reflexive: identify it with the closed diagonal subspace of $L^2\times L^3$, where equality of the two components is understood distributionally. It is important to use $G_X$ at this step. The unregularized minimizer is not assumed to belong to $L^2$.
+
+For $\delta>0$ define
+\begin{equation}\label{eq:regularizer}
+ r_\delta(z)=\sqrt{\delta^2+|z|^2},\qquad
+ f_\delta(z)=\frac{(\delta^2+|z|^2)^{3/2}-\delta^3}{3},\qquad
+ j_\delta(z)=r_\delta(z)z.
+\end{equation}
+The integral formula $f_\delta(z)=\int_0^{|z|}s\sqrt{\delta^2+s^2}\,ds$ gives
+\begin{equation}\label{eq:regularizer-growth}
+ f_\delta(z)\ge\frac{|z|^3}{3},\qquad
+ f_\delta(z)\ge\frac{\delta|z|^2}{2},\qquad
+ f_\delta(z)\le\frac{|z|^3}{3}+\frac{\delta|z|^2}{2}.
+\end{equation}
+Let $w_\delta$ minimize $F_\delta(z)=\int f_\delta(z)\dd$ on $u+G_X$. The direct method in $X$ applies: the two lower bounds control both norms, $G_X$ is weakly closed, and $F_\delta$ is convex and weakly lower semicontinuous. Strict convexity gives uniqueness. Thus
+\begin{equation}\label{eq:regstationary}
+ w_\delta=u+q_\delta\in X,\quad q_\delta\in G_X,\quad
+ \int j_\delta(w_\delta)\cdot g\dd=0\quad(g\in G_X).
+\end{equation}
+The last pairing is well defined in $X^*=L^2+L^{3/2}$, since $|j_\delta(z)|\le\delta|z|+|z|^2$. In particular,
+\begin{equation}\label{eq:regconstraints}
+ \diver j_\delta(w_\delta)=0,\qquad
+ \curl w_\delta=\curl u
+ \quad\hbox{in distributions}.
+\end{equation}
+The curl assertion follows by approximation of $q_\delta$ by gradients.
+
+\subsection{\texorpdfstring{Fixed-$\delta$}{Fixed-delta} weak derivatives are proved before using them}
+
+\begin{lemma}[Uniformly weighted monotonicity]\label{lem:regmono}
+For $a,b\in\R^3$, put $B_\delta(a,b)=\delta+|a|+|b|$. Then
+\begin{align}
+ (j_\delta(a)-j_\delta(b))\cdot(a-b)
+ &\ge\frac1{32}B_\delta(a,b)|a-b|^2,\label{eq:regmono}\\
+ |j_\delta(a)-j_\delta(b)|&\le2B_\delta(a,b)|a-b|.\label{eq:reglip}
+\end{align}
+\end{lemma}
+\begin{proof}
+The derivative is
+\[
+ Dj_\delta(z)=r_\delta(z)I+\frac{z\otimes z}{r_\delta(z)},
+\]
+whose eigenvalues lie between $r_\delta(z)$ and $2r_\delta(z)$. Integrate along $z(t)=b+t(a-b)$. The upper bound is immediate from $r_\delta(z(t))\le\delta+|a|+|b|$.
+
+For the lower bound, let $M=\max(|a|,|b|)$ and suppose first $M=|a|$. On $3/4\le t\le1$,
+$|z(t)|\ge|a|-(1-t)|a-b|\ge M/2$, so
+$\int_0^1r_\delta(z(t))dt\ge M/8\ge(|a|+|b|)/16$. The case $M=|b|$ uses $0\le t\le1/4$. Also the integral is at least $\delta$. Taking half the sum of these two lower bounds gives at least $(\delta+|a|+|b|)/32$. The quadratic form bound for $Dj_\delta$ proves~\eqref{eq:regmono}.
+\end{proof}
+
+Fix a coordinate direction and a translation $\tau_hf(x)=f(x+he_k)$. The space $G_X$ is translation invariant. Translating~\eqref{eq:regstationary}, subtracting the two identities and testing with $\tau_hq_\delta-q_\delta$ gives, with $w=w_\delta$ for this paragraph,
+\begin{equation}\label{eq:diff-test}
+ \int\bigl(j_\delta(\tau_hw)-j_\delta(w)\bigr)\cdot(\tau_hw-w)\dd
+ =\int\bigl(j_\delta(\tau_hw)-j_\delta(w)\bigr)\cdot(\tau_hu-u)\dd.
+\end{equation}
+All integrals are finite from $w,u\in X$. Let $B_h=\delta+|\tau_hw|+|w|$ and
+$W_h=\int B_h|\tau_hw-w|^2$. Lemma~\ref{lem:regmono} and weighted Cauchy--Schwarz imply
+\[
+ \frac1{32}W_h
+ \le2W_h^{1/2}\left(\int B_h|\tau_hu-u|^2\dd\right)^{1/2}.
+\]
+If $W_h=0$ there is nothing to prove; otherwise divide and square. H\"older then gives a universal constant $C$ such that
+\begin{equation}\label{eq:difference-bound}
+ \int B_h|\tau_hw_\delta-w_\delta|^2\dd
+ \le C\left(\delta\|\tau_hu-u\|_2^2
+       +2\|w_\delta\|_3\|\tau_hu-u\|_3^2\right).
+\end{equation}
+Since $B_h\ge\delta$ and $\|\tau_hu-u\|_p\le |h|\|\partial_ku\|_p$ for $p=2,3$, this bounds $(\tau_hw_\delta-w_\delta)/h$ in $L^2$, uniformly for $h\ne0$ at each \emph{fixed} $\delta$. Therefore $w_\delta\in H^1$.
+
+For completeness, the difference-quotient implication needs no elliptic regularity theorem: take a weakly convergent subsequence of these quotients in $L^2$ and test against $\phi\in C_c^\infty$. Translation of the test function shows that its limit is $-\int w_\delta\partial_k\phi$. Thus the limit is the distributional derivative, and the bound gives its $L^2$ norm. Perform this for all coordinate directions. This proves the needed differentiability without assuming it in~\eqref{eq:diff-test}.
+
+\subsection{The symmetric-matrix inequality}
+Now $w_\delta\in H^1\subset L^6$. The chain rule is legitimate: $j_\delta(w_\delta)$ has local weak derivatives, with global derivative in $L^2+L^{3/2}$, bounded by $(\delta+2|w_\delta|)|\nabla w_\delta|$. Hence the first equation in~\eqref{eq:regconstraints} holds almost everywhere as
+\[
+ r_\delta(w_\delta)\diver w_\delta
+ +\frac{w_{\delta,i}w_{\delta,j}}{r_\delta(w_\delta)}\partial_iw_{\delta,j}=0.
+\]
+Put $S_\delta=\sym\nabla w_\delta$, $d_\delta=\tr S_\delta$, and
+\[
+ t_\delta=\frac{|w_\delta|^2}{\delta^2+|w_\delta|^2}\in[0,1].
+\]
+At points where $w_\delta\ne0$, put $e_\delta=w_\delta/|w_\delta|$. At zero points choose any unit vector; $t_\delta=0$ makes that choice irrelevant. Then
+\begin{equation}\label{eq:trace-constraint}
+ d_\delta=-t_\delta e_\delta^TS_\delta e_\delta.
+\end{equation}
+
+\begin{lemma}[Trace control in three dimensions]\label{lem:matrix}
+Let $S$ be a real symmetric $3\times3$ matrix, $e$ a unit vector, $t\in[0,1]$, and $d=\tr S$. If $d=-t e^TSe$, then
+\begin{equation}\label{eq:matrix}
+ d^2\le\frac13|S|_F^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $t=0$ we have $d=0$. Otherwise rotate so $e=e_1$. Then
+$S_{11}=-d/t$ and $S_{22}+S_{33}=d+d/t$. Dropping off-diagonal squares and using $a^2+b^2\ge(a+b)^2/2$ gives
+\[
+ |S|_F^2\ge\frac{d^2}{t^2}+\frac12\left(d+\frac dt\right)^2
+ =\frac{t^2+2t+3}{2t^2}d^2\ge3d^2.
+\]
+The last inequality is equivalent to $3+2t-5t^2\ge0$, valid on $[0,1]$.
+\end{proof}
+
+\subsection{The global div--curl identity supplies a strict margin}
+For $z\in H^1(\R^3)^3$, integration by parts for compact smooth approximations, or Plancherel, gives
+\begin{equation}\label{eq:hodge}
+ \|\nabla z\|_2^2=\|\curl z\|_2^2+\|\diver z\|_2^2,
+ \qquad
+ \|\sym\nabla z\|_2^2=\frac12\|\curl z\|_2^2+\|\diver z\|_2^2.
+\end{equation}
+For the second identity, expand the symmetric part and use
+$\int\partial_jz_i\partial_i z_j=\int(\diver z)^2$.
+
+Let $C=\|\curl u\|_2^2$ and $D_\delta=\|\diver w_\delta\|_2^2$. The distributional curl identity,~\eqref{eq:matrix}, and~\eqref{eq:hodge} imply
+\[
+ D_\delta\le\frac13\|S_\delta\|_2^2
+ =\frac13\left(D_\delta+\frac C2\right).
+\]
+Thus
+\begin{equation}\label{eq:uniform-h1}
+ D_\delta\le\frac C4,\qquad
+ \|\nabla w_\delta\|_2^2\le\frac{5C}{4},\qquad
+ \|w_\delta\|_6\le S\sqrt{\frac{5C}{4}}.
+\end{equation}
+These bounds, unlike the preliminary fixed-$\delta$ difference-quotient estimate, are independent of $\delta$. Since $u$ is solenoidal, $C=\|\nabla u\|_2^2$. Also $q_\delta\in H^1$ and is curl free, so
+\begin{equation}\label{eq:qdelta}
+ \|\nabla q_\delta\|_2^2=D_\delta\le\frac14\|\nabla u\|_2^2.
+\end{equation}
+
+\subsection{The regularized minimizers converge to the correct \texorpdfstring{$L^3$}{L3} minimum}
+From minimality and~\eqref{eq:regularizer-growth},
+\[
+ F(w_\delta)\le F_\delta(w_\delta)\le F_\delta(u)
+ \le F(u)+\frac\delta2\|u\|_2^2.
+\]
+Thus $w_\delta$ is bounded in $L^3$ for $0<\delta\le1$. Any weak $L^3$ subsequential limit $\bar w$ belongs to $u+\G$, because $G_X\subset\G$ and $\G$ is weakly closed.
+
+Let $w=w(u)$ be the unregularized minimizer. Choose $g_m=\nabla\phi_m$, $\phi_m\in C_c^\infty$, with $g_m\to w-u$ in $L^3$. The fields $u+g_m$ belong to $X$ and are admissible for \emph{every} regularized problem. For each fixed $m$,
+\[
+ \limsup_{\delta\downarrow0}F_\delta(w_\delta)
+ \le\lim_{\delta\downarrow0}F_\delta(u+g_m)=F(u+g_m).
+\]
+The equality follows directly from~\eqref{eq:regularizer-growth}. Letting $m\to\infty$ yields
+\[
+ \limsup_{\delta\downarrow0}F(w_\delta)\le F(w)=\Q(u).
+\]
+Weak lower semicontinuity gives $F(\bar w)\le\liminf F(w_\delta)$, while admissibility gives $F(\bar w)\ge\Q(u)$. All inequalities are equalities, so uniqueness gives $\bar w=w$. The norms converge as well. Uniform convexity of $L^3$ therefore gives
+\begin{equation}\label{eq:strong-limit}
+ w_\delta\longrightarrow w\quad\hbox{strongly in }L^3\quad(\delta\downarrow0).
+\end{equation}
+This argument works for every subsequence and hence identifies the full limit. It does not assume that $w-u$ can be approximated in $L^2$.
+
+Use~\eqref{eq:uniform-h1} to extract weak $L^2$ limits of the gradients and weak $L^6$ limits of the fields. Testing against compact smooth functions and using~\eqref{eq:strong-limit} identifies them as $\nabla w$ and $w$. Thus $w\in L^6$, $\nabla w\in L^2$, and $w\in W^{1,2}_{\mathrm{loc}}$ since $L^3$ embeds in $L^2$ on bounded sets. Lower semicontinuity proves~\eqref{eq:mainw} and the bound in~\eqref{eq:mainq}, using also~\eqref{eq:qdelta}.
+
+To retain the equality in~\eqref{eq:mainq}, note that $q\in L^6$, $\nabla q\in L^2$, $\curl q=0$, and $\diver q=\diver w$. The identities~\eqref{eq:hodge} extend to this homogeneous class. Indeed, for a cutoff $\chi_R$ equal to one on the radius-$R$ ball and supported in the radius-$2R$ ball,
+\[
+ \|q\nabla\chi_R\|_2
+ \le C\|q\|_{L^6(\{R\le|x|\le2R\})}\longrightarrow0,
+\]
+where $\|\nabla\chi_R\|_3$ is independent of $R$. Apply~\eqref{eq:hodge} to $\chi_Rq\in H^1$ and pass to the limit. This proves the equality.
+
+\subsection{Extension from smooth data to every solenoidal \texorpdfstring{$H^1$}{H1} input}
+For general $u\in H^1$ set $u_n=e^{\Delta/n}u$. These are solenoidal, belong to every $H^m$, and converge to $u$ in $H^1$. They also converge in $L^3$, by interpolation between $L^2$ and $L^6$. Lemma~\ref{lem:derivative} gives $w(u_n)\to w(u)$ in $L^3$. Apply the proved bounds to $u_n$, and repeat the weak-gradient and weak-$L^6$ argument of the preceding subsection. Lower semicontinuity and $\nabla u_n\to\nabla u$ in $L^2$ give~\eqref{eq:mainw}--\eqref{eq:mainq}. This completes the proof of Theorem~\ref{thm:main}.
+
+\begin{remark}[Why this is not a hidden regularity assumption]
+The order of the proof is essential: first solve in $X$; then establish $w_\delta\in H^1$ by difference quotients at fixed $\delta$; only then divide the Euler--Lagrange equation and use the matrix identity; finally pass $\delta\downarrow0$. Dividing the unregularized equation at $w=0$, or assuming $\nabla w$ to derive its own estimate, would not justify this result. The numbers $5/4$ and $1/4$ are the constants obtained by the displayed algebra, not claims of globally optimal constants.
+\end{remark}
+
+\section{The divergence defect and an unconditional mixed-pressure pairing}\label{sec:mixed}
+
+\subsection{The zero set and a genuine distributional identity}
+
+\begin{corollary}[Removal of HF18's weak-derivative hypothesis]\label{cor:sigma}
+Under Theorem~\ref{thm:main}, $A=|w|w\in W^{1,3/2}(\R^3)^3$, and
+\begin{equation}\label{eq:sigma}
+ \sigma(x)=
+ \begin{cases}
+ \widehat w(x)\cdot\nabla|w|(x),&w(x)\ne0,\\
+ 0,&w(x)=0,
+ \end{cases}
+ \qquad \widehat w=\frac{w}{|w|},
+\end{equation}
+satisfies
+\begin{equation}\label{eq:sigma-bound}
+ \sigma=-\diver w\ \hbox{a.e. and distributionally},\qquad
+ \|\sigma\|_2^2\le\frac14\|\nabla u\|_2^2.
+\end{equation}
+Furthermore,
+\begin{equation}\label{eq:qpotential}
+ q=\nabla(-\Delta)^{-1}\sigma
+\end{equation}
+in the homogeneous Sobolev sense. No global assertion $\sigma\in L^{3/2}$ is made.
+\end{corollary}
+\begin{proof}
+The chain rule gives $\nabla A=Dj(w)\nabla w$ locally, with $|\nabla A|\le2|w||\nabla w|$. Since $w\in L^6$ and $\nabla w\in L^2$, this derivative lies in $L^{3/2}$; also $A\in L^{3/2}$ since $w\in L^3$. One can justify the unbounded chain map by truncating $j$ outside large balls and passing to the limit with the majorant $C|w||\nabla w|$.
+
+Stationarity says $\diver A=0$. On $\{w\ne0\}$ the chain rule therefore gives
+$0=|w|\diver w+w\cdot\nabla|w|$, or $\diver w=-\sigma$. For a Sobolev function its weak derivative vanishes almost everywhere on a level set. Apply this to each component of $w$: $\nabla w=0$ almost everywhere on $\{w=0\}$. Thus the same identity holds there with the definition~\eqref{eq:sigma}. The bound follows from~\eqref{eq:mainq}.
+
+To interpret~\eqref{eq:qpotential}, construct $q_*=\nabla(-\Delta)^{-1}\sigma$ first on smooth frequency-truncated $L^2$ approximations to $\sigma$. Its gradient is an order-zero Fourier multiplier of $\sigma$ with $L^2$ norm at most $\|\sigma\|_2$. The Sobolev inequality supplies an $L^6$ limit. It satisfies $\curl q_*=0$ and $\diver q_*=-\sigma$. Hence $q-q_*$ is an $L^6$ harmonic vector field, and is zero. For example, apply the mean-value inequality on balls of radius $R$ and let $R\to\infty$, using the factor $R^{-1/2}$ multiplying its $L^6$ norm. Formula~\eqref{eq:qpotential} is not a claim that an unregularized Newton convolution converges absolutely pointwise.
+\end{proof}
+
+\subsection{Identifying the original transport work with strain work}
+For the remainder of this section take a solenoidal $u\in H^m$, $m\ge4$. The weak-derivative results above permit direct integrations by parts that were previously gated by HF18's hypothesis (H1).
+
+First,
+\begin{equation}\label{eq:advectw}
+ \int A\cdot((u\cdot\nabla)w)\dd
+ =\int u\cdot\nabla\left(\frac{|w|^3}{3}\right)\dd=0.
+\end{equation}
+The integrand is in $L^1$: use $A\in L^3$, $u\in L^6$, and $\nabla w\in L^2$. The cutoff boundary term vanishes because $u\in L^\infty$ and $|w|^3\in L^1$. Since $w=u+q$, $\curl q=0$ and $\diver A=0$,
+\[
+ \int A_i u_j\partial_j u_i
+ =-\int A_i u_j\partial_j q_i
+ =-\int A_i u_j\partial_i q_j
+ =\int q_j A_i\partial_i u_j.
+\]
+Consequently
+\begin{equation}\label{eq:strainK}
+ K(u)=-\int q\cdot((A\cdot\nabla)u)\dd.
+\end{equation}
+All intermediate products are integrable using $(2,6,3)$ or $(3,3/2,\infty)$ H\"older exponents. The cutoff errors contain $qAu$ and vanish, since $q\in L^3$, $A\in L^{3/2}$, and $u\in L^\infty$.
+
+\begin{theorem}[Mixed pressure without the $L^{3/2}$ defect hypothesis]\label{thm:mixed}
+Let $u,b\in H^m(\R^3)^3$, $m\ge4$, both solenoidal. Use $w,q,A,\sigma$ associated with $u$, not with $b$, and set
+\begin{equation}\label{eq:mixeddef}
+ K_b=-\int q\cdot((A\cdot\nabla)b)\dd,
+ \qquad \Pi_b=\sum_{i,j}R_iR_j(b_iA_j).
+\end{equation}
+Then $\Pi_b\in L^2\cap W^{1,3/2}$ and
+\begin{equation}\label{eq:mixedpair}
+ \boxed{\quad K_b=\int q\cdot\nabla\Pi_b\dd
+                 =\int\sigma\Pi_b\dd.\quad}
+\end{equation}
+Both integrals converge absolutely. Moreover
+\begin{equation}\label{eq:mixedbound}
+ \|\Pi_b\|_2\le\|b\|_6\|w\|_6^2,\qquad
+ |K_b|\le\frac12\|\nabla u\|_2\|b\|_6\|w\|_6^2.
+\end{equation}
+In particular $K_u=K(u)$ and, with $Y=\|\nabla u\|_2^2$,
+\begin{equation}\label{eq:KY}
+ \boxed{\quad |K(u)|\le\frac58 S^3Y^2.\quad}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Because $A\in L^3$ and $b\in L^6$, the tensor $b\otimes A$ is in $L^2$. It is also in $W^{1,3/2}$, since $b,\nabla b$ are bounded and $A\in W^{1,3/2}$. Riesz boundedness proves the asserted spaces for $\Pi_b$. At each nonzero Fourier frequency the scalar contraction of a tensor with $-\xi\otimes\xi/|\xi|^2$ has operator norm one for the Frobenius norm. Plancherel thus gives
+\[
+ \|\Pi_b\|_2\le\|b\otimes A\|_2\le\|b\|_6\|A\|_3
+ =\|b\|_6\|w\|_6^2.
+\]
+
+Use $\diver A=\diver b=0$ and $\partial_jq_i=\partial_iq_j$ to obtain
+\[
+ \int q_iA_j\partial_jb_i
+ =-\int b_iA_j\partial_jq_i
+ =-\int b_iA_j\partial_iq_j
+ =\int q_jb_i\partial_iA_j.
+\]
+The same H\"older and cutoff bounds as above justify these operations. Let $F_b=(b\cdot\nabla)A$, so $(F_b)_j=\partial_i(b_iA_j)\in L^{3/2}$. A direct Fourier computation with the stated Riesz convention gives
+\begin{equation}\label{eq:rieszsign}
+ (I-\PP)F_b=-\nabla\Pi_b.
+\end{equation}
+Since $q\in\G$, the pairing $\int q\cdot\PP F_b$ vanishes. This can also be seen from duality of the Leray multiplier on $L^3$ and $L^{3/2}$ and $\PP q=0$. Thus
+$K_b=-\int q\cdot F_b=\int q\cdot\nabla\Pi_b$.
+
+Finally integrate by parts with a radius-$R$ cutoff. The bulk products are in $L^1$ because $q\in L^3$, $\nabla\Pi_b\in L^{3/2}$, and $\sigma,\Pi_b\in L^2$. The only new boundary term is bounded by
+\[
+ \|q\|_3\|\Pi_b\|_2\|\nabla\chi_R\|_6
+ \le CR^{-1/2}\|q\|_3\|\Pi_b\|_2\longrightarrow0.
+\]
+Using $\diver q=-\sigma$ proves~\eqref{eq:mixedpair}. Cauchy--Schwarz and~\eqref{eq:sigma-bound} give~\eqref{eq:mixedbound}. Taking $b=u$,~\eqref{eq:strainK} identifies $K_b$ with the original transport term. Finally
+\[
+ |K|\le\frac12\sqrt Y\,(S\sqrt Y)
+                   \left(S^2\frac54Y\right)=\frac58S^3Y^2,
+\]
+which proves~\eqref{eq:KY}.
+\end{proof}
+
+\begin{remark}[What has and has not happened to HF18's hypotheses]
+Theorem~\ref{thm:main} proves (H1), $w\in W^{1,1}_{\mathrm{loc}}$, in the stronger form $W^{1,2}_{\mathrm{loc}}$. Hypothesis (H2), $\sigma\in L^{3/2}(\R^3)$, is not a consequence of $\sigma\in L^2$ on an infinite-measure space. Theorem~\ref{thm:mixed} bypasses it for the mixed-pressure pairing. Neither an $L^2$ bound for $w$ itself nor the separate weighted Calder\'on--Zygmund question is settled here.
+\end{remark}
+
+\section{Unconditional spacetime budgets and the first surviving gap}\label{sec:budget}
+On the classical branch, define $E_0=\|u_0\|_2^2$ and $Y(t)=\|\nabla u(t)\|_2^2$. The energy identity is
+\begin{equation}\label{eq:energy}
+ \|u(t)\|_2^2+2\nu\int_0^tY(s)\,ds=E_0.
+\end{equation}
+It follows by testing the original equation with $u$: the transport term integrates to zero by incompressibility, the pressure term is orthogonal to $u$, and the Laplacian contributes $-\|\nabla u\|_2^2$. High Sobolev regularity and cutoffs justify the identity on each compact classical interval.
+
+\begin{corollary}[Energy-controlled representative and defect gradients]\label{cor:budgets}
+For every $\tau<T_*$,
+\begin{align}
+ \int_0^\tau\|\nabla w(t)\|_2^2\dt&\le\frac{5E_0}{8\nu},\label{eq:wbudget}\\
+ \int_0^\tau\|\nabla q(t)\|_2^2\dt
+ =\int_0^\tau\|\sigma(t)\|_2^2\dt&\le\frac{E_0}{8\nu}.\label{eq:sigmabudget}
+\end{align}
+\end{corollary}
+\begin{proof}
+Apply~\eqref{eq:mainw}--\eqref{eq:mainq} at each time and integrate~\eqref{eq:energy}. The norms are measurable: $w(t)$ is continuous in $L^3$, distributional derivatives can be tested against a countable dense family of compact smooth functions, and their $L^2$ norms are suprema of the corresponding measurable pairings. Alternatively use weak measurability and separability of $L^2$ on compact time intervals. No $L^2$ norm of $w$ is used.
+\end{proof}
+
+There is a real but insufficient consequence of the mixed representation. If one additionally knew an input-only bound for $\int_0^\tau\|\Pi_u(t)\|_2^2dt$, then
+\begin{equation}\label{eq:Pi-conditional}
+ \left|\int_0^\tau K(t)\dt\right|
+ \le\left(\frac{E_0}{8\nu}\right)^{1/2}
+       \left(\int_0^\tau\|\Pi_u(t)\|_2^2\dt\right)^{1/2}.
+\end{equation}
+But the estimate actually proved is $\|\Pi_u(t)\|_2\le(5/4)S^3Y(t)^{3/2}$. It does not supply that missing time bound.
+
+Similarly,~\eqref{eq:KY} yields only
+\begin{equation}\label{eq:firstgap}
+ \int_0^\tau K(t)\dt\le\frac58S^3\int_0^\tau Y(t)^2\dt.
+\end{equation}
+Energy controls $\int Y$, not $\int Y^2$. This is the first failed closure in this new proof route. To see the logical distinction explicitly, the scalar function
+\[
+ y(t)=(T-t)^{-1/2}\quad(0\le t<T)
+\]
+has finite integral, satisfies $y'=\tfrac12y^3$, and has infinite squared integral. It is not a Navier--Stokes solution. It shows only why the energy integral and a cubic enstrophy differential inequality cannot justify replacing the last member of~\eqref{eq:firstgap} by a finite input-only number.
+
+The next sections test whether the remaining signed work has a simpler universal sign or energy-only spacetime bound. Those tests have negative answers, but do not disprove a bound depending on the whole datum.
+
+\section{Reconstruction and scope review of the attached HF20 proof}\label{sec:hf20}
+This section reconstructs the attached candidate~\cite{HF20}; its sign construction and instantaneous fixed-energy conclusion are not new claims of authorship in this note. The argument below finds no failed implication in that construction at its stated scope. This is a component-by-component self-review, not a second independent review tier. The stronger spacetime conclusion is proved separately in Section~\ref{sec:spacetime}.
+
+\subsection{An explicit swirl and a compactly localized harmonic gradient}
+Let
+\[
+ b(t)=\begin{cases}e^{-1/(1-t^2)},&|t|<1,\\0,&|t|\ge1,\end{cases}
+ \qquad s(r,z)=b(4r-6)b(2z).
+\]
+For $r=(x^2+y^2)^{1/2}>0$, set
+\begin{equation}\label{eq:swirl}
+ U(x,y,z)=s(r,z)e_\theta,\qquad e_\theta=(-y/r,x/r,0),
+\end{equation}
+and extend by zero near the axis. This is a nonzero compact smooth field supported in $5/4\le r\le7/4$, $|z|\le1/2$. Put $\rho=|U|=s$. Independence of the azimuthal angle gives
+\begin{equation}\label{eq:swirl-properties}
+ \diver U=0,\quad\diver(\rho U)=0,\quad
+ N(U)=-\frac{\rho^2}{r}e_r,\quad U\cdot N(U)=0.
+\end{equation}
+Thus $j(U)$ annihilates $\G$, and Lemma~\ref{lem:min} gives $w(U)=U$.
+
+Define $\eta(t)=e^{-1/t}$ for $t>0$ and $\eta(t)=0$ otherwise, and set
+\[
+ \chi(x)=\frac{\eta(16-|x|^2)}{\eta(16-|x|^2)+\eta(|x|^2-9)}.
+\]
+The denominator is everywhere positive. This smooth function is one on the closed radius-$3$ ball and zero outside the radius-$4$ ball. Set
+\begin{equation}\label{eq:hg}
+ \begin{gathered}
+ a(x,y,z)=(yz,-xz,0),\qquad
+ \phi(x,y,z)=\frac{x^2+y^2}{2}-z^2,\\
+ h=\curl(\chi a),\quad g=\nabla(\chi\phi),\quad e=h-g.
+ \end{gathered}
+\end{equation}
+Both $h$ and $g$ are compact smooth fields, $\diver h=0$, and $g\in\G$. Since $\curl a=\nabla\phi=(x,y,-2z)$ and $\Delta\phi=0$, on a neighborhood of $\supp U$ we have
+\begin{equation}\label{eq:hlocal}
+ h=g=(x,y,-2z),\qquad \nabla h=\operatorname{diag}(1,1,-2),\qquad U\cdot h=0.
+\end{equation}
+The support of $e$ is disjoint from that of $U$. No locality of the nonlinear minimizing map is being assumed: it is the \emph{competitor difference} $e$, not the true minimizing representative, that has this disjoint support.
+
+\subsection{A cubic competitor gain, without differentiating the minimizer}
+For $v_\eps=U+\eps h$, write
+\[
+ w_\eps=w(v_\eps),\qquad d_\eps=w_\eps-U,\qquad
+ C_e=\frac13\|e\|_3^3.
+\]
+The competitor gradient $-\eps g$ and the disjoint supports give the exact bound
+\begin{equation}\label{eq:competitor}
+ \Q(v_\eps)\le F(U+\eps e)=F(U)+C_e|\eps|^3.
+\end{equation}
+Also
+\[
+ \ip{j(U)}{d_\eps}
+ =\eps\ip{j(U)}h+\ip{j(U)}{q(v_\eps)}=0.
+\]
+The first term vanishes pointwise by~\eqref{eq:hlocal}, and the second by stationarity at $U$. Applying both lower bounds in~\eqref{eq:convex} and integrating yields
+\begin{equation}\label{eq:gain}
+ \begin{split}
+ 0&\le\Q(v_\eps)-\Q(U)\le C_e|\eps|^3,\\
+ \int\rho|d_\eps|^2\dd&\le4C_e|\eps|^3,\qquad
+ \|d_\eps\|_3^3\le6C_e|\eps|^3.
+ \end{split}
+\end{equation}
+This weighted quadratic gain is the decisive estimate. It controls the actual global minimizer, including any exterior tail.
+
+\subsection{The linear transport coefficient and its explicit error}
+Put
+\[
+ A_\eps=j(w_\eps),\quad A_0=j(U),\quad
+ N_0=N(U),\quad N_1=(h\cdot\nabla)U+(U\cdot\nabla)h,\quad
+ N_2=(h\cdot\nabla)h.
+\]
+Then $N(v_\eps)=N_0+\eps N_1+\eps^2N_2$. Define
+\[
+ M=\|U\|_3,\qquad d_0=(6C_e)^{1/3},\qquad L=(2M+d_0)d_0.
+\]
+For $|\eps|\le1$,~\eqref{eq:gain} and the pointwise bound on $j$ imply
+\begin{equation}\label{eq:Adifference}
+ \|A_\eps-A_0\|_{3/2}\le L|\eps|.
+\end{equation}
+The pairing with $N_0$ has the better order $|\eps|^{3/2}$. Since $r>1$ on $\supp U$, $|N_0|\le\rho^2$. Hence
+\begin{align}
+ |\ip{A_\eps-A_0}{N_0}|
+ &\le2\int\rho^3|d_\eps|\dd+\int\rho^2|d_\eps|^2\dd\notag\\
+ &\le4\sqrt{C_e}\,\|U\|_5^{5/2}|\eps|^{3/2}
+       +4C_e\|U\|_\infty|\eps|^3.\label{eq:N0error}
+\end{align}
+For the first term use Cauchy--Schwarz on $\rho^{1/2}|d_\eps|$ and $\rho^{5/2}$; for the second use $\rho^2\le\|U\|_\infty\rho$.
+
+The coefficient of $\eps$ is explicit:
+\[
+ \ip{A_0}{(h\cdot\nabla)U}
+ =\int h\cdot\nabla(\rho^3/3)\dd=0,
+ \qquad (U\cdot\nabla)h=U\quad\hbox{on }\supp U.
+\]
+Therefore
+\begin{equation}\label{eq:c0}
+ \ip{A_0}{N_1}=\|U\|_3^3=:c_0>0,
+ \qquad \ip{A_0}{N_0}=0.
+\end{equation}
+Expanding $K(v_\eps)=-\ip{A_\eps}{N(v_\eps)}$ gives
+\begin{align*}
+ K(v_\eps)+\eps c_0
+ ={}&-\ip{A_\eps-A_0}{N_0}
+     -\eps\ip{A_\eps-A_0}{N_1}\\
+    &-\eps^2\ip{A_0}{N_2}
+     -\eps^2\ip{A_\eps-A_0}{N_2}.
+\end{align*}
+Consequently
+\begin{equation}\label{eq:hf20sign}
+ \boxed{\quad |K(U+\eps h)+\eps c_0|\le C_*|\eps|^{3/2}
+ \quad(|\eps|\le1),\quad}
+\end{equation}
+where the finite constant can be taken to be
+\begin{equation}\label{eq:Cstar}
+ C_*=4\sqrt{C_e}\|U\|_5^{5/2}+4C_e\|U\|_\infty
+      +M^2\|N_2\|_3+L(\|N_1\|_3+\|N_2\|_3).
+\end{equation}
+All norms here involve explicitly specified compact smooth fields. No numerical minimization is needed. Choose
+\begin{equation}\label{eq:epschoice}
+ 0<\eps<\min\left\{1,
+ \left(\frac{c_0}{2\max\{1,C_*\}}\right)^2\right\}.
+\end{equation}
+Then
+\begin{equation}\label{eq:twosigns}
+ K(U-\eps h)\ge\frac{\eps c_0}{2}>0,
+ \qquad K(U+\eps h)\le-\frac{\eps c_0}{2}<0.
+\end{equation}
+
+\subsection{Actual classical solutions at any prescribed energy}
+Let $V=U-\eps h$ with~\eqref{eq:epschoice}, and put
+\[
+ k=K(V)>0,\qquad d=D_Q(V)\ge0,\qquad E_V=\|V\|_2^2>0.
+\]
+Homogeneity and dilation give, for $b,\lambda>0$,
+\begin{equation}\label{eq:scaling-table}
+ \begin{aligned}
+ \Q(bT_\lambda V)&=b^3\Q(V),&
+ \|bT_\lambda V\|_2^2&=b^2\lambda^{-1}E_V,\\
+ K(bT_\lambda V)&=b^4\lambda^2k,&
+ D_Q(bT_\lambda V)&=b^3\lambda^2d.
+ \end{aligned}
+\end{equation}
+For example, $j(w(T_\lambda V))$ contributes $\lambda^2$, $N(T_\lambda V)$ contributes $\lambda^3$, and volume contributes $\lambda^{-3}$.
+
+Fix $\nu,E>0$, choose $b$ with $bk>\nu d$, and put $\lambda=b^2E_V/E$, $u_0=bT_\lambda V$. Then $u_0$ is compact smooth and solenoidal with $\|u_0\|_2^2=E$. An explicit choice not involving evaluation of the minimizer is
+\[
+ b=1+\frac{2\nu\|V\|_3^2\|\Delta V\|_3}{\eps c_0},
+\]
+using~\eqref{eq:heatbound} and~\eqref{eq:twosigns}. The actual local classical branch exists by Tao's local theory. Its value function satisfies
+\begin{equation}\label{eq:increase}
+ \left.\frac{d}{dt}\Q(u(t))\right|_{t=0+}
+ =\lambda^2b^3(bk-\nu d)>0.
+\end{equation}
+This proves $\Q(u(t))>\Q(u_0)$ for every sufficiently small positive $t$. For arbitrary viscosity the unit-viscosity local theorem is applied to $u_0/\nu$ and rescaled by $u(t)=\nu\widetilde u(\nu t)$; thus the equation in this argument is exactly~\eqref{eq:NS}.
+
+Allowing $b\to\infty$ with the same energy normalization gives, for every $\beta\ge0$,
+\begin{equation}\label{eq:instant-sup}
+ K(bT_\lambda V)-\beta\nu D_Q(bT_\lambda V)
+ =\left(\frac{E_V}{E}\right)^2b^7(bk-\beta\nu d)
+ \longrightarrow+\infty.
+\end{equation}
+Thus no finite energy-only instantaneous remainder can absorb this work at fixed energy. Any strictly increasing scalar function of $\Q$ also fails universal monotonicity, since it preserves the strict finite-time increase in~\eqref{eq:increase}.
+
+\subsection{What the HF20 calculation does not say}
+The perturbation $h$ is a direction in the initial-data space. It is not identified with the Navier--Stokes time derivative at $U$, and~\eqref{eq:hf20sign} is not a computation of $dK(u(t))/dt$ along the trajectory from $U$. The actual-flow argument starts instead at the perturbed, amplified datum $bT_\lambda V$.
+
+The family has $\Q(u_0)=b^3\Q(V)\to\infty$ as $b\to\infty$. It neither exhibits blowup on a fixed trajectory nor contradicts an estimate with a finite remainder depending on the entire initial datum. In particular it does not disprove the manuscript's fixed-input high-strain hypothesis. These are exactly the scope restrictions stated in the attachment.
+
+\section{A further obstruction on actual fixed-viscosity trajectories}\label{sec:spacetime}
+The instantaneous supremum~\eqref{eq:instant-sup} alone does not imply an unbounded \emph{integrated} excess: the interval of positivity might shrink too fast. The next proof controls that issue. The research repository already has an analogous pressure-route result in HF04~\cite{Navier}; the theorem here applies directly to the cubic quotient and its exact high-strain observable, and does not claim priority for the general scaling method.
+
+\begin{theorem}[Fixed-energy spacetime excess]\label{thm:spacetime}
+Fix $\nu,E,H>0$ and $\beta\ge0$. Over the ordinary classical solutions of~\eqref{eq:NS} with compact smooth solenoidal data satisfying $\|u_0\|_2^2=E$,
+\begin{equation}\label{eq:spacetimesup}
+ \sup_{u_0,\,0<\tau<\min\{H,T_*(u_0)\}}
+ \int_0^\tau\bigl(K(u(t))-\beta\nu D_Q(u(t))\bigr)\dt=+\infty.
+\end{equation}
+For each fixed integer $L$, the same assertion holds with
+\begin{equation}\label{eq:KLdef}
+ K_L(u)=-\int q(u)\cdot
+       \bigl((A(u)\cdot\nabla)(u-S_Lu)\bigr)\dd
+\end{equation}
+in place of $K$. The viscosity and energy in the final solutions are the prescribed $\nu$ and $E$.
+\end{theorem}
+
+\subsection{A common short interval for an auxiliary family}
+Fix the compact smooth $V$ constructed in Section~\ref{sec:hf20}, with $K(V)=k>0$. For $0<\mu\le1$, let $v^\mu$ be the classical solution at viscosity $\mu$ with datum $V$. The use of varying $\mu$ is an auxiliary calculation; it will be scaled back to the prescribed fixed viscosity.
+
+There are $T_0>0$ and $B<\infty$, depending only on $V$, such that every such solution exists on $[0,T_0]$ and
+\begin{equation}\label{eq:uniformH6}
+ \sup_{0<\mu\le1}\sup_{0\le s\le T_0}\|v^\mu(s)\|_{H^6}\le B.
+\end{equation}
+Here is the estimate and continuation argument. Write $Z(s)=\|v^\mu(s)\|_{H^6}$. Differentiate the equation with a multi-index $\alpha$, $|\alpha|\le6$, test against $\partial^\alpha v^\mu$, and sum. The pressure terms vanish; the undifferentiated transport piece vanishes by incompressibility; and the viscous contribution is nonpositive. The remaining terms are
+\[
+ [\partial^\alpha,v^\mu\cdot\nabla]v^\mu
+ =\sum_{0<\gamma\le\alpha}c_{\alpha,\gamma}
+ (\partial^\gamma v^\mu\cdot\nabla)
+        \partial^{\alpha-\gamma}v^\mu.
+\]
+Every product has $L^2$ norm at most $CZ^2$. Indeed, if $|\gamma|\le4$, put that factor in $L^\infty$, using $H^2\hookrightarrow L^\infty$, and the other factor (of order at most $6$) in $L^2$. If $|\gamma|\ge5$, put it in $L^2$ and the other factor, of order at most $2$, in $L^\infty$. It follows that
+\[
+ \frac12\frac{d}{ds}Z^2\le CZ^3,\qquad Z'\le CZ^2.
+\]
+This bound is uniform in $\mu$; it discards, rather than divides by, viscosity. For instance take $T_0>0$ sufficiently small that $CZ(0)T_0\le1/4$, and obtain $Z\le2Z(0)$ as long as the solution exists in this interval. If its maximal time were at most $T_0$, this would keep its $H^1$ norm bounded, contradicting the fixed-$\mu$ local-theory blowup alternative. Thus all solutions exist past $T_0$ and~\eqref{eq:uniformH6} holds, with a harmless reduction of $T_0$ if necessary.
+
+The projected equation also gives
+\[
+ \|\partial_s v^\mu\|_{H^4}
+ \le\|\PP N(v^\mu)\|_{H^4}+\mu\|\Delta v^\mu\|_{H^4}
+ \le C(B^2+B).
+\]
+The product estimate is obtained by the same Leibniz and Sobolev bounds, now with total derivative order at most $5$. Hence
+\begin{equation}\label{eq:uniform-close}
+ \|v^\mu(s)-V\|_{H^4}\le C(B^2+B)s
+ \quad(0\le s\le T_0),
+\end{equation}
+uniformly in $0<\mu\le1$.
+
+\subsection{Uniform positivity of the work and a dissipation bound}
+On bounded $H^4$ sets, the map $v\mapsto N(v)$ is continuous into $L^3$, with
+\[
+ \|N(v)-N(V)\|_3
+ \le\|v-V\|_\infty\|\nabla v\|_3
+       +\|V\|_\infty\|\nabla(v-V)\|_3
+ \le C_B\|v-V\|_{H^4}.
+\]
+Together with Lemma~\ref{lem:derivative}, this gives
+\[
+ |K(v)-K(V)|\le C_B\bigl(\|v-V\|_{H^4}^{1/2}
+                               +\|v-V\|_{H^4}\bigr).
+\]
+Using~\eqref{eq:uniform-close}, choose one $s_0\in(0,T_0)$, independent of $\mu$, for which
+\begin{equation}\label{eq:uniform-positive}
+ K(v^\mu(s))\ge k/2\quad(0\le s\le s_0,\ 0<\mu\le1).
+\end{equation}
+Also~\eqref{eq:heatbound} and~\eqref{eq:uniformH6} give one finite $D_{\max}$ such that
+\begin{equation}\label{eq:Dmax}
+ 0\le D_Q(v^\mu(s))
+ \le\|v^\mu(s)\|_3^2\|\Delta v^\mu(s)\|_3\le D_{\max}.
+\end{equation}
+This proof of uniform positivity is based on local PDE estimates and continuity of the value function. No Euler limit, numerical experiment, or differentiated minimizer is used.
+
+\subsection{Scaling back to the original viscosity and fixed energy}
+Let $b\to\infty$ with $b\ge\nu$, and put
+\begin{equation}\label{eq:aux-scale}
+ \mu=\nu/b,\qquad \lambda=b^2E_V/E,\qquad
+ u_b(t,x)=b\lambda\,v^{\nu/b}(b\lambda^2t,\lambda x).
+\end{equation}
+If $p^\mu$ is the auxiliary pressure, set
+$p_b(t,x)=b^2\lambda^2p^{\nu/b}(b\lambda^2t,\lambda x)$. Direct substitution shows that $u_b,p_b$ solve~\eqref{eq:NS} with viscosity exactly $\nu$: the time derivative, transport term, and pressure gradient each carry $b^2\lambda^3$, and the viscous term agrees because $\mu=\nu/b$.
+
+The datum is $u_{b,0}=bT_\lambda V$, so its squared $L^2$ norm is exactly $E$. Define
+\begin{equation}\label{eq:taub}
+ \tau_b=\frac{s_0}{b\lambda^2}
+ =s_0\left(\frac E{E_V}\right)^2b^{-5}.
+\end{equation}
+It lies inside the classical interval, and is less than $H$ for all sufficiently large $b$. The scaling laws~\eqref{eq:scaling-table}, applied at each time, give
+\begin{align}
+ &\int_0^{\tau_b}\bigl(K(u_b)-\beta\nu D_Q(u_b)\bigr)\dt\notag\\
+ &\hspace{12mm}=b^3\int_0^{s_0}
+     \bigl(K(v^{\nu/b})-\beta(\nu/b)D_Q(v^{\nu/b})\bigr)\ds.
+ \label{eq:spacetime-scale}
+\end{align}
+Choose $b$ further so that $\beta(\nu/b)D_{\max}\le k/4$. Then~\eqref{eq:uniform-positive}--\eqref{eq:Dmax} show
+\begin{equation}\label{eq:diverging-integral}
+ \int_0^{\tau_b}\bigl(K(u_b)-\beta\nu D_Q(u_b)\bigr)\dt
+ \ge\frac{k s_0}{4}b^3\longrightarrow+\infty.
+\end{equation}
+This proves~\eqref{eq:spacetimesup} with actual fixed-viscosity solutions.
+
+\subsection{The fixed high-strain cutoff is handled without rescaling it}
+For the exact low pass $S_L$ in the manuscript, let
+\[
+ K_{\mathrm{low},L}(u)=-\int q\cdot((A\cdot\nabla)S_Lu)\dd.
+\]
+Then $K_L=K-K_{\mathrm{low},L}$. The Bernstein and energy bounds give
+\begin{equation}\label{eq:lowstrain}
+ |K_{\mathrm{low},L}(u(t))|\le M_L\Q(u(t)),\qquad
+ M_L=3(1+C_{\PP})C_B2^{5L/2}\sqrt E,
+\end{equation}
+where $C_B$ is fixed by the cutoff. The full derivation is given in Section~\ref{sec:frontier}. For this theorem $L$ is fixed, so $M_L$ is independent of $b$. By~\eqref{eq:aux-scale},
+\begin{align}
+ \int_0^{\tau_b}\Q(u_b(t))\dt
+ &=\frac{b^2}{\lambda^2}\int_0^{s_0}\Q(v^{\nu/b}(s))\ds\notag\\
+ &=\left(\frac E{E_V}\right)^2b^{-2}
+           \int_0^{s_0}\Q(v^{\nu/b}(s))\ds=O(b^{-2}),\label{eq:small-low}
+\end{align}
+since $\Q(v)\le\|v\|_3^3/3$ and~\eqref{eq:uniformH6} is uniform. Subtracting the low work from~\eqref{eq:diverging-integral} therefore gives
+\[
+ \int_0^{\tau_b}(K_L(u_b)-\beta\nu D_Q(u_b))\dt
+ \ge\frac{k s_0}{4}b^3-O(b^{-2})\longrightarrow+\infty.
+\]
+The cutoff was never commuted with the dilation or replaced by a new cutoff. This completes the proof of Theorem~\ref{thm:spacetime}.
+
+\begin{remark}[Exact quantifier restriction]
+The theorem rules out a finite remainder depending only on $(E,\nu,H,L,\beta)$, for any fixed $L$, and hence also a cutoff rule depending only on the fixed scalar parameters. It does \emph{not} rule out a cutoff and remainder depending on the entire initial field. The initial critical norms of this family satisfy $\|u_{b,0}\|_3=b\|V\|_3\to\infty$. A different datum is used for each $b$, and the witnessing times tend to zero. No singular solution has been constructed.
+\end{remark}
+
+\section{The exact remaining estimate and the full conditional continuation}\label{sec:frontier}
+
+\subsection{The manuscript's low-strain calculation}
+Let $S_L$ be the manuscript's fixed low-pass operator, with Fourier symbol $\varphi(\xi/2^L)$, where $\varphi$ is its chosen real even smooth cutoff. This is a velocity cutoff, not a cutoff on the physical pressure. In the Fourier convention with $2\pi$ in the exponential, Cauchy--Schwarz gives
+\begin{equation}\label{eq:bernstein}
+ \|\nabla S_L f\|_{L^\infty;F}
+ \le C_B2^{5L/2}\|f\|_2,
+ \qquad C_B=2\pi\bigl\||\xi|\varphi(\xi)\bigr\|_2.
+\end{equation}
+Indeed, differentiate the Fourier integral, bound the Frobenius norm by the integral of $2\pi|\xi||\varphi(\xi/2^L)||\widehat f(\xi)|$, and apply Plancherel and Cauchy--Schwarz. Rescaling the first $L^2$ factor gives $2^{5L/2}$.
+
+The exact splitting~\eqref{eq:strainK} is
+\begin{equation}\label{eq:split-final}
+ \Q'(u(t))+\nu D_Q(u(t))=K_L(t)+K_{\mathrm{low},L}(t).
+\end{equation}
+H\"older,~\eqref{eq:bernstein}, energy, and~\eqref{eq:coercive} give
+\begin{align*}
+ |K_{\mathrm{low},L}(t)|
+ &\le\|\nabla S_Lu(t)\|_\infty\|q(t)\|_3\|A(t)\|_{3/2}\\
+ &\le C_B2^{5L/2}\|u_0\|_2(1+C_{\PP})\|w(t)\|_3^3
+ =M_L\Q(u(t)),
+\end{align*}
+where now
+\begin{equation}\label{eq:ML}
+ M_L=3(1+C_{\PP})C_B2^{5L/2}\|u_0\|_2.
+\end{equation}
+This proves the low-strain estimate used in Section~\ref{sec:spacetime} and reproduces the corresponding manuscript lemma. All these functions are continuous on compact classical time intervals, using continuity of $q,A$ and the high Sobolev regularity of $u$.
+
+\subsection{The hypothesis that is still not proved}
+The exact high-strain hypothesis in the pinned manuscript~\cite{Paper} is the following assertion:
+\begin{equation}\label{eq:quantifiers}
+ \boxed{\begin{gathered}
+ \exists\theta\in[0,1]\quad
+ \forall\nu>0,\ u_0\in\Sch_\sigma(\R^3),\ H>0\\
+ \exists L=L(\nu,u_0,H)\in\mathbb Z,
+ \quad A_{\mathrm{input}}=A_{\mathrm{input}}(\nu,u_0,H,L)\in[0,\infty)\\
+ \forall\,0<\tau<\min\{H,T_*\}:\\[-2pt]
+ \int_0^\tau K_L(t)\dt
+ \le\theta\nu\int_0^\tau D_Q(u(t))\dt+A_{\mathrm{input}}.
+ \end{gathered}}
+\end{equation}
+The same $L$ and the same finite $A_{\mathrm{input}}$ must work for the whole indicated interval. A proof of their finiteness cannot assume the endpoint critical bound it is intended to produce.
+
+Theorem~\ref{thm:mixed} makes the left side completely rigorous in a new form:
+\begin{equation}\label{eq:remaining-sigma}
+ \boxed{\quad
+ \int_0^\tau\int_{\R^3}
+ \sigma(t,x)\,\Pi_{u(t)-S_Lu(t)}(x)\dd\dt
+ \le\theta\nu\int_0^\tau D_Q(u(t))\dt+A_{\mathrm{input}}.
+ \quad}
+\end{equation}
+This is a restatement of the \emph{same} missing high-strain inequality, not its proof. The potential $\Pi_{u-S_Lu}$ is not identified with $p_{>J}$ from the alternative high-pressure route. No new cutoff is silently substituted for the manuscript's witness.
+
+What is now available is the energy bound for $\sigma$ in~\eqref{eq:sigmabudget}, the exact signed pairing, and unweighted spatial derivatives of $w$. What is not available is a noncircular, whole-datum estimate on the \emph{cumulative signed product} in~\eqref{eq:remaining-sigma}. The absolute estimates in Section~\ref{sec:budget} require additional time integrability. Theorem~\ref{thm:spacetime} and the sign calculation~\eqref{eq:twosigns} prevent replacing this missing argument by either an energy-only remainder or a universal sign claim.
+
+\subsection{Every step after that hypothesis}
+
+\begin{proposition}[Conditional critical bound, with $\theta=1$ allowed]\label{prop:consumer}
+Assume~\eqref{eq:quantifiers}. Then for its chosen $L,A_{\mathrm{input}}$,
+\begin{equation}\label{eq:critical-bound}
+ \sup_{0\le t<\min\{H,T_*\}}\|u(t)\|_3^3
+ \le C_{\PP}^3\bigl(\|u_0\|_3^3+3A_{\mathrm{input}}\bigr)e^{M_LH}.
+\end{equation}
+Consequently~\eqref{eq:quantifiers}, if proved for all its inputs, implies the original target in Section~\ref{sec:provenance}.
+\end{proposition}
+\begin{proof}
+Fix $\nu,u_0,H$, and use the one choice of $L,A_{\mathrm{input}}$ supplied by the hypothesis. For any compact classical interval $[0,\tau_1]$ before $\min(H,T_*)$, set $y(t)=\Q(u(t))$. Integrating~\eqref{eq:split-final} to $0<\tau\le\tau_1$ and using~\eqref{eq:quantifiers} and~\eqref{eq:ML} gives
+\begin{equation}\label{eq:consumer-integral}
+ y(\tau)+(1-\theta)\nu\int_0^\tau D_Q(u(t))\dt
+ \le y(0)+A_{\mathrm{input}}+M_L\int_0^\tau y(t)\dt.
+\end{equation}
+Because $D_Q\ge0$ and $\theta\le1$, drop the second term on the left. To see the Gronwall step explicitly, put
+$z(\tau)=y(0)+A_{\mathrm{input}}+M_L\int_0^\tau y(t)dt$. Then $y\le z$, $z'\le M_Lz$, and
+\[
+ y(\tau)\le z(\tau)\le(y(0)+A_{\mathrm{input}})e^{M_L\tau}.
+\]
+This includes the case $M_L=0$. Since $\tau_1$ was arbitrary, the estimate holds throughout $[0,\min(H,T_*))$. Coercivity and $3y(0)\le\|u_0\|_3^3$ give~\eqref{eq:critical-bound}.
+
+For the final continuation step we use the established endpoint continuation theorem: a maximal strong three-dimensional Navier--Stokes solution that remains bounded in $L^3$ up to a finite maximal time cannot terminate there. The pinned manuscript derives its endpoint theorem from the Leray--Hopf membership of its classical branch, the Escauriaza--Seregin--\v Sver\'ak theorem~\cite{ESS}, a Serrin-type estimate, and Tao's local theory~\cite{Tao}. That is the manuscript's actual dependency chain. Gallagher--Koch--Planchon's Theorem~4~\cite{GKP} is a directly inspected corroborating strong-solution endpoint statement; it is not silently added as a new formal dependency of the repository.
+
+Suppose $T_*<\infty$ and select an integer horizon $H>T_*$. The estimate~\eqref{eq:critical-bound} gives a finite uniform $L^3$ bound on the entire maximal interval, contradicting the endpoint theorem. Thus $T_*=\infty$. Local persistence of all spatial and temporal derivatives for Schwartz data gives global smoothness, including $t=0$, and the normalized pressure is smooth as well. Finally~\eqref{eq:energy} gives $\|u(t)\|_2^2\le E_0$ for every finite $t$. This is the target's bounded-energy condition.
+\end{proof}
+
+For clarity about the last imported step, the manuscript's post-ESS Serrin estimate can be written explicitly. Once $u\in L^5((0,T_*)\times\R^3)$ is supplied by its endpoint argument, testing the equation with $-\Delta u$ gives, with $Z=\|\Delta u\|_2$,
+\[
+ \frac12Y'+\nu Z^2
+ \le\|u\|_5\|\nabla u\|_{10/3}Z
+ \le C\|u\|_5Y^{1/5}Z^{8/5}
+ \le\frac\nu2Z^2+C\nu^{-4}\|u\|_5^5Y.
+\]
+The middle bound interpolates $\|\nabla u\|_{10/3}$ between $L^2$ and $L^6$ and uses $\|\nabla u\|_6\le C\|\Delta u\|_2$. The last bound is Young with exponents $5/4$ and $5$. Gronwall bounds $Y$, and the local $H^1$ blowup alternative gives continuation. The backward-uniqueness theorem producing the endpoint input is an external theorem; it is not reproved in this note.
+
+\begin{remark}[The strict absorption margin is optional for continuation]
+The value $\theta=1$ is already allowed in the current manuscript. It is sufficient for~\eqref{eq:critical-bound}. A strict $\theta<1$ additionally retains the integrated $D_Q$ term in~\eqref{eq:consumer-integral}. Therefore insisting on a strict margin would impose a stronger target than is needed merely for endpoint continuation.
+\end{remark}
+
+\subsection{Why an existential remainder is not a producer}
+If global continuation were already known, then for each datum and horizon one could take $L=0$, $\theta=0$, and
+\[
+ A_{\mathrm{input}}=\int_0^H|K_0(u(t))|\dt<\infty,
+\]
+because the integrand is continuous on the compact classical interval. Thus the existential high-strain statement is equivalent, at these quantifiers, to the continuation statement it is meant to imply. This converse does not establish finiteness before continuation is known. The same logical issue was highlighted in the recovered novelty reports and is explicitly acknowledged by the pinned manuscript~\cite{Paper,Survey2,Survey3}.
+
+The new div--curl result removes a spatial analytic obstruction to defining and estimating the signed work. It does not turn the last displayed definition into a noncircular a priori bound. A further proof must control the temporal correlation in~\eqref{eq:remaining-sigma}, or supply a different coercive critical estimate, without defining its remainder through an unknown endpoint supremum.
+
+\section{Literature, novelty, and integration boundaries}\label{sec:literature}
+
+\subsection{What the earlier surveys establish, and what they do not}
+The three recovered surveys consistently distinguish established ingredients from the project's specific arrangement. The $L^3$ endpoint, pressure-based regularity criteria, Littlewood--Paley localization, and nonlinear Hodge minimization are not new general ideas. Their negative search result concerns the particular global signed cubic pressure-output reduction, with low-output work removed by energy and one input-selected cutoff uniform in the stopping time~\cite{Survey1,Survey2,Survey3}. It is not a certification of worldwide priority, nor evidence that the still-unproved arbitrary-data estimate is itself a new theorem.
+
+Those reports are prior research records, not substitutes for primary mathematical sources. In particular, their statements about the old pressure snapshot gap are date-sensitive: the later repository already records pressure snapshot and trajectory obstructions. The attached HF20 candidate concerns the \emph{different cubic quotient} and is correctly kept separate from those pressure-route results. The present note does not repeat broad claims of being the first AI-assisted proof programme, the first pressure method, or the first reduction to a single obstruction.
+
+\subsection{The div--curl calculation belongs beside Cordes-type prior art}
+Sarsa's paper~\cite{Sarsa} uses elementary symmetric-matrix inequalities to obtain Sobolev regularity for nonlinear fields associated with scalar $p$-harmonic functions; its introduction also discusses the Cordes-condition route to unweighted second derivatives. This is close methodological prior art for Lemma~\ref{lem:matrix}. It would be inappropriate to claim that regularization plus a trace inequality is a new general regularity mechanism.
+
+The object proved here is the shifted representative $w=u+\nabla\phi$ with prescribed nonzero curl $\curl w=\curl u$, and the result is a global quantitative estimate in terms of that curl. One cannot simply apply a theorem whose unknown is a curl-free scalar gradient and omit this difference. Sections~\ref{sec:regularity}--\ref{sec:mixed} provide the required proof for the shifted object directly. Whether this exact global estimate or an equivalent nonlinear Hodge theorem already appears elsewhere requires a dedicated theorem-level comparison before publication. No novelty certificate is inferred from the earlier surveys, which predate this particular derivation.
+
+\subsection{Signed coarse-grained work is genuine but different prior art}
+Runlong Yu's June 2026 preprint~\cite{Yu} gives a finite-chain weighted telescoping theorem for local coarse-grained work
+\[
+ G^\ell=\Pi^\ell+\diver(P^\ell U^\ell),
+ \qquad \Pi^\ell=-R^\ell:\nabla U^\ell.
+\]
+Its Theorem~4.1 pays forward work and resolved dissipation by initial localized energy, localization leakage, and negative work. Remark~4.2 explicitly withholds the infinite-chain leakage summability and uniform moving-window controls that would require further PDE information. This is not the global product $\sigma\Pi_{u-S_Lu}$ in~\eqref{eq:remaining-sigma}. The finite-chain theorem therefore supplies relevant structure and a comparison target, not the missing estimate in this note.
+
+\subsection{Source verification and external dependencies}
+The official Clay target was checked in the source PDF. Tao's Theorem~5.4 and its persistence/smoothness discussion were checked in the arXiv v4 PDF; this session did not newly inspect the published journal PDF. Theorem~4 of Gallagher--Koch--Planchon was checked on printed page 18 of arXiv v3. The ESS publication record and the parent manuscript's endpoint dependency were checked; the full backward-uniqueness proof was not re-audited. Sarsa's relevant matrix and regularity discussion was inspected in its arXiv PDF, and Yu's finite-chain theorem and scope remarks in arXiv HTML v1. Standard Sobolev and singular-integral foundations are used as declared in Section~\ref{sec:prelim}.
+
+\subsection{What is ready for review, and what must remain open}
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\textwidth}>{\raggedright\arraybackslash}p{0.64\textwidth}@{}}\toprule
+Component & Status after the calculations in this note\\\midrule
+HF18 weak-derivative gate & Candidate proof supplied by Theorem~\ref{thm:main}, with stronger global gradient bounds. Independent review still needed.\\[4pt]
+HF18 mixed-pressure identity & Candidate proof supplied by Theorem~\ref{thm:mixed} using $L^2\times L^2$; the separate global $L^{3/2}$ claim for $\sigma$ is not promoted.\\[4pt]
+HF20 sign and instantaneous obstruction & Reconstructed at the attachment's stated scope; no differentiated-minimizer input used.\\[4pt]
+Fixed-energy quotient spacetime obstruction & Additional candidate proof supplied by Theorem~\ref{thm:spacetime}, at the original fixed viscosity and every fixed cutoff.\\[4pt]
+HIGH-STRAIN / HIGH-PRESSURE & Still open. No arbitrary-data finite input remainder is produced.\\[4pt]
+Full Navier--Stokes / Lean trust closure & Not established here. No Lean build or new formal proof was run, and no repository graph node was promoted.\\\bottomrule
+\end{tabular}
+\end{center}
+
+For repository integration, the natural minimal change after independent review is to add Theorem~\ref{thm:main} before HF18's divergence-speed discussion, replace its (H1)-dependent step by Corollary~\ref{cor:sigma}, and add the $L^2$ version of the mixed-pressure lemma without asserting (H2). The spacetime obstruction belongs with the falsification results, not on the positive continuation path. None of these changes licenses marking \repo{HIGH-STRAIN}, \repo{CRITICAL}, or \repo{NS-R3} as proved.
+
+\section{Final proof ledger}
+The substantive positive chain developed here is
+\[
+ \begin{gathered}
+ \text{regularized minimization in }L^2\cap L^3\\
+ \Downarrow\\
+ \text{fixed-regularizer difference quotients}\\
+ \Downarrow\\
+ (\diver w_\delta)^2\le\tfrac13|\sym\nabla w_\delta|^2
+ \quad+\quad\curl w_\delta=\curl u\\
+ \Downarrow\\
+ \|\nabla w\|_2^2\le\tfrac54Y,\quad
+ \|\sigma\|_2^2\le\tfrac14Y\\
+ \Downarrow\\
+ K_L=\int\sigma\Pi_{u-S_Lu},\quad
+ \int_0^\tau\|\sigma\|_2^2\dt\le E_0/(8\nu).
+ \end{gathered}
+\]
+The failed positive closure is precisely the step from these bounds to a datum-dependent, endpoint-uniform estimate on $\int K_L$. An absolute estimate leaves $\int Y^2$ (or a still stronger time norm of the mixed pressure), not the energy integral $\int Y$. The negative result proves that an energy-only repair cannot suffice over all data, even on genuine solution trajectories.
+
+Thus the spatial HF18 gate is unblocked by the proof supplied here, while the dynamical producer~\eqref{eq:remaining-sigma} is not. The conditional proof from that producer to the original full target has been included in detail, with its external endpoint theorem explicitly identified. This is the exact extent of the present progress.
+
+\begin{thebibliography}{99}
+\raggedright
+\addcontentsline{toc}{section}{References and source records}
+
+\bibitem{Clay}
+C.~L.~Fefferman, \emph{Existence and smoothness of the Navier--Stokes equation}, official Clay Mathematics Institute problem description, statement (A), printed p.~2.\newline
+\url{https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf}.
+
+\bibitem{Tao}
+T.~Tao, \emph{Localisation and compactness properties of the Navier--Stokes global regularity problem}, Analysis \& PDE \textbf{6} (2013), 25--107. DOI: \href{https://doi.org/10.2140/apde.2013.6.25}{10.2140/apde.2013.6.25}. Source inspected: \href{https://arxiv.org/abs/1108.1165v4}{arXiv:1108.1165v4} (31 May 2012), Theorem~5.4 and its proof; local theory and smooth persistence are external inputs.
+
+\bibitem{ESS}
+L.~Escauriaza, G.~A.~Seregin, and V.~\v Sver\'ak, \emph{$L_{3,\infty}$-solutions of the Navier--Stokes equations and backward uniqueness}, Russian Mathematical Surveys \textbf{58} (2003), no.~2, 211--250. DOI: \href{https://doi.org/10.1070/RM2003v058n02ABEH000609}{10.1070/RM2003v058n02ABEH000609}. The manuscript imports Theorem~1.3; the present note does not reprove backward uniqueness.
+
+\bibitem{GKP}
+I.~Gallagher, G.~S.~Koch, and F.~Planchon, \emph{A profile decomposition approach to the $L^\infty_t(L^3_x)$ Navier--Stokes regularity criterion}, Mathematische Annalen \textbf{355} (2013), no.~4, 1527--1559. DOI: \href{https://doi.org/10.1007/s00208-012-0830-0}{10.1007/s00208-012-0830-0}. Source inspected: \href{https://arxiv.org/abs/1012.0145v3}{arXiv:1012.0145v3}, Theorem~4, printed p.~18. Corroboration of the strong-solution endpoint, not a new dependency added to the parent repository.
+
+\bibitem{Stein}
+E.~M.~Stein, \emph{Singular Integrals and Differentiability Properties of Functions}, Princeton University Press, 1970. Standard $L^p$ multiplier and singular-integral foundation, also used in the parent manuscript.
+
+\bibitem{Sarsa}
+S.~Sarsa, \emph{Note on an elementary inequality and its application to the regularity of $p$-harmonic functions}, \href{https://arxiv.org/abs/2009.10102v1}{arXiv:2009.10102v1} (21 September 2020). Relevant comparison: Introduction and Lemma~2.1. Cited for methodological prior art, not as a black-box theorem for the shifted field $u+\nabla\phi$.
+
+\bibitem{Yu}
+R.~Yu, \emph{Coarse-Grained Resolution and Pressure--Flux Work Depletion for Navier--Stokes CKN Badness}, \href{https://arxiv.org/abs/2606.25322v1}{arXiv:2606.25322v1} (24 June 2026), Theorem~4.1 and Remark~4.2. Preprint; the finite-chain result is not used as a proof input here.
+
+\bibitem{Navier}
+\repo{itpplasma/navier}, revision
+\texttt{1014e7e3c33af4a341a5f46156a22b808170257b}, inspected 6 September 2026. Relevant paths: \repo{PLAN.md}; \repo{docs/proof.md}; \repo{research/evidence/hf18-divergence-speed-link.md}; HF19 second-order, temporal-normal-form and difference-functional candidate notes; the HF20 frozen-candidate record.\newline
+\url{https://github.com/itpplasma/navier/tree/1014e7e3c33af4a341a5f46156a22b808170257b}.
+
+\bibitem{Paper}
+\repo{itpplasma/navier-paper}, revision
+\texttt{39ccb664bf055fac94b3cfac97bf00a60191373d}, inspected 6 September 2026. \repo{main.tex}, especially labels \repo{hyp:highstrain}, \repo{lem:quotient-lowstrain}, \repo{prop:quotient-conditional}, \repo{rem:highstrain-scope}, and the proof-boundary section. The manuscript's high-strain hypothesis permits $\theta\in[0,1]$.\newline
+\url{https://github.com/itpplasma/navier-paper/tree/39ccb664bf055fac94b3cfac97bf00a60191373d}.
+
+\bibitem{Formal}
+\repo{itpplasma/navier-formal}, revision
+\texttt{54f8e89119e90399044bae8dcd404dc405a381f9}, inspected 6 September 2026. \repo{README.md} and \repo{docs/verification-status.md}. Status inspection only; no build or independent kernel replay performed in this session.\newline
+\url{https://github.com/itpplasma/navier-formal/tree/54f8e89119e90399044bae8dcd404dc405a381f9}.
+
+\bibitem{HF20}
+\emph{A local harmonic-strain test for the cubic gradient quotient}, HF20 candidate, 5 September 2026, seven-page PDF supplied with this request as \repo{navier-hf20-candidate-proof(1).pdf}. Full hash recorded in Section~\ref{sec:provenance}. The attachment itself identifies its status as self-checked, not independently audited. Its construction is reconstructed in Section~\ref{sec:hf20}.
+
+\bibitem{Survey1}
+\emph{Neuheits- und Literaturaudit des Ansatzes itpplasma/navier + itpplasma/navier-paper zur dreidimensionalen Navier--Stokes-Regularit\"at}, prior conversation research report dated 5 September 2026, recovered from the user's file library. Used for the prior-art comparison and historical research state, not as an external mathematical theorem.
+
+\bibitem{Survey2}
+\emph{Current State, Literature Position, and Research Strategy for itpplasma/navier and itpplasma/navier-paper}, prior conversation research report, recovered from the user's file library. Relevant parts: the quotient/Hodge route, noncircular witness discussion, and strategy to remove actual assumptions rather than add equivalent formulations.
+
+\bibitem{Survey3}
+\emph{Signed High-Frequency Pressure Absorption for 3D Navier--Stokes: Repository Audit, Literature Review, and Novelty Assessment}, prior conversation research report, recovered from the user's file library. Relevant parts: existential equivalence, fixed-energy pressure-trajectory obstruction, and limits of the novelty claim.
+
+\end{thebibliography}
+\end{document}
