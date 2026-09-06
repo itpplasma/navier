@@ -9,13 +9,15 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: terminal-closure-search-after-two-balance-falsification
+active_task: terminal-closure-search-after-quadratic-and-local-energy-exclusions
 active_architecture: none-passes-complete-terminal-gate
 complete_terminal_route: none-established
 retired_primary_route: pressure-quotient-defect-shell-material-response
 intrinsic_bridge_status: author-checked-independent-audit-pending
 single-profile-rigidity_status: falsified-for-the-normalized-package
 two_balance_falsification_status: author-checked-independent-audit-pending
+quadratic_lyapunov_status: author-checked-independent-audit-pending
+local_energy_only_status: source-statement-checked-consequence-author-checked
 terminal_status: not-proved
 terminal_obstruction: unchanged
 formal_work_this_run: deferred
@@ -92,6 +94,48 @@ geometry, nonmonotone estimates, or all Lyapunov methods: those are outside
 the exclusions. The new countermodel is not band-limited, not a Galerkin
 solution and not known to satisfy a local NS energy inequality.
 
+### Additional exclusions: quadratic forms and local energy alone
+
+Read `research/evidence/2026-09-06-quadratic-local-energy-exclusions.md`.
+Its Theorem Q rules out every fixed, datum-independent continuous quadratic
+form on a finite-order Sobolev space that both controls L3 and is
+nonincreasing along every actual local classical NS solution. Translation,
+rotation and NS-scale invariance are NOT hypotheses on the original form.
+Viscosity is fixed and positive. The proof first forces cubic cancellation
+by varying the initial amplitude, then averages bounded bilinear forms over
+translations and O(3). A whole-space localized passive-scalar triad forces
+the resulting measurable radial multiplier to be constant. Its energy form
+cannot control L3. This is an author proof pending independent audit.
+
+Do not reopen this class by changing the fixed Fourier weight, adding
+anisotropy or using a fixed spatially inhomogeneous quadratic kernel still
+bounded on some Hm. The averaging is over uniformly bounded bilinear forms,
+not an assumed compact NS orbit. Nonlinear or datum-adapted functionals,
+nonmonotone estimates and unbounded spatial weights outside the continuity
+hypothesis are not excluded.
+
+A separate, source-statement-checked test excludes local-energy-ONLY
+budget/packing closure. The branching Scheffer--Ozanski NS-inequality
+construction yields `||b(t_j)||_3^3 = M^j ||f||_3^3 -> infinity` while
+`||b(t_j)||_2^2 = (M tau)^j ||f||_2^2 -> 0`, with M>=2 and M tau<1.
+The note checks this critical-norm consequence and the transfer to any
+fixed positive viscosity. This is not an unforced NS solution: switching
+times can have velocity jumps, and the exact energy/enstrophy identities
+of the previous comparison curve are NOT asserted. Do not combine the two
+counterexamples into one satisfying the union of their premises. Full
+momentum/vorticity evolution and local-energy arguments using that extra
+evolution remain outside this exclusion.
+
+The same note rejects analyticity radius alone as a critical-bound
+producer: entire Gaussian-based solenoidal snapshots can have fixed L2
+and unbounded L3. A quantitative input-only analytic envelope, not merely
+its finiteness or radius, would still have to be proved. No analytic side
+machinery is an approved task.
+
+These exclusions change the admissible research allocation, not the
+terminal obstruction. NS-R3 and CRITICAL remain gaps; no new architecture
+has an established complete terminal implication.
+
 ## 3. Intrinsic records are retained tools, not an approved terminal route
 
 The author derivation in
@@ -145,7 +189,7 @@ they do not turn this obligation into a strictly weaker theorem.
 
 ## 5. Preserved history and authority
 
-The complete immediately preceding PLAN, including its ten-architecture
+The pre-two-balance PLAN, including its ten-architecture
 screen and all references, is preserved byte-for-byte at
 `research/history/PLAN-before-two-balance-falsification-2026-09-06.md`,
 using original blob `aa1376847ee438b5a27269d44c215ba8121ffedf` from input
