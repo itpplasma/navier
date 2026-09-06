@@ -1431,7 +1431,7 @@ A truthful related-work sentence, offered for reuse:
    by any result in the literature, so far."  The programme's \(w\) is not
    \(p\)-harmonic, so this does not transfer; it is recorded because it shows
    that the degeneracy the candidate carries is not one the field knows how to
-   dismiss.
+   dismiss.  **[Superseded by section 9: answered from the preprint. The printed text is still wanted, but no programme claim depends on it, and per the audit Li's one-sided limit without a representation of the derivative could not subsume the candidate's two-sided, limit-identifying theorem in any branch.]**
 
 ---
 
@@ -1476,9 +1476,12 @@ any unlocated item is new; no judgement on the correctness of any cited paper,
 including Li's; no mathematical consequence of any cited theorem is imported
 into the programme by this note.
 
-NEXT DISTINCT ACTION: obtain three primary texts, in this order — (1) the
-printed **J. Optim. Theory Appl. 200 (2024) 923–950**, to read Definition 7.1
-and Theorem 7.2 and settle §7.1; (2) **Holmes–Kripke, Michigan Math. J. 15
+NEXT DISTINCT ACTION: obtain two primary texts.  **Step (1) below is
+discharged by section 9: Definition 7.1 and Theorem 7.2 were read from the
+preprint and §7.1 is settled there, so the printed article is now a
+confirmation rather than a dependency.**  (1) ~~the printed
+**J. Optim. Theory Appl. 200 (2024) 923–950**, to read Definition 7.1
+and Theorem 7.2 and settle §7.1~~; (2) **Holmes–Kripke, Michigan Math. J. 15
 (1968) 225–248**, to find out exactly what was proved in 1968 about the Gâteaux
 derivative of the \(L^p\) metric projection in the datum; (3)
 **Fletcher–Grant–Hebden, J. Approx. Theory 10 (1974) 69–73**, five pages whose
@@ -1499,9 +1502,11 @@ openly available text, and flagged obtaining the printed JOTA article as the
 next distinct action. That was recorded in `PLAN.md` as a blocking external
 dependency.
 
-**It is no longer blocking.** The lane's obstacle was tooling, not access: it
-read the preprint through a text-extraction proxy, which is exactly the wrong
-instrument for a mathematical definition. Re-read through a PDF reader, the
+**It is no longer blocking for any programme claim**, since no claim we make
+depends on the answer; the printed JOTA text is still wanted before the
+comparison can be written down as fully settled. The lane's obstacle was
+tooling, not access: it read the preprint through a text-extraction proxy, which
+is exactly the wrong instrument for a mathematical definition. Re-read through a PDF reader, the
 arXiv preprint `arXiv:2303.16265` yields Definition 7.1 and the proof of
 Theorem 7.2 verbatim. The third-party file was read and then deleted; nothing
 is retained.
@@ -1518,25 +1523,53 @@ is `t^(q/p - 1)`, and the proof's closing step is the observation
 `q/p - 1 > 0`.
 
 **Finding 1 — Theorem 7.2 does not apply to our space, for a reason independent
-of any convention.** `L^3(R^3)` has modulus of convexity of power type
-`max(3,2) = 3` and modulus of smoothness of power type `min(3,2) = 2`, so in
-Li's notation `p = 3` and `q = 2`. The hypothesis `p < q` fails, and the proof's
-convergence factor becomes `t^(2/3 - 1) = t^(-1/3)`, which **diverges** as
-`t` decreases to zero rather than vanishing. So the theorem's mechanism does not
+of any convention.** The Bochner space `L^3(R^3;R^3)` — the audit noted this note first wrote
+`L^3(R^3)`, and proved the transfer from the scalar case — has modulus of
+convexity of power type `max(3,2) = 3` and modulus of smoothness of power type
+`min(3,2) = 2`. So every admissible pair has `p >= 3` and `q <= 2`, the sharp
+pair being `p = 3`, `q = 2`; this note first wrote those as if unique. The
+hypothesis `p < q` therefore fails for **every** admissible pair, and the proof's
+convergence factor `t^(q/p - 1)` has `q/p <= 2/3 < 1` in every case, so it
+**diverges** as `t` decreases to zero rather than vanishing.
+
+**The general form, which is stronger and shorter** (the audit's, not this
+note's): in every Banach space of dimension at least two, any exponents
+satisfying (c) and (d) obey `q/p - 1 <= 0`, with equality only in the
+Hilbert-modulus case `p = q = 2`. Li's closing step `q/p - 1 > 0` is therefore
+unavailable in *every* Banach space, and `L^3` is merely a case where the
+failure is strict. So the theorem's mechanism does not
 merely fail to be verifiable for `L^3`; it runs backwards there.
 
 **Finding 2 — as stated in the preprint the hypothesis class is empty, so the
-theorem is vacuous.** By Nordlander's theorem every Banach space satisfies
-`delta_X <= delta_Hilbert ~ eps^2/8` and `rho_X >= rho_Hilbert ~ t^2/2`.
-Condition (c) with `a >= 1` therefore forces `p > 2`, and condition (d) forces
-`q <= 2`. Hence `p > 2 >= q` for every Banach space, contradicting the required
-`p < q`. Verified numerically against the Hilbert moduli. Relatedly, the
+theorem is vacuous.** The shortest proof is elementary and is the audit's, not
+this note's: `delta` takes values in `[0,1]` by definition, so (c) at `eps = 2`
+requires `1 >= delta(2) >= a*2^p >= 2^p > 2`, false for every `a >= 1` and
+`p > 1`. The class therefore contains no space with a nonempty unit sphere, and
+only the zero space escapes, vacuously. This needs no dimension hypothesis.
+
+This note first argued the emptiness through Nordlander's theorem instead, and
+**that argument as written was wrong**: Nordlander's inequalities require
+dimension at least two, whereas the claim was made for every Banach space; in a
+one-dimensional space both inequalities fail. The repaired Nordlander route is
+that every Banach space *of dimension at least two* satisfies
+`delta_X <= delta_Hilbert ~ eps^2/8` and `rho_X >= rho_Hilbert ~ t^2/2`, so (c)
+forces `p >= 2` and (d) forces `q <= 2`, contradicting the strict `p < q`. That
+route also shows the emptiness does not depend on the `a >= 1` normalisation: with
+`a, b > 0` unconstrained the class is still empty in dimension at least two, and
+`a >= 1` is exactly what additionally excludes the one-dimensional space.
+Numerics were used only to confirm the Hilbert-modulus formulas; the vacuity is
+a two-line proof and this note first overstated what the numerics contributed. Relatedly, the
 preprint attributes (c) and (d) to the Pisier renorming theorem, which gives the
 **opposite** ordering, convexity of power type at least two and smoothness of
 power type at most two.
 
-**Verdict.** Li's Theorem 7.2 **does not subsume** the candidate's weighted
-linearization, and could not subsume anything as the hypothesis is stated. The
+**Verdict.** **In the March 2023 preprint**, Li's Theorem 7.2 does not subsume
+the candidate's weighted linearization, and could not subsume anything, as the
+hypothesis is stated. The audit adds a reason independent of the preprint/published
+distinction: Li's differentiability is a one-sided limit with no representation of
+the derivative, whereas the candidate's theorem is two-sided and identifies its
+limit, so Theorem 7.2 could not subsume it in **any** branch. That also makes this
+file's earlier description of Li's conclusion as "strictly stronger" imprecise. The
 programme still may not claim novelty for the linearization — every other ground
 in section 6 stands untouched, and those grounds are what matter — but this
 particular paper is not the reason.

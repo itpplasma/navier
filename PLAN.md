@@ -1013,8 +1013,8 @@ list had duplicate numbering and described completed waves as running.
    prior art. **Decision recorded: do not import.** See the HF27 section for the
    reasons and for the corrected prior-art map, which is the wave's lasting
    value.
-2. ~~Blocked on an external dependency~~ **resolved 2026-09-06, and it was not
-   an access problem.** The lane recorded the 2024 metric-projection theorem's
+2. ~~Blocked on an external dependency~~ **resolved 2026-09-06 and audited
+   CONFIRMED WITH CORRECTION; it was not an access problem.** The lane recorded the 2024 metric-projection theorem's
    applicability as undetermined because it read the preprint through a
    text-extraction proxy, which is the wrong instrument for a mathematical
    definition. Read with a PDF reader, the definition and proof are plain, and
@@ -1028,9 +1028,22 @@ list had duplicate numbering and described completed waves as running.
    attributes the condition to a renorming theorem that gives the opposite
    ordering. The programme still may not claim novelty for the linearization —
    every other ground in the prior-art lane's findings stands untouched, and
-   those are the ones that matter — but this paper is not the reason. Recorded
-   in `hf26-prior-art-projection-differentiability.md` section 9, from the
-   preprint rather than the published text, and not yet independently audited.
+   those are the ones that matter — but this paper is not the reason.    The audit
+   (`hf26-review-li-resolution.md`) verified the quotation as exact and
+   strengthened the first ground — every admissible exponent pair fails, not
+   only the sharp one, and in fact the proof's closing step is unavailable in
+   *every* Banach space, so our space is merely a strict case. It corrected the
+   second: my appeal to Nordlander's theorem was stated for every Banach space
+   when that theorem needs dimension at least two, and the emptiness has a
+   shorter proof needing no dimension hypothesis, since the modulus of convexity
+   is at most one while the condition demands more than two at its endpoint. It
+   also caught my framing: the printed text is still wanted before the
+   comparison is written down as settled, and only the *preprint* is refuted.
+   Against that, the audit supplied a branch-independent reason — Li's
+   differentiability is a one-sided limit with no representation of the
+   derivative, whereas the candidate's is two-sided and identifies its limit, so
+   the theorem could not subsume it however the published version reads. All
+   seven corrections are applied.
 3. **Preconditions for any HF26 import**, all from its four audits: re-base the
    departure section on the audit's two-line argument so it does not inherit
    the linearization's risk; resolve the notation collision with HF22-B, which
