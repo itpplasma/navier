@@ -230,6 +230,13 @@ theorem is the same statement in the Hilbert case.
   Theorem 7.2 is the general claim: "Let X be a \(p\)-\(q\) uniformly convex and
   uniformly smooth Banach space and C a nonempty closed and convex subset of X.
   Then \(P_C\) is directionally differentiable on X."
+
+  One further signal, recorded without interpretation: the **arXiv v1** abstract
+  announces the \(p\)-\(q\) result ("proves that \(P_C\) is directionally
+  differentiable on all of \(X\) for such spaces"), whereas the **published
+  JOTA abstract quoted above does not mention it at all**.  Only v1 exists on
+  arXiv (28 Mar 2023); the published version was not readable here.  Whether
+  Theorem 7.2 survived refereeing is therefore **undetermined**.
 - **Jinlu Li, "Directional differentiability of the metric projection in Bochner
   spaces", Applicable Nonlinear Analysis 1 (2024) 79–109**, DOI
   10.69829/apna-024-0101-ta05; preprint arXiv:2311.00942 (2 Nov 2023).
@@ -358,8 +365,9 @@ The existence/uniqueness/regularity side is already audited in
 - **Negative index evidence.**  An arXiv abstract search for
   `abs:"nonlinear Hodge" AND abs:"linearized"` returns exactly **one** record
   (the Marini–Otway Bäcklund paper above); `abs:"p-Laplacian" AND
-  abs:"directional differentiability"` returns **zero**.  This is a bounded
-  index search, not proof of absence.
+  abs:"directional differentiability"` returns **zero**.  A zbMATH Open API
+  search for `nonlinear Hodge linearized` returns nothing in this subject at
+  all.  These are bounded index searches, not proof of absence.
 
 ### 2.2 The linearized \(p\)-Laplacian: its degenerate weighted quadratic form is a routine construction
 
@@ -760,9 +768,14 @@ A truthful related-work sentence, offered for reuse:
    vacuous, whereas the ordering \(1<q\le2\le p\) would include \(L^3\) and give
    a **stronger** conclusion than T3.4 (norm convergence in \(L^3\)).  The
    published text is paywalled, the arXiv PDF was readable here only through a
-   text-extraction proxy, and no MathSciNet/zbMATH review was reachable.  **This
-   must be resolved from the printed JOTA article before any statement about the
-   novelty of T3.4 is made anywhere.**  Resolving it either way is consequential:
+   text-extraction proxy, and no MathSciNet/zbMATH review was reachable.
+   The zbMATH record exists (**Zbl 7814937**, MSC 47A58, 47J30, 49J40) but its
+   review text is withheld ("contents unavailable due to conflicting licenses").
+   A second unresolved sub-item: the published JOTA abstract does not mention
+   the \(p\)-\(q\) theorem at all, although the arXiv v1 abstract does, so
+   Theorem 7.2 may not be in the printed paper.  **This must be resolved from
+   the printed JOTA article before any statement about the novelty of T3.4 is
+   made anywhere.**  Resolving it either way is consequential:
    if the theorem applies as stated, T3.4 is subsumed and the programme's
    weighted formulation is a *weaker* result about the same map.
 2. Whether Li's §6 contains, beyond the extracted Theorem 6.1 (base point inside

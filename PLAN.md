@@ -1602,3 +1602,47 @@ fourth-power defect integral. If that survives audit the manuscript's remark
 stays true as written, since it claims only that the matter is not settled
 there, but the graph's gap node would need its review text amended. Neither
 lead is promoted.
+
+
+### Prior art for the weighted linearization (2026-09-06, lane in progress)
+
+Commissioned because HF26's own ledger says a comparison with convex
+sensitivity theory would be required before claiming novelty for its main
+analytic tool, and because the manuscript's related-work section covers
+nonlinear Hodge theory but nothing on metric-projection differentiability. The
+lane has reported (`hf26-prior-art-projection-differentiability.md`); five
+sub-lanes are still refining individual areas.
+
+**The headline is negative, which is the useful outcome.** The programme must
+not claim novelty for the weighted linearization, on four separate grounds.
+The shape of the derivative — a weighted least-squares projection with weight
+built from the residual — is the classical linearization of an `L^p`
+best-approximation problem and folklore in the iteratively-reweighted
+least-squares literature. The proof template — bound the difference quotients
+in a base-point-adapted space, take a weak limit, identify it from the
+linearized optimality condition, upgrade by monotonicity — is standard convex
+sensitivity analysis. The degenerate weighted space is the standard energy
+space of a linearized `p`-Laplacian operator and its weight has established
+names. And the failure of the weighted derivative to control the ambient norm,
+which HF26 treats as its characteristic difficulty, is the **two-norm
+discrepancy**, named and studied since 1979 and routine in PDE optimal control.
+
+**One item needs settling before any import.** A refereed 2024 paper in the
+Journal of Optimization Theory and Applications states directional
+differentiability of the metric projection in uniformly convex and uniformly
+smooth Banach spaces, a class containing our space, and if its hypothesis reads
+as the usual power-type moduli it would cover our subspace and give a *stronger*
+conclusion than HF26's theorem, namely convergence in the ambient norm itself.
+The lane could not verify one exponent ordering from the openly available text
+and records the applicability as undetermined. HF26's bibliography also cites a
+different, superseded preprint by the same author and calls it unpublished when
+it has since appeared. Neither is a defect in our repository, since we have
+imported none of this; both are blocking for any future import.
+
+**An actionable gap in the committed manuscript, independent of HF26.** The
+weighted dissipation lemma imported today uses the field `V = |w|^{1/2}w`,
+which is exactly the object the `p`-Laplacian literature calls the natural
+distance or shifted `N`-function and which has a standard citation line. The
+manuscript currently cites none of it. This is a genuine prior-art omission in
+committed work and is queued for repair once the two sub-lanes covering that
+literature report.
