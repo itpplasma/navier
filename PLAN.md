@@ -1663,10 +1663,28 @@ temporal route needs a uniform bound that integration in time does not supply,
 small measure of the exceptional set does not bound the dissipation there, and
 the concentrating curve shows scalar balances can miss a nonzero residual.
 
-It claims a certificate producing global regularity from one comparison flow
-whose critical residual stays below an absolute multiple of the viscosity; an
-explicit oscillatory Schwartz family with **unbounded** critical norm certified
-global by that certificate; a comparison hierarchy with global band-limited
+**Audit of the oscillatory and hierarchy scope, returned 2026-09-06: REPAIR**
+(`hf27-review-oscillatory-hierarchy.md`). Every mathematical step in that scope
+is correct and twelve refutation attempts against the mathematics failed; the
+repair is to claimed significance and prior art. **The headline positive result
+is not what it appears.** The certified family's `L^3` norm does diverge, but
+its `BMO^{-1}` and Besov norms tend sharply to *zero*, over a strictly wider
+exponent range than the document's own theorem covers. It is a small-data case
+in disguise, global since Koch–Tataru and the Cannone–Meyer–Planchon line, on a
+larger range than the certificate reaches; the auditor derived that in three
+lines from the document's own estimate and confirmed numerically that outside
+the document's range its quantity grows while the critical norm still decays.
+The exponent restriction is sharp for the method, not for the truth, and the
+small-data corollary is the classical critical-Besov criterion with worse
+constants. The Chemin–Gallagher citation is the wrong regime in the wrong
+direction: their data are large in the norm where this family is small, so the
+family sits strictly below their results, and the covering citations are absent.
+The hierarchy results themselves verify step by step, are not vacuous and are
+not circular.
+
+The document claims a certificate producing continuation past the horizon from
+one comparison flow whose critical residual stays below an absolute multiple of
+the viscosity; the oscillatory family just described; a comparison hierarchy with global band-limited
 comparisons for every datum and completeness in the regular case; unconditional
 energy-level residual convergence; and two obstructions, that exact energy
 balance does not control the critical residual and that an arbitrarily small

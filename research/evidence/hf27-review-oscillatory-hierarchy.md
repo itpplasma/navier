@@ -31,7 +31,7 @@ of `thm:oscillation`, the Galerkin construction, and every step of
 refutation attempts against the mathematics all failed.
 
 The repair is not to a proof. It is to the **claimed significance and the prior
-art of Section 4**, which are wrong in a way that is decidable by a two-line
+art of Section 4**, which are wrong in a way that is decidable by a short
 computation the document does not perform:
 
 > The family `eq:oscdata` is **not** large data. Its `L^3` norm diverges, but its
@@ -73,7 +73,7 @@ observation, and the whole engine of the computation below.
 (mean of `|cos|^3` is `4/(3π)`, verified symbolically),
 
 ```
-‖U_N‖_3  =  (4/(3π))^{1/3} ‖φ‖_3 · N^α · (1 + O(N^{-1}))  →  ∞ .
+‖U_N‖_3  =  (4/(3π))^{1/3} ‖φ‖_3 · N^α · (1 + o(1))  →  ∞ .
 ```
 
 **(b) `BMO^{-1}` (Koch–Tataru).** With
@@ -96,7 +96,11 @@ that is
 ```
 
 This is a complete rigorous proof, three lines, using nothing the candidate does
-not already display. The bound is **sharp in the exponent**: since
+not already display. (`BMO^{-1}` is defined with the unit-viscosity semigroup, as
+in Koch–Tataru; the viscosity enters only through the threshold, since
+`u ↦ ν^{-1}u(·/ν, ·)` turns the `ν`-equation into the `ν = 1` equation and the
+smallness condition into `‖u_0‖_{BMO^{-1}} < εν`.) The bound is **sharp in the
+exponent**: since
 `‖·‖_{Ḃ^{-1}_{∞,∞}} ≲ ‖·‖_{BMO^{-1}}` and
 `sup_t t^{1/2}‖e^{tΔ}U_N‖_∞ ≍ N^α · N^{-1}(2e)^{-1/2}‖φ‖_∞`, the true size is
 `‖U_N‖_{BMO^{-1}} ≍ N^{α−1}`.
@@ -122,19 +126,26 @@ norm in disguise:
 so `cor:heat` says precisely *"`‖u_0‖_{Ḃ^{-1/2}_{6,4}} ≲ ν`"*. For the family,
 `η_N ≍ c_φ ν^{-4} N^{4α−2}` — **two-sided**, not just the upper bound `eq:etaN`.
 
-**Numerical confirmation.** A spectral computation of the heat orbit (1-D model
-plus the exact 3-D vector field via the separable envelope; the heat semigroup
-factorises, so the `N`-dependence is carried entirely by the `x_1` factor)
-reproduces every exponent to three decimals, over `N ∈ {8,…,256}` and
-`α ∈ {0.25, 0.49, 0.70, 0.75, 0.90, 0.95}`:
+**Numerical confirmation.** A spectral computation of the heat orbit of the
+**exact** vector field `eq:oscexplicit` (separable envelope `φ = φ_1φ_2φ_3`, so
+the heat semigroup factorises and the 3-D `L^p` norms reduce to quadrature over
+1-D arrays; a 1-D model on a much finer grid, `2^18` points, `N ≤ 256`, agrees)
+reproduces every exponent to three decimals. Measured `log₂` slope per doubling
+of `N`, `N ∈ {16,32,64,128}`:
 
-| quantity | predicted `log₂` slope per doubling of `N` | measured |
-|---|---|---|
-| `‖U_N‖_3` | `+α` | `+α` (±0.001) |
-| `‖U_N‖_{Ḃ^{-1}_{∞,∞}}` | `α − 1` | matches |
-| `∫_0^∞‖e^{tΔ}U_N‖_∞²dt`^{1/2} (`BMO^{-1}` upper bd) | `α − 1` | matches |
-| `‖U_N‖_{Ḃ^{-1/2}_{6,∞}}` | `α − 1/2` | matches |
-| `‖e^{tΔ}U_N‖_{L^4_tL^6_x}` ( = `ν η_N^{1/4}` ) | `α − 1/2` | matches |
+| quantity | predicted | `α = 0.25` | `α = 0.70` |
+|---|---|---|---|
+| `‖U_N‖_3` | `+α` | `+0.250` | `+0.700` |
+| `‖U_N‖_{Ḃ^{-1}_{∞,∞}}` | `α − 1` | `−0.750` | `−0.300` |
+| `(∫_0^∞‖e^{tΔ}U_N‖_∞²dt)^{1/2}` (`BMO^{-1}` upper bd) | `α − 1` | `−0.750` | `−0.300` |
+| `‖U_N‖_{Ḃ^{-1/2}_{6,∞}}` | `α − 1/2` | `−0.250` | **`+0.200`** |
+| `‖U_N‖_{Ḃ^{-3/4}_{12,∞}}` | `α − 3/4` | `−0.500` | `−0.050` |
+| `‖e^{tΔ}U_N‖_{L^4_tL^6_x} = ν η_N^{1/4}` | `α − 1/2` | `−0.250` | **`+0.200`** |
+
+The `α = 0.70` column is the whole of R4 in one line: the candidate's own
+quantity `η_N` **grows** (slope `+0.200 > 0`), so `cor:heat` and hence
+`thm:oscillation` fail there — while the `BMO^{-1}` and `Ḃ^{-3/4}_{12,∞}` norms
+still tend to zero, so Koch–Tataru and the `p = 12` Besov theorem still certify.
 
 ### 1.2 What is already known
 
@@ -151,7 +162,11 @@ reproduces every exponent to three decimals, over `N ∈ {8,…,256}` and
   confirmed on Numdam (`SEDP_1993-1994____A8_0`) — **metadata only**, the paper
   body was not retrieved. The theorem statement itself is recorded in the repo as
   a **directly inspected** source (Gallagher–Koch–Planchon preliminaries, per
-  `literature/critical-criteria.md`).
+  `literature/critical-criteria.md`, which also attributes the local theory to
+  Cannone for `3 < p ≤ 6` and Planchon in general). *My own re-verification
+  attempt against `arxiv.org/html/1012.0145` this session did not surface that
+  passage; I therefore rest the `α < 1` claim on Koch–Tataru, which I did verify
+  independently, and treat the Besov route as corroboration.*
   → **covers `eq:oscdata` for every `0 < α < 1`, taking `p = q > 3/(1−α)`;**
   and at `p = q = 6` it already covers the candidate's whole range `α < 1/2`.
 - **Chemin–Gallagher — the citation the document actually carries.** From the
@@ -187,6 +202,12 @@ reproduces every exponent to three decimals, over `N ∈ {8,…,256}` and
    three-line `BMO^{-1}` bound in §1.1(b) uses only the candidate's own
    `eq:heatN` ingredients and then invokes a 2001 theorem. None of `thm:certificate`,
    `Q`, `D`, `r_*`, `c_b` or the quotient machinery is needed.
+   *One caveat, stated honestly:* transferring "the Koch–Tataru solution is
+   global" to "the selected maximal classical Schwartz branch has `T_* = ∞`"
+   needs the standard uniqueness/identification of mild and strong solutions in
+   `C([0,T);L^3)` — the same identification the manuscript already relies on to
+   import `eq:endpoint`. I did not re-audit that identification; it is not in
+   doubt, but it is an input, not a triviality.
 4. **Comparative strength.** The certificate route, as demonstrated, is **strictly
    weaker on its own test family**: `cor:heat` needs `η_N → 0`, i.e. `α < 1/2`,
    because `η_N ≍ c_φ ν^{-4} N^{4α−2}` two-sidedly; Koch–Tataru and the
@@ -409,7 +430,10 @@ criterion.
 is sharp only for the route: `η_N ≍ c_φ ν^{-4}N^{4α−2}` two-sidedly, so `cor:heat`
 fails at fixed `ν` for `α ≥ 1/2`, whereas Koch–Tataru (and the large-`p` Besov
 theorem) certify the whole range `0 < α < 1`. State plainly that on its own test
-family the certificate is **strictly weaker** than 1994/2001 theory. Without this,
+family the certificate's *demonstrated route* (`cor:heat` with the heat
+comparison) is **strictly weaker** than 1994/2001 theory. (`thm:certificate`
+itself is not weaker — but only because `v = u` certifies everything once
+regularity is known, which is precisely why it has no independent reach.) Without this,
 the section's status as "a complete positive test" is misleading.
 
 **R5 (recommended, Section 5).** In "Why the cutoff is rectangular", replace "its
@@ -461,8 +485,8 @@ not be read as numerical: `r_*` and `c_b` depend on the unknown sharp
 | A2 | The Bernstein constant `B_∞` or the `L^6` interpolation in `eq:heatN` is wrong, or the Fourier support/measure claim fails | **Failed.** Recomputed: `B_∞ = (2π)^{-3/2}(2|B_1|)^{1/2} = 0.183776`, `B_∞^{2/3} = 0.323241`; `‖f‖_6 ≤ ‖f‖_∞^{2/3}‖f‖_2^{1/3}`; supports disjoint for `N ≥ 2`, measure `2|B_1|`, `|ξ| ≥ N−1`. |
 | A3 | The constant chain `eq:etaN → eq:etastar → eq:Nthreshold` breaks | **Failed.** sympy-verified: `N² ≤ 4(N−1)² ⟺ N ≥ 2`; `exp(c_b(3log2/c_b)/3) = 2`; `4·3^{-1/3}(3^{1/3}r_*/8) = r_*/2`; the threshold is the exact inversion. |
 | A4 | The periodic-average constant in `eq:cosaverage` is wrong | **Failed.** `(1/2π)∫_0^{2π}|cos|³ = 4/(3π)` (sympy). |
-| A5 | **The family is small in a scale-invariant norm, so it is a disguised small-data case** | **SUCCEEDED.** `‖U_N‖_{BMO^{-1}} ≤ 0.532 L'_φ N^{α−1} → 0`, `≍ N^{α−1}`; `‖U_N‖_{Ḃ^{-1+3/p}_{p,q}} ≍ N^{α−1+3/p}`. Confirmed numerically over `α ∈ {0.25,…,0.95}`, `N ≤ 256`. |
-| A6 | **`α < 1/2` is not sharp for the conclusion** | **SUCCEEDED.** `η_N ≍ ν^{-4}N^{4α−2}` two-sidedly ⇒ the route dies at `α = 1/2`; Koch–Tataru covers `α < 1`. `[1/2,1)` is known-regular and not reached by the demonstrated route. |
+| A5 | **The family is small in a scale-invariant norm, so it is a disguised small-data case** | **SUCCEEDED.** `‖U_N‖_{BMO^{-1}} ≤ 0.532 L'_φ N^{α−1} → 0`, `≍ N^{α−1}`; `‖U_N‖_{Ḃ^{-1+3/p}_{p,q}} ≍ N^{α−1+3/p}`. Proved from the candidate's own `eq:heatN` ingredients; confirmed numerically on the exact field for `α ∈ {0.25, 0.70}`, `N ≤ 128` (3-D) and `α ∈ {0.25,0.49,0.75,0.95}`, `N ≤ 256` (1-D model). |
+| A6 | **`α < 1/2` is not sharp for the conclusion** | **SUCCEEDED.** `η_N ≍ ν^{-4}N^{4α−2}` two-sidedly (measured slope of `η_N^{1/4}`: `−0.250` at `α = 0.25`, `+0.200` at `α = 0.70`) ⇒ the route dies at `α = 1/2`; Koch–Tataru covers `α < 1` (measured `BMO^{-1}` slope `−0.300` at `α = 0.70`). `[1/2,1)` is known-regular and not reached by the demonstrated route. |
 | A7 | `prop:Galerkin` fails for some datum, or `v_N` is not an admissible comparison, or `A_N/B_N` are infinite | **Failed.** Global existence for every `u_0` and `N`; band-limitation gives every `H^k` and `L^3` continuity; `A_N, B_N ≤ C N²E_0²H`. |
 | A8 | `thm:complete` Step 2 or 3 has a hole (product estimate, tail bound, Grönwall, uniform convergence on the compact image) | **Failed.** Every step recomputed and correct, including `‖h‖²_{H^{m+1}} = W+X` and the `ε/3` uniform-convergence argument. |
 | A9 | `cor:index` secretly needs the regularity it certifies | **Failed.** `v_N` is unconditional; no quantity in `𝔠_N` refers to `u`. |
@@ -542,8 +566,21 @@ not be read as numerical: `r_*` and `c_b` depend on the unknown sharp
 
 ## 7. Method note
 
-Algebra verified independently with `sympy`; norm asymptotics verified by spectral
-computation (`numpy` FFT, `2^16`–`2^18` points in the oscillation direction, `60`
-heat times per `N`, `N ∈ {8,…,256}`). No third-party PDF was downloaded or
-retained. No contact was made with any person. No file other than this one was
-written, and nothing was committed.
+Algebra verified independently with `sympy` (the `eq:cosaverage` constant, the
+`N ≥ 2` reduction in `eq:etaN`, the `eq:etastar` chain, the `eq:Nthreshold`
+inversion). Norm asymptotics verified by spectral computation (`numpy` FFT):
+a 1-D model at `2^18` points, `N ≤ 256`, `α ∈ {0.25,0.49,0.75,0.95}`; and the
+exact 3-D field `eq:oscexplicit` with a separable envelope at `2^14 × 2^8`
+points, `N ≤ 128`, `α ∈ {0.25,0.70}`, `32` heat times per `N`. The decisive
+`BMO^{-1}` bound of §1.1(b) is a proof, not a numerical result; the numerics only
+confirm that its exponent is sharp and that the same exponents hold for the
+`Ḃ^{-1+3/p}_{p,∞}` ladder. No third-party PDF was downloaded or retained. No
+contact was made with any person. No file other than this one was written, and
+nothing was committed.
+
+*Self-check note.* My first 3-D script carried a spurious `M/L` factor on the
+spectral derivative `∂_1φ`, which inflated the subleading term of
+`eq:oscexplicit` by ~160× and produced nonsense slopes (a *decreasing* `L^3`
+norm). It was found by comparing against the analytic prediction and fixed; the
+numbers reported above are from the corrected run, and they agree with the 1-D
+model and with the closed-form asymptotics.

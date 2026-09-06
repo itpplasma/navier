@@ -37,10 +37,21 @@ is a response to what the HF26 audits found, not a continuation of it.
    multiple of the viscosity, then the original solution is global past the
    horizon, with explicit bounds on the error quotient, the critical norm and
    the dissipation integral.
-2. **A positive test that certifies genuinely large data** (`thm:oscillation`).
-   An explicit real solenoidal Schwartz family with **unbounded** critical norm
-   is proved globally smooth by the certificate, for every viscosity and every
-   exponent in a range, with an explicit threshold.
+2. **A positive test, whose data are not large after all** (`thm:oscillation`).
+   An explicit real solenoidal Schwartz family with unbounded `L^3` norm is
+   proved globally smooth by the certificate. **Audited REPAIR: this note's
+   description of the family as having "unbounded critical norm" is withdrawn
+   as false.** The `L^3` norm does diverge, but the family's `BMO^{-1}` and
+   Besov `Ḃ^{-1}_{∞,∞}` norms tend to **zero**, sharply, over a strictly wider
+   exponent range than the document's own theorem covers. It is therefore a
+   small-data case in disguise, already global by Koch–Tataru and by the
+   Cannone–Meyer–Planchon line from 1994 and 2001, on a larger range than the
+   certificate reaches. The auditor derived the bound in three lines from the
+   document's *own* estimate, and confirmed numerically that at an exponent
+   outside the document's range its own quantity grows while the `BMO^{-1}`
+   norm still decays. The exponent restriction is sharp for the method, not for
+   the truth, and the small-data corollary is the classical critical-Besov
+   criterion re-derived with worse constants.
 3. **A comparison hierarchy** (`prop:Galerkin`, `cor:index`, `thm:complete`):
    global band-limited comparisons exist for every datum, one successful index
    suffices, and certification is complete in the regular case.
@@ -77,15 +88,20 @@ this ansatz, so the note's message — that the energy identity is a balance and
 not a rigidity — is a rediscovery of what that literature exists to
 demonstrate.
 
-**Its prior-art posture is better than its predecessors'.** It names
-Chernyshenko, Constantin, Robinson and Titi for robustness and conditional
-eventual verification by Galerkin approximation, and states that the version it
-inspected works on a periodic cube in high Sobolev regularity, explicitly
-declining to import a torus theorem to the whole space. It names Chemin and
-Gallagher for oscillatory large data and calls its own family a test of the
-certificate rather than a novelty claim. **This is exactly the discipline the
-earlier continuations lacked, and the audit should verify it is substantive
-rather than decorative.**
+**Its prior-art posture is better than its predecessors', but the audits split
+on it.** On the robustness principle the discipline is substantive: it names the
+right paper with the right identifier, describes the torus and high-regularity
+setting correctly, and declines to import that theorem to the whole space —
+though it omits the entire critical-norm branch of the same literature. On the
+oscillatory family the discipline is **decorative**. It cites Chemin and
+Gallagher, but that is the wrong regime in the wrong direction: their data are
+large in the very norm in which this family is small, so the family sits
+strictly *below* their results on the small-data side, and the citations that
+would actually cover it — Koch–Tataru, Cannone–Meyer–Planchon — are absent.
+**My own commissioning question was mis-framed here**: I asked whether Chemin
+and Gallagher might already cover the family, treating coverage as the bad
+outcome. The truth is the reverse. They do not cover it, and that is the bad
+news, because what does cover it is older and stronger.
 
 **The certificate is equivalent to the target — but the credit for showing it
 belongs to the audits, not the document.** This note said twice, in opposite
@@ -143,9 +159,10 @@ equivalence and missed the one-line general one.
 
 ## Frontier record
 
-**MODE / RESULT:** DISCOVER, unaudited. One conditional certificate with
-explicit constants, one positive certification of an unbounded-critical-norm
-data family, one completeness result for a comparison hierarchy, one unconditional energy-level convergence, and two obstructions.
+**MODE / RESULT:** DISCOVER; three scopes audited. One conditional certificate
+with explicit constants, which is a known robustness principle in a critical
+norm; one positive certification of a data family that is small on the critical
+scale and already covered by older theory; one completeness result for a comparison hierarchy, one unconditional energy-level convergence, and two obstructions.
 
 **Three further corrections to this note, from the audit.** Its account of the
 unconditional energy-level convergence omitted that the result is available only
