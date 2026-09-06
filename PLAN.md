@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF20-audit-then-track-b
+active_task: HF19-repairs-and-HF21-track-b
 public_release: false
 ```
 
@@ -985,28 +985,44 @@ the datum-dependent spacetime hypotheses `hyp:highstrain` or
 quotient-route analogue of the audited HF03 and HF04 fixed-energy
 obstructions on the pressure route.
 
-**Nothing is promoted and the manuscript is untouched until an independent
-audit runs.** That audit is the next action; §7 of the transcription lists
-the points it must examine first.
+**Audited and integrated, 2026-09-06.** `hf20-review-harmonic-strain-test.md`
+returns REPAIR with no invalid mathematics; the sole defect is that
+Theorem 1.1 was displayed one-sidedly and so did not literally entail the
+two-sign conclusion its own proof gives. The controller applied the audit's
+repair (two-sided display, same constant, proof unchanged) and its citation
+action replacing the regularity sketch by `prop:localtheory`(iii),(iv) and
+`lem:upgrade`. The auditor independently verified every remaining step,
+attempted nine refutations including direct numerical checks of each
+pointwise input, all of which failed, and confirmed consistency with the
+audited HF18-A bound, which forces any increase to live at supercritical
+quotient values, exactly where this construction puts it.
+
+Integrated: the manuscript gains `rem:no-monotone` in `sec:quotient`
+recording the exclusion with its limits, and the graph's HIGH-STRAIN review
+records two further excluded mechanism classes. No node is promoted or
+demoted and no lemma changes; the manuscript never asserted monotonicity, so
+nothing is corrected, only narrowed.
 
 ## Ordered next actions
 
-1. **Audit HF20** independently, at a different tier and lens, freezing the
-   transcription and the PDF hash. Return PASS, REPAIR, FAIL WITH SCOPE, or
-   INVALID with an exact first bad bridge.
-2. **Integrate the audited outcome.** On PASS or repaired PASS: add a scope
-   remark to `sec:quotient` recording that no monotone or instantaneous
-   energy-only mechanism is available for the quotient, extend the
-   HIGH-STRAIN review text in the graph with the excluded class, rebuild the
-   manuscript and map, and keep every non-claim. On FAIL: record the failed
-   implication at its exact scope and retire only that implication.
-3. **Audit the three stopped HF19 notes**, which are still unaudited leads;
-   use each note's own next-action list only after its audit.
+1. ~~Audit HF20~~ **done**: REPAIR, repair applied.
+2. ~~Integrate the audited outcome~~ **done**: `rem:no-monotone` in the
+   manuscript at `bdad8a1`, the HIGH-STRAIN review text in the graph, and the
+   regenerated map.
+3. **Apply the three HF19 audit repairs.** All three returned REPAIR with no
+   invalid mathematics. The first bad bridges are an input-constant slip plus
+   a substantive second item in the temporal-normal-form note; an incomplete
+   verification of the simple-connectivity hypothesis in the second-order
+   note, which fails on members of the very class it computes; and an
+   unsupported negative claim in the difference-functional note's scaling
+   section, which discharges nothing. Each review supplies replacement text,
+   and each note keeps a surviving unconditional core.
 4. **Continue Track B** on the surviving mechanism question. After HF18-A,
    HF19 and HF20 the excluded classes are: size bounds in `Q` and `D_3` by
    scaling, temporal normal forms with correctors in the computed classes,
-   the difference functional as a producer, universal monotonicity, and
-   instantaneous energy-only absorption. What remains open is a genuine
+   the difference functional as a producer, universal monotonicity of the
+   quotient, and instantaneous energy-only absorption of the transport term.
+   Wave HF21 is running on two of the questions this leaves. What remains open is a genuine
    cancellation inside the transport term, the time-integrated sign
    structure along trajectories that cross the nonlinear-Hodge class, and
    the weighted Calderon-Zygmund and `L^2`-projection questions recorded in
