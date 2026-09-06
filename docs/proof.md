@@ -152,3 +152,33 @@ pressure estimates produce only a B-to-the-three-halves upper bound. No
 choice of Phi, existence of a certificate in the already-regular case, or
 successful build provides a noncircular producer. See the dated evidence
 note for the derivations, failed inference, and review questions.
+
+## Defect interval and quotient clock (2026-09-06; review pending)
+
+The component `sections/defect_extensions.tex` in the manuscript proves:
+
+    d = -(3/4)(n tensor n-I/3):(T d + grad u),
+    ||K_n||_(2->2) <= 1/2,
+    ||sigma||_r <= A_r ||grad u||_r       (r in a fixed interval around 2),
+    Y'+nu Z <= (4 S^3 C9^3/(3 nu^2)) D_Q Y.
+
+The Neumann construction is simultaneous in L2 and Lr, so membership of the
+unknown defect in Lr is proved rather than assumed. Neither derivatives of
+n nor an all-exponent weighted Calderon-Zygmund theorem are used.
+
+With `Astar=8 S^3 C9^3 Q0/(3 nu^3)` and the already defined
+`Lambda_sigma=C_sigma nu^-3 integral ||sigma||_2^4`, the exact suffix is
+
+    integral_0^t Y^2 <= (E0 Y0/(2 nu)) exp(Astar exp(Lambda_sigma(t))),
+    integral_0^t ||sigma||_2^4 <= (1/16) integral_0^t Y^2.
+
+Hence the two integral finiteness conditions cannot separate on an actual
+selected branch, even at its full lifespan. The old undecided statement is
+superseded by this author-checked proof, pending independent audit. The
+suffix is nonendpoint and requires no comparison of the two dissipations.
+
+These results still do not supply an arbitrary-data fourth-power bound.
+The first is spatial and the second places the unknown fourth-power integral
+on its right side. No gap is promoted. The complete proof, precise extra
+integrability hypothesis, source attribution and review questions are indexed
+in `research/evidence/2026-09-06-defect-extensions.md`.

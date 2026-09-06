@@ -232,10 +232,10 @@ nodes:
     mechanism: new signed time-integrated strain estimate on actual trajectories
     paper_label: 'hyp:highstrain'
     evidence: research/evidence/hf18-hodge-regularity.md
-    review: Open. The audited HF18 bound |K| <= C Q^(1/3) D_3(w) closes only under critical smallness. The audited HF20 sign test (hf20-review-harmonic-strain-test.md) excludes two further mechanism classes, namely universal monotonicity of the quotient and instantaneous absorption of the full transport term with an energy-only remainder; it leaves this spacetime hypothesis untouched, since that concerns the high-strain part with a datum-dependent remainder. Recorded in the manuscript as rem:no-monotone, whose second paragraph now excludes a fixed-cutoff energy-only remainder on genuine trajectories for every fixed cutoff, strengthening the earlier instantaneous exclusion to a time-integrated one. The audited HF23 regularity result (QUOTIENT-REGULARITY) discharges the weak-derivative hypothesis this route carried, but bounds no time integral of the squared enstrophy and so leaves this hypothesis untouched. The audited HF21 crossing lane (hf21-review-crossing-sign-structure.md) further normalises this hypothesis; by rem:highstrain-normalisation the Gronwall term and the frequency split are removable up to an input-only change of remainder, and by the added sentence of rem:highstrain-scope signed pressure absorption implies this hypothesis with an explicit remainder, so the two open routes are ordered rather than independent. The audited HF25 criterion adds a second ordered alternative, DEFECT-L4, which implies this hypothesis at theta equal to zero through QUOTIENT-DEFECT-CRITERION but is itself implied by classical gradient criteria on the same line, so it is a change of observed quantity and not a weaker assumption. Alternative producer of CRITICAL, not an additional required lemma.
+    review: Open. The audited HF18 bound |K| <= C Q^(1/3) D_3(w) closes only under critical smallness. The audited HF20 sign test (hf20-review-harmonic-strain-test.md) excludes two further mechanism classes, namely universal monotonicity of the quotient and instantaneous absorption of the full transport term with an energy-only remainder; it leaves this spacetime hypothesis untouched, since that concerns the high-strain part with a datum-dependent remainder. Recorded in the manuscript as rem:no-monotone, whose second paragraph now excludes a fixed-cutoff energy-only remainder on genuine trajectories for every fixed cutoff, strengthening the earlier instantaneous exclusion to a time-integrated one. The audited HF23 regularity result (QUOTIENT-REGULARITY) discharges the weak-derivative hypothesis this route carried, but bounds no time integral of the squared enstrophy and so leaves this hypothesis untouched. The audited HF21 crossing lane (hf21-review-crossing-sign-structure.md) further normalises this hypothesis; by rem:highstrain-normalisation the Gronwall term and the frequency split are removable up to an input-only change of remainder, and by the added sentence of rem:highstrain-scope signed pressure absorption implies this hypothesis with an explicit remainder, so the two open routes are ordered rather than independent. The audited HF25 criterion adds a second ordered alternative, DEFECT-L4, which implies this hypothesis at theta equal to zero through QUOTIENT-DEFECT-CRITERION but is itself implied by classical gradient criteria on the same line, so this one-way comparison alone proves no strict improvement; the pending quotient-clock supplement supplies a reverse finiteness implication on actual branches. Alternative producer of CRITICAL, not an additional required lemma.
   - id: QUOTIENT-WEIGHTED-DISSIPATION
     title: Weighted form of the quotient dissipation
-    statement: Along the classical branch the quotient dissipation equals the weighted Dirichlet integral of the minimizing representative, the field |w|^(1/2)w lies in H1, the dissipation is at least eight ninths of that field's squared gradient, and the ninth power of the representative's L9 norm is bounded by a Sobolev multiple of the dissipation.
+    statement: Along the classical branch the quotient dissipation equals the weighted Dirichlet integral of the minimizing representative, the field |w|^(1/2)w lies in H1, the dissipation is at least eight ninths of that field's squared gradient, and the cube of the representative's L9 norm is bounded by a Sobolev multiple of the dissipation.
     kind: paper
     depends_on: [QUOTIENT-REGULARITY, QUOTIENT-EVOLUTION]
     mechanism: chain rule for the cubic duality map, a two-sided pointwise comparison affine in the angle cosine, and generalised dominated convergence of the difference quotients
@@ -250,7 +250,7 @@ nodes:
     mechanism: new time-integrability estimate for the divergence of the representative
     paper_label: 'eq:qe-defect-hypothesis'
     evidence: research/evidence/hf25-beyond-hf21-continuation.md
-    review: Open, and audited as NOT a weakening of known hypotheses. Because the defect is at most half the velocity gradient in L2 at every time, this is implied by the classical Ladyzhenskaya-Prodi-Serrin and Beirao da Veiga gradient criterion on the same critical line with a equal to 2 and s equal to 4, so it is not weaker than what the literature already knows; its interest is that it observes only one scalar derivative of the representative rather than the full velocity gradient. It lies in the existential-equivalence class, with the converse written out in rem:qe-defect-scope. What is unconditionally available from the energy identity is the square, not the fourth power. Whether a branch exists with divergent squared-enstrophy integral but finite defect integral is unsettled in both directions.
+    review: Open. The pointwise bound ||sigma||_2 <= (1/2)||grad u||_2 implies the defect condition from the classical gradient condition, not the opposite by itself; earlier not-weaker wording reversed that implication. The independently unaudited QUOTIENT-DISSIPATION-CLOCK supplement now proves a quantitative reverse finiteness implication on actual selected branches, excluding the previously undecided separation. This is a pending component proof, not a node promotion or a strict improvement over classical trajectory criteria. The energy budget still supplies only the square time integral; no arbitrary-data fourth-power producer is proved.
   - id: QUOTIENT-DEFECT-CRITERION
     title: Conditional producer from the defect integral
     statement: Under the fourth-power defect hypothesis the quotient obeys a Gronwall inequality with exponent the defect integral, bounding the quotient, the accumulated dissipation and the target product by explicit input-only constants, hence supplying the high-strain hypothesis at theta equal to zero.
@@ -259,7 +259,7 @@ nodes:
     mechanism: an L2 pairing entry for the mixed pressure, interpolation between the cubic and ninth-power norms, exact Young maximisation, and Gronwall
     paper_label: 'cor:qe-defect-producer'
     evidence: research/evidence/hf25-beyond-hf21-continuation.md
-    review: Audited PASS WITH SCOPE in hf25-review-defect-criterion.md and imported with the mandatory scope remark rem:qe-defect-scope. Conditional consumer; DEFECT-L4 is unproved and is not weaker than classical criteria. No progress toward a proof is claimed by this node's presence.
+    review: Audited PASS WITH SCOPE in hf25-review-defect-criterion.md and imported with the mandatory scope remark rem:qe-defect-scope. Conditional consumer; DEFECT-L4 is unproved. No strict improvement over classical trajectory criteria is claimed; see the pending quantitative quotient-clock supplement. No progress toward a proof is claimed by this node's presence.
   - id: QUOTIENT-CONDITIONAL
     title: Conditional quotient bound
     statement: Under the high-strain hypothesis, Gronwall bounds the quotient functional, hence the L3 norm, on every finite horizon by an input-only constant; this supplies the critical bound by the quotient route.
@@ -280,3 +280,21 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-dissipation-clock.md
     paper_labels: ['dc:l9', 'dc:clock', 'dc:strict', 'dc:barrier', 'dc:nonlinear', 'dc:scalar']
     scope: Full component derivations only; no arbitrary-data producer and no graph-node promotion.
+  - id: NEAR2-DEFECT-REGULARITY
+    title: Near-2 unweighted defect regularity
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 878dcff0d72c9b94e9bb344a0c8a96bf8fc37a19
+    source_path: sections/defect_extensions.tex
+    evidence: research/evidence/2026-09-06-defect-extensions.md
+    paper_labels: ['de:fixedpoint', 'de:near2']
+    scope: A uniform spatial exponent interval with an additional gradient integrability hypothesis; not an all-exponent weighted estimate or a temporal producer.
+  - id: QUOTIENT-DISSIPATION-CLOCK
+    title: Quotient clock and no finiteness separation
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 878dcff0d72c9b94e9bb344a0c8a96bf8fc37a19
+    source_path: sections/defect_extensions.tex
+    evidence: research/evidence/2026-09-06-defect-extensions.md
+    paper_labels: ['de:quotient-clock', 'de:no-separation']
+    scope: Quantitative defect-enstrophy finiteness equivalence on actual branches; no arbitrary-data fourth-power estimate and no node promotion.

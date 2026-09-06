@@ -30,3 +30,12 @@ It removes ESS from the strict-pressure suffix and admits finite/logarithmic
 dissipation barriers, but supplies no arbitrary-data pressure producer.
 Run `python3 research/verify.py` with the paper and formal repositories
 present. `--research-only` is an explicitly narrower structural check.
+
+## Near-2 defect continuation (2026-09-06)
+
+The manuscript now has complete author-checked component proofs of near-2
+unweighted defect regularity and a quantitative reverse finiteness bound
+from the fourth-power defect integral to the squared-enstrophy integral.
+See `research/evidence/2026-09-06-defect-extensions.md`. Independent review
+is pending; these are not an arbitrary-data regularity proof. The missing
+producer and all terminal/gap statuses remain explicit in `PLAN.md`.

@@ -22,7 +22,7 @@ by_id = {n['id']: n for n in nodes}
 
 def esc(s):
     table = {'&': r'\&', '%': r'\%', '_': r'\_', '#': r'\#',
-             '{': r'\{', '}': r'\}', '$': r'\$', '^': r'\textasciicircum{}'}
+             '{': r'\{', '}': r'\}', '$': r'\$', '^': r'\textasciicircum{}', '–': r'\textendash{}\allowbreak{}'}
     return ''.join(table.get(c, c) for c in str(s))
 
 

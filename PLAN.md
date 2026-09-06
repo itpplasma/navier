@@ -2079,3 +2079,50 @@ Next substantive gate: independently reconstruct the dissipation-clock
 component, then derive a signed pressure estimate from the vector equation
 rather than assuming a critical budget. Do not report main-document builds,
 regression checks, or this new sufficient condition as closure of NS-R3.
+
+## Defect extensions: spatial interval and quantitative no-separation (2026-09-06)
+
+The current paper task has produced full component proofs in
+`navier-paper` `878dcff0d72c9b94e9bb344a0c8a96bf8fc37a19`, source
+`sections/defect_extensions.tex`. These are author-checked and independently
+unaudited; the separate candidate metadata does not promote graph nodes.
+
+A uniform measurable-coefficient contraction now proves an unweighted
+estimate `||sigma||_r <= A_r ||grad u||_r` on a fixed open interval around
+2, for solenoidal H1 data with the additional Lr gradient hypothesis.
+The proof handles the zero set without differentiating the unit direction,
+uses the trace-free Hessian norm sqrt(2/3), and identifies the same Neumann
+series in L2 and Lr. The sharp old L2 estimate is retained. This partially
+answers the manuscript's beyond-L2 question; no all-exponent weighted
+Calderon-Zygmund estimate is asserted.
+
+The direct quotient clock is
+`Y'+nu Z <= (4 S^3 C9^3/(3 nu^2)) D_Q Y`. Combining it with the accepted
+HF25 inequality and energy gives, with
+`Astar=8 S^3 C9^3 Q0/(3 nu^3)` and
+`Lambda_sigma=C_sigma nu^-3 integral ||sigma||_2^4`,
+
+    integral_0^t Y^2 <= E0 Y0/(2 nu) exp(Astar exp(Lambda_sigma(t))).
+
+Together with the old reverse inequality, this excludes finite fourth-power
+defect integral with divergent squared-enstrophy integral on an actual
+branch, including its full lifespan. It supplies a nonendpoint suffix,
+without ESS or any comparison of D_Q and D3. The lead was already identified
+in the HF26 audit; the explicit proof and constants are now supplied.
+
+This entry supersedes the historical claim that the separation is unsettled
+in both directions, subject to independent review. It also corrects the
+old implication wording: a condition implied by a classical gradient
+condition is not thereby 'not weaker'; the new actual-branch reverse
+implication requires its own proof. A graph transcription saying ninth
+power of the L9 norm is corrected to the cube, as in its existing source.
+
+The arbitrary-data producer remains absent. Spatial near-2 regularity does
+not upgrade the energy-level square time integral to a fourth power; the
+new enstrophy bound explicitly depends on that unknown fourth power.
+Next substantive gate: audit these components, then derive the required
+signed spacetime estimate from the vector equation. Formal phase fields,
+privacy, and every open/terminal graph kind are unchanged.
+
+Evidence, source checks, failed closure and independent-review obligations:
+`research/evidence/2026-09-06-defect-extensions.md`.
