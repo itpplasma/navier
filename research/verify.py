@@ -37,10 +37,14 @@ text = paper.read_text()
 for n in nodes:
     assert '\\label{' + n['paper_label'] + '}' in text, f'missing paper label {n["id"]}'
 plan = (root / 'PLAN.md').read_text()
-assert 'phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof' in plan
+assert 'phase_i_status: reopened-2026-09-06-in-progress' in plan
 assert 'checkpoint: CP1' in plan
-assert graph['phase_i_status'] == 'authorized-2026-09-05-deferred-until-full-paper-proof'
-assert graph['phase_ii_status'] == 'authorized-2026-09-05-not-started'
+assert graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
+assert graph['phase_ii_status'] == 'reopened-2026-09-06-target'
+# The manuscript is external and read-only from 2026-09-06; we still verify its
+# labels above, but never write to it.
+assert 'paper_repo: read-only-pull-only' in plan
+assert 'external_deps: permitted-if-no-axioms-beyond-mathlib' in plan
 formal = root.parent / 'navier-formal/lakefile.toml'
 assert formal.is_file(), 'missing formal repository'
 assert 'public_release: false' in plan

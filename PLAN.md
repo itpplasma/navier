@@ -3,11 +3,13 @@
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: paper-proof-first
-phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
-phase_ii_status: authorized-2026-09-05-not-started
-paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF26-audits
+phase: formalization-reopened-2026-09-06
+phase_i_status: reopened-2026-09-06-in-progress
+phase_ii_status: reopened-2026-09-06-target
+paper_status: external-from-2026-09-06
+paper_repo: read-only-pull-only
+external_deps: permitted-if-no-axioms-beyond-mathlib
+active_task: phase-i-to-phase-ii-in-navier-formal
 public_release: false
 ```
 

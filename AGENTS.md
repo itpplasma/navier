@@ -52,12 +52,23 @@ Phase I proves every manuscript-owned step in Lean down to exactly stated,
 directly verified published literature theorems, recorded as clearly labelled
 axioms with source records. Phase II discharges those statements from Mathlib.
 Both phases were authorized by the user on 2026-09-05 for the checkpoint
-block CP1 defined in `PLAN.md`. Later the same day the user re-sequenced the
-programme: complete paper proofs of the whole route come first, and Lean
-work on any block is deferred until the paper route is proved and audited.
-Do not extend `../navier-formal` until `PLAN.md` reopens formalization. A conditional
+block CP1 defined in `PLAN.md`. The same day the user re-sequenced to
+paper-proofs-first. **On 2026-09-06 the user re-sequenced again, and this
+supersedes both: formalization is reopened, paper proofs are supplied
+externally, and the goal is to reach Phase II everywhere.** A conditional
 terminal theorem does not settle the Millennium problem, and no Lean result
 is promoted in the claim graph without a faithfulness audit of its statement.
+
+Work happens in **this repository and `../navier-formal` only**. `../navier-paper`
+is now **read-only**: pull it to stay current, never edit or commit to it.
+Pull all three repositories regularly and push often.
+
+**External dependencies are permitted** when they introduce **no axioms beyond
+Mathlib's**. The gate is mechanical and must be run before any dependency is
+added and again before any result relying on it is recorded: `#print axioms` on
+every downstream theorem must yield a subset of `propext`, `Quot.sound`,
+`Classical.choice`. A dependency that fails this is rejected regardless of
+convenience, since Palomar compatibility depends on it.
 
 Freeze coherent review inputs by exact commits, or a base commit and patch
 SHA-256 including new files. Obtain independent mathematical audits before

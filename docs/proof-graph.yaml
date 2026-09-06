@@ -2,8 +2,8 @@ schema_version: 1
 title: Navier–Stokes whole-space regularity architecture
 terminal_claim: NS-R3
 checkpoint: CP1
-phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
-phase_ii_status: authorized-2026-09-05-not-started
+phase_i_status: reopened-2026-09-06-in-progress
+phase_ii_status: reopened-2026-09-06-target
 formal_repository: itpplasma/navier-formal
 source_revision:
   manuscript_commit: 2883cbdc31f34b25b1db885c6b68dce3013cb302
