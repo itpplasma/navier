@@ -1,19 +1,23 @@
-# Navier--Stokes: kinetic macroscopic-control research plan
+# Navier--Stokes: kinetic regularity and Newtonian-to-fluid programme
 
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: kinetic-macroscopic-control-exploration-2026-09-06
+phase: kinetic-clay-and-scoped-newtonian-programme-2026-09-06
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: test-nonlinear-kinetic-stress-remainders-for-resolved-momentum-control
+active_task: estimate-nonlinear-kinetic-stress-output-after-Maxwellian-correction
 active_architecture: kinetic-macro-transfer-candidate-not-established
 complete_terminal_route: none-established
-kinetic_interface_status: source-scoped-not-integrated-as-graph-theorem
+kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
+secondary_goal: MIC-R3
+secondary_goal_status: particle-compatibility-and-infinite-volume-bridges-open
+periodic_companion: separately-gated-not-a-substitute-for-NS-R3
+hilbert_scope: dilute-hard-sphere-Newtonian-to-incompressible-fluid-only
 structural_paper_status: complete-author-level-primary-source-compared
 retired_primary_route: pressure-quotient-defect-shell-material-response
 intrinsic_bridge_status: author-checked-independent-audit-pending
@@ -28,344 +32,314 @@ formal_work_this_run: deferred
 public_release: false
 ```
 
-## 1. Decision, target and allocation
+## 1. Authority, objectives and immediate instruction
 
-The owner's new instruction is to reopen creative TERMINAL research, using
-the completed obstruction paper and the supplied kinetic/geometric synthesis.
-The standalone paper task is complete at author-proof level; waiting for
-external review is not the remaining research plan. Neither that paper nor
-this plan has proved arbitrary-data regularity.
+This is the sole live allocation and status record. The owner's instruction
+extends the existing kinetic exploration to precise Clay and microscopic
+end goals. It does not assert a breakthrough. Read, in order:
 
-The target is unchanged: for every solenoidal Schwartz datum on R3 and every
-fixed nu>0, the ORIGINAL unforced incompressible Navier--Stokes equation has
-a global smooth solution with energy bounded by its initial value.
+1. This PLAN and `docs/proof.md` for the target and proved suffix.
+2. `research/kinetic-clay-hilbert-contracts.md` (KCH) for endpoint contracts,
+   limit order, particle compatibility and acceptance criteria.
+3. `research/evidence/2026-09-06-kinetic-plan-contracts.md` (KPC) for the
+   existing micro/macro calculations, K_res sufficiency and rejection tests.
+4. `literature/kinetic-hilbert-scope.md` for checked source boundaries.
+   `docs/programme-graph.yaml` is a specification map, NOT a proved graph.
 
-**First exploration: nonlinear transfer from collision-damped kinetic modes
-to resolved fluid momentum.** Kinetic geometry is a candidate source of
-estimates, not a declaration that the obstruction has become easier. Keep
-one main mechanism active. Stafford-inspired quantitative operator algebra
-is a supporting lane; geometric concentration exclusion is a reserve, not a
-second unproved theorem silently appended to the first.
+**NS-R3 is unchanged:** every solenoidal Schwartz datum on R3, every fixed
+nu>0, the original unforced incompressible equation, globally smooth velocity
+and pressure, and kinetic energy bounded by its initial value. The canonical
+`docs/proof-graph.yaml` remains unchanged; NS-R3 and CRITICAL remain gaps.
 
-The exact mathematical contracts, calculations, rejection examples and
-primary references are in
-`research/evidence/2026-09-06-kinetic-plan-contracts.md` (KPC below).
-That note is not a second live task list. It adds no promoted graph claims.
-The scheduling labels K0, K1, K2, A and G below are NOT formalization phases.
+**KIN-R3:** obtain that regular velocity as the hydrodynamic limit of a
+faithfully prepared Boltzmann family. One admissible family for each datum
+is enough. Global smoothness of every finite-Knudsen kinetic solution is NOT
+an extra prerequisite for the Clay route.
 
-## 2. Work backward: a less demanding sufficient kinetic certificate
+**MIC-R3:** derive the same global velocity from Newtonian elastic hard-sphere
+ensembles through an explicitly specified dilute kinetic/fluid/infinite-volume
+limit, on every finite macroscopic interval. This is a scoped gas-dynamics
+realization of Hilbert VI, not an axiomatization of all physics. MIC-R3 has
+additional compatibility obligations beyond NS-R3; do not call them solved
+by merely prefixing an existing particle theorem.
 
-The established terminal suffix is LOCAL + ENERGY + CONTINUATION, once an
-input-derived finite bound on the classical branch's L-infinity_t L3_x norm
-is proved on every finite horizon. A direct contradiction at finite Tstar
-may bypass this suffix; there is no requirement to retain it.
+**Next substantive action:** take KPC Section 3's remainder equation after
+r=h-(epsilon/2)Qmic(a^2), and test the TRUE nonlinear source in the resolved
+momentum Duhamel/duality pairing. Attack arbitrary amplitude and uniformity
+in spatial resolution first. Do not start with a new survey, bracket
+construction, general kinetic existence proof, or manuscript expansion.
 
-Use a genuine kinetic initial-value problem, rather than an inverse force
-constructed from an assumed smooth fluid solution:
+The mathematical proof path is not known. This PLAN specifies what must be
+proved, what existing results can consume, and when to switch mechanisms;
+it is not a recipe whose success has already been established.
+
+## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
+
+Start with one hard-sphere kernel, its collision normalization fixed to nu,
 
     epsilon^2 partial_t F_epsilon + epsilon v.grad_x F_epsilon
         = Q_nu(F_epsilon,F_epsilon),
-    F_epsilon^in(x,v) = M(v-epsilon u0(x)).
+    F_epsilon^in = M(v-epsilon u0(x)).
 
-Start with one hard-cutoff Boltzmann kernel in the whole-space
-Golse--Saint-Raymond framework, scaled to the prescribed viscosity. The
-initial relative entropy is exactly epsilon^2 ||u0||_2^2/2. The resulting
-well-prepared weak limit supplies a Leray NS velocity, NOT its smoothness.
-KPC Section 1 specifies the source and the compatibility checks.
+KPC gives positivity, scaled relative entropy ||u0||_2^2/2, zero limiting
+thermal fluctuation and the whole-space GSR framework. Use renormalized
+solutions and justified truncated moments; do not assume classical moment
+identities or a future smooth fluid solution. Q_nu and all constants remain
+fixed with respect to epsilon. Physical particle diameter is called a_part,
+NEVER epsilon in the programme's notation.
 
-The supplied proposal, a uniform finite-epsilon L-infinity_t L3 bound on
-projected momentum, would suffice but is unnecessarily demanding. Prefer
-**limit-first, momentum-only control**. Let delta>0 be half a guaranteed local
-existence time from u0,nu, let H>delta, and let S_J be the compact spatial
-mollifiers defined in KPC. Let m_tilde_epsilon be a justified renormalized
-projected momentum with the same distributional fluid limit. The target is
+Let delta>0 be half an input-derived local existence time. Let S_J be KPC's
+compactly supported spatial approximate identity and m_tilde_epsilon a
+justified projected/truncated momentum converging to a Leray velocity u.
+For every H>delta, the preferred sufficient certificate is
 
     sup_{J>=0} liminf_{k->infinity}
-      ||S_J m_tilde_epsilon_k||_{L-infinity(delta,H;L3_x)}
-        <= C(u0,nu,H,delta) < infinity.                  (K_res)
+      ||S_J m_tilde_epsilon_k||_{L-infinity(delta,H;L3(R3))}
+        <= C(u0,nu,H,delta) < infinity.                 (K_res)
 
-All J refer to one hydrodynamically convergent sequence and the same limit.
-The constant must be independent of J. Raw moments may be used when their
-function spaces are justified; no full-phase-space Sobolev estimate is
-required merely for convenience. The preparation cannot depend on an unknown
-future fluid solution. One admissible family for each datum/horizon suffices;
-there is no need to prove estimates for all possible kinetic weak solutions.
+Use ONE hydrodynamically convergent sequence and limit for all J. Constants
+are independent of J; they may depend on the full prescribed datum. Take
+epsilon -> 0 at fixed J, THEN J -> infinity. Fixed-J constants that grow with
+J, a dyadic block bound without summation, or compact-spatial bounds without
+global control do not suffice. Initial-layer estimates need not be uniform
+down to t=0 because LOCAL handles that interval.
 
-**Explicit closure:** K_res + distributional convergence imply a global-in-x
-L-infinity(delta,H;L3) bound on the Leray velocity by duality and removal of
-spatial smoothing. Weak--strong uniqueness identifies it with the classical
-branch before Tstar. LOCAL handles [0,delta]. CONTINUATION then excludes any
-Tstar<H; arbitrary H and ENERGY finish NS-R3. KPC gives the duality argument
-and states where the hydrodynamic and weak--strong interfaces must be checked.
+**Complete conditional suffix:** K_res gives u in L-infinity(delta,H;L3)
+by distributional convergence and duality. The correctly prepared GSR limit
+has the Leray energy/trace properties. Weak--strong uniqueness identifies it
+with the classical branch on every compact interval before Tstar. LOCAL
+handles [0,delta]; CONTINUATION excludes finite Tstar<H; ENERGY finishes.
+The local strain integral used only for uniqueness is legitimate, but must
+not be reused as an endpoint estimate. Audit these interfaces once.
 
-This is a reduced DEMAND ON THE KINETIC APPROXIMANTS, not a proof or a strict
-reduction of the terminal NS obstruction. K_res without a producer is a
-reformulation, not the research achievement sought.
+A dual L1_t L^(3/2)_x test bound is an acceptable less demanding realization.
+A uniform finite-epsilon L-infinity_t L3 estimate is sufficient but optional.
+An L5 spacetime estimate, or another Serrin-critical estimate with its precise
+consumer, may replace K_res. A direct contradiction to finite Tstar is also
+allowed. K_res itself remains a criterion, not terminal progress.
 
-Keep the order epsilon -> 0 at fixed J, then J -> infinity. The proof need
-not control all kinetic-scale frequencies simultaneously. Conversely,
-constants C_J growing with resolution, an epsilon-dependent diagonal with
-no convergence justification, or bounds on separate dyadic blocks without
-summability do not prove K_res. Even the elementary energy smoothing bound
-grows as 2^(J/2) and fails this certificate.
+## 3. Main research sequence: K0, K1, K2 and KF are tasks, not Lean phases
 
-## 3. First main attack: K1, nonlinear collision-stress memory
+### K0 -- bounded compatibility audit
 
-**Proposed mechanism.** Eliminate the damped microscopic component with its
-retarded propagator, retain the signed transport/collision coupling, and
-estimate only the resolved momentum output. Do not bound the full kinetic
-solution first unless that bound genuinely closes the same output estimate.
+Instantiate GSR Theorem 2.4, the energy preparation following (2.27), and the
+truncated-moment convergence including Proposition 7.2. Check viscosity,
+initial trace, temperature, Leray class and projection domain. Write a
+one-page parameter ledger: epsilon, J, velocity/density cutoff, approximation
+order, delta, H and all coefficient costs. Keep renormalization/conservation
+defects until a valid limit removes them. A smooth approximation used to
+justify K1 must have independently supplied existence and controlled errors.
 
-Use Pi for collision invariants, P for the spatial Leray projection, and
-Qmic=I-Pi. For smooth weighted fluctuations, put a=Pi g, h=Qmic g and
+Do not reprove GSR, upgrade it to arbitrary-data classical Boltzmann by
+assumption, or let this compatibility audit replace the nonlinear attack.
 
-    partial_t g + T g/epsilon + Lg/epsilon^2 = Gamma(g,g)/epsilon,
-    T=v.grad_x,   ker L=span{1,v1,v2,v3,|v|^2}.
+### K1 -- nonlinear collision-stress memory (first active mechanism)
 
-The micro propagator has formal generator
-A_epsilon=L/epsilon^2+Qmic T Qmic/epsilon. Its exact elimination retains
-both its initial layer and Gamma(g,g). In particular the known identity
+Use Pi for collision invariants, P for Leray, Qmic=I-Pi, a=Pi g, h=Qmic g.
+For the smooth calculation with KPC's conventions,
 
-    Gamma(a,a) = (1/2)L(a^2),  a in ker L,
+    partial_t g + Tg/epsilon + Lg/epsilon^2 = Gamma(g,g)/epsilon,
+    T=v.grad_x,  ker L=span{1,v1,v2,v3,|v|^2},
+    Gamma(a,a)=(1/2)L(a^2),
+    A_epsilon=L/epsilon^2+Qmic T Qmic/epsilon,
+    r=h-(epsilon/2)Qmic(a^2).
 
-suggests the microscopic variable
+The source to estimate, not merely display, is
 
-    r_epsilon = h - (epsilon/2) Qmic(a^2).
+    -Qmic T a/epsilon
+    +Qmic[2 Gamma(a,h)+Gamma(h,h)]/epsilon
+    -(epsilon/2)Qmic partial_t(a^2)-(1/2)Qmic T Qmic(a^2).
 
-This removes the leading pure-macroscopic collision source, not the NS
-nonlinearity. Its differentiated equation introduces derivatives of a^2,
-transport of a^2 and mixed Gamma terms. The convective macroscopic flux must
-still survive. KPC Section 3 gives the conventions and source of this identity.
+Retain the initial microscopic layer, the retarded propagator and the
+macroscopic convective flux. The Maxwellian identity is established prior
+art and does not cancel the NS nonlinearity. Seek a signed input-only output
+estimate yielding K_res, including interscale summation and every cutoff
+error. Work first on the actual remainder, not on improving a linear model.
 
-**FIRST HARD TASK:** attack the actual remainder terms in the momentum
-Duhamel pairing at arbitrary amplitude. Seek an input-only estimate uniform
-in resolution AFTER the kinetic limit, rather than another formula for r.
-A successful bound must feed directly into K_res or an explicitly proved
-alternative terminal suffix. Retain signs/correlations long enough to test
-whether transport memory supplies information lost by absolute energy bounds.
-A blockwise calculation must include interscale interactions and the final
-L3 summation or duality step.
+**Pass:** a complete endpoint-producing estimate, or removal of a specified
+uncontrolled term leaving a demonstrably smaller problem. State the complete
+remaining dependency chain and its constants. **Switch:** the bound needs
+small critical data, an uncontrolled strain exponential/fourth-power budget,
+prior endpoint Sobolev control, or only recovers energy/enstrophy dissipation.
+Changing the name of that unknown quantity is not a repair.
 
-**Advance only if:** the nonlinear remainder estimate has no unknown critical
-fluid/kinetic norm on its right side; every coefficient cost and approximation
-limit is paid for; and the estimate is valid for the chosen kinetic family.
-A permitted intermediate result must remove a specific previously uncontrolled
-term and leave a demonstrably smaller obligation, not just rename it.
+### K2 -- nonlinear dual observability (a genuine alternative)
 
-**Kill or switch if:** the argument needs small a in a critical norm,
-exp(integral ||grad u||_infinity), an uncontrolled fourth-power strain budget,
-prior uniform high Sobolev regularity, or a bound equivalent to the old signed
-pressure remainder. Recovering only L-infinity L2 and L2 H1, recovering
-Newtonian stress, or showing the normal-form identity again is not advancement.
-The identity is already in the hydrodynamic-limit literature.
+If K1 fails, transport a momentum test backwards and pair it with the forward
+kinetic equation using collision dissipation and data-adapted entropy weights.
+The target for smooth compact phi is, uniformly in J,
 
-## 4. K0: a bounded compatibility check, not a research detour
+    limsup_k |<S_J m_tilde_epsilon_k,phi>|
+      <= C ||phi||_{L1(delta,H;L^(3/2)(R3))}.
 
-Before a candidate estimate is used, check the following once against KPC [R1].
-Do not build a new general kinetic well-posedness theory or reprove GSR.
+Estimate the nonlinear collision/test pairing and every moving-weight term
+before constructing an adjoint infrastructure. Unknown future strain in a
+test coefficient must cancel or acquire its own input-only bound. Rank of
+brackets, entropy monotonicity or a formal dual representation is insufficient.
+If exactly K1's uncontrolled remainder returns, switch architecture rather
+than rename it an observability constant.
 
-- Fix the collision class, viscosity normalization, positive preparation,
-  entropy normalization, initial trace and the precise Leray conclusion.
-  The general NSF energy statement is not automatically the required Leray
-  statement without the preparation. The source explicitly addresses it.
-- Decide raw versus density/velocity-truncated momentum. Justify the Leray
-  projection's domain, convergence of the chosen observable and removal of
-  conservation/renormalization defects. Verify the weak--strong identification
-  used in Section 2; it does not require an endpoint strain bound.
-- Write a parameter ledger for epsilon, J, velocity cutoff, Hermite order,
-  collision constants, amplitude, delta and H. State which limits commute
-  and prove every commutation actually used.
+### KF -- transport-coupled information (bounded alternative test)
 
-For renormalized F, finite entropy does not imply the weighted smoothness
-needed to differentiate the formal micro equation. An approximation or
-renormalized argument must bridge this. If K1 works only for globally smooth
-kinetic approximants whose existence requires the same unknown bound, it has
-not passed K0. Do not change collision kernel or introduce forcing silently.
+Recent homogeneous Boltzmann/Landau Fisher results are leads, not imports
+for the inhomogeneous hard-sphere problem. First test free transport:
 
-## 5. Alternative K2: macroscopic observability with adaptive entropy tests
+    F_t(x,v)=F_0(x-tv/epsilon,v),
+    I_v(F_t)=integral F_0 |grad_v log F_0-(t/epsilon)grad_x log F_0|^2,
+    [partial_t+T/epsilon, grad_v+(t/epsilon)grad_x]=0.
 
-This is a switch from an operator-norm bound on a microscopic propagator to
-a nonlinear, finite-time dual estimate. It is not approved as merely a new
-notation for the failed K1 remainder.
+These formulas are calibration for finite integrals; use relative or
+localized quantities with the whole-space Maxwellian background. Ordinary
+velocity Fisher monotonicity does not survive transport automatically.
+Derive the actual mixed-derivative collision terms and their epsilon costs.
+Before pursuing a functional, prove how its bound controls the MACROSCOPIC
+output in K_res/duality, despite the five collision invariants. No switch of
+collision kernel to Coulomb Landau or a non-cutoff kernel is silent: it
+requires replacement of both fluid and particle adapters. No known Fisher
+result is declared to pass these gates.
 
-**Proposed mechanism.** For a terminal momentum test phi, transport a kinetic
-test/entropy dual variable backwards and use the collision dissipation in
-its pairing with the forward distribution. Only the momentum output is
-observed; undamped acoustic/thermal variables are retained but need not all
-satisfy a stronger regularity theorem. Allow genuinely nonlinear entropy
-weights, dependence on the prescribed datum, and finite-window signed
-estimates, rather than a universal monotone quadratic energy.
+Only one of K1/K2/KF is the main mechanism at a time. There is no obligation
+to exhaust every variant. Two serious attempts ending in the same critical
+quantity trigger reconstruction from the terminal edge, not another clock.
 
-**Closure target:** for every smooth compact spacetime phi, an estimate
+## 4. Stafford and geometric support: consumers first
 
-    limsup_{k->infinity}|<S_J m_tilde_epsilon_k,phi>|
-      <= C(u0,nu,H,delta) ||phi||_{L1_t L^(3/2)_x},
+Lane A supplies a quantitative estimate specifically requested by K1/K2/KF.
+Use [partial_v_i,T]=partial_x_i, Gaussian ladder relations and characteristic
+geometry only with domains, adjoints, coefficient costs, derivative loss,
+nullspace and epsilon/frequency/truncation dependence. The existing Stafford
+identity is algebraic, not a bounded inverse or a positive quadratic form.
+Boltzmann's integral operator is not automatically a finite Weyl polynomial.
 
-uniform in J, implies the same limiting L3 bound by the Section 2 argument.
-This output-duality target does not demand control of the supremum of all
-finite-epsilon outputs. It remains unproved and is not progress by itself.
+KPC's macro-to-micro strain identity and small-drift Gramian are mandatory
+calibrations: full algebraic rank need not give a uniform coercivity constant.
+Do not substitute OU damping that destroys momentum conservation. Compare
+with established hypocoercivity/quadratic-operator results before claiming
+novelty. No edits to Stafford repositories are in scope for this update.
 
-**Hardest step first:** bound the pairing of the TRUE nonlinear collision
-source and the adaptive test, including commutators and changes of the
-weight. Prove an observability inequality with controlled coefficient costs;
-do not infer it from entropy production or a bracket-generation rank test.
-If the backward test coefficients use the unknown future fluid strain,
-that dependence has to cancel exactly or have an input-only bound.
+Reserve G requires BOTH a critically normalized defect selection and a
+specific incompatible transport/collision support law that exclude the
+singularity. Do not assume a D-module, involutivity, coisotropicity, compactness
+or ancient rigidity for an arbitrary measure. Physical T*R3 has dimension 6;
+microlocal T*R6 has dimension 12. A plain L2 defect can miss L3 concentration.
+After failure of the kinetic mechanisms, direct nonlinear, datum-adapted,
+nonmonotone or nonlocal fluid approaches remain available.
 
-**Switch test:** failure through exactly the same uncontrolled term as K1
-requires a genuinely new mathematical mechanism before further investment.
-No repeated rebranding as a clock, metriplectic metric, entropy correction,
-least-action functional or adjoint certificate. A new functional alone does
-not pass the gate.
+## 5. Newtonian extension: explicit gates, not an automatic prefix
 
-## 6. Supporting lane A: quantitative Stafford-to-hypocoercivity adapter
+The microscopic workstream must not postpone the K_res attack. Perform one
+source-compatibility pass now; thereafter address its genuinely additional
+lemmas when the endpoint route can use them, or after NS-R3 is proved.
+DHM's regular kinetic theorem does not apply automatically to the renormalized
+family from K0. Its inspected particle-to-fluid theorem is on a torus and
+assumes a smooth limiting NSF solution. See KCH and the source ledger.
 
-The concrete bridge is differential-operator algebra, not the common word
-"symplectic". Use [partial_v_i,T]=partial_x_i and Gaussian creation/annihilation
-relations to search for QUANTITATIVE transfer of microscopic control to the
-specific macro output missing in K1 or K2. The existing Stafford38 formal
-README supplies an algebraic certificate and support architecture; it is
-not an analytic estimate for these kinetic solutions.
+**P0 -- freeze model and observables.** Use elastic hard spheres with no added
+force/thermostat. Specify canonical/grand-canonical law, exclusion of overlaps,
+normalization of number intensity versus probability marginals, time scaling,
+collision rate and the viscosity dictionary. The target concerns the velocity
+component; thermal modes and acoustic preparation must be justified. Raw
+empirical measures are not L3 functions: use test observables or stated spatial
+smoothing. Ensemble-mean convergence and convergence in probability are
+separate conclusions.
 
-An acceptable adapter returns an inequality on stated Hilbert/Banach spaces
-with adjoints, domains, coefficient bounds, derivative loss and dependence
-on epsilon/frequency/truncation. Frozen quadratic/Kramers--Fokker--Planck
-models are calibration only. Compare with Hitrik--Pravda-Starov and Villani
-before claiming novelty or rebuilding known machinery. Ordinary OU damping
-can remove momentum, unlike Boltzmann: check the nullspace before transfer.
+**P1 -- class compatibility.** Choose and prove one path: (a) a particle limit
+valid for the kinetic family actually used in K0; or (b) AFTER an independent
+NS regularity proof, use a strong hydrodynamic theorem to construct a regular
+kinetic family on each finite horizon and apply a matching particle theorem.
+For (b), no globally regular kinetic solution at every fixed epsilon is
+required: sufficiently small epsilon depending on H can suffice. Using the
+smooth-target theorem to prove the smooth target itself is forbidden.
 
-**Concrete first test:** compute the macro-to-micro observation Gramian for
-transverse momentum and identify its degenerate directions, then check the
-proposed estimate against KPC's small-drift Gramian. Full algebraic rank can
-coexist with an arbitrarily bad coercivity constant. The identity
-Qmic T(U.v)=(v tensor v-|v|^2 I/3):D U already shows that symmetric strain,
-not only vorticity, is the coupling to the stress modes. Its squared Gaussian L2 norm
-is 2|D U|^2. This is a calibration identity, not a terminal bound.
+**P2 -- domain compatibility.** R3 with a uniform Maxwellian has infinite
+background mass. The finite-particle finite-mass theorem and a fixed torus
+are not this setting. Prove a near-equilibrium thermodynamic-limit adapter,
+or a controlled large-box construction with solenoidal preparation, local
+convergence, pressure/flux control and a valid global energy passage. Identify
+the limit with the already obtained whole-space solution. Do not assert that
+locality or periodizing a datum settles nonlocal pressure or tails.
 
-Only request an A-lane result after specifying the exact output estimate
-in K1/K2 that consumes it. Full Hermite hierarchy infrastructure, generic
-symbol classification or a proof of familiar linear smoothing is not the
-main task. A polynomial representation of the integral collision operator
-or a convergent controlled approximation must be supplied, not presumed.
-If no quantitative nonlinear transfer is proved, keep any algebraic result
-separate from NS progress. No edits to Stafford repositories are authorized
-by this plan update.
+**P3 -- scaling and diagonal.** At fixed hydro epsilon, take the particle
+Boltzmann--Grad limit at the corresponding collision rate, then epsilon->0;
+take large volume in the order actually proved. Track particle diameter,
+expected count, volume, all test resolutions and physical observation time.
+After division by epsilon, first-moment errors must vanish; empirical
+probability claims also need variance/covariance errors at scale epsilon^2.
+Use countable tests/horizons and a justified diagonal, not an unspecified
+simultaneous limit. No uniform-in-all-time rate is required by MIC-R3.
 
-## 7. Reserve G and permission to abandon the kinetic route
+**P4 -- optional empirical/rate strengthening.** Only after qualitative
+MIC-R3, add quantitative convergence, fluctuation laws or finite-Knudsen
+validity windows if independently valuable. These are not hidden prerequisites
+for Clay or the scoped microscopic existence theorem.
 
-A structurally different reserve is a critical-concentration contradiction:
-from a hypothetical finite-time singularity, construct a correctly normalized
-kinetic/macro defect that must both propagate under transport and lie in a
-collision-compatible null set, then prove these properties incompatible with
-its nonzero normalization and fixed-input ancestry.
+A separately proved NS-T3/KIN-T3/MIC-T3 companion is allowed because it matches
+the inspected DHM fluid theorem and Clay alternative B. It must not silently
+replace NS-R3, nor be inferred from it without a transfer theorem. If an
+arbitrary-periodic-data proof actually closes first, record that distinct
+Clay result and continue the whole-space contract honestly.
 
-This reserve is NOT enabled by just obtaining a defect measure. KPC's
-strong-L2/large-L3 field test shows why an unnormalized quadratic defect can
-miss the entire critical concentration. No D-module, characteristic variety,
-coisotropicity, compactness or rigidity is inherited merely from phase-space
-terminology. Physical T*R3 and microlocal T*R6 are different spaces. A valid
-G proposal must give both the selection AND the incompatible support/
-propagation mechanism with an explicit terminal suffix before extraction work.
+## 6. Mandatory rejection tests and progress discipline
 
-After K1 and a genuinely distinct K2 test fail, do not make kinetic geometry
-the next permanent default. Record the exact failed implication and return
-to cross-architecture search. Direct nonlinear/data-adapted/nonmonotone
-fluid methods remain allowed by the obstruction paper. No theorem says a
-successful proof must use kinetic geometry or all of nonlocality, spacetime
-structure and full-datum dependence simultaneously. An appealing synthesis
-is not evidence that it will close.
+Preserve all KPC tests: shifted Maxwellians (fixed scaled entropy, zero
+instantaneous collision production, unbounded momentum L3); small F-M versus
+large scaled fluctuation; undamped momentum modes; rank without uniform
+Gramian bounds; noncanonical moving Maxwellian frame; fixed-truncation tail
+errors; symplectic spatial squeezing; and L2 defects missing critical pulses.
+Add the free-transport Fisher and particle observable tests above. These
+snapshot/calibration tests are not claimed singular NS or Boltzmann solutions.
 
-## 8. Mandatory falsifiers and model-fidelity checks
+Preserve the earlier exclusions with their distinct premises: two-scalar
+Lyapunov closure, exact global-balance comparison curves, fixed quadratic
+critical monotonicity, local-energy-only closure, pointwise vorticity/local
+pressure rules and helical sign selection. Keep their author/audit and prior-art
+qualifications. Do not combine different counterexamples into one stronger
+example. They do not prohibit every nonlinear/spacetime estimate. The completed
+structural-obstructions paper is not a reason to stop terminal research.
 
-Run the relevant exact test BEFORE developing substantial machinery.
+Before substantial work on X, write: inputs, output inequality, complete
+terminal suffix, hardest uncontrolled term, parameter dependence, immediate
+falsifier and stop/switch condition. New representations, criteria, identities,
+local bounds, literature summaries, formalization and documentation alone
+are not terminal mathematical progress. A no-go is useful only for a genuinely
+live mechanism or a materially stronger premise class.
 
-| Tempting inference | Required test or correction |
-| --- | --- |
-| Entropy + instantaneous collisions control momentum L3 | KPC's shifted-Maxwellian family has fixed scaled entropy, zero collision production and unbounded L3. It is a snapshot test, not a kinetic trajectory. |
-| Small F-M means a perturbative fluid regime | Divide by epsilon in the fluctuation equation; the limiting arbitrary u0 need not be small. Cao--Carrapatoso's small-data thresholds are on scaled fluctuation norms. |
-| Collisions damp all dangerous variables | Momentum is in ker L; test macro modes and the nonlinear source explicitly. |
-| A moment or GENERIC derivation establishes closure | The stress is an unknown moment; identify its Newtonian limit and every error. Thermodynamic total energy includes heat; NS kinetic energy decreases. |
-| A fixed quadratic kinetic metric escapes Theorem Q | Check its pullback and limiting evolution. Theorem Q applies only if it really induces the excluded datum-independent continuous quadratic fluid form and monotonicity; it does not ban all quadratic kinetic estimates. |
-| Centering the Maxwellian removes geometry | Peculiar-velocity brackets retain curl U; in low-Mach variables the factor epsilon is present. Moving-frame derivatives also retain D U and partial_t U. |
-| An algebraic certificate gives uniform coercivity | KPC's Gramian degenerates despite full rank. Record operator norms, domains, sign and derivative losses. |
-| A fixed Hermite/Grad closure proves Boltzmann control | Its tail and nonlinear truncation defects require uniform estimates; full Boltzmann is not a finite Weyl polynomial. |
-| Symplecticity forbids spatial collapse | (x,v)->(lambda x,lambda^(-1)v) is symplectic. Spatial squeezing alone contradicts nothing. |
-| A quadratic defect or compact L2 limit rules out L3 concentration | Use the r^(-5/4) concentrating pulse in KPC and the preserved exact two-balance countermodel. Do not merge their premise classes. |
-| Pointwise scalar vorticity damping follows from a kinetic lift | The globally smooth fixed-E,Y,Omega family and its constant local vorticity jet still test the actual fluid limit. Large initial growth does not imply sustained growth. |
-| Inverse kinetic or modified dissipation proves original NS | Smoothness-dependent inverse forces are representations. A changed stress, force, viscosity law or momentum nullspace changes the target unless equivalence is proved. |
+## 7. Completion, review and repository operations
 
-## 9. Binding progress and commit discipline
+Close the analytic endpoint first, instantiate the kinetic/uniqueness/continuation
+suffix second, audit it independently third. Verify all Clay clauses, including
+pressure, t=0 smoothness, every viscosity and global energy. Only then mark
+NS-R3/KIN-R3 proved. Close P0--P3 separately before claiming MIC-R3. No claim
+that all of Hilbert VI, dense-liquid hydrodynamics or finite-Knudsen smoothness
+has thereby been settled. Subsequent paper integration and Phase I/II Lean
+work preserve their existing meanings and require the corresponding repository
+authorization and faithfulness audits. No new formal coverage is declared here.
 
-Before investing in a candidate, write its exact input-output estimate and
-why it closes K_res/the dual target, or identify the specific plausible
-architecture it decisively falsifies. A sufficient certificate itself is not
-a producer. Attack nonlinear amplitude and resolution uniformity first.
+This planning update writes only `itpplasma/navier`. Keep all repositories
+private. Preserve concurrent edits, read fresh main before a non-force update,
+and use explicit paths. Unsigned commits are authorized. No public release,
+submission, outside contact, invented authorship or Overleaf recreation.
 
-The next substantive run should start with K1's remainder after the
-Maxwellian correction, not another literature survey, brackets-only
-construction, generic kinetic regularity proof, or extension of the paper.
-Finish that investigation with an actual closing estimate, a demonstrably
-smaller nonlinear obligation, or a precise falsification and genuine switch.
-Success on linear, small-data, finite-mode, confined or periodic models is
-calibration unless its missing transfer to the target is proved.
+Run `python3 research/verify.py --research-only` and `git diff --check` on a
+full checkout when available; report any narrower snapshot check honestly.
+Do not claim tests certify mathematics. `docs/programme-graph.yaml` contains
+unproved specifications, so it must not be silently merged into the audited
+canonical proof graph or generated manuscript map.
 
-Do not spend the run accumulating related counterexamples to already retired
-claims. A new no-go result is worth committing as mathematical progress only
-when it eliminates a genuinely live option or materially strengthens its
-premise class. Keeping PLAN current is an authorized planning deliverable,
-not terminal mathematical progress.
+## 8. Preserved authority and provenance
 
-Leave the conditional manuscript, the completed standalone obstruction paper,
-the terminal proof graph and formalization unchanged during this exploration.
-Promote claims only after proof and appropriate audit. Preserve all earlier
-valid results; retiring their role in an architecture is not retracting them.
-External review/priority questions for the paper remain separate and are not
-a reason to stop research or permission to contact anyone.
+This update is based on main `3291278efce2510fbc43ba8ad66c571dc5359c2d`,
+including the concurrent kinetic plan and correction, not the older 5d842f8
+conversation snapshot. The prior PLAN is preserved byte-for-byte at
+`research/history/PLAN-before-clay-hilbert-programme-2026-09-06.md`, blob
+`9031bfbbe5b714623caa60db2b1aeb8371430195`. KPC and all research evidence remain
+unchanged. The prior README, AGENTS and proof dossier are archived with their
+original blobs rather than deleting their historical detail.
 
-## 10. Retained evidence, prior art and historical authority
-
-The previous live PLAN is preserved verbatim in Git at
-`1383040bbb775826c6d78674852f8ba89f25b353:PLAN.md`, blob
-`ea7095b2084a3b1dcd1dbc035fedbfe1a991ae4b`. This replacement changes allocation,
-not the mathematical status of any result. The older archived PLAN files
-under `research/history/` remain unchanged.
-
-Mandatory retained research evidence (all under `research/evidence/`):
-
-- `2026-09-06-structural-obstructions-paper-audit.md` and
-  `2026-09-06-global-smooth-vorticity-falsifier.md`: the completed Theorem Q/GS
-  paper, its exact scope and pending independent review. The broad energy-only
-  quadratic principle has prior art; priority for exact formulations is not
-  certified. No further no-go manuscript work is the default terminal task.
-- `2026-09-06-two-balance-falsification.md`,
-  `2026-09-06-quadratic-local-energy-exclusions.md`, and
-  `2026-09-06-pointwise-vorticity-helicity-exclusions.md`: retain the two-scalar,
-  exact-balance, quadratic, local-energy-only, pointwise-jet and helical-parity
-  exclusions with their DIFFERENT premise classes. They do not exclude every
-  nonlinear, nonmonotone or nonlocal approach.
-- `2026-09-06-intrinsic-record-tangents.md`,
-  `2026-09-06-viscous-mixing-falsifier.md`, and
-  `2026-09-06-terminal-architecture-reset.md` with `terminal-reset/`: preserve
-  extraction and fixed-input warnings. Blanket ancient rigidity stays retired.
-
-The pressure/quotient/defect/speed-shell/material-response family stays retired
-as the primary arbitrary-data route. Reopening requires an actual input-only
-endpoint argument; a kinetic re-expression of its unknown clock does not qualify.
-
-KPC [R1--R9] records the new source checks: GSR for the large-data weak limit;
-Cao--Carrapatoso for perturbative strong limits; Gibbons--Holm--Tronci and
-Grmela et al. for moment geometry; Morrison--Updike and Zaidni--Morrison for
-metriplectic structure; Villani and Hitrik--Pravda-Starov for quantitative
-analysis; inverse kinetic and Stafford sources with exact limits on transfer.
-These citations are leads or scoped existing results, not new graph imports.
-The synthesis and K_res producer are not claimed novel or established.
-
-PLAN.md remains the sole live task record. Keep all repositories private;
-preserve concurrent edits, refresh before non-force writes, and stage explicit
-paths. Unsigned commits are authorized. Run `python3 research/verify.py
---research-only` and `git diff --check` for these research-only status edits,
-recording any checkout/overlay limitations. Do not claim builds certify math.
-No public release, submission, added authorship, outside contact or Overleaf
-recreation is authorized. Existing Phase I/II strings preserve formalization
-status; they are not new Lean coverage or a reason to replace terminal research
-by infrastructure work.
+Mandatory histories remain KPC, the structural-obstructions paper audit,
+the global-smooth-vorticity falsifier, the two-balance/quadratic/local-energy/
+pointwise-helicity evidence, intrinsic records and viscous-mixing falsifier,
+and the terminal-reset directory. The pressure/quotient/defect/speed-shell/
+material-response family stays retired as primary research unless a genuinely
+input-only terminal producer is supplied. This update changes specification
+and allocation only: no arbitrary-data bound or strict terminal reduction.

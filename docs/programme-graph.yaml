@@ -1,0 +1,84 @@
+schema_version: 1
+title: Kinetic regularity and scoped Newtonian-to-fluid specification map
+status: unproved-programme-specification
+live_allocation: PLAN.md
+canonical_proof_graph: docs/proof-graph.yaml
+canonical_graph_modified: false
+contract: research/kinetic-clay-hilbert-contracts.md
+sources: literature/kinetic-hilbert-scope.md
+base_commit: 3291278efce2510fbc43ba8ad66c571dc5359c2d
+scope: dilute-hard-sphere-Newtonian-to-incompressible-fluid
+nodes:
+  - id: K-ENTRY
+    status: application-audit-required
+    depends_on: []
+    statement: Instantiate whole-space GSR for input-prepared renormalized hard-sphere solutions, prescribed viscosity, correct Leray trace/energy and convergent truncated momentum.
+    acceptance: Exact hypotheses and all observable/renormalization defects checked; no assumed smooth target.
+  - id: K-CRIT
+    status: gap
+    depends_on: []
+    statement: Prove K_res or its dual output bound for arbitrary input, uniformly in spatial resolution after the kinetic limit.
+    acceptance: Input-only constants, one limiting sequence, all nonlinear sources and approximation errors controlled.
+  - id: K-CLOSE
+    status: conditional-contract
+    depends_on: [K-ENTRY, K-CRIT]
+    canonical_consumers: [LOCAL, ENERGY, CONTINUATION]
+    statement: Duality gives the limiting critical norm; weak-strong uniqueness identifies the classical branch; endpoint continuation excludes finite maximal time.
+    acceptance: Independent application and terminal audit; local uniqueness costs are not used as endpoint bounds.
+  - id: GOAL-KIN-R3
+    status: gap
+    depends_on: [K-CLOSE]
+    statement: Every admissible whole-space datum has an input-prepared kinetic family with a globally smooth NS velocity limit.
+    acceptance: Every finite horizon, all prescribed positive viscosities, correct initial datum and original equation.
+  - id: GOAL-NS-R3
+    status: gap
+    canonical_target: NS-R3
+    depends_on: [GOAL-KIN-R3]
+    statement: Original Clay alternative A, unchanged.
+    acceptance: Smooth velocity and pressure through t=0 and global kinetic-energy bound; canonical promotion requires proof and audit.
+  - id: P-MODEL
+    status: gap
+    depends_on: []
+    statement: Specify elastic hard-sphere ensembles, normalization, collision and time scaling, and admissible momentum observables.
+    acceptance: No force, thermostat, model substitution or empirical L3 norm without smoothing.
+  - id: P-REGULAR-CLASS
+    status: gap
+    depends_on: [GOAL-NS-R3, P-MODEL]
+    statement: After independent NS regularity, construct finite-horizon regular kinetic families meeting a particle theorem's actual hypotheses.
+    acceptance: Full source applicability; sufficiently small epsilon per horizon may suffice; no circular smooth-target use.
+    alternative: A separately proved particle limit for the K-ENTRY renormalized family may replace this node, with a revised explicit dependency chain.
+  - id: P-DOMAIN
+    status: gap
+    depends_on: [P-MODEL, GOAL-NS-R3]
+    statement: Supply a whole-space infinite-background particle adapter or a controlled large-box thermodynamic/fluid passage.
+    acceptance: Solenoidal preparation, pressure/flux and tails, trace, limit identification and global energy; no automatic torus transfer.
+  - id: P-PARTICLE
+    status: gap
+    depends_on: [P-REGULAR-CLASS, P-DOMAIN]
+    statement: Apply a matched particle-to-kinetic theorem for each fixed set of outer parameters.
+    acceptance: Actual kinetic norms and observation-time restrictions verified in the selected collision and domain convention.
+  - id: P-DIAGONAL
+    status: gap
+    depends_on: [P-PARTICLE, GOAL-KIN-R3]
+    statement: Compose microscopic, hydrodynamic, domain and observable limits on all finite horizons.
+    acceptance: Errors after momentum rescaling vanish; countable-test diagonal and compatible preparations proved. Probability claims additionally require scaled covariance bounds.
+  - id: GOAL-MIC-R3
+    status: gap
+    depends_on: [P-DIAGONAL]
+    statement: Newtonian hard-sphere momentum observables converge to the global whole-space smooth NS velocity for every admissible datum and viscosity.
+    acceptance: Claim only the specified dilute-gas Hilbert-VI branch, observable topology and horizon quantifiers.
+optional_endpoints:
+  - id: PERIODIC-COMPANION
+    status: separately-gated
+    depends_on: []
+    statement: NS-T3, KIN-T3 and MIC-T3 require separate periodic endpoint and source/continuation audits; they do not replace NS-R3.
+  - id: EMPIRICAL-RATES
+    status: deferred
+    depends_on: [GOAL-MIC-R3]
+    statement: Quantitative rates and typical-trajectory or fluctuation statements are stronger optional results, not Clay prerequisites.
+mechanism_order:
+  first: K1-nonlinear-stress-memory
+  alternatives: [K2-dual-observability, KF-transport-information]
+  support: A-quantitative-Stafford-adapter
+  reserve: G-critical-defect-propagation
+  rule: PLAN.md controls selection; repeated return of the same uncontrolled critical quantity requires a genuine switch.
