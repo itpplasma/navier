@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
-"""Document integrity checks only; this is not a mathematical verifier."""
+"""Document integrity only. Default mode checks all three repository surfaces."""
 from pathlib import Path
-import sys
+import argparse
+import re
 import yaml
 
 root = Path(__file__).resolve().parents[1]
-graph = yaml.safe_load((root / 'docs/proof-graph.yaml').read_text())
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--research-only', action='store_true',
+                    help='check research structure only; explicitly skip external repositories')
+parser.add_argument('--paper', type=Path, default=root.parent/'navier-paper')
+parser.add_argument('--formal', type=Path, default=root.parent/'navier-formal')
+args = parser.parse_args()
+graph = yaml.safe_load((root/'docs/proof-graph.yaml').read_text())
 nodes = graph['nodes']
 by_id = {n['id']: n for n in nodes}
 assert len(by_id) == len(nodes), 'duplicate claim IDs'
@@ -23,7 +30,7 @@ def visit(key):
     assert node['kind'] in allowed, f'unknown class {key}'
     for field in ('statement', 'mechanism', 'paper_label', 'review'):
         assert node[field], f'missing {field} in {key}'
-    assert (root / node['evidence']).is_file(), f'missing evidence for {key}'
+    assert (root/node['evidence']).is_file(), f'missing evidence for {key}'
     for dep in node['depends_on']:
         visit(dep)
     visiting.remove(key)
@@ -31,23 +38,52 @@ def visit(key):
 
 for key in by_id:
     visit(key)
-paper = root.parent / 'navier-paper/main.tex'
-assert paper.is_file(), 'missing manuscript'
-text = paper.read_text()
-for n in nodes:
-    assert '\\label{' + n['paper_label'] + '}' in text, f'missing paper label {n["id"]}'
-plan = (root / 'PLAN.md').read_text()
-assert 'phase_i_status: reopened-2026-09-06-in-progress' in plan
-assert 'checkpoint: CP1' in plan
-assert graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
-assert graph['phase_ii_status'] == 'reopened-2026-09-06-target'
-# The manuscript is external and read-only from 2026-09-06; we still verify its
-# labels above, but never write to it.
-assert 'paper_repo: read-only-pull-only' in plan
-assert 'external_deps: permitted-if-no-axioms-beyond-mathlib' in plan
-formal = root.parent / 'navier-formal/lakefile.toml'
-assert formal.is_file(), 'missing formal repository'
-assert 'public_release: false' in plan
+plan = (root/'PLAN.md').read_text()
+match = re.search(r'```yaml\s*\n(.*?)\n```', plan, re.S)
+assert match, 'missing live plan YAML'
+state = yaml.safe_load(match.group(1))
+assert state['checkpoint'] == 'CP1'
+assert state['phase_i_status'] == graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
+assert state['phase_ii_status'] == graph['phase_ii_status'] == 'reopened-2026-09-06-target'
+assert state['paper_repo'] in {'read-only-pull-only', 'writable-authorized-2026-09-06'}
+assert state['external_deps'] == 'permitted-if-no-axioms-beyond-mathlib'
+assert state['public_release'] is False
 assert by_id['NS-R3']['kind'] == 'gap', 'terminal promotion needs a new mathematical audit'
-print(f'PASS: {len(nodes)} claim records, acyclic dependencies, evidence and paper labels.')
-print('Scope: structural integrity only; no mathematical correctness is certified.')
+candidates = graph.get('candidate_supplements', [])
+assert len({c['id'] for c in candidates}) == len(candidates), 'duplicate candidate IDs'
+for c in candidates:
+    assert c['id'] not in by_id, 'candidate silently promoted into main graph'
+    assert c['status'] == 'author-checked-independent-audit-pending'
+    assert (root/c['evidence']).is_file(), 'missing candidate evidence'
+    assert c['paper_labels'], 'missing candidate labels'
+
+if args.research_only:
+    print(f'PASS (research-only): {len(nodes)} claim records, acyclic dependencies, evidence, status, {len(candidates)} pending supplements.')
+    print('NOT CHECKED: manuscript labels/includes and formal repository manifest.')
+else:
+    paper_root = args.paper.resolve()
+    seen = set()
+    def read_tex(path):
+        path = path.resolve()
+        assert path.is_relative_to(paper_root), f'include outside manuscript: {path}'
+        assert path not in seen, f'repeated or cyclic TeX include: {path}'
+        assert path.is_file(), f'missing manuscript source: {path}'
+        seen.add(path)
+        raw = path.read_text()
+        clean = re.sub(r'(?<!\\)%[^\n]*', '', raw)
+        expanded = clean
+        for name in re.findall(r'\\(?:input|include)\{([^}]+)\}', clean):
+            child = path.parent/name
+            if not child.suffix:
+                child = child.with_suffix('.tex')
+            expanded += '\n'+read_tex(child)
+        return expanded
+    text = read_tex(paper_root/'main.tex')
+    for n in nodes:
+        assert '\\label{'+n['paper_label']+'}' in text, f'missing paper label {n["id"]}'
+    for c in candidates:
+        for label in c['paper_labels']:
+            assert text.count('\\label{'+label+'}') == 1, f'missing/duplicate candidate label {label}'
+    assert (args.formal/'lakefile.toml').is_file(), 'missing formal repository manifest'
+    print(f'PASS: {len(nodes)} claim records, acyclic dependencies, evidence, status, manuscript labels across {len(seen)} TeX sources, {len(candidates)} pending supplements, formal manifest.')
+print('Scope: structural integrity only; no mathematical correctness, independent audit or Lean build is certified.')
