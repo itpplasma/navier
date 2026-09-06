@@ -1008,13 +1008,11 @@ nothing is corrected, only narrowed.
 Rewritten 2026-09-06 after the HF24, HF25 and HF26 audit waves. The previous
 list had duplicate numbering and described completed waves as running.
 
-1. **HF27 audits — in flight.** Three disjoint scopes: the certificate with its
-   prior-art comparison against the robustness / a posteriori regularity line
-   and its existential status; the oscillatory positive test and the comparison
-   hierarchy, with the scale-invariant norms of the data family computed to
-   check it is not a known small-data case in disguise; and the energy attempt
-   with the concentration test, including whether the reused backward
-   self-similar curve is cited as such. Apply repairs, then decide import.
+1. ~~HF27 audits~~ **done, 2026-09-06.** All three scopes returned; the
+   mathematics is correct throughout and the failures are of significance and
+   prior art. **Decision recorded: do not import.** See the HF27 section for the
+   reasons and for the corrected prior-art map, which is the wave's lasting
+   value.
 2. **Blocked on an external dependency.** Settling whether the refereed 2024
    JOTA paper on directional differentiability of metric projections subsumes
    HF26's linearization requires the printed text, which the prior-art lane
@@ -1645,7 +1643,7 @@ committed work and is queued for repair once the two sub-lanes covering that
 literature report.
 
 
-### HF27: a full-equation critical residual certificate (UNAUDITED)
+### HF27: a full-equation critical residual certificate (AUDITED: three scopes; DO NOT IMPORT)
 
 A fourth external continuation arrived 2026-09-06 as LaTeX source, 996 lines,
 committed verbatim as `research/evidence/hf27-critical-residual-continuation.tex`
@@ -1768,3 +1766,24 @@ last. It also disclaims any claim to be logically weaker than regularity at the
 existential level, which is the right posture but is a disclaimer rather than a
 determination; the audit decides it.
 
+**Import decision, 2026-09-06: do not import any part of HF27 into the
+manuscript.** The three audits agree on why, and none of the reasons is a
+mathematical error — the mathematics is correct throughout, with well over
+thirty refutation attempts failing against it.
+
+The certificate is the Chernyshenko–Constantin–Robinson–Titi robustness
+principle matched item for item, and its residual novelty over that literature
+is roughly one sentence. Its hypothesis is equivalent to the target, so the
+final section restates Clay alternative A rather than reducing it. The positive
+test certifies a family that is small on the critical scale and has been global
+since 1994 and 2001, over a wider range than the certificate reaches. The
+concentration test's curve is not merely the backward self-similar ansatz but
+literally the Leray profile equation, uncited, and the published triviality
+theorem yields its conclusion in one line. Its weighted appendix reconstructs
+the audited HF18-A and is already in the manuscript as
+`lem:qe-weighted-dissipation`, and it drops a zero-set fact its predecessor had.
+
+What the wave is worth keeping for is the corrected prior-art map, now recorded
+here and in the evidence notes: the robustness line and its critical-norm
+branch, the small-data critical-Besov line, and the Leray profile literature.
+Those bear on any future comparison-flow route the programme takes.
