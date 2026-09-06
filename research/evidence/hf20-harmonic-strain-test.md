@@ -1,7 +1,13 @@
 # HF20: a local harmonic-strain sign test for the cubic gradient quotient
 
-Status: **UNAUDITED candidate**, transcribed 2026-09-06. No graph node is
-promoted and the manuscript is untouched until an independent audit runs.
+Status: **audited, REPAIR applied by the controller**, 2026-09-06. The
+independent audit `hf20-review-harmonic-strain-test.md` found no invalid
+mathematics and one statement-level defect: Theorem 1.1 was displayed
+one-sidedly and so did not literally entail the two-sign conclusion that its
+own proof gives. The controller applied the audit's repair R1 below
+(Theorem 1.1', absolute value, same constant, proof unchanged) and its
+citation action for the regularity step. Everything else was verified,
+including by the auditor's independent numerics.
 
 Provenance. The candidate arrived as a typeset PDF on the work capture
 surface, not as a repository note. It was produced on 2026-09-05 20:13 UTC
@@ -44,14 +50,25 @@ the manuscript's `sec:quotient`.
 
 ## 1. Claimed conclusions
 
-**Theorem 1.1 (explicit transport sign test).** There are
-\(U,h\in C_c^\infty(\mathbb R^3)^3\) with \(\operatorname{div}U=\operatorname{div}h=0\),
-\(U\neq0\), and a computable finite \(C_*\), such that for every \(|\varepsilon|\le1\)
+**Theorem 1.1' (explicit transport sign test; two-sided form, audit repair R1).**
+There are \(U,h\in C_c^\infty(\mathbb R^3)^3\) with
+\(\operatorname{div}U=\operatorname{div}h=0\), \(U\neq0\), and a computable finite
+\(C_*\), such that for every \(|\varepsilon|\le1\)
 \[
- K(U+\varepsilon h)+\varepsilon\|U\|_3^3\le C_*|\varepsilon|^{3/2}. \tag{1.1}
+ \bigl|K(U+\varepsilon h)+\varepsilon\|U\|_3^3\bigr|\le C_*|\varepsilon|^{3/2}. \tag{1.1}
 \]
 Both signs of \(K\) therefore occur on smooth compactly supported solenoidal
 fields.
+
+The candidate displayed (1.1) without the absolute value, which is one-sided
+and does not entail the sentence after it, nor the lower bound in (4.5), nor
+\(k=K(V)>0\) in §5. Its proof does entail all of them: in the expansion of
+\(K(v_\varepsilon)+\varepsilon c_0\) below, each of the four terms is bounded in
+absolute value by (4.2), by \(\|A_\varepsilon-A_0\|_{3/2}\le L|\varepsilon|\), and by
+Hölder, and \(|\varepsilon|^3\le\varepsilon^2\le|\varepsilon|^{3/2}\) for
+\(|\varepsilon|\le1\), so the triangle inequality gives the two-sided bound with the
+same \(C_*\) of (4.4). No new hypothesis and no new constant. The rest of the
+note is read against this form.
 
 **Theorem 1.2 (actual solutions at prescribed energy).** For each \(\nu>0\) and
 \(E>0\) there is a solenoidal \(v_0\in C_c^\infty\) with \(\|v_0\|_2^2=E\) whose
@@ -211,10 +228,15 @@ Lemma 2.3 and (4.5), set \(\lambda=b^2E_V/E\) and \(v_0=bT_\lambda V\); then
 \(v_0\) is compact, smooth, solenoidal, with squared \(L^2\) norm exactly \(E\).
 Tao Theorem 5.4(ii),(iv) supplies the local smooth branch at unit viscosity;
 for general \(\nu\) apply it to \(v_0/\nu\) and rescale by
-\(v(t,x)=\nu\tilde v(\nu t,x)\), \(p(t,x)=\nu^2\tilde p(\nu t,x)\). The
-high-Sobolev and higher-time-derivative bounds give \(v\in C^1_tL^3\) up to
-zero and \(p\in W^{1,3}\) on a short interval, which are exactly the hypotheses
-of Lemma 2.3; no continuation theorem is used. Then (2.3) at zero gives
+\(v(t,x)=\nu\tilde v(\nu t,x)\), \(p(t,x)=\nu^2\tilde p(\nu t,x)\), which is exactly
+the inverse of the manuscript's `eq:nu-normalization`. The candidate then
+sketches, from the high-Sobolev and higher-time-derivative bounds, that
+\(v\in C^1_tL^3\) up to zero and \(p\in W^{1,3}\) on a short interval, which are
+exactly the hypotheses of Lemma 2.3. **Audit integration action:** that sketch
+is a one-sentence compression of a multi-step manuscript lemma and is replaced
+by a citation of `prop:localtheory`(iii),(iv) and `lem:upgrade`, which prove
+it. Tao 5.4(ii)'s smallness condition is available because only a short
+interval for one fixed datum is needed. No continuation theorem is used. Then (2.3) at zero gives
 \[
  \tfrac{d}{dt}\mathcal Q(v(t))\big|_{0^+}=\lambda^2b^3(bk-\nu d)>0, \tag{5.2}
 \]
@@ -241,6 +263,17 @@ identified. The field \(h\) is a direction in the space of data, not the
 Navier–Stokes time derivative at \(U\), so (1.1) is not a computation of
 \(dK(u(t))/dt\) along the trajectory from \(U\); the actual-flow argument starts
 at the perturbed, amplified datum \(v_0\).
+
+## 7. Controller assessment (superseded by the independent audit)
+
+The audit `hf20-review-harmonic-strain-test.md` verified every point listed
+below and added independent numerical falsification attempts against each
+pointwise input, all of which failed to refute. It also confirmed
+compatibility with the audited HF18-A bound: on the family \(bT_\lambda V\) the
+ratio of the two sides is exactly scale-invariant, and HF18-A's
+\(\dot{\mathcal Q}\le(C_*\mathcal Q^{1/3}-\nu)D_{\mathcal Q}\) forces any increase to
+live at supercritical \(\mathcal Q^{1/3}>\nu/C_*\), which is exactly where this
+candidate's amplification parameter puts it. The two agree.
 
 ## 7. Controller assessment (not an audit)
 
@@ -279,12 +312,12 @@ should be cited rather than re-derived; and whether the scaling exponents in
 
 ## Frontier record
 
-**MODE / RESULT:** FALSIFY. Claimed: an analytic two-sign certificate for the
-transport term of the cubic gradient quotient on smooth compactly supported
-solenoidal fields, and a transfer showing the quotient strictly increases on
-actual classical trajectories at every viscosity and every prescribed
-squared \(L^2\) norm, with the fixed-energy supremum of
-\(K-\beta\nu D_{\mathcal Q}\) infinite. **UNAUDITED.**
+**MODE / RESULT:** FALSIFY, **audited REPAIR, repair applied**. Established:
+an analytic two-sign certificate for the transport term of the cubic gradient
+quotient on smooth compactly supported solenoidal fields, and a transfer
+showing the quotient strictly increases on actual classical trajectories at
+every viscosity and every prescribed squared \(L^2\) norm, with the
+fixed-energy supremum of \(K-\beta\nu D_{\mathcal Q}\) infinite.
 
 **CLAIM AND SCOPE:** as stated in Theorems 1.1, 1.2 and Corollary 5.1, for
 the original unforced equation on \(\mathbb R^3\), arbitrary \(\nu>0\), smooth
@@ -304,8 +337,10 @@ trajectory; no refutation of `hyp:highstrain` or `hyp:highpressure`; no
 regularity or blowup result; no novelty claim; no promotion of any graph
 node. NS-R3 remains open.
 
-**NEXT DISTINCT ACTION:** an independent audit at a different tier and lens,
-freezing this note and the PDF hash above, checking the points listed in §7,
-and returning PASS, REPAIR, FAIL WITH SCOPE, or INVALID with an exact first
-bad bridge. Only after that does the manuscript scope remark and the graph
-review text change.
+**NEXT DISTINCT ACTION:** done for this note. The audit returned REPAIR, the
+repair is applied above, and the controller has integrated the result: a scope
+remark in `sec:quotient` and an extended HIGH-STRAIN review in the graph. The
+research question it leaves is the one the audit names: the excluded class now
+covers universal monotonicity and instantaneous energy-only absorption, so the
+surviving direction is the time-integrated sign structure of the transport
+term, pursued in wave HF21.
