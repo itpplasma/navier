@@ -1009,14 +1009,16 @@ nothing is corrected, only narrowed.
 2. ~~Integrate the audited outcome~~ **done**: `rem:no-monotone` in the
    manuscript at `bdad8a1`, the HIGH-STRAIN review text in the graph, and the
    regenerated map.
-3. **Apply the three HF19 audit repairs.** All three returned REPAIR with no
-   invalid mathematics. The first bad bridges are an input-constant slip plus
-   a substantive second item in the temporal-normal-form note; an incomplete
-   verification of the simple-connectivity hypothesis in the second-order
-   note, which fails on members of the very class it computes; and an
-   unsupported negative claim in the difference-functional note's scaling
-   section, which discharges nothing. Each review supplies replacement text,
-   and each note keeps a surviving unconditional core.
+3. ~~Apply the three HF19 audit repairs~~ **done, 2026-09-06.** All three
+   returned REPAIR with no invalid mathematics, and each note now carries its
+   audit status, the prescribed replacement text, and a weakened or removed
+   version of every claim the audit found unsupported. Two by-products are
+   recorded rather than hidden: the temporal-normal-form note's transfer
+   corollary does not deliver `hyp:absorption` as the manuscript states it,
+   since it carries a Gronwall term and no fixed `theta < 1`, and its
+   Section 5 numerics are not reproducible because the probe script lived
+   only in session scratch. The note records both as parsable
+   `- needs review:` lines rather than quietly dropping them.
 4. **Continue Track B** on the surviving mechanism question. After HF18-A,
    HF19 and HF20 the excluded classes are: size bounds in `Q` and `D_3` by
    scaling, temporal normal forms with correctors in the computed classes,
