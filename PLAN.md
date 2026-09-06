@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF24-and-HF25-audits
+active_task: HF24-audits-and-HF26-audits
 public_release: false
 ```
 
@@ -1394,3 +1394,59 @@ the enstrophy on the set of times far from the nonlinear-Hodge class, and that
 this shortfall is sharp. The value of the reformulation is as a different
 mechanism, not as a weaker hypothesis, and nothing here is progress toward a
 proof until one of these is discharged without a continuation norm.
+
+
+### HF26: weighted linearization, actual-flow departure, temporal criterion (UNAUDITED)
+
+A third external continuation arrived 2026-09-06 as LaTeX source, 1432 lines,
+committed verbatim as `research/evidence/hf26-temporal-continuation.tex` with an
+index note, frozen by SHA-256
+`24b538280c8639b81a1f6f86d4c72370362625ca8a52d1d81a99b29236a540ab`. Unlike the
+two earlier continuations, **all three of its pinned revisions were checked
+with `git rev-parse` and match our commits exactly.** Four independent audits
+are in flight, one per scope. Nothing below is promoted.
+
+It offers four things. It replaces the *formal* linearization of the nonlinear
+projection, which the repaired HF22 note could only treat formally, with a
+strong-limit theorem in a fixed degenerate weighted Hilbert space, plus a strong
+Hadamard derivative of the dual field into `L^{3/2}`. It upgrades the departure
+from the nonlinear-Hodge class from linear heat flow, where HF19-D and HF25 both
+established it, to the **actual Navier–Stokes flow** at every viscosity. It
+gives a one-scale temporal criterion producing the full target from a supremum
+bound on the strong `L^3` temporal residual of the correction at a single
+input-selected scale. And it proves unconditionally, from energy alone and with
+no continuation norm, an *integrated* translation estimate for that residual,
+together with a bound on the measure of the exceptional set.
+
+Its own boundary is stated plainly and repeated: the integrated estimate does
+not imply the supremum the criterion needs, the gap is exactly the dissipation
+accumulated on a small-measure exceptional set, and no arbitrary-data witness
+is supplied for any of the three alternatives it lists.
+
+**The item that would change our own record.** Its concentrating comparison
+curve is built from genuine solenoidal fields whose variational objects are the
+actual ones. The controller verified its scaling algebra symbolically: the curve
+satisfies the exact kinetic-energy identity, the exact quotient identity, has
+constant scalar distance, and can be made to satisfy any prescribed cubic
+enstrophy bound — while both the target quantity and HF25's fourth-power defect
+integral diverge on it. It is not a Navier–Stokes solution, and its explicit PDE
+residual is invisible to both scalar tests. If the audit confirms it, this is a
+sharper exclusion than any the programme has recorded, because unlike every
+previous excluded class it violates nothing at the scalar level; what it lacks
+is only the equation itself.
+
+**Two claims of ours are challenged and are held pending audit.** The plan says
+above that an input-only modulus for the distance is *equivalently* an input-only
+bound on the number of crossings of the critical level. HF26 argues that this
+needs both a precise notion of crossing and an explicit choice of observed
+object, and exhibits a smooth scalar function with a Lipschitz modulus that
+crosses a fixed level infinitely often: a modulus bounds excursions between
+*separated* thresholds, not crossings of a single level, and conversely a
+crossing count supplies no modulus. It also distinguishes the **scalar** modulus
+for `t -> ||q(t)||_3`, which is what HF24 and the sentence above observe, from
+the **vector** modulus for `t -> q(t)` in strong `L^3`, which is what its
+producer actually needs; the reverse triangle inequality runs one way only. The
+HF24 audits are in flight and were commissioned before this arrived, so their
+verdicts and the HF26 countermodel audit will be reconciled together rather than
+either being applied first. The sharpened-gap section above may need revision
+once they return.
