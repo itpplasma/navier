@@ -1067,7 +1067,20 @@ list had duplicate numbering and described completed waves as running.
    quantifiers except the HF24 corridor hypothesis, which by Proposition R1 is
    strictly weaker and whose whole content is the exclusion of a blow-up staying
    above the upper corridor wall on a final interval. That asymmetry is the most
-   promising structural fact currently on the table and deserves its own wave.
+   promising structural fact currently on the table. **Wave HF29 is now running
+   on it**, as an adversarial pair on the question the HF24 audit named as the
+   falsifiable form. By Proposition R1 the corridor hypothesis fails only if a
+   finite-time singularity re-enters the corridor band at times accumulating at
+   the singular time — it cannot stay *below* the band, since that forces the
+   quotient to be nonincreasing and hence regularity. So the whole content of
+   the hypothesis is the exclusion of oscillation across a band whose position
+   is fixed by the viscosity and the free parameter. One lane attempts the proof
+   directly; the other attacks it, with the discretely self-similar mechanism as
+   its natural candidate, since the distance is scale-invariant and a
+   log-periodic profile crossing the band would re-enter it infinitely often.
+   The second lane is also asked to settle a question the record has left
+   ambiguous: whether the hypothesis is meant for one, for some, or for all
+   values of the free parameter, and whether the lane and its audit agree.
 6. **Formalization stays deferred** until the full paper route is proved and
    audited, per the user's re-sequencing of 2026-09-05. `../navier-formal` is
    not to be extended until this plan reopens it.
