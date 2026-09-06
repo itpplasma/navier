@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: active-paper-proof-work-2026-09-06
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: regularized-shell-dynamics-endpoint-driver-and-independent-audit
+active_task: corotational-material-action-and-independent-audit
 public_release: false
 ```
 
@@ -2276,3 +2276,42 @@ Independent audits of this and the predecessor components remain required.
 All 29 existing graph nodes and formal statuses are unchanged; HIGH-PRESSURE,
 HIGH-STRAIN, DEFECT-L4 and NS-R3 remain open. This checkpoint replaces the
 active task, not the historical record of prior unsuccessful approaches.
+
+## Corotational material checkpoint (2026-09-06)
+
+The new source `sections/material_response.tex` in `navier-paper`, frozen at
+`2959003806907fa4742518bff741f24c592921e6`, proves a strong moving-metric
+response for the cubic gradient minimizer. A cubic little-o remainder, not
+just the earlier big-O estimate, justifies the natural-variable derivative
+in L2 including velocity zeros. No unweighted L3 derivative of w is assumed.
+
+Pullback by the actual volume-preserving flow gives, with N=DJ(w),
+P the fixed weighted gradient projection, L=I-P and S the velocity strain,
+
+    U=(partial_t+u dot grad)V-Omega V
+      =N[L(nu Delta u-Sw)+P(I-n tensor n/2)Sw].
+
+The two weighted responses are orthogonal and their squared action obeys
+`action <= ||U||2^2 <= 9 action/8`. Its explicit upper bound is
+`(9/2)nu^2 integral rho|Delta u|^2 +(81/16) integral rho^3 ||S||op^2`.
+This removes pressure, bulk transport and rigid rotation from the driver,
+not strain or diffusion. The material finite-ridge residual equation keeps
+the complete Riesz/rotation commutator and its correct dual-space pairing.
+The accepted quotient balance is recovered exactly as a consistency check.
+
+The endpoint bound is still unproved. Weighted acceleration, strain action,
+the full commutator and uniform refinement losses are not controlled by
+the available energy/moment budgets. Differentiating dissipation did not
+establish the signed estimate needed to pay for this action. No heat
+convexity or differentiation of a moving weighted projection is assumed.
+See `research/evidence/2026-09-06-material-response.md` for the complete
+source trail, attempted closure, author checks and independent-audit list.
+This and predecessor supplements remain independently unaudited. No main
+graph node or formal status is promoted; NS-R3, HIGH-PRESSURE, HIGH-STRAIN
+and DEFECT-L4 remain open.
+
+Next positive producer: exploit the exact combined action or derive a
+signed temporal estimate for the complete residual on actual trajectories.
+Do not replace it by independent absolute estimates without checking the
+lost cancellation. Independently audit the component before any promotion.
+The new active task replaces the last driver target, not historical work.

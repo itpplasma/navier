@@ -338,3 +338,13 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-shell-dynamics.md
     paper_labels: ['st:stability', 'st:time', 'st:residual', 'st:evolution']
     scope: Natural-distance stability, pressure-free local time regularity and exact finite regularized shell-residual evolution; endpoint driver control and uniform refinement remain unproved, with no arbitrary-data critical estimate or node promotion.
+  - id: COROTATIONAL-MATERIAL-RESPONSE
+    title: Strong natural response and corotational material action
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 2959003806907fa4742518bff741f24c592921e6
+    source_path: sections/material_response.tex
+    source_sha256: 54eb89147a08ee4403d8278fbe844bf396fb2978962cf156a6c5e547f4b90034
+    evidence: research/evidence/2026-09-06-material-response.md
+    paper_labels: ['mr:response', 'mr:hadamard', 'mr:material', 'mr:residual', 'mr:balance', 'mr:rigid']
+    scope: Strong moving-metric and zero-set natural differentiation, exact orthogonal diffusion-strain action and full material residual commutator; endpoint action control and uniform refinement remain unproved, no arbitrary-data critical bound or node promotion.

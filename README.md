@@ -95,3 +95,16 @@ finite smooth speed-shell residuals with a positive ridge penalty.
 boundary: endpoint control of the evolution drivers and uniformity under
 refinement remain unproved. `PLAN.md` is the sole live status. No open or
 formal claim is promoted.
+
+## Corotational material response (2026-09-06)
+
+The paper now contains a full moving-metric response proof, including the
+zero-set natural derivative, and an exact material law after removal of
+rigid rotation. It isolates an orthogonal diffusion-strain action and
+retains the nonlocal commutator in the finite shell-residual evolution.
+These are author-checked component results, not an endpoint estimate;
+independent audit remains pending. The next task is in `PLAN.md` and the
+source/verification boundary is in
+`research/evidence/2026-09-06-material-response.md`. All existing main claim
+kinds and formal authorizations are preserved, including the open NS-R3,
+HIGH-PRESSURE, HIGH-STRAIN and DEFECT-L4 nodes.
