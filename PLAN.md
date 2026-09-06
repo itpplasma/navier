@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF19-repairs-and-HF21-track-b
+active_task: HF21-audits-and-HF19-repairs
 public_release: false
 ```
 
@@ -1029,3 +1029,46 @@ nothing is corrected, only narrowed.
    HF18-B.
 5. **Formalization stays deferred** until the full paper route is proved and
    audited, per the user's re-sequencing of 2026-09-05.
+
+
+### HF21: shifted-Hodge regularity and the crossing sign structure (UNAUDITED)
+
+Two lanes, both delivered 2026-09-06, **both unaudited**; nothing is promoted
+and the manuscript is untouched. Their audits are the next action.
+
+`hf21-shifted-hodge-regularity.md` delivers the lane HF19 never wrote and
+reshapes the (H1) regularity question rather than settling it. It reports:
+the curl of the minimizing representative equals the curl of the velocity in
+the distributional sense, so the skew part of its gradient is as smooth as
+the datum and (H1) is entirely a question about neighbourhoods of the zero
+set; a Calderon-Zygmund equivalence making the minimizer locally Sobolev
+exactly when the distribution `div w` is locally `L^p` for one `p > 1`,
+which collapses the two hypotheses (H1) and (H2) of HF18-B into the single
+scalar statement `div w in L^{3/2}`; a rigidity theorem excluding zeros with
+nonvanishing derivative, which vetoes the mechanism every construction in
+the programme has used and which the note verifies on the HF18-B witness
+family by explicit computation; a circulation lower bound, the first
+quantitative lower bound on the representative in the programme; and the
+statement that Uhlenbeck's theorem is inapplicable while its mechanism still
+yields a local Caccioppoli inequality from which Gehring provably cannot be
+started. The lane records its own scope ceiling: even granted in full, (H1)
+supplies no time-integrated absorption and would not close the gap.
+
+`hf21-crossing-sign-structure.md` answers the wave's strategic question
+affirmatively but with an exact obstruction. It reports an exact spacetime
+identity for the integrated transport term in which two of the four
+right-hand terms are signed, the sign structure the pointwise term lacks,
+while the remainder is precisely the pressure-route flux; a refinement of the
+audited size bound with the distance to the nonlinear-Hodge class as an
+explicit factor; an input-only spacetime bound for that distance; and a
+crossing theorem stating that the quotient can increase only on a set of
+times whose measure is bounded by input data. It also reports a route-level
+dictionary in which signed pressure absorption implies the quotient gap with
+an explicit non-circular constant, so the high-strain route is not harder
+than the high-pressure route, and a simplification removing the Gronwall
+term and the frequency cutoff from the high-strain hypothesis. Two
+obstructions are recorded against upgrading the crossing bound to
+absorption, one of them a circularity that would assume the Serrin
+conclusion the gap must produce.
+
+Both lanes state that the first gap is unchanged and not closed.
