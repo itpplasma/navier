@@ -1520,6 +1520,28 @@ therefore joins the existential-equivalence class alongside the HF25 defect
 hypothesis and the HF24 bad-set hypothesis, and against every classical
 criterion it is neither weaker nor stronger but logically equivalent.
 
+**Audit of the linearization scope, returned 2026-09-06: PASS WITH SCOPE**
+(`hf26-review-weighted-linearization.md`). The mathematics is correct as
+displayed, reconstructed independently including both signs of the
+perturbation, the degenerate weight and the zero Hilbert space. The strong
+convergence is a genuine Minty-Browder argument, and the auditor confirmed
+what mattered most: no step uses unweighted convergence of the difference
+quotients or unweighted control near the zero set, so the result does not
+quietly restore the gap the weighted formulation exists to avoid. The zero set
+contributes nothing to the dual limit for free, which is exactly why the
+unweighted dual conclusion is compatible with the document's own warning. Nine
+refutation attempts were made and seven failed outright, including a
+finite-dimensional model reproducing the Hessian symmetry to fifteen digits.
+
+Three scope repairs, all about claims *around* the result rather than the
+proofs. The document over-reads its relation to HF22: that lane's formal ansatz
+presupposed differentiability in the ambient norm, whereas what is proved here
+is only the weighted version, so two of HF22's open questions are untouched
+rather than resolved. One quantifier is wrong, the identities being asserted
+near a first-order Sobolev hypothesis but proved only for much smoother data
+with no extension supplied. And a constant in the appendix needs an extra
+almost-everywhere convergence to reach the stated value rather than twice it.
+
 **Two leads worth their own wave, both from that audit and both unaudited.**
 The first is that the producer's own section re-derives the HF25 defect
 criterion in two lines, so what HF26 adds there is not a new criterion but the

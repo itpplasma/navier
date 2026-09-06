@@ -133,9 +133,22 @@ before anything from that wave is promoted.
 - `thm:curve`: independently of my algebra check, whether the seed field `W_0`
   with `K(W_0) > 0` in the appendix is correct, since the whole countermodel
   rests on it; and whether `cor:curveenstrophy`'s limit argument holds.
-- The appendices reconstruct HF23's estimate and a weighted dissipation
-  identity; check these against our already audited HF23 rather than assuming
-  agreement.
+- The appendices. **Correction, from the audit: this note originally said both
+  appendices reconstruct HF23 and should be checked against it. That is wrong
+  for one of them.** Only the spatial appendix reconstructs HF23; the weighted
+  dissipation appendix reconstructs the audited **HF18-A Theorem 2**, and
+  HF23's own text disclaims needing that identity, so following the original
+  instruction would have compared the appendix against a document that
+  explicitly does not assert it. What is genuinely new there is narrower and
+  worth stating: HF18-A's identity held only in an approximate-gradient sense
+  under the then-open hypothesis (H1), and HF23's discharge of (H1) turns it
+  into a genuine weak-derivative identity.
+- **A notation collision to fix before any import.** The audited HF22-B already
+  uses the symbol this document writes for its weighted Hilbert space to mean
+  the completion of the *gradient quotient*, which is a different object here
+  and corresponds to this document's other symbol. Since the linearization
+  remark links the two documents, an import that preserves both notations will
+  be misread.
 
 ## Frontier record
 
