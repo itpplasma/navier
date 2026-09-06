@@ -1,6 +1,9 @@
 # HF24-A: an input-only modulus of continuity for the distance to the nonlinear-Hodge class
 
-**STATUS (2026-09-06).** Lane HF24-A, **MODE: DISCOVER**, **UNAUDITED**. Owned
+**STATUS (2026-09-06).** Lane HF24-A, **MODE: DISCOVER**, **AUDITED 2026-09-06: REPAIR,
+repairs applied by the controller**; see
+`research/evidence/hf24-review-modulus-of-continuity.md` for the full audit,
+which carries the replacement statements in full. Owned
 file: `research/evidence/hf24-modulus-of-continuity.md`. Nothing else in the
 repository is edited, nothing is committed, nothing is promoted, and the
 manuscript is untouched.
@@ -128,8 +131,15 @@ argument of Step 4 of `cor:quotient-defect`, run on the difference of the two
 approximating sequences) and the trivial converse
 `||grad z||_2 >= C_S^{-1}||z||_6`. `[]`
 
-So **time regularity of `q` in `L^6` and time regularity of `sigma` in `L^2`
-are the same statement, with constant `C_S` in both directions.** This is the
+So `Hdot^1` regularity of `q` and `L^2` regularity of `sigma` are the same
+statement, with constant `1`; and `L^6` regularity of `q` follows from `L^2`
+regularity of `sigma` with constant `C_S`. **Correction, from the audit: the
+converse is false, and this note's original claim of an equivalence "with
+constant `C_S` in both directions" is withdrawn.** The two displayed
+inequalities were the same inequality, so only the one-sided bound was ever
+proved. It is refuted by the wave packet `sigma_n = cos(2 pi n x_1) phi`, for
+which `||sigma_n||_2` is bounded below while `||q_n||_6 = O(1/n)`; the audit
+confirmed this numerically on a spectral grid. The claim was not load-bearing. This is the
 precise answer to the first half of task item (1). It is a genuine consequence
 of `cor:quotient-defect`: before HF23 the map `u -> q` had no linear structure
 at all.
@@ -188,7 +198,13 @@ Euler--Lagrange orthogonality, and the pointwise cubic identities are used.
 
 ### 3.1 A weighted stability estimate
 
-**Lemma 3.1 (weighted stability; new).** Let `u, u' in L^3(R^3)^3`,
+**Lemma 3.1 (weighted stability; = HF22-B Theorem A and Corollary A1, audited
+PASS).** **Correction, from the audit: this lemma is not new.** It is
+`hf22-projection-regularity.md` Theorem A plus the first chain of its
+Corollary A1, verbatim, with the same constant and the same three-step proof,
+and that note belongs in this lane's Inputs. The genuinely new step is pairing
+the weight against `||w||_6` rather than `||w||_3`, which is what improves the
+modulus exponent from one eighth to one quarter. Let `u, u' in L^3(R^3)^3`,
 `h = u' - u`, `w = w(u)`, `w' = w(u')`. Then, with all integrals finite,
 
 ```

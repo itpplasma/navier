@@ -1,6 +1,9 @@
 # HF24-B: the bad-set restriction of (G) under the new regularity
 
-Lane HF24-B, **MODE: DISCOVER**, 2026-09-06. Owned file:
+Lane HF24-B, **MODE: DISCOVER**, 2026-09-06. **AUDITED 2026-09-06: REPAIR,
+repairs applied by the controller**; see
+`research/evidence/hf24-review-badset-restriction.md`, whose Lemma A and
+repairs R1-R3 carry the replacement statements in full. Owned file:
 `research/evidence/hf24-badset-restriction.md`. Nothing else in the repository
 is edited, nothing is committed, nothing is promoted, the manuscript is
 untouched. **(G) is neither proved nor refuted here, and NS-R3 remains open.**
@@ -81,7 +84,12 @@ Five findings, in the order the lane's four instructions ask for them.
  then `hyp:highstrain` holds with \(\theta=0\) and
  \(A_{\rm input}=\frac{\delta}{3(1-\delta)}\|u_0\|_3^3
  +\frac{5C_S^3E_0N}{16\nu(1-\delta)}\), hence the Clay conclusion for that
- datum. The hypothesis is **strictly weaker than a Serrin bound**: it
+ datum. **Correction, from the audit: the claim that this hypothesis is strictly
+weaker than a Serrin bound is withdrawn as false at these quantifiers.** By the
+audit's Lemma A it is equivalent to global continuation past the horizon for
+the datum, hence to the critical and high-strain hypotheses and to a Serrin
+bound, and it belongs to the existential-equivalence class. It is strictly
+weaker only pointwise, for a fixed trajectory and stopping time, in that it
  constrains the enstrophy only on a set of times of input-bounded measure
  \(\beta\), and says nothing on the good set, where the enstrophy may be
  unbounded.
@@ -480,7 +488,12 @@ conclusion of `hyp:critical` on \([0,\min\{H,T_*\})\).
 *Proof.* \(\int_{\mathcal B_\delta}Y^2\le N\int_{\mathcal B_\delta}Y\le NE_0/(2\nu)\)
 by (A4); insert into (3.2). \(\square\)
 
-**Remark 3.4 (the hypothesis is strictly weaker than a Serrin bound).**
+**Remark 3.4' (the exact status of the hypothesis; replaces the withdrawn
+Remark 3.4).** As an input-uniform existential hypothesis it is **not** weaker
+than a Serrin bound but equivalent to one, by the audit's Lemma A. What follows
+is true only in the pointwise reading, for a fixed trajectory and a fixed
+stopping time; the narrowing it achieves is of the search surface, not of the
+assumption.
 (H-BY) constrains \(Y\) only on \(\mathcal B_\delta\), a set of measure at most
 \(\beta\); it says nothing on \(\mathcal G_\delta\), where the enstrophy is
 permitted to be unbounded. That the conclusion is nevertheless global is not a
@@ -758,7 +771,9 @@ touched.
 
 **NEXT DISTINCT ACTION.** Decide (H-BY): is the enstrophy input-bounded on the
 set of times at which the trajectory is far from the nonlinear-Hodge class?
-This is a strictly weaker question than a Serrin bound (Remark 3.4), it is the
+This is a strictly weaker question than a Serrin bound only in the pointwise
+reading of Remark 3.4'; at this lane's own quantifiers it is equivalent to one.
+It is the
 exact residue of the whole gap after the import (Prop. 4.1), and it is a
 question about the *interaction* of the distance and the enstrophy, which no
 lane has yet posed: HF21-B and HF22-C measured the bad set, HF24-A measures its
@@ -776,7 +791,8 @@ crossings, and neither constrains the height of \(Y\) on it.
  an input-only bound (H-BY), or whether an explicit family refutes its
  derivability from (T1)–(T15) as Theorem 5.2 does for the restriction itself.
 - needs review: whether the mixed-pressure reduction of Remark 3.5 —
- \(\int_{\mathcal B_\delta}\|\Pi_u\|_2^2dt\) input-bounded — is strictly weaker
+ \(\int_{\mathcal B_\delta}\|\Pi_u\|_2^2dt\) input-bounded — is, in the
+pointwise reading only and not at this lane's quantifiers, weaker
  than (H-BY) on the classical branch, since \(\|\Pi_u\|_2\) may be far below
  \(\|u\|_6\|w\|_6^2\).
 - needs review: whether Theorem 2.1 admits a form with \(\|\nabla u\|_2\) in

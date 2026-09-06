@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF24-audits-and-HF26-audits
+active_task: HF26-audits
 public_release: false
 ```
 
@@ -1334,9 +1334,12 @@ HF23 proves, and no misattribution was found. Flagging it was right; it turned
 out benign.
 
 
-### HF24: modulus of continuity and the bad-set restriction (UNAUDITED)
+### HF24: modulus of continuity and the bad-set restriction (AUDITED: REPAIR)
 
-Two lanes, delivered 2026-09-06, **both unaudited**.
+Two lanes, delivered 2026-09-06, **both audited 2026-09-06, both REPAIR**. In
+each case every load-bearing computation was recomputed and reproduced, and in
+each case an overclaim was withdrawn. The audits are
+`hf24-review-modulus-of-continuity.md` and `hf24-review-badset-restriction.md`.
 
 `hf24-modulus-of-continuity.md` obtains a modulus, but in a different currency
 than the question asked: the distance is Hölder with exponent one quarter with
@@ -1345,9 +1348,23 @@ for a factor built from the enstrophy at the two endpoints. That yields a new
 unconditional constraint on the bad set and a crossing count conditional on
 one named scalar. Its gap is an input-only upper bound for the enstrophy
 restricted to the corridor of times where the distance sits near the critical
-level; the lane records that the unrestricted form of that bound is the
-critical hypothesis verbatim, hence circular, so the corridor restriction is
-the whole distance between its hypothesis and its conclusion.
+level; the lane was right that the *unrestricted* form of that
+bound is the critical hypothesis verbatim, and the audit decides the question
+the lane left open: the corridor restriction **does** escape the circularity.
+By the audit's Proposition R1 the corridor hypothesis holds if and only if
+either the horizon precedes the maximal time, or a finite-time blow-up keeps
+the distance strictly above the upper corridor wall on a final interval. The
+second alternative is a blow-up satisfying the hypothesis, so the hypothesis is
+implied by the Clay conclusion and does not imply it. It is therefore strictly
+weaker than the critical hypothesis and, unlike the high-strain hypothesis, is
+**not** of the existential-equivalence class; its whole content is the
+exclusion of that final-interval branch. The audit also corrects the lane's
+crossing count: only the components that reach the upper corridor wall are
+counted, which is what the bad set needs, while components oscillating inside
+the corridor are not countable from the record. And the lane's weighted
+stability lemma is not new, being the audited HF22-B Theorem A verbatim; the
+genuine novelty is pairing that weight against the new sixth-power bound,
+which is what improves the modulus exponent from one eighth to one quarter.
 
 `hf24-badset-restriction.md` returns a negative with a sharp accounting. The
 route the lane was asked to try fails for a stated reason: by scaling the only
@@ -1365,11 +1382,46 @@ the new mixed-pressure estimate demands the Serrin line exactly.
 
 **Convergence again.** Both lanes end at the same new question, which no
 earlier lane posed: is the enstrophy bounded by input data on the set of times
-where the trajectory is far from the nonlinear-Hodge class? It is strictly
-weaker than a Serrin bound, since it constrains the enstrophy only on a set of
-input-bounded measure and leaves the good set free. Earlier waves measured
-that set and then counted its crossings; neither constrained the height of the
-enstrophy on it.
+where the trajectory is far from the nonlinear-Hodge class? **This plan previously called that question strictly
+weaker than a Serrin bound. That claim is withdrawn as false.** The audit's
+Lemma A establishes that the bad-set hypothesis is equivalent, at the
+programme's quantifiers, to global continuation past the horizon for the datum,
+hence to the critical hypothesis and to a Serrin bound; it belongs to the
+existential-equivalence class, exactly like the HF25 defect hypothesis. It is
+strictly weaker only pointwise, for a fixed trajectory and a fixed stopping
+time, where it constrains the enstrophy on a set of input-bounded measure and
+leaves the good set free. The narrowing is of the search surface, not of the
+assumption. Earlier waves measured that set and then counted its
+crossings; neither constrained the height of the enstrophy on it. Per the
+audit's Proposition R1 the falsifiable form of the shared question is sharper
+than the enstrophy phrasing: must a finite-time singularity re-enter the
+corridor at times accumulating at the singular time?
+
+**Controller adjudication of a conflict between the two audits.** The bad-set
+audit, having proved its Lemma A, extrapolated it to the sibling lane and
+concluded that both corridor and bad-set hypotheses are equivalent to global
+continuation, on the general principle that "restricting the set of times does
+not lower existential strength". **That extrapolation is refuted**, by the
+Proposition R1 the other audit proved and this one did not have. The general
+principle is false as stated, and the reason is precise. Lemma A's forward
+direction needs the restricted hypothesis to force regularity, and whether it
+does depends on whether the restricting set can be *escaped*. The bad set is
+the set of times far from the nonlinear-Hodge class, which is upward closed in
+the distance: a blow-up cannot leave it, so bounding the enstrophy there forces
+regularity and the equivalence holds. The corridor is a *bounded band* around
+the critical level: a blow-up can exit it upward and never return, leaving the
+corridor empty near the maximal time, so the hypothesis is satisfied vacuously
+and the forward direction fails. The two hypotheses therefore genuinely differ
+in logical strength, and each audit is correct about its own object. What
+distinguishes them is not that one restricts a set of times but the *shape* of
+the set restricted.
+
+This matters beyond bookkeeping: the corridor hypothesis is the only object the
+programme has produced so far that is **not** in the existential-equivalence
+class, so it is the only one whose refutation would not amount to refuting the
+Clay statement itself. It cannot, however, be established short of excluding a
+blow-up branch, which is why it is a genuine question rather than an easier
+one.
 
 ### The sharpened first gap (2026-09-06)
 
@@ -1386,9 +1438,11 @@ hypothesis is **implied by** the classical Ladyzhenskaya–Prodi–Serrin and
 Beirao da Veiga gradient criteria on the same line, so it is not a weaker
 assumption than what the literature already knows; its interest is that it
 constrains only the divergence of the representative rather than the full
-gradient. Second, it belongs to the existential-equivalence class, so at the
-problem's quantifiers it is equivalent to global continuation, like every
-other formulation the programme has produced. Third, the bad-set accounting of
+gradient. Second, it belongs to the existential-equivalence class, so at the problem's
+quantifiers it is equivalent to global continuation, like every other
+formulation the programme has produced **except one**: the audited HF24 bad-set
+hypothesis joins it in that class, while the HF24 corridor hypothesis is the
+single exception, being strictly weaker by Proposition R1. Third, the bad-set accounting of
 HF24 says the residue after the import is exactly one factor, the height of
 the enstrophy on the set of times far from the nonlinear-Hodge class, and that
 this shortfall is sharp. The value of the reformulation is as a different
