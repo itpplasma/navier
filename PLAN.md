@@ -9,7 +9,8 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: terminal-closure-search-after-instantaneous-and-helical-exclusions
+active_task: scoped-structural-paper-complete-external-review-pending
+structural_paper_status: complete-author-level-primary-source-compared
 active_architecture: none-passes-complete-terminal-gate
 complete_terminal_route: none-established
 retired_primary_route: pressure-quotient-defect-shell-material-response
@@ -24,6 +25,36 @@ terminal_obstruction: unchanged
 formal_work_this_run: deferred
 public_release: false
 ```
+
+## Current scoped paper task (owner instruction, 2026-09-06)
+
+The owner requested completion at paper level of the proposed quadratic
+Lyapunov and globally smooth maximum-vorticity obstruction paper, with a
+literature audit and private pushes. This scoped instruction authorizes the
+standalone manuscript; it does not reopen the retired terminal programme.
+
+The complete source is `itpplasma/navier-paper/structural-obstructions/main.tex`.
+It contains both full proofs, including measurable-multiplier localization,
+exact scalar matching, the small-product global argument, and the pointwise
+and almost-everywhere comparison exclusions. It has no dependency on the
+retained conditional manuscript or on unresolved arbitrary-data estimates.
+The old `navier-paper/main.tex` remains unchanged.
+
+The proof and prior-art review is
+`research/evidence/2026-09-06-structural-obstructions-paper-audit.md`.
+The review is a same-session adversarial author audit, NOT an independent
+expert audit or Lean certification. No proof gap was found in that audit;
+external expert review remains pending. The qualitative energy-only
+quadratic principle is established background, explicitly discussed in
+Goulart--Chernyshenko (2012) and Darrow--Carlson--Goluskin (2026), with older
+quadratic-invariant precedents. Do not claim that principle as newly
+invented. Priority for the exact formulations is not certified.
+
+The current scoped paper deliverable is complete at author-proof level.
+NS-R3 remains not proved and its obstruction unchanged. No graph claim is
+promoted. All earlier valid evidence and the terminal-first gate below are
+preserved. The pending external review is a status, not an authorization to
+contact outsiders, submit, publish, or register a public release.
 
 ## 1. Target and exact terminal edge
 
@@ -261,10 +292,11 @@ at `research/evidence/2026-09-06-terminal-architecture-reset.md` and its
 `terminal-reset/` continuations. No previous evidence file is deleted or
 rewritten. No graph node is promoted; NS-R3 and CRITICAL remain gaps.
 
-This PLAN is the sole live allocation. Manuscript work, formalization and
-infrastructure are deferred for this terminal-first task. Phase I/II
-coverage strings above preserve the existing status; they do not assert
-new Lean proofs or authorize substituting formal work for terminal research.
+This PLAN is the sole live allocation. The standalone manuscript is covered
+by the current scoped paper instruction above. Formalization and infrastructure
+remain deferred. Phase I/II coverage strings above preserve the existing
+status; they do not assert new Lean proofs or make manuscript completion
+progress toward the unresolved terminal theorem.
 
 Keep all repositories private. Preserve concurrent changes and use fresh
 refs and non-force updates. The owner's authorization permits unsigned
