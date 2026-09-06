@@ -1930,3 +1930,49 @@ those citations for HF26 and again for HF27; I recorded the requirement both
 times but never carried it forward as a standing check, so a third document
 reproduced the same object uncited. A standing item is added below.
 
+
+## Phase II programme (opened 2026-09-06)
+
+The user re-sequenced: paper proofs arrive externally, `../navier-paper` is
+read-only and pulled only, work happens here and in `../navier-formal`, and the
+goal is **Phase II everywhere**. External dependencies are allowed when they
+introduce no axioms beyond Mathlib's.
+
+**Starting state, measured not assumed.** The formal repository holds twenty
+Lean files with roughly 238 proved theorems. A census of the sources finds
+**exactly one real `sorry` in the whole repository**, the deliberate Palomar
+placeholder in `Challenge.lean`, and **no axioms at all**. Two earlier apparent
+`sorry`s and one apparent axiom in `Interpolation.lean` were backtick-quoted
+words inside docstrings asserting the module is clean, which it is.
+
+**Phase II frontier, from `docs/verification-status.md`.** Already Phase II
+complete and needing no literature input: the norm-scaling half of
+`prop:scaling`, including the critical `L^3` invariance and the two scalar
+remarks of its proof, and `prop:ode`. Everything else is paper only:
+
+| Target | State | Assessment |
+|---|---|---|
+| `prop:energy` | paper only | tractable; integration by parts is already in `IBP.lean` |
+| `prop:scaling` PDE half and `eq:L4L3` | paper only | tractable; chain rule against the existing dilation machinery |
+| `prop:pressure` | supporting lemmas only | tractable; the regularization, gradient-norm and density bridges exist, leaving the integral identities and a dominated-convergence limit |
+| `sec:quotient` results | objects only | needs strict convexity and reflexivity of `L^3` for existence and uniqueness of the minimizer |
+| `prop:enstrophy` | paper only | needs a Gagliardo–Nirenberg input |
+| `prop:lowpressure` | paper only | needs Littlewood–Paley or Bernstein; the likeliest place an external dependency earns its keep |
+| `thm:conditional` | paper only | assembly, once the above land |
+| `thm:continuation` | paper only, imports ESS and GKP | **the one genuine obstacle**; see below |
+| `Challenge.lean` surface | placeholder | the Palomar deliverable |
+
+**Where "Phase II everywhere" meets a real wall, stated now rather than
+discovered later.** `thm:continuation` imports the Escauriaza–Seregin–Šverák
+endpoint theorem. Phase II for that node means formalizing ESS from Mathlib,
+which needs backward uniqueness for parabolic operators and is a research
+programme in its own right, not a lane. The honest plan is to carry it as a
+clearly labelled Phase I literature axiom with its source record, reach Phase II
+on every other node, and record ESS as the single remaining literature input. If
+that changes the user's intent they can redirect; nothing else is blocked by it.
+
+**Axiom hygiene is the gate for every lane.** `#print axioms` on each advertised
+theorem must return a subset of `propext`, `Quot.sound`, `Classical.choice`.
+This is checked per lane and again at integration; a dependency or tactic that
+widens it is rejected.
+
