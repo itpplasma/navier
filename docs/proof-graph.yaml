@@ -308,3 +308,13 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-conformal-moment.md
     paper_labels: ['cm:covariance', 'cm:inverted-h1', 'cm:snapshot', 'cm:moment', 'cm:spacetime', 'cm:scaling-test']
     scope: Finite-energy representative and L3/2 defect under a weighted-gradient hypothesis, proved at every classical time with input-only integrated moment budgets for Schwartz data; supercritical time control only, no arbitrary-data critical producer or node promotion.
+  - id: SIGNED-DEFECT-FORM-CLOCK
+    title: Signed defect and one-sided form clock
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: a14114b8527630a469e7afdea1d2ec53bacfe8f5
+    source_path: sections/signed_defect.tex
+    source_sha256: 2e0a101a00a9a9170b0d750a41876a8f556af747184d509dc22a6b5eda1b6a27
+    evidence: research/evidence/2026-09-06-signed-defect.md
+    paper_labels: ['sd:cancellation', 'sd:improved', 'sd:form-clock', 'sd:missing-bound-consumer', 'sd:tail']
+    scope: Exact signed cancellation, smaller fourth-power coefficient and an explicit conditional defect bound from a critical one-sided form clock; independent audit pending, no arbitrary-data clock bound or graph-node promotion.

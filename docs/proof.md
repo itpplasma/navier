@@ -217,3 +217,40 @@ energy-exact, self-similar non-solution curve demonstrating that the new
 finiteness statements alone do not imply it. No open producer is promoted.
 See `research/evidence/2026-09-06-conformal-moment.md` for the frozen source,
 constants, primary-source attribution and independent-review obligations.
+
+
+## Signed defect and one-sided form clock (2026-09-06; review pending)
+
+The new manuscript section `sections/signed_defect.tex` proves, without
+assuming moments or finite L2 energy of the representative,
+
+    integral sigma |w|^3 = 0,
+    K = -integral V^T S(u) V = integral V^T B0 V,
+    |K| <= (2/3) ||sigma||2 ||w||6^3,
+    Q' + (nu/2) D_Q <= a0^3 ||sigma||2^4 Q/(2 nu^3),
+    B0=(R_i R_j sigma)+sigma I/3,  a0=9 C_S^2/8.
+
+The cutoff identity, zero-set chain rule and trace-free constants are
+written in full. This improves the old coefficient, not its fourth-power
+time exponent. The old audited inequality is preserved as such.
+
+A measurable nonnegative rate b_nu is defined by the positive Rayleigh
+supremum of B0 minus `(4 nu/9)` times the Dirichlet form. One has
+
+    Q(t)+(nu/2) integral_0^t D_Q <= Q0 exp(3 integral_0^t b_nu),
+    integral_0^t ||sigma||2^4
+      <= E0 Y0/(32 nu) exp(Astar exp(3 integral_0^t b_nu)),
+    Astar=8 C_S^3 C9^3 Q0/(3 nu^3).
+
+The second inequality uses the separately review-pending quotient clock
+and the accepted energy identity. An explicit L^(3/2)-small amplitude-tail
+certificate bounds b_nu from above. The clocks scale critically; their
+local finiteness is not a bound at a putative maximal time.
+
+The missing arbitrary-data producer is still missing. Its sharpened target
+is an input-only finite bound on the accumulated signed form rate. The
+available `b_nu <= a0^3 ||sigma||2^4/(6 nu^3)` cannot supply it because
+the integral on its right is the original unknown. All graph node kinds
+remain unchanged. See `research/evidence/2026-09-06-signed-defect.md` for
+frozen hashes, primary-source distinctions, the scalar-budget diagnostic,
+mechanical-check scope and required independent mathematical audit.

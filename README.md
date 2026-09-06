@@ -7,7 +7,8 @@ then [the dependency graph](docs/proof-graph.yaml).
 The [literature dossier](literature/README.md) records source scope and
 verification limits. The companion `../navier-paper` contains the manuscript
 and clickable proof map. Its private GitHub repository is the manuscript
-authority; both repositories use signed commits and local builds. The former
+authority; the current owner-authorized task also permits unsigned commits.
+Document builds and claim audits are recorded separately. The former
 Navier Overleaf project was deleted at the owner’s request on 2026-09-05.
 The independently audited argument remains conditional on signed
 high-frequency pressure control. No solution or completed formalization is
@@ -56,3 +57,19 @@ The new time-square defect norm is supercritical. The arbitrary-data
 critical temporal producer and NS-R3 remain unproved. Independent audit is
 pending, no formal status changes, and the graph records a separate pending
 component instead of promoting a claim. `PLAN.md` remains the live authority.
+
+
+## Signed-defect missing-bound reduction (2026-09-06)
+
+The frozen component `navier-paper/sections/signed_defect.tex` proves an
+exact scalar cancellation and a signed trace-free Hessian representation.
+It removes the Leray factor from the fourth-power coefficient and supplies
+a one-sided quadratic-form clock with an explicit critical amplitude-tail
+certificate. See `research/evidence/2026-09-06-signed-defect.md`.
+
+The original defect integral is now bounded explicitly in terms of that
+form clock. Its arbitrary-data, endpoint-uniform time bound is still
+**unproved**; no critical or terminal claim is promoted. The source is
+author-checked and awaits independent mathematical audit. The main
+manuscript and generated map include this pending component; `PLAN.md`
+records the remaining vector-evolution target.

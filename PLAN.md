@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: active-paper-proof-work-2026-09-06
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: conformal-moment-audit-and-arbitrary-data-temporal-producer
+active_task: signed-form-clock-audit-and-arbitrary-data-temporal-producer
 public_release: false
 ```
 
@@ -2166,3 +2166,48 @@ selected branch, and do not report their resolution as global regularity.
 Formal phases, the privacy boundary and all graph node kinds are unchanged.
 Full derivations, source checks and audit obligations are indexed in
 `research/evidence/2026-09-06-conformal-moment.md`.
+
+
+## Signed defect: exact cancellation and one-sided missing-bound target (2026-09-06)
+
+Frozen source: `navier-paper` `a14114b8527630a469e7afdea1d2ec53bacfe8f5`,
+`sections/signed_defect.tex`. Status: author-checked; independent audit
+pending. Evidence: `research/evidence/2026-09-06-signed-defect.md`.
+
+The cutoff identity `integral sigma |w|^3 = 0` gives
+`K = -integral V^T S(u) V = integral V^T B0 V`, where
+`B0=(R_i R_j sigma)+sigma I/3`. Trace-free algebra gives the direct bound
+`|K| <= (2/3) ||sigma||2 ||w||6^3` and improves the defect Gronwall
+coefficient from `(81/32) C6^4 a0^3` to `a0^3/2`, `a0=9 C_S^2/8`.
+The exponent four remains; no critical estimate follows just by shrinking
+this coefficient. These proofs do not need the moment extension.
+
+A one-sided variational rate is the positive part of the supremum of
+`[integral psi^T B0 psi - (4 nu/9) integral |grad psi|^2]/integral |psi|^2`.
+The source proves its measurability, finiteness and exact bounds. It gives
+`Q'+nu D/2 <= 3 b_nu Q` and hence the explicit missing-integral consumer
+
+    integral_0^t ||sigma||2^4
+    <= E0 Y0/(32 nu) exp(Astar exp(3 integral_0^t b_nu)),
+    Astar = 8 C_S^3 C9^3 Q0/(3 nu^3).
+
+The last implication uses the separately pending direct quotient clock.
+An integrable amplitude cutoff for the positive largest eigenvalue of B0,
+with an L^(3/2)-small excess tail, is also sufficient. Both form and
+amplitude clocks are critical. No eigenfunction or spectral theorem is
+assumed, and no theorem about the velocity strain is applied to B0.
+
+**Next positive producer:** derive an input-only bound on
+`sup_{t<min(H,Tstar)} integral_0^t b_nu(B0(s)) ds`, or an explicit integrable
+amplitude certificate, from the vector equation. The existing upper bound
+`b_nu <= a0^3 ||sigma||2^4/(6 nu^3)` runs in the wrong direction to supply
+that producer from energy. The evidence records the exact stopping point
+and a bare-budget scalar diagnostic, not a singular PDE solution.
+
+This replaces the active task with signed-form evolution and independent
+component audit; it does not declare the earlier moment audit complete.
+The terminal claim and HIGH-PRESSURE, HIGH-STRAIN and DEFECT-L4 stay open.
+All 29 existing graph nodes and formal statuses are preserved; the new
+result is recorded only as a pending supplement. A classical-gradient
+bound remains a legitimate research target, not an "unusable" route merely
+because it would suffice for continuation.
