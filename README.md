@@ -84,3 +84,14 @@ and optimized form rates do not exceed their earlier counterparts.
 Their endpoint-uniform time bound is still unproved. Full evidence and the
 precise failed closure are in `research/evidence/2026-09-06-speed-shell.md`;
 `PLAN.md` remains the sole live status. No open or formal claim is promoted.
+
+
+## Regularized shell dynamics (2026-09-06; independent audit pending)
+
+The new paper component proves natural-variable L2 time regularity, a
+pressure-free weighted acceleration bound, and the exact evolution of
+finite smooth speed-shell residuals with a positive ridge penalty.
+`research/evidence/2026-09-06-shell-dynamics.md` records the proof and its
+boundary: endpoint control of the evolution drivers and uniformity under
+refinement remain unproved. `PLAN.md` is the sole live status. No open or
+formal claim is promoted.

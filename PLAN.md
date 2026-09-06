@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: active-paper-proof-work-2026-09-06
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: speed-shell-temporal-producer-and-independent-component-audit
+active_task: regularized-shell-dynamics-endpoint-driver-and-independent-audit
 public_release: false
 ```
 
@@ -2245,3 +2245,34 @@ Next mathematical work: independently audit this and predecessor components,
 then derive an actual vector-evolution bound exploiting the shell cancellation.
 HIGH-PRESSURE, HIGH-STRAIN, DEFECT-L4 and NS-R3 remain open. Preserve all
 existing formal authorizations, privacy restrictions and historical evidence.
+
+
+## Natural-variable dynamics checkpoint (2026-09-06; audit pending)
+
+Frozen paper source: `a9993cccee0f9544c49f9c98524c6c4af4c0e080`,
+`sections/shell_dynamics.tex`; evidence:
+`research/evidence/2026-09-06-shell-dynamics.md`. This is an author-checked
+component derivation, not an independent audit or an arbitrary-data bound.
+
+For every gradient increment g the natural variable V=|w|^(1/2)w obeys
+`||V1-V0||2^2 <= (9/8) integral (|w0|+|w1|)|f1-f0+g|^2`.
+Consequently V is W^(1,infinity) into L2 on each compact classical interval,
+with pressure-free bound
+`||V_t||2^2 <= (9/4) integral |w| |nu Delta u-(u dot grad)u|^2`.
+Finite smooth speed features and a positive ridge penalty then have an
+exact absolutely continuous residual evolution, in L3--L^(3/2) and L2
+pairings. This justifies a regularized temporal calculation that the
+previous checkpoint could not assume. It does not differentiate the full
+moving projection. The source proves the fixed-regularization estimates
+and the pointwise-in-time monotone approximation separately.
+
+**Next positive producer:** control the explicit residual-evolution drivers
+uniformly below min(H,Tstar) and control the losses in feature refinement
+and vanishing ridge penalty, or find a different signed time estimate.
+The weighted acceleration bound contains an uncontrolled nonlinear and
+second-derivative term; the current energy budget does not close it.
+No input-only bound on L_c or the fourth-power defect integral is supplied.
+Independent audits of this and the predecessor components remain required.
+All 29 existing graph nodes and formal statuses are unchanged; HIGH-PRESSURE,
+HIGH-STRAIN, DEFECT-L4 and NS-R3 remain open. This checkpoint replaces the
+active task, not the historical record of prior unsuccessful approaches.

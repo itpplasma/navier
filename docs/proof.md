@@ -283,3 +283,34 @@ These are author-checked components, not an independent audit or promotion
 of any open claim. The paper target `make check-shell` is a finite algebra/source regression.
 
 Evidence: `research/evidence/2026-09-06-speed-shell.md`.
+
+
+## Natural-variable time regularity and regularized shell dynamics
+
+The pending component `sections/shell_dynamics.tex` proves
+
+    ||V1-V0||2^2 <= (9/8) integral (|w0|+|w1|)|f1-f0+g|^2
+
+for every admissible gradient g. Thus on compact classical intervals
+V=|w|^(1/2)w is W^(1,infinity) into L2, and choosing the time-integrated
+pressure gradient gives
+
+    ||V_t||2^2 <= (9/4) integral |w| |nu Delta u-(u dot grad)u|^2.
+
+For finite smooth features phij=gj(|w|), Gram matrix G, moment vector b,
+and eta>0, the residual
+`R=||chi||2^2-b^T(G+eta I)^(-1)b` is absolutely continuous and retains
+`|K|<=||sigma||2 sqrt(R)`. With `a=(G+eta I)^(-1)b` and
+`r=chi-sum aj phij`, its exact evolution is
+
+    R'=2<r,chi_t>-2<r,sum aj phij,t>.
+
+The source supplies the dual-space justifications and a full bound for
+this derivative. It unblocks a finite regularized temporal calculation,
+not differentiation of the sharp moving projection. Refining features and
+letting eta decrease gives the exact shell residual at each fixed time,
+but the derivative estimates are not uniform in that limit or at Tstar.
+The missing arbitrary-data estimate on L_c or integral ||sigma||2^4 is
+therefore unchanged. See `research/evidence/2026-09-06-shell-dynamics.md`.
+These are author-checked derivations awaiting independent audit; no existing
+graph node or formal claim is promoted.

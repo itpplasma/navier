@@ -328,3 +328,13 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-speed-shell.md
     paper_labels: ['ss:shell', 'ss:residual', 'ss:clock', 'ss:gauge', 'ss:consumer']
     scope: Exact shell cancellation, speed-only projection residual, measurable depleted defect and null-corrected form bounds; pending signed-work and quotient-clock dependencies explicit, no arbitrary-data temporal producer or node promotion.
+  - id: REGULARIZED-SHELL-DYNAMICS
+    title: Natural-variable time regularity and shell dynamics
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: a9993cccee0f9544c49f9c98524c6c4af4c0e080
+    source_path: sections/shell_dynamics.tex
+    source_sha256: 66f3ff185f220e8be874ea2090bc982abe42b4208ee093dc6799b5ee015e5677
+    evidence: research/evidence/2026-09-06-shell-dynamics.md
+    paper_labels: ['st:stability', 'st:time', 'st:residual', 'st:evolution']
+    scope: Natural-distance stability, pressure-free local time regularity and exact finite regularized shell-residual evolution; endpoint driver control and uniform refinement remain unproved, with no arbitrary-data critical estimate or node promotion.
