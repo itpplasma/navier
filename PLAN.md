@@ -1025,8 +1025,9 @@ nothing is corrected, only narrowed.
    `int_0^tau ||q(t)||_3 D_3(w(t)) dt <= A_input(nu,u_0,H)` uniformly for
    `tau < min(H,T_*)`. By the audited normalisation this single joint
    spacetime statement about the pair (distance to the nonlinear-Hodge
-   class, dissipation) is the whole of the frozen gap with contraction
-   factor zero, with no Gronwall term and no frequency cutoff. It has the
+   class, dissipation) SUFFICES to close the frozen gap with contraction
+   factor zero, with no Gronwall term and no frequency cutoff; the converse is
+   not derivable per trajectory. It has the
    scaling of the quotient itself, so an input-only right side is
    scaling-consistent. Three sub-questions, in order: (a) is the quotient
    dissipation at most the velocity dissipation at fixed time, which is
@@ -1291,10 +1292,13 @@ with an index note, frozen by SHA-256
 the current heads and compares against the **repaired** HF21 notes, not the
 superseded ones.
 
-It reports: an explicit compactly supported witness leaving the nonlinear-Hodge
-class under linear heat flow, so the dissipation comparison is false with a
-constructed field rather than an existence argument, which is exactly the
-witness the audited HF22-A said it had not delivered; exclusion of every
+It reports: a **quantitative early-time rate** for a compactly supported field
+leaving the nonlinear-Hodge class under linear heat flow. The claim recorded
+here earlier, that this supplies a witness the programme could not construct,
+is **false and is withdrawn**: the audit found that the audited HF19-D already
+constructs such a witness and refutes both directions, and that it was present
+at the very revision HF25 pins. What is new is the rate and the computed
+constant, and HF25 proves only one direction; exclusion of every
 superlinear defect exponent, closing the interval HF21 and HF22-B left open;
 a quantitative criterion bounding the quotient's growth by the fourth power of
 the divergence defect in `L^2`; a conditional producer giving the target
@@ -1309,19 +1313,25 @@ integrability in time by the energy identity and the new div–curl estimate,
 while the criterion needs fourth power, and nothing in it supplies that
 upgrade for arbitrary data, so it is not an unconditional regularity theorem.
 
-**A correction to this plan's own framing, to be confirmed by the audit.**
-This plan has described the target inequality as "the whole of the frozen
-gap". That is too strong. The target is an *absolute* sufficient condition
-obtained by discarding the sign, whereas the manuscript's hypothesis is signed
-and permits cancellation; it is therefore a stronger proof mechanism, not an
-algebraic restatement. The audited equivalence from HF22-D holds at the level
-of quantifiers, where both are equivalent to global continuation, which does
-not make them equivalent as mechanisms.
+**A correction, and a correction to that correction.** This plan described the
+target inequality as "the whole of the frozen gap"; on HF25's prompting the
+controller recorded that as too strong. **The audit refuted that edit as
+stated.** The phrase is ambiguous, not wrong: the audited HF22-D repair block
+already fixed its meaning as the sufficiency statement, that the target with
+contraction factor zero suffices, with no cutoff and no Gronwall term, and
+endorsed it. Two things are nevertheless right and are now recorded: the
+target is reached by *two* discardings, the sign of the transport term and the
+one-sided size estimate, not one; and a strictness claim at these quantifiers
+must not re-enter through the plan's wording, since that is exactly what the
+HF22-D audit struck as its first bad bridge. The correct phrasing is that the
+target **suffices** to close the gap, and that the converse is not derivable
+per trajectory.
 
-**Note for the audit.** HF25 cites the div–curl attachment by a hash that does
-not match our HF23 file and calls it 23 pages, so the two artifacts must not
-be assumed identical; anything HF25 attributes to it must be checked against
-what our audited HF23 actually proves.
+**The hash discrepancy is resolved.** The audit established that our HF23
+artifact is the LaTeX source and HF25 cites its PDF rendering, which is
+exactly 23 pages; the theorems HF25 attributes to it match what our audited
+HF23 proves, and no misattribution was found. Flagging it was right; it turned
+out benign.
 
 
 ### HF24: modulus of continuity and the bad-set restriction (UNAUDITED)
@@ -1360,3 +1370,27 @@ weaker than a Serrin bound, since it constrains the enstrophy only on a set of
 input-bounded measure and leaves the good set free. Earlier waves measured
 that set and then counted its crossings; neither constrained the height of the
 enstrophy on it.
+
+### The sharpened first gap (2026-09-06)
+
+After the audited HF23 and HF25 results the missing step has a concrete
+scalar form: upgrade the divergence defect of the minimizing representative
+from square to fourth-power integrability in time, for arbitrary data, on the
+critical line `2/s + 3/a = 2`. What is unconditional is the square-integrable
+bound, with the explicit budget from the energy identity; the criterion needs
+the fourth power.
+
+Three cautions, all from the audits and all load-bearing. First, because the
+defect is pointwise at most half the velocity gradient in `L^2`, that
+hypothesis is **implied by** the classical Ladyzhenskaya–Prodi–Serrin and
+Beirao da Veiga gradient criteria on the same line, so it is not a weaker
+assumption than what the literature already knows; its interest is that it
+constrains only the divergence of the representative rather than the full
+gradient. Second, it belongs to the existential-equivalence class, so at the
+problem's quantifiers it is equivalent to global continuation, like every
+other formulation the programme has produced. Third, the bad-set accounting of
+HF24 says the residue after the import is exactly one factor, the height of
+the enstrophy on the set of times far from the nonlinear-Hodge class, and that
+this shortfall is sharp. The value of the reformulation is as a different
+mechanism, not as a weaker hypothesis, and nothing here is progress toward a
+proof until one of these is discharged without a continuation norm.
