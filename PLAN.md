@@ -9,8 +9,8 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: estimate-nonlinear-kinetic-stress-output-after-Maxwellian-correction
-active_architecture: kinetic-macro-transfer-candidate-not-established
+active_task: select-trajectory-specific-terminal-producer-after-kinetic-falsifiers
+active_architecture: kinetic-macro-transfer-unclosed-after-output-information-falsifiers
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -26,6 +26,8 @@ two_balance_falsification_status: author-checked-independent-audit-pending
 quadratic_lyapunov_status: author-checked-independent-audit-pending
 local_energy_only_status: source-statement-checked-consequence-author-checked
 pointwise_helical_falsification_status: author-checked-independent-audit-pending
+prepared_fisher_falsification_status: author-checked-independent-audit-pending
+stress_output_falsification_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: unchanged
 formal_work_this_run: deferred
@@ -63,15 +65,60 @@ realization of Hilbert VI, not an axiomatization of all physics. MIC-R3 has
 additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
-**Next substantive action:** take KPC Section 3's remainder equation after
-r=h-(epsilon/2)Qmic(a^2), and test the TRUE nonlinear source in the resolved
-momentum Duhamel/duality pairing. Attack arbitrary amplitude and uniformity
-in spatial resolution first. Do not start with a new survey, bracket
-construction, general kinetic existence proof, or manuscript expansion.
+**Next substantive action:** select a trajectory-specific terminal producer
+that passes the new exclusions below. K1 can re-enter through the TRUE signed
+nonlinear remainder from KPC Section 3, not a norm-only stress response. K2
+must add more than dualizing the same L2 budget. KF must control nonmonotone
+production or use a different mechanism. None currently supplies a proved
+producer. Attack the critical output and arbitrary amplitude first; do not
+default to another representation, clock, linear-model refinement or survey.
 
 The mathematical proof path is not known. This PLAN specifies what must be
 proved, what existing results can consume, and when to switch mechanisms;
 it is not a recipe whose success has already been established.
+
+### 1.1 Binding exclusions from the terminal attack at 64eaac4
+
+Read [the prepared-family Fisher and causal stress-output falsification](research/evidence/2026-09-06-kinetic-fisher-stress-falsification.md).
+These are complete author derivations, with independent mathematical review
+pending. They change which inference steps remain live; they do NOT reduce
+the terminal obstruction or promote NS-R3/CRITICAL.
+
+For G_epsilon=F_epsilon/M define the relative transported Fisher quantity
+
+    J_c,epsilon = 4 integral M
+      |(grad_v+(t+c)grad_x/epsilon) sqrt(G_epsilon)|^2.
+
+On an actual prepared GSR-convergent Boltzmann family, weak lower
+semicontinuity gives, on any known local classical interval I,
+
+    liminf_epsilon integral_I J_c,epsilon
+      >= integral_I (t+c)^2 ||grad u(t)||_2^2.
+
+Initially J_c,epsilon=epsilon^2||u0||_2^2+c^2||grad u0||_2^2.
+Therefore retire zero-offset monotonicity and every epsilon-uniform
+multiplicative estimate of J_0 from J_0(0), even on a positive-time output
+interval. Also retire monotonicity of J_0+J_c for any fixed c>0: explicit
+low-frequency Schwartz data contradict its necessary local enstrophy law.
+A bound for this sum WOULD control truncated momentum in H1 and hence K_res;
+the refuted step is its proposed monotone producer, not that consumer.
+Additive/nonmonotone production estimates remain unproved possibilities,
+not a newly established architecture or a smaller terminal obligation.
+
+Separately, symmetric trace-free stresses with fixed L2 spacetime norm have
+zero-initial causal Stokes responses of unbounded L-infinity_t L3_x norm,
+even with fixed viscosity, forcing away from t=0 and bounded response energy
+norms. The same failure holds uniformly over K_res's spatial mollifiers.
+Retire the L2-only stress-output bound and its equivalent unweighted adjoint
+bound. These are forced response counterexamples, NOT nonlinear Boltzmann
+or unforced NS solutions. They do not disprove a signed estimate specific
+to KPC's actual source. Do not merge this premise class with the stronger
+prepared-family premise of the Fisher result.
+
+The stochastic absolute-deformation estimate was also abandoned because it
+returned unknown accumulated strain; no broader stochastic no-go is claimed.
+Preserve the prior geometric/ancient-limit falsifiers. Do not restart any
+of these failed steps under new terminology.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
@@ -133,7 +180,7 @@ justify K1 must have independently supplied existence and controlled errors.
 Do not reprove GSR, upgrade it to arbitrary-data classical Boltzmann by
 assumption, or let this compatibility audit replace the nonlinear attack.
 
-### K1 -- nonlinear collision-stress memory (first active mechanism)
+### K1 -- nonlinear collision-stress memory (trajectory-specific re-entry only)
 
 Use Pi for collision invariants, P for Leray, Qmic=I-Pi, a=Pi g, h=Qmic g.
 For the smooth calculation with KPC's conventions,
@@ -163,7 +210,7 @@ small critical data, an uncontrolled strain exponential/fourth-power budget,
 prior endpoint Sobolev control, or only recovers energy/enstrophy dissipation.
 Changing the name of that unknown quantity is not a repair.
 
-### K2 -- nonlinear dual observability (a genuine alternative)
+### K2 -- nonlinear dual observability (not the same L2 estimate in dual form)
 
 If K1 fails, transport a momentum test backwards and pair it with the forward
 kinetic equation using collision dissipation and data-adapted entropy weights.
@@ -179,7 +226,7 @@ brackets, entropy monotonicity or a formal dual representation is insufficient.
 If exactly K1's uncontrolled remainder returns, switch architecture rather
 than rename it an observability constant.
 
-### KF -- transport-coupled information (bounded alternative test)
+### KF -- transport-coupled information (monotone transported-Fisher route excluded)
 
 Recent homogeneous Boltzmann/Landau Fisher results are leads, not imports
 for the inhomogeneous hard-sphere problem. First test free transport:
@@ -328,6 +375,8 @@ canonical proof graph or generated manuscript map.
 
 ## 8. Preserved authority and provenance
 
+Historical programme-definition provenance (preserved):
+
 This update is based on main `3291278efce2510fbc43ba8ad66c571dc5359c2d`,
 including the concurrent kinetic plan and correction, not the older 5d842f8
 conversation snapshot. The prior PLAN is preserved byte-for-byte at
@@ -343,3 +392,11 @@ and the terminal-reset directory. The pressure/quotient/defect/speed-shell/
 material-response family stays retired as primary research unless a genuinely
 input-only terminal producer is supplied. This update changes specification
 and allocation only: no arbitrary-data bound or strict terminal reduction.
+
+
+The subsequent terminal attack at `64eaac42ccac6a00309a9af412d6e4f7ff21538a`
+adds only the scoped evidence linked in Section 1.1 and the corresponding
+live exclusions/allocation here. All canonical graph nodes, previous evidence,
+contracts, manuscripts and formalization remain unchanged. This is an
+architectural falsification result, not planning-only progress and not a
+proof or strict reduction of NS-R3. Independent mathematical review is pending.
