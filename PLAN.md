@@ -1081,7 +1081,16 @@ list had duplicate numbering and described completed waves as running.
    The second lane is also asked to settle a question the record has left
    ambiguous: whether the hypothesis is meant for one, for some, or for all
    values of the free parameter, and whether the lane and its audit agree.
-6. **Formalization stays deferred** until the full paper route is proved and
+6. **Standing check for every incoming continuation, instituted 2026-09-06
+   after the same prior-art defect recurred three times.** Before any wave is
+   audited, grep the source for the self-similar literature's terms and authors
+   whenever it contains a dilation family of the form
+   `lambda(t) = (1 - t/T)^(-1/2)`, a profile residual, or a critical time tuned
+   to an energy identity. Three continuations have now reproduced the Leray
+   profile equation without citing it; the requirement was recorded twice as a
+   per-wave repair and never as a check, which is why it recurred.
+
+7. **Formalization stays deferred** until the full paper route is proved and
    audited, per the user's re-sequencing of 2026-09-05. `../navier-formal` is
    not to be extended until this plan reopens it.
 
@@ -1886,6 +1895,36 @@ estimated is free of the unknown solution.
 is genuinely removed rather than relocated, replaced by a non-endpoint Serrin
 condition plus an alternative from local theory — a strictly weaker import. The
 audited unweighted div–curl result is genuinely unused, at the price of the
-divergence defect and the mixed-pressure pairing, neither needed here. The
-direct enstrophy estimate is proved outright with its constant verified.
+divergence defect and the mixed-pressure pairing, neither needed here. The direct enstrophy estimate is proved outright with its constant verified.
+
+**Audit of the countermodel and spectral scope: REPAIR**
+(`hf28-review-countermodel-spectral.md`). No invalid mathematical step anywhere
+in scope; twelve refutation attempts, one partial success. **The countermodel
+stands**, with all five clauses verified independently: the joint between its
+branches is exact rather than merely smooth, so the curves are genuinely defined
+for all time; the band limit holds forever; the energy identity is exact and in
+fact forced, its amplitude law being the unique solution; the enstrophy
+threshold is exactly tight; and the logarithmic rate matches to six digits over
+a wide range and analytically far beyond it.
+
+**It is genuinely stronger than our two earlier audited countermodels**, on
+three axes: those die at their concentration time while these are global, these
+share one datum across the whole index family, which is what is needed to refute
+an existential producer, and these are band-limited. Half of its own comparative
+sentence is a strawman, since neither predecessor was an abstract blowing-up
+scalar ODE. What it excludes is scalar-budget closures only — arguments bounding
+the stress integral from energy, enstrophy, the spectral inequality and
+band-limitation. It excludes nothing touching the vector equation, the residual's
+decay in the index, cross-index coherence, or small data. The curves are
+energy-blind but enstrophy-visible.
+
+**The prior-art defect has now recurred three times, in its strongest form yet,
+and that is a failure of mine to institutionalise.** This document's residual
+equation is character for character the Leray-projected Leray profile equation,
+its critical-time identity is symbolically that equation's own energy identity,
+and the limit of its family *is* the object of the self-similar literature. It
+contains zero occurrences of that literature's terms or authors. We required
+those citations for HF26 and again for HF27; I recorded the requirement both
+times but never carried it forward as a standing check, so a third document
+reproduced the same object uncited. A standing item is added below.
 

@@ -11,6 +11,14 @@ this note as `hf28-weighted-spectral-continuation.tex`; the original is filed at
 are frozen by SHA-256
 `80c6b1339704261d5540ce9620e5799f0e9c9ea7c78cd1af412d075ea8699055`.
 
+**A reproducibility gap.** Its section 11 states that an accompanying script
+checks the algebraic identities. **No such file arrived**; only the LaTeX source
+was on the capture surface, and the script exists nowhere in the repository. The
+same thing happened in the HF19 wave, whose probe script lived only in session
+scratch and whose numerics were therefore unreproducible. Recorded here rather
+than silently ignored; the audits recomputed the identities independently, so
+nothing rests on the missing file.
+
 All three pinned revisions verify with `git rev-parse`. The research pin is our
 own commit from earlier the same day recording the prior-art lane's negative
 headline, and the document's reads include that record, the temporal-producer
