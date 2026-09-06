@@ -53,14 +53,28 @@ is a response to what the HF26 audits found, not a continuation of it.
 
 ## Controller observations (not an audit)
 
-**It reuses HF26's curve, and inherits a citation requirement we have already
-established.** The concentration test's curve is the same dilation family, with
-the same critical time and the same exponent, that HF26 used for its
-countermodel. Our own countermodel audit identified that family as **exactly
-the backward self-similar ansatz**, requiring Nečas, Růžička and Šverák and
-later Tsai to be cited. That requirement transfers here unchanged, and the
-audit must check it is met rather than assuming this note's different use of
-the curve exempts it.
+**It reuses HF26's curve, and the citation requirement is far stronger than
+this note first said.** I recorded that the curve is the backward self-similar
+ansatz and that Nečas, Růžička and Šverák and Tsai must therefore be cited.
+**The audit found that understated.** The curve is not merely an instance of
+that ansatz: its defining equation is *literally* the Nečas–Růžička–Šverák and
+Tsai equation in the same normalisation, its profile residual is character for
+character the Leray-projected Leray profile equation, and the critical time this
+note tunes is exactly the energy identity every Leray profile must satisfy,
+confirmed symbolically and to machine precision on a spectral computation. The
+requirement is therefore not an acknowledgement of a known ansatz but of the
+identical object. The audit found **zero** occurrences of the ansatz, either
+author, or the profile equation in all 996 lines, and neither paper in the
+bibliography. That is a prior-art defect, not an omission of courtesy.
+
+The results also bear on the content in two ways. The published theorem that an
+`L^3` weak solution of the profile equation vanishes gives the note's nonzero
+residual by a one-line contrapositive, whereas the note derives it through a
+heavier route resting on a source it admits it could not fetch. And the
+logarithmic divergence at the critical exponent is the textbook signature of
+this ansatz, so the note's message — that the energy identity is a balance and
+not a rigidity — is a rediscovery of what that literature exists to
+demonstrate.
 
 **Its prior-art posture is better than its predecessors'.** It names
 Chernyshenko, Constantin, Robinson and Titi for robustness and conditional
@@ -72,11 +86,16 @@ certificate rather than a novelty claim. **This is exactly the discipline the
 earlier continuations lacked, and the audit should verify it is substantive
 rather than decorative.**
 
-**It has absorbed our audit findings about logical strength.** It states
-plainly that no claim is made that the criterion is logically weaker than
-regularity at the existential level. That is the correct posture, but it is a
-disclaimer, not a determination: the audit must still decide where the
-certificate's hypothesis actually sits.
+**It settles its own logical strength, and this note under-recorded that.** I
+wrote that it merely declines to claim the criterion is weaker than regularity,
+and treated the question as open for the audit. **That loses the document's
+strongest honest finding.** It does not disclaim: it *proves* the certificate
+hypothesis equivalent to the target, and the equivalence is immediate in one
+direction because taking the comparison flow to be the solution itself makes
+the critical quantity vanish. So the certificate joins the
+existential-equivalence class alongside the HF25 defect hypothesis, the HF24
+bad-set hypothesis and the HF26 temporal criterion, and the document says so
+itself rather than being caught at it.
 
 ## Points an audit must examine first
 
@@ -114,8 +133,18 @@ certificate's hypothesis actually sits.
 
 **MODE / RESULT:** DISCOVER, unaudited. One conditional certificate with
 explicit constants, one positive certification of an unbounded-critical-norm
-data family, one completeness result for a comparison hierarchy, one
-unconditional energy-level convergence, and two obstructions.
+data family, one completeness result for a comparison hierarchy, one unconditional energy-level convergence, and two obstructions.
+
+**Three further corrections to this note, from the audit.** Its account of the
+unconditional energy-level convergence omitted that the result is available only
+for exponents strictly above the one at which the obstruction is stated, and
+homogeneous Sobolev spaces do not nest, so there is a genuine logical gap
+between them; the audit judges it repairable, since the residual's vanishing
+mean forces membership over a range that covers the needed exponent. This note
+also repeated the document's description of its dichotomy as "quantitative",
+which the audit found self-destructs: the bound's right side tends to zero
+exactly in the only regime the document's own estimate permits. The dichotomy is
+genuine but not quantitative.
 
 **FIRST GAP:** restated in a new currency. Construct, for arbitrary data, a
 comparison flow whose critical residual defeats its stability cost. The note
@@ -125,8 +154,7 @@ both would assume the conclusion.
 **SURVIVING CONDITIONAL SUFFIX:** if audited, one admissible comparison pair
 satisfying the smallness inequality gives global regularity for that datum.
 
-**NON-CLAIMS:** no arbitrary-data comparison; no proof that the criterion is
-weaker than regularity at the existential level, and none claimed; no
+**NON-CLAIMS:** no arbitrary-data comparison; no
 regularity or blowup result for general data; no promotion of any graph node;
 no novelty claim for oscillatory large-data global existence or for robustness
 principles. NS-R3 remains open.

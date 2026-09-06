@@ -1673,10 +1673,40 @@ balance does not control the critical residual and that an arbitrarily small
 energy-level residual is still insufficient, together with a quantitative
 dichotomy every certificate must satisfy if the solution is singular.
 
-**Two controller observations.** It reuses the dilation curve HF26 used, which
-our countermodel audit identified as exactly the backward self-similar ansatz;
-the citation requirement for Nečas, Růžička and Šverák and for Tsai transfers
-unchanged, and the audit checks whether it is met. And its prior-art posture is
+**Audit of the energy and concentration scope, returned 2026-09-06: REPAIR**
+(`hf27-review-energy-concentration.md`). No invalid step exists anywhere in that
+scope and every algebraic claim was re-derived independently, several to the
+last constant. Two things block a pass.
+
+The first is prior art, and it is worse than I recorded. I noted the curve is
+the backward self-similar ansatz and needs the standard citations. The audit
+found that understated: the curve's defining equation is *literally* the
+Nečas–Růžička–Šverák and Tsai equation in the same normalisation, its profile
+residual is character for character the Leray-projected Leray profile equation,
+and the critical time the document tunes is exactly the energy identity every
+Leray profile must satisfy. Neither author, the ansatz, nor the profile equation
+appears anywhere in the 996 lines or the bibliography. The published theorem
+that an integrable weak solution of the profile equation vanishes would give the
+document's own nonzero-residual conclusion in one line, whereas it derives it
+through a heavier route resting on a source it admits it could not fetch.
+
+The second is a genuine logical gap: the unconditional convergence is available
+only for exponents strictly above the one at which the obstruction is stated,
+and homogeneous Sobolev spaces do not nest. The audit judges it repairable.
+
+**It settles its own logical strength, and this plan under-recorded that.** I
+wrote that the document merely declines to claim the criterion is weaker than
+regularity. It does more: it *proves* the certificate hypothesis equivalent to
+the target, immediate in one direction because taking the comparison flow to be
+the solution makes the critical quantity vanish. The certificate therefore joins
+the existential-equivalence class with the HF25 defect hypothesis, the HF24
+bad-set hypothesis and the HF26 temporal criterion. The HF24 corridor hypothesis
+remains the sole exception. The document is more honest here than my summary of
+it was, and the dichotomy it calls quantitative is genuine but not quantitative,
+since the bound degenerates exactly in the regime its own estimate permits.
+
+**One controller observation stands.** It reuses the dilation curve HF26 used,
+which our countermodel audit identified, and that flag was confirmed correct. And its prior-art posture is
 markedly better than its predecessors': it names the robustness and
 conditional-Galerkin literature, notes that the version it read works on a
 periodic cube in high regularity, explicitly declines to import a torus theorem
