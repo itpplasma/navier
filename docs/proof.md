@@ -254,3 +254,32 @@ the integral on its right is the original unknown. All graph node kinds
 remain unchanged. See `research/evidence/2026-09-06-signed-defect.md` for
 frozen hashes, primary-source distinctions, the scalar-budget diagnostic,
 mechanical-check scope and required independent mathematical audit.
+
+
+## Speed-shell cancellation and effective defect (2026-09-06; audit pending)
+
+The new source `sections/speed_shell.tex` proves
+`integral_{|w|>k} sigma=0` for every k>0, with an L^(3/2) flux cutoff and
+no finite-energy assumption on w. Thus sigma annihilates every L2 function
+of speed. Projecting the scalar signed-work field chi off the closed speed
+subspace gives a measurable factor delta in [0,1] and
+`|K| <= (2/3) delta ||sigma||2 ||w||6^3`. Finite speed-shell averages
+bound the residual, converging under nested refinement.
+
+Speed-dependent scalar corrections `h(|w|)sigma I` leave the signed work
+unchanged. Their countable form-rate infimum beta satisfies
+`0<=beta<=b_nu(B0)`. With
+`c_nu=min(3 beta, a0^3 delta^4 ||sigma||2^4/(2 nu^3))` and `L_c=integral c_nu`,
+
+    Q(t)+nu/2 integral D <= Q0 exp(L_c(t)),
+    integral ||sigma||2^4 <= E0 Y0/(32 nu) exp(Astar exp(L_c(t))).
+
+The last implication retains the pending quotient-clock dependency.
+The bound on L_c from arbitrary initial data is NOT proved; delta<=1 only
+returns the old unknown fourth-power integral. No temporal derivative of
+the moving speed projection is assumed. Full proofs, cutoff and
+measurability details, and the stopping point are in the source.
+These are author-checked components, not an independent audit or promotion
+of any open claim. The paper target `make check-shell` is a finite algebra/source regression.
+
+Evidence: `research/evidence/2026-09-06-speed-shell.md`.

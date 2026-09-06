@@ -73,3 +73,14 @@ form clock. Its arbitrary-data, endpoint-uniform time bound is still
 author-checked and awaits independent mathematical audit. The main
 manuscript and generated map include this pending component; `PLAN.md`
 records the remaining vector-evolution target.
+
+
+## Speed-shell cancellation (2026-09-06; independent audit pending)
+
+The paper now derives cancellation on every positive speed shell, a
+measurable residual after removing speed-only functions, and scalar
+corrections that leave signed work unchanged. The resulting effective-defect
+and optimized form rates do not exceed their earlier counterparts.
+Their endpoint-uniform time bound is still unproved. Full evidence and the
+precise failed closure are in `research/evidence/2026-09-06-speed-shell.md`;
+`PLAN.md` remains the sole live status. No open or formal claim is promoted.

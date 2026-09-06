@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: active-paper-proof-work-2026-09-06
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: signed-form-clock-audit-and-arbitrary-data-temporal-producer
+active_task: speed-shell-temporal-producer-and-independent-component-audit
 public_release: false
 ```
 
@@ -2211,3 +2211,37 @@ All 29 existing graph nodes and formal statuses are preserved; the new
 result is recorded only as a pending supplement. A classical-gradient
 bound remains a legitimate research target, not an "unusable" route merely
 because it would suffice for continuation.
+
+
+## Speed-shell checkpoint and remaining temporal producer (2026-09-06)
+
+Frozen paper source: `5643f3e53ce837896fdd69247c3972ba4180ebfa`,
+`sections/speed_shell.tex`; evidence:
+`research/evidence/2026-09-06-speed-shell.md`. Author-checked, independently
+unaudited; no graph node or formal phase is promoted.
+
+The defect now has a proved zero average on every positive speed shell,
+not only against the cubic speed. Removing all L2 functions of speed from
+the scalar signed-work field yields a measurable delta in [0,1] and the
+bound `|K| <= (2/3) delta ||sigma||2 ||w||6^3`. Finite shell averages give
+explicit residual upper bounds. Scalar corrections `h(|w|)sigma I` leave
+signed work unchanged, giving a measurable form infimum beta<=b_nu(B0).
+The minimum rate
+`c_nu=min(3 beta, a0^3 delta^4 ||sigma||2^4/(2 nu^3))` therefore suffices;
+its integral L_c gives the explicit original-defect consumer
+`integral ||sigma||2^4 <= E0 Y0/(32 nu) exp(Astar exp(L_c))`.
+The final implication still uses the independently pending quotient clock.
+
+The missing positive producer is an input-only bound on L_c uniformly below
+min(H,Tstar), or a bound on one of the earlier sufficient rates. This has
+not been obtained. Replacing delta by one returns the original unknown;
+the energy/moment comparison does not upgrade its time exponent. The speed
+projection and minimizing correction must not be differentiated without a
+new regularity theorem. Critical scaling is unchanged. The source provides
+full spatial proofs and a conditional suffix, not a completed Navier--Stokes
+proof or a strict separation of actual-branch finiteness conditions.
+
+Next mathematical work: independently audit this and predecessor components,
+then derive an actual vector-evolution bound exploiting the shell cancellation.
+HIGH-PRESSURE, HIGH-STRAIN, DEFECT-L4 and NS-R3 remain open. Preserve all
+existing formal authorizations, privacy restrictions and historical evidence.

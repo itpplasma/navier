@@ -318,3 +318,13 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-signed-defect.md
     paper_labels: ['sd:cancellation', 'sd:improved', 'sd:form-clock', 'sd:missing-bound-consumer', 'sd:tail']
     scope: Exact signed cancellation, smaller fourth-power coefficient and an explicit conditional defect bound from a critical one-sided form clock; independent audit pending, no arbitrary-data clock bound or graph-node promotion.
+  - id: SPEED-SHELL-EFFECTIVE-DEFECT
+    title: Speed-shell cancellation and effective defect
+    status: author-checked-independent-audit-pending
+    source_repository: itpplasma/navier-paper
+    source_commit: 5643f3e53ce837896fdd69247c3972ba4180ebfa
+    source_path: sections/speed_shell.tex
+    source_sha256: 6d4ed41005c59d2734a1befc41779ec63e0bd6805c3178dc42b54c9a0efae4da
+    evidence: research/evidence/2026-09-06-speed-shell.md
+    paper_labels: ['ss:shell', 'ss:residual', 'ss:clock', 'ss:gauge', 'ss:consumer']
+    scope: Exact shell cancellation, speed-only projection residual, measurable depleted defect and null-corrected form bounds; pending signed-work and quotient-clock dependencies explicit, no arbitrary-data temporal producer or node promotion.
