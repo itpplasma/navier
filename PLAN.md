@@ -1694,15 +1694,48 @@ The second is a genuine logical gap: the unconditional convergence is available
 only for exponents strictly above the one at which the obstruction is stated,
 and homogeneous Sobolev spaces do not nest. The audit judges it repairable.
 
-**It settles its own logical strength, and this plan under-recorded that.** I
-wrote that the document merely declines to claim the criterion is weaker than
-regularity. It does more: it *proves* the certificate hypothesis equivalent to
-the target, immediate in one direction because taking the comparison flow to be
-the solution makes the critical quantity vanish. The certificate therefore joins
-the existential-equivalence class with the HF25 defect hypothesis, the HF24
-bad-set hypothesis and the HF26 temporal criterion. The HF24 corridor hypothesis
-remains the sole exception. The document is more honest here than my summary of
-it was, and the dichotomy it calls quantitative is genuine but not quantitative,
+**Audit of the certificate scope, returned 2026-09-06: PASS WITH SCOPE**
+(`hf27-review-certificate.md`). Every proof in that scope is correct as
+displayed, with all constants, Hölder splits, Young maximisations and
+interpolation exponents recomputed independently at sixty digits and over a
+four-million-point sweep. The bootstrap is **not** circular, and the relative
+identity is exact with the pressure genuinely cancelling before any estimate.
+Eleven refutation attempts all failed mathematically; three succeeded against
+claims *about* the results.
+
+**The prior-art answer is yes.** The certificate *is* the robustness principle
+of Chernyshenko, Constantin, Robinson and Titi, matched item for item: the
+certificate is their Theorem 3, the index corollary their Corollary 5, the
+completeness steps their Theorem 6, the equivalence their Theorem 8. The real
+differences are the whole space in place of the torus, a critical norm in place
+of high Sobolev regularity — carried by the quotient, which is the technically
+substantive part and is what removes the pressure — explicit constants, and a
+scale-invariant threshold, which the audit verified is genuinely scale
+invariant. The document's own prior-art discipline is substantive but materially
+incomplete: it names the right paper with the right identifier and disclaims
+novelty, but the entire critical-norm branch of that literature is missing, and
+one 2025 preprint already combines the critical norm, the endpoint theorem, the
+same viscosity-cubed Gronwall exponent and a negative-Sobolev residual. The
+residual novelty is about one sentence long.
+
+**Its logical strength, stated correctly after two of my own errors.** I first
+treated the question as open, then over-corrected to say the document proves its
+criterion equivalent and "says so itself". Neither is right. The document proves
+equivalence for the *hierarchy* only; the one-line witness for the general
+criterion — take the comparison flow to be the solution, so the critical
+quantity vanishes — appears nowhere in it, and its single mention of that
+substitution warns against misusing it. Both auditors derived the witness
+independently, which corroborates the mathematics and settles the attribution.
+The certificate joins the existential-equivalence class with the HF25 defect
+hypothesis, the HF24 bad-set hypothesis and the HF26 temporal criterion, and it
+is not a second exception, since no branch lets it hold vacuously. **The
+corollary the document never draws is that its stated missing implication is
+logically equivalent to Clay alternative A**, so its final section restates the
+target rather than reducing it.
+
+**One genuine regression to record.** The audit found that this document drops a
+zero-set fact its predecessor had, which must be restored before any import.
+The dichotomy the document calls quantitative is genuine but not quantitative,
 since the bound degenerates exactly in the regime its own estimate permits.
 
 **One controller observation stands.** It reuses the dilation curve HF26 used,

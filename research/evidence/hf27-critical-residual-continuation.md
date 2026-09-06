@@ -11,9 +11,10 @@ this note as `hf27-critical-residual-continuation.tex`; the original is filed at
 are frozen by SHA-256
 `3898e9a020d31c4fc58c9f1289ea4794ec9f787b885086e411b98b0cb1f97488`.
 
-Both pinned revisions were checked with `git rev-parse` and match exactly,
-including `navier-paper` `c435bee`, which is our own HF25 import from earlier
-the same day. This document is tracking the repository closely and has read the
+**Three** repositories are pinned, not two as this note first said, and all
+three were checked with `git rev-parse` and match exactly, including
+`navier-paper` `c435bee`, which is our own HF25 import from earlier the same
+day. This document is tracking the repository closely and has read the
 HF25 audit and the HF26 import record.
 
 ## Why it changes direction
@@ -86,16 +87,27 @@ certificate rather than a novelty claim. **This is exactly the discipline the
 earlier continuations lacked, and the audit should verify it is substantive
 rather than decorative.**
 
-**It settles its own logical strength, and this note under-recorded that.** I
-wrote that it merely declines to claim the criterion is weaker than regularity,
-and treated the question as open for the audit. **That loses the document's
-strongest honest finding.** It does not disclaim: it *proves* the certificate
-hypothesis equivalent to the target, and the equivalence is immediate in one
-direction because taking the comparison flow to be the solution itself makes
-the critical quantity vanish. So the certificate joins the
-existential-equivalence class alongside the HF25 defect hypothesis, the HF24
-bad-set hypothesis and the HF26 temporal criterion, and the document says so
-itself rather than being caught at it.
+**The certificate is equivalent to the target — but the credit for showing it
+belongs to the audits, not the document.** This note said twice, in opposite
+directions, something inaccurate. It first treated the question as open, which
+under-recorded what the document does prove. It was then corrected too far, to
+say the document proves the criterion equivalent and "says so itself". The
+second audit, which owns this scope, established the precise position: the
+document proves equivalence only for the *hierarchy*, and the one-line witness
+for the *general* criterion — take the comparison flow to be the solution
+itself, so the critical quantity vanishes — appears nowhere in its 996 lines,
+its single mention of that substitution warns against a misuse of it, and its
+boundary section still disclaims. Both auditors derived that witness
+independently, which corroborates the mathematics while settling the
+attribution. The certificate does join the existential-equivalence class with
+the HF25 defect hypothesis, the HF24 bad-set hypothesis and the HF26 temporal
+criterion; the HF24 corridor hypothesis remains the sole exception, and this one
+is not a second exception since no branch lets it hold vacuously.
+
+**The corollary the document never draws.** Its stated missing implication is
+*logically equivalent* to Clay alternative A. So its final section restates the
+target rather than reducing it. It proved the hard hierarchy version of the
+equivalence and missed the one-line general one.
 
 ## Points an audit must examine first
 
@@ -146,13 +158,17 @@ which the audit found self-destructs: the bound's right side tends to zero
 exactly in the only regime the document's own estimate permits. The dichotomy is
 genuine but not quantitative.
 
-**FIRST GAP:** restated in a new currency. Construct, for arbitrary data, a
-comparison flow whose critical residual defeats its stability cost. The note
-states plainly that "choose an accurate enough comparison" without estimating
-both would assume the conclusion.
+**FIRST GAP:** restated in a new currency, and the restatement is **equivalent**,
+so no reduction occurred. Construct, for arbitrary data, a comparison flow whose
+critical residual defeats its stability cost. The document states plainly that
+"choose an accurate enough comparison" without estimating both would assume the
+conclusion; the audit adds that the task as posed is logically the target
+itself.
 
-**SURVIVING CONDITIONAL SUFFIX:** if audited, one admissible comparison pair
-satisfying the smallness inequality gives global regularity for that datum.
+**SURVIVING CONDITIONAL SUFFIX:** one admissible comparison pair satisfying the
+smallness inequality gives, for that datum, continuation past the stated horizon
+— **not** global regularity, as this note first wrote. Globality would need the
+pair at every horizon.
 
 **NON-CLAIMS:** no arbitrary-data comparison; no
 regularity or blowup result for general data; no promotion of any graph node;
