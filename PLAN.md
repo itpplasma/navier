@@ -1826,3 +1826,66 @@ What the wave is worth keeping for is the corrected prior-art map, now recorded
 here and in the evidence notes: the robustness line and its critical-norm
 branch, the small-data critical-Besov line, and the Leray profile literature.
 Those bear on any future comparison-flow route the programme takes.
+
+
+### HF28: a discounted spectral certificate (AUDITED: certificate scope PASS WITH SCOPE)
+
+A fifth external continuation arrived 2026-09-06 as LaTeX source, 1078 lines,
+committed verbatim as `research/evidence/hf28-weighted-spectral-continuation.tex`
+with an index note, frozen by SHA-256
+`80c6b1339704261d5540ce9620e5799f0e9c9ea7c78cd1af412d075ea8699055`. All three
+pinned revisions verify; the research pin is our own commit from earlier the
+same day. A second audit, on its countermodel and spectral scope, is in flight.
+
+**It answers two of our own audit findings.** Our HF27 certificate audit found
+the whole-space and critical-norm branch of the robustness literature missing;
+this document cites a whole-space treatment and says it is more directly
+relevant than the periodic result. Our prior-art lane found the weighted objects
+already named in the `p`-Laplace literature; this document cites that framework
+and states that our research record warns against novelty claims for the
+weighted linearization. It disclaims novelty in the underlying mechanisms.
+
+**Audit of the certificate scope: PASS WITH SCOPE**
+(`hf28-review-certificate-status.md`). Every step is correct, every constant
+reproduces under independent recomputation, and eleven refutation attempts
+failed to break a stated result. The scope is severe.
+
+**The structural novelty is real, and so is the equivalence.** The audit
+confirmed what no previous wave achieved: the test quantity genuinely contains
+no norm of the unknown solution, and the witness that defeated every earlier
+certificate — taking the comparison flow to be the solution itself — is
+unavailable here, because the comparison is canonically fixed by the datum and
+the truncation index. Equivalence was re-established anyway, by theorem rather
+than substitution: some index succeeds if and only if the branch continues past
+the horizon. So this is a fifth member of the equivalence class, and the
+corridor escape is unavailable, since every object is defined for every input
+and there is no set a singularity can vacate. **The HF24 corridor hypothesis
+remains the sole exception.**
+
+**Two errors of mine, one load-bearing.** I called the gap arithmetic rather
+than conceptual: a logarithmic bound needed where quadratic growth is available.
+The audit computed the exact requirement and showed the inequality holds
+precisely when continuation holds, so the gap is Clay alternative A itself, and
+when it holds the integral is bounded rather than merely logarithmic. I also
+repeated the document's own quadratic estimate as fact, which excludes its
+spectral enstrophy inequality, and I framed the audit brief as needing to see
+past a disclaimer when the document **concedes** rather than disclaims: it
+states the equivalence and its own class membership, omitting only the final
+quantifier step. It is the most honest of the five continuations on this point
+and my framing implied the opposite.
+
+**Its sharpest finding is one the document misses.** The certificate's
+provably-firing region today is exactly the region where the same two estimates
+applied directly to the solution already give global regularity, with the
+identical constant, and the horizon it reduces to is the elementary local
+existence time. As a proved matter it certifies nothing new. Its value is in the
+*form* of the target, not its strength: for the first time the quantity to be
+estimated is free of the unknown solution.
+
+**All three dependency removals are real.** The endpoint critical-norm theorem
+is genuinely removed rather than relocated, replaced by a non-endpoint Serrin
+condition plus an alternative from local theory — a strictly weaker import. The
+audited unweighted div–curl result is genuinely unused, at the price of the
+divergence defect and the mixed-pressure pairing, neither needed here. The
+direct enstrophy estimate is proved outright with its constant verified.
+
