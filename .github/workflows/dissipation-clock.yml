@@ -13,6 +13,8 @@ on:
       - 'tools/*signed*'
       - 'research/evidence/2026-09-06-signed-defect.md'
       - 'tools/*speed_shell*'
+      - 'tools/*shell_dynamics*'
+      - 'research/evidence/2026-09-06-shell-dynamics.md'
       - 'research/evidence/2026-09-06-speed-shell.md'
       - '.github/workflows/dissipation-clock.yml'
 permissions:
@@ -35,7 +37,7 @@ jobs:
       - name: Refresh and integrate without promoting claims
         run: |
           git pull --ff-only origin main
-          python3 tools/integrate_speed_shell.py
+          python3 tools/integrate_shell_dynamics.py
           python3 research/verify.py --research-only
           python3 tools/generate_map.py
           git diff --check
@@ -45,9 +47,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add PLAN.md README.md docs/proof.md docs/proof-graph.yaml docs/proof_map.tex
           if ! git diff --cached --quiet; then
-            git -c commit.gpgsign=false commit -m 'Integrate speed-shell cancellation and explicit remaining temporal bound without promoting claims'
+            git -c commit.gpgsign=false commit -m 'Integrate regularized shell dynamics and exact remaining endpoint drivers without promoting claims'
             git pull --rebase origin main
-            python3 tools/integrate_speed_shell.py --check
+            python3 tools/integrate_shell_dynamics.py --check
             python3 research/verify.py --research-only
             python3 tools/generate_map.py
             git diff --exit-code -- docs/proof_map.tex
