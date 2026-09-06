@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF25-audit-and-HF24
+active_task: HF24-and-HF25-audits
 public_release: false
 ```
 
@@ -1194,9 +1194,16 @@ uniform convexity, so the standing remark that no Clarkson inequality is used
 remains true. The graph gains the node QUOTIENT-REGULARITY; no gap node is
 promoted.
 
-**Held back.** The Scope B spacetime exclusion is not yet in the manuscript:
-its audit requires four repairs first. That is the one outstanding integration
-item from HF23.
+**Scope B integrated 2026-09-06** at `navier-paper` `2883cbd`, 97 pages, with
+its four required repairs applied and an explicit list of claims declined. The
+second paragraph of `rem:no-monotone` now excludes any remainder depending
+only on viscosity, energy, horizon, coefficient and cutoff, for every fixed
+cutoff, by a family whose time interval shrinks faster than its integrand
+grows; it states that the hypotheses select their cutoff and remainder from
+the whole datum, so nothing there bears on them. It also records that a bound
+on the time integral of the squared enstrophy would itself be a classical
+regularity criterion, so that route is unusable rather than merely
+insufficient. No HF23 integration item remains.
 
 
 ### HF22: attacking (G) and its three sub-questions (UNAUDITED)
@@ -1315,3 +1322,41 @@ not make them equivalent as mechanisms.
 not match our HF23 file and calls it 23 pages, so the two artifacts must not
 be assumed identical; anything HF25 attributes to it must be checked against
 what our audited HF23 actually proves.
+
+
+### HF24: modulus of continuity and the bad-set restriction (UNAUDITED)
+
+Two lanes, delivered 2026-09-06, **both unaudited**.
+
+`hf24-modulus-of-continuity.md` obtains a modulus, but in a different currency
+than the question asked: the distance is Hölder with exponent one quarter with
+respect to an input-only spacetime measure, with an explicit constant except
+for a factor built from the enstrophy at the two endpoints. That yields a new
+unconditional constraint on the bad set and a crossing count conditional on
+one named scalar. Its gap is an input-only upper bound for the enstrophy
+restricted to the corridor of times where the distance sits near the critical
+level; the lane records that the unrestricted form of that bound is the
+critical hypothesis verbatim, hence circular, so the corridor restriction is
+the whole distance between its hypothesis and its conclusion.
+
+`hf24-badset-restriction.md` returns a negative with a sharp accounting. The
+route the lane was asked to try fails for a stated reason: by scaling the only
+admissible inequality needs either the representative in `L^2`, which the
+import explicitly does not assert, or the residual hypothesis (H2). Its
+unconditional substitute reproduces the audited measure bound with the
+identical constant. The valuable output is the exact deficit: the integrated
+transport work is bounded by input-only quantities except for a single factor,
+the supremum of the enstrophy on the bad set, and that shortfall is exactly
+one power of the enstrophy and is sharp, with a plateau family showing it. In
+Ladyzhenskaya–Prodi–Serrin bookkeeping the lane reports that the newly proved
+regularity buys precisely the removal of an earlier overshoot: the older route
+demanded a position one sixth past the Serrin line, while the route through
+the new mixed-pressure estimate demands the Serrin line exactly.
+
+**Convergence again.** Both lanes end at the same new question, which no
+earlier lane posed: is the enstrophy bounded by input data on the set of times
+where the trajectory is far from the nonlinear-Hodge class? It is strictly
+weaker than a Serrin bound, since it constrains the enstrophy only on a set of
+input-bounded measure and leaves the good set free. Earlier waves measured
+that set and then counted its crossings; neither constrained the height of the
+enstrophy on it.
