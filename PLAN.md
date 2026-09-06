@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: terminal-closure-search-after-quadratic-and-local-energy-exclusions
+active_task: terminal-closure-search-after-instantaneous-and-helical-exclusions
 active_architecture: none-passes-complete-terminal-gate
 complete_terminal_route: none-established
 retired_primary_route: pressure-quotient-defect-shell-material-response
@@ -18,6 +18,7 @@ single-profile-rigidity_status: falsified-for-the-normalized-package
 two_balance_falsification_status: author-checked-independent-audit-pending
 quadratic_lyapunov_status: author-checked-independent-audit-pending
 local_energy_only_status: source-statement-checked-consequence-author-checked
+pointwise_helical_falsification_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: unchanged
 formal_work_this_run: deferred
@@ -135,6 +136,64 @@ machinery is an approved task.
 These exclusions change the admissible research allocation, not the
 terminal obstruction. NS-R3 and CRITICAL remain gaps; no new architecture
 has an established complete terminal implication.
+
+### Additional exclusions: instantaneous vorticity and helical selection
+
+Read `research/evidence/2026-09-06-pointwise-vorticity-helicity-exclusions.md`.
+These are author derivations pending independent audit, not promoted graph
+nodes. They test the full equation on actual local NS branches.
+
+**No autonomous maximum-vorticity bound from the three scalar values.**
+Theorem A constructs compactly supported solenoidal data at one fixed
+positive viscosity, with EXACTLY the same energy E_*, enstrophy Y_* and
+maximum vorticity Omega(0)=1, but
+
+$$
+ \liminf_{t\downarrow0}\frac{\Omega_N(t)-1}{t}\ge\gamma N.
+$$
+
+All supports lie in one fixed compact set, velocities are uniformly
+bounded, and vorticity equals e3 near the exhibited maximum. Nested
+annular-vorticity strains provide the growth; two remote reservoirs match
+E and Y exactly. The actual vorticity equation gives the derivative; this
+is not a scalar comparison curve. Thus no finite pointwise rule
+D^+Omega<=F(nu,E,Y,Omega) holds at every classical state. A locally bounded
+F cannot evade the contradiction by holding only almost everywhere in
+time. Scalar-input Osgood rules would have closed NS-R3 through
+Y'<=2 Omega Y and LOCAL, but this producer is false.
+
+The coherent neighbourhood shrinks with N and higher initial norms are
+not controlled. These examples do NOT exclude full-datum constants,
+quantitative spatial coherence bounds or time-integrated depletion. Large
+initial growth is not claimed to persist or produce finite-time blow-up.
+
+**No pressure self-damping determined only by local velocity jets.** A
+separate construction leaves the entire affine velocity field near a
+point fixed while remote compact solenoidal fields make the canonical
+pressure Hessian component partial_33 p take either sign and arbitrary
+magnitude. At that point the actual stretching rate obeys
+D_t alpha=-a^2-partial_33 p. This rejects pointwise local Riccati damping,
+not nonlocal pressure estimates or rules limited to selected GLOBAL
+stretching maxima. This second construction does not have the exact
+fixed E,Y properties of Theorem A; do not merge their premises.
+
+**No universal high-frequency one-handed helicity selection.** Real odd
+initial velocity stays odd on its actual classical branch. Its Fourier
+velocity is purely imaginary, giving
+|P_+ uhat|^2=|P_- uhat|^2 at every frequency and every classical time.
+Nonzero compact data have a nonzero tail above every finite cutoff. Hence
+neither sign can universally dominate that tail by a positive fraction,
+even with a datum-chosen cutoff. Had such dominance held, the exact
+helicity balance and the controlled low modes would give an input-only
+H1/2 bound, then L3 and CONTINUATION. Do not import the sign-definite
+coercivity of a helical-decimated model into the original equation.
+Spacetime estimates retaining both signs are not excluded.
+
+These tests change the admissible closure mechanisms, not the terminal
+obligation. They do not establish a new primary route. Preserve full-datum,
+nonlocal geometric and nonmonotone spacetime possibilities without treating
+mere availability as an established mechanism. All earlier exclusions and
+valid results remain intact; NS-R3 and CRITICAL remain gaps.
 
 ## 3. Intrinsic records are retained tools, not an approved terminal route
 
