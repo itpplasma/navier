@@ -1460,12 +1460,14 @@ in logical strength, and each audit is correct about its own object. What
 distinguishes them is not that one restricts a set of times but the *shape* of
 the set restricted.
 
-This matters beyond bookkeeping: the corridor hypothesis is the only object the
-programme has produced so far that is **not** in the existential-equivalence
-class, so it is the only one whose refutation would not amount to refuting the
-Clay statement itself. It cannot, however, be established short of excluding a
-blow-up branch, which is why it is a genuine question rather than an easier
-one.
+**That last sentence was wrong, and the HF29 obstruction lane inverted it.**
+I wrote that the corridor hypothesis is the only object whose refutation would
+not amount to refuting the Clay statement. The opposite is true: by Proposition
+R1 the hypothesis can only fail if a finite-time singularity exists, so
+**refuting it requires settling Clay negatively**, and it is unfalsifiable
+within this programme. Being outside the equivalence class does not make it
+easier to attack; it makes it attackable from neither side. Its status is
+recorded in the HF29 section below.
 
 ### The sharpened first gap (2026-09-06)
 
@@ -1975,4 +1977,68 @@ that changes the user's intent they can redirect; nothing else is blocked by it.
 theorem must return a subset of `propext`, `Quot.sound`, `Classical.choice`.
 This is checked per lane and again at integration; a dependency or tactic that
 widens it is rejected.
+
+
+### HF29: the corridor hypothesis, attacked (obstruction lane returned, UNAUDITED)
+
+The adversarial half of the wave returned 2026-09-06
+(`hf29-corridor-obstruction.md`, 783 lines, unaudited; the proof half is still
+running). Its verdict deflates the hypothesis this plan had called the most
+promising structural fact on the table, and corrects my own framing of it.
+
+**It cannot be refuted, and that is a theorem rather than a failure.** By
+Proposition R1 a refutation requires exhibiting a finite-time singularity, so
+the hypothesis is unfalsifiable here unless the Clay statement is settled
+negatively. The honest adversarial verdicts available were therefore "not
+derivable" and "instantaneously false", and the lane obtained both.
+
+**Three constructions failed, each instructively.** Exact discretely
+self-similar blowup — the natural candidate, and the one this plan named when
+opening the wave — is **self-excluding**: the distance is scale-invariant, so
+under exact self-similarity it is log-periodic, but so is the critical norm, and
+a log-periodic critical norm is bounded, contradicting the continuation theorem.
+Two by-products fall out: any such profile is *forced* to sit at or above the
+upper wall, and an exactly self-similar singularity would **satisfy** the
+hypothesis rather than refute it. Our own audited countermodels from HF26 and
+HF27 likewise sit on the proof side: the HF26 audit already established that its
+curve is forced above the wall at every time, so the corridor is empty along it.
+And the crossing function from the HF24 audit cannot be adapted, since its
+oscillation decays and a convergent distance forces the hypothesis outright.
+
+**Two attacks succeeded.** An explicit scalar countermodel satisfies all
+fourteen enumerated audited relations, including the coercivity of HF18-A and a
+new strong-convexity link, while having finite maximal time and a corridor
+accumulating at it; it was checked on a canonical instance and six hundred
+randomised constant sets with no failures. So the hypothesis is **not derivable
+from the record's scalar closure**, and its one open escape is the same one
+HF22-C named, the actual equation. Second and sharper: **the instantaneous form
+of the hypothesis is false.** For every viscosity, parameter, energy and bound
+there is a divergence-free Schwartz field sitting in the corridor with arbitrarily
+large enstrophy, built from a dilation-pinned field off the nonlinear-Hodge class
+plus a high-frequency solenoidal packet. Taking it as datum makes time zero a
+corridor time on an actual trajectory. **The corridor condition therefore carries
+no upper information about the enstrophy at all**, which answers the HF24-A
+lane's own next question negatively and means its constant is not effectivisable,
+so the crossing count it feeds can never be made computable.
+
+**The decisive structural point.** The hypothesis is equivalent to the corridor
+being relatively compact in the lifespan, so its constant is always just a
+maximum over a compact subinterval. **It is not an estimate**, and by the HF24-A
+lane's own remark, even proving it closes no part of the target.
+
+**The parameter question is settled and is a red herring.** The hypothesis is
+monotone in its free parameter, and in the blowup branch reduces to a lower bound
+on the inferior limit of the scaled distance: for all parameters it is the bound
+at the viscosity, for some it is the bound at half the viscosity. The record
+forces only the *superior* limit. Lane and audit agree on the operative
+one-parameter reading and both are correct. The band's location is
+scaling-invariant and not an artifact; only its width is free, with an interior
+optimum at one quarter.
+
+**The reframing the lane recommends, and this plan adopts pending audit.** State
+the target without the parameter: if the maximal time is finite then the inferior
+limit of the scaled distance is at least the viscosity. That is exactly the
+upgrade of a proved superior limit to an unproved inferior one at the same level.
+One tension recorded: sharpening the transport constant widens the Lyapunov range
+but strictly *strengthens* the hypothesis.
 
