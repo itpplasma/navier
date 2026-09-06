@@ -89,16 +89,45 @@ invisible to both scalar tests, `⟨v, R⟩ = ⟨A(v), R⟩ = 0`.
 
 ## Why this matters to the programme
 
-**It excludes a mechanism class we were actively pursuing, and it does so more
-sharply than any previous exclusion.** Every earlier excluded class was ruled
-out by a construction that violated something. This one violates nothing at the
-scalar level: exact energy balance, exact quotient balance, constant scalar
-distance, prescribed enstrophy bound. What it lacks is only `R = 0`. Therefore
-the instantaneous variational structure together with the energy identity and
-*any* scalar distance information cannot imply the target; additional
-information from the full equation is essential. The note is careful not to
-overclaim: it does not assert that a scalar modulus fails together with every
-consequence of the equation.
+**It excludes a mechanism class we were actively pursuing.** The audit
+(`hf26-review-countermodel-crossings.md`, PASS WITH SCOPE) confirmed the
+algebra table above in every row and found the exclusion real but **materially
+narrower than this note first stated**. Two prose overclaims of mine are
+withdrawn.
+
+*Withdrawn: "it violates nothing at the scalar level."* It violates three
+things. It fails the enstrophy *identity*, which the audit computed explicitly
+and which is a third scalar test that does see the residual, so the curve is
+not invisible to every scalar probe. It fails any vector modulus. And it is
+*forced* to keep the scaled distance at or above the viscosity, so it lives
+entirely in the bad set.
+
+*Withdrawn: the instantaneous structure plus energy plus "any scalar distance
+information" cannot imply the target.* A scalar smallness threshold does
+exclude the curve. The correct scope is any scalar distance *regularity,
+modulus or crossing* information.
+
+The exclusion that survives, stated exactly. No derivation of the target, or of
+the signed estimate below the endpoint value of its parameter, follows from
+genuine variational objects and all instantaneous identities, the two scalar
+projections of the residual, energy-level budgets, any scalar modulus or
+crossing information, the cubic enstrophy inequality in either form, and a
+bounded critical norm. Four things are **not** excluded and one of them matters
+a great deal: the signed estimate at the endpoint parameter value, which the
+curve itself satisfies with zero remainder and which already suffices for the
+programme. Also unexcluded are scalar smallness thresholds, vector moduli, the
+enstrophy identity, and any use of the equation beyond those two projections.
+Two further scope facts from the audit: the two vanishing projections are not
+independent facts but the two balances restated, and the curve keeps both its
+critical norm and its quotient bounded, so it refutes a *certificate* rather
+than the target.
+
+**Prior art the audit identified.** The curve is exactly the backward
+self-similar ansatz; Nečas, Růžička and Šverák and later Tsai must be cited
+before any import. It is also the rigorous realisation of the viscous-eddy
+family sketched in the HF24 modulus lane, and the same species as the audited
+HF22-C construction, which it strictly strengthens by closing two of that
+construction's three named escapes and leaving only the actual equation.
 
 **It bears directly on HF24, whose audits are in flight.** Section
 `sec:crossing` argues the plan's claimed modulus/crossing-count equivalence

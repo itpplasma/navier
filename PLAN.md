@@ -1483,25 +1483,59 @@ actual ones. The controller verified its scaling algebra symbolically: the curve
 satisfies the exact kinetic-energy identity, the exact quotient identity, has
 constant scalar distance, and can be made to satisfy any prescribed cubic
 enstrophy bound — while both the target quantity and HF25's fourth-power defect
-integral diverge on it. It is not a Navier–Stokes solution, and its explicit PDE
-residual is invisible to both scalar tests. If the audit confirms it, this is a
-sharper exclusion than any the programme has recorded, because unlike every
-previous excluded class it violates nothing at the scalar level; what it lacks
-is only the equation itself.
+integral diverge on it. It is not a Navier–Stokes solution.
 
-**Two claims of ours are challenged and are held pending audit.** The plan says
-above that an input-only modulus for the distance is *equivalently* an input-only
-bound on the number of crossings of the critical level. HF26 argues that this
-needs both a precise notion of crossing and an explicit choice of observed
-object, and exhibits a smooth scalar function with a Lipschitz modulus that
-crosses a fixed level infinitely often: a modulus bounds excursions between
-*separated* thresholds, not crossings of a single level, and conversely a
-crossing count supplies no modulus. It also distinguishes the **scalar** modulus
-for `t -> ||q(t)||_3`, which is what HF24 and the sentence above observe, from
-the **vector** modulus for `t -> q(t)` in strong `L^3`, which is what its
-producer actually needs; the reverse triangle inequality runs one way only. The HF24 audits have since returned and are recorded above; the HF26
-countermodel audit is still in flight, so the crossing-count question is
-resolved only from the HF24 side for now.
+**Audit of the countermodel scope, returned 2026-09-06: PASS WITH SCOPE**
+(`hf26-review-countermodel-crossings.md`). Every row of the controller's table
+was reproduced by independent derivation and quadrature, the seed field was
+verified to exist with its constants computed two ways, and eight of nine
+refutation attempts failed. The exclusion is real, and **materially narrower
+than this plan first stated. Two claims written here are withdrawn.**
+
+The first was that the curve violates nothing at the scalar level. It violates
+three things: the enstrophy *identity*, which the audit computed explicitly and
+which is a third scalar test that does see the residual; any vector modulus;
+and it is *forced* to hold the scaled distance at or above the viscosity, so it
+lives entirely in the bad set and excludes nothing about smallness. The second
+was that the residual is invisible to both scalar tests as though that were an
+independent fact: the audit shows those two vanishing projections simply *are*
+the energy and quotient balances restated.
+
+What survives, stated exactly. No derivation of the target, or of the signed
+estimate below the endpoint value of its parameter, follows from genuine
+variational objects with all instantaneous identities, the two scalar
+projections of the residual, energy-level budgets, any scalar modulus or
+crossing information, the cubic enstrophy inequality in either form, and a
+bounded critical norm. Four things are not excluded, and one matters greatly:
+**the signed estimate at the endpoint parameter value, which the curve itself
+satisfies with zero remainder, and which already suffices for the programme.**
+So the signed route is untouched by this construction. Also unexcluded are
+scalar smallness thresholds, vector moduli, and the enstrophy identity. And
+since the curve keeps both its critical norm and its quotient bounded, it
+refutes a *certificate* rather than the target.
+
+**Prior art, from the audit.** The curve is exactly the backward self-similar
+ansatz, so Nečas, Růžička and Šverák and later Tsai must be cited before any
+import. It is the rigorous realisation of the viscous-eddy family sketched in
+the HF24 modulus lane, and the same species as the audited HF22-C construction,
+which it strictly strengthens by closing two of that construction's three named
+escapes and leaving only the actual equation.
+
+**One claim of ours is refuted, and it is this plan's own sentence.** I first
+recorded that HF26 challenged two of our claims. The audit narrows that to one.
+The surviving correction is to the sentence above asserting that an input-only
+modulus for the distance is *equivalently* an input-only bound on the number of
+crossings of the critical level. That equivalence fails in both directions: a
+modulus bounds excursions between *separated* thresholds, not crossings of a
+single level, as a smooth function with a Lipschitz modulus crossing a fixed
+level infinitely often shows; and conversely a crossing count supplies no
+modulus. **The error was confined to this plan's summary.** The HF24 modulus
+lane already stated its target in corridor form, and the HF24 audit had already
+recorded that components oscillating inside the corridor are not countable from
+the record. So HF26 *confirms* our HF24 audit rather than challenging it, and no
+HF24 verdict changes. The scalar-versus-vector distinction I listed as a second
+challenge is likewise not a challenge to HF24 but a property of HF26's own
+producer, which observes the vector field in strong norm.
 
 **Audit of the temporal scope, returned 2026-09-06: PASS WITH SCOPE**
 (`hf26-review-temporal-producer.md`). Every inequality, constant and derivation
