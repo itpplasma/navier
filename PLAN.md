@@ -1499,8 +1499,36 @@ crosses a fixed level infinitely often: a modulus bounds excursions between
 crossing count supplies no modulus. It also distinguishes the **scalar** modulus
 for `t -> ||q(t)||_3`, which is what HF24 and the sentence above observe, from
 the **vector** modulus for `t -> q(t)` in strong `L^3`, which is what its
-producer actually needs; the reverse triangle inequality runs one way only. The
-HF24 audits are in flight and were commissioned before this arrived, so their
-verdicts and the HF26 countermodel audit will be reconciled together rather than
-either being applied first. The sharpened-gap section above may need revision
-once they return.
+producer actually needs; the reverse triangle inequality runs one way only. The HF24 audits have since returned and are recorded above; the HF26
+countermodel audit is still in flight, so the crossing-count question is
+resolved only from the HF24 side for now.
+
+**Audit of the temporal scope, returned 2026-09-06: PASS WITH SCOPE**
+(`hf26-review-temporal-producer.md`). Every inequality, constant and derivation
+in the producer, the energy-level modulus and the exact remainder is correct as
+written; no arithmetic error, no invalid bridge, and no continuation norm inside
+any proof. The scope is logical rather than computational, and it is decisive:
+**the proof is clean, the hypothesis is not.** The auditor proved that a
+uniform bound on the enstrophy supplies the required vector modulus with an
+explicit sixth-root rate, hence supplies the hypothesis; so the hypothesis is
+equivalent to global continuation past the horizon, and so are all three
+alternatives of the conditional theorem, which are therefore not three routes
+but one. The document's own guard, that the scale be "justified without an
+endpoint continuation norm", is a statement about a future proof and not a
+condition on the scale, and is unenforceable as written. The temporal criterion
+therefore joins the existential-equivalence class alongside the HF25 defect
+hypothesis and the HF24 bad-set hypothesis, and against every classical
+criterion it is neither weaker nor stronger but logically equivalent.
+
+**Two leads worth their own wave, both from that audit and both unaudited.**
+The first is that the producer's own section re-derives the HF25 defect
+criterion in two lines, so what HF26 adds there is not a new criterion but the
+replacement of the sixth-power norm by a scale-averaged surrogate, with the
+averaging cost paid in the exceptional-set residual. The second is sharper: the
+same two-line argument appears to settle *negatively* the question the
+manuscript's scope remark explicitly leaves open in both directions, namely
+whether a branch can have divergent squared-enstrophy integral but finite
+fourth-power defect integral. If that survives audit the manuscript's remark
+stays true as written, since it claims only that the matter is not settled
+there, but the graph's gap node would need its review text amended. Neither
+lead is promoted.

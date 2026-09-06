@@ -18,6 +18,18 @@ in a closing subsection: the arbitrary-data endpoint-uniform producer is not
 proved, the one-scale temporal residual remains an added hypothesis, and the
 weaker estimate it does prove from energy does not imply it.
 
+**Three corrections to this note, from the audit of the temporal scope
+(`hf26-review-temporal-producer.md`, PASS WITH SCOPE).** First, the residue is
+not "the dissipation accumulated on a small-measure exceptional set", as this
+note first said, but the dissipation *weighted by the residual norm*, whose
+weight is unbounded precisely there; and the measure bound holds only away from
+the initial averaging layer, which contributes to the remainder with no
+estimate at all. Second, the three alternatives of the conditional theorem are
+not three independent routes: all three are equivalent to the target. Third,
+this note's audit checklist asked only how the scale is selected; the audit
+found that the hypothesis *itself* is an endpoint supremum, which is the prior
+and more serious question.
+
 ## What it claims
 
 1. **A rigorous weighted linearization** (`thm:weightedresponse`,
@@ -42,7 +54,8 @@ weaker estimate it does prove from energy does not imply it.
    constants. `cor:modulus` notes that a strong **vector** modulus for
    `t ↦ q(t)` in `L^3` supplies that scale.
 4. **What energy actually gives** (`thm:qtime`). An unconditional,
-   input-uniform *integrated* translation estimate,
+   input-uniform *integrated* translation estimate, **uniform in the stopping
+   time**, which the audit identifies as the whole content of the estimate,
    `∫‖q(t+h) − q(t)‖_3^3 dt ≤ C_I Ω(h)^{1/2}`, with no continuation norm on the
    right. `cor:residualmeasure` converts it to a bound on the *measure* of the
    exceptional set. The note is explicit that this is an integrated bound, not
