@@ -1,0 +1,1432 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{microtype,booktabs,longtable,array,xcolor,fancyhdr,enumitem,needspace}
+\usepackage[unicode,colorlinks=true,linkcolor=teal!55!black,citecolor=teal!55!black,urlcolor=teal!55!black]{hyperref}
+\usepackage{xurl}
+\input{glyphtounicode}\pdfgentounicode=1
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\G}{\mathcal G_3}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\M}{\mathcal M}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\GG}{\mathcal E}
+\newcommand{\LP}{\mathsf L}
+\newcommand{\GP}{\mathsf P}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\sym}{\operatorname{sym}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Sch}{\mathcal S_\sigma(\R^3)}
+\newcommand{\repo}[1]{{\small\texttt{#1}}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[2]
+\setlength{\parskip}{4pt}\setlength{\parindent}{1.2em}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Cubic gradient quotient: temporal continuation}
+\fancyhead[R]{\small 6 September 2026}\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\hypersetup{pdftitle={After HF25: weighted response and a temporal continuation criterion},pdfauthor={Research note prepared for Christopher Albert},pdfsubject={Candidate component proofs; explicit remaining arbitrary-data Navier--Stokes obstruction}}
+\begin{document}
+\begin{titlepage}\thispagestyle{empty}
+\vspace*{10mm}
+{\sffamily\small\color{teal!65!black} NAVIER--STOKES RESEARCH / PAPER-PROOF CONTINUATION\par}
+\vspace{9mm}
+{\LARGE\bfseries After HF25\par}
+\vspace{4mm}
+{\Large Weighted response, actual defect creation,\par and a one-scale temporal criterion\par}
+\vspace{8mm}
+{\large A continuation of the cubic gradient-quotient programme\par}
+\vspace{6mm}
+Prepared for Christopher Albert\par
+6 September 2026\par
+\vspace{9mm}
+\noindent\textbf{Main analytic advance.} The minimizing representative admits a rigorous directional linearization in a fixed, possibly degenerate, weighted Hilbert space. Its dual field has a strong Hadamard derivative in $L^{3/2}$:
+\[
+ \partial_h A(v)=M_{w(v)}\LP_{w(v)}h.
+\]
+This yields an exact second variation and proves that explicit data in the nonlinear-Hodge class generally leave that class under the \emph{actual} Navier--Stokes flow.
+
+\noindent\textbf{Temporal advance.} An explicit one-scale bound on the strong $L^3$ temporal residual of $q$ produces the full quantity $G$. Energy alone gives a weaker, quantitative time-translation estimate, proved here without a continuation norm.
+
+\noindent\textbf{A sharper obstruction.} A concentrating curve of genuine admissible spatial fields has constant $\norm q_3$, satisfies the exact energy and quotient balances, and nevertheless has $G\to\infty$. It is not a Navier--Stokes solution. It pinpoints why scalar distance continuity and crossing counts do not by themselves close the route.
+\par\vspace{6mm}
+\noindent\fbox{\begin{minipage}{0.942\textwidth}
+\textbf{Proof boundary.} The arbitrary-data, endpoint-uniform critical producer is \emph{not proved} in this note. The one-scale temporal residual remains an additional hypothesis; the weaker estimate obtained from energy does not imply it. Thus the requested full Clay alternative A is not established. The new component arguments are self-checked candidates, not independently audited or Lean-verified results.
+\end{minipage}}\par
+\vfill
+{\small Based on fresh, pinned reads of \repo{itpplasma/navier}, \repo{navier-paper}, and \repo{navier-formal}, and on the supplied PDF and matching LaTeX source. No repository was edited or pushed. Source coverage and verification limits are stated explicitly.}
+\end{titlepage}
+{\footnotesize\setlength{\parskip}{0pt}\tableofcontents}
+\newpage
+
+\section{Target, pinned frontier, and what changes}
+\label{sec:frontier}
+\subsection{The original equation and target}
+For every viscosity $\nu>0$ and every real divergence-free Schwartz datum $u_0\in\Sch$, retain
+\begin{equation}\label{eq:NS}
+ \partial_tu+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad \diver u=0,\qquad u(0)=u_0
+\end{equation}
+on $\R^3$. The target is
+\begin{equation}\label{eq:target}
+ u,p\in C^\infty(\R^3\times[0,\infty)),
+ \qquad \sup_{t\ge0}\norm{u(t)}_2^2<\infty.
+\end{equation}
+This is the unforced whole-space alternative A in Fefferman's official statement \cite{Clay}. There is no substitution of periodic data, a modified equation, a restricted data class, or a different weak branch.
+
+We use the maximal classical branch of the inspected manuscript \cite{Paper}: on every $[0,T]\subset[0,T_*)$, $u,p\in C^j([0,T];H^k)$ for all $j,k\ge0$, the pressure is normalized by $p=\sum R_iR_j(u_iu_j)$, and finite $T_*$ forces loss of the $H^1$ bound. This local package is based on Tao's Theorem 5.4 and Corollaries 4.3 and 5.8 \cite{Tao}. Its proof is an imported repository result, not newly audited here.
+
+\subsection{Revisions actually inspected}
+The two halves in each row concatenate to the full commit hash.
+\begin{center}\begin{tabular}{@{}lp{98mm}@{}}\toprule
+Repository & Pinned revision\\\midrule
+\repo{navier} & \repo{a3e85f2d75fb01f1421e}\\[-2pt]
+ & \repo{95f51ec6f8eedab0ec50}\\
+\repo{navier-paper} & \repo{34cdffd2fe2bd8a35068}\\[-2pt]
+ & \repo{e96f907302e00c10850f}\\
+\repo{navier-formal} & \repo{54f8e89119e90399044b}\\[-2pt]
+ & \repo{ae8dcd404dc405a381f9}\\\bottomrule
+\end{tabular}\end{center}
+The research reads cover \repo{PLAN.md}, the repaired HF22 projection and good-set notes, and the HF25 import record. The manuscript reads cover its target and local-premise statements, conditional completion and endpoint discussion, the integrated div--curl theorem and its regularization argument, and the final proof boundary. The formal read covers \path{docs/verification-status.md}. These are frontier-focused reads, not a line-by-line reaudit of the entire parent manuscript.
+
+At this revision HF23's unweighted regularity theorem has been audited in the repository and integrated into the manuscript. HF22's repaired projection note still treats its linearization as formal, and it explicitly withdraws an alleged identification with a different weighted estimate. The next temporal question is HF24: a modulus for the distance along the trajectory, presented in the plan as equivalent to a crossing-count bound. The distinction between scalar and vector moduli is therefore substantive, not editorial \cite{Research,Projection,GoodSet}.
+
+The current attachment has already been imported into the research repository as HF25, \emph{unaudited}. Its supplied LaTeX SHA-256 is
+\begin{center}\small\ttfamily
+3ce562bb59346fc700c522bf5e857e3500b\par
+318e283febed0c9db9b7f652c6d4f.
+\end{center}
+\Needspace{5\baselineskip}
+The supplied 26-page PDF has SHA-256
+\begin{center}\small\ttfamily
+762838f08604e74b8b8813c20f24ccd232\par
+5400ab848ed5e8db2adbd1650ea857.
+\end{center}
+These were computed from the actual uploaded bytes. The LaTeX hash matches the HF25 import. The earlier div--curl artifact cited \emph{inside} that attachment has a different hash from the repository's HF23 artifact; no identity of those earlier files is assumed here.
+
+The formal repository has supporting checked declarations and statement surfaces, not a proved arbitrary-data critical estimate or a proved Clay theorem. Formalization remains deferred by the research plan. No local Lean build or kernel replay was run \cite{Formal}.
+
+\subsection{The exact unresolved producer}
+With the notation developed below, the selected absolute route asks for
+\begin{equation}\label{eq:Gtarget}
+ G(\tau):=\int_0^\tau\norm{q(t)}_3D(t)\dd t
+ \le A_G(\nu,u_0,H)<\infty,
+ \qquad \tau<\min\{H,T_*\},
+\end{equation}
+where the \emph{same} finite witness works for every stopping time. The original signed route permits
+\begin{equation}\label{eq:signedtarget}
+ \int_0^\tau K(t)\dd t
+ \le\theta\nu\int_0^\tau D(t)\dd t+A,
+ \qquad 0\le\theta\le1.
+\end{equation}
+The fixed spatial cutoff and input-controlled Gronwall term have already been normalized away in the repository. Equation \eqref{eq:Gtarget} is an absolute sufficient mechanism, not an algebraic restatement of \eqref{eq:signedtarget}. Their existential implications through global continuation do not provide a priori witnesses.
+
+\begin{center}\begin{tabular}{@{}p{48mm}p{107mm}@{}}\toprule
+Component & Contribution of this continuation\\\midrule
+Formal linearization & Replaced by a proved weighted strong limit and a strong derivative of $A$; Section~\ref{sec:linear}.\\[2pt]
+Defect generation & Exact quadratic coefficient and a genuine Navier--Stokes departure from $\M$; Section~\ref{sec:departure}.\\[2pt]
+Temporal producer & One fixed input scale is sufficient, with explicit $Q,D,G$ bounds; Section~\ref{sec:temporal}.\\[2pt]
+Energy-level time control & Endpoint-uniform integrated translation estimate, not a uniform strong modulus; Section~\ref{sec:increments}.\\[2pt]
+Scalar crossing mechanism & Corrected and tested against a concentrating curve with actual minimizing representatives; Sections~\ref{sec:crossing}--\ref{sec:curve}.\\[2pt]
+Full arbitrary-data estimate & Still not supplied; precise remaining inequality in Section~\ref{sec:boundary}.\\\bottomrule
+\end{tabular}\end{center}
+
+\section{Variational and analytic foundations}
+\label{sec:foundations}
+All unmarked spatial integrals are over $\R^3$. Jacobians are $(\nabla v)_{ij}=\partial_jv_i$ and matrix norms are Frobenius norms. Set
+\[
+ R_j=\partial_j(-\Delta)^{-1/2},\qquad
+ \PP_{ij}=\delta_{ij}+R_iR_j,\qquad
+ C_p=\norm\PP_{L^p\to L^p}\quad(1<p<\infty).
+\]
+We use a scalar Sobolev constant $S$ with $\norm f_6\le S\norm{\nabla f}_2$, valid for vector fields as well. Standard $L^p$ multiplier theory, Sobolev approximation, reflexivity, Hilbert projections, and weak-derivative chain rules are declared analytic foundations \cite{Stein}. No weighted Calder\'on--Zygmund estimate is assumed.
+
+\subsection{The actual minimizing representative}
+Define
+\begin{equation}\label{eq:defs}
+ \G=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{L^3},
+ \quad F(v)=\tfrac13\norm v_3^3,
+ \quad j(z)=|z|z.
+\end{equation}
+For $v\in L^3$, let $w(v)$ minimize $F$ over $v+\G$, and put
+\begin{equation}\label{eq:objects}
+ q(v)=w(v)-v,\qquad A(v)=j(w(v)),\qquad \Q(v)=F(w(v)).
+\end{equation}
+Existence follows by the direct method in reflexive $L^3$: bounded minimizing sequences have weakly convergent subsequences, the closed affine subspace is weakly closed, and $F$ is weakly lower semicontinuous. Strict convexity gives uniqueness. Differentiation along $g\in\G$, justified by H\"older, gives
+\begin{equation}\label{eq:stationarity}
+ \ip{j(w(v))}{g}=0\quad(g\in\G).
+\end{equation}
+Conversely, this stationarity condition implies minimality by convexity.
+
+For a solenoidal $v$, the Leray multiplier annihilates $\G$ and fixes $v$. Hence
+\begin{equation}\label{eq:coercivity}
+ \PP w=v,\quad
+ \frac{\norm v_3^3}{3C_3^3}\le\Q(v)\le\frac{\norm v_3^3}{3},\quad
+ \norm q_3\le(1+C_3)(3\Q)^{1/3},\quad \norm q_3\le2\norm v_3
+\end{equation}
+where the last bound uses $\norm w_3\le\norm v_3$ directly.
+
+\subsection{Cubic estimates, with their constants}
+For $a,b,d\in\R^3$,
+\begin{align}
+ (j(a)-j(b))\cdot(a-b)
+ &=\frac{|a|+|b|}{2}\bigl(|a-b|^2+(|a|-|b|)^2\bigr),\label{eq:mono}\\
+ B(a,d):=\tfrac13|a+d|^3-\tfrac13|a|^3-j(a)\cdot d
+ &\ge\tfrac14|a||d|^2,\qquad B(a,d)\ge\tfrac16|d|^3,\label{eq:Bbelow}\\
+ B(a,h)&\le |a||h|^2+\tfrac13|h|^3.\label{eq:Babove}
+\end{align}
+The first is a direct expansion. Apply it to $a+td,a$, divide by $t$, and integrate from $0$ to $1$. Retaining $|a|$ gives the first lower bound; using $|a+td|+|a|\ge t|d|$ gives the second. For the upper bound use
+$|j(a+th)-j(a)|\le(2|a|+t|h|)t|h|$ and integrate its pairing with $h$.
+
+Write $U=w(v)$, $d=w(v+h)-U$. Minimality with the competitor $U+h$ and stationarity at $U$ imply
+\[
+ \int B(U,d)\le\int B(U,h),
+ \qquad \ip{j(U)}{d-h}=0.
+\]
+Consequently
+\begin{align}
+ \norm d_3^3&\le6\norm U_3\norm h_3^2+2\norm h_3^3,\label{eq:holder}\\
+ \int |U||d|^2&\le4\norm U_3\norm h_3^2+\tfrac43\norm h_3^3.\label{eq:weightedbasic}
+\end{align}
+These are inherited estimates from the attachment, reproduced here because the proof of the new linearization uses their precise orders \cite{Attachment}.
+
+The dual field has stronger continuity. Set $w_1=w(v+h)$, $w_0=w(v)$, $f=|w_1|+|w_0|$, and $a=\norm{j(w_1)-j(w_0)}_{3/2}$. Weighted Cauchy--Schwarz and H\"older give
+\[
+ a^2\le\norm f_3\int f|w_1-w_0|^2
+ \le2\norm f_3\ip{j(w_1)-j(w_0)}h
+ \le2\norm f_3a\norm h_3.
+\]
+Division when $a\ne0$ proves
+\begin{equation}\label{eq:Alip}
+ \norm{A(v+h)-A(v)}_{3/2}
+ \le2\bigl(\norm{w(v+h)}_3+\norm{w(v)}_3\bigr)\norm h_3.
+\end{equation}
+The competitor inequalities in both directions, together with this continuity, give
+\begin{equation}\label{eq:Qprime}
+ \mathrm D\Q(v)[h]=\ip{A(v)}h;
+ \qquad \Q\in C^{1,1}_{\rm loc}(L^3;\R).
+\end{equation}
+For example, the upper Taylor error is bounded by \eqref{eq:Babove}, and the lower error follows by using $w(v+h)-h$ at $v$ and then \eqref{eq:Alip}. No derivative of $w$ is used.
+
+\subsection{Spatial derivatives and the original evolution}
+For solenoidal $u\in H^1$, the integrated HF23 result states
+\begin{equation}\label{eq:divcurl}
+ w,q\in L^6\cap W^{1,2}_{\rm loc},\qquad
+ \norm{\nabla w}_2^2\le\tfrac54Y,\qquad
+ \norm{\nabla q}_2^2=\norm{\diver w}_2^2\le\tfrac14Y,
+ \quad Y=\norm{\nabla u}_2^2.
+\end{equation}
+Neither $w\in L^2$ nor $\diver w\in L^{3/2}$ is asserted. A reconstruction of the regularized proof is included in Appendix~\ref{app:spatial}, so the new temporal argument has an explicit spatial foundation.
+
+For a smooth enough solenoidal field define
+\begin{equation}\label{eq:KD}
+ N(u)=(u\cdot\nabla)u,\quad
+ K(u)=-\ip{A(u)}{N(u)},\quad D(u)=-\ip{A(u)}{\Delta u}.
+\end{equation}
+With $\rho=|w|$ and $V=\rho^{1/2}w$, the weighted identity and its consequences are
+\begin{align}
+ D&=\int\rho\bigl(|\nabla w|^2+|\nabla\rho|^2\bigr)
+   =\int\bigl(|\nabla V|^2-\tfrac19|\nabla|V||^2\bigr),\label{eq:Didentity}\\
+ V&\in H^1,\quad
+ D\ge\tfrac89\norm{\nabla V}_2^2,\quad
+ \norm w_9^3\le a_0D,\qquad a_0=\tfrac98S^2,\label{eq:Dcontrol}\\
+ |\nabla A|&\le\tfrac43|w|^{1/2}|\nabla V|.\label{eq:gradA}
+\end{align}
+Appendix~\ref{app:weighted} proves the limiting identity; \eqref{eq:gradA} is the chain rule for $A=|V|^{1/3}V$.
+
+The gradient pressure annihilates $A$ by \eqref{eq:stationarity}. The Banach chain rule in \eqref{eq:Qprime}, on the original classical branch, gives
+\begin{equation}\label{eq:balance}
+ Q'(t)+\nu D(t)=K(t),\qquad Q(t)=\Q(u(t)).
+\end{equation}
+Furthermore
+\begin{equation}\label{eq:workform}
+ K=-\int q\cdot(u\cdot\nabla)A.
+\end{equation}
+Indeed $\int A\cdot(u\cdot\nabla)w=\int u\cdot\nabla(|w|^3/3)=0$. Substitute $w=u+q$, use $\partial_iq_j=\partial_jq_i$, integrate by parts using $\diver A=0$, and then use $\diver u=0$. All pairings are integrable: on compact classical intervals $u,\nabla u$ are bounded, $w,q\in L^3\cap L^6$, and $\nabla A\in L^{3/2}$. Cutoffs dispose of the boundary terms, for example $qAu\in L^1$.
+
+H\"older with exponents $(3,9,18,2)$, followed by \eqref{eq:Dcontrol}, yields
+\begin{equation}\label{eq:Kq}
+ |K|\le C_\sharp\norm q_3D,\qquad C_\sharp=\tfrac32C_9S.
+\end{equation}
+The same estimate holds with \emph{any} $g\in L^3$ replacing the first factor $q$ in \eqref{eq:workform}. This linearity in that factor will be decisive below.
+
+Energy and the div--curl estimate give the endpoint-uniform budgets
+\begin{align}
+ E(t)+2\nu\int_0^tY(s)\dd s&=E_0,\quad E(t)=\norm{u(t)}_2^2,\label{eq:energy}\\
+ \int_0^\tau\norm{\nabla q}_2^2\dd t&\le\frac{E_0}{8\nu},\quad
+ \int_0^\tau\norm q_3^4\dd t\le\frac{8S^2E_0^2}{\nu},\label{eq:qbudgets}\\
+ \int_0^\tau\norm u_3^4\dd t&\le\frac{S^2E_0^2}{2\nu}.\label{eq:u34}
+\end{align}
+Here \eqref{eq:energy} is obtained by testing the original equation with $u$; pressure and transport vanish. For \eqref{eq:u34} use
+$\norm u_3^4\le\norm u_2^2\norm u_6^2\le S^2E_0Y$, and for the second estimate in \eqref{eq:qbudgets} use $\norm q_3\le2\norm u_3$.
+
+\section{A rigorous weighted linearization and the derivative of the dual field}
+\label{sec:linear}
+This section replaces a \emph{formal} differentiation of the nonlinear projection by a strong-limit theorem. The topology is part of the statement: it is a fixed weighted Hilbert topology at the base point, not the unweighted $L^3$ topology of the unknown correction.
+
+\subsection{The fixed weighted space}
+Fix $v\in L^3$ and write $U=w(v)$, $\rho=|U|$. Define
+\begin{equation}\label{eq:matrixM}
+ M_U(x)=\mathrm Dj(U(x))=
+ \begin{cases}
+ \rho I+U\otimes U/\rho,&\rho>0,\\
+ 0,&\rho=0.
+ \end{cases}
+\end{equation}
+Let $\HH_U$ be the Hilbert space of measurable vector fields modulo equality for the measure $\rho\dd x$, with
+\begin{equation}\label{eq:Hspace}
+ \ip ab_U=\int a\cdot M_Ub,
+ \qquad \norm a_U^2=\ip aa_U.
+\end{equation}
+Its norm satisfies
+\begin{equation}\label{eq:Hequiv}
+ \int\rho|a|^2\le\norm a_U^2\le2\int\rho|a|^2.
+\end{equation}
+Thus it is complete by its equivalence with $L^2(\rho\dd x)$. Values on $\{U=0\}$ are deliberately not recorded. If $U=0$ almost everywhere, this is the zero Hilbert space.
+
+Every $h\in L^3$ has a well-defined image in $\HH_U$, with
+\begin{equation}\label{eq:L3embed}
+ \norm h_U\le(2\norm U_3)^{1/2}\norm h_3.
+\end{equation}
+Bounded compactly supported fields are dense in $\HH_U$ by truncation and exhaustion, so this embedding has dense range. Put
+\begin{equation}\label{eq:weightedE}
+ \GG_U=\overline{\G}^{\HH_U},\qquad
+ \GP_U=\text{orthogonal projection onto }\GG_U,
+ \qquad \LP_U=I-\GP_U.
+\end{equation}
+The notation for the closure means the closure of the image of $\G$. An element of $\GG_U$ need \emph{not} have an unweighted distributional gradient representative. That additional conclusion is not used or asserted.
+
+The unique vector $z\in h+\GG_U$ perpendicular to $\GG_U$ is $z=\LP_Uh$. It is also the unique minimizer, in this weighted affine space, of $\frac12\norm z_U^2$.
+
+\subsection{A quadratic Taylor remainder for the cubic duality map}
+\begin{lemma}\label{lem:jTaylor}
+For all $a,b\in\R^3$,
+\begin{equation}\label{eq:jmatrixlip}
+ \norm{\mathrm Dj(a)-\mathrm Dj(b)}_{\rm op}\le4|a-b|,
+\end{equation}
+and therefore
+\begin{equation}\label{eq:jTaylor}
+ |j(a+d)-j(a)-\mathrm Dj(a)d|\le2|d|^2.
+\end{equation}
+The derivative at zero is zero.
+\end{lemma}
+\begin{proof}
+The derivative off zero is \eqref{eq:matrixM}; $|j(d)|/|d|=|d|\to0$ proves the derivative at zero. For $|a|\ge|b|>0$, write
+\[
+ \frac{a\otimes a}{|a|}-\frac{b\otimes b}{|b|}
+ =\frac{(a-b)\otimes a+b\otimes(a-b)}{|a|}
+  +(b\otimes b)\left(\frac1{|a|}-\frac1{|b|}\right).
+\]
+The three terms have operator norms at most
+$|a-b|$, $(|b|/|a|)|a-b|$, and $(|b|/|a|)|a-b|$ respectively. Adding the scalar-matrix term $(|a|-|b|)I$ proves \eqref{eq:jmatrixlip}. The zero case follows directly, and interchanging $a,b$ covers the remaining case. Integrate the derivative difference along $a+td$, $0\le t\le1$, to obtain \eqref{eq:jTaylor}.
+\end{proof}
+
+\subsection{Strong weighted convergence of the actual difference quotients}
+\begin{theorem}[Weighted directional response]\label{thm:weightedresponse}
+For every $v,h\in L^3$, with $U=w(v)$ and the fixed space \eqref{eq:Hspace},
+\begin{equation}\label{eq:wresponse}
+ \frac{w(v+\varepsilon h)-w(v)}{\varepsilon}
+ \longrightarrow \LP_Uh
+ \quad\text{strongly in }\HH_U
+ \quad(\varepsilon\to0,\ \varepsilon\ne0).
+\end{equation}
+Consequently
+\begin{equation}\label{eq:qresponse}
+ \frac{q(v+\varepsilon h)-q(v)}{\varepsilon}
+ \longrightarrow-\GP_Uh
+ \quad\text{strongly in }\HH_U.
+\end{equation}
+Neither assertion claims convergence in $L^3$.
+\end{theorem}
+\begin{proof}
+Write $d_\varepsilon=w(v+\varepsilon h)-U$ and
+$z_\varepsilon=d_\varepsilon/\varepsilon$. Since
+$d_\varepsilon-\varepsilon h\in\G$, one has
+$z_\varepsilon\in h+\G$.
+
+\emph{Step 1: two estimates with different roles.}
+From \eqref{eq:holder} and \eqref{eq:weightedbasic}, for $0<|\varepsilon|\le1$,
+\begin{align}
+ \norm{d_\varepsilon}_3^3
+ &\le6\norm U_3\norm h_3^2|\varepsilon|^2
+       +2\norm h_3^3|\varepsilon|^3,\label{eq:deps}\\
+ \int\rho|z_\varepsilon|^2
+ &\le4\norm U_3\norm h_3^2+\tfrac43|\varepsilon|\norm h_3^3.\label{eq:zweighted}
+\end{align}
+Thus $(z_\varepsilon)$ is bounded in $\HH_U$, whereas only
+$\norm{z_\varepsilon}_3=O(|\varepsilon|^{-1/3})$ is obtained in $L^3$.
+The latter potentially divergent bound will be kept in every remainder estimate.
+
+Define, for any $a\in L^3$,
+\[
+ J_\varepsilon(a)=\frac{j(U+\varepsilon a)-j(U)}{\varepsilon}.
+\]
+Lemma~\ref{lem:jTaylor} and \eqref{eq:deps} give
+\begin{equation}\label{eq:Remactual}
+ \norm{J_\varepsilon(z_\varepsilon)-M_Uz_\varepsilon}_{3/2}
+ \le\frac{2\norm{d_\varepsilon}_3^2}{|\varepsilon|}
+ =O(|\varepsilon|^{1/3})\longrightarrow0.
+\end{equation}
+For a fixed $a\in L^3$ the stronger estimate is
+\begin{equation}\label{eq:Remfixed}
+ \norm{J_\varepsilon(a)-M_Ua}_{3/2}
+ \le2|\varepsilon|\norm a_3^2.
+\end{equation}
+
+\emph{Step 2: identification of every weak limit.}
+Along any sequence $\varepsilon_n\to0$, boundedness supplies a weakly convergent subsequence in $\HH_U$, with limit $z$. The closed affine space $h+\GG_U$ is weakly closed, so $z\in h+\GG_U$. Both $j(U+\varepsilon z_\varepsilon)$ and $j(U)$ annihilate $\G$. Therefore, for every fixed $g\in\G$,
+\[
+ 0=\ip{J_\varepsilon(z_\varepsilon)}g
+   =\ip{z_\varepsilon}g_U+o(1),
+\]
+where the last error follows from \eqref{eq:Remactual} and $g\in L^3$. Passing to the weak limit shows $\ip zg_U=0$ for all $g\in\G$, hence for all $g\in\GG_U$ by density. Thus $z=\LP_Uh$. The limit is unique, so the whole family converges weakly to this $z$.
+
+\emph{Step 3: strong convergence without assuming $z\in L^3$.}
+Choose $g_m\in\G$ such that
+$z_m=h+g_m\to z$ in $\HH_U$. Each $z_m$ lies in $L^3$, but no uniform bound on its $L^3$ norm is needed. Fix $m$ before sending $\varepsilon$ to zero. Since $z_\varepsilon-z_m\in\G$, stationarity gives
+\begin{align}
+ &\ip{J_\varepsilon(z_\varepsilon)-J_\varepsilon(z_m)}{z_\varepsilon-z_m}
+   =-\ip{J_\varepsilon(z_m)}{z_\varepsilon-z_m}.\label{eq:strongstation}
+\end{align}
+By \eqref{eq:mono}, the left side is at least
+\[
+ \frac12\int\bigl(|U+\varepsilon z_\varepsilon|+|U+\varepsilon z_m|\bigr)
+                  |z_\varepsilon-z_m|^2.
+\]
+In particular, using $\rho\le|U+\varepsilon z_m|+|\varepsilon||z_m|$,
+\begin{align}
+ \tfrac12\int\rho|z_\varepsilon-z_m|^2
+ &\le-\ip{J_\varepsilon(z_m)}{z_\varepsilon-z_m}
+       +\tfrac{|\varepsilon|}{2}\int|z_m||z_\varepsilon-z_m|^2.\label{eq:strongbase}
+\end{align}
+The last term tends to zero: by H\"older and Step 1 it is bounded by
+\[
+ \tfrac{|\varepsilon|}{2}\norm{z_m}_3
+       (\norm{z_\varepsilon}_3+\norm{z_m}_3)^2
+ =O_m(|\varepsilon|^{1/3}).
+\]
+Replacing $J_\varepsilon(z_m)$ by $M_Uz_m$ in the first term has error at most
+\[
+ 2|\varepsilon|\norm{z_m}_3^2
+ (\norm{z_\varepsilon}_3+\norm{z_m}_3)
+ =O_m(|\varepsilon|^{2/3}).
+\]
+Consequently weak convergence implies
+\[
+ \limsup_{\varepsilon\to0}\tfrac12\int\rho|z_\varepsilon-z_m|^2
+ \le-\ip{z_m}{z-z_m}_U
+ =\norm{z_m-z}_U^2.
+\]
+For the equality, $z_m-z\in\GG_U$ and $z\perp\GG_U$. By \eqref{eq:Hequiv},
+\[
+ \limsup_{\varepsilon\to0}\norm{z_\varepsilon-z_m}_U
+ \le2\norm{z_m-z}_U.
+\]
+The triangle inequality now gives
+$\limsup_{\varepsilon\to0}\norm{z_\varepsilon-z}_U
+\le3\norm{z_m-z}_U$.
+Let $m\to\infty$. This proves \eqref{eq:wresponse}; subtracting $h$ proves \eqref{eq:qresponse}. The proof applies to both signs of $\varepsilon$. If $U=0$, the weighted convergence is vacuous and true; the subsequent dual conclusion follows from \eqref{eq:Remactual}.
+\end{proof}
+
+\subsection{A strong derivative in an unweighted dual space}
+\begin{theorem}[Hadamard derivative of $A$]\label{thm:Aderivative}
+The map $A:L^3\to L^{3/2}$ is Hadamard differentiable at every $v\in L^3$. Its derivative is the bounded linear operator
+\begin{equation}\label{eq:Aderivative}
+ \mathcal B_v h:=M_U\LP_Uh,\qquad U=w(v),
+ \qquad \norm{\mathcal B_vh}_{3/2}\le2\norm U_3\norm h_3.
+\end{equation}
+Explicitly, if $\varepsilon_n\to0$, $\varepsilon_n\ne0$, and $h_n\to h$ in $L^3$, then
+\[
+ \frac{A(v+\varepsilon_nh_n)-A(v)}{\varepsilon_n}
+ \longrightarrow\mathcal B_vh\quad\text{in }L^{3/2}.
+\]
+For $h,k\in L^3$ its bilinear form is
+\begin{equation}\label{eq:Hessian}
+ \ip{\mathcal B_vh}k=\ip{\LP_Uh}{\LP_Uk}_U.
+\end{equation}
+It is symmetric and nonnegative on the diagonal.
+\end{theorem}
+\begin{proof}
+The multiplication operator $z\mapsto M_Uz$ maps $\HH_U$ continuously to $L^{3/2}$. Indeed $M_U^2\le2\rho M_U$ as quadratic forms, whence H\"older gives
+\[
+ \norm{M_Uz}_{3/2}
+ \le(2\norm U_3)^{1/2}\norm z_U.
+\]
+Theorem~\ref{thm:weightedresponse} and \eqref{eq:Remactual} therefore prove the derivative along every fixed $h$. Orthogonal projection is a contraction, so \eqref{eq:L3embed} proves the stated operator bound.
+
+To obtain the Hadamard conclusion, compare the difference quotients in directions $h_n$ and $h$. The local Lipschitz estimate \eqref{eq:Alip} bounds their difference by $C\norm{h_n-h}_3$, with a fixed $C$ because both perturbed inputs remain in a bounded neighborhood of $v$. This tends to zero. Finally
+\[
+ \ip{M_U\LP_Uh}k=\ip{\LP_Uh}k_U
+ =\ip{\LP_Uh}{\LP_Uk}_U
+\]
+since $\GP_Uk\in\GG_U$. This is \eqref{eq:Hessian}.
+\end{proof}
+
+\begin{corollary}[Second variation and time differentiation]\label{cor:second}
+For $v,h\in L^3$,
+\begin{equation}\label{eq:Qsecond}
+ \Q(v+\varepsilon h)
+ =\Q(v)+\varepsilon\ip{A(v)}h
+       +\tfrac12\varepsilon^2\norm{\LP_Uh}_U^2+o(\varepsilon^2).
+\end{equation}
+For any $C^1$ curve $v(t)$ in $L^3$,
+\begin{equation}\label{eq:Atime}
+ \frac\dd{\dd t}A(v(t))=\mathcal B_{v(t)}v_t(t)
+ \quad\text{strongly in }L^{3/2}.
+\end{equation}
+If $v$ is $C^2$ in $L^3$, then at every interior time (one-sided at an initial time)
+\begin{equation}\label{eq:Qtt}
+ \frac{\dd^2}{\dd t^2}\Q(v(t))
+ =\norm{\LP_{w(v(t))}v_t(t)}_{w(v(t))}^2
+    +\ip{A(v(t))}{v_{tt}(t)}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Integrate the expansion
+$A(v+s h)=A(v)+s\mathcal B_vh+o(|s|)$ in the identity
+$\Q(v+\varepsilon h)-\Q(v)=\int_0^\varepsilon\ip{A(v+s h)}h\dd s$.
+This gives \eqref{eq:Qsecond}. For \eqref{eq:Atime}, take
+$h_\varepsilon=(v(t+\varepsilon)-v(t))/\varepsilon\to v_t(t)$ and apply the Hadamard statement. Differentiate
+$\frac\dd{\dd t}\Q(v(t))=\ip{A(v(t))}{v_t(t)}$ and use \eqref{eq:Hessian} to obtain \eqref{eq:Qtt}.
+\end{proof}
+
+\begin{remark}[Precisely what has been closed]\label{rem:linear-scope}
+The weighted linearized problem in the repaired HF22-B discussion is now justified, including its limit at a vanishing representative. The theorem does \emph{not} show $\LP_Uh\in L^3$, an unweighted derivative of $w$, or a two-point $L^3$ Lipschitz estimate for $q$. Nor is continuity of $v\mapsto\mathcal B_v$ in operator norm established, so a $C^2$ Fr\'echet claim is not made. Elements of the weighted gradient closure are not silently identified with unweighted gradients. These distinctions prevent the formal linearization from being used as an unproved critical-norm estimate.
+\end{remark}
+
+\section{Exact defect creation under the actual Navier--Stokes flow}
+\label{sec:departure}
+Define the nonlinear-Hodge class
+\[
+ \M=\{U\in L^3:\diver(|U|U)=0\text{ in distributions}\}.
+\]
+A solenoidal $U\in\M$ has $w(U)=U$ and $q(U)=0$, by stationarity. Write the nonnegative value gap as
+\begin{equation}\label{eq:gap}
+ \mathfrak d(v)=F(v)-\Q(v)\ge0.
+\end{equation}
+This is not the same object as $\norm{q(v)}_3$.
+
+\subsection{The exact quadratic coefficient}
+\begin{proposition}\label{prop:gapquadratic}
+Let $U\in\M$ be solenoidal and let $v(t)$ be a $C^2$ curve in $L^3$ with $v(0)=U$ and $v_t(0)=h$. Then
+\begin{equation}\label{eq:gapquadratic}
+ \mathfrak d(v(t))
+ =\tfrac12t^2\norm{\GP_Uh}_U^2+o(t^2)
+ \qquad(t\downarrow0).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The Hessian of $F$ at $U$ is $(h,k)\mapsto\ip hk_U$, since $\mathrm Dj(U)=M_U$. Write $k=v_{tt}(0)$. The ordinary cubic Taylor expansion gives
+\[
+ F(v(t))=F(U)+t\ip{j(U)}h
+ +\tfrac12t^2\bigl(\norm h_U^2+\ip{j(U)}k\bigr)+o(t^2).
+\]
+Corollary~\ref{cor:second}, or \eqref{eq:Qsecond} followed by the $O(t^2)$ change in the path, gives the same expression for $\Q$ with $\norm h_U^2$ replaced by $\norm{\LP_Uh}_U^2$. All constant, linear, and acceleration terms cancel. Orthogonality yields
+$\norm h_U^2-\norm{\LP_Uh}_U^2=\norm{\GP_Uh}_U^2$.
+\end{proof}
+
+\subsection{The inherited ellipse field, with its nonzero heat-normal component}
+We reproduce the geometric ingredient from the attachment \cite[Section 5]{Attachment}; this construction itself is inherited. Let
+\[
+ \gamma(\theta)=(2\cos\theta,\sin\theta),\qquad
+ m(\theta)=\sqrt{4\sin^2\theta+\cos^2\theta}.
+\]
+In arc length $s$ its unit tangent and outward normal are
+\[
+ T=\frac{(-2\sin\theta,\cos\theta)}m,
+ \qquad n=\frac{(\cos\theta,2\sin\theta)}m.
+\]
+Direct differentiation, using $\dd s/\dd\theta=m$, gives
+\begin{equation}\label{eq:ellipsecurv}
+ T_s=-\kappa n,\qquad n_s=\kappa T,
+ \qquad \kappa=\frac2{m^3},\quad
+ \kappa_s=-\frac{18\sin\theta\cos\theta}{m^6}.
+\end{equation}
+For a sufficiently small fixed $\delta_0>0$, normal coordinates
+$X(s,d)=\gamma(s)+dn(s)$, $|d|<2\delta_0$, are injective and smooth with tangential scale factor $1+d\kappa(s)>0$. Local invertibility follows from the displayed derivative. Compactness gives a uniform neighborhood; any failure of injectivity in arbitrarily thin tubes would limit to two coincident points on the embedded ellipse and contradict local invertibility. In that tube $\nabla d=n$ and $T=J\nabla d$, with $J(x,y)=(-y,x)$.
+
+Put $\eta(a)=e^{-1/a}$ for $a>0$ and $0$ for $a\le0$, and define the smooth plateau
+\[
+ \chi(r)=\frac{\eta(1-r^2)}{\eta(1-r^2)+\eta(r^2-1/4)}.
+\]
+It is one on $|r|\le1/2$, zero on $|r|\ge1$, and flat at its support boundary. Set
+\begin{equation}\label{eq:ellipsefield}
+ U(x,y,z)=\chi(d(x,y)/\delta_0)\chi(z)(T(x,y),0)
+\end{equation}
+in the tube, and zero outside. This is a real compactly supported smooth field. Since $\diver(J\nabla d)=0$ and $T\cdot\nabla d=0$,
+\[
+ \diver U=0,\qquad \diver(|U|U)=0.
+\]
+Thus $U\in\M$ and $w(U)=U$.
+
+On the plateau where $U=T$ and $|U|=1$, $M_U=I+U\otimes U$ and $U\cdot\Delta U=-|\nabla U|^2$. Consequently
+\begin{equation}\label{eq:heatnormal}
+ \mathscr H:=\diver(M_U\Delta U)
+ =-U\cdot\nabla|\nabla U|^2.
+\end{equation}
+Here $\diver\Delta U=0$ and $\diver U=0$ were used. The normal coordinates give
+$|\nabla U|^2=\kappa(s)^2/(1+d\kappa(s))^2$.
+At $d=z=0$, therefore, $\mathscr H=-2\kappa\kappa_s$, and at $\theta=\pi/4$,
+\begin{equation}\label{eq:Hpositive}
+ \mathscr H=36(2/5)^{9/2}>0.
+\end{equation}
+Choose a nonzero $\psi\in C_c^\infty(O)$, $\psi\ge0$, in a small plateau patch $O$ where $\mathscr H>0$, and put
+\begin{equation}\label{eq:cB}
+ c=\int\mathscr H\psi>0,
+ \qquad B=\norm{\nabla\psi}_U^2>0.
+\end{equation}
+Since $\nabla\psi\in\GG_U$,
+\begin{equation}\label{eq:gH}
+ g_H:=\GP_U\Delta U\ne0,
+ \qquad \ip{g_H}{\nabla\psi}_U=-c,
+ \qquad \norm{g_H}_U\ge c/\sqrt B.
+\end{equation}
+This is the precise nonzero normal component needed for the actual-flow argument.
+
+\subsection{Actual flow, arbitrary viscosity, and all but possibly one amplitude}
+\begin{theorem}[Immediate creation of the value gap]\label{thm:NSdeparture}
+Fix $\nu>0$ and the explicit field $U$ in \eqref{eq:ellipsefield}. For each $a>0$, let $u^{(a)}$ be the original Navier--Stokes classical solution with datum $aU$. Put
+\[
+ g_E=\GP_U\PP N(U)\in\HH_U.
+\]
+Then
+\begin{equation}\label{eq:NSgap}
+ \mathfrak d(u^{(a)}(t))
+ =\frac{a^3t^2}{2}\norm{\nu g_H-a g_E}_U^2+o(t^2).
+\end{equation}
+The coefficient is positive for every $a>0$ except possibly one. In particular, at every viscosity there are compact smooth data with $q(u_0)=0$ for which $q(u(t))\ne0$ for every sufficiently small $t>0$.
+\end{theorem}
+\begin{proof}
+The projected equation at zero gives the actual initial tangent
+\[
+ h_a=\partial_tu^{(a)}(0)
+     =\nu a\Delta U-a^2\PP N(U).
+\]
+All fields belong to $L^3$, since $U$ is compact smooth and $\PP$ is bounded there. The local theory supplies the $C^2(L^3)$ time regularity needed in Proposition~\ref{prop:gapquadratic}. Multiplying the weight by $a>0$ does not change its closed subspaces or its orthogonal projections:
+$M_{aU}=aM_U$ and $\GP_{aU}=\GP_U$. Therefore
+\[
+ \norm{\GP_{aU}h_a}_{aU}^2
+ =a^3\norm{\nu g_H-a g_E}_U^2,
+\]
+which proves \eqref{eq:NSgap}. If two different positive amplitudes annulled this vector, their difference would force $g_E=0$, and then $g_H=0$, contradicting \eqref{eq:gH}. A positive value gap implies that $u^{(a)}(t)$ is not its own minimizer, hence $q(u^{(a)}(t))\ne0$.
+\end{proof}
+
+There is also an explicit sufficient amplitude restriction. Let
+$b=\ip{g_E}{\nabla\psi}_U$. For $a|b|\le\nu c/2$ (with no restriction from this inequality if $b=0$),
+\[
+ \norm{\nu g_H-a g_E}_U^2
+ \ge\frac{(\nu c-a|b|)^2}{B}
+ \ge\frac{\nu^2c^2}{4B}.
+\]
+Thus, for each such $a$, the actual solution satisfies
+\begin{equation}\label{eq:NSgaplower}
+ \mathfrak d(u^{(a)}(t))\ge\frac{a^3\nu^2c^2}{16B}t^2
+\end{equation}
+for all sufficiently small positive $t$. The constants use only fixed spatial fields and tests, not unknown endpoint norms.
+
+\begin{corollary}[A source-free gap equation cannot hold universally]
+There is no universal inequality
+$\mathfrak d'(u(t))\le b(t)\mathfrak d(u(t))$ on all classical solutions with $b\in L^1_{\rm loc}$ extending through $t=0$. The same is true of any asserted law that would preserve $\mathfrak d=0$ from zero initial gap.
+\end{corollary}
+\begin{proof}
+For the data above $\mathfrak d(u(0))=0$ and $\mathfrak d\ge0$. The proposed inequality and Gronwall would give $\mathfrak d\equiv0$ on a short interval, contrary to \eqref{eq:NSgaplower}.
+\end{proof}
+This refutes a homogeneous defect-feedback shortcut. It does not prove growth of $Q$, a singularity, or failure of any input-dependent spacetime estimate. The initial full velocity can be chosen small in this construction; the effect is geometric defect creation, not a large-data blowup mechanism.
+
+\section{A one-scale temporal producer with explicit constants}
+\label{sec:temporal}
+This section gives a positive use of the unweighted regularity: averaging \emph{in time} creates a uniformly controlled spatial $L^6$ coefficient. The only part still requiring a critical estimate is the strong $L^3$ difference between $q$ and that temporal average.
+
+\subsection{Two bounds for the linear work functional}
+For each fixed classical time define
+\[
+ \mathcal T_u(g)=-\int g\cdot(u\cdot\nabla)A.
+\]
+The known cubic estimate is
+\begin{equation}\label{eq:T3}
+ |\mathcal T_u(g)|\le C_\sharp\norm g_3D\qquad(g\in L^3).
+\end{equation}
+There is a distinct estimate for an $L^6$ coefficient.
+\begin{lemma}\label{lem:T6}
+For $g\in L^6$ the integral is absolutely convergent and
+\begin{equation}\label{eq:T6}
+ |\mathcal T_u(g)|\le B_6\norm g_6 Q^{1/4}D^{3/4},
+ \qquad B_6=\sqrt2\,3^{1/4}C_{9/2}a_0^{1/4}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+By \eqref{eq:gradA}, H\"older with exponents $(6,9/2,9,2)$ gives
+\[
+ |\mathcal T_u(g)|
+ \le\tfrac43\norm g_6\norm u_{9/2}
+               \norm w_{9/2}^{1/2}\norm{\nabla V}_2
+ \le\tfrac43 C_{9/2}\norm g_6\norm w_{9/2}^{3/2}\norm{\nabla V}_2.
+\]
+The four reciprocal exponents sum to one. Interpolation gives
+\[
+ \norm w_{9/2}^{3/2}
+ \le\norm w_3^{3/4}\norm w_9^{3/4}
+ \le(3Q)^{1/4}(a_0D)^{1/4}.
+\]
+Use $\norm{\nabla V}_2\le\sqrt{9/8}\,D^{1/2}$ and
+$(4/3)\sqrt{9/8}=\sqrt2$ to obtain \eqref{eq:T6}.
+\end{proof}
+
+\subsection{Temporal average: the low part is controlled by energy}
+Fix the full input $(\nu,u_0,H)$ and a fixed scale $\delta>0$. Extend $q$ to negative times by $\widetilde q(s)=q(0)$ for $s<0$, and $\widetilde q(s)=q(s)$ for $s\ge0$. Define
+\begin{equation}\label{eq:average}
+ \bar q_\delta(t)=\frac1\delta\int_{t-\delta}^{t}\widetilde q(s)\dd s,
+ \qquad r_\delta(t)=q(t)-\bar q_\delta(t).
+\end{equation}
+The integrals are Bochner integrals in $L^3$. The field $q$ is continuous in $L^3$ on compact classical intervals by \eqref{eq:holder}.
+
+They are also meaningful in $L^6$. To see strong measurability there, spatial mollifications of $q$ are continuous in $L^6$ by Young's inequality from $L^3$, and converge for each time in $L^6$ because $q(t)\in L^6$. Thus $q$ is a pointwise limit of strongly measurable $L^6$-valued maps. Its square norm is time integrable by \eqref{eq:divcurl} and \eqref{eq:qbudgets}. The two Bochner integrals coincide as distributions, hence as functions.
+
+Write $Y_0=\norm{\nabla u_0}_2^2$ and
+\begin{equation}\label{eq:Ldelta}
+ L_\delta^2=S^2\left(\frac{Y_0}{4}+\frac{E_0}{8\nu\delta}\right).
+\end{equation}
+Jensen's inequality, Sobolev, and \eqref{eq:qbudgets} give
+\begin{align}
+ \norm{\bar q_\delta(t)}_6^2
+ &\le\frac1\delta\int_{t-\delta}^{t}\norm{\widetilde q(s)}_6^2\dd s\nonumber\\
+ &\le\frac{S^2}{\delta}
+ \left((\delta-t)_+\frac{Y_0}{4}+\frac{E_0}{8\nu}\right)
+ \le L_\delta^2\label{eq:averageL6}
+\end{align}
+for all $t<\min\{H,T_*\}$. No global $L^2$ norm of $q$ has been used.
+
+\subsection{The one remaining temporal hypothesis}
+\begin{hypothesis}[One-scale strong temporal residual]\label{hyp:temporal}
+For each $(\nu,u_0,H)$ there is a scale $\delta=\delta(\nu,u_0,H)>0$, justified without an endpoint continuation norm, such that
+\begin{equation}\label{eq:residualsmall}
+ C_\sharp\sup_{0\le t<\min\{H,T_*\}}\norm{r_\delta(t)}_3
+ \le\frac\nu4.
+\end{equation}
+The scale is selected before the stopping time; the same scale must work throughout the interval.
+\end{hypothesis}
+
+\begin{theorem}[Quantitative temporal completion criterion]\label{thm:temporal}
+For a fixed input satisfying Hypothesis~\ref{hyp:temporal}, set
+\begin{equation}\label{eq:Mdelta}
+ M_\delta=81C_{9/2}^{\,4}a_0\nu^{-3}L_\delta^4.
+\end{equation}
+Then, for every $\tau<\min\{H,T_*\}$,
+\begin{align}
+ Q(\tau)+\frac\nu2\int_0^\tau D(t)\dd t
+ &\le Q_0e^{M_\delta\tau},\label{eq:temporalQD}\\
+ G(\tau)&\le\frac{2(1+C_3)3^{1/3}}\nu
+               Q_0^{4/3}e^{4M_\delta H/3},
+ \qquad Q_0=\Q(u_0).\label{eq:temporalG}
+\end{align}
+If the hypothesis is established for every finite horizon and every admissible datum, the original target \eqref{eq:target} follows.
+\end{theorem}
+\begin{proof}
+By linearity in the first factor,
+$K=\mathcal T_u(r_\delta)+\mathcal T_u(\bar q_\delta)$.
+The first term is bounded above by $\nu D/4$ using \eqref{eq:T3} and \eqref{eq:residualsmall}. By \eqref{eq:T6} and \eqref{eq:averageL6}, the second has absolute value at most
+$B_6 L_\delta Q^{1/4}D^{3/4}$.
+For $a,x,\varepsilon\ge0$ with $\varepsilon>0$, elementary maximization gives
+\begin{equation}\label{eq:Young34}
+ ax^{3/4}\le\varepsilon x+\frac{27a^4}{256\varepsilon^3}.
+\end{equation}
+Take $a=B_6L_\delta Q^{1/4}$, $x=D$, and $\varepsilon=\nu/4$. Since
+$B_6^4=12C_{9/2}^{\,4}a_0$, the remainder is exactly $M_\delta Q$. Inserting both terms into \eqref{eq:balance} gives
+\begin{equation}\label{eq:tempdiff}
+ Q'+\frac\nu2D\le M_\delta Q.
+\end{equation}
+Multiplying by $e^{-M_\delta t}$ and integrating yields
+\[
+ Q(\tau)+\frac\nu2\int_0^\tau e^{M_\delta(\tau-t)}D(t)\dd t
+ \le Q_0e^{M_\delta\tau}.
+\]
+The exponential inside the integral is at least one, proving \eqref{eq:temporalQD}. Finally
+\[
+ G(\tau)\le(1+C_3)(3\sup_{t\le\tau}Q(t))^{1/3}\int_0^\tau D(t)\dd t.
+\]
+Use \eqref{eq:temporalQD} and $\tau<H$ to obtain \eqref{eq:temporalG}. If $Q_0=0$, coercivity gives $u_0=0$, and uniqueness makes the branch identically zero. The endpoint continuation step is stated with its external dependence in Section~\ref{sec:boundary}.
+\end{proof}
+
+\begin{corollary}[A strong vector modulus supplies the scale]\label{cor:modulus}
+Suppose a nondecreasing, input-controlled function $\omega(r)\to0$ as $r\downarrow0$ satisfies
+\begin{equation}\label{eq:vectormodulus}
+ \norm{q(t)-q(s)}_3\le\omega(|t-s|)
+ \qquad(0\le s,t<\min\{H,T_*\}).
+\end{equation}
+Any input-selected $\delta>0$ with $C_\sharp\omega(\delta)\le\nu/4$ satisfies Hypothesis~\ref{hyp:temporal}.
+\end{corollary}
+\begin{proof}
+In the negative-time extension use $q(0)$, so every pair compared in \eqref{eq:average} is separated by at most $\delta$ in nonnegative time. Minkowski's inequality gives $\norm{r_\delta(t)}_3\le\omega(\delta)$.
+\end{proof}
+This theorem does not require the magnitude of $q$ itself to be small. It requires its strong temporal residual to be small at one fixed scale. A modulus for the scalar function $t\mapsto\norm{q(t)}_3$ is a different and weaker statement.
+
+\section{What energy really supplies: a quantitative integrated time modulus}
+\label{sec:increments}
+We now attempt the temporal hypothesis directly from the original equation. The result is an unconditional strong \emph{integrated} translation estimate. Its time norm is weaker than the supremum in Hypothesis~\ref{hyp:temporal}; the distinction cannot be discarded.
+
+Set
+\begin{equation}\label{eq:BUOmega}
+ B_u=\frac{E_0}{2\nu},\qquad
+ \Omega(h)=\nu B_u^{1/2}h^{1/2}
+       +S^{3/2}E_0^{1/4}B_u^{3/4}h^{1/4}\quad(h\ge0).
+\end{equation}
+If $E_0=0$, the branch is zero, and all estimates below are immediate. Otherwise these are finite input quantities.
+
+\subsection{Negative-Sobolev time increments from the actual PDE}
+Use the homogeneous norm with Fourier multiplier $|\xi|^{-1}$, taking the Fourier convention in which the derivative multiplier is $i\xi$. With the $2\pi$ convention it is $(2\pi|\xi|)^{-1}$, giving identical physical norms. It is defined for the increments below; we do not assume that every individual $u(t)$ belongs to $\dot H^{-1}$.
+
+\begin{lemma}\label{lem:negativeincrements}
+For $0\le s<t<T_*$,
+\begin{equation}\label{eq:negativeincrements}
+ \norm{u(t)-u(s)}_{\dot H^{-1}}\le\Omega(t-s).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The projected equation is
+$u_t=\nu\Delta u-\PP\diver(u\otimes u)$.
+At each nonzero frequency the tensor multiplier for
+$(-\Delta)^{-1/2}\PP\diver$ has norm at most one from the Frobenius tensor norm to the vector norm. Hence
+\[
+ \norm{u_t}_{\dot H^{-1}}
+ \le\nu\norm{\nabla u}_2+\norm{u\otimes u}_2
+ =\nu Y^{1/2}+\norm u_4^2.
+\]
+Interpolation and Sobolev give
+\[
+ \norm u_4^2\le\norm u_2^{1/2}\norm u_6^{3/2}
+ \le S^{3/2}E_0^{1/4}Y^{3/4}.
+\]
+Integrate the projected equation in $\dot H^{-1}$ over $[s,t]$. Its right side is Bochner integrable there, and its integral agrees with $u(t)-u(s)$ as a distribution. H\"older in time and $\int_s^tY\le B_u$ yield
+\[
+ \int_s^tY^{1/2}\le B_u^{1/2}(t-s)^{1/2},\qquad
+ \int_s^tY^{3/4}\le B_u^{3/4}(t-s)^{1/4}.
+\]
+This is \eqref{eq:negativeincrements}.
+\end{proof}
+
+\subsection{Conversion to strong \texorpdfstring{$L^3$}{L3} increments after integration in time}
+For $f\in H^1\cap\dot H^{-1}$, Fourier Cauchy--Schwarz gives
+$\norm f_2^2\le\norm f_{\dot H^{-1}}\norm{\nabla f}_2$.
+Interpolating $L^3$ between $L^2$ and $L^6$ then gives
+\begin{equation}\label{eq:negativeinterp}
+ \norm f_3\le S^{1/2}\norm f_{\dot H^{-1}}^{1/4}
+                         \norm{\nabla f}_2^{3/4}.
+\end{equation}
+
+\begin{theorem}[Input-uniform integrated translations of the correction]\label{thm:qtime}
+Define
+\begin{equation}\label{eq:CI}
+ C_I=72\,2^{3/2}S^{3/2}E_0^{1/4}B_u.
+\end{equation}
+For every $0<h<\tau<\min\{H,T_*\}$,
+\begin{equation}\label{eq:qtime}
+ \int_0^{\tau-h}\norm{q(t+h)-q(t)}_3^3\dd t
+ \le C_I\Omega(h)^{1/2}.
+\end{equation}
+No continuation norm occurs on the right side.
+\end{theorem}
+\begin{proof}
+Fix a time pair and abbreviate $u_1=u(t+h)$, $u_0^{\rm pair}=u(t)$, $f=u_1-u_0^{\rm pair}$, and
+$J=Y(t+h)+Y(t)$. The notation $u_0^{\rm pair}$ is local to this proof and is not the initial datum. By \eqref{eq:holder} and $\norm w_3\le\norm u_3$,
+\begin{align*}
+ \norm{q(u_1)-q(u_0^{\rm pair})}_3^3
+ &\le4\norm{w(u_1)-w(u_0^{\rm pair})}_3^3+4\norm f_3^3\\
+ &\le24\norm{u_0^{\rm pair}}_3\norm f_3^2+12\norm f_3^3\\
+ &\le36\bigl(\norm{u_1}_3+\norm{u_0^{\rm pair}}_3\bigr)\norm f_3^2.
+\end{align*}
+The last step uses $\norm f_3\le\norm{u_1}_3+\norm{u_0^{\rm pair}}_3$.
+Also
+\[
+ \norm{u_1}_3+\norm{u_0^{\rm pair}}_3
+ \le S^{1/2}E_0^{1/4}\bigl(Y(t+h)^{1/4}+Y(t)^{1/4}\bigr)
+ \le2^{3/4}S^{1/2}E_0^{1/4}J^{1/4}.
+\]
+By Lemma~\ref{lem:negativeincrements}, \eqref{eq:negativeinterp}, and
+$\norm{\nabla f}_2\le\sqrt{2J}$,
+\[
+ \norm f_3^2\le S\Omega(h)^{1/2}(2J)^{3/4}.
+\]
+Multiplying gives the pointwise-time estimate
+\begin{equation}\label{eq:qpairpoint}
+ \norm{q(t+h)-q(t)}_3^3
+ \le36\,2^{3/2}S^{3/2}E_0^{1/4}\Omega(h)^{1/2}
+                  \bigl(Y(t+h)+Y(t)\bigr).
+\end{equation}
+Finally $\int_0^{\tau-h}(Y(t+h)+Y(t))\dd t\le2B_u$. This proves \eqref{eq:qtime} with the displayed constant.
+\end{proof}
+
+For small $h$, the right side of \eqref{eq:qtime} is $O(h^{1/8})$ in fixed units. Thus the $L^3$-in-time norm of the $L^3$-spatial increment is $O(h^{1/24})$. The exact formula \eqref{eq:BUOmega}, rather than that asymptotic notation, carries the scale and units. This is not an $L^\infty$-in-time modulus.
+
+\begin{corollary}[Small temporal residual outside a small set]\label{cor:residualmeasure}
+For $0<\delta<\tau<\min\{H,T_*\}$,
+\begin{equation}\label{eq:residualintegrated}
+ \int_\delta^\tau\norm{r_\delta(t)}_3^3\dd t
+ \le\frac{C_I}{\delta}\int_0^\delta\Omega(s)^{1/2}\dd s
+ \le C_I\Omega(\delta)^{1/2}.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:residualmeasure}
+ \left|\left\{t\in(\delta,\tau):
+       C_\sharp\norm{r_\delta(t)}_3>\nu/4\right\}\right|
+ \le\left(\frac{4C_\sharp}{\nu}\right)^3C_I\Omega(\delta)^{1/2}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+For $t\ge\delta$, Jensen gives
+$\norm{r_\delta(t)}_3^3\le\delta^{-1}\int_0^\delta
+\norm{q(t)-q(t-s)}_3^3\dd s$.
+Integrate over $t\in(\delta,\tau)$ and use Tonelli. For each $s\le\delta$, the resulting time integral is over a subinterval of the one controlled by Theorem~\ref{thm:qtime}. This gives the first bound; monotonicity of $\Omega$ gives the second. Chebyshev's inequality gives \eqref{eq:residualmeasure}.
+\end{proof}
+This is a genuine consequence of the full equation, not merely of the scalar quotient balance. It controls the \emph{measure} of exceptional temporal-residual times. It does not control the dissipation accumulated on those times. The estimate is stated on $(\delta,\tau)$ deliberately; no unstated estimate on negative-time increments or on an unknown initial lifespan is used.
+
+\section{What a scalar modulus and a crossing count do not say}
+\label{sec:crossing}
+Let $d(t)=\norm{q(t)}_3$. The reverse triangle inequality gives
+\begin{equation}\label{eq:scalarvector}
+ |d(t)-d(s)|\le\norm{q(t)-q(s)}_3,
+\end{equation}
+not its converse. A scalar norm can remain constant while a field concentrates in space or changes direction in its function space.
+
+\subsection{Exact-level crossings versus separated thresholds}
+Even a smooth scalar function with a bounded derivative can cross a fixed level infinitely often. For $0\le t<1$ set
+\[
+ d(t)=d_*+\varepsilon e^{-1/(1-t)^2}\sin\bigl(1/(1-t)\bigr),
+ \qquad d(1)=d_*,\qquad d_*>\varepsilon>0.
+\]
+All derivatives of the added term tend to zero at $1$: each is a finite sum of a polynomial in $(1-t)^{-1}$ times $e^{-1/(1-t)^2}$ and a sine or cosine. It therefore extends smoothly to $1$, has a Lipschitz modulus on $[0,1]$, and has infinitely many sign-changing crossings of $d_*$.
+
+A modulus \emph{does} bound crossings between separated thresholds. If $a<b$ and $\omega(\ell)<b-a$, every excursion from $a$ to $b$ has duration greater than $\ell$. Hence at most $1+H/\ell$ chronologically disjoint completed excursions occur before horizon $H$. This is a hysteretic crossing statement; it is not a bound on crossings of a single level. Conversely, a finite crossing count does not supply a modulus: arbitrarily rapid motion can occur within one side of the threshold.
+
+Thus the plan's claimed equivalence needs both a precise notion of crossing and an explicit choice of the observed object. The producer of Section~\ref{sec:temporal} observes the \emph{vector-valued field} in strong $L^3$. The example above is scalar, not a Navier--Stokes example.
+
+\section{A concentrating comparison curve with actual minimizing representatives}
+\label{sec:curve}
+The following test goes beyond an abstract choice of scalar functions. Every time slice is a genuine solenoidal Schwartz field, and $w,q,A,Q,D,K$ are its actual variational objects. The curve satisfies the exact kinetic-energy identity and exact quotient identity with their correct constants. Nevertheless its scalar distance is constant and $G$ diverges. It is \emph{not} a solution of the full Navier--Stokes equation, and this fact is essential to the scope of the result.
+
+\subsection{A positive-work seed and exact scaling}
+Appendix~\ref{app:positive} reconstructs the attachment's compact field $W_0$ with $K(W_0)>0$. Its dissipation satisfies $D(W_0)>0$ by \eqref{eq:Dcontrol} and coercivity. Write $K_0=K(W_0)$, $D_0=D(W_0)$, and choose
+\begin{equation}\label{eq:balancedseed}
+ b=\frac{\nu D_0}{K_0}>0,\qquad W=bW_0.
+\end{equation}
+For $\mathscr S_\lambda v(x)=\lambda v(\lambda x)$, invariance of the gradient space and uniqueness of the minimum give
+\begin{align}
+ w(b\mathscr S_\lambda v)&=b\mathscr S_\lambda w(v),&
+ q(b\mathscr S_\lambda v)&=b\mathscr S_\lambda q(v),\label{eq:scaleobjects}\\
+ \Q(b\mathscr S_\lambda v)&=b^3\Q(v),&
+ D(b\mathscr S_\lambda v)&=b^3\lambda^2D(v),\label{eq:scaleQD}\\
+ K(b\mathscr S_\lambda v)&=b^4\lambda^2K(v).&&\label{eq:scaleK}
+\end{align}
+The first two follow by applying the invertible transformation to all competitors. The remaining formulas follow by substitution into the integrals, with spatial volume factor $\lambda^{-3}$. Consequently the seed in \eqref{eq:balancedseed} obeys
+\begin{equation}\label{eq:seedbalance}
+ K(W)=\nu D(W)>0.
+\end{equation}
+These are amplitude and spatial scaling identities for fields; amplitude multiplication alone is not being asserted to preserve the equation at fixed viscosity.
+
+\subsection{An exact, geometric countermodel to scalar closure}
+\begin{theorem}\label{thm:curve}
+Set $E_W=\norm W_2^2$, $Y_W=\norm{\nabla W}_2^2$, and
+\begin{equation}\label{eq:curve}
+ T_c=\frac{E_W}{4\nu Y_W},\qquad
+ \lambda(t)=(1-t/T_c)^{-1/2},\qquad
+ v(t)=\mathscr S_{\lambda(t)}W\quad(0\le t<T_c).
+\end{equation}
+This is a smooth curve of real solenoidal compactly supported smooth fields. Its actual variational objects satisfy
+\begin{align}
+ E(t)+2\nu\int_0^tY(s)\dd s&=E_W,\label{eq:curveenergy}\\
+ Q'(t)+\nu D(t)&=K(t),\label{eq:curveQ}\\
+ Q(t)&=\Q(W),\qquad \norm{q(v(t))}_3=\norm{q(W)}_3=:d_W>0,\label{eq:curveconstant}\\
+ G_v(\tau)&=d_WD(W)T_c\log\frac1{1-\tau/T_c}\longrightarrow\infty.\label{eq:curveG}
+\end{align}
+All instantaneous div--curl, minimization, and weighted-dissipation identities hold because they are identities of the actual fields. The energy-level spacetime budgets for $q$ and $\diver w$ remain finite. The strong vector map $t\mapsto q(v(t))$ is not uniformly continuous in $L^3$ on $[0,T_c)$, although its scalar norm is constant.
+\end{theorem}
+\begin{proof}
+Every fixed dilation preserves smoothness, compact support, and divergence freedom. Since $\lambda$ is smooth before $T_c$, the curve is smooth in each Sobolev space on compact time subintervals. Scaling gives
+\[
+ E(t)=\lambda(t)^{-1}E_W,\qquad Y(t)=\lambda(t)Y_W.
+\]
+Also $\lambda'=\lambda^3/(2T_c)=2\nu Y_W\lambda^3/E_W$, so
+$E'=-E_W\lambda'/\lambda^2=-2\nu\lambda Y_W=-2\nu Y$.
+This proves \eqref{eq:curveenergy} exactly, including its constant.
+
+Equations \eqref{eq:scaleQD}--\eqref{eq:seedbalance} give $Q'=0$ and
+$K(t)=\lambda(t)^2K(W)=\nu\lambda(t)^2D(W)=\nu D(t)$, proving \eqref{eq:curveQ}. The $L^3$ norm is invariant under $\mathscr S_\lambda$, so \eqref{eq:curveconstant} follows. If $d_W=0$ then \eqref{eq:workform} would give $K(W)=0$, a contradiction. Since $D(t)=D(W)/(1-t/T_c)$, direct integration gives \eqref{eq:curveG}.
+
+The identity \eqref{eq:curveenergy} and the spatial estimate \eqref{eq:divcurl} give the same integrated gradient budgets as before. In particular $\int_0^{T_c}\norm{\nabla q}^2_2<\infty$, and $\int_0^{T_c}\norm q_3^4=T_cd_W^4<\infty$.
+
+Finally, for any $f\in L^3$,
+\begin{equation}\label{eq:dilationweak}
+ \mathscr S_\lambda f\rightharpoonup0\quad\text{in }L^3
+ \qquad(\lambda\to\infty).
+\end{equation}
+For a compact bounded $f$ and a compact smooth test $\phi$, the pairing has absolute value at most
+$\lambda^{-2}\norm f_1\norm\phi_\infty$, which tends to zero. Approximate a general $f$ in $L^3$ and general dual tests in $L^{3/2}$, using dilation's isometry, to obtain \eqref{eq:dilationweak}. Apply it to $q(W)$: its dilations have fixed nonzero $L^3$ norm and cannot have a strong endpoint limit. Uniform continuity into the complete space $L^3$ on a finite interval would force such a limit, so it fails.
+\end{proof}
+
+In fact the fourth-power defect integral of HF25 diverges along this curve as well. With $\sigma_W=-\diver w(W)$,
+\[
+ \norm{\sigma(v(t))}_2^2=\lambda(t)\norm{\sigma_W}_2^2,
+ \qquad \int_0^{T_c}\norm{\sigma(v(t))}_2^4\dd t=\infty.
+\]
+Here $\sigma_W\ne0$: otherwise \eqref{eq:divcurl} would make $\nabla q(W)=0$, and $q(W)\in L^6$ would force $q(W)=0$.
+
+\begin{corollary}[The cubic enstrophy upper bound can also be imposed]\label{cor:curveenstrophy}
+Given any prescribed $C_E>0$, the positive-work seed can be chosen so that the same comparison curve also satisfies
+\[
+ Y'(t)\le C_E\nu^{-3}Y(t)^3\qquad(0\le t<T_c).
+\]
+\end{corollary}
+\begin{proof}
+For the curve, direct differentiation gives
+$Y'=2\nu Y^3/(E_WY_W)$. In Appendix~\ref{app:positive}, let the perturbation parameter $\varepsilon\downarrow0$. The fields $W_0(\varepsilon)$ converge to the fixed nonzero swirl $U_s$ in every Sobolev norm, and $K(W_0(\varepsilon))=c_0\varepsilon+O(\varepsilon^{3/2})\to0^+$. Also $D(W_0(\varepsilon))\to D(U_s)>0$: this follows directly from $D=-\ip{A}{\Delta u}$, \eqref{eq:Alip}, and convergence of $\Delta W_0$ in $L^3$. The unamplified product $E_{W_0}Y_{W_0}$ tends to a positive number. Therefore the balanced amplitude $b=\nu D_0/K_0$ tends to infinity, and
+$E_WY_W=b^4E_{W_0}Y_{W_0}\to\infty$. Choose $\varepsilon$ small enough that $E_WY_W\ge2\nu^4/C_E$. This proves the claim with the prescribed constant, not a freely adjusted time-dependent one.
+\end{proof}
+
+\subsection{Why the curve is not a Navier--Stokes counterexample}
+Its critical norm $\norm{v(t)}_3$ is constant, while its $H^1$ norm becomes unbounded at $T_c$. If it solved the original equation, uniqueness on compact intervals would identify it with the selected classical branch. The established endpoint continuation theorem would then extend that branch through $T_c$, contradicting the displayed $H^1$ divergence. Thus it cannot solve Navier--Stokes; the endpoint theorem is used only to certify this scope distinction \cite{Paper,GKP}.
+
+The missing equation can be made explicit. Let
+\[
+ Z(x)=W(x)+(x\cdot\nabla)W(x),\qquad c_W=\frac{2\nu Y_W}{E_W},
+ \qquad R_W=c_WZ+\PP N(W)-\nu\Delta W.
+\]
+The projected PDE residual of the comparison curve is
+\begin{equation}\label{eq:residualcurve}
+ R(t,x):=v_t+\PP N(v)-\nu\Delta v
+       =\lambda(t)^3R_W(\lambda(t)x).
+\end{equation}
+It is nonzero, but it is invisible to the two scalar tests:
+\begin{equation}\label{eq:invisible}
+ \ip{v(t)}{R(t)}=0,\qquad \ip{A(v(t))}{R(t)}=0.
+\end{equation}
+For the first, $\ip WZ=-E_W/2$, transport pairs to zero, and diffusion contributes $\nu Y_W$, so the chosen $c_W$ cancels them. For the second, differentiation of the invariant quantity $\Q(\mathscr S_\lambda W)$ at $\lambda=1$ gives $\ip{A(W)}Z=0$; also $\ip{A(W)}{\PP N(W)}=-K(W)$ and $-\nu\ip{A(W)}{\Delta W}=\nu D(W)$, which cancel by \eqref{eq:seedbalance}.
+
+Therefore energy, the quotient identity, all instantaneous variational structure, and even a perfect scalar distance modulus do not logically imply \eqref{eq:Gtarget}. Additional information from $R=0$ is essential. This theorem makes no claim that a scalar modulus is insufficient \emph{together with every consequence of the full equation}; that broader assertion has not been proved.
+
+\section{The remaining bridge and every conditional step to the full target}
+\label{sec:boundary}
+\subsection{The exact remainder after the temporal split}
+Without Hypothesis~\ref{hyp:temporal}, define
+\[
+ \mathcal B_\delta=\{t:C_\sharp\norm{r_\delta(t)}_3>\nu/4\}.
+\]
+The same calculation as in Theorem~\ref{thm:temporal} proves, unconditionally on compact classical intervals,
+\begin{equation}\label{eq:badremainder}
+ Q'+\frac\nu2D
+ \le M_\delta Q+
+ C_\sharp\mathbf1_{\mathcal B_\delta}\norm{r_\delta}_3D.
+\end{equation}
+Indeed $C_\sharp\norm{r_\delta}_3D\le\nu D/4+
+C_\sharp\mathbf1_{\mathcal B_\delta}\norm{r_\delta}_3D$, and the averaged term has already cost $\nu D/4+M_\delta Q$. Integration gives
+\begin{equation}\label{eq:badremainderintegral}
+ Q(\tau)+\frac\nu2\int_0^\tau D
+ \le e^{M_\delta\tau}
+ \left(Q_0+C_\sharp\int_0^\tau
+        \mathbf1_{\mathcal B_\delta}\norm{r_\delta}_3D\right).
+\end{equation}
+This states exactly what the temporal decomposition leaves. The average is controlled from energy; the small residual is absorbed; the residual work on the exceptional set is not bounded here.
+
+Corollary~\ref{cor:residualmeasure} makes that exceptional set small in measure away from the initial averaging layer. It supplies no estimate of the nonnegative weighted product in \eqref{eq:badremainderintegral}. Arbitrarily high dissipation can in principle concentrate on sets of arbitrarily small time measure; invoking a bound on its uniform integrability would add another unproved input. No reverse H\"older estimate in time, no such uniform-integrability statement, and no signed cancellation for this remainder has been proved here.
+
+The new weighted differential does not supply the missing strong modulus by itself. It yields the legitimate local formula
+\[
+ A_t=M_w\LP_w\bigl(\nu\Delta u-\PP N(u)\bigr),
+ \qquad \norm{A_t}_{3/2}\le2\norm w_3\norm{u_t}_3,
+\]
+but energy does not bound the time integral of this right side uniformly through a putative finite endpoint. More importantly, the weighted differential of $q$ does not control its unweighted $L^3$ differential near $w=0$. Treating these statements as a strong endpoint modulus would restore precisely the gap that the weighted proof was designed not to hide.
+
+The attachment's alternative criterion is also still conditional: it requires an input-uniform bound on
+\begin{equation}\label{eq:sigmamissing}
+ \int_0^\tau\norm{\sigma(t)}_2^4\dd t,
+ \qquad \sigma=-\diver w,
+\end{equation}
+whereas \eqref{eq:divcurl} and energy control only the square. Neither \eqref{eq:sigmamissing} nor the original signed work is deduced by renaming the new temporal remainder.
+
+\subsection{Conditional continuation, including the exact endpoint dependence}
+\begin{theorem}\label{thm:fullconditional}
+Suppose that, for every $\nu>0$, every $u_0\in\Sch$, and every finite $H>0$, one proves either Hypothesis~\ref{hyp:temporal}, a finite input bound for the remainder in \eqref{eq:badremainderintegral} at an input-selected $\delta$, or the original signed estimate \eqref{eq:signedtarget}. Then the selected branch is global and satisfies \eqref{eq:target}.
+\end{theorem}
+\begin{proof}
+The first hypothesis gives a uniform $Q$ bound by Theorem~\ref{thm:temporal}; the second gives one by \eqref{eq:badremainderintegral}. For the third, integrating \eqref{eq:balance} gives
+\[
+ Q(\tau)+\nu\int_0^\tau D=Q_0+\int_0^\tau K.
+\]
+Hence $Q(\tau)+(1-\theta)\nu\int_0^\tau D\le Q_0+A$. Since $D\ge0$ and $\theta\le1$, this too bounds $Q$ uniformly. Coercivity now gives
+\[
+ \sup_{t<\min\{H,T_*\}}\norm{u(t)}_3^3
+ \le3C_3^3\sup_{t<\min\{H,T_*\}}Q(t)<\infty.
+\]
+If $T_*<\infty$, choose an integer $H>T_*$. The same bound then holds throughout $[0,T_*)$.
+
+The external endpoint input is the selected-branch continuation theorem in the inspected manuscript: bounded $L^\infty_tL^3_x$ prevents a finite maximal time. The manuscript checks Leray--Hopf membership after viscosity normalization, applies Escauriaza--Seregin--\v Sver\'ak's Theorem 1.3, and derives the needed classical $H^1$ bound \cite{ESS,Paper}. Gallagher--Koch--Planchon's Theorem 4, directly inspected in its primary preprint, corroborates the strong-solution endpoint statement \cite{GKP}; it is not silently used to bypass the branch-identification issue recorded in the manuscript.
+
+For clarity about the elementary last step, after the endpoint theorem supplies $u\in L^5_{t,x}$, put $Z=\norm{\Delta u}_2$. Testing with $-\Delta u$ gives
+\[
+ \tfrac12Y'+\nu Z^2
+ \le\norm u_5\norm{\nabla u}_{10/3}Z
+ \le C\norm u_5Y^{1/5}Z^{8/5}
+ \le\tfrac\nu2Z^2+C\nu^{-4}\norm u_5^5Y.
+\]
+Gronwall bounds $Y$ because $\norm u_5^5$ is integrable. This contradicts the local $H^1$ blowup alternative. This short calculation does not reprove the backward-uniqueness component of the endpoint theorem.
+
+Thus $T_*=\infty$. The local regularity package supplies all space and time derivatives on every finite interval, including $t=0$, and gives the smooth normalized pressure. Energy gives $\norm{u(t)}_2^2\le E_0$ for all $t\ge0$. These are exactly the equation, smoothness and energy clauses of \eqref{eq:target}.
+\end{proof}
+
+\subsection{What has not been achieved}
+The proof effort above reaches a nontrivial temporal calculus, an actual-flow defect-generation theorem, an explicit temporal consumer, and an unconditional integrated modulus. It does not supply an arbitrary-data witness for any of the three alternatives in Theorem~\ref{thm:fullconditional}. In particular, no endpoint supremum has been defined to be finite merely because all compact classical intervals are smooth. The full route has therefore \emph{not} been unblocked by this document.
+
+\section{Verification ledger and literature boundary}
+\label{sec:ledger}
+\subsection{Source-derived content versus the present derivations}
+The spatial div--curl theorem is source-derived from the audited HF23 integration. The weighted dissipation identity, the $2/3$ stability estimate, the dual local Lipschitz estimate, the ellipse construction, and the positive-work swirl construction are reconstructed from the supplied attachment and the repository's cited evidence. No new authorship is claimed for them. The packet's exclusion of superlinear defect exponents and its energy-only actual-trajectory obstruction are retained as restrictions on possible mechanisms, not repeated as new results.
+
+The new proofs in this note are the fixed-weight strong linearization, its unweighted dual Hadamard derivative, the exact quadratic gap formula and actual-flow application, the temporal-average estimate with its explicit producer, the input-uniform integrated translation bound, and the concentrating comparison curve with its nonzero residual invisible to the two scalar tests. ``New'' here means a contribution relative to the inspected packet, not a publication-level priority claim.
+
+\subsection{Focused primary-source comparison}
+The official target and the GKP endpoint theorem were checked directly, including the relevant rendered PDF pages \cite{Clay,GKP}. The local and ESS proof packages are retained as explicit literature-relative premises from the inspected manuscript; their complete proofs were not independently replayed.
+
+A focused search found established work on directional differentiability of metric projections. In particular, Li's primary preprint abstract describes $L^p$ Bochner projections onto support subspaces, balls and cylinders \cite{Li}. That is relevant prior art for the subject, but it is not a theorem applying directly to the present closed gradient subspace and its degenerate weighted completion. No theorem from that preprint is imported. A full comparison with convex sensitivity theory and nonlinear-Hodge perturbation theory would be required before claiming novelty for Theorem~\ref{thm:Aderivative}.
+
+This session did not repeat the attachment's entire historical novelty survey. It also makes no claim that the temporal criterion is the first criterion of its kind. Its value for the current programme is its exact objects, constants, and proof boundary.
+
+\begin{center}\small\begin{tabular}{@{}p{49mm}p{106mm}@{}}\toprule
+Item & Status and boundary\\\midrule
+Weighted response, Section~\ref{sec:linear} & Full candidate proof, including both signs of the perturbation, the zero weight, a possibly non-$L^3$ limit, and all strong-limit remainders.\\[3pt]
+Dual derivative and Hessian & Strong Hadamard derivative into $L^{3/2}$; no $C^2$ Fr\'echet or unweighted $w$-derivative claim.\\[3pt]
+Actual-flow departure & Full candidate proof using the original equation and the inherited explicit ellipse field. No singularity claim.\\[3pt]
+Temporal producer & Complete conditional argument with explicit constants. The one-scale residual condition remains unproved for arbitrary data.\\[3pt]
+Integrated translations & Unconditional, input-uniform estimate on the genuine branch. Does not imply the required supremum.\\[3pt]
+Concentrating curve & Actual spatial minimizing representatives and exact scalar balances; explicitly not a Navier--Stokes trajectory.\\[3pt]
+HIGH-STRAIN / HIGH-PRESSURE & Not established. No arbitrary-data producer promoted.\\[3pt]
+NS-R3 / complete Lean proof & Not established. No formal build, repository edits, or pushes.\\\bottomrule
+\end{tabular}\end{center}
+
+The main self-audit checks are structural as well as algebraic. The weighted limit is taken before interpreting a derivative. Approximation in the weighted space is never replaced by unproved $L^3$ convergence. The actual-flow example and the non-solution comparison curve are separate constructions with opposite scope roles. The averaged coefficient uses only $L^6$ and homogeneous $H^1$, never an unavailable $L^2$ norm of $q$. The temporal error is small only in the norm actually proved. All scale witnesses in the conditional statements precede the stopping time. These checks are part of the present derivation, not an independent audit or kernel certificate.
+
+\appendix
+\section{Reconstruction of the inherited unweighted spatial estimate}
+\label{app:spatial}
+This appendix records the analytic foundation used in Section~\ref{sec:temporal}. It reproduces the mechanism of HF23 and the supplied attachment rather than importing an inapplicable curl-free regularity theorem.
+
+\subsection{Regularize in a space that controls both powers}
+First let $u\in H^m$ be solenoidal, $m\ge4$. Set
+\[
+ X=L^2\cap L^3,\qquad \norm z_X=\norm z_2+\norm z_3,
+ \quad G_X=\overline{\{\nabla\phi:\phi\in C_c^\infty\}}^X.
+\]
+This is a reflexive space, identified with the closed diagonal subspace of $L^2\times L^3$. For $\epsilon>0$, set
+\[
+ r_\epsilon(z)=\sqrt{\epsilon^2+|z|^2},\quad
+ f_\epsilon(z)=\frac{(\epsilon^2+|z|^2)^{3/2}-\epsilon^3}{3},\quad
+ j_\epsilon(z)=r_\epsilon(z)z.
+\]
+The identity $f_\epsilon(z)=\int_0^{|z|}s\sqrt{\epsilon^2+s^2}\dd s$ gives
+\begin{equation}\label{eq:appendf}
+ f_\epsilon(z)\ge\tfrac13|z|^3,\quad
+ f_\epsilon(z)\ge\tfrac\epsilon2|z|^2,\quad
+ f_\epsilon(z)\le\tfrac13|z|^3+\tfrac\epsilon2|z|^2.
+\end{equation}
+The direct method gives a unique minimizer $w_\epsilon=u+q_\epsilon$ on $u+G_X$. Its first variation is
+\begin{equation}\label{eq:appendEL}
+ \int j_\epsilon(w_\epsilon)\cdot g=0\ (g\in G_X),
+ \qquad\diver j_\epsilon(w_\epsilon)=0,
+ \qquad\curl w_\epsilon=\curl u.
+\end{equation}
+All pairings are valid because $|j_\epsilon(z)|\le\epsilon|z|+|z|^2$, so $j_\epsilon(w_\epsilon)\in L^2+L^{3/2}=X^*$.
+
+\subsection{Establish weak derivatives before dividing the equation}
+The eigenvalues of $\mathrm Dj_\epsilon(z)=r_\epsilon(z)I+z\otimes z/r_\epsilon(z)$ lie between $r_\epsilon(z)$ and $2r_\epsilon(z)$. With $B=\epsilon+|a|+|b|$, integration along a segment gives
+\[
+ (j_\epsilon(a)-j_\epsilon(b))\cdot(a-b)\ge\tfrac1{32}B|a-b|^2,
+ \qquad |j_\epsilon(a)-j_\epsilon(b)|\le2B|a-b|.
+\]
+For the first inequality, on a quarter of the segment adjacent to the endpoint of larger modulus, the modulus is at least half that endpoint modulus. The segment average of $r_\epsilon$ is therefore at least $(|a|+|b|)/16$ and also at least $\epsilon$; half the sum gives the displayed constant.
+
+Translate by $he_k$, subtract the stationarity equations, and test with $\tau_hq_\epsilon-q_\epsilon\in G_X$. Weighted Cauchy--Schwarz gives
+\begin{equation}\label{eq:appendDQ}
+ \int(\epsilon+|\tau_hw_\epsilon|+|w_\epsilon|)
+          |\tau_hw_\epsilon-w_\epsilon|^2
+ \le4096\left(\epsilon\norm{\tau_hu-u}_2^2
+       +2\norm{w_\epsilon}_3\norm{\tau_hu-u}_3^2\right).
+\end{equation}
+At fixed $\epsilon$, divide by $h^2$ and use
+$\norm{\tau_hu-u}_p\le|h|\norm{\partial_ku}_p$, $p=2,3$. This bounds the $L^2$ difference quotients of $w_\epsilon$. Weak limits are its distributional derivatives, as is verified by testing against compact smooth functions and moving the translation to the test. Thus $w_\epsilon\in H^1$. The bound at this stage may depend on $\epsilon$; it is used only to justify differentiating \eqref{eq:appendEL}.
+
+\subsection{The trace constraint and the uniform estimate}
+The Sobolev chain rule now gives
+\[
+ r_\epsilon(w_\epsilon)\diver w_\epsilon
+ +\frac{w_{\epsilon,i}w_{\epsilon,j}}{r_\epsilon(w_\epsilon)}
+      \partial_iw_{\epsilon,j}=0\quad\text{a.e.}
+\]
+The chain rule is legitimate locally because its derivative grows at most linearly and $w_\epsilon\in L^6$, $\nabla w_\epsilon\in L^2$; smooth approximation passes the identity in $L^1_{\rm loc}$.
+Write $S_\epsilon=\sym\nabla w_\epsilon$, $d_\epsilon=\tr S_\epsilon$, and
+$t_\epsilon=|w_\epsilon|^2/(\epsilon^2+|w_\epsilon|^2)\in[0,1]$. With $e_\epsilon$ the unit direction where nonzero and any unit direction at a zero,
+\[
+ d_\epsilon=-t_\epsilon e_\epsilon^TS_\epsilon e_\epsilon.
+\]
+For any symmetric $3\times3$ matrix satisfying $d=\tr S=-te^TSe$, $0\le t\le1$,
+\begin{equation}\label{eq:appendmatrix}
+ d^2\le\tfrac13|S|^2.
+\end{equation}
+For $t=0$ the assertion is immediate. Otherwise rotate $e$ to the first coordinate, so $S_{11}=-d/t$ and $S_{22}+S_{33}=d+d/t$. Then
+\[
+ |S|^2\ge d^2/t^2+\tfrac12(d+d/t)^2
+        =\frac{t^2+2t+3}{2t^2}d^2\ge3d^2,
+\]
+because $3+2t-5t^2\ge0$ on $[0,1]$.
+
+For $z\in H^1$, integration by parts or Plancherel gives
+\begin{equation}\label{eq:appendHodge}
+ \norm{\nabla z}_2^2=\norm{\curl z}_2^2+\norm{\diver z}_2^2,
+ \quad
+ \norm{\sym\nabla z}_2^2=\tfrac12\norm{\curl z}_2^2+\norm{\diver z}_2^2.
+\end{equation}
+Let $B_\epsilon=\norm{\diver w_\epsilon}_2^2$. Since
+$\norm{\curl w_\epsilon}_2^2=\norm{\curl u}_2^2=Y$, \eqref{eq:appendmatrix} gives
+$B_\epsilon\le(B_\epsilon+Y/2)/3$, hence
+\begin{equation}\label{eq:appenduniform}
+ \norm{\diver w_\epsilon}_2^2\le Y/4,\quad
+ \norm{\nabla w_\epsilon}_2^2\le5Y/4,\quad
+ \norm{\nabla q_\epsilon}_2^2=\norm{\diver w_\epsilon}_2^2\le Y/4.
+\end{equation}
+The last identity uses $\curl q_\epsilon=0$. Sobolev gives uniform $L^6$ bounds for $w_\epsilon,q_\epsilon$.
+
+\subsection{Convergence to the correct unregularized minimum}
+Let $w=w(u)$ and choose compact gradients $g_m\to w-u$ in $L^3$. For each fixed $m$, $u+g_m\in u+G_X$. From \eqref{eq:appendf} and minimality,
+\[
+ F(w)\le F(w_\epsilon)\le\int f_\epsilon(w_\epsilon)
+ \le\int f_\epsilon(u+g_m).
+\]
+First let $\epsilon\downarrow0$, then $m\to\infty$. It follows that $F(w_\epsilon)\to F(w)$. Because $w_\epsilon-w\in\G$, stationarity at $w$ and \eqref{eq:Bbelow} imply
+\[
+ \tfrac16\norm{w_\epsilon-w}_3^3
+ \le F(w_\epsilon)-F(w)\longrightarrow0.
+\]
+Thus the convergence is strongly to the actual minimizing representative in $L^3$, without assuming that $q$ can be approximated in $L^2$.
+
+Weak limits of the uniformly bounded gradients and $L^6$ fields are identified distributionally using this convergence. Lower semicontinuity gives the bounds in \eqref{eq:divcurl}. For its exact equality, apply \eqref{eq:appendHodge} to $\chi_Rq$, where $\chi_R$ equals one on the radius-$R$ ball and vanishes outside the radius-$2R$ ball. The error obeys
+\[
+ \norm{q\nabla\chi_R}_2
+ \le\norm q_{L^6(\{R\le|x|\le2R\})}\norm{\nabla\chi_R}_3\to0.
+\]
+Since $\curl q=0$, passing to the limit gives
+$\norm{\nabla q}_2^2=\norm{\diver q}_2^2$.
+
+Finally approximate an arbitrary solenoidal $H^1$ field by $e^{\Delta/n}u$. These fields converge in $H^1$ and $L^3$ and belong to every $H^m$. The stability estimate \eqref{eq:holder} identifies their minimizing representatives in $L^3$; repeating the weak-gradient limit proves \eqref{eq:divcurl} for the stated full class.
+
+\section{Reconstruction of weighted dissipation without a zero-set shortcut}
+\label{app:weighted}
+Assume again that $u\in H^m$ is solenoidal, $m\ge4$, and write $w=w(u)$, $A=j(w)$, $\rho=|w|$. Appendix~\ref{app:spatial} gives actual weak derivatives of $w$ in $L^2$. The chain rule yields $A\in W^{1,3/2}$ because
+$|\nabla A|\le2|w||\nabla w|\in L^{3/2}$ and $A\in L^{3/2}$. Weak derivatives of every component of $w$ vanish almost everywhere on its zero level set, so $\nabla w=0$ a.e. on $\{w=0\}$. None of these statements is obtained by dividing a degenerate Euler--Lagrange equation there.
+
+For a coordinate direction let $\delta_hf=(f(\cdot+he_k)-f)/h$. Stationarity and translation invariance of $\G$ give
+\begin{equation}\label{eq:appendweightedDQ}
+ \int\delta_hA\cdot\delta_hw=\int\delta_hA\cdot\delta_hu.
+\end{equation}
+Indeed $\delta_hq\in\G$, and $\delta_hA$ annihilates it. With
+$W_h=\int(|\tau_hw|+|w|)|\delta_hw|^2$, monotonicity gives a lower bound $W_h/2$ for the left side. Weighted Cauchy--Schwarz on the right gives
+\[
+ W_h\le4\int(|\tau_hw|+|w|)|\delta_hu|^2
+ \le8\norm w_3\norm{\partial_ku}_3^2.
+\]
+Using an a.e. convergent subsequence of the already known $L^2$ difference quotients and Fatou proves
+\begin{equation}\label{eq:appendweightedgrad}
+ \int\rho|\partial_kw|^2\le4\norm w_3\norm{\partial_ku}_3^2.
+\end{equation}
+For $V=\rho^{1/2}w$, the chain rule, first for truncated maps, gives
+\[
+ \partial_kV=\rho^{1/2}\bigl(\partial_kw+\tfrac12\widehat w\,\partial_k\rho\bigr),
+ \qquad
+ |\partial_kV|^2=\rho|\partial_kw|^2+\tfrac54\rho|\partial_k\rho|^2.
+\]
+The expressions vanish on $\{w=0\}$; their square integrability follows from \eqref{eq:appendweightedgrad}. Also $\norm V_2^2=\norm w_3^3$. Hence $V\in H^1$.
+
+To justify the product limit in \eqref{eq:appendweightedDQ}, one needs more than weak convergence. The pointwise comparison
+\begin{equation}\label{eq:appendVcomp}
+ \tfrac89\bigl||a|^{1/2}a-|b|^{1/2}b\bigr|^2
+ \le(j(a)-j(b))\cdot(a-b)
+ \le2\bigl||a|^{1/2}a-|b|^{1/2}b\bigr|^2
+\end{equation}
+holds for all vectors $a,b$. To verify it, write $r=|a|$, $s=|b|$ and $c$ for the angle cosine. Both sides of either comparison are affine in $c$, so check $c=\pm1$. At $c=1$ the middle term is $(r-s)^2(r+s)$ and the square is $(r^{3/2}-s^{3/2})^2$. Cauchy--Schwarz in
+$r^{3/2}-s^{3/2}=\frac32\int_s^r t^{1/2}\dd t$ gives the lower comparison. Assuming $r\ge s$, the bound
+$r^{3/2}-s^{3/2}\ge\sqrt r(r-s)$ gives the upper comparison. At $c=-1$ the expressions are $(r+s)(r^2+s^2)$ and $(r^{3/2}+s^{3/2})^2$; their difference is $rs(\sqrt r-\sqrt s)^2\ge0$, and the first is at most $2(r^3+s^3)$, proving both bounds. Zero cases follow by continuity.
+
+Since $V\in H^1$, $\delta_hV\to\partial_kV$ strongly in $L^2$. By \eqref{eq:appendVcomp}, the nonnegative integrands $\delta_hA\cdot\delta_hw$ are bounded above by $2|\delta_hV|^2$, a uniformly integrable and spatially tight family. Their a.e. limit along appropriate subsequences is
+\[
+ \partial_kA\cdot\partial_kw
+ =\rho\bigl(|\partial_kw|^2+|\partial_k\rho|^2\bigr).
+\]
+Vitali convergence, with the tightness controlling the tails, therefore passes the left integral to this limit. On the right of \eqref{eq:appendweightedDQ}, $\delta_hA\to\partial_kA$ in $L^{3/2}$ and $\delta_hu\to\partial_ku$ in $L^3$, so H\"older passes the product. Every sequence has a subsequence with the same integral limit. Thus
+\[
+ \int\rho\bigl(|\partial_kw|^2+|\partial_k\rho|^2\bigr)
+ =\int\partial_kA\cdot\partial_ku.
+\]
+Sum over $k$ and integrate by parts in the $W^{1,3/2}$--$W^{1,3}$ pairing to obtain $D=-\ip A{\Delta u}$ and the first equality in \eqref{eq:Didentity}. Finally
+$|\nabla|V||^2=\frac94\rho|\nabla\rho|^2$ yields the second equality. The bound $|\nabla|V||\le|\nabla V|$ and Sobolev prove \eqref{eq:Dcontrol}.
+
+This proof establishes the weighted identity for the actual global minimizer. It does not assume a smooth representative across its zero set, and it does not invoke an unproved weighted elliptic estimate.
+
+\section{The inherited compact positive-work field used in the comparison curve}
+\label{app:positive}
+This appendix reconstructs the HF20 ingredient from the supplied attachment \cite[Section 6]{Attachment}. It is not a new sign construction. Its role is to make the comparison curve of Section~\ref{sec:curve} fully specified by legitimate spatial fields.
+
+Put
+\[
+ b_0(t)=\begin{cases}e^{-1/(1-t^2)},&|t|<1,\\0,&|t|\ge1,\end{cases}
+ \quad \rho(r,z)=b_0(4r-6)b_0(2z),\quad U_s=\rho(r,z)e_\theta.
+\]
+Here $r=\sqrt{x^2+y^2}$, $e_\theta=(-y/r,x/r,0)$, and $U_s$ is zero near the axis. It is smooth and compact, supported on $5/4\le r\le7/4$, $|z|\le1/2$. Independence of the azimuthal angle gives
+\[
+ \diver U_s=0,\quad\diver(\rho U_s)=0,\quad
+ N(U_s)=-\rho^2 e_r/r,\quad U_s\cdot N(U_s)=0.
+\]
+Thus $w(U_s)=U_s$.
+
+Let $\zeta$ be a smooth cutoff equal to one on the radius-3 ball and zero outside the radius-4 ball. It can be chosen explicitly as
+\[
+ \zeta(x)=\frac{\eta(16-|x|^2)}{\eta(16-|x|^2)+\eta(|x|^2-9)},
+\]
+with $\eta$ from Section~\ref{sec:departure}. Define
+\[
+ a(x,y,z)=(yz,-xz,0),\quad
+ \phi(x,y,z)=\tfrac12(x^2+y^2)-z^2,
+ \quad h=\curl(\zeta a),\quad g=\nabla(\zeta\phi),\quad e=h-g.
+\]
+Then $h$ is solenoidal, $g\in\G$, and near the support of $U_s$,
+\[
+ h=g=(x,y,-2z),\quad\nabla h=\operatorname{diag}(1,1,-2),
+ \quad U_s\cdot h=0,
+ \quad (U_s\cdot\nabla)h=U_s.
+\]
+The supports of $e$ and $U_s$ are disjoint.
+
+For $v_\varepsilon=U_s+\varepsilon h$, let
+$w_\varepsilon=w(v_\varepsilon)$, $d_\varepsilon=w_\varepsilon-U_s$, and $C_e=\norm e_3^3/3$. The competitor correction $-\varepsilon g$ gives
+$\Q(v_\varepsilon)\le F(U_s+\varepsilon e)=F(U_s)+C_e|\varepsilon|^3$.
+Also $\ip{j(U_s)}{d_\varepsilon}=0$, because its pairing with $\varepsilon h$ is zero and the remaining difference is a gradient. The two Bregman lower bounds therefore give
+\begin{equation}\label{eq:appendgain}
+ 0\le\Q(v_\varepsilon)-\Q(U_s)\le C_e|\varepsilon|^3,
+ \quad \int\rho|d_\varepsilon|^2\le4C_e|\varepsilon|^3,
+ \quad \norm{d_\varepsilon}_3^3\le6C_e|\varepsilon|^3.
+\end{equation}
+In particular these estimates control the true minimizer, including any exterior tail.
+
+Let $A_\varepsilon=j(w_\varepsilon)$, $A_0=j(U_s)$, and
+\[
+ N_0=N(U_s),\qquad
+ N_1=(h\cdot\nabla)U_s+(U_s\cdot\nabla)h,
+ \qquad N_2=(h\cdot\nabla)h.
+\]
+Then $N(v_\varepsilon)=N_0+\varepsilon N_1+\varepsilon^2N_2$.
+Put $M=\norm{U_s}_3$, $d_0=(6C_e)^{1/3}$, and $L=(2M+d_0)d_0$.
+The cubic pointwise estimate and \eqref{eq:appendgain} imply
+$\norm{A_\varepsilon-A_0}_{3/2}\le L|\varepsilon|$ for $|\varepsilon|\le1$.
+The pairing with $N_0$ has the stronger estimate
+\begin{align*}
+ |\ip{A_\varepsilon-A_0}{N_0}|
+ &\le2\int\rho^3|d_\varepsilon|+\int\rho^2|d_\varepsilon|^2\\
+ &\le4\sqrt{C_e}\norm{U_s}_5^{5/2}|\varepsilon|^{3/2}
+       +4C_e\norm{U_s}_\infty|\varepsilon|^3.
+\end{align*}
+Here $|N_0|\le\rho^2$, and Cauchy--Schwarz was applied to $\rho^{1/2}|d_\varepsilon|$ and $\rho^{5/2}$.
+
+The first-order coefficient is exact:
+\[
+ \ip{A_0}{(h\cdot\nabla)U_s}
+   =\int h\cdot\nabla(\rho^3/3)=0,
+ \qquad \ip{A_0}{(U_s\cdot\nabla)h}=\norm{U_s}_3^3=:c_0>0.
+\]
+Also $\ip{A_0}{N_0}=0$. Expanding $K(v_\varepsilon)=-\ip{A_\varepsilon}{N(v_\varepsilon)}$ and bounding the remaining terms by H\"older yields
+\begin{equation}\label{eq:appendK}
+ |K(U_s+\varepsilon h)+c_0\varepsilon|
+ \le C_*|\varepsilon|^{3/2},\qquad |\varepsilon|\le1,
+\end{equation}
+where one finite explicit choice is
+\[
+ C_*=4\sqrt{C_e}\norm{U_s}_5^{5/2}
+       +4C_e\norm{U_s}_\infty+M^2\norm{N_2}_3
+       +L(\norm{N_1}_3+\norm{N_2}_3).
+\]
+Choose
+$0<\varepsilon<\min\{1,[c_0/(2\max\{1,C_*\})]^2\}$ and set
+\begin{equation}\label{eq:W0}
+ W_0=U_s-\varepsilon h.
+\end{equation}
+Then $W_0$ is real, compact smooth, solenoidal, and $K(W_0)\ge c_0\varepsilon/2>0$, as required in Section~\ref{sec:curve}. This proof uses neither a formal derivative of the minimizing map nor a numerical solver.
+
+\section{Small algebraic checks and reproducibility}
+\label{app:checks}
+The main numerical constants can be checked without a PDE computation:
+\[
+ \left(\tfrac43\sqrt{\tfrac98}\right)^4=4,
+ \quad B_6^4=12C_{9/2}^4a_0,
+ \quad \frac{27}{256(\nu/4)^3}B_6^4
+       =81C_{9/2}^4a_0\nu^{-3}.
+\]
+The time-translation constant is
+$36\cdot2^{3/4}\cdot2^{3/4}\cdot2=72\cdot2^{3/2}$.
+The comparison curve uses
+$\lambda'=\lambda^3/(2T_c)$, $E=E_W/\lambda$,
+$Y=Y_W\lambda$, and $T_c=E_W/(4\nu Y_W)$, so its energy derivative is exactly $-2\nu Y$.
+
+Under the original critical Navier--Stokes dilation $u_\lambda(t,x)=\lambda u(\lambda^2t,\lambda x)$, the temporal scale becomes $\delta/\lambda^2$, $E_0$ scales by $\lambda^{-1}$, $Y_0$ by $\lambda$, and $L_\delta^2$ by $\lambda$. Thus $M_\delta$ scales by $\lambda^2$ and $M_\delta H$ is invariant. The residual norm in \eqref{eq:residualsmall} is invariant, as is the critical quantity $G$. This checks the dimensional consistency of the new criterion without confusing it with an amplitude symmetry at fixed viscosity.
+
+The delivered LaTeX source contains the complete note and bibliography and requires no external figures, generated data, or nonstandard local inputs. The file hashes in Section~\ref{sec:frontier} refer to the supplied artifacts, not to this new output. The text was compiled and its rendered pages inspected; typesetting verification is not mathematical kernel verification.
+
+\begingroup\small\interlinepenalty=10000
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{References and source records}
+\bibitem{Clay}
+C.~L. Fefferman, \emph{Existence and smoothness of the Navier--Stokes equation}, official Clay Mathematics Institute problem description, alternative (A), printed p.~2. Primary statement and rendered page inspected. \url{https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf}.
+
+\bibitem{Tao}
+T.~Tao, \emph{Localisation and compactness properties of the Navier--Stokes global regularity problem}, Analysis \& PDE \textbf{6} (2013), 25--107. DOI: 10.2140/apde.2013.6.25; arXiv:1108.1165. Theorem 5.4 and Corollaries 4.3 and 5.8 are explicit imports of the inspected parent manuscript; not independently re-audited here.
+
+\bibitem{ESS}
+L.~Escauriaza, G.~A. Seregin and V.~\v Sver\'ak, \emph{$L_{3,\infty}$-solutions of the Navier--Stokes equations and backward uniqueness}, Russian Mathematical Surveys \textbf{58} (2003), 211--250. DOI: 10.1070/RM2003v058n02ABEH000609. The manuscript's Theorem 1.3 import is retained as a literature-relative endpoint premise; its backward-uniqueness proof is not reproduced.
+
+\bibitem{GKP}
+I.~Gallagher, G.~S. Koch and F.~Planchon, \emph{A profile decomposition approach to the $L^\infty_t(L^3_x)$ Navier--Stokes regularity criterion}, Mathematische Annalen \textbf{355} (2013), 1527--1559. DOI: 10.1007/s00208-012-0830-0. Primary preprint, Theorem 4, printed p.~18, directly inspected including the rendered page. \url{https://arxiv.org/abs/1012.0145}.
+
+\bibitem{Stein}
+E.~M. Stein, \emph{Singular Integrals and Differentiability Properties of Functions}, Princeton University Press, 1970. Standard multiplier and Sobolev foundations are declared in Section~\ref{sec:foundations}; basic Hilbert-space and weak-derivative tools are also treated as standard analytic inputs.
+
+\bibitem{Li}
+J.~Li, \emph{Directional Differentiability of the Metric Projection in Bochner Spaces}, arXiv:2311.00942v1 (2023). Primary abstract inspected for the stated support-subspace, ball and cylinder scope. No theorem is used as a proof input. \url{https://arxiv.org/abs/2311.00942}.
+
+\bibitem{Research}
+\repo{itpplasma/navier}, pinned revision \repo{a3e85f2d75fb01f1421e95f51ec6f8eedab0ec50}, inspected 6 September 2026. \repo{PLAN.md}, especially the HF22 repairs, HF23 integration, HF24 temporal target and HF25 unaudited import. \url{https://github.com/itpplasma/navier/tree/a3e85f2d75fb01f1421e95f51ec6f8eedab0ec50}.
+
+\bibitem{Projection}
+\repo{itpplasma/navier}, \path{research/evidence/hf22-projection-regularity.md}, same pinned revision. The repaired note states that its linearization is formal and leaves unweighted $L^3$ projection regularity undecided. Its withdrawn comparison with HF18-B is not reinstated here.
+
+\bibitem{GoodSet}
+\repo{itpplasma/navier}, \path{research/evidence/hf22-good-set-dissipation.md}, same pinned revision. Audited REPAIR, replacements applied. Its good-set reduction is an inherited result; its scalar non-derivability statement is not treated as a Navier--Stokes counterexample.
+
+\bibitem{Paper}
+\repo{itpplasma/navier-paper}, revision \repo{34cdffd2fe2bd8a35068e96f907302e00c10850f}, inspected 6 September 2026. \repo{main.tex}: target and local premises; conditional completion and endpoint scope; \path{prop:quotient-divcurl} and its regularized proof; final proof boundary. \url{https://github.com/itpplasma/navier-paper/tree/34cdffd2fe2bd8a35068e96f907302e00c10850f}.
+
+\bibitem{Formal}
+\repo{itpplasma/navier-formal}, revision \repo{54f8e89119e90399044bae8dcd404dc405a381f9}, inspected 6 September 2026. \path{docs/verification-status.md}: supporting proofs and statement surfaces, not a proved critical estimate or Clay theorem. No local build or kernel replay in this session. \url{https://github.com/itpplasma/navier-formal/tree/54f8e89119e90399044bae8dcd404dc405a381f9}.
+
+\bibitem{Attachment}
+\emph{Beyond HF21: Dissipation comparison, sharp defect order, and a quantitative divergence-defect criterion}, supplied 26-page PDF and matching LaTeX, dated 6 September 2026. Filenames \path{navier-hf21-proof-continuation-2026-09-06.pdf} and \path{navier-hf21-proof-continuation-2026-09-06.tex}; hashes recorded in Section~\ref{sec:frontier}. The LaTeX matches the repository's HF25 import. Its component results are reconstructed or cited with their stated proof boundary; it does not prove the arbitrary-data estimate.
+\end{thebibliography}\endgroup
+\end{document}

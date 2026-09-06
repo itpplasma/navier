@@ -1,0 +1,150 @@
+# HF26: weighted linearization, actual-flow defect creation, and a temporal criterion
+
+Status: **UNAUDITED candidate**, imported 2026-09-06. Nothing is promoted, the
+manuscript is untouched, and no graph node changes until independent audits
+return.
+
+Provenance. A third LaTeX continuation arrived on the work capture surface,
+1432 lines, dropped 2026-09-06 10:55. The source is committed verbatim beside
+this note as `hf26-temporal-continuation.tex`; the original is filed at
+`~/Nextcloud/navier/navier-temporal-continuation-2026-09-06.tex`. Both are
+frozen by SHA-256
+`24b538280c8639b81a1f6f86d4c72370362625ca8a52d1d81a99b29236a540ab`.
+
+It pins `navier` `a3e85f2`, `navier-paper` `34cdffd` and `navier-formal`
+`54f8e89`. **All three concatenated hashes were checked against `git rev-parse`
+and match exactly.** It declares its own boundary on the title page and again
+in a closing subsection: the arbitrary-data endpoint-uniform producer is not
+proved, the one-scale temporal residual remains an added hypothesis, and the
+weaker estimate it does prove from energy does not imply it.
+
+## What it claims
+
+1. **A rigorous weighted linearization** (`thm:weightedresponse`,
+   `thm:Aderivative`). The difference quotients of the minimizing
+   representative converge *strongly* in a fixed, possibly degenerate, weighted
+   Hilbert space at the base point, and the dual field `A = |w|w` has a strong
+   Hadamard derivative in `L^{3/2}`, `∂_h A(v) = M_w L_w h`. This replaces the
+   *formal* linearization that the repaired HF22 projection note could only
+   treat formally. The topology is part of the statement: it is not the
+   unweighted `L^3` topology of the correction.
+2. **Defect creation under the actual Navier–Stokes flow** (`thm:NSdeparture`).
+   For the inherited explicit ellipse field, at every viscosity and every
+   amplitude except possibly one, data in the nonlinear-Hodge class leave it
+   immediately under the *original equation*, with an explicit `t^2` rate. This
+   is a genuine strengthening of HF19-D and of HF25's `thm:counter`, both of
+   which used linear heat flow. A corollary refutes any homogeneous
+   defect-feedback law that would preserve a zero gap.
+3. **A one-scale temporal criterion** (`thm:temporal`). If the strong `L^3`
+   temporal residual of `q` against its own backward average is smaller than
+   `ν/(4C♯)` at a *single* input-selected scale `δ`, then `Q`, the dissipation
+   integral and the full target quantity `G` are bounded with explicit
+   constants. `cor:modulus` notes that a strong **vector** modulus for
+   `t ↦ q(t)` in `L^3` supplies that scale.
+4. **What energy actually gives** (`thm:qtime`). An unconditional,
+   input-uniform *integrated* translation estimate,
+   `∫‖q(t+h) − q(t)‖_3^3 dt ≤ C_I Ω(h)^{1/2}`, with no continuation norm on the
+   right. `cor:residualmeasure` converts it to a bound on the *measure* of the
+   exceptional set. The note is explicit that this is an integrated bound, not
+   the supremum the criterion needs, and that it does not control the
+   dissipation accumulated on the exceptional set.
+5. **A concentrating comparison curve** (`thm:curve`) — see the controller
+   check below, which is the most consequential item for our own plan.
+
+## Controller check of the countermodel (not an audit)
+
+Every time slice of the curve `v(t) = S_{λ(t)} W`, `λ(t) = (1 − t/T_c)^{-1/2}`,
+is a genuine solenoidal Schwartz field whose `w, q, A, Q, D, K` are its actual
+variational objects. I verified its scaling algebra symbolically:
+
+| identity | result |
+|---|---|
+| `λ' = λ^3/(2T_c)` | exact |
+| energy identity `E' + 2νY = 0` at `T_c = E_W/(4νY_W)` | exact |
+| quotient identity `Q' + νD = K` | exact, residual zero |
+| `G(τ) = d_W D_W T_c log(T_c/(T_c − τ))` | diverges |
+| enstrophy law `Y' = 2νY^3/(E_W Y_W)` | exact |
+| HF25's `∫‖σ‖_2^4 dt` | diverges |
+
+So the curve satisfies the exact kinetic-energy identity, the exact quotient
+identity, has **constant** scalar distance `‖q(t)‖_3`, and (by
+`cor:curveenstrophy`) can be made to satisfy any prescribed cubic enstrophy
+bound — and yet both the target quantity `G` **and** HF25's fourth-power defect
+integral diverge on it. It is not a Navier–Stokes solution; the note proves this
+from the endpoint theorem and gives the explicit nonzero PDE residual, which is
+invisible to both scalar tests, `⟨v, R⟩ = ⟨A(v), R⟩ = 0`.
+
+## Why this matters to the programme
+
+**It excludes a mechanism class we were actively pursuing, and it does so more
+sharply than any previous exclusion.** Every earlier excluded class was ruled
+out by a construction that violated something. This one violates nothing at the
+scalar level: exact energy balance, exact quotient balance, constant scalar
+distance, prescribed enstrophy bound. What it lacks is only `R = 0`. Therefore
+the instantaneous variational structure together with the energy identity and
+*any* scalar distance information cannot imply the target; additional
+information from the full equation is essential. The note is careful not to
+overclaim: it does not assert that a scalar modulus fails together with every
+consequence of the equation.
+
+**It bears directly on HF24, whose audits are in flight.** Section
+`sec:crossing` argues the plan's claimed modulus/crossing-count equivalence
+needs both a precise notion of crossing and an explicit choice of observed
+object. It gives a smooth scalar function with a Lipschitz modulus that crosses
+a fixed level infinitely often, so a modulus does **not** bound single-level
+crossings; it bounds excursions between *separated* thresholds, and conversely
+a finite crossing count supplies no modulus. Its producer observes the
+**vector-valued** field in strong `L^3`, and `eq:scalarvector` records that the
+scalar bound is the weaker one. The HF24 verdicts must be reconciled with this
+before anything from that wave is promoted.
+
+## Points an audit must examine first
+
+- `thm:weightedresponse`: strong convergence in the degenerate weighted space,
+  both signs of the perturbation, the zero-weight case, and whether the limit is
+  legitimately interpreted before any `L^3` statement is made. The note warns
+  that the weighted differential of `q` does **not** control its unweighted
+  `L^3` differential near `w = 0`; check no step quietly uses it.
+- `thm:Aderivative`: the Hadamard (not Fréchet) claim into `L^{3/2}`, and the
+  density/approximation steps in `H_U`.
+- `thm:NSdeparture`: the initial tangent from the projected equation, the
+  `C^2(L^3)` time regularity drawn from the local package, the amplitude
+  argument excluding at most one `a`, and the inherited ellipse field.
+- `thm:temporal`: the Young step `eq:Young34`, the constant `M_δ`, and whether
+  the scale is genuinely selected before the stopping time rather than from a
+  continuation norm.
+- `thm:qtime`: the `dot H^{-1}` increment lemma, the interpolation
+  `eq:negativeinterp`, and the claim that no continuation norm enters.
+- `cor:residualmeasure`: the Jensen/Tonelli step and the deliberate restriction
+  to `(δ, τ)`.
+- `thm:curve`: independently of my algebra check, whether the seed field `W_0`
+  with `K(W_0) > 0` in the appendix is correct, since the whole countermodel
+  rests on it; and whether `cor:curveenstrophy`'s limit argument holds.
+- The appendices reconstruct HF23's estimate and a weighted dissipation
+  identity; check these against our already audited HF23 rather than assuming
+  agreement.
+
+## Frontier record
+
+**MODE / RESULT:** DISCOVER, unaudited. One analytic upgrade (formal → strong
+linearization), one actual-flow negative result, one conditional temporal
+producer, one unconditional integrated modulus, and one exclusion of a
+mechanism class by an exact countermodel.
+
+**FIRST GAP:** unchanged, and re-expressed. The producer needs a supremum in
+time of the strong `L^3` residual at one fixed scale; energy supplies only an
+integrated version, and the gap is precisely the dissipation accumulated on a
+small-measure exceptional set.
+
+**SURVIVING CONDITIONAL SUFFIX:** if audited, the target follows from any one of
+three hypotheses (`thm:fullconditional`): the one-scale residual bound, a finite
+input bound for the exceptional-set remainder, or the original signed estimate.
+
+**NON-CLAIMS:** no arbitrary-data witness for any of the three alternatives; no
+regularity or blowup result; no singularity claim from the departure theorem; no
+promotion of any graph node; no novelty claim for the weighted derivative, which
+the note itself flags against prior art on directional differentiability of
+metric projections. NS-R3 remains open.
+
+**NEXT DISTINCT ACTION:** independent audits at a different lens, freezing the
+hash above; then reconcile with the in-flight HF24 verdicts.
