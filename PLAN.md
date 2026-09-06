@@ -7,7 +7,7 @@ phase: paper-proof-first
 phase_i_status: authorized-2026-09-05-deferred-until-full-paper-proof
 phase_ii_status: authorized-2026-09-05-not-started
 paper_status: cp1-paper-proof-complete-conditional-on-one-open-estimate
-active_task: HF23-manuscript-import-and-HF22-audits
+active_task: HF23-manuscript-import-and-HF22-repairs
 public_release: false
 ```
 
@@ -1202,29 +1202,49 @@ says so.
   no perturbation, and sub-question (a) becomes a question about that
   parametrisation. It also records that the affirmative branch would not have
   closed (G) anyway, since it would only have moved (G) onto the pressure
-  route, which the audited ordering already covers. The corresponding term in
-  the distance balance therefore has no sign and may not be dropped, which
-  confirms rather than corrects the manuscript.
-- **Sub-question (c) is decided NO, with an exact obstruction**
-  (`hf22-good-set-dissipation.md`), strengthening the audited HF21-B
-  obstruction from unavailability to non-derivability: an explicit family
-  satisfies every constraint the audited record imposes while the good-set
-  dissipation integral diverges, with bad-set measure tending to zero. The
-  positive by-product is that the good set is free in (G), so (G) is
-  equivalent to its bad-set restriction with explicit constants. The lane also
-  proves that realising the obstruction profile on an actual trajectory is
-  logically equivalent to finite-time loss of the classical branch, so the
-  family obstructs derivability only and can be neither excluded nor
-  constructed short of settling the problem.
-- **Sub-question (b) is not decided** (`hf22-projection-regularity.md`), but
-  its interval is cut and its residual is identified as one named external
-  input, the weighted Calderón–Zygmund estimate, which is the same open item
-  class as HF18-B. So (b) is not independent of an already-open question.
+  route. **Its audit rejected that last reasoning**, on three counts: a dropped
+  factor leaves the two integrals compared with different amplitude weights, a
+  one-way implication was read as a biconditional, and non-derivability was
+  read as falsity; a repaired, weaker form is supplied. The negative answer
+  itself survives, so the corresponding term in the distance balance has no
+  sign and may not be dropped, which confirms rather than corrects the
+  manuscript.
+- **Sub-question (c) is answered NO in a repaired, weaker form**
+  (`hf22-good-set-dissipation.md`). Its audit found the load-bearing negative
+  result FAILS as displayed: the constraint list was incomplete, and the
+  explicit family violates an omitted but genuinely audited constraint on most
+  of the time axis. The auditor supplied a repaired family and the two missing
+  constraints, so the negative survives only as non-derivability from an
+  explicitly enumerated constraint set, not from the audited record as such.
+  Two further corrections: the headline confused falsity with non-derivability,
+  and the realisation dichotomy is **not new**, being the manuscript's own
+  scope remark. What survives verbatim, with every constant recomputed, is the
+  master deficit inequality and the genuinely useful by-product that the good
+  set is free in (G), so the gap reduces to its bad-set restriction.
+- **Sub-question (b) is not decided** (`hf22-projection-regularity.md`), and
+  its audit withdrew the lane's main structural claim: the assertion that this
+  sub-question inherits the open weighted inequality of HF18-B is **not
+  established**, since the two objects differ in every relevant respect,
+  weighted against unweighted, one-point against two-point, and conditional
+  against assuming no regularity, with no implication displayed either way.
+  The lane's reduction is also only formal, presupposing a differentiability
+  it does not justify. The interval of exponents it cuts survives.
 - **The direct attack** (`hf22-direct-attack.md`) contributes the pressure-route
   mirror, the exact deficit of the natural interpolation attempt computed once
-  and for all, a closure theorem retiring the state-weighted localisation
-  mechanism for the whole class of time-integrations by parts available from
-  the record, and one conditional reduction resting on a new hypothesis.
+  and for all, and one conditional reduction resting on a new hypothesis. Its
+  audit struck three claims: that the target is strictly stronger than the gap,
+  which contradicts the note's own equivalence proposition; an endpoint
+  supremum equivalence refuted by a swirl family the note itself cites; and an
+  exhaustion claim that exactly two scalar functionals are differentiable in
+  time, refuted by the kinetic energy, which the note lists among its own
+  inputs.
+
+**All four audited 2026-09-06, all REPAIR**, each with a real catch; repairs
+are being applied. The pattern is worth recording: three of the four defects
+were overclaims of the same species, treating a result as false when only its
+derivability from a listed set had been shown, or as new when the manuscript
+already contained it. The controller's own plan summary repeated three of
+those overclaims before the audits returned and is corrected above.
 
 **Convergence worth noting.** Two lanes that did not share a question arrive
 independently at the same next target: an input-only modulus of continuity for
