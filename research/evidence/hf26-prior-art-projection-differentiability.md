@@ -15,7 +15,15 @@ successful outcome of this lane and is reported plainly.
 Tags: **[DI]** = statement read directly in the cited source in this lane
 (including through a text-extraction proxy of the primary PDF, said explicitly);
 **[AB]** = official abstract or indexed abstract read, body not read;
-**[MO]** = bibliographic identity only, content not read.
+**[MO]** = bibliographic identity only, content not read;
+**[SEC]** = statement taken from a directly inspected *citing* source, not the
+primary;
+**[DL]** = obtained by a delegated search lane inside this note and
+re-verified against Crossref/zbMATH/arXiv for bibliographic identity.  The
+delegated lane reported that its page-summarising tool **fabricates
+bibliographies**, so every [DL] item below carries a verified identifier and no
+[DL] item is used for a mathematical conclusion beyond what its quoted text
+says.
 
 Companion notes, not repeated here: `cp01-prior-art-quotient.md` (the
 functional, the nonlinear Hodge mechanism, Kato, Bojarski–Iwaniec),
@@ -160,8 +168,8 @@ Supporting inequalities used, both **already standard** (see §3.1):
 ### 1.2 Convex sensitivity theory: the general machinery the proof instantiates
 
 - **J. F. Bonnans and A. Shapiro, *Perturbation Analysis of Optimization
-  Problems*, Springer Series in Operations Research, Springer, New York, 2000.**
-  **[MO]** (contents and topic list verified: Legendre forms, second-order
+  Problems*, Springer Series in Operations Research, Springer, New York, 2000**,
+  DOI 10.1007/978-1-4612-1394-9, ISBN 978-1-4612-1394-9.  **[MO]** (contents and topic list verified: Legendre forms, second-order
   conditions, directional regularity, differentiability of the optimal value
   \(v(u)\) and of the solution set \(S(u)\)).  This is the standard reference
   for "difference quotients of minimizers of a parametrized convex problem
@@ -181,9 +189,14 @@ Supporting inequalities used, both **already standard** (see §3.1):
   the Mosco sense iff its subdifferential is proto-differentiable**, the proof
   going through **Attouch's theorem** (Mosco epi-convergence of convex functions
   \(\Leftrightarrow\) graph convergence of subgradients, on a reflexive Banach
-  space).  Extended to reflexive Banach spaces by **C. N. Do, "Generalized
+  space).  Extended to reflexive Banach spaces by **Chi Ngoc Do, "Generalized
   second-order derivatives of convex functions in reflexive Banach spaces",
-  Trans. Amer. Math. Soc. 334 (1992) 281–301** **[MO]**.
+  Trans. Amer. Math. Soc. 334 (1992) 281–301**, DOI
+  10.1090/S0002-9947-1992-1088019-1 **[MO]**, and by **J. L. Ndoutoume and
+  M. Théra, "Generalised second-order derivatives of convex functions in
+  reflexive Banach spaces", Bull. Austral. Math. Soc. 51 (1995) 55–72**, DOI
+  10.1017/S0004972700013897 **[MO]**.  \(L^3\) is reflexive, so this is the
+  branch of the general theory that formally covers the present setting.
 - **Integral functionals specifically:** **A. B. Levy, "Second-order
   epi-derivatives of integral functionals", Set-Valued Anal. 1 (1993)
   379–392**, DOI 10.1007/BF01027827 **[MO]**; **P. D. Loewen and H. Zheng,
@@ -283,11 +296,53 @@ as licence to ignore the paper.
 ### 1.4 The older \(L^p\)/\(\ell^p\) best-approximation literature
 
 - **R. B. Holmes and B. R. Kripke, "Smoothness of approximation", Michigan
-  Math. J. 15 (1968) 225–248**, DOI 10.1307/mmj/1028999976.  **[AB]** (content
-  via secondary sources): on \(\mathbb R^n\) with the \(\ell_p\) norm,
-  \(1<p<\infty\), the metric projection onto a linear subspace is **Lipschitz
-  continuous**, with a \(p\)-dependent constant.  This is the earliest located
-  reference for regularity of the \(L^p\) subspace projection.
+  Math. J. 15 (1968) 225–248**, DOI 10.1307/mmj/1028999976 (Zbl 0177.16201).
+  **[SEC/DL]** — the primary text is blocked on Project Euclid and was not read.
+  **This is the single most consequential item in this note.**  Kroó and Pinkus
+  (below) state, verbatim:
+
+  > "The Gateaux derivative of the metric projection \(P_Mf\) with respect to
+  > \(f\) (not \(M\)) was studied in \(L_p\), \(p>2\), see, e.g., Holmes
+  > and Kripke [7]."
+
+  Other citing sources report from it: Lipschitz continuity of \(P_M\) on
+  finite-dimensional \(\ell_p^n\) for all \(1<p<\infty\); **local**
+  Lipschitz continuity for finite-dimensional subspaces of \(L^p\), \(p>2\);
+  and a counterexample of a **one-dimensional** subspace of \(\ell_p\),
+  \(p>2\), whose projection is not Lipschitz.  Consequence for this audit: the
+  question "is the \(L^p\) metric projection differentiable **in the datum**?"
+  was posed and studied in 1968, and the programme may not present it as new.
+- **R. Fletcher, J. A. Grant and M. D. Hebden, "The continuity and
+  differentiability of the parameters of best linear \(L_p\) approximations",
+  J. Approx. Theory 10 (1974) 69–73**, DOI 10.1016/0021-9045(74)90097-5.
+  **[MO/DL]** — identity verified, text not obtained (Elsevier 403).  The title
+  alone is decisive prior art for the topic of this note.  Companion: **same
+  authors, "The calculation of linear best \(L_p\) approximations", Comput. J.
+  14 (1971) 276–279**, DOI 10.1093/comjnl/14.3.276 **[AB/DL]**, which derives a
+  **second-order convergent** (Newton-type) scheme for best \(L^p\)
+  approximation — the linearization was in numerical use by 1971.
+- **Two negative results bearing directly on the candidate's scope discipline.**
+  - **P. A. Borodin, Yu. Yu. Druzhinin and K. V. Chesnokova, "Finite-dimensional
+    subspaces of \(L_p\) with Lipschitz metric projection", Math. Notes 102
+    (2017) 465–474**, DOI 10.1134/S0001434617090188 (Mat. Zametki 102 (2017)
+    514–525, DOI 10.4213/mzm11479).  **[AB/DL]** (full zbMATH review read): for
+    \(p\in(1,\infty)\setminus\{2\}\), \(P_Y\) is Lipschitz **iff**
+    \(\operatorname{supp}(Y)\) is a finite union of atoms.  Lebesgue measure
+    on \(\mathbb R^3\) is nonatomic, so **no nontrivial finite-dimensional
+    subspace of \(L^3(\mathbb R^3)\) has a globally Lipschitz metric
+    projection.**  Global Lipschitz continuity is weaker than a bounded Fréchet
+    derivative, so this is *external* evidence that the candidate is right to
+    refuse an unweighted \(L^3\) derivative of \(w\) and a two-point \(L^3\)
+    Lipschitz estimate for \(q\).
+  - **V. I. Berdyshev, "On differentiability of the operator of best
+    approximation", Colloq. Math. Soc. János Bolyai 35 (1983) 237–248**
+    (Zbl 0548.41017).  **[AB/DL]** (full zbMATH review read): there is a smooth,
+    bounded, uniformly convex \(M\subset\ell_2^{(2)}\) and a **dense** set on
+    which \(P\) has **no directional derivative in any direction**.
+- **H. Berens, M. Finzel, W. Li and Y. Xu, J. Math. Anal. Appl. 213 (1997)
+  183–201**, DOI 10.1006/jmaa.1997.5521 **[AB/DL]**: a Lipschitz constant for
+  \(P_M\) on \((\mathbb R^n,|\cdot|_p)\) **independent of \(p\)**, via
+  Hoffman error bounds.
 - **B. Björnestål, "Local Lipschitz continuity of the metric projection
   operator", Banach Center Publ. 4 (1979), no. 1, 43–53**, ISSN 0137-6934
   (identity verified on the EuDML record, `eudml.org/doc/208992`; MSC 46B20,
@@ -299,6 +354,14 @@ as licence to ignore the paper.
   (\(2\)-uniformly smooth, \(p\)-uniformly convex), is Hölder, not Lipschitz,
   and Hölder is stated in the secondary literature as **optimal up to
   constants** for \(L^p\) **[AB]**.
+- **A. Kroó and A. Pinkus, "On stability of the metric projection operator",
+  SIAM J. Math. Anal. 45 (2013) 639–661**, DOI 10.1137/120873534 **[AB]**
+  (zbMATH reviewer summary read, Zbl 6189157): for \(L^p(K,\mu)\) with
+  \(p>2\) and nonatomic \(\mu\), and \(r\)-dimensional subspaces with the
+  \(Z_\mu\) property, \(\|P_Mf-P_Nf\|_p\le c_{M,f}\,d(M,N)\).  This is
+  Lipschitz dependence on the **subspace**, not on the point, and the subspaces
+  are finite-dimensional; it is the current state of the \(L^p\)-subspace
+  projection stability line and does not give T3.4.
 - **M. Finzel and W. Li, "Hoffman's error bounds and uniform Lipschitz
   continuity of best \(\ell_p\)-approximations", J. Math. Anal. Appl. 220
   (1998)** (ScienceDirect pii S0022247X97955219) **[AB]**: uniform-in-\(p\)
@@ -317,13 +380,42 @@ as licence to ignore the paper.
 - Smoothness of the ambient functional is classical: the best order of
   differentiability of the \(L^p\) norm (and of \(\|\cdot\|_p^p\)) is
   \(\lceil\cdot\rceil\)-sharp — **R. Bonic and J. Frampton, "Differentiable
-  functions on certain Banach spaces" / "Smooth functions on Banach manifolds",
-  1965/1966** **[MO]**; **I. E. Leonard and K. Sundaresan, "Geometry of
+  functions on certain Banach spaces", Bull. Amer. Math. Soc. 71 (1965)
+  393–395**, DOI 10.1090/S0002-9904-1965-11310-6, and **"Smooth functions on
+  Banach manifolds", J. Math. Mech. 15 (1966) 877–898**, DOI
+  10.1512/iumj.1966.15.15058 **[MO]**; **I. E. Leonard and K. Sundaresan, "Geometry of
   Lebesgue–Bochner function spaces — smoothness", Trans. Amer. Math. Soc. 198
   (1974) 229–251**, DOI 10.1090/S0002-9947-1974-0367652-5 **[AB]**.  For \(p=3\) this gives exactly: \(\|\cdot\|_3^3\)
   is twice continuously differentiable on \(L^3\), with Lipschitz second
   derivative — which is Lemma 3.2 and equation (2.19) `eq:Qprime` of the
   candidate.
+
+### 1.5 Why leaving the ambient space is forced by a theorem, not by technique
+
+The candidate's decision to take the derivative of \(A\) into \(L^{3/2}\)
+rather than \(L^3\) — and its refusal to differentiate \(w\) in \(L^3\) —
+is not merely convenient; it is compelled by a classical degeneration theorem
+for superposition (Nemytskii) operators:
+
+- **J. Appell and P. P. Zabrejko, "On the degeneration of the class of
+  differentiable superposition operators in function spaces", Analysis 7 (1987)
+  305–312**, DOI 10.1524/anly.1987.7.34.305.  **[AB/DL]** (full zbMATH review
+  read by the delegated lane): for ideal spaces \(X,Y\) with suitable
+  fundamental-function relations — the review names "particularly \(L_p\) and
+  \(L_q\) spaces when \(p\le q\)" — if the superposition operator is
+  differentiable at even **one** point, then \(f(s,u)\) is **affine** in
+  \(u\).  Consequence for the present objects: \(j:L^3\to L^3\) is provably
+  nowhere differentiable, while \(j:L^3\to L^{3/2}\) escapes the theorem
+  because \(3/2<3\).  See also **J. Appell and P. P. Zabrejko, *Nonlinear
+  Superposition Operators*, Cambridge Tracts in Math. 95, CUP, 1990**, DOI
+  10.1017/CBO9780511897450 **[AB/DL]**, and **H. Goldberg, W. Kampowsky and
+  F. Tröltzsch, "On Nemytskij operators in \(L_p\)-spaces of abstract
+  functions", Math. Nachr. 155 (1992) 127–140**, DOI 10.1002/mana.19921550110
+  **[MO/DL]**.
+
+This is a genuine and *citable* structural reason for the candidate's target
+space, and it is prior art: the programme must not present "we take the
+derivative into \(L^{3/2}\)" as a design insight of its own.
 
 ---
 
@@ -347,7 +439,54 @@ The existence/uniqueness/regularity side is already audited in
   \(\{\omega=0\}\); the programme's \(M_U\) degenerates at the *zero* of the
   field, which the bounded-density admissibility hypothesis \(k^{-1}\le\rho\le k\)
   of Sibner–Sibner excludes outright.  **No linearization-in-the-datum theorem
-  was located in this line.**
+  was located in this line.**  Two sharpenings from the delegated lane:
+  (i) the Crossref reference list of the 1979 *Applications* paper contains ten
+  items (Bers, Conner, Duff–Spencer, Friedrichs, Ladyzhenskaya–Ural'tseva,
+  Morrey, Serrin, Shiffman 1952, and their own 1970/1978 papers) — **classical
+  a-priori-estimate and direct-method machinery, with no perturbation-theory
+  reference at all** **[DI/DL]**; (ii) the existence proof runs through
+  "a delicate limiting argument introduced by Shiffman in the planar case"
+  (**M. Shiffman, "On the existence of subsonic flows of a compressible fluid",
+  J. Rational Mech. Anal. 1 (1952) 605–652**, DOI 10.1512/iumj.1952.1.51020
+  **[MO/DL]**), i.e. a variational argument that never requires invertibility of
+  a linearization.
+- **The programme's density is excluded from that school by hypothesis.**
+  **[DI/DL]** — read in **T. H. Otway, "Maps and fields with compressible
+  density", arXiv:math-ph/0302064**: the standing assumptions of nonlinear Hodge
+  theory are \(0<\frac{d}{dQ}[Q\rho^2(Q)]/\rho(Q)<\infty\) on
+  \([0,Q_{\rm crit})\) **together with non-cavitation**
+  \(0<\kappa_0\le\rho(Q)\le\rho(0)<\infty\); Otway notes explicitly that
+  for the \(L^p\)-critical density "the density … tends to zero (cavitates) as
+  ellipticity degenerates; this behavior is atypical of the mass density of
+  fluids, for which the sonic value lies at the supremum of the range of
+  subsonic speeds."  The programme's \(\rho(Q)=Q^{1/2}\) (\(p=3\), i.e.
+  \(\rho=|w|\)) degenerates at \(w=0\) — the **opposite end** from the
+  classical sonic degeneracy.  This is the precise, citable reason the Sibner
+  school does not cover the programme's equation, and it strengthens (rather
+  than weakens) what `cp01` already recorded.
+- **Where linearization-in-the-datum *is* classical: transonic gas dynamics —
+  and it is known to be ill-posed at the degeneracy.**  The linearized
+  potential-flow operator with matrix \(\rho I+2\rho'(Q)\,w\otimes w\) and
+  its degeneration at the sonic set is classical, and
+  **C. S. Morawetz, "On the non-existence of continuous transonic flows past
+  profiles I, II, III", Comm. Pure Appl. Math. 9 (1956) 45–68 (DOI
+  10.1002/cpa.3160090104); 10 (1957) 107–131 (DOI 10.1002/cpa.3160100105);
+  11 (1958) 129–144 (DOI 10.1002/cpa.3160110107)** **[SEC/DL]** proves that the
+  perturbation problem attached to a smooth transonic flow **is not correctly
+  posed**: shock-free transonic flows are unstable under arbitrarily small
+  perturbations of the profile.  Survey used: **G.-Q. G. Chen, "Morawetz's
+  contributions to the mathematical theory of transonic flows, shock waves, and
+  partial differential equations of mixed type", Bull. Amer. Math. Soc. (2024)**,
+  DOI 10.1090/bull/1816, arXiv:2310.07097 **[DI/DL]**; the survey does *not* put
+  the linearized transonic operator in a weighted energy space.  Background:
+  Bers, Comm. Pure Appl. Math. 7 (1954) 441–504, DOI 10.1002/cpa.3160070303;
+  Finn–Gilbarg, Acta Math. 98 (1957) 265–296, DOI 10.1007/BF02404476; and, for
+  the modern weighted treatment of elliptic degeneracy at a sonic boundary,
+  **G.-Q. Chen and M. Feldman, *The Mathematics of Shock Reflection-Diffraction
+  and von Neumann's Conjectures*, Ann. of Math. Studies 197, Princeton, 2018**,
+  DOI 10.1515/9781400885435 **[MO/DL]**.  This is genuine cognate prior art for
+  the *degeneracy* half of the question, with the caveat that the degeneracy
+  sits at the opposite end of the range.
 - **A. Marini and T. H. Otway, "Duality methods for a class of quasilinear
   systems", Ann. Inst. H. Poincaré Anal. Non Linéaire 31 (2014) 339–…;
   arXiv:1206.0189** **[DI]** (arXiv HTML read).  Treats
@@ -367,7 +506,48 @@ The existence/uniqueness/regularity side is already audited in
   (the Marini–Otway Bäcklund paper above); `abs:"p-Laplacian" AND
   abs:"directional differentiability"` returns **zero**.  A zbMATH Open API
   search for `nonlinear Hodge linearized` returns nothing in this subject at
-  all.  These are bounded index searches, not proof of absence.
+  all; the delegated lane reports that the arXiv abstract index contains only
+  **eight** papers using the phrase "nonlinear Hodge" at all.  These are bounded
+  index searches, not proof of absence.  The delegated lane additionally checked
+  and found no linearization-in-the-datum content in: L. M. Sibner, Manuscripta
+  Math. 43 (1983) 45–72 (DOI 10.1007/BF01169096); P. Smith, Indiana Univ. Math.
+  J. 31 (1982) 553–577 (DOI 10.1512/iumj.1982.31.31042); Otway, J. Geom. Phys.
+  27 (1998) 65–78 (DOI 10.1016/S0393-0440(97)00066-1), J. Math. Phys. 41 (2000)
+  5745–5766 (DOI 10.1063/1.533436), Ann. Mat. Pura Appl. 181 (2002) 437–452
+  (DOI 10.1007/s10231-002-0049-x), and both of his books (*The Dirichlet Problem
+  for Elliptic-Hyperbolic Equations of Keldysh Type*, LNM 2043, Springer 2012,
+  DOI 10.1007/978-3-642-24415-5 — whose weighted spaces are for **linear**
+  equations whose degeneracy is a prescribed function of position, not generated
+  by the unknown; and *Elliptic–Hyperbolic Partial Differential Equations*,
+  SpringerBriefs, 2015, DOI 10.1007/978-3-319-19761-6); Iwaniec–Scott–
+  Stroffolini, Ann. Mat. Pura Appl. 177 (1999) 37–115; Iwaniec–Martin, *Geometric
+  Function Theory and Non-linear Analysis*, OUP 2001, DOI
+  10.1093/oso/9780198509295.001.0001; Hamburger, J. Reine Angew. Math. 431
+  (1992) 7–64, Adv. Math. 190 (2005) 360–424 and its general-growth sequel; Stern
+  arXiv:2403.19481 (published in Contemp. Math. 816, AMS, 2025, 151–170); and
+  Beck–Stroffolini, Calc. Var. PDE 46 (2012) 769–808.  All **[MO/DL]** or
+  **[AB/DL]**.
+- **Citation correction for `cp01`.**  `cp01-prior-art-quotient.md` §1.2 lists
+  the general-growth nonlinear Hodge heat-flow sequel as "J. Differential
+  Equations 421 (2025) 264–290".  Crossref gives **C. Hamburger, "The heat flow
+  in nonlinear Hodge theory under general growth", J. Differential Equations 416
+  (2025) 531–575, DOI 10.1016/j.jde.2024.09.043** **[MO/DL]**.  The `cp01`
+  volume/pages appear to have come from an indexed summary and should be
+  corrected there; its authorship question is also answered (Hamburger).  Its
+  36-item reference list contains nothing on linearization or differentiability
+  in the datum.
+- **One structurally identical statement exists, but discrete and
+  degeneracy-free**: **S. Pardo-Guerra, A. Thapa, J. Washburn, "The cactus
+  criterion: when nonlinear Hodge theory reduces to linear on graphs",
+  arXiv:2604.17775 (2026)** **[DI/DL]**, an unrefereed preprint.  On a finite
+  graph they build a nonlinear coclosed selector \(\Pi_{cc}\) and prove
+  (Thm III.7) that its differential is a **weighted Hodge projector**,
+  \(D\Pi_{cc}(\omega)[\xi]=\xi-d\,L_w^{-1}\delta_w\xi\) with
+  \(\delta_w\xi=\delta(w\odot\xi)\), \(w_e=\cosh(\Pi_{cc}(\omega)_e)\).
+  That is the same *shape* as T3.4 — but the degeneracy is absent by
+  construction (\(\psi''=\cosh\ge1\)), the proof is the finite-dimensional
+  implicit function theorem, and the authors cite no continuum prior art.  Treat
+  as a same-shape statement in a setting where the whole difficulty is removed.
 
 ### 2.2 The linearized \(p\)-Laplacian: its degenerate weighted quadratic form is a routine construction
 
@@ -384,9 +564,68 @@ comment, i.e. as standard practice.  A clean recent instance read in this lane:
   natural formulation of the problem, with no claim of novelty attached to the
   space itself.
 
+**"Linearized \(p\)-Laplacian" is an established name for exactly the
+programme's \(M_U\).**  The delegated lane established this with primary
+sources:
+
+- **B. Sciunzi, "A weak maximum principle for the linearized operator of
+  \(m\)-Laplace equations with applications to a nondegeneracy result", Adv.
+  Differential Equations 10 (2005), no. 2**, DOI 10.57262/ade/1355867889
+  **[MO/DL]**; **D. Castorina, P. Esposito and B. Sciunzi, "Spectral theory for
+  linearized \(p\)-Laplace equations", Nonlinear Anal. 74 (2011) 3606–3613**,
+  DOI 10.1016/j.na.2011.03.009 **[MO/DL]** — the canonical reference;
+  **S. Cingolani, M. Degiovanni and B. Sciunzi, "Weighted Sobolev spaces and
+  Morse estimates for quasilinear elliptic equations", J. Funct. Anal. 286
+  (2024), no. 8, 110346**, DOI 10.1016/j.jfa.2024.110346 **[MO/DL]** — the title
+  alone records that the degenerate weighted Sobolev space is the working
+  setting for the second variation.
+- **The operator written out with the programme's exact two-sided bound.**
+  **J. Lewis**, chapter in **J. Lewis, P. Lindqvist, J. J. Manfredi and
+  S. Salsa, *Regularity Estimates for Nonlinear Elliptic and Parabolic
+  Problems*, Lecture Notes in Math. 2045 (CIME Foundation Subseries), Springer,
+  2012**, DOI 10.1007/978-3-642-27145-8.  **[DI/DL]** (2009 preprint read in
+  full).  Equations (1.6)–(1.10):
+  \(L\zeta=\partial_i[b_{ij}\zeta_{x_j}]=0\),
+  \(b_{ij}=|\nabla u|^{p-4}[(p-2)u_{x_i}u_{x_j}+\delta_{ij}|\nabla u|^2]\),
+  with
+  \(\min\{p-1,1\}|\nabla u|^{p-2}|\xi|^2\le b_{ik}\xi_i\xi_k\le
+  \max\{1,p-1\}|\nabla u|^{p-2}|\xi|^2\),
+  and the verbatim remark "Observe from (1.10) that \(L\) can be degenerate
+  elliptic if \(\nabla u=0\)."  This is the programme's \(M_U\), its
+  eigenvalue bounds, and its degeneracy, in print and named.
+- **Yitian Zhang, "The complete spectrum of the linearized \(p\)-Laplacian at a
+  Sobolev extremal", arXiv:2608.27276 (27 Aug 2026)** **[AB]** (official
+  abstract read here; text read by the delegated lane **[DI/DL]**).  Verbatim:
+  "…the linearized \(p\)-Laplacian at \(v\), **defined by its closed quadratic
+  form in \(L^2(\mathbb R^n,v^{p^*-2}\,dx)\)**".  The form is
+  \(a_v[\varphi,\psi]=\int A_v\nabla\varphi\cdot\nabla\psi\) with
+  \(A_v=|\nabla v|^{p-2}(I+(p-2)\nu\otimes\nu)\); the radial and tangential
+  eigenvalues \((p-1)|\nabla v|^{p-2}\) and \(|\nabla v|^{p-2}\) "both vanish
+  where \(v'=0\)", and the degeneracy is handled **by form closure rather than
+  by a differential expression** — precisely the candidate's device.
+- **The strongest existing use of a space of this type**: **A. Figalli and
+  Y. R.-Y. Zhang, "Sharp gradient stability for the Sobolev inequality", Duke
+  Math. J. 171 (2022), no. 12**, DOI 10.1215/00127094-2022-0051,
+  arXiv:2003.04037.  **[DI/DL]** — they work in
+  \(\dot W^{1,2}(\mathbb R^n;|Dv|^{p-2})\), the closure of \(C^1_{c,0}\)
+  under \((\int|D\varphi|^2|Dv|^{p-2})^{1/2}\), and prove a **compact
+  embedding** into \(L^2(\mathbb R^n;v^{p^*-2})\) (Prop. 3.2) and a **spectral
+  gap** for the second-variation form (Prop. 3.6).  Predecessor: **A. Figalli
+  and R. Neumayer, J. Eur. Math. Soc. 21 (2019) 319–354**, DOI 10.4171/JEMS/837
+  **[MO/DL]**.
+- **H. Varpanen, "On a linearized \(p\)-Laplace equation with rapidly
+  oscillating coefficients", arXiv:1506.04586 (2015)** **[DI/DL]** — solves a
+  singular Neumann problem for the linearized \(p\)-Laplace equation in an
+  explicitly degenerate power-weighted space.
+
 Together with §3 below this settles the status of the *construction* \(\mathcal
-H_U\): it is the routine energy space of a linearized degenerate elliptic
-operator, not a new object.
+H_U\): it is the routine, **named** energy space of a linearized degenerate
+elliptic operator, not a new object.  Two scale caveats from the delegated lane:
+the exact phrase "linearized \(p\)-Laplacian" occurs in only about four arXiv
+titles/abstracts (many authors simply write "the linearized operator" or display
+the matrix), and the delegated lane found **no** source using that phrase for the
+*normalized/game-theoretic* \(p\)-Laplacian \(\Delta_p^N\), so the two names
+are not in fact conflated in print.
 
 ### 2.3 Control-to-state differentiability for quasilinear/degenerate equations
 
@@ -403,13 +642,76 @@ operator, not a new object.
   \(p\)-Laplacian-type problem whose differentiability is delicate exactly
   because of degeneracy — but no located statement is about a *gradient-coset
   minimization in \(L^p(\mathbb R^n)\)*.
+- A reviewed *negative* statement of the same species: **O. P. Kupenko and
+  R. Manzo, "On optimality conditions for optimal control problem in
+  coefficients for \(\Delta_p\)-Laplacian", Bound. Value Probl. 2014, Paper
+  No. 72**, DOI 10.1186/1687-2770-2014-72 (Zbl 6370892) **[AB]** — the zbMATH
+  review states that "the mapping \(u\to y(u)\) is **not
+  Fréchet-differentiable** on the class of admissible controls", which forces
+  quasi-adjoint states instead of classical optimality conditions.  Control is
+  in the coefficients there, not the datum, so this is an analogue and not a
+  counterpart; but it shows that failure of differentiability for
+  \(p\)-Laplacian solution maps is a recognized, published phenomenon and not
+  something the programme discovered.
+
+- **Two further published statements that the ambient-space derivative does not
+  exist**, both **[AB/DL]**: **A. Hirn and W. Wollner, "An optimal control
+  problem for equations with \(p\)-structure and its finite element
+  discretization", in *Optimization and Control for Partial Differential
+  Equations*, De Gruyter, 2022, 137–166**, DOI 10.1515/9783110695984-007 —
+  verbatim from the abstract: *"As the nonlinear operator related to the
+  \(p\)-Laplace equation mapping the space \(W_0^{1,p}(\Omega)\) to its dual
+  \((W_0^{1,p}(\Omega))^*\) is **not Gâteaux differentiable**, first-order
+  optimality conditions cannot be formulated in a standard way."*  And
+  **M. Salo and X. Zhong, "An inverse problem for the \(p\)-Laplacian: boundary
+  determination", SIAM J. Math. Anal. 44 (2012) 2474–2495**, DOI
+  10.1137/110838224, whose abstract says *"The proofs work with the nonlinear
+  equation directly instead of being based on linearization"* and whose
+  Appendix A shows the Gâteaux derivatives of the \(p\)-DtN map "do not even
+  exist if \(1<p<2\)".
+- **The closest published statement of the candidate's programme — as an open
+  problem.**  **A. Hannukainen, N. Hyvönen and L. Mustonen, "An inverse boundary
+  value problem for the \(p\)-Laplacian: a linearization approach", Inverse
+  Problems 35 (2019), no. 3, 034001**, DOI 10.1088/1361-6420/aaf2df,
+  arXiv:1803.10591.  **[DI/DL]**  The published abstract ends: the forward
+  operator "is Fréchet differentiable, **excluding the degenerate case that
+  corresponds to the classical (weighted) \(p\)-Laplace equation**."  Remark
+  3.5, verbatim: *"If \(\tau=0\), \(p\ne2\) and \(u_\sigma\) has critical
+  points in \(\bar\Omega\), then the coefficient matrix … is either unbounded
+  (\(1<p<2\)) or without a positive definite lower bound (\(2<p<\infty\)).
+  There exists theory for the unique solvability of such degenerate elliptic
+  equations, but those results would typically require \(|\nabla u_\sigma|^{p-2}\)
+  to lie in a suitable Muckenhoupt class … **The unique solvability … for
+  \(\tau=0\) in an appropriate weighted Sobolev space does not seem to
+  straightforwardly follow … without further assumptions on the behavior of
+  \(|\nabla u_\sigma|\) close to the critical points.**"*  The delegated lane
+  checked all ten papers citing it: **none carries out the extension.**  This is
+  the single best external reference point for what the candidate's Section 3
+  is attempting.
+- **Recovery under a nondegeneracy hypothesis, with the programme's matrix
+  written out.**  **C. I. Cârstea and A. Feizmohammadi, "Two uniqueness results
+  in the inverse boundary value problem for the weighted \(p\)-Laplace
+  equation", Forum Math. Sigma (2025)**, DOI 10.1017/fms.2025.10095,
+  arXiv:2405.04123, §2 and Prop. 3 **[DI/DL]**: linearizing
+  \(\nabla\cdot(\gamma|\nabla u|^{p-2}\nabla u)=0\) at \(u_0\) gives
+  \(\nabla\cdot(A\nabla\dot u)=0\) with
+  \(A_{jk}=\gamma|\nabla u_0|^{p-2}[\delta_{jk}+(p-2)\partial_ju_0\,\partial_ku_0/
+  |\nabla u_0|^2]\) — exactly \(M_U\) — together with the verbatim caveat "we
+  can only perform the linearization if \(u_0\) does not have any critical points
+  in \(\Omega\)".
 
 **Verdict for Area 2.**  The *mechanism* (linearize the nonlinear Hodge /
 \(p\)-Laplacian equation, land in a degenerate weighted energy space) is
-standard; a *theorem* that the nonlinear Hodge projection is differentiable in
-the datum was **not located** in the nonlinear Hodge literature at all.  That
-absence is a statement about this search.  Nothing found contradicts the
-candidate.
+standard and named; a *theorem* that the nonlinear Hodge projection is
+differentiable in the datum was **not located** in the nonlinear Hodge
+literature at all, and the delegated lane established the precise reason that
+literature does not reach here (cavitation).  On the \(p\)-Laplacian side the
+pattern is sharper than "not located": differentiability in the ambient space is
+**published as false or unavailable** (Hirn–Wollner; Salo–Zhong; and
+structurally, Appell–Zabrejko, §1.5), it is recovered only after regularization
+or under \(|\nabla u|>0\), and the degenerate case is named as **open** by
+Hannukainen–Hyvönen–Mustonen.  Nothing found contradicts the candidate; the
+literature instead marks its target as the recognized hard case.
 
 ---
 
@@ -427,27 +729,85 @@ case of the classical monotonicity equivalence
 and the middle quantity is a **named object** with at least three established
 names:
 
-- **"quasi-norm"** — **J. W. Barrett and W. B. Liu, "Finite element
-  approximation of the \(p\)-Laplacian", Math. Comp. 61 (1993) 523–537**,
-  DOI 10.1090/S0025-5718-1993-1192966-4 **[MO]**, together with **W. B. Liu and
-  J. W. Barrett, "A remark on the regularity of the solutions of the
-  \(p\)-Laplacian and its application to their finite element approximation",
-  J. Math. Anal. Appl. 178 (1993) 470–487**, DOI 10.1006/jmaa.1993.1319
-  **[MO]**.  The term is in routine use in the numerical \(p\)-Laplacian
-  literature (verified by arXiv abstract sampling **[AB]**: Lee–Park
-  arXiv:2210.09183; Ignat–Zuazua arXiv:2504.09637; Georgoulis–Paraschis
-  arXiv:2604.15879).
-- **"shifted \(N\)-function"** \(\varphi_a(t)\) — **L. Diening and F. Ettwein,
-  "Fractional estimates for non-differentiable elliptic systems with general
-  growth", Forum Math. 20 (2008) 523–556**, DOI 10.1515/forum.2008.027
-  **[MO]**.
-- **the \(V\)-function / \(F\)-function substitution** \(V=|z|^{(p-2)/2}z\) —
-  already recorded in `cp01-prior-art-quotient.md` §1.7 (Bojarski–Iwaniec 1983
-  via Lindqvist Thm 4.1 **[DI]**; Uhlenbeck 1977).  The programme uses exactly
-  this substitution as \(V=|w|^{1/2}w\).
+- **"quasi-norm"** — **J. W. Barrett and W. B. Liu, "Quasi-norm error bounds
+  for the finite element approximation of a non-Newtonian flow", Numer. Math. 68
+  (1994) 437–456**, DOI 10.1007/s002110050071 **[MO/DL]**, and **W. B. Liu and
+  J. W. Barrett, "Quasi-norm error bounds for the finite element approximation of
+  some degenerate quasilinear elliptic equations and variational inequalities",
+  RAIRO Modél. Math. Anal. Numér. 28 (1994) 725–744**, DOI
+  10.1051/m2an/1994280607251 **[MO/DL]**.  **Attribution correction:** the
+  earlier **Math. Comp. 61 (1993) 523–537** paper, DOI
+  10.1090/S0025-5718-1993-1192966-4, proves \(W^{1,q}\) error bounds and does
+  **not** yet introduce the quasi-norm; the name dates from the two 1994 papers.
+  The term is a *fixed attributed phrase*: "the quasi-norm of Barrett and Liu"
+  occurs verbatim from **L. Diening and C. Kreuzer, SIAM J. Numer. Anal. 46
+  (2008) 614–638**, DOI 10.1137/070681508 onward, and the attribution is explicit
+  in reviewed sources, e.g. **B. Andreianov, F. Boyer and F. Hubert, IMA J.
+  Numer. Anal. 26 (2006) 472–502**, DOI 10.1093/imanum/dri047 (Zbl 5043011)
+  **[AB]**.  Later development: Liu–Yan, SIAM J. Numer. Anal. 39 (2001) 100–127,
+  DOI 10.1137/S0036142999351613 and 40 (2002) 1870–1895, DOI
+  10.1137/S0036142901393589; Ebmeyer–Liu, Numer. Math. 100 (2005) 233–258, DOI
+  10.1007/s00211-005-0594-5; Belenki–Berselli–Diening–Růžička, SIAM J. Numer.
+  Anal. 50 (2012) 373–397, DOI 10.1137/100804360.  All **[MO/DL]**.
+- **"shifted \(N\)-function"** \(\varphi_a(t)=\int_0^t\varphi'(a+s)\frac
+  {s}{a+s}\,ds\) — canonically **L. Diening and F. Ettwein, "Fractional
+  estimates for non-differentiable elliptic systems with general growth", Forum
+  Math. 20 (2008) 523–556**, DOI 10.1515/forum.2008.027 **[MO]**; the earliest
+  located occurrence of the phrase is **M. Růžička and L. Diening,
+  "Non-Newtonian fluids and function spaces", in *NAFSA 8 — Nonlinear Analysis,
+  Function Spaces and Applications*, Institute of Mathematics AS CR, Praha, 2007,
+  95–143** **[AB/DL]**, self-described as "a detailed and self-contained
+  exposition of shifted \(N\)-functions".  See also Diening–Růžička, Numer.
+  Math. 107 (2007) 107–129, DOI 10.1007/s00211-007-0079-9 **[MO/DL]**.  That the term is established is confirmed by an independent
+  reviewed source: the zbMATH review of **L. Diening and C. Kreuzer, "Linear
+  convergence of an adaptive finite element method for the \(\varphi\)-Laplacian
+  equation", SIAM J. Numer. Anal. 46 (2008) 614–638**, DOI 10.1137/070681508
+  (Zbl 5549695) speaks of "so-called shifted \(N\)-functions which provide to
+  handle with more complex problem than \(p\)-Laplacian" **[AB]**.
+- **"natural distance"** — the settled name for the whole equivalence class.
+  **A. Kaltenbach, "Error analysis for a Crouzeix–Raviart approximation of the
+  \(p\)-Dirichlet problem", J. Numer. Math. 32 (2024) 111–138**, DOI
+  10.1515/jnma-2022-0106, arXiv:2210.12116.  **[DI/DL]** Remark 2.6, verbatim:
+  "\((\mathcal A(\nabla u)-\mathcal A(\nabla v),\nabla u-\nabla v)_\Omega
+  \sim\|F(\nabla u)-F(\nabla v)\|^2_{L^2}\sim
+  \rho_{\varphi_{|\nabla u|},\Omega}(\nabla u-\nabla v)$ … **We refer to all
+  three equivalent quantities as the natural distance.**"  Its Proposition 2.4
+  and Remark 2.1 give the candidate's chain in exactly the candidate's form,
+  including \(\varphi_a(t)\sim(\delta+a+t)^{p-2}t^2\).  Corroborating:
+  **J. Storn, arXiv:2507.12742** **[DI/DL]**, Prop. 6 and Remark 7;
+  **L. C. Berselli and A. Kaltenbach, IMA J. Numer. Anal. 45 (2025) 3026–3076**,
+  DOI 10.1093/imanum/drae082 **[DI/DL]**, Remark 2.22 and Prop. 2.14;
+  **K.-N. Le and J. Wichmann, Stochastic Process. Appl. 177 (2024) 104443**, DOI
+  10.1016/j.spa.2024.104443 **[AB/DL]**, which uses "the natural distance" twice
+  in its abstract with no definition — settled vocabulary.
+- **the \(V\)- / \(F\)-function substitution** \(V(z)=|z|^{(p-2)/2}z\),
+  \(F(z)=(\delta+|z|)^{(p-2)/2}z\) — already recorded in
+  `cp01-prior-art-quotient.md` §1.7 (Bojarski–Iwaniec 1983 via Lindqvist Thm 4.1
+  **[DI]**; Uhlenbeck 1977).  The programme uses exactly this as
+  \(V=|w|^{1/2}w\).  Note **[DL]**: "\(V\)-function" as a *name* is marginal
+  in the literature; the substitution is universally attributed to Uhlenbeck.
+- **a fourth name, not anticipated:** the same object is the (symmetric)
+  **Bregman divergence** of the \(\varphi\)-Dirichlet integrand,
+  \(\mathcal D_\varphi(a,b)=\varphi(a)-\varphi(b)-\mathcal A(b)\cdot(a-b)\)
+  — stated explicitly in **P. A. Gazca-Orozco, "Bregman divergences and error
+  control via convex duality", arXiv:2606.05088 (2026)** **[DI/DL]**, §2.3, which
+  also says verbatim that this quantity "is what is usually known as a
+  *quasi-norm* or *natural distance*".  This matters for the candidate:
+  \(B(a,d)\) of `eq:Bbelow`/`eq:Babove` **is** the Bregman divergence of
+  \(\tfrac13|z|^3\), and that identification is standard.
 
-So: the *weight*, the *quadratic form*, and the *change of variable* in the
-candidate's \(\mathcal H_U\) are all standard \(p\)-Laplacian machinery.
+So: the *weight*, the *quadratic form*, the *change of variable* and the
+*Bregman-divergence reading* in the candidate's \(\mathcal H_U\) and its
+Taylor remainders are all standard \(p\)-Laplacian machinery, named since 1994
+(quasi-norm), 2007 (shifted \(N\)-function) and roughly 2012 (natural
+distance).  Classical ancestry, all **[MO/DL]** except as noted: Uhlenbeck, Acta
+Math. 138 (1977) 219–240, DOI 10.1007/BF02392316; **J. Simon, "Régularité de la
+solution d'une équation non linéaire dans \(\mathbb R^N\)", Lecture Notes in
+Math. 665, Springer, 1978, 205–227**, DOI 10.1007/BFb0061807; Bojarski–Iwaniec,
+Ann. Acad. Sci. Fenn. 8 (1983) 257–324, DOI 10.5186/aasfm.1983.0806;
+Giaquinta–Modica, Manuscripta Math. 57 (1986) 55–99, DOI 10.1007/BF01172492;
+**E. Acerbi and N. Fusco, J. Math. Anal. Appl. 140 (1989) 115–135**, DOI
+10.1016/0022-247X(89)90098-X.
 
 ### 3.2 Shifted weight versus frozen weight: the point on which the candidate is careful, and which is elementary
 
@@ -458,11 +818,82 @@ point, and then no such inequality is available: \(|U|\) does not dominate
 \(|z_\varepsilon-z_m|\), and the form vanishes identically on \(\{U=0\}\).  The
 only available comparison runs the other way, by Hölder:
 \(\int\rho|a|^2\le\|\rho\|_3\|a\|_3^2\), which is the candidate's
-\eqref{eq:L3embed}.  This is elementary and consistent with the candidate's
-non-claims; **no source is needed and none was located that presents this
-one-sided comparison as a result.**  It is also already recorded internally in
+\eqref{eq:L3embed}.  This is elementary and already recorded internally in
 `hf22-projection-regularity.md` (the weighted-to-unweighted conversion failure
 and the exponent \(1/2\)).
+
+**It is also said explicitly in print, and the sentence should be quoted rather
+than re-derived.**
+
+- **A. Figalli and Y. R.-Y. Zhang, "Sharp gradient stability for the Sobolev
+  inequality", Duke Math. J. 171 (2022), no. 12**, DOI
+  10.1215/00127094-2022-0051, §1.3.  **[DI/DL]** Verbatim: *"for \(p>2\) the
+  \(L^p\) norm of \(D\varphi\) may **not** be controllable by its weighted
+  \(L^2\) norm"*, and *"when \(p<2\), the \(\dot W^{1,p}\) norm is weaker
+  than any weighted \(\dot W^{1,2}\) norm, so we cannot expand the deficit at
+  order 2."*  Their weight is exactly \(|Dv|^{p-2}\) with \(v\) a **frozen**
+  base point (the Aubin–Talenti bubble).  **This is the candidate's Remark 3.7
+  obstruction, stated in the literature four years earlier, for the same weight
+  and the same reason.**
+- The positive half is equally in print: **S. Conti, M. Focardi and F. Iurlano,
+  Commun. Contemp. Math. 21 (2019), no. 6, 1950026**, DOI
+  10.1142/S0219199719500263, eq. (2.16) **[DI/DL]**:
+  \(t^p/p\le\phi_a(t)\le(\mu+(a+t)^2)^{p/2-1}t^2/2\) for \(p\in[2,\infty)\),
+  which with their (2.24) gives \(|a-b|^p\le C|V(a)-V(b)|^2\).
+- **The decisive structural point, and it is not a technicality.**  The standard
+  quasi-norm is **two-argument by construction**: Storn's Remark 7
+  (arXiv:2507.12742) **[DI/DL]** identifies the Barrett–Liu quasi-norm as
+  \((|Q|+|P-Q|)^{p-2}|P-Q|^2\), and Lewis–Nyström's linearization uses the
+  *secant* coefficient \(\int_0^1\mathrm Dj(\nabla u_\tau)\,d\tau\) with
+  \(\lambda\approx(|\nabla\hat u|+|\nabla\hat v|)^{p-2}\) (JEMS 20 (2018),
+  eq. (4.13)) **[DI/DL]**.  **A frozen base-point weight \(|U|^{p-2}\) is the
+  degenerate special case that the standard objects were designed to avoid.**
+- **The literature's uniform response to the frozen weight is avoidance, not
+  resolution** — a pattern worth recording because the candidate does *not*
+  avoid it:
+  - truncate/relax the weight: **L. Diening, M. Fornasier, R. Tomasi and
+    M. Wank, "A relaxed Kačanov iteration for the \(p\)-Poisson problem",
+    Numer. Math. 145 (2020) 1–34**, DOI 10.1007/s00211-020-01107-1 **[AB/DL]**;
+    **A. Kh. Balci, L. Diening and J. Storn, "Relaxed Kačanov scheme for the
+    \(p\)-Laplacian with large exponent", SIAM J. Numer. Anal. 61 (2023)
+    2775–2794**, DOI 10.1137/22M1528550 **[DI/DL]**, which says verbatim that the
+    approach "degenerates at points where \(|\sigma|=0\) and
+    \(|\sigma|=\infty\)" and truncates the weight as
+    \((\varepsilon_-\vee|\sigma|\wedge\varepsilon_+)^{2-q}\);
+  - restrict the operator to \(\{\nabla u\ne0\}\): **A. Naber and
+    D. Valtorta, Math. Z. 277 (2014) 867–891**, DOI 10.1007/s00209-014-1282-x,
+    Definition 3.1 **[DI/DL]** — the linearized operator "is defined pointwise
+    only where the gradient of \(u\) is non zero … and it is easily proved that
+    at these points it is strictly elliptic";
+  - concede the difficulty outright: **J. Lewis and K. Nyström, Ann. of Math.
+    (2) 172 (2010) 1907–1948**, DOI 10.4007/annals.2010.172.1907, p. 1946
+    **[DI/DL]** — the PDE "degenerates at points where \(\nabla u=0\), and
+    therefore at such points it is not clear how to prove even basic interior
+    estimates for solutions";
+  - or get it wrong: **H. Varpanen, Illinois J. Math. 59 (2015), no. 2**, DOI
+    10.1215/ijm/1462450711, §1.4 headed **"Statement of error"** **[DI/DL]** — a
+    previously published claim that solutions of the linearized \(p\)-Laplace
+    equation are \(C^0(\bar D)\cap W^{1,\infty}(D)\) is **withdrawn**, because
+    the argument "claimed uniform ellipticity in dyadic annuli near the origin,
+    but in fact the gradients of the test functions in Caccioppoli-type
+    inequalities do not stay bounded".  A documented failure caused precisely by
+    the frozen-weight degeneracy.
+- **The candidate's own device is also in print.**  **Y. Zhang,
+  arXiv:2608.27276 (2026)**, §1 **[DI/DL]**, verbatim: *"In the present
+  whole-space problem, the formal differential expression
+  \(-\operatorname{div}(A_v\nabla\cdot)\) does not by itself specify a
+  self-adjoint operator.  We therefore define \(L_v\) through the closure of its
+  quadratic form; this construction determines both the operator domain and the
+  endpoint conditions inherited from the original energy space."*  That is
+  exactly the candidate's move of defining \(\mathcal H_U\) and
+  \(\mathcal E_U\) by completion rather than by a differential expression, and
+  the programme may not present it as its own idea.
+
+Two delegated cross-cutting findings, recorded because they bound the whole
+area: **no located source claims that the frozen-weight form controls \(L^p\)**,
+and **no located source claims to have overcome the obstruction across
+\(\{U=0\}\) in general** — consistent across numerical analysis,
+boundary-behaviour/potential theory, and Sobolev-stability.
 
 ### 3.3 The named phenomenon: "two-norm discrepancy"
 
@@ -485,6 +916,20 @@ which it is not twice differentiable* — is a **named, classical phenomenon**:
   duality", SIAM J. Control Optim. 17 (1979) 266–288**, DOI 10.1137/0317021
   **[MO, identity verified]**; further **H. Maurer**, **W. Alt and K. Malanowski
   (1993)**, **J. C. Dunn (1998)** **[MO]**.
+- Independent confirmation that the term is standard, from zbMATH reviewer texts
+  **[AB]**: **K. Malanowski, "Sufficient optimality conditions for optimal
+  control subject to state constraints", SIAM J. Control Optim. 35 (1997)
+  205–227**, DOI 10.1137/S0363012994267637 (Zbl 1000472) — reviewed as "the
+  two-norm discrepancy approach, where the problem is defined and differentiable
+  in a strong norm … but the coercivity condition is satisfied only in a weaker
+  norm"; **K. Malanowski, "Regularity of solutions in stability analysis of
+  optimization and optimal control problems", Control Cybernet. 23 (1994)
+  61–86** (Zbl 597932) — the norm discrepancy is "intrinsicly connected with
+  nonlinear optimal control problems"; **F. Tröltzsch, Optimization 22 (1991)**
+  (Zbl 4205241); **H. Maurer, Math. Program. Stud. 14 (1981) 163–177**, DOI
+  10.1007/BFb0120927; **L. M. Betz, SIAM J. Control Optim. 57 (2019) 4033–4062**,
+  DOI 10.1137/19M1239106 ("the second-order conditions require the typical
+  two-norm discrepancy").
 - The abstract counterpart is the failure of the **Legendre form** condition of
   Bonnans–Shapiro: their sensitivity theorems require the second-order term to
   be a Legendre form on the ambient space (weak lower semicontinuity plus
@@ -493,14 +938,55 @@ which it is not twice differentiable* — is a **named, classical phenomenon**:
   of that Hilbert norm — but not on \(L^3\).  **[AB]** for the definition, as
   quoted in several primary sources located.
 - The degenerate weighted \(L^2\) space itself sits in the classical
-  Muckenhoupt/degenerate-elliptic framework: **E. B. Fabes, C. E. Kenig and
-  R. P. Serapioni, "The local regularity of solutions of degenerate elliptic
-  equations", Comm. Partial Differential Equations 7 (1982) 77–116**,
-  DOI 10.1080/03605308208820218 **[MO]**.  Note that the candidate deliberately
-  assumes **no** weighted Calderón–Zygmund or \(A_2\) property (`sec:foundations`
-  says so explicitly), so this framework is context, not an import — and whether
-  \(|w|\) is an \(A_2\) weight is not asserted anywhere and was not determined
-  here.
+  Muckenhoupt/degenerate-elliptic framework: **B. Muckenhoupt, Trans. Amer.
+  Math. Soc. 165 (1972) 207–226**, DOI 10.1090/S0002-9947-1972-0293384-6;
+  **E. B. Fabes, C. E. Kenig and R. P. Serapioni, "The local regularity of
+  solutions of degenerate elliptic equations", Comm. Partial Differential
+  Equations 7 (1982) 77–116**, DOI 10.1080/03605308208820218 **[MO]**, which for
+  \(w\in A_2\) builds \(H^{1,2}(\Omega,w)\) with uniqueness of the weak
+  gradient, weighted Sobolev–Poincaré, local boundedness, Hölder continuity and
+  a scale-invariant Harnack inequality; **E. Fabes, D. Jerison and C. Kenig,
+  "The Wiener test for degenerate elliptic equations", Ann. Inst. Fourier
+  (Grenoble) 32 (1982) 151–182**, DOI 10.5802/aif.883 **[DI/DL]** (open at
+  Numdam); nonlinear counterpart **J. Heinonen, T. Kilpeläinen and O. Martio,
+  *Nonlinear Potential Theory of Degenerate Elliptic Equations*, Oxford, 1993
+  (Dover 2006/2018)** **[AB/DL]**, whose Theorem 15.21 states that \(A_p\)
+  weights are \(p\)-admissible; and **B. O. Turesson, *Nonlinear Potential
+  Theory and Weighted Sobolev Spaces*, Lecture Notes in Math. 1736, Springer,
+  2000**, DOI 10.1007/BFb0103908 **[AB/DL]**.
+- **The programme's exact space is attributed in print.**  The completion of
+  \(C_c^1\) under \((\int|\nabla U|^{p-2}|\nabla\varphi|^2)^{1/2}\) with
+  inner product \(\int|\nabla U|^{p-2}\langle\nabla\varphi,\nabla\psi\rangle\)
+  — i.e. \(\langle a,b\rangle_U\) — is credited to **L. Damascelli and
+  B. Sciunzi, J. Differential Equations 206 (2004) 483–515**, DOI
+  10.1016/j.jde.2004.05.012, and **Calc. Var. PDE 25 (2006) 139–159**, DOI
+  10.1007/s00526-005-0337-6, in later work (**A. Pistoia and G. Vaira, Proc.
+  Roy. Soc. Edinburgh Sect. A 151 (2021) 151–168**, DOI 10.1017/prm.2020.7,
+  arXiv:1903.11011, §2, verbatim: "A similar first order Sobolev space with
+  weight was introduced by Damascelli and Sciunzi [9] to study a linearized
+  operator on a bounded domain") **[DI/DL]**.  Also named and constructed as
+  \(\tilde W^{1,2}(O)\) with \(\|v\|^2=\int v^2\lambda+\int|\nabla
+  v|^2\lambda\), \(\lambda=|\nabla u|^{p-2}\), and its \(C_0^\infty\)
+  closure, in **J. Lewis and K. Nyström, "Quasi-linear PDEs and low-dimensional
+  sets", J. Eur. Math. Soc. 20 (2018) 1689–1746**, DOI 10.4171/JEMS/797, eq.
+  (4.5), which then says "For the proof of the following lemma we refer to
+  [FKS]" **[DI/DL]**.
+- **The \(A_2\) question for \(|\nabla u|^{p-2}\) is answered in the boundary
+  setting, and answered both ways.**  **J. Lewis and K. Nyström, Ann. Sci. Éc.
+  Norm. Supér. (4) 40 (2007) 765–813**, DOI 10.1016/j.ansens.2007.09.001, p. 769
+  **[DI/DL]**, verbatim: for \(p\) near 2, \(|\nabla\hat u|^{p-2}\) "extends
+  to an \(A_2\) weight on \(\mathbb R^n\)"; but "**In the general case,
+  \(1<p<\infty\), \(p\ne2\), we must work harder, as simple examples show
+  that \(h=|\nabla\hat u|^{p-2}(\cdot,\tau)\) need not be an \(A_2\)
+  weight.**"  Positively, in Reifenberg-flat domains with small constant it does
+  extend to an \(A_2\) weight (**Lewis–Nyström, Adv. Calc. Var. 1 (2008)
+  133–170**, DOI 10.1515/ACV.2008.005, Lemma 3.30, restated as Lemma 4.7 of
+  **Lewis–Nyström–Vogel, J. Eur. Math. Soc. 15 (2013) 2197–2256**, DOI
+  10.4171/JEMS/420) **[DI/DL]** — but the mechanism is the fundamental
+  inequality \(|\nabla u|\approx u/d(\cdot,\partial\Omega)\), which **excludes
+  critical points by hypothesis**.  The candidate assumes **no** weighted
+  Calderón–Zygmund or \(A_2\) property (`sec:foundations` says so explicitly),
+  so this is context, not an import; and see §7 for what remains open.
 
 **Verdict for Area 3.**  Yes — the phenomenon has an established name and an
 established literature.  The name is **two-norm discrepancy** (Ioffe 1979;
@@ -532,6 +1018,17 @@ new.
   Tran–Yu–Dritschel identity (`cp02` §1.4).  Neither concerns the projection or
   its derivative.
 
+- One genuine \(p=3\) boundary in the located literature: **Osborne's
+  convergence analysis of IRLS covers exactly \(1<p<3\)** (**M. R. Osborne,
+  *Finite Algorithms in Optimization and Data Analysis*, Wiley, 1985**
+  **[SEC/DL]**, as reported in J. Sigl, Comput. Optim. Appl. 64 (2016) 755–792,
+  DOI 10.1007/s10589-016-9829-x, arXiv:1504.06815, which also writes the weight
+  verbatim as \(w_i=|r_i|^{p-2}\) from the identity
+  \(\|r\|_p^p=\|r\|^2_{\ell_2(w)}\)).  The programme's exponent sits **at
+  that boundary**.  Nothing follows from this for the programme's theorem, but
+  it is the only place located where \(p=3\) is a genuine endpoint rather than
+  an arbitrary value.
+
 **Verdict for Area 4.**  The cubic case carries no special standing in this
 literature; \(p=3\) is convenient (it makes \(f(z)=\tfrac13|z|^3\) exactly
 \(C^2\) with Lipschitz second derivative, by the classical smoothness
@@ -544,7 +1041,18 @@ a distinguished object anywhere located.
 
 ### (a) Is directional differentiability of \(L^p\) metric projections onto subspaces already known, and under what hypotheses?
 
-**Partly, and enough that the programme must not claim the general statement.**
+**Yes in substance, and the programme must not claim the general statement.**
+
+0. **The question was posed and studied in 1968.**  Kroó–Pinkus (SIAM J. Math.
+   Anal. 45 (2013) 639–661) write verbatim: "The Gateaux derivative of the metric
+   projection \(P_Mf\) with respect to \(f\) (not \(M\)) was studied in
+   \(L_p\), \(p>2\), see, e.g., Holmes and Kripke [7]" — i.e. **Holmes–Kripke,
+   Michigan Math. J. 15 (1968) 225–248**.  Six years later,
+   **Fletcher–Grant–Hebden, J. Approx. Theory 10 (1974) 69–73**, is titled *"The
+   continuity and differentiability of the parameters of best linear \(L_p\)
+   approximations"*.  Neither text could be read in this lane, but the
+   attribution and the title are enough: **the differentiability of the \(L^p\)
+   metric projection in the datum is a fifty-year-old subject.**
 
 1. **Hilbert space (\(p=2\)): completely settled**, and the subspace case is
    trivial there because the projection is linear.  For convex sets the
@@ -599,35 +1107,67 @@ a distinguished object anywhere located.
    Set-Valued Anal. 1 (1993) 379–392, and Loewen–Zheng, Trans. AMS 347 (1995)
    443–459).
 
+7. **Two independent results push against any naive stronger statement.**
+   Borodin–Druzhinin–Chesnokova (2017): over a nonatomic measure, no nontrivial
+   finite-dimensional subspace of \(L^p\), \(p\ne2\), has a globally Lipschitz
+   metric projection.  Berdyshev (1983): a dense set of points where the
+   best-approximation operator has no directional derivative in any direction.
+   These support the candidate's non-claims and make Li's Theorem 7.2 (§1.3) all
+   the more in need of checking.
+
 **No source was located that states T3.4** — a general infinite-dimensional
 closed subspace of \(L^p(\mathbb R^n)\), \(p\ne2\), a general base point, strong
 two-sided convergence in the *degenerate weighted completion* \(\mathcal H_U\),
 with the explicit warning that \(\mathcal E_U\) need not consist of unweighted
-gradients.  That is an absence of located prior art, not priority.
+gradients.  That is an absence of located prior art, not priority — and it is a
+*weaker* absence than it looked before this lane read Holmes–Kripke's citation
+context, since the 1968 and 1974 primary texts were not obtained.
 
 ### (b) Is the degenerate-weighted-space phenomenon already named?
 
-**Yes.**  Three separate established names apply to parts of it, and together
-they cover the phenomenon:
+**Yes — unambiguously, and one source states the exact obstruction verbatim.**
+The single most important sentence located in this whole lane is
+**Figalli–Zhang, Duke Math. J. 171 (2022), §1.3**: *"for \(p>2\) the \(L^p\)
+norm of \(D\varphi\) may not be controllable by its weighted \(L^2\) norm"* —
+same weight \(|Dv|^{p-2}\), same frozen base point, same conclusion as the
+candidate's Remark 3.7, four years earlier.  Beyond that, four established names
+apply to parts of the phenomenon:
 
 - **two-norm discrepancy** — differentiability/coercivity split between a
   stronger and a weaker norm; Ioffe, SIAM J. Control Optim. 17 (1979) 266–288;
   standard modern statement Casas–Tröltzsch, Jahresber. DMV 117 (2014/15) 3–44
   **[DI]**.
-- **quasi-norm / natural distance / shifted \(N\)-function / \(V\)-function** —
-  the weight \((|a|+|b|)^{p-2}\), the substitution \(V=|z|^{(p-2)/2}z\), and the
-  equivalence with \((j(a)-j(b))\cdot(a-b)\); Barrett–Liu 1993;
-  Diening–Ettwein 2008; Bojarski–Iwaniec 1983 / Uhlenbeck 1977.
-- **degenerate elliptic / weighted \(L^2\) energy space of a linearized
-  \(p\)-Laplacian** — Fabes–Kenig–Serapioni 1982 for the general framework;
-  Zhang arXiv:2608.27276 for a current instance where "the linearized
-  \(p\)-Laplacian defined by its closed quadratic form in \(L^2(v^{p^*-2}dx)\)"
-  is used without comment.
+- **quasi-norm** (Barrett–Liu **1994**, not 1993), **natural distance**
+  (settled since roughly 2012, defined verbatim in Kaltenbach 2024 Rem. 2.6),
+  **shifted \(N\)-function** (Růžička–Diening 2007; Diening–Ettwein 2008), and
+  the **\(V\)/\(F\) substitution** (Uhlenbeck 1977; Bojarski–Iwaniec 1983) —
+  four names for one object, which is also the **Bregman divergence** of the
+  \(p\)-Dirichlet integrand (Gazca-Orozco 2026).
+- **the linearized \(p\)-Laplacian and its degenerate weighted energy space** —
+  named at title level since Sciunzi 2005 and Castorina–Esposito–Sciunzi 2011;
+  Naber–Valtorta (Math. Z. 2014, §3) call the operator "quite common in recent
+  literature"; the energy space is constructed and named repeatedly
+  (Lewis–Nyström JEMS 2018 eq. (4.5) citing Fabes–Kenig–Serapioni;
+  Damascelli–Sciunzi 2004/2006, to whom the *exact* form \(\langle
+  a,b\rangle_U\) is credited in print; Pistoia–Vaira 2021; Figalli–Neumayer 2019
+  and Figalli–Zhang 2022, with a proved compact embedding and spectral gap;
+  Varpanen 2015, with a proved density theorem for it; Y. Zhang 2026, defining
+  it by form closure exactly as the candidate does).
+- **degenerate elliptic / Muckenhoupt framework** — Muckenhoupt 1972;
+  Fabes–Kenig–Serapioni 1982; Fabes–Jerison–Kenig 1982; Heinonen–Kilpeläinen–
+  Martio 1993; Turesson 2000.
 
 What is **not** named, so far as located, is the *specific* configuration —
-frozen base-point weight, gradient subspace, whole space \(\mathbb R^3\),
-\(p=3\).  That is a gap in the located literature, not a naming gap in the
-subject.
+frozen base-point weight, **gradient coset / metric-projection** setting, whole
+space \(\mathbb R^3\), \(p=3\).  That is a gap in the located literature, not a
+naming gap in the subject.  And a delegated cross-cutting finding sharpens it:
+the standard objects are **two-argument (shifted) by construction** — Barrett–Liu's
+quasi-norm is \((|Q|+|P-Q|)^{p-2}|P-Q|^2\), and Lewis–Nyström linearize with the
+*secant* coefficient \(\int_0^1\mathrm Dj(\nabla u_\tau)d\tau\) — so the frozen
+weight is the degenerate special case that everyone else regularizes,
+truncates, or excludes by hypothesis.  The candidate does none of those, which
+is its real distinguishing feature; but "nobody else kept the degenerate case"
+is not the same as "nobody else could have".
 
 ### (c) What in Section 3 appears not covered by located existing work?
 
@@ -645,7 +1185,13 @@ Listed with decreasing confidence.  **None of these is a novelty claim.**
    remainder bookkeeping carried through an \(L^3\) bound that is allowed to
    diverge like \(|\varepsilon|^{-1/3}\).  The divergent-bound bookkeeping is
    the technically distinctive step; it is what makes the argument work without
-   an \(L^3\) derivative.
+   an \(L^3\) derivative.  Contextually this is the sharpest item: every
+   located community meeting the same frozen-weight degeneracy **avoids** it
+   (relax/truncate the weight, regularize the equation, or assume
+   \(\nabla u\ne0\)), and no located source claims to have overcome it in
+   general.  Keeping the degenerate case is what the candidate does that they do
+   not; that is a difference in scope, not by itself a theorem nobody could
+   prove.
 3. **Hadamard** (not merely Gâteaux) differentiability of \(A:L^3\to L^{3/2}\)
    with derivative \(M_U\mathsf L_U\), obtained by combining the weighted limit
    with the unweighted two-point dual estimate \eqref{eq:Alip}.  Li's framework
@@ -655,8 +1201,19 @@ Listed with decreasing confidence.  **None of these is a novelty claim.**
    L_Uh,\mathsf L_Uk\rangle_U\) and the resulting exact second variation
    \eqref{eq:Qsecond} for \(\tfrac13\operatorname{dist}_{L^3}(\cdot,\mathcal
    G_3)^3\).  The *existence* of a second-order expansion of this kind is what
-   second-order epi-differentiability delivers in general; the *closed formula*
-   in these terms was not located.
+   second-order epi-differentiability delivers in general, and a spectral-gap
+   analysis of the same kind of degenerate second-variation form is already in
+   print (Figalli–Neumayer 2019; Figalli–Zhang 2022); the *closed formula* for
+   the distance-cubed to a gradient subspace was not located.
+
+**Removed from this list by the delegated searches.**  The device of defining
+the linearized operator **by closure of its quadratic form** rather than by a
+differential expression, which the candidate uses for \(\mathcal H_U\) and
+\(\mathcal E_U\), is *not* distinctive: Y. Zhang (arXiv:2608.27276, §1) states
+it verbatim as the required construction in the whole-space \(p\)-Laplacian
+setting.  Likewise the choice of an unweighted \(L^{3/2}\) target for the dual
+derivative is *forced* by the Appell–Zabrejko degeneration theorem (§1.5), not a
+design insight.
 
 Note also a structural point that no located source makes and that the
 candidate could legitimately state as a *framing* observation (not a theorem):
@@ -723,7 +1280,31 @@ Each item would be false, or unoriginal, if asserted.
 9. **Not**: "the \(p=3\), \(n=3\) case is untreated."  \((\mathbb R^3,
    \|\cdot\|_3)\) appears explicitly in the projection literature (Li,
    Example 6.2/Prop. 6.4) — for a different set, but the case is not untouched.
-10. **Not**, in any form: a priority or novelty claim for Theorem 3.5.  The
+10. **Not**: "the degenerate weighted space is defined by form closure because
+    the differential expression is not self-adjoint — a device we introduce."
+    Y. Zhang (arXiv:2608.27276, §1) states exactly that, verbatim, for the
+    whole-space linearized \(p\)-Laplacian.
+11. **Not**: "we take the dual derivative into \(L^{3/2}\) rather than \(L^3\)
+    as a matter of convenience or of our own design."  Appell–Zabrejko
+    (Analysis 7 (1987) 305–312) makes leaving the ambient space **mandatory**: a
+    superposition operator differentiable at even one point between comparable
+    ideal spaces is affine.
+12. **Not**: "the frozen base-point weight is the natural object of the
+    \(p\)-Laplacian literature."  It is not — the standard quasi-norm and the
+    standard linearization coefficient are both **shifted / two-argument**
+    (Storn, Remark 7; Lewis–Nyström JEMS 2018, eq. (4.13)).  The programme's
+    frozen weight is the degenerate special case, and saying so is part of an
+    honest related-work paragraph.
+13. **Not**: "the obstruction that the weighted derivative gives no unweighted
+    control is our observation."  Figalli–Zhang (Duke 2022, §1.3) state it
+    verbatim for the same weight.
+14. **Not**: attributing the nonlinear Hodge non-coverage to a vague
+    'different hypotheses'.  The precise, citable reason is **cavitation**: the
+    standing non-cavitation hypothesis \(0<\kappa_0\le\rho\le\rho(0)<\infty\)
+    of that school excludes \(\rho(Q)=Q^{1/2}\), whose degeneracy sits at the
+    **opposite end** of the range from the classical sonic degeneracy (Otway,
+    arXiv:math-ph/0302064).
+15. **Not**, in any form: a priority or novelty claim for Theorem 3.5.  The
     candidate's own `sec:ledger` sentence ("a full comparison … would be
     required before claiming novelty") remains the correct posture; this note
     supplies part of that comparison and does **not** clear the way for a
@@ -740,20 +1321,35 @@ A truthful related-work sentence, offered for reuse:
 > under second-order regularity [Shapiro 2016] or polyhedricity [Mignot 1976;
 > Haraux 1977], and directional differentiability in uniformly convex and
 > uniformly smooth Banach spaces — a class containing \(L^3\) — has been studied
-> by Li [JOTA 200 (2024) 923–950; arXiv:2311.00942].  The regularity of
-> \(L^p\)-subspace projections short of differentiability goes back to
-> Holmes–Kripke [1968] and Björnestål [1979].  The weight
-> \(\mathrm Dj(U)=|U|I+U\otimes U/|U|\) is the standard linearization weight of
-> an \(L^p\) best-approximation problem and the standard "quasi-norm"/shifted
-> \(N\)-function of the \(p\)-Laplacian literature [Barrett–Liu 1993;
-> Diening–Ettwein 2008], and the fact that a functional twice differentiable in
-> one norm can be coercive only in a weaker one is the two-norm discrepancy
-> [Ioffe 1979; Casas–Tröltzsch 2015].  We claim no novelty for any of these.
-> We located no statement of the present theorem — strong two-sided convergence
-> of the difference quotients in the degenerate weighted completion at an
-> arbitrary base point of \(L^3\), with the weighted gradient closure not
-> identified with unweighted gradients — but that is a statement about the reach
-> of a bounded search and not a claim of priority.
+> by Li [JOTA 200 (2024) 923–950; Appl. Nonlinear Anal. 1 (2024) 79–109].  The
+> Gâteaux derivative of the \(L^p\) metric projection with respect to the datum
+> was already studied for \(p>2\) by Holmes and Kripke [1968], and the
+> continuity and differentiability of the parameters of best linear \(L^p\)
+> approximations by Fletcher, Grant and Hebden [1974]; the modulus of continuity
+> of \(L^p\)-subspace projections is due to Björnestål [1979].  Over a nonatomic
+> measure no nontrivial finite-dimensional subspace of \(L^p\), \(p\ne2\), has a
+> globally Lipschitz metric projection [Borodin–Druzhinin–Chesnokova 2017], and
+> a superposition operator differentiable at one point between comparable ideal
+> spaces is affine [Appell–Zabrejko 1987]; both explain why no unweighted
+> derivative is available and why the dual derivative must land in a smaller
+> \(L^r\).  The weight \(\mathrm Dj(U)=|U|I+U\otimes U/|U|\) is the standard
+> linearization weight of an \(L^p\) best-approximation problem and the
+> "quasi-norm" / "natural distance" / shifted \(N\)-function of the
+> \(p\)-Laplacian literature [Barrett–Liu 1994; Diening–Ettwein 2008;
+> Kaltenbach 2024]; the corresponding degenerate weighted energy space is the
+> standard setting for the linearized \(p\)-Laplacian [Damascelli–Sciunzi
+> 2004/2006; Lewis–Nyström 2018; Figalli–Zhang 2022], and defining it by closure
+> of the quadratic form is the standard construction [Zhang 2026].  That the
+> weighted control gives no unweighted control is stated in exactly this setting
+> by Figalli and Zhang [2022], and the general phenomenon of a functional twice
+> differentiable in one norm being coercive only in a weaker one is the two-norm
+> discrepancy [Ioffe 1979; Casas–Tröltzsch 2015].  We claim no novelty for any of
+> these.  We located no statement of the present theorem — strong two-sided
+> convergence of the difference quotients in the degenerate weighted completion
+> at an arbitrary base point of \(L^3\), for the gradient coset, with the
+> weighted gradient closure not identified with unweighted gradients — but that
+> is a statement about the reach of a bounded search and not a claim of
+> priority.
 
 ---
 
@@ -788,19 +1384,54 @@ A truthful related-work sentence, offered for reuse:
    optimal, it would be direct external evidence that an unweighted \(L^3\)
    derivative cannot exist in general — which would *support* the candidate's
    scope discipline and would also bear on item 1.
-4. Whether Casas–Fernández or the later quasilinear optimal-control literature
-   contains an explicit theorem that the control-to-state map of a
-   \(p\)-Laplacian-type problem is directionally differentiable **only** in a
-   degenerate weighted space.  Only secondary/indexed statements were read.
+4. Whether **Casas–Fernández, J. Differential Equations 104 (1993) 20–47**,
+   DOI 10.1006/jdeq.1993.1062, genuinely excludes degeneracy.  Neither this lane
+   nor the delegated lane could read it (the publisher suppresses the abstract;
+   ScienceDirect returns 403), so the "excludes degeneracy" reading rests on
+   secondary description only.  The related Casas–Tröltzsch line (SIAM J. Control
+   Optim. 48 (2009) 688–718, DOI 10.1137/080720048) was checked and is **not**
+   applicable: its nonlinearity is in the state, not in the gradient, so the
+   \(p\)-Laplacian is outside that class.
 5. Whether \(|w|\) is an \(A_2\) weight for \(w\) in the nonlinear Hodge class
-   \(\mathcal M\).  Not asserted by the candidate, not investigated here, and
-   relevant only if someone later wants weighted Calderón–Zygmund tools.
-6. MathSciNet and zbMATH full records were unreachable without authentication in
-   this lane; the WebSearch budget was exhausted before the older
-   (1970s–1980s) \(L^p\) best-approximation-operator differentiability
-   literature (Wolfe; Kroó; Marano–Quesada; Huotari) could be searched
-   systematically.  That is the most likely place for an older statement of the
-   \(L^p\)-subspace derivative formula, and it has **not** been checked.
+   \(\mathcal M\).  Not asserted by the candidate; see item 7 for the state of
+   the analogous \(p\)-harmonic question, which is the nearest available proxy.
+6. **Two 20th-century primary texts that decide how much of T3.4 is old were
+   not obtained**, and they now rank with item 1:
+   - **Holmes–Kripke, Michigan Math. J. 15 (1968) 225–248** — the source Kroó
+     and Pinkus cite for "the Gateaux derivative of the metric projection
+     \(P_Mf\) with respect to \(f\) … in \(L_p\), \(p>2\)".  Project Euclid
+     blocked every route.  **What exactly is proved there, and under what
+     hypotheses on the subspace, is the single largest remaining unknown in this
+     note.**
+   - **Fletcher–Grant–Hebden, J. Approx. Theory 10 (1974) 69–73** — five pages
+     whose title is this note's question.  Elsevier returned 403.
+   Two zbMATH queries (`differentiability best approximation operator L_p`;
+   `best L_p approximation operator Gateaux derivative subspace`) returned
+   nothing further, and MathSciNet was unreachable, so the rest of that period
+   (Wolfe; Marano–Quesada; Huotari) is under-covered.
+7. **The interior \(A_2\) question.**  No published statement, positive or
+   negative, was located on whether \(|\nabla u|^{p-2}\) is a Muckenhoupt
+   \(A_2\) weight **in the interior** for a general \(p\)-harmonic \(u\) with
+   critical points — including in the plane, where critical points are isolated.
+   Full-text searches for `"is an A_2 weight" AND "p-harmonic"` and
+   `"extends to an A_2 weight"` returned nothing.  The two places an explicit
+   open-problem list plausibly sits could not be reached: **J. Lewis, LNM 2045
+   (2012), pp. 1–72** (its zbMATH review notes "A list of open problems is also
+   given") and Lewis's BIRS 10w5066 slides.  Not load-bearing for the candidate,
+   which assumes no \(A_2\) property, but load-bearing for anyone who later
+   wants weighted Calderón–Zygmund tools here.
+8. **How large \(\{w=0\}\) can be is not known in the relevant generality.**
+   For \(p\)-harmonic functions in \(n\ge3\), **no bound of any kind on the
+   critical set is known** — verbatim from **V. Agostiniani, C. Mantegazza,
+   L. Mazzieri and F. Oronzio, arXiv:2205.11642v3, §1.3** **[DI/DL]**: "unlike
+   for harmonic functions — no a priori bound is available for the Hausdorff
+   dimension of the critical set of a \(p\)-harmonic function, when \(n\ge3\)
+   … albeit it is a common belief that critical values of \(p\)-harmonic
+   functions should not have positive measure, this possibility is not excluded
+   by any result in the literature, so far."  The programme's \(w\) is not
+   \(p\)-harmonic, so this does not transfer; it is recorded because it shows
+   that the degeneracy the candidate carries is not one the field knows how to
+   dismiss.
 
 ---
 
@@ -818,17 +1449,41 @@ JOTA 2016 [DI]; Li arXiv:2303.16265 [DI, via text-extraction proxy]; Li JOTA 200
 [DI]; Zhang arXiv:2608.27276 [AB]; Laforest arXiv:1808.05976 [AB]; Alber
 funct-an/9312003 [AB]; Németh arXiv:2511.19382 [AB]; Muga–van der Zee
 arXiv:1511.04400v3 [DI, negative]; arXiv API abstract searches [DI, negative];
+zbMATH Open API records and reviewer texts for Kroó–Pinkus (Zbl 6189157),
+Diening–Kreuzer (Zbl 5549695), Kupenko–Manzo (Zbl 6370892), Malanowski
+(Zbl 1000472, Zbl 597932), Betz (Zbl 7141507), and the withheld review of Li
+(Zbl 7814937) [AB]; two zbMATH queries on the differentiability of the best
+\(L^p\) approximation operator returned nothing [DI, negative];
 Crossref/Semantic Scholar records for all bibliographic identities marked [MO].
-Zotero: searched, no relevant holdings.
+Zotero: searched, no relevant holdings.  Two delegated search lanes inside this
+note contributed the [DL] items; both re-verified every citation against
+Crossref/zbMATH/arXiv/OpenAlex after reporting that the page-summarising tool
+fabricates bibliographies, and both deleted the PDFs the fetch tool auto-cached.
+No third-party PDF was retained anywhere in this lane; the fetch tool's automatic
+PDF cache was cleared after each read.
+
+Reliability note carried forward: no [DL] item is used here for a mathematical
+conclusion beyond what its quoted text says, and every [DL] item carries a
+verified identifier.  The delegated lanes also flagged that they could not read
+Sibner–Sibner 1970, Uhlenbeck 1977, Iwaniec 1992, Iwaniec–Sbordone 1994,
+Iwaniec–Martin 2001, Casas–Fernández 1993, Holmes–Kripke 1968,
+Fletcher–Grant–Hebden 1974, Fabes–Kenig–Serapioni 1982,
+Heinonen–Kilpeläinen–Martio, or Turesson; statements about those are [SEC], [AB]
+or [MO] and are labelled as such.
 
 NON-CLAIMS: no novelty for any programme object; no priority; no assertion that
 any unlocated item is new; no judgement on the correctness of any cited paper,
 including Li's; no mathematical consequence of any cited theorem is imported
 into the programme by this note.
 
-NEXT DISTINCT ACTION: obtain the printed **J. Optim. Theory Appl. 200 (2024)
-923–950** (institutional access or interlibrary), read Definition 7.1 and
-Theorem 7.2 in the published text, and settle item 7.1.  Until that is done,
+NEXT DISTINCT ACTION: obtain three primary texts, in this order — (1) the
+printed **J. Optim. Theory Appl. 200 (2024) 923–950**, to read Definition 7.1
+and Theorem 7.2 and settle §7.1; (2) **Holmes–Kripke, Michigan Math. J. 15
+(1968) 225–248**, to find out exactly what was proved in 1968 about the Gâteaux
+derivative of the \(L^p\) metric projection in the datum; (3)
+**Fletcher–Grant–Hebden, J. Approx. Theory 10 (1974) 69–73**, five pages whose
+title is this note's question.  Together these decide how much of Theorem 3.4 is
+genuinely uncovered.  Until that is done,
 `hf26-temporal-continuation.tex` §10.2 should be amended to cite the **published
 JOTA paper** alongside arXiv:2311.00942, and to say that the comparison is
 **pending**, not merely "would be required".

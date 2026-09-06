@@ -1,0 +1,996 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=15pt]{geometry}
+\usepackage{microtype,booktabs,longtable,array,xcolor,fancyhdr,enumitem,needspace}
+\usepackage[unicode,colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{xurl}
+\input{glyphtounicode}\pdfgentounicode=1
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\G}{\mathcal G_3}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\Sch}{\mathcal S_\sigma(\R^3)}
+\newcommand{\rstar}{r_*}
+\newcommand{\Cstar}{C_\sharp}
+\newcommand{\cb}{c_b}
+\newcommand{\repo}[1]{{\small\texttt{#1}}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[2]
+\setlength{\parskip}{4pt}\setlength{\parindent}{1.2em}
+\setlist{nosep,leftmargin=*}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Navier--Stokes / critical residual continuation}
+\fancyhead[R]{\small 6 September 2026}\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\hypersetup{pdftitle={Beyond HF26: critical residual certification and the remaining arbitrary-data estimate},pdfauthor={Research note prepared for Christopher Albert},pdfsubject={Detailed candidate component proofs; not an arbitrary-data global regularity proof}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\thispagestyle{empty}
+\vspace*{8mm}
+{\sffamily\small\color{blue!45!black} NAVIER--STOKES / PAPER-PROOF CONTINUATION\par}
+\vspace{9mm}
+{\LARGE\bfseries Beyond HF26\par}
+\vspace{5mm}
+{\Large Critical residual certification\par and the remaining arbitrary-data estimate\par}
+\vspace{9mm}
+Prepared for Christopher Albert\par
+6 September 2026\par
+\vspace{8mm}
+\noindent\textbf{The change of mechanism.} Apply the cubic gradient quotient to the error $u-v$ against a smooth comparison flow, rather than trying to control the scalar distance of $u$ from the nonlinear-Hodge class. The resulting pressure-free identity retains the \emph{full vector equation} through the comparison residual.
+
+\noindent\textbf{A positive result.} A stress residual in $L^2_tL^3_x$, a comparison field in $L^4_tL^6_x$, and a sufficiently small initial $L^3$ error yield an explicit continuation certificate. The proof includes its constants, the zero-error case, the stopping-time argument, and the passage back to the original equation.
+
+\noindent\textbf{Two tests.} The certificate proves global regularity for an explicit family of divergence-free Schwartz data with arbitrarily large $L^3$ norm. A whole-space Fourier approximation hierarchy gives a precise sufficient test for each general input, and eventual success is proved \emph{conditional on} an already regular exact solution.\par
+\vspace{5mm}
+\noindent\fbox{\begin{minipage}{0.941\textwidth}
+\textbf{Proof boundary.} This note does not prove that the certificate succeeds for every datum and every horizon. The exact missing inequality is displayed in Section~\ref{sec:gap}. Consequently the full arbitrary-data Clay alternative A is \textbf{not unblocked}. The component arguments are self-checked candidates, not independently audited or Lean-verified results. No novelty claim is made for a posteriori regularity or oscillatory large-data constructions.
+\end{minipage}}\par
+\vfill
+{\small Fresh pinned reads of the three requested repositories underlie this note. No attachment was present in the current turn; the repository-imported HF25/HF26 continuations were used instead. No repository was edited, committed, or pushed.}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+{\small\setlength{\parskip}{0pt}\tableofcontents}
+\newpage
+
+\section{Target, source coverage, and the actual frontier}
+\label{sec:scope}
+\subsection{The original problem is unchanged}
+All horizons below are positive. Fix $\nu>0$ and a real divergence-free Schwartz datum $u_0\in\Sch$. The equation throughout is
+\begin{equation}\label{eq:NS}
+ u_t+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad \diver u=0,\qquad u(0)=u_0
+ \quad\text{on }\R^3.
+\end{equation}
+The target is a global smooth velocity and pressure, smooth also at $t=0$, with
+\begin{equation}\label{eq:Clay}
+ \sup_{t\ge0}\norm{u(t)}_2^2\le\norm{u_0}_2^2<\infty.
+\end{equation}
+This is the unforced whole-space alternative A in the official problem statement \cite{Clay}. A forced equation used to define a comparison field is \emph{not} substituted for \eqref{eq:NS}.
+
+We import the selected maximal classical branch from the current manuscript \cite{Paper}. On every compact interval $[0,T]\subset[0,T_*)$ it satisfies $u,p\in C^j([0,T];H^k)$ for all nonnegative integers $j,k$. We also import its endpoint continuation statement:
+\begin{equation}\label{eq:endpoint}
+ T_*<\infty\quad\Longrightarrow\quad
+ \sup_{0\le t<T_*}\norm{u(t)}_3=\infty.
+\end{equation}
+The local package is based on Tao's Theorem~5.4 and Corollaries~4.3 and~5.8 \cite{Tao}. The manuscript proves \eqref{eq:endpoint} by passing through the Leray--Hopf class, the Escauriaza--Seregin--\v Sver\'ak endpoint theorem, and a Serrin-type enstrophy estimate. These are explicit external dependencies, not new proofs in this note. The primary ESS PDF could not be fetched successfully in this session; its precise use is taken from the inspected manuscript and its audit record, not represented as a fresh primary-source verification.
+
+\subsection{Pinned revisions actually inspected}
+The two pieces in each row concatenate to the full commit hash.
+\begin{center}
+\begin{tabular}{@{}lp{101mm}@{}}\toprule
+Repository & Revision\\\midrule
+\repo{itpplasma/navier} & \repo{cb3b7b4e8249f8723487}\\[-2pt]
+ & \repo{a9850a92352d69c4405c}\\
+\repo{itpplasma/navier-paper} & \repo{c435bee70d28607f5729}\\[-2pt]
+ & \repo{0fa4c75490b63cb504a7}\\
+\repo{itpplasma/navier-formal} & \repo{54f8e89119e90399044b}\\[-2pt]
+ & \repo{ae8dcd404dc405a381f9}\\\bottomrule
+\end{tabular}
+\end{center}
+The research reads include the plan, agent rules, the opening claim-graph records, the HF25 defect-criterion audit, the HF26 import note, and the parts of its LaTeX source containing the weighted response and temporal arguments. The manuscript reads include the continuation discussion, quotient conventions and related work, and the unweighted div--curl theorem. The formal reads include its README and verification-status record. This is a frontier-focused inspection, not a line-by-line reaudit of the entire manuscript or a local Lean replay.
+
+At the pinned revision HF25's weighted dissipation identity and divergence-defect criterion have been imported into the paper, with an explicit scope warning: the criterion has not been shown weaker than classical gradient criteria. HF26 remains an unaudited imported candidate. The formal repository contains statement surfaces and supporting checked lemmas, not a proved arbitrary-data critical bound or a proved Clay theorem \cite{Research,Audit,HF26,Formal}.
+
+No attached bytes were available here. The repository records the HF26 source SHA-256 as
+\begin{center}\small\ttfamily
+24b538280c8639b81a1f6f86d4c72370362625ca8a52d1d81a99b29236a540ab
+\end{center}
+This is recorded provenance, not an independently rehashed user upload.
+
+\subsection{Why the continuation changes direction}
+HF26 obtains strong $L^3$ time-translation control only after integration in time. Its one-scale criterion instead needs a uniform bound on the strong vector residual $q-\bar q_\delta$. Small measure of the exceptional set does not bound the dissipation accumulated there. Its concentrating comparison curve additionally shows that scalar norm information and scalar energy/quotient balances can miss a nonzero PDE residual \cite{HF26}.
+
+Here the object is instead $\Q(u-v)$. The comparison field $v$ is supplied on the \emph{whole requested horizon}; its equation defect is retained and estimated. This produces a usable sufficient theorem without requiring the unaudited weighted time derivative from HF26. The new obstruction is then explicit: construct a comparison whose critical residual defeats its stability cost. Section~\ref{sec:gap} attempts this using unconditional energy estimates and identifies exactly what they fail to control.
+
+\subsection{Prior-art boundary}
+Robustness and a posteriori regularity are established ideas. Chernyshenko, Constantin, Robinson and Titi prove such a principle, together with conditional eventual verification by Galerkin approximation \cite{CCRT}; the directly inspected version works on a periodic cube in high Sobolev regularity. No theorem on that domain is silently imported to $\R^3$ below. The proofs here use the current quotient functional and explicitly critical residual spaces. Oscillatory large-data global solutions also have substantial prior art, including the work of Chemin and Gallagher \cite{CG}. The example in Section~\ref{sec:oscillation} is a test of this certificate, not a novelty claim for that phenomenon.
+
+\section{The quotient toolkit and its precise dependencies}
+\label{sec:toolkit}
+Spatial norms are over $\R^3$ and use Euclidean vector and Frobenius tensor norms. Put $(\nabla v)_{ij}=\partial_jv_i$, $(\diver F)_i=\sum_j\partial_jF_{ij}$. Let $\PP$ be the Leray projection, with symbol $I-\xi\otimes\xi/|\xi|^2$, and set
+\[
+ C_p=\norm{\PP}_{L^p\to L^p}\quad(1<p<\infty).
+\]
+Fix a Sobolev constant $S$ for $\norm f_6\le S\norm{\nabla f}_2$, also valid for vector fields. Standard unweighted multiplier bounds, Sobolev approximation and weak chain rules are the analytic foundations used here \cite{Stein,Brezis}. No weighted Calder\'on--Zygmund bound is assumed.
+
+\subsection{Existence, differentiation, and coercivity}
+\begin{definition}
+For $a\in L^3(\R^3;\R^3)$ define
+\begin{equation}\label{eq:quotientdef}
+ \G=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{L^3},\quad
+ w(a)=\arg\min_{z\in a+\G}\frac13\norm z_3^3,
+\end{equation}
+\begin{equation}\label{eq:objects}
+ q(a)=w(a)-a,\qquad A(a)=|w(a)|w(a),\qquad
+ \Q(a)=\frac13\norm{w(a)}_3^3.
+\end{equation}
+\end{definition}
+\begin{lemma}\label{lem:basic}
+The minimizer exists uniquely and
+\begin{equation}\label{eq:stationarity}
+ \ip{A(a)}g=0\quad(g\in\G),\qquad \diver A(a)=0.
+\end{equation}
+The map $\Q:L^3\to\R$ is Fr\'echet differentiable, with
+\begin{equation}\label{eq:DQ}
+ \mathrm D\Q(a)h=\ip{A(a)}h.
+\end{equation}
+For solenoidal $a$,
+\begin{equation}\label{eq:coercive}
+ \PP w(a)=a,\qquad
+ \norm a_3\le 3^{1/3}C_3\Q(a)^{1/3},\qquad
+ \norm{q(a)}_3\le c_q\Q(a)^{1/3},
+ \quad c_q=3^{1/3}(1+C_3).
+\end{equation}
+Moreover $\Q(a)\le\norm a_3^3/3$ and $w,q,A$ are continuous in their respective $L^3,L^3,L^{3/2}$ spaces.
+\end{lemma}
+\begin{proof}
+A bounded minimizing sequence has a weakly convergent subsequence in reflexive $L^3$. The closed affine space is weakly closed, and the norm is weakly lower semicontinuous. Strict convexity gives uniqueness. Differentiation along a fixed $g\in\G$, justified by H\"older, gives \eqref{eq:stationarity}.
+
+For $j(z)=|z|z$ and
+$B(a,h)=|a+h|^3/3-|a|^3/3-j(a)\cdot h$, direct integration of the derivative gives
+\begin{equation}\label{eq:Bregman}
+ \frac16|h|^3\le B(a,h)\le |a||h|^2+\frac13|h|^3.
+\end{equation}
+For the lower bound use
+\[
+ (j(x)-j(y))\cdot(x-y)
+ =\frac{|x|+|y|}{2}\bigl(|x-y|^2+(|x|-|y|)^2\bigr)
+\]
+with $x=a+th,y=a$, divide by $t$ and integrate $0<t<1$. For the upper bound use $|j(x)-j(y)|\le(|x|+|y|)|x-y|$.
+
+Write $w=w(a)$ and $w_h=w(a+h)$. Since $w_h-w-h\in\G$, convexity and the competitor $w+h$ yield
+\begin{equation}\label{eq:Qremainder}
+ 0\le\Q(a+h)-\Q(a)-\ip{A(a)}h
+ \le\norm w_3\norm h_3^2+\tfrac13\norm h_3^3.
+\end{equation}
+This proves \eqref{eq:DQ}. Applying the lower bound in \eqref{eq:Bregman} to $w_h-w$ also gives
+\[
+ \norm{w_h-w}_3^3\le6\norm w_3\norm h_3^2+2\norm h_3^3.
+\]
+Thus $w,q$ are continuous. The displayed bound for $j(x)-j(y)$ proves continuity of $A$. Finally $\PP$ annihilates $\G$ and fixes solenoidal $a$, so $a=\PP w$ and $q=(I-\PP)w$. These give \eqref{eq:coercive}. Taking $a$ itself as competitor proves the remaining upper bound.
+\end{proof}
+
+\subsection{The imported spatial regularity lemma}
+The following is the audited unweighted div--curl result in the current manuscript \cite{Paper,Audit}. It is stated here rather than tacitly treating the minimizer as smooth.
+\begin{lemma}[Imported unweighted regularity]\label{lem:import}
+For solenoidal $a\in H^1(\R^3)$,
+\begin{equation}\label{eq:unweighted}
+ w,q\in L^6\cap W^{1,2}_{\rm loc},\qquad
+ \norm{\nabla w}_2^2\le\tfrac54\norm{\nabla a}_2^2,\qquad
+ \norm{\nabla q}_2^2=\norm{\diver w}_2^2\le\tfrac14\norm{\nabla a}_2^2.
+\end{equation}
+It does not assert that $w$ or $q$ is in $L^2$.
+\end{lemma}
+No new proof of this imported theorem is claimed in this note. Its role is to supply the weak derivatives needed below. The weighted statement used in the continuation can then be reconstructed directly, as follows.
+
+\begin{proposition}[Weighted dissipation and usable norms]\label{prop:weighted}
+Let $a$ be solenoidal and belong to every $H^k$. Set $\rho=|w(a)|$, $V=\rho^{1/2}w(a)$ and
+\begin{equation}\label{eq:D}
+ D(a)=-\ip{A(a)}{\Delta a}.
+\end{equation}
+Then $V\in H^1$, $A\in W^{1,3/2}$ and
+\begin{align}
+ D(a)&=\int\rho\bigl(|\nabla w|^2+|\nabla\rho|^2\bigr)\dd x
+ =\norm{\nabla V}_2^2-\tfrac19\norm{\nabla|V|}_2^2
+ \ge\tfrac89\norm{\nabla V}_2^2,\label{eq:Didentity}\\
+ \norm w_9^3&\le a_0D(a),\qquad a_0=\tfrac98S^2,\label{eq:w9}\\
+ |\nabla A|&\le\tfrac43\rho^{1/2}|\nabla V|\quad\hbox{a.e.}\label{eq:gradA}
+\end{align}
+Densities at $w=0$ are defined by their weak chain-rule values, not by division by zero.
+\end{proposition}
+\begin{proof}
+A full difference-quotient proof is given in Appendix~\ref{app:weighted}. Its only project-level input is Lemma~\ref{lem:import}. Once \eqref{eq:Didentity} holds, $\norm w_9^3=\norm V_6^2\le S^2\norm{\nabla V}_2^2$ proves \eqref{eq:w9}. The map $V\mapsto |V|^{1/3}V=A$ has derivative norm at most $(4/3)|V|^{1/3}=(4/3)\rho^{1/2}$; truncation and the weak chain rule give \eqref{eq:gradA}.
+\end{proof}
+
+\subsection{A fixed dictionary of constants}
+All constants below are independent of the datum, comparison, horizon and stopping time. Define
+\begin{align}
+ \Cstar&=\sqrt2\,C_9a_0^{1/2},&
+ c_q&=3^{1/3}(1+C_3),\label{eq:constants1}\\
+ b&=\sqrt2\,3^{1/4}a_0^{1/4}(1+2C_{9/2}),&
+ \cb&=81a_0(1+2C_{9/2})^4,\label{eq:constants2}\\
+ \rstar&=\frac1{4\Cstar c_q}.&&\label{eq:rstar}
+\end{align}
+These are explicit expressions in fixed analytic constants, not optimized numerical constants. Any rigorously known upper bounds for $S,C_3,C_{9/2},C_9$ may be substituted consistently. No numerical certificate for a general user-specified datum is asserted here.
+
+\section{A pressure-free identity for the error against a comparison flow}
+\label{sec:relative}
+\begin{definition}[Comparison field and equation residual]\label{def:comparison}
+On $[0,H]$ let $v$ be real, solenoidal and in $C^j([0,H];H^k)$ for every $j,k$. Define
+\begin{equation}\label{eq:residual}
+ R_v=v_t+\PP((v\cdot\nabla)v)-\nu\Delta v.
+\end{equation}
+A stress representation means $R_v=\PP\diver F$ as distributions, with $F\in L^2(0,H;L^3(\R^3;\R^{3\times3}))$.
+\end{definition}
+The comparison need not solve Navier--Stokes. Its residual is never discarded. A distributional stress representation is enough; a smooth $F$ is not required because the pairing with $\nabla A$ below is integrable.
+
+Put $e=u-v$ on $[0,\min\{H,T_*\})$ and, in this section only, abbreviate $w=w(e)$, $q=q(e)$, $A=A(e)$, $Q=\Q(e)$ and $D=D(e)$.
+\begin{proposition}[Exact relative quotient identity]\label{prop:identity}
+On every compact subinterval of this interval,
+\begin{equation}\label{eq:errorPDE}
+ e_t+\PP\bigl((e\cdot\nabla)e+(v\cdot\nabla)e+(e\cdot\nabla)v\bigr)
+ =\nu\Delta e-R_v,
+\end{equation}
+and
+\begin{equation}\label{eq:relative}
+ Q'+\nu D=K(e)+\mathcal C_v(e)-\ip A{R_v},
+\end{equation}
+where
+\begin{align}
+ K(e)&=-\int q\cdot(e\cdot\nabla)A\dd x,\label{eq:Kerror}\\
+ \mathcal C_v(e)&=\int v\cdot(e\cdot\nabla)A\dd x
+                 -\int q\cdot(v\cdot\nabla)A\dd x.\label{eq:cross}
+\end{align}
+For a stress representation, $-\ip A{R_v}=\int\nabla A:F\dd x$.
+\end{proposition}
+\begin{proof}
+Subtract \eqref{eq:residual} from the projected version of \eqref{eq:NS} and expand $u=e+v$. Lemma~\ref{lem:basic} gives $Q'=\ip A{e_t}$. The Leray multiplier is self-adjoint under $L^{3/2}$--$L^3$ duality, and $\PP A=A$ because $\diver A=0$. Hence every displayed $\PP$ may be removed in that pairing.
+
+If $b$ is solenoidal and smooth with bounded derivatives, then
+\begin{equation}\label{eq:zerotransport}
+ \int w\cdot(b\cdot\nabla)A\dd x
+ =\frac23\int b\cdot\nabla(\rho^3)\dd x=0.
+\end{equation}
+Indeed $\rho^3\in W^{1,1}$: $\rho^{3/2}\in L^2$ and $\rho^{1/2}\nabla\rho\in L^2$ by \eqref{eq:Didentity}. A cutoff tending to one therefore justifies this integration. Integrating the self-convection by parts and writing $e=w-q$ gives
+\[
+ -\int A\cdot(e\cdot\nabla)e
+ =\int e\cdot(e\cdot\nabla)A
+ =-\int q\cdot(e\cdot\nabla)A.
+\]
+The transport by $v$ gives the second term of \eqref{eq:cross} by the same identity. Integrating $-\int A\cdot(e\cdot\nabla)v$ gives the first term of \eqref{eq:cross} because $\diver e=0$.
+
+All boundary errors vanish. For example $A\in L^{3/2}$, $e,q,w\in L^3$ and $e,v$ are bounded on compact classical intervals; their products with cutoff derivatives are controlled by an $L^1$ function times $O(R^{-1})$. The differentiated terms are integrable either by $\nabla A\in L^{3/2}$ and boundedness, or by the estimates below. For the stress term $\nabla A:F\in L^1$ by H\"older. Density in $W^{1,3/2}$ extends the distributional integration by parts to $A$. This proves \eqref{eq:relative}, pointwise when the residual representation is smooth and almost everywhere otherwise.
+\end{proof}
+
+\begin{lemma}[The three critical estimates]\label{lem:three}
+At every classical time,
+\begin{align}
+ |K(e)|&\le\Cstar c_q Q^{1/3}D,\label{eq:selfbound}\\
+ |\mathcal C_v(e)|&\le b\norm v_6Q^{1/4}D^{3/4},\label{eq:crossbound}\\
+ \left|\int\nabla A:F\right|&\le\sqrt2\,3^{1/6}\norm F_3 Q^{1/6}D^{1/2}.\label{eq:stressbound}
+\end{align}
+\end{lemma}
+\begin{proof}
+For \eqref{eq:selfbound}, use \eqref{eq:gradA}, H\"older with exponents $(3,9,18,2)$, and $e=\PP w$:
+\begin{align*}
+ |K(e)|&\le\tfrac43\norm q_3\norm e_9\norm w_9^{1/2}\norm{\nabla V}_2\\
+ &\le\sqrt2\,C_9\norm q_3\norm w_9^{3/2}D^{1/2}
+ \le\Cstar\norm q_3D.
+\end{align*}
+Now apply \eqref{eq:coercive}.
+
+For \eqref{eq:crossbound}, H\"older with exponents $(6,9/2,9,2)$ gives
+\[
+ |\mathcal C_v(e)|\le\sqrt2\norm v_6
+ \bigl(\norm e_{9/2}+\norm q_{9/2}\bigr)\norm w_{9/2}^{1/2}D^{1/2}.
+\]
+The sum is bounded by $(1+2C_{9/2})\norm w_{9/2}$. Interpolation between $L^3$ and $L^9$ gives
+\[
+ \norm w_{9/2}^{3/2}\le\norm w_3^{3/4}\norm w_9^{3/4}
+ \le(3Q)^{1/4}(a_0D)^{1/4}.
+\]
+This gives exactly $b$ from \eqref{eq:constants2}.
+
+For \eqref{eq:stressbound}, use H\"older with $(3,6,2)$ on $F,\rho^{1/2},\nabla V$:
+\[
+ \left|\int\nabla A:F\right|
+ \le\tfrac43\norm F_3\norm w_3^{1/2}\norm{\nabla V}_2
+ \le\sqrt2\,3^{1/6}\norm F_3Q^{1/6}D^{1/2}.
+\]
+The identity $(4/3)\sqrt{9/8}=\sqrt2$ accounts for the shared factor.
+\end{proof}
+
+\section{An explicit full-equation continuation certificate}
+\label{sec:certificate}
+For the comparison $v$ define
+\begin{equation}\label{eq:m}
+ m(t)=\cb\nu^{-3}\norm{v(t)}_6^4,\qquad
+ M(t)=\int_0^t m(s)\dd s,\qquad M_H=M(H).
+\end{equation}
+Set $Q_0=\Q(u_0-v(0))$. For a stress representation define
+\begin{equation}\label{eq:Zsharp}
+ Z_H^2=e^{2M_H/3}\left[
+ Q_0^{2/3}+\frac4{3^{2/3}\nu}
+ \int_0^H e^{-2M(s)/3}\norm{F(s)}_3^2\dd s\right].
+\end{equation}
+A simpler, larger quantity that avoids the weighted integral is
+\begin{equation}\label{eq:Zsimple}
+ \overline Z_H^{\,2}=e^{2M_H/3}\left[
+ Q_0^{2/3}+\frac4{3^{2/3}\nu}\norm F_{L^2(0,H;L^3)}^2\right].
+\end{equation}
+
+\begin{theorem}[Critical stress-residual certificate]\label{thm:certificate}
+Let $u_0\in\Sch$, $\nu>0$, $H<\infty$, and let $v$ be a comparison field on $[0,H]$ as in Definition~\ref{def:comparison}. Suppose $R_v=\PP\diver F$ with $F\in L^2(0,H;L^3)$ and
+\begin{equation}\label{eq:certsmall}
+ Z_H<\rstar\nu.
+\end{equation}
+Then the original solution \eqref{eq:NS} has $T_*>H$ and, for $0\le t\le H$,
+\begin{align}
+ \Q(u(t)-v(t))^{1/3}&\le Z_H,\label{eq:errbound}\\
+ \norm{u(t)}_3&\le\norm{v(t)}_3+3^{1/3}C_3Z_H.\label{eq:ubound}
+\end{align}
+For every $0\le\tau\le H$,
+\begin{equation}\label{eq:Dbound}
+ \frac\nu4\int_0^\tau D(u-v)\dd t
+ \le Q_0+M_H Z_H^3+\frac{2\,3^{1/3}}\nu
+      Z_H\norm F_{L^2(0,H;L^3)}^2.
+\end{equation}
+The stronger, simpler condition $\overline Z_H<\rstar\nu$ is therefore also sufficient.
+\end{theorem}
+\begin{proof}
+\emph{Step 1: derive the scalar inequality only inside the permitted region.}
+Write $z=Q^{1/3}$. While $z\le\rstar\nu$, \eqref{eq:selfbound} and \eqref{eq:rstar} give $|K|\le\nu D/4$.
+For $a,x\ge0$ and $\varepsilon>0$, elementary maximization gives
+\begin{equation}\label{eq:young}
+ ax^{3/4}\le\varepsilon x+\frac{27a^4}{256\varepsilon^3},
+ \qquad ax^{1/2}\le\varepsilon x+\frac{a^2}{4\varepsilon}.
+\end{equation}
+Apply the first inequality to \eqref{eq:crossbound} with $\varepsilon=\nu/4$. Since
+$b^4=12a_0(1+2C_{9/2})^4$, the remainder is
+\[
+ \frac{27b^4}{4\nu^3}\norm v_6^4Q
+ =81a_0(1+2C_{9/2})^4\nu^{-3}\norm v_6^4Q=mQ.
+\]
+The second inequality applied to \eqref{eq:stressbound}, with the same $\varepsilon$, gives the remainder $(2\,3^{1/3}/\nu)\norm F_3^2Q^{1/3}$. Thus
+\begin{equation}\label{eq:QerrorODE}
+ Q'+\frac\nu4D\le mQ+\frac{2\,3^{1/3}}\nu\norm F_3^2Q^{1/3}
+ \quad\hbox{whenever }Q^{1/3}\le\rstar\nu.
+\end{equation}
+The three absorbed quarters come from self-convection, the comparison interaction, and the stress residual respectively.
+
+\emph{Step 2: include zero error without dividing by zero.}
+For $\epsilon>0$, multiply the inequality with $D$ discarded by $(2/3)(Q+\epsilon)^{-1/3}$. For $y_\epsilon=(Q+\epsilon)^{2/3}$ this yields
+\[
+ y_\epsilon'\le\frac23m y_\epsilon+\frac4{3^{2/3}\nu}\norm F_3^2.
+\]
+An integrating factor, followed by $\epsilon\downarrow0$, proves
+\begin{equation}\label{eq:sharpbound}
+ Q(t)^{2/3}\le e^{2M(t)/3}\left[
+ Q_0^{2/3}+\frac4{3^{2/3}\nu}
+ \int_0^t e^{-2M(s)/3}\norm{F(s)}_3^2\dd s\right].
+\end{equation}
+The right side is nondecreasing in $t$ and at most $Z_H^2$.
+
+\emph{Step 3: close the first-exit argument.}
+Initially $Q_0^{1/3}\le Z_H<\rstar\nu$. Continuity of $Q$ gives a nonempty interval on which the required inequality holds. If it first failed at a classical time $t_1\le H$, continuity would give $Q(t_1)^{1/3}=\rstar\nu$. Estimate \eqref{eq:sharpbound} on times below $t_1$ and passage to the limit give $Q(t_1)^{1/3}\le Z_H<\rstar\nu$, a contradiction. Thus \eqref{eq:sharpbound} holds for all $t<\min\{H,T_*\}$, with the same constants and the same comparison.
+
+\emph{Step 4: continue the original, not the comparison, equation.}
+Coercivity gives \eqref{eq:ubound} below the endpoint. The comparison is continuous in $L^3$ on the closed interval $[0,H]$, so its supremum there is finite. If $T_*\le H$, this would give a uniform $L^3$ bound up to $T_*$, contradicting \eqref{eq:endpoint}. Hence $T_*>H$. Continuity now includes $t=H$ in the estimates. Integrating \eqref{eq:QerrorODE}, discarding $Q(\tau)\ge0$, and using $Q\le Z_H^3$ proves \eqref{eq:Dbound}.
+\end{proof}
+
+\begin{remark}[What is and is not assumed]
+There is no bound on any high derivative of the unknown $u$ on the right side of \eqref{eq:Zsharp}. High regularity of $u$ is used only on its existing compact classical intervals to justify identities. In contrast, $v$ must actually be supplied on all of $[0,H]$. Taking $v=u$ on a merely known shorter interval does not provide a certificate for $H$. The constants do not depend on $\sup_{t<T_*}\norm u_3$.
+\end{remark}
+
+\begin{corollary}[A direct velocity-residual variant]\label{cor:direct}
+A stress representation is unnecessary if $R_v\in L^1(0,H;L^3)$. Define
+\begin{equation}\label{eq:Zdirect}
+ Z_H^{\rm dir}=e^{M_H/3}\left[Q_0^{1/3}
+             +3^{-1/3}\int_0^H\norm{R_v(t)}_3\dd t\right].
+\end{equation}
+If $Z_H^{\rm dir}<\rstar\nu$, the continuation and velocity bounds hold with $Z_H^{\rm dir}$ in place of $Z_H$.
+\end{corollary}
+\begin{proof}
+The residual pairing has magnitude at most $(3Q)^{2/3}\norm{R_v}_3$. The self and cross terms absorb $\nu D/2$ in total, leaving
+\[
+ Q'+\frac\nu2D\le mQ+3^{2/3}\norm{R_v}_3Q^{2/3}.
+\]
+Apply $(1/3)(Q+\epsilon)^{-2/3}$, integrate the resulting linear inequality for $(Q+\epsilon)^{1/3}$, and let $\epsilon\downarrow0$. This gives \eqref{eq:Zdirect}. The same strict first-exit argument and endpoint continuation apply.
+\end{proof}
+
+\subsection{Scaling and the connection to the existing proof graph}
+Under the Navier--Stokes scaling
+\[
+ u_\lambda(t,x)=\lambda u(\lambda^2t,\lambda x),\quad
+ v_\lambda(t,x)=\lambda v(\lambda^2t,\lambda x),
+\]
+viscosity is unchanged, $R_\lambda=\lambda^3R(\lambda^2t,\lambda x)$, and a corresponding stress is $F_\lambda=\lambda^2F(\lambda^2t,\lambda x)$. Direct changes of variables show that
+\begin{equation}\label{eq:criticalspaces}
+ \norm v_{L^4_tL^6_x},\quad \norm F_{L^2_tL^3_x},\quad
+ \norm R_{L^1_tL^3_x},\quad \norm{e(0)}_3
+\end{equation}
+are invariant when the horizon scales to $H/\lambda^2$. The gradient subspace is invariant under the same dilation, so $Q$ and both certificate conditions are invariant as well. None of these is merely an energy-scale residual norm.
+
+The route joins the current graph at \texttt{CRITICAL}, by \eqref{eq:ubound}. It does not first establish the stronger absolute quantity $G(u)=\int\norm{q(u)}_3D(u)$. This avoids confusing a sufficient absolute estimate with the original signed high-strain target. If a certificate is produced for every finite horizon and every admissible datum, then $T_*=\infty$ by Theorem~\ref{thm:certificate}; the ordinary energy identity of the original equation supplies \eqref{eq:Clay}.
+
+\section{A complete positive test: arbitrarily large oscillatory data}
+\label{sec:oscillation}
+This section supplies actual input-selected comparisons for a nontrivial data family. It proves all-time regularity for that family, not for arbitrary Schwartz data.
+
+\subsection{A heat comparison}
+\begin{corollary}[Small critical heat orbit]\label{cor:heat}
+Let $u_0\in\Sch$ and put $v(t)=e^{\nu t\Delta}u_0$. Define
+\begin{equation}\label{eq:eta}
+ \eta=\nu^{-3}\int_0^\infty\norm{e^{\nu t\Delta}u_0}_6^4\dd t.
+\end{equation}
+If $\eta<\infty$ and
+\begin{equation}\label{eq:heatcriterion}
+ 2\,3^{-1/3}\eta^{1/2}e^{\cb\eta/3}<\rstar,
+\end{equation}
+the original Navier--Stokes solution is global, smooth, and satisfies \eqref{eq:Clay}.
+\end{corollary}
+\begin{proof}
+The heat comparison is solenoidal and has $v(0)=u_0$. Its residual is $R_v=\PP\diver(v\otimes v)$. Take $F=v\otimes v$; then $\norm F_3=\norm v_6^2$ and $Q_0=0$. For every finite $H$, \eqref{eq:Zsimple} gives
+\[
+ \frac{\overline Z_H}{\nu}
+ \le2\,3^{-1/3}\eta^{1/2}e^{\cb\eta/3}.
+\]
+The strict condition therefore gives $T_*>H$ for every $H$. The bound $\sup_{t\ge0}\norm v_3\le\norm{u_0}_3$ follows from heat convolution and ensures that no comparison endpoint is hidden. Energy and smoothness then follow as above.
+\end{proof}
+
+\subsection{An explicit divergence-free Schwartz family}
+For this subsection and the Fourier approximation below use the unitary Fourier transform with derivative multiplier $i\xi$. This differs from the paper's $2\pi$ frequency coordinate only by a rescaling of frequency; all physical-space constants and identities above are unchanged.
+
+Choose a nonzero real Schwartz function $\phi$ whose Fourier transform is smooth and supported in the unit ball. Such a function is obtained by taking the inverse transform of any nonzero real even $C_c^\infty$ bump in that ball. Fix $0<\alpha<1/2$. For an integer $N\ge2$ set
+\begin{equation}\label{eq:oscdata}
+ U_N=\curl\left(0,0,N^{\alpha-1}\phi(x)\sin(Nx_1)\right).
+\end{equation}
+Explicitly,
+\begin{equation}\label{eq:oscexplicit}
+ U_N=\left(
+ N^{\alpha-1}\partial_2\phi\sin(Nx_1),\,
+ -N^\alpha\phi\cos(Nx_1)-N^{\alpha-1}\partial_1\phi\sin(Nx_1),\,0
+ \right).
+\end{equation}
+
+\begin{theorem}[Large $L^3$ data certified by their oscillation]\label{thm:oscillation}
+For every fixed $\nu>0$ and $0<\alpha<1/2$, all sufficiently large $N$ in \eqref{eq:oscdata} give global smooth solutions of the original equation. The data are real, solenoidal and Schwartz, and
+\begin{equation}\label{eq:largeL3}
+ \norm{U_N}_3\longrightarrow\infty.
+\end{equation}
+A sufficient $N$ is determined explicitly by \eqref{eq:Nthreshold} below, in terms of $\nu,\phi,\alpha$ and the fixed analytic constants.
+\end{theorem}
+\begin{proof}
+\emph{The data class and the large norm.}
+The curl construction proves solenoidality; all components are real Schwartz functions. Periodic averaging gives
+\begin{equation}\label{eq:cosaverage}
+ \int |\phi(x)|^3|\cos(Nx_1)|^3\dd x
+ \longrightarrow \frac4{3\pi}\norm\phi_3^3>0.
+\end{equation}
+For completeness, approximate the continuous periodic function $|\cos\theta|^3$ uniformly by trigonometric polynomials. The nonconstant Fourier terms tend to zero against the $L^1$ weight $|\phi|^3$ by the Riemann--Lebesgue lemma, and the constant term is its average $4/(3\pi)$. The uniform approximation controls the error. The leading second component in \eqref{eq:oscexplicit} therefore has norm bounded below by $c_\phi N^\alpha$, whereas the sum of derivative terms is at most
+$N^{\alpha-1}(\norm{\partial_1\phi}_3+\norm{\partial_2\phi}_3)$. This proves \eqref{eq:largeL3}.
+
+\emph{A frequency-localized heat estimate with no derivative loss.}
+The support of $\widehat U_N$ lies in the two balls of radius one about $\pm Ne_1$. For any field $f$ with Fourier support of measure at most $2|B_1|$, Fourier inversion and Cauchy--Schwarz give
+\[
+ \norm f_\infty\le B_\infty\norm f_2,\qquad
+ B_\infty=(2\pi)^{-3/2}(2|B_1|)^{1/2}.
+\]
+This estimate is valid for vector fields by applying Cauchy--Schwarz to their vector norm in the Fourier integral. Interpolation gives $\norm f_6\le B_\infty^{2/3}\norm f_2$. Plancherel and $|\xi|\ge N-1$ on the support imply
+\begin{equation}\label{eq:heatN}
+ \norm{e^{\nu t\Delta}U_N}_6
+ \le L_\phi N^\alpha e^{-\nu(N-1)^2t},\qquad
+ L_\phi=B_\infty^{2/3}
+  \bigl(\norm\phi_2+\norm{\partial_1\phi}_2+\norm{\partial_2\phi}_2\bigr).
+\end{equation}
+The point is that the \emph{measure} of the Fourier support is independent of $N$; using the volume of the enclosing radius-$N$ ball would destroy the gain.
+
+\emph{An input-selected threshold.}
+From \eqref{eq:heatN},
+\begin{equation}\label{eq:etaN}
+ \eta_N\le\frac{L_\phi^4N^{4\alpha}}{4\nu^4(N-1)^2}
+ \le L_\phi^4\nu^{-4}N^{4\alpha-2}.
+\end{equation}
+Since $4\alpha-2<0$, this tends to zero. Set
+\begin{equation}\label{eq:etastar}
+ \eta_*=
+ \min\left\{\frac{3\log2}{\cb},
+              \left(\frac{3^{1/3}\rstar}{8}\right)^2\right\}>0.
+\end{equation}
+If
+\begin{equation}\label{eq:Nthreshold}
+ N\ge2,\qquad
+ N\ge\left(\frac{L_\phi^4\nu^{-4}}{\eta_*}\right)^{1/(2-4\alpha)},
+\end{equation}
+then $\eta_N\le\eta_*$, and
+\[
+ 2\,3^{-1/3}\sqrt{\eta_N}\,e^{\cb\eta_N/3}
+ \le4\,3^{-1/3}\sqrt{\eta_*}\le\frac{\rstar}{2}<\rstar.
+\]
+Corollary~\ref{cor:heat} proves the assertion, including all finite horizons and the energy bound.
+\end{proof}
+
+\begin{remark}[Scope of the example]
+This is not a small-$L^3$ result: the norm in \eqref{eq:largeL3} diverges at fixed viscosity. It is nevertheless a smallness result in a different, critical heat-orbit quantity. Oscillation places the data in a favorable subclass; nothing in \eqref{eq:etaN} applies to an arbitrary datum. No inference from this subclass to all Clay data is made.
+\end{remark}
+
+\section{A whole-space approximation hierarchy and its certification test}
+\label{sec:hierarchy}
+The heat comparison need not be favorable for a general datum. We next construct global smooth comparisons for every datum, derive their exact residual, and prove both the sufficiency of their certificate and its eventual success \emph{when the exact solution is already known to be regular}. This last qualification is essential.
+
+\subsection{Why the cutoff is rectangular}
+Let $J_N$ have Fourier symbol $\mathbf1_{[-N,N]^3}$. It is self-adjoint and idempotent on $L^2$, commutes with derivatives and $\PP$, and is uniformly bounded on $L^p$, $1<p<\infty$:
+\begin{equation}\label{eq:Jbounds}
+ \norm{J_N}_{L^p\to L^p}\le B_p,
+ \qquad J_Nf\longrightarrow f\text{ in }L^p.
+\end{equation}
+Here $B_p$ is fixed independently of $N$. To see boundedness, express each one-dimensional interval projection as the difference of two modulated half-line projections; each half-line projection is a linear combination of the identity and the Hilbert transform. Apply the three coordinate projections successively, using Fubini. Strong convergence follows first for Schwartz functions with compact Fourier support, and then for all $L^p$ by density and the uniform bound. The underlying unweighted Hilbert-transform theorem is part of the multiplier foundations \cite{Stein}.
+
+A sharp \emph{ball} cutoff is not used: its $L^p$ behavior cannot be inferred from its orthogonality on $L^2$. A smooth non-idempotent cutoff would require a different energy argument. The cube supplies both properties actually used below.
+
+\begin{proposition}[Global band-limited comparisons]\label{prop:Galerkin}
+For every $N\ge1$ there is a unique global solution $v_N$ of
+\begin{equation}\label{eq:Galerkin}
+ (v_N)_t+J_N\PP\diver(v_N\otimes v_N)=\nu\Delta v_N,
+ \qquad v_N(0)=J_Nu_0,\qquad J_Nv_N=v_N.
+\end{equation}
+It is real, solenoidal and belongs to $C^j([0,H];H^k)$ for all $j,k$ and every finite $H$. It obeys
+\begin{equation}\label{eq:Genergy}
+ \norm{v_N(t)}_2^2+2\nu\int_0^t\norm{\nabla v_N(s)}_2^2\dd s
+ =\norm{J_Nu_0}_2^2\le E_0:=\norm{u_0}_2^2.
+\end{equation}
+Its full-equation residual has the exact stress representation
+\begin{equation}\label{eq:FN}
+ R_{v_N}=\PP\diver F_N,
+ \qquad F_N=(I-J_N)(v_N\otimes v_N).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Work in the closed real solenoidal subspace of $L^2$ with Fourier support in $[-N,N]^3$. On this subspace $\Delta$ is a bounded operator. Fourier inversion gives $\norm v_\infty\le C N^{3/2}\norm v_2$. Therefore
+\[
+ \norm{J_N\PP\diver(v\otimes v)}_2
+ \le C N\norm{v\otimes v}_2
+ \le C N^{5/2}\norm v_2^2.
+\]
+The polarized bound proves local Lipschitz continuity of the vector field. Picard's theorem in this Hilbert space gives a local solution. The vector field preserves reality and solenoidality.
+
+Testing with $v_N$ removes $J_N$ and $\PP$ by self-adjointness and $J_Nv_N=\PP v_N=v_N$. The remaining convection integral vanishes by $\diver v_N=0$, with cutoffs justified by $v_N\in L^2\cap L^\infty$. This proves \eqref{eq:Genergy}. The $L^2$ bound prevents finite-time escape of the Hilbert-space ODE; local existence times on bounded balls allow continuation to every finite horizon. Frequency support gives all spatial Sobolev bounds, and the smooth polynomial vector field gives all time derivatives. Subtracting \eqref{eq:Galerkin} from the definition of $R_{v_N}$ proves \eqref{eq:FN}.
+\end{proof}
+
+\begin{remark}
+On $\R^3$ this band-limited space is \emph{infinite-dimensional}. Proposition~\ref{prop:Galerkin} is an analytic spectral-truncation construction, not a finite-dimensional numerical algorithm. A validated computation would also need spatial, frequency-quadrature, and time-discretization error bounds. None has been run here.
+\end{remark}
+
+\subsection{A concrete sufficient inequality for each datum and horizon}
+Define quantities determined by the global comparison:
+\begin{equation}\label{eq:ABN}
+ A_N(H)=\int_0^H\norm{v_N(t)}_6^4\dd t,\quad
+ B_N(H)=\int_0^H\norm{F_N(t)}_3^2\dd t,\quad
+ d_N=\norm{(I-J_N)u_0}_3.
+\end{equation}
+Each is finite for fixed $N,H$. Introduce
+\begin{equation}\label{eq:CN}
+ \mathfrak C_N(\nu,u_0,H)=
+ e^{\frac{2\cb}{3\nu^3}A_N(H)}
+ \left[3^{-2/3}d_N^2+\frac4{3^{2/3}\nu}B_N(H)\right].
+\end{equation}
+
+\begin{corollary}[One successful index suffices]\label{cor:index}
+If there exists an integer $N\ge1$ such that
+\begin{equation}\label{eq:indexcertificate}
+ \mathfrak C_N(\nu,u_0,H)<\rstar^2\nu^2,
+\end{equation}
+then $T_*>H$ for the original Navier--Stokes solution with datum $u_0$.
+\end{corollary}
+\begin{proof}
+Use $v_N,F_N$ in Theorem~\ref{thm:certificate}. At time zero the error is $(I-J_N)u_0$, and Lemma~\ref{lem:basic} gives $Q_0^{2/3}\le3^{-2/3}d_N^2$. Thus $\overline Z_H^{\,2}\le\mathfrak C_N$, and \eqref{eq:indexcertificate} supplies the required strict inequality.
+\end{proof}
+
+\subsection{Eventual certification is proved only in the regular case}
+\begin{theorem}[Conditional completeness of the hierarchy]\label{thm:complete}
+If the original solution has $T_*>H$, then
+\begin{equation}\label{eq:CNzero}
+ \mathfrak C_N(\nu,u_0,H)\longrightarrow0\qquad(N\to\infty).
+\end{equation}
+Consequently, for the selected classical branch and every fixed $H$,
+\begin{equation}\label{eq:equiv}
+ T_*>H\quad\Longleftrightarrow\quad
+ \exists N\ge1:\ \mathfrak C_N(\nu,u_0,H)<\rstar^2\nu^2.
+\end{equation}
+\end{theorem}
+\begin{proof}
+We prove the nontrivial direction without assuming convergence of approximations at a possible singular endpoint.
+
+\emph{Step 1: high-regularity consistency.}
+Fix an integer $m\ge3$. On $[0,H]$ the assumed exact solution has finite norms
+$U_j=\sup_{t\le H}\norm{u(t)}_{H^j}$ for every $j$. The Sobolev product estimate gives
+\begin{equation}\label{eq:product}
+ \norm{(a\cdot\nabla)a-(b\cdot\nabla)b}_{H^{m-1}}
+ \le C_m(\norm a_{H^m}+\norm b_{H^m})\norm{a-b}_{H^m}.
+\end{equation}
+One elementary derivation uses that $H^{m-1}$ is an algebra: in Fourier variables the weighted transform of a product is bounded by the convolution of one weighted transform with an unweighted one, in both orders. Young's convolution inequality and
+$\norm{\widehat f}_1\le C\norm f_{H^{m-1}}$ for $m-1>3/2$ prove that algebra estimate. Apply it to $(a-b)\cdot\nabla a+b\cdot\nabla(a-b)$ to obtain \eqref{eq:product}.
+
+Put $a_N=J_Nu$, $h_N=v_N-a_N$, and $\theta_N=(I-J_N)u$. Then $h_N(0)=0$ and
+\begin{equation}\label{eq:hPDE}
+ (h_N)_t-\nu\Delta h_N
+ =-J_N\PP\bigl((v_N\cdot\nabla)v_N-(u\cdot\nabla)u\bigr).
+\end{equation}
+For any integer $k\ge1$, Fourier support of the tail gives
+\begin{equation}\label{eq:tail}
+ \sup_{t\le H}\norm{\theta_N(t)}_{H^m}\le N^{-k}U_{m+k}.
+\end{equation}
+Indeed outside the cube $|\xi|\ge N$, and $(1+|\xi|^2)^{-k/2}\le N^{-k}$.
+
+\emph{Step 2: an explicit bootstrap convergence estimate.}
+Let $W=\norm{h_N}_{H^m}^2$ and $X=\norm{\nabla h_N}_{H^m}^2$. While $W\le1$, one has $\norm{v_N}_{H^m}\le U_m+1$. Let $B=C_m(2U_m+1)$, increasing the fixed product constant if necessary. Pairing \eqref{eq:hPDE} in $H^m$, using \eqref{eq:product}, and using $\norm{h_N}_{H^{m+1}}^2=X+W$, gives
+\[
+ \frac12W'+\nu X
+ \le B\bigl(\sqrt W+\norm{\theta_N}_{H^m}\bigr)\sqrt{X+W}
+ \le\frac\nu2(X+W)+\frac{B^2}{\nu}
+       \bigl(W+\norm{\theta_N}_{H^m}^2\bigr).
+\]
+Thus, with $A=\nu+2B^2/\nu$,
+\begin{equation}\label{eq:convergence}
+ W(t)\le\frac{2B^2H}{\nu}e^{AH}N^{-2k}U_{m+k}^2
+ \qquad(0\le t\le H)
+\end{equation}
+as long as $W\le1$. For sufficiently large $N$ the right side is less than $1/2$, so a first-exit argument closes the bootstrap on $[0,H]$. This proves $v_N\to u$ in $C([0,H];H^m)$.
+
+\emph{Step 3: convergence in the actual certificate norms.}
+It follows that $v_N\to u$ in $C([0,H];L^6)$, so
+\[
+ A_N(H)\longrightarrow\int_0^H\norm{u(t)}_6^4\dd t<\infty.
+\]
+Using the uniform $L^3$ bound for $I-J_N$,
+\begin{align*}
+ \norm{F_N(t)}_3
+ &\le(1+B_3)\norm{v_N(t)\otimes v_N(t)-u(t)\otimes u(t)}_3\\
+ &\quad+\norm{(I-J_N)(u(t)\otimes u(t))}_3.
+\end{align*}
+The first term tends uniformly to zero by the $L^6$ convergence. The second does too: $t\mapsto u(t)\otimes u(t)$ has compact image in $L^3$, and uniformly bounded operators that converge strongly to zero converge uniformly on a compact set. To verify the latter assertion, cover the compact set by finitely many small balls and use convergence at their centers. Hence $B_N(H)\to0$. Finally $d_N\to0$ by \eqref{eq:Jbounds}. Insert these three facts into \eqref{eq:CN} to obtain \eqref{eq:CNzero}. The converse in \eqref{eq:equiv} is Corollary~\ref{cor:index}.
+\end{proof}
+
+\begin{remark}[No hidden termination theorem for arbitrary inputs]
+The quantities $U_m,U_{m+k}$ in \eqref{eq:convergence} belong to the \emph{assumed regular exact solution}. They are legitimate in the conditional completeness theorem, but cannot be used to select $N$ before establishing regularity. Existence of a successful index is equivalent to continuation, not an already proved weaker hypothesis. No unconditional finite search bound follows from this argument.
+\end{remark}
+
+\section{Attempting the missing estimate from unconditional energy}
+\label{sec:gap}
+The hierarchy supplies global smooth comparisons and an explicit residual for every input. The remaining question is not existence of those comparisons. It is the single quantified inequality
+\begin{equation}\label{eq:missing}
+ \boxed{\ \forall\nu>0\ \forall u_0\in\Sch\ \forall\,0<H<\infty\
+ \exists N\ge1:\ \mathfrak C_N(\nu,u_0,H)<\rstar^2\nu^2.\ }
+\end{equation}
+Corollary~\ref{cor:index} proves the complete positive suffix from this statement to the original target. This section tests the strongest immediate energy-level route to \eqref{eq:missing}.
+
+\subsection{A genuine small full-vector residual in a weaker norm}
+\begin{proposition}[Unconditional energy-level residual convergence]\label{prop:weakresidual}
+For every $s>1$, every finite $H$, and every $N\ge1$,
+\begin{equation}\label{eq:weakresidual}
+ \norm{R_{v_N}}_{L^{4/3}(0,H;\dot H^{-s})}
+ \le N^{1-s}S^{3/2}E_0^{1/4}
+       \left(\frac{E_0}{2\nu}\right)^{3/4}.
+\end{equation}
+The right side tends to zero without a continuation norm.
+\end{proposition}
+\begin{proof}
+At each nonzero frequency the tensor-to-vector multiplier $\PP\diver$ has norm at most $|\xi|$. The residual is supported outside $[-N,N]^3$, where $|\xi|\ge N$. Plancherel gives
+\[
+ \norm{R_{v_N}(t)}_{\dot H^{-s}}
+ \le N^{1-s}\norm{v_N(t)\otimes v_N(t)}_2
+ =N^{1-s}\norm{v_N(t)}_4^2.
+\]
+There is no low-frequency ambiguity in the homogeneous norm because this residual vanishes on the cube. Interpolation and Sobolev give, with $Y_N=\norm{\nabla v_N}_2^2$,
+\[
+ \norm{v_N}_4^2\le\norm{v_N}_2^{1/2}\norm{v_N}_6^{3/2}
+ \le S^{3/2}E_0^{1/4}Y_N^{3/4}.
+\]
+The $L^{4/3}$ time norm of $Y_N^{3/4}$ is $(\int_0^H Y_N)^{3/4}$, bounded by $(E_0/(2\nu))^{3/4}$ from \eqref{eq:Genergy}. This proves \eqref{eq:weakresidual}.
+\end{proof}
+
+This is full-equation residual convergence, not merely scalar energy consistency. Its topology is nevertheless too weak to insert into \eqref{eq:stressbound} or Corollary~\ref{cor:direct}. In particular it does not bound $B_N(H)$ in \eqref{eq:ABN}.
+
+\subsection{What the same energy estimate gives in the needed norms}
+Band limitation yields $Y_N(t)\le3N^2E_0$. Consequently
+\begin{equation}\label{eq:crudeA}
+ A_N(H)\le S^4\int_0^H Y_N(t)^2\dd t
+ \le\frac{3S^4}{2\nu}N^2E_0^2.
+\end{equation}
+Uniform $L^3$ boundedness of $I-J_N$ also gives
+\begin{equation}\label{eq:crudeB}
+ B_N(H)\le(1+B_3)^2A_N(H).
+\end{equation}
+These estimates are finite for each $N$ but grow with $N$. They do not drive either the exponential stability cost or its residual factor to zero. In contrast $d_N\to0$ is unconditional, and even faster than any power for Schwartz data. The unclosed part is the joint behavior of
+\begin{equation}\label{eq:missingpair}
+ \exp\!\left(\frac{2\cb}{3\nu^3}A_N(H)\right)B_N(H)
+ \quad\hbox{and}\quad
+ \exp\!\left(\frac{2\cb}{3\nu^3}A_N(H)\right)d_N^2.
+\end{equation}
+Polynomial or rapid decay of $d_N$ alone does not control an unbounded exponential factor. Neither \eqref{eq:weakresidual} nor \eqref{eq:crudeA}--\eqref{eq:crudeB} proves \eqref{eq:missing}.
+
+\subsection{A further consequence for a hypothetical singular input}
+\begin{corollary}[Quantitative necessary failure of every certificate]\label{cor:necessary}
+If a given original solution has $T_*\le H$, then every $N\ge1$ obeys
+\begin{equation}\label{eq:necessary}
+ d_N^2+\frac4\nu B_N(H)
+ \ge 3^{2/3}\rstar^2\nu^2
+    \exp\!\left(-\frac{2\cb}{3\nu^3}A_N(H)\right).
+\end{equation}
+Moreover along no subsequence can both $A_N(H)$ remain bounded and $B_N(H)$ tend to zero.
+\end{corollary}
+\begin{proof}
+Failure of the strict sufficient inequality in Corollary~\ref{cor:index} gives \eqref{eq:necessary} after multiplying out \eqref{eq:CN}. If $A_N$ were bounded and $B_N\to0$ on a subsequence, then $d_N\to0$ would imply $\mathfrak C_N\to0$, contradicting that failure.
+\end{proof}
+This is a genuine dichotomy supplied by the full-equation argument. It is not a proof that the alternative behavior is impossible. Replacing \eqref{eq:missing} by the assertion that one of the two unfavorable behaviors cannot occur would require an additional estimate.
+
+\section{A concentration test for the residual topology}
+\label{sec:concentration}
+The previous section produced a genuinely small residual, but in a weak norm. The following construction proves that an upgrade from energy-level residual control to either of the critical residual hypotheses cannot be a general functional inequality. It is a curve of actual smooth spatial fields, not a singular Navier--Stokes solution.
+
+\begin{theorem}[Exact energy balance does not control the critical residual]\label{thm:concentration}
+Let $W\in\Sch$ be nonzero, set $E_W=\norm W_2^2$, $Y_W=\norm{\nabla W}_2^2$, and define
+\begin{equation}\label{eq:conccurve}
+ T=\frac{E_W}{4\nu Y_W}>0,\qquad
+ \lambda(t)=(1-t/T)^{-1/2},\qquad
+ v(t,x)=\lambda(t)W(\lambda(t)x),\quad 0\le t<T.
+\end{equation}
+Then $v$ is solenoidal and smooth on every compact subinterval, belongs to the energy class, and obeys the exact unforced scalar energy identity
+\begin{equation}\label{eq:conce}
+ \norm{v(t)}_2^2+2\nu\int_0^t\norm{\nabla v(s)}_2^2\dd s=E_W.
+\end{equation}
+Its full projected residual is nonzero and belongs to $L^{4/3}(0,T;\dot H^{-1})$. Nevertheless
+\begin{equation}\label{eq:concstrong}
+ \int_0^T\norm{R_v(t)}_3\dd t=\infty,
+ \qquad \int_0^T\norm{R_v(t)}_{3/2}^2\dd t=\infty.
+\end{equation}
+Furthermore \emph{every} measurable stress representation $R_v=\PP\diver F$ with $F(t)\in L^3$ almost everywhere satisfies
+\begin{equation}\label{eq:concstress}
+ \int_0^T\norm{F(t)}_3^2\dd t=\infty.
+\end{equation}
+Both $\norm{v(t)}_3$ and the actual variational distance $\norm{q(v(t))}_3$ are constant.
+\end{theorem}
+\begin{proof}
+\emph{Energy and regularity.}
+A nonzero Schwartz field has $E_W,Y_W>0$. Direct changes of variables give
+\[
+ \norm v_2^2=\lambda^{-1}E_W,\qquad
+ \norm{\nabla v}_2^2=\lambda Y_W,\qquad \lambda'=\frac{\lambda^3}{2T}.
+\]
+Thus the derivative of the first norm is $-E_W\lambda/(2T)=-2\nu Y_W\lambda$, which proves \eqref{eq:conce}. Also $\int_0^T\lambda(t)\dd t=2T$, so the full energy-class bounds hold. Critical dilation preserves $\G$ and its minimization problem, giving
+$w(v(t))(x)=\lambda w(W)(\lambda x)$ and the analogous formula for $q$. This proves the two constant-norm assertions.
+
+\emph{The full equation defect.}
+Put $\Lambda W=W+(x\cdot\nabla)W$ and
+\begin{equation}\label{eq:profileR}
+ \mathcal R_W=\frac1{2T}\Lambda W
+              +\PP((W\cdot\nabla)W)-\nu\Delta W.
+\end{equation}
+The Leray projection is homogeneous of degree zero, so
+\begin{equation}\label{eq:scaledR}
+ R_v(t,x)=\lambda(t)^3\mathcal R_W(\lambda(t)x).
+\end{equation}
+The field $\mathcal R_W$ is solenoidal and belongs to $L^3\cap L^{3/2}\cap\dot H^{-1}$. For the last claim, the two Schwartz terms are in $\dot H^{-1}$ in three dimensions; for the nonlinear term use
+$\norm{\PP\diver(W\otimes W)}_{\dot H^{-1}}\le\norm{W\otimes W}_2$.
+
+It cannot be zero. Otherwise $v$ would solve the original projected equation on $[0,T)$ with Schwartz initial datum $W$ and would be the selected classical branch by local uniqueness. Its constant finite $L^3$ norm would imply continuation beyond $T$ by \eqref{eq:endpoint}, contradicting $\norm{\nabla v(t)}_2^2=\lambda(t)Y_W\to\infty$. This uses the established endpoint theorem, not arbitrary-data regularity.
+
+\emph{Different time integrabilities of the same nonzero residual.}
+Scaling gives
+\[
+ \norm{R_v(t)}_3=\lambda^2\norm{\mathcal R_W}_3,\qquad
+ \norm{R_v(t)}_{3/2}=\lambda\norm{\mathcal R_W}_{3/2},\qquad
+ \norm{R_v(t)}_{\dot H^{-1}}=\lambda^{1/2}\norm{\mathcal R_W}_{\dot H^{-1}}.
+\]
+Since
+\begin{equation}\label{eq:lambdaints}
+ \int_0^\tau\lambda^2\dd t=T\log\frac{T}{T-\tau}\longrightarrow\infty,
+ \qquad \int_0^T\lambda^{2/3}\dd t=\frac{3T}{2},
+\end{equation}
+we obtain \eqref{eq:concstrong} and the finite quantitative bound
+\begin{equation}\label{eq:concweak}
+ \norm{R_v}_{L^{4/3}(0,T;\dot H^{-1})}^{4/3}
+ =\frac{3T}{2}\norm{\mathcal R_W}_{\dot H^{-1}}^{4/3}.
+\end{equation}
+The same reasoning shows $v_t\in L^{4/3}(0,T;\dot H^{-1})$.
+
+\emph{No choice of stress representation repairs the critical time norm.}
+Choose a real $\psi\in C_c^\infty(\R^3;\R^3)$ with $c=\ip{\mathcal R_W}{\psi}\ne0$. Set $\varphi=\PP\psi$. Boundedness of $\PP$ and its commutation with derivatives give $\varphi\in W^{1,3/2}$, and $\diver\varphi=0$. Duality and solenoidality of $\mathcal R_W$ give $\ip{\mathcal R_W}{\varphi}=c$. In particular $\norm{\nabla\varphi}_{3/2}>0$.
+
+At a time admitting an $L^3$ stress, test with $\varphi_\lambda(x)=\varphi(\lambda x)$. The distributional pairing extends to this test by $W^{1,3/2}$ density, since $R_v\in L^3$ and $F\in L^3$. Therefore
+\[
+ |c|=|\ip{R_v}{\varphi_\lambda}|
+ =\left|\int F:\nabla\varphi_\lambda\dd x\right|
+ \le\norm F_3\lambda^{-1}\norm{\nabla\varphi}_{3/2}.
+\]
+Consequently $\norm{F(t)}_3\ge |c|\lambda(t)/\norm{\nabla\varphi}_{3/2}$. Squaring and applying \eqref{eq:lambdaints} proves \eqref{eq:concstress} for every such representation.
+\end{proof}
+
+\begin{corollary}[Arbitrarily small energy-level residual is still insufficient]\label{cor:weaksmall}
+Rescale the entire comparison curve by
+$v_\kappa(t,x)=\kappa v(\kappa^2t,\kappa x)$ on $[0,T/\kappa^2)$. Then
+\begin{equation}\label{eq:weakscale}
+ \norm{R_{v_\kappa}}_{L^{4/3}_t\dot H^{-1}_x}
+ =\kappa^{-1}\norm{R_v}_{L^{4/3}_t\dot H^{-1}_x}\longrightarrow0,
+\end{equation}
+whereas each critical residual integral in \eqref{eq:concstrong}--\eqref{eq:concstress} remains infinite. The exact energy identity persists and the initial $L^3$ norm is unchanged.
+\end{corollary}
+\begin{proof}
+The residual has amplitude factor $\kappa^3$. Its spatial $\dot H^{-1}$ norm therefore scales by $\kappa^{1/2}$; the $L^{4/3}$ time norm contributes $\kappa^{-3/2}$. This proves \eqref{eq:weakscale}. The critical norms are invariant, and the energy identity scales homogeneously. The stress assertion can also be obtained directly by applying the test in the preceding proof to $v_\kappa$.
+\end{proof}
+
+\begin{remark}[Exact scope of this obstruction]
+These are not solutions of the unforced Navier--Stokes equation: their nonzero $R_v$ is displayed and proved nonzero. They do not disprove Theorem~\ref{thm:certificate}; its comparison $L^4_tL^6_x$ norm also diverges at $T$ here. They prove a precise failure of a proposed \emph{norm upgrade}: energy-class control, its usual negative-Sobolev time regularity, exact scalar energy balance, and constant scalar variational distance do not imply the critical residual integrability required by the certificate. They are not claimed to satisfy every scalar identity of HF26's more specially tuned curve. This proof does not depend on that unaudited seed construction.
+\end{remark}
+
+\section{Completion boundary and what the next proof must establish}
+\label{sec:boundary}
+The continuation has supplied an exact error identity, a critical residual theorem with explicit constants, a fully proved oscillatory data class, global smooth comparisons for every datum, and a necessary-and-sufficient certification hierarchy. It has also proved a full-vector residual estimate from energy and a rigorous obstruction to replacing the needed critical residual norm by an energy-level norm.
+
+The decisive implication still missing is \eqref{eq:missing}. In the hierarchy used here that means controlling the products in \eqref{eq:missingpair} without using any norm of an already continued exact solution. The high-regularity convergence proof cannot be recycled as such a control: its $U_m$ is explicitly unavailable at a hypothetical singular endpoint.
+
+A different comparison construction could succeed where the present estimates do not. The general theorem only needs one admissible pair $(v,F)$ satisfying \eqref{eq:certsmall}; it does not require a spectral approximation. Conversely, writing ``choose an accurate enough comparison'' without estimating its critical residual and its stability cost would merely assume the desired conclusion. No such selection is proved here for arbitrary input.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{91mm}>{\raggedright\arraybackslash}p{63mm}@{}}\toprule
+Statement & Status in this note\\\midrule
+Local classical branch and endpoint continuation & Explicitly imported from the manuscript and its literature dependencies.\\[3pt]
+Unweighted div--curl regularity of the minimizer & Explicitly imported audited project lemma.\\[3pt]
+Weighted spatial dissipation, relative identity, critical certificate & Detailed proofs supplied; self-checked candidates.\\[3pt]
+Global regularity for the explicit oscillatory family & Proved using the certificate and imported endpoint theorem; restricted data class.\\[3pt]
+Global spectral comparisons and conditional eventual certification & Detailed proofs supplied; not a finite-dimensional validated computation.\\[3pt]
+Arbitrary-data successful index or comparison & Not proved: equation \eqref{eq:missing}.\\[3pt]
+Full NS-R3 / Clay alternative A for every datum & Not established by this continuation.\\\bottomrule
+\end{tabular}
+\end{center}
+The source-to-proof boundary is therefore visible. The full target is not asserted to be solved, no graph node is promoted, and no claim is made that the new criterion is logically weaker than regularity at the existential level. The usable deliverable is the proved conditional machinery and its explicit unresolved producer, not a renamed assertion of arbitrary-data regularity.
+
+\appendix
+\section{A full weighted-dissipation reconstruction}
+\label{app:weighted}
+This appendix proves Proposition~\ref{prop:weighted}, assuming only the explicitly imported unweighted Lemma~\ref{lem:import} and the standard analytic foundations.
+
+\subsection{A two-point comparison that controls all limit passages}
+For $V(z)=|z|^{1/2}z$ and $j(z)=|z|z$ one has
+\begin{equation}\label{eq:Vcomparison}
+ \frac89|V(a)-V(b)|^2
+ \le(j(a)-j(b))\cdot(a-b)
+ \le2|V(a)-V(b)|^2.
+\end{equation}
+Here is an elementary proof. Write $r=|a|$, $s=|b|$, and $c$ for the cosine of their angle, with zero cases obtained by continuity. Both sides are affine functions of $c$, so it is enough to check $c=1,-1$. At $c=1$ the middle quantity is $(r+s)(r-s)^2$, and the $V$ quantity is $(r^{3/2}-s^{3/2})^2$. For $r\ge s$, Cauchy--Schwarz gives
+\[
+ (r^{3/2}-s^{3/2})^2
+ =\left(\frac32\int_s^r t^{1/2}\dd t\right)^2
+ \le\frac98(r+s)(r-s)^2.
+\]
+Also $r^{3/2}-s^{3/2}\ge\sqrt r(r-s)$, which yields the upper bound because $r+s\le2r$. At $c=-1$ the middle quantity is $(r+s)(r^2+s^2)$, while the $V$ quantity is $(r^{3/2}+s^{3/2})^2$. The former is at least the latter by $r+s\ge2\sqrt{rs}$ and at most twice the latter by $rs(r+s)\le r^3+s^3$. This proves \eqref{eq:Vcomparison}.
+
+\subsection{Finite difference identities and uniform bounds}
+Fix a coordinate direction and write $\delta_h f=(f(\cdot+he_k)-f)/h$. Translation invariance of $\G$ implies that $\delta_hA$ annihilates $\G$, and $\delta_hq\in\G$. Hence
+\begin{equation}\label{eq:finiteidentity}
+ M_h:=\int\delta_hA\cdot\delta_hw\dd x
+     =\int\delta_hA\cdot\delta_ha\dd x.
+\end{equation}
+Every pairing is absolutely convergent for $h\ne0$ because $A\in L^{3/2}$ and $w,a,q\in L^3$. Put
+\[
+ W_h=\int(|w(\cdot+he_k)|+|w|)|\delta_hw|^2\dd x,\qquad
+ I_h=\int(|w(\cdot+he_k)|+|w|)|\delta_ha|^2\dd x.
+\]
+The monotonicity identity used in Lemma~\ref{lem:basic} and the Lipschitz bound for $j$ give
+\begin{equation}\label{eq:MhWh}
+ \tfrac12W_h\le M_h\le W_h^{1/2}I_h^{1/2},\qquad
+ I_h\le2\norm w_3\norm{\partial_ka}_3^2.
+\end{equation}
+Thus $W_h\le4I_h$ and $M_h\le2I_h$. The left inequality in \eqref{eq:Vcomparison} yields
+\[
+ \norm{\delta_hV}_2^2\le\tfrac98M_h
+ \le\tfrac92\norm w_3\norm{\partial_ka}_3^2.
+\]
+Since $V\in L^2$, the difference-quotient characterization of $H^1$ proves $V\in H^1$.
+
+The imported unweighted lemma supplies $w\in W^{1,2}_{\rm loc}$. Take a sequence of difference quotients converging almost everywhere to $\partial_kw$ on compact sets, with translated $w$ also converging almost everywhere. Fatou and \eqref{eq:MhWh} give
+\begin{equation}\label{eq:weightedgrad}
+ \int|w||\partial_kw|^2\dd x
+ \le4\norm w_3\norm{\partial_ka}_3^2<\infty.
+\end{equation}
+This estimate also bounds $\int\rho|\partial_k\rho|^2$ since $|\partial_k\rho|\le|\partial_kw|$.
+
+\subsection{Chain rules and identification of the limit}
+The chain rule, first after truncating the field and then passing to the limit using \eqref{eq:weightedgrad}, gives on $\{\rho>0\}$
+\begin{align}
+ \partial_kV&=\rho^{1/2}\left(\partial_kw+\tfrac12\frac w\rho\partial_k\rho\right),\label{eq:chainV}\\
+ \partial_kA&=\rho\partial_kw+w\partial_k\rho.\label{eq:chainA}
+\end{align}
+On the zero set the corresponding weak derivatives have the zero-set values of these formulas. In particular
+\[
+ \norm{\partial_kA}_{3/2}
+ \le2\norm w_3^{1/2}\left(\int\rho|\partial_kw|^2\dd x\right)^{1/2}<\infty,
+\]
+so $A\in W^{1,3/2}$. Squaring \eqref{eq:chainV} gives
+\begin{align}
+ |\partial_kV|^2&=\rho|\partial_kw|^2+\tfrac54\rho|\partial_k\rho|^2,\label{eq:chainVsquared}\\
+ |\partial_k|V||^2&=\tfrac94\rho|\partial_k\rho|^2,\label{eq:chainr}\\
+ \partial_kA\cdot\partial_kw&=\rho\bigl(|\partial_kw|^2+|\partial_k\rho|^2\bigr).\label{eq:chainAdot}
+\end{align}
+
+The right side of \eqref{eq:finiteidentity} converges to $\int\partial_kA\cdot\partial_ka$ because difference quotients converge strongly in $L^{3/2}$ and $L^3$ respectively. For its left side, \eqref{eq:Vcomparison} gives
+\[
+ 0\le\delta_hA\cdot\delta_hw\le2|\delta_hV|^2.
+\]
+As $V\in H^1$, the majorants on the right converge in $L^1$ to $2|\partial_kV|^2$. Along any subsequence one can take a further subsequence with almost-everywhere convergence of both difference quotients on compact sets. The integrand then converges to \eqref{eq:chainAdot}. Generalized dominated convergence (equivalently, uniform integrability together with the $L^1$ convergence of the majorants, including their tails) proves convergence of its integral. Thus
+\[
+ \int\rho\bigl(|\partial_kw|^2+|\partial_k\rho|^2\bigr)\dd x
+ =\int\partial_kA\cdot\partial_ka\dd x.
+\]
+Sum over $k$ and integrate by parts against $a\in W^{2,3}$ to obtain the first identity in \eqref{eq:Didentity}. Subtracting one ninth of \eqref{eq:chainr} from \eqref{eq:chainVsquared}, then summing and integrating, gives its second identity. Finally $|\nabla|V||\le|\nabla V|$ gives the coercive inequality. This proves Proposition~\ref{prop:weighted} without differentiating $w$ in time or asserting $w\in L^2$.
+
+\section{Checks, exclusions, and handoff information}
+\label{app:checks}
+The decisive constant checks are
+\[
+ (4/3)\sqrt{9/8}=\sqrt2,\quad
+ b^4=12a_0(1+2C_{9/2})^4,\quad
+ \frac{27b^4}{256(\nu/4)^3}=\cb\nu^{-3},
+\]
+\[
+ \frac23\frac{2\,3^{1/3}}\nu=\frac4{3^{2/3}\nu},\qquad
+ 1-\frac36-\frac24=0,\qquad 2-\frac33-\frac22=0.
+\]
+The source package includes a small symbolic script checking these identities and the concentration exponents. These checks are arithmetic checks, not proof verification.
+
+Several potential false bridges have been avoided explicitly. The weighted norm of a time derivative is never substituted for an unweighted $L^3$ derivative. A small exceptional time set is never assigned a small dissipation integral. A sharp cube, not an unjustified $L^p$ ball projection, is used. The $\R^3$ spectral space is not called finite-dimensional. The conditional convergence constants of Theorem~\ref{thm:complete} are not used in the arbitrary-data claim. The concentrating curve is never called an unforced solution. The source reference to the missing attachment is not represented as an inspected upload.
+
+An independent audit should first recompute \eqref{eq:relative}, the cross-term coefficient in \eqref{eq:crossbound}, the limit passage in Appendix~\ref{app:weighted}, and the stress lower bound in Theorem~\ref{thm:concentration}. It should then check the first-exit argument including $Q=0$, the high-regularity consistency estimate \eqref{eq:convergence}, and the exact quantifiers in \eqref{eq:equiv} and \eqref{eq:missing}. There is no local Lean build, kernel replay, or independent mathematical review behind this note.
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{References and pinned sources}
+\bibitem{Clay} C. Fefferman, \emph{Existence and Smoothness of the Navier--Stokes Equation}, official Clay Mathematics Institute problem statement, alternative A. Directly inspected in this session.\newline
+\url{https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf}
+
+\bibitem{Tao} T. Tao, \emph{Localisation and compactness properties of the Navier--Stokes global regularity problem}, arXiv:1108.1165. Theorem 5.4, Corollary 5.8, and Remark 5.9 located in the primary preprint during this session; the manuscript's stronger regularity package remains an imported project result.\newline
+\url{https://arxiv.org/abs/1108.1165}
+
+\bibitem{ESS} L. Escauriaza, G. Seregin and V. \v Sver\'ak, \emph{$L^{3,\infty}$-solutions to the Navier--Stokes equations and backward uniqueness}, Russian Mathematical Surveys 58 (2003), 211--250. Endpoint dependence is used through the inspected manuscript. The attempted primary PDF fetch timed out.\newline
+\url{https://www.pdmi.ras.ru/~seregin/Recent%20Publications/engESS3.pdf}
+
+\bibitem{CCRT} S. I. Chernyshenko, P. Constantin, J. C. Robinson and E. S. Titi, \emph{A posteriori regularity of the three-dimensional Navier--Stokes equations from numerical computations}, Journal of Mathematical Physics 48 (2007), 065204. DOI: 10.1063/1.2372512. Primary preprint inspected, including the periodic setting and the conditional verification discussion.\newline
+\url{https://arxiv.org/abs/math/0607181}
+
+\bibitem{CG} J.-Y. Chemin and I. Gallagher, \emph{On the global wellposedness of the 3-D Navier--Stokes equations with large initial data}, arXiv:math/0508374. Prior-art pointer for large oscillatory data; not a theorem imported into the present proof.\newline
+\url{https://arxiv.org/abs/math/0508374}
+
+\bibitem{Stein} E. M. Stein, \emph{Singular Integrals and Differentiability Properties of Functions}, Princeton University Press, 1970. Standard unweighted multiplier and Sobolev foundations; not newly audited here.
+
+\bibitem{Brezis} H. Brezis, \emph{Functional Analysis, Sobolev Spaces and Partial Differential Equations}, Springer, 2011. Standard reflexivity, approximation and Sobolev foundations; not newly audited here.
+
+\bibitem{Research} \repo{itpplasma/navier}, \path{PLAN.md} and \path{docs/proof-graph.yaml}, at the pinned revision in Section~\ref{sec:scope}. Private project source, freshly read.\newline
+\url{https://github.com/itpplasma/navier/blob/cb3b7b4e8249f8723487a9850a92352d69c4405c/PLAN.md}
+
+\bibitem{Paper} \repo{itpplasma/navier-paper}, \path{main.tex}, at the pinned revision in Section~\ref{sec:scope}. In particular the local package, continuation theorem, quotient minimizer and derivative, unweighted div--curl result, and the imported weighted dissipation record. Frontier-focused reads; not a full manuscript reaudit.\newline
+\url{https://github.com/itpplasma/navier-paper/blob/c435bee70d28607f57290fa4c75490b63cb504a7/main.tex}
+
+\bibitem{Audit} \repo{itpplasma/navier}, \path{research/evidence/hf25-review-defect-criterion.md}, Scope B audit of the weighted dissipation and divergence-defect criterion. Private project record, freshly read; its PASS is the repository's audit status, not an audit conducted by this note's author.\newline
+\url{https://github.com/itpplasma/navier/blob/cb3b7b4e8249f8723487a9850a92352d69c4405c/research/evidence/hf25-review-defect-criterion.md}
+
+\bibitem{HF26} \repo{itpplasma/navier}, \path{research/evidence/hf26-temporal-continuation.md} and the corresponding \path{.tex}. Imported unaudited candidate. The temporal-residual discussion and weighted-response material were inspected; none of its unaudited time-derivative theorems is required for the new certificate.\newline
+\url{https://github.com/itpplasma/navier/blob/cb3b7b4e8249f8723487a9850a92352d69c4405c/research/evidence/hf26-temporal-continuation.tex}
+
+\bibitem{Formal} \repo{itpplasma/navier-formal}, \path{docs/verification-status.md}, at the pinned revision in Section~\ref{sec:scope}. Supporting checked declarations and statement surfaces; no proved arbitrary-data critical bound.\newline
+\url{https://github.com/itpplasma/navier-formal/blob/54f8e89119e90399044bae8dcd404dc405a381f9/docs/verification-status.md}
+\end{thebibliography}
+\end{document}

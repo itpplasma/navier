@@ -121,9 +121,13 @@ of exact forms whose nonlinear expression is coclosed".
   \(2Q\rho'(Q)/\rho(Q)\) gives a unique global solution of the nonlinear heat
   flow which converges to the \(\rho\)-harmonic form in the cohomology class of
   the initial datum.
-- **"The heat flow in nonlinear Hodge theory under general growth", J.
-  Differential Equations 421 (2025) 264–290** (DOI
-  10.1016/j.jde.2024.10.024, S0022039624006284). **[MO]** — indexed abstract:
+- **C. Hamburger, "The heat flow in nonlinear Hodge theory under general
+  growth", J. Differential Equations 416 (2025) 531–575** (DOI
+  10.1016/j.jde.2024.09.043). **[MO]** **Corrected 2026-09-06.** This entry
+  previously gave volume 421, pages 264–290 and DOI 10.1016/j.jde.2024.10.024,
+  and left the authorship unverified; the HF26 prior-art lane resolved both
+  against Crossref (`hf26-prior-art-projection-differentiability.md`). The
+  earlier reference was recorded from an index without verification. — indexed abstract:
   a nonlinear Hodge theorem proved by the heat-flow method for densities
   \(\rho\) of *unrestricted polynomial growth*; every cohomology class has a
   unique \(\rho\)-harmonic representative.  Authorship not verified in this
@@ -345,7 +349,7 @@ Lemma 6.1** [DI, `hf01-source-table.md`], the \(p=4\) weighted identity
 | Programme object | Status | Earliest verified reference |
 |---|---|---|
 | (Q)(W) coset minimization, unique minimizer, nonlinear coclosedness | **known mechanism**, under strictly stronger hypotheses (closed datum, bounded density) | Sibner–Sibner, Acta Math. 125 (1970) 57–73, §1.3/§3.2/§4 **[DI]** |
-| (Q)(W) with \(p\)-growth, closed forms | **known** | Scott 1995 / Iwaniec–Scott–Stroffolini 1999 **[MO]**; Stern arXiv:2403.19481 Thm 2.9 **[DI]**; JDE 421 (2025) 264–290 for unrestricted polynomial growth **[MO]** |
+| (Q)(W) with \(p\)-growth, closed forms | **known** | Scott 1995 / Iwaniec–Scott–Stroffolini 1999 **[MO]**; Stern arXiv:2403.19481 Thm 2.9 **[DI]**; Hamburger, JDE 416 (2025) 531–575 for unrestricted polynomial growth **[MO]** |
 | (Q)(W) with **prescribed nonzero curl** at \(p=3\) | **unlocated** (not a novelty claim) | — |
 | (C) coercivity / quotient norm equivalent to \(\|u\|_3\) | **known** | Fujiwara–Morimoto 1977 **[MO]**; Riesz transforms, classical |
 | (S) scaling invariance | **known/routine** | criticality of \(L^3\), Kato 1984 **[MO]** |
@@ -398,7 +402,7 @@ arXiv:2511.03896 [DI]; Numdam front matter for Cannone–Planchon [DI];
 remaining entries [MO] as tagged.
 
 FIRST GAP (for this lane): MathSciNet/zbMATH full-record search and the two
-ScienceDirect papers (Hamburger 2005; JDE 421 (2025)) were not reachable
+ScienceDirect papers (Hamburger 2005; Hamburger, JDE 416 (2025)) were not reachable
 without authentication.  Their bodies could confirm or refute whether the
 general-growth nonlinear Hodge theorem admits a prescribed-nonzero-\(d\omega\)
 version, which is the one bibliographic question that would materially affect
