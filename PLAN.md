@@ -3,14 +3,14 @@
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: kinetic-clay-and-scoped-newtonian-programme-2026-09-06
+phase: singularity-rigidity-strict-reduction-2026-09-07
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: select-nonmonotone-or-signed-terminal-producer-after-integrated-falsifiers
-active_architecture: none-closed-kinetic-and-stochastic-signed-output-still-unproved
+active_task: exclude-remaining-three-dimensional-fast-records-and-slow-records
+active_architecture: marked-record-one-slice-rigidity-partially-closed
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -32,8 +32,9 @@ local_velocity_entropy_status: author-checked-independent-audit-pending
 single_channel_transfer_status: author-checked-independent-audit-pending
 integrated_vorticity_entropy_status: author-checked-independent-audit-pending
 generated_covariance_sign_status: author-checked-independent-audit-pending
+one_slice_record_rigidity_status: author-checked-independent-audit-pending
 terminal_status: not-proved
-terminal_obstruction: unchanged
+terminal_obstruction: genuinely-three-dimensional-fast-records-and-slow-records-open
 formal_work_this_run: deferred
 public_release: false
 ```
@@ -69,13 +70,18 @@ realization of Hilbert VI, not an axiomatization of all physics. MIC-R3 has
 additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
-**Next substantive action:** select a trajectory-specific terminal producer
-that passes the new exclusions below. K1 can re-enter through the TRUE signed
-nonlinear remainder from KPC Section 3, not a norm-only stress response. K2
-must add more than dualizing the same L2 budget. KF must control nonmonotone
-production or use a different mechanism. None currently supplies a proved
-producer. Attack the critical output and arbitrary amplitude first; do not
-default to another representation, clock, linear-model refinement or survey.
+**Next substantive action:** continue the direct singularity/record architecture
+in Section 1.4. The one-slice rigidity lemma and its uniform late-record
+consequences now exclude a specified locally planar fast-record class. They
+do not exclude genuinely three-dimensional fast records or slow records.
+The next result must remove an actual remaining singularity possibility,
+not merely rename a critical bound or construct another observable.
+
+The kinetic sequence below is retained as a conditional alternative, not the
+default allocation. K1 can re-enter only through its TRUE signed nonlinear
+source; K2 must add more than dualizing an L2 budget; KF must supply genuinely
+controlled production. None currently has a terminal producer. Preserve every
+counterexample scope and do not default to another monotonicity screening run.
 
 The mathematical proof path is not known. This PLAN specifies what must be
 proved, what existing results can consume, and when to switch mechanisms;
@@ -204,6 +210,64 @@ progress. Do not resume a failed monotonicity or favorable-sign step under
 new terminology. Preserve all previous evidence, canonical graph nodes,
 kinetic/microscopic contracts, manuscripts and formalization.
 
+### 1.4 Strict singularity reduction: one-slice rigidity at fast records
+
+Read [the complete one-slice record-rigidity proof](research/evidence/2026-09-07-one-slice-record-rigidity.md).
+This is an author derivation using explicitly scoped established analyticity
+and two-dimensional Liouville results; independent mathematical audit and
+prior-art assessment remain pending. It is a strict geometric exclusion,
+not a proof of NS-R3 and not a new general ancient-solution classification.
+
+For the actual fixed-nu whole-space branch, take first velocity records
+Mn=2^n M0 at tn, with M0>||u0||_infinity, and any maximizing point xn. Set
+
+    ell_n=Mn^2(tn-t_(n-1))/nu,
+    U_n(y,s)=u(xn+(nu/Mn)y,tn+(nu/Mn^2)s)/Mn.
+
+A bounded subsequence ell_n<=A gives the banked unit-viscosity ancient MILD
+limit |U|<=1, |U(0,0)|=1, |U|<=1/2 for s<=-A. No global L2/L3 bound or
+spatial decay is inherited. The new one-slice theorem says that a bounded
+ancient mild NS field independent of one FIXED spatial direction on one
+open ball at one time must be one constant vector in space and time.
+Spatial analyticity propagates the local symmetry globally on that slice;
+forward uniqueness and time analyticity propagate it backwards. The planar
+horizontal velocity is eliminated by the two-dimensional ancient theorem;
+the third component is eliminated through its actual vorticity equation,
+whose stretching cancels exactly. The mild identity removes time-dependent
+constant weak flows. The two amplitude marks then give a contradiction.
+
+Compactness makes this exclusion uniform, not merely a theorem about an
+exactly symmetric tangent. For every finite A there are N_A and kappa_A>0,
+independent of the datum, nu and M0, such that every n>=N_A with ell_n<=A
+and every maximizing xn obey
+
+    min_(|e|=1) (nu Mn)^(-1)
+      integral_(B_(nu/Mn)(xn)) |partial_e u(x,tn)|^2 dx >= kappa_A.
+
+Any fixed normalized radius R>0 is allowed with constants depending on A,R.
+The proof also gives a finite K_A>=2 and a positive uniform lower bound for
+sum_(m=1)^K_A nu^(2m) Mn^(-2m-2)
+|partial_e grad^(m-1)u(xn,tn)|_F^2, minimized over e. These constants exist
+qualitatively; no numerical bounds are claimed. A FIRST-order full-rank
+claim at a speed maximum would be false and is not asserted.
+
+The finite-history adapter is proved: normalized past length is at least
+(c_rec/3)(4^n-1), and sufficiently long bounded marked histories inherit both
+gaps. Thus a finite singularity cannot have fast records whose local scaled
+directional derivative tends to zero, even with a different direction at
+each record. No global approximate planarity hypothesis is needed.
+
+**Remaining cases:** genuinely three-dimensional fast marked concentration,
+and ell_n->infinity. The latter retains only the banked running-maximum
+conclusion (Tstar-t)H(t)^2/nu->infinity. Do not substitute instantaneous
+velocity for H or silently eliminate the slow branch. Do not assume all
+blow-ups planarize or convert this directional gap into a nonsummable energy
+cost: the physical single-packet cost still scales as nu^3/Mn. The earlier
+Euler-shear, single-channel and forced-response falsifiers keep their exact
+scopes. Canonical graph nodes, kinetic/microscopic contracts, manuscripts
+and formalization are unchanged. Sections 2--5 remain gated alternatives;
+direct singularity work takes priority over their former kinetic ordering.
+
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
 Start with one hard-sphere kernel, its collision normalization fixed to nu,
@@ -249,7 +313,7 @@ An L5 spacetime estimate, or another Serrin-critical estimate with its precise
 consumer, may replace K_res. A direct contradiction to finite Tstar is also
 allowed. K_res itself remains a criterion, not terminal progress.
 
-## 3. Main research sequence: K0, K1, K2 and KF are tasks, not Lean phases
+## 3. Retained kinetic sequence: K0, K1, K2 and KF are tasks, not Lean phases
 
 ### K0 -- bounded compatibility audit
 
@@ -484,3 +548,11 @@ live exclusions/allocation here. All canonical graph nodes, previous evidence,
 contracts, manuscripts and formalization remain unchanged. This is an
 architectural falsification result, not planning-only progress and not a
 proof or strict reduction of NS-R3. Independent mathematical review is pending.
+
+
+The one-slice record-rigidity update is based on
+`f0e5b4e7caec580800285c8f40d599191e7b36f8`. Section 1.4 and its evidence add
+a strict exclusion of locally planar fast-record concentration. Unlike the
+historical falsification runs above, this narrows a stated singularity class;
+it does not close the fully three-dimensional or slow-record possibilities.
+The canonical NS-R3 and CRITICAL nodes remain gaps. Independent audit pending.
