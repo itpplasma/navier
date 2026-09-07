@@ -1,0 +1,60 @@
+{
+  "scope": "finite exact regression; not PDE proof or independent audit",
+  "groups": {
+    "actual_coarse_source_product": 1,
+    "binary_tree_ode_coefficients": 27,
+    "causal_initial_coefficients": 30,
+    "closed_loop_positive_product": 3,
+    "coarse_omits_coupled_daughter": 8,
+    "comparison_sec_symmetry": 13,
+    "complete_discarded_support": 56,
+    "complex_phase_coefficient_identity": 15,
+    "complex_phase_zero_parities": 15,
+    "cooperative_generator_comparison": 3,
+    "first_feedback_coefficient": 1,
+    "full_ball_projected_coefficients": 168,
+    "general_majorant_binary_recursion": 27,
+    "inviscid_enstrophy_cubic_cancellation": 1,
+    "nambu_cross_product": 1,
+    "negative_complex_positive_energy": 1,
+    "negative_cutoff_beyond_sector": 8,
+    "negative_deleted_return_coupling": 3,
+    "negative_dropping_paired_feedback": 1,
+    "paired_variation_p_equation": 8,
+    "paired_variation_q_equation": 8,
+    "real_energy_cubic_cancellation": 1,
+    "restart_count_bound": 6,
+    "restart_geometric_tail_identity": 27,
+    "restart_terminal_smallness": 6,
+    "rigorous_quartic_conditioning_negative_control": 1,
+    "sec_tan_coefficient_comparison": 20,
+    "solenoidal_streamfunction": 56,
+    "transformed_positive_coefficients": 128,
+    "true_source_first_resonant_response": 1,
+    "viscous_time_normalization": 8
+  },
+  "assertions": 652,
+  "ranges": {
+    "K": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "amplitude_degree": 10,
+    "theta_degree": 12
+  },
+  "negative_controls": [
+    "cutoff beyond invariant sector",
+    "coarse missing daughter",
+    "positive real energy is not a complex norm bound",
+    "deleted return coupling",
+    "quartic metric cost at amplitude 512",
+    "omitted actual paired feedback"
+  ],
+  "status": "PASS"
+}

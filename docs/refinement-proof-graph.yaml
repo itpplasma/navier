@@ -1,0 +1,143 @@
+schema_version: 1
+title: Closed feedback, causal reconstruction and the remaining critical edge
+map_kind: author-derived-research-proof-graph-not-terminal-certificate
+terminal_claim: NS-R3
+terminal_status: not-proved
+source_main: 49b67060edbda947f76cd1da290678096a415827
+first_proof_checkpoint: d8787ff4f65164e6339be673ad9f9646cd15bd37
+workflow:
+  repository: krystophny/prompts
+  path: skills/math-frontier/SKILL.md
+  blob: d32e4a8dcb1e5f06c3fc9b44620f6f4c8d0d562e
+review_status: author-checked-independent-audit-pending
+canonical_graph: docs/proof-graph.yaml
+contract: research/refinement-slow-manifold-contract.md
+nodes:
+  - id: CF-BLOCK
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: The displayed three-amplitude sector is invariant under full spherical Fourier-Galerkin NS for sqrt(5)K <= N < sqrt(8)K; every retained and discarded interaction is computed.
+    depends_on: []
+    evidence: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+    section: '1'
+    scope: Periodic Galerkin, not an invariant continuum ansatz or all larger cutoffs.
+  - id: CF-REAL-ENERGY
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: All real trajectories of the coupled block are global with E=x^2+4y^2+3z^2 and E prime <= -2E.
+    depends_on: [CF-BLOCK]
+    evidence: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+    section: '2'
+    scope: Real finite-dimensional dynamics; no complex positive-energy bound.
+  - id: CF-LOCAL-SERIES
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: All homogeneous binary Duhamel coefficients have the geometric majorant exp(-s)(1-exp(-s))^(n-1), establishing an actual local analytic amplitude solution.
+    depends_on: [CF-BLOCK]
+    evidence: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+    section: '3.1'
+    scope: Convergence only within the displayed amplitude radius.
+  - id: CF-FINITE-RADIUS
+    kind: no-go
+    status: author-checked-independent-audit-pending
+    statement: For input q(1,0,1), the homogeneous zero-centered causal series has finite radius at every positive horizon; an all-amplitude entire/factorial reconstruction cannot hold in this universal Galerkin class.
+    depends_on: [CF-BLOCK, CF-LOCAL-SERIES]
+    evidence: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+    section: '3.2-3.3'
+    scope: Method obstruction only; the complexified comparison is not physical NS blow-up.
+  - id: CF-RESTART
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: At most max(1,ceil(2sqrt(E0))) input-selected real causal charts reconstruct the block globally, with explicit geometric remainder and a final infinite-time chart.
+    depends_on: [CF-REAL-ENERGY, CF-LOCAL-SERIES]
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '1'
+    scope: No assumption of global complex-amplitude analyticity.
+  - id: CF-REAL-PROPAGATOR
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: The entire closed block has the explicit real propagator bound exp(-(t-s)+2R0(exp(-s)-exp(-t))), derived from its input energy.
+    depends_on: [CF-REAL-ENERGY]
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '2'
+    scope: Exponential input dependence is retained.
+  - id: CF-EXPONENTIAL-METRIC-COST
+    kind: no-go
+    status: author-checked-independent-audit-pending
+    statement: About the exact shear (0,A exp(-4s),0), any uniformly equivalent nonincreasing quadratic metric has condition ratio >= 2^(-5/2) exp(A/4) on the stated interval.
+    depends_on: [CF-BLOCK]
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '3'
+    scope: Excludes polynomially conditioned universal metrics, not every input-controlled metric.
+  - id: CF-TRUE-SOURCE-COST
+    kind: no-go
+    status: author-checked-independent-audit-pending
+    statement: The actual coarse residual for common input (epsilon,A,0) is (0,0,epsilon A exp(-5s)), and its source-linear refinement response cost is at least 5*2^(-5/4)sinh(A/8)/A.
+    depends_on: [CF-BLOCK]
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '3.1'
+    scope: Actual paired Galerkin trajectories; no universal polynomial source-linear bound. RF-SUM and nonlinear bounds are not refuted.
+  - id: CF-ALL-MODE-RESTART
+    kind: paper
+    status: author-checked-independent-audit-pending
+    statement: Every real finite spherical Galerkin system has global causal restart and a finite-precision error bound, with explicit R_N=N sqrt(m_N)||u_N(0)||2/nu and at most max(1,ceil(2R_N)) charts.
+    depends_on: []
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '4'
+    scope: Standalone energy and bilinear proof for all finite modes. Costs depend on cutoff and the fixed-box gap; no uniform R3 claim.
+  - id: CF-PAIRED-CRITICAL
+    kind: gap
+    status: open-not-refuted
+    statement: Bound the actual nonlinear source, feedback, amplification, saturation and reconstruction across resolutions in an input-only critical topology without divergent cutoff or domain constants.
+    depends_on: []
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    section: '5'
+    scope: Neither a generic propagator bound nor temporal approximation accuracy supplies this estimate.
+  - id: CF-R3-INTERFACE
+    kind: gap
+    status: open-not-refuted
+    statement: Supply one faithful whole-space approximation family, uniform inverse or critical-output inequalities, consistency, initial trace, pressure/tail and energy passages.
+    depends_on: []
+    evidence: research/refinement-slow-manifold-contract.md
+    section: '2,6'
+    scope: A fixed torus or AP limit at fixed mesh is not this interface.
+  - id: CF-TERMINAL-CONSUMER
+    kind: conditional
+    status: uninstantiated-conditional-suffix
+    statement: The actual critical-output producer and faithful R3 interface feed canonical continuation and energy to prove NS-R3.
+    depends_on: [CF-PAIRED-CRITICAL, CF-R3-INTERFACE]
+    canonical_consumers: [LOCAL, CONTINUATION, ENERGY]
+    evidence: research/refinement-slow-manifold-contract.md
+    section: '2'
+    scope: No proved path to this node exists while either predecessor is open.
+branch_review:
+  - direction: Static smooth spectral slaving
+    decision: previously-refuted-specified-branch
+    reason: Nonzero quadratic heat-rate resonance.
+  - direction: Single-center all-amplitude causal series
+    decision: refuted-specified-branch
+    proof: CF-FINITE-RADIUS
+    surviving_repair: CF-RESTART
+  - direction: Polynomially cheap moving metric
+    decision: refuted-specified-branch
+    proof: CF-EXPONENTIAL-METRIC-COST
+    surviving_repair: CF-REAL-PROPAGATOR
+  - direction: Polynomial source-linear matched response
+    decision: refuted-specified-branch
+    proof: CF-TRUE-SOURCE-COST
+    surviving_repair: Nonlinear response and joint interlevel accounting remain open.
+  - direction: Restarted or nonperturbatively summed coupled dynamics
+    decision: finite-cutoff-repair-only
+    proof: CF-ALL-MODE-RESTART
+    first_gap: CF-PAIRED-CRITICAL
+  - direction: Kinetic and FEEC transfer
+    decision: open-not-refuted
+    first_gap: A new quantitative producer and the existing discrete/hydrodynamic/domain contracts.
+  - direction: Direct singularity rigidity
+    decision: preserved-conditional-alternative
+    first_gap: Force a general singularity into an excluded class or prove a new general contradiction.
+notes:
+  - Proof dependencies are distinct from exploratory branch history.
+  - No conclusion is presented as an exhaustive classification of all possible mathematical approaches.
+  - No canonical terminal node or audited manuscript dependency has been promoted.
+  - Finite regressions and author checks are not independent mathematical review.

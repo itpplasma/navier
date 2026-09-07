@@ -356,3 +356,24 @@ research_no_go_supplements:
     evidence: research/evidence/2026-09-07-pressure-stretching-graph-lift-test.md
     scope: The exact pressure-stretching system retains a critical-order viscous correlation. A deterministic Dirac graph lift has the wrong sign for an independent positive value-space diffusion; every smooth positive graph-preserving mixed-diffusion lift is tangent to the graph, so its conormal contains nonzero directions on which every finite Hamiltonian-contact iterate vanishes. This retires that graph-lift implementation only; it is not a no-go for all symplectic, metriplectic, stochastic, kinetic, or genuine critical-defect mechanisms and gives no NS-R3 reduction.
     review: No canonical node promotion. NS-R3, CRITICAL, HIGH-PRESSURE, HIGH-STRAIN and all existing terminal dependencies remain unchanged and open. Independent mathematical audit and prior-art assessment pending.
+
+  - id: CLOSED-FEEDBACK-ENTIRE-CAUSAL
+    title: Closed Galerkin feedback prevents a universal entire amplitude expansion
+    status: author-checked-independent-audit-pending
+    evidence: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+    scope: A full spherical Fourier-Galerkin NS invariant sector has globally bounded real trajectories but a finite-radius homogeneous zero-centered causal series on every positive horizon. A sec/tan coefficient comparison excludes a universal all-amplitude factorial majorant. Complex growth diagnoses the expansion only, not physical NS blow-up or RF-SUM.
+    review: No terminal node promotion. Causal restart, justified nonperturbative summation and the original arbitrary-data theorem remain open; independent audit pending.
+  - id: CLOSED-FEEDBACK-POLYNOMIAL-COST
+    title: Exponential metric and paired refinement-source costs in a closed Galerkin block
+    status: author-checked-independent-audit-pending
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    scope: Real Galerkin variations require exponentially large transient and dissipative-metric conditioning costs in amplitude. The true coarse-grid residual can excite the same growth, excluding a polynomial source-linear response bound in the stated universal family. Nonlinear or exponential input-dependent bounds and critical summability for one fixed refinement sequence are not refuted.
+    review: No R3 singularity or terminal reduction is asserted. Every discarded mode and cutoff window is explicit; independent mathematical audit pending.
+
+research_component_graphs:
+  - id: CLOSED-FEEDBACK-REFINEMENT-WAVE
+    path: docs/refinement-proof-graph.yaml
+    status: author-checked-independent-audit-pending
+    evidence: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+    scope: Separate research proof map for closed-feedback tests, real finite-cutoff restart, exact branch exclusions and the unproved paired critical estimate. Its nodes are not imported into the canonical terminal dependencies.
+    terminal_progress: false

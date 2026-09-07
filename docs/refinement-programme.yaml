@@ -2,7 +2,7 @@ schema_version: 1
 title: Compatible refinement and resonant slow reduction
 terminal_claim: NS-R3
 map_kind: research-specification-not-canonical-proof
-source_main: f0add720620a4e381c98bb6ed762bc2906f77e11
+source_main: 49b67060edbda947f76cd1da290678096a415827
 workflow_repository: krystophny/prompts
 workflow_revision: 2929639d8ed611917bd1086df002296a611a475b
 workflow_path: skills/math-frontier/SKILL.md
@@ -19,14 +19,14 @@ nodes:
   depends_on:
   - RF0
 - id: RF2
-  status: proved-in-test-sector-general-case-open
+  status: finite-cutoff-causal-restart-proved-uniform-refinement-open
   claim: Cutoff-uniform reconstruction and normal tracking, including initial deviations.
   depends_on:
   - RF1
 - id: RF3
   status: active-gap
-  claim: Signed three-dimensional strain/feedback and critical weights are controlled without unknown
-    critical norms.
+  claim: Nonlinear paired refinement source, feedback, amplification and reconstruction have an input-only
+    critically summable bound; polynomial universal costs are not assumed.
   depends_on:
   - RF2
 - id: RF4
@@ -71,6 +71,21 @@ research_evidence:
   - uniformly equivalent explicitly time-dependent metric in a two-mode block
   terminal_progress: false
   oracle: research/check_resonant_memory.py
+- path: research/evidence/2026-09-07-closed-feedback-and-causal-radius.md
+  status: author-checked-independent-audit-pending
+  claims:
+  - full spherical Galerkin closed-feedback invariant sector
+  - finite amplitude radius of homogeneous causal series despite real global energy
+  terminal_progress: false
+  oracle: research/check_closed_feedback.py
+- path: research/evidence/2026-09-07-restarted-feedback-and-conditioning.md
+  status: author-checked-independent-audit-pending
+  claims:
+  - global real causal restart with explicit costs for all finite Galerkin modes
+  - exponential lower metric-conditioning cost in exact coupled block
+  - exponential response to true coarse refinement residual
+  terminal_progress: false
+  oracle: research/check_closed_feedback.py
 branch_decisions:
 - id: STATIC-C2-SLAVING
   status: refuted-in-specified-Galerkin-family
@@ -81,3 +96,17 @@ branch_decisions:
 - id: GENERAL-CRITICAL-FEEDBACK
   status: open-not-refuted
   first_gap: signed nonlinear interscale feedback and reconstruction with input-only uniform constants
+- id: ENTIRE-ZERO-CENTER-CAUSAL
+  status: refuted-in-specified-full-Galerkin-family
+  reopening: restart or use a justified summation not requiring this globally convergent amplitude series
+- id: POLYNOMIAL-METRIC-CONDITION
+  status: refuted-in-coupled-Galerkin-family
+  reopening: allow proved exponential/nonlinear costs and control their actual interlevel accumulation
+- id: POLYNOMIAL-PAIRED-SOURCE-LINEAR
+  status: refuted-for-true-coarse-residual
+  reopening: estimate nonlinear response and saturation jointly with the source along the actual refinement
+    family
+- id: CONTROLLED-REAL-RESTART
+  status: proved-at-every-finite-cutoff-uniform-limit-open
+  first_gap: cutoff/domain-uniform nonlinear reconstruction and source/feedback control
+proof_map: docs/refinement-proof-graph.yaml
