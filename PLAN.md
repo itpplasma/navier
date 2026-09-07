@@ -10,7 +10,7 @@ paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: exclude-remaining-three-dimensional-fast-records-and-slow-records
-active_architecture: marked-record-temporal-type-I-local-energy-partially-closed
+active_architecture: marked-record-axial-decay-and-block-rigidity-partially-closed
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -36,6 +36,7 @@ one_slice_record_rigidity_status: author-checked-independent-audit-pending
 local_return_rigidity_status: author-checked-independent-audit-pending
 concentrating_return_compatibility_status: author-checked-independent-audit-pending
 temporal_type_i_local_energy_status: author-checked-independent-audit-pending
+axial_decay_record_block_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: genuinely-three-dimensional-fast-records-and-slow-records-open
 formal_work_this_run: deferred
@@ -74,12 +75,12 @@ additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
 **Next substantive action:** continue the direct singularity/record architecture
-in Sections 1.4--1.7. The new pressure-work producer gives scale-uniform local
-energy and endpoint control for the temporal Type-I continuation of any
-concentrating-return tangent. Superlinear drift-subtracted spatial energy
-is excluded; bounded critical local energy is not regularity. Compatible
-return tangents satisfying these budgets, nonreturning fast profiles, and
-slow records remain open. No recurrence or parent Type-I bound is assumed.
+in Sections 1.4--1.8. The new axial contradiction requires no recurrence:
+long bounded blocks of first-record durations supply the backward decay,
+and local axial concentration is then excluded, including swirl and axes
+escaping to infinity. Non-axial fast profiles and intermittent/slow records
+remain open. Neither axiality nor such bounded blocks have been forced for
+arbitrary singularities; bounded critical local energy is not regularity.
 The next result must remove an actual remaining singularity possibility,
 not merely rename a critical bound or construct another observable.
 
@@ -446,6 +447,66 @@ is a rigidity mechanism for the surviving class, not another local estimate
 or another pressure decomposition. All earlier evidence, exact countermodel
 scopes, kinetic/microscopic contracts, manuscripts and formalization remain
 unchanged.
+
+### 1.8 Axial decay rigidity without recurrence and a record-block exclusion
+
+Read [the axial decay and record-block proof](research/evidence/2026-09-07-axial-decay-and-record-blocks.md).
+At input `650855d1f50f42f9cb309cba22cbe2d22c106b7f`, this supplies an author
+proof of a further scoped singularity reduction. Independent mathematical
+audit and prior-art assessment remain pending. NS-R3 is NOT PROVED.
+
+A bounded ancient MILD solution with ||U(s)||_infinity<=K/sqrt(1-s), s<=0,
+and one locally axially equivariant slice is zero. Swirl is allowed. There
+is NO return, self-similarity, global L2/L3, or spatial-decay hypothesis.
+The proof reconstructs Section 1.7's canonical-pressure local-energy bounds
+on the available past only. Spatial analyticity, uniqueness and time
+analyticity propagate the slice symmetry. Blowing down a nonzero solution
+about its symmetry axis, with suitable compactness and the precise
+singularity-persistence theorem, produces an on-axis Type-I singularity.
+Seregin's local axial theorem contradicts it. Neither weak compactness alone
+nor a general three-dimensional Type-I theorem is substituted for that step.
+
+A long consecutive block of actual first records supplies the decay premise.
+For the normalization in Section 1.4, if the last m transition durations are
+at most A, their earlier normalized times are
+
+    sigma_j=-sum_(k=0)^(j-1) 4^k ell_(n-k),   0<=j<=m,
+    c_rec(4^j-1)/3<=-sigma_j<=A(4^j-1)/3.
+
+First hitting gives ||U_n(s)||_infinity<=2^(-j) for s<=sigma_j. Thus on
+[sigma_m,0], (1-s)||U_n(s)||_infinity^2<=1+4A/3. This is actual time-history
+information, not an assumed bound on the arbitrary parent's critical norm.
+
+For every fixed A,R>0 and B>=0 there are m_*>=1 and eta>0, independent of
+the datum, nu, record level and maximizing point, such that a record ending
+m_* consecutive transitions with ell<=A satisfies
+
+    inf integral_(B_R) |[e cross (y-c)].grad U_n(y,s_a)
+                                      -e cross U_n(y,s_a)|^2 dy >= eta,
+    |e|=1, c.e=0, -B<=s_a<=0.
+
+There is no upper bound on the axis distance |c|. Bounded axes pass to the
+axial contradiction; axes escaping to infinity give a planar slice after
+dividing the generator by |c|, contradicting the banked planar rigidity.
+The constants are qualitative, with no asserted numerical rate. The physical
+squared-error factor is Mn/nu^3, and the full finite-history adapter is proved.
+Consequently small local axial error forces at least one of those recent
+m_* durations to exceed A. In particular longer bounded blocks together
+with vanishing axial error cannot occur at a finite singularity, even for
+NONRETURNING profiles and data with no initial axial symmetry.
+
+The stronger ancient lemma also includes the previous unpushed single-axial-
+return exclusion: the return's backward drift must be axial; removing it
+preserves axial symmetry and gives the required decay. The old patch is not
+applied over concurrent changes or counted as a second pressure producer.
+
+No theorem forces axiality, recurrence, or long bounded blocks in an arbitrary
+singularity. Non-axial fast profiles and intermittent/slow records remain
+open, and no nonsummable physical cost has been proved. Do not restart a
+sequence of unrelated symmetry exclusions: a further result must derive
+structure of an actual remaining singularity or complete its contradiction.
+Canonical graph, previous evidence and counterexample scopes, kinetic and
+microscopic contracts, manuscripts and formalization are unchanged.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
