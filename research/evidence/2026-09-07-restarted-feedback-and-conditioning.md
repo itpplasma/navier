@@ -301,9 +301,10 @@ multiplied by exp(s), is at most 2R_N 2^(-M). Subsequent propagation has
 at most the factor exp(2R_N) because the integrals of the two input-controlled
 amplitude envelopes telescope across chart intervals. Summing over at most
 J injections proves (4.5), including intermediate observations in each chart.
-The finite approximation need not solve the unmodified ODE exactly; its
-residual is controlled by this error theorem, and the M->infinity limit is
-the exact equation. No modified equation is substituted into NS-R3.
+The finite approximation need not solve the unmodified ODE exactly; (4.5)
+controls its trajectory error, not a derivative or residual norm. The exact
+equation is identified by the locally convergent Volterra series, not from
+trajectory proximity alone. No modified equation is substituted into NS-R3.
 
 ### Why this is not the desired cutoff-uniform theorem
 
