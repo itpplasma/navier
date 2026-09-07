@@ -3,7 +3,7 @@
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: parallel-refinement-research-2026-09-07
+phase: signed-transfer-research-stopped-by-owner-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -14,7 +14,8 @@ active_architecture: direct-whole-space-projected-family-with-reviewed-condition
 complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-refinement-estimate-not-produced
-refinement_wave: whole-space-construction-and-finite-lorentz-consumer-independently-reviewed
+refinement_wave: interrupted-author-candidates-unreviewed
+run_status: stopped-at-owner-request
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
@@ -151,7 +152,49 @@ actual forcing, not its nonlinear response. At neighboring scales its
 upper bound deteriorates; this is not an optimality obstruction. Signed
 near-diagonal transfer and its correlated resolved response remain open.
 
-## Adaptive portfolio and next discriminating results
+## Interrupted signed-transfer run (2026-09-08)
+
+The owner requested the terminal breakthrough after recovery of the completed
+wave, then explicitly requested conclusion, a plan update, commit, push and
+stop. This continuation started from clean main
+`acc498daecc2a914d499019194e198bc658ebcf8`, refreshed against origin/main.
+Research is stopped. No terminal breakthrough, critical producer or new
+independent mathematical audit was completed. The reviewed preceding wave
+remains intact; the canonical proof graph and verifier are unchanged.
+
+The interrupted worker returns are preserved in
+`research/evidence/2026-09-08-signed-transfer-interrupted.md`, with their
+original file digests and unfinished obligations. They are author working
+notes, not promoted claims. The original frontier packet and scratch remain
+under `.git/navier-wave-20260908`.
+
+The common target is RF-q for one fixed finite q>3, with full datum, fixed
+positive viscosity and finite-horizon dependence allowed, uniformly over
+all cutoffs and every upper time. A single-flow smooth-block bound with a
+complete consumer may replace paired RF-q. The first uncontrolled term is
+the signed comparable-frequency part of the smooth-block commutator.
+
+- The direct worker began an angularly resolved vector-transfer factorization;
+  it produced no signed spacetime bound.
+- The falsification worker identified central oddness as a mechanism fixing
+  Cartesian Fourier phases and drafted a smooth-block positive-transfer test.
+  The complete test and its quantitative persistence remain unaudited.
+- The correction worker examined a correction adapted to Euler transport;
+  arbitrary-amplitude coercivity and the viscous remainder remain open.
+
+No worker is assigned continuing research. Any future owner-authorized
+resumption should first check the saved exact formulas and scope, then seek
+signed comparable-frequency control retaining vector polarization dynamics.
+Fixed Cartesian phases alone do not freeze polarization. Returning to an
+uncontrolled critical amplitude times dissipation or to the squared-enstrophy
+integral does not supply the missing estimate.
+
+Closeout checks: research-only integrity, the existing 652-assertion exact
+closed-feedback regression, the prose checker and whitespace checks passed.
+These checks do not certify the interrupted derivations. Manuscript/formal
+checks and Lean builds were not run.
+
+## Previous refinement checkpoint and discriminating results
 
 RF3 remains incumbent, with independent alternatives and a smaller fresh
 exploration allocation. The initial allocation was roughly half direct
@@ -227,8 +270,8 @@ chirality at order t squared. These are scoped closure exclusions, not a
 failure of all helical geometry or of an additional full-input bound.
 See `2026-09-07-helical-production.md` and its audit record.
 
-At this checkpoint the bounded worker assignments are complete. The next
-distinct analytic assignment is a signed, phase-sensitive comparable-scale
+At the preceding checkpoint the bounded worker assignments were complete.
+The selected next analytic assignment was a signed, phase-sensitive comparable-scale
 commutator estimate in the smooth-block formulation, tested first on the
 reflection-symmetric and chiral-birth families above. It must retain
 angularly resolved vector correlations that signed radial budgets discard.
