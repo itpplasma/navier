@@ -88,6 +88,67 @@ def coefficient_table(order: int, cutoff: int | None) -> list[dict[int, Poly]]:
     return rows
 
 
+def multiply(p: Poly, q: Poly) -> Poly:
+    out: Poly = {}
+    for (r, d), a in p.items():
+        for (r2, d2), b in q.items():
+            out = add(out, {(r+r2, d+d2): a*b})
+    return out
+
+
+def madd(a: list[list[Poly]], b: list[list[Poly]]) -> list[list[Poly]]:
+    return [[add(a[i][j], b[i][j]) for j in range(2)] for i in range(2)]
+
+
+def mmul(a: list[list[Poly]], b: list[list[Poly]]) -> list[list[Poly]]:
+    return [[add(multiply(a[i][0], b[0][j]),
+                 multiply(a[i][1], b[1][j])) for j in range(2)] for i in range(2)]
+
+
+def transpose(a: list[list[Poly]]) -> list[list[Poly]]:
+    return [[a[j][i] for j in range(2)] for i in range(2)]
+
+
+def check_normal_transients() -> None:
+    one: Poly = {(0, 0): F(1)}
+    half: Poly = {(0, 0): F(1, 2)}
+    mass = [[half, {}], [{}, one]]
+    for k in range(1, 9):
+        for ell in sorted({k+1, 2*k, 3*k}):
+            lam, gam, amp = k*k, ell*ell, 32*k
+            bet, coupling = lam+gam, amp*k
+            c = {(gam, 0): F(1)}
+            d = {(bet, 1): F(-coupling)}
+            check(add(derivative(c), scale(c, F(gam))) == {},
+                  'normal_variation_heat')
+            check(add(derivative(d), scale(d, F(bet))) ==
+                  scale(shift_rate(c, lam), F(-coupling)),
+                  'normal_variation_forcing')
+            check(ell>k and bet>0 and gam>0, 'normal_high_modes_stable_rates')
+            h = {(lam, 1): F(coupling)}
+            transform = [[one, h], [{}, one]]
+            metric = mmul(mmul(transpose(transform), mass), transform)
+            generator = [[{(0, 0): F(-bet)}, {(lam, 0): F(-coupling)}],
+                         [{}, {(0, 0): F(-gam)}]]
+            metric_dt = [[derivative(metric[i][j]) for j in range(2)]
+                         for i in range(2)]
+            no_dt = madd(mmul(transpose(generator), metric),
+                         mmul(metric, generator))
+            lhs = madd(metric_dt, no_dt)
+            diss = [[{(0, 0): F(bet, 2)}, {}], [{}, {(0, 0): F(gam)}]]
+            rhs0 = mmul(mmul(transpose(transform), diss), transform)
+            rhs = [[scale(rhs0[i][j], F(-2)) for j in range(2)] for i in range(2)]
+            check(lhs == rhs, 'moving_metric_full_identity')
+            determinant = add(multiply(metric[0][0], metric[1][1]),
+                              scale(multiply(metric[0][1], metric[1][0]), F(-1)))
+            check(determinant == half, 'moving_metric_positive_determinant')
+            check(no_dt != rhs, 'negative_omitted_metric_derivative')
+            if ell == 2*k:
+                check(F(coupling, bet) == F(32, 5), 'critical_transient_scaling')
+                check(F(coupling**2, 2*bet**2*9)>1, 'rigorous_amplification_e_lt_3')
+                check(k*k+ell*ell <= (3*k)**2, 'fine_cutoff_retains_variation')
+
+
 def main() -> None:
     # Actual orthogonal NS parent vectors: projection leaves K*e3 unchanged.
     for k in range(1, 17):
@@ -162,12 +223,15 @@ def main() -> None:
     check(add(derivative(wrong_rate), scale(wrong_rate, F(2))) != src,
           'negative_missing_shear_decay')
     check({} != src, 'negative_dropped_resonant_forcing')
+    check_normal_transients()
     print(json.dumps({
         'status': 'PASS', 'arithmetic': 'exact rational, standard library',
         'assertions': sum(COUNTS.values()), 'groups': COUNTS,
         'ranges': {'parent_K': [1, 16], 'viscosities': ['1/4', '1', '3/2'],
                    'max_duhamel_order': order, 'compressed_cutoffs': [0,1,2,4,8],
-                   'max_envelope_order': 12, 'dyadic_j': [0,15]},
+                   'max_envelope_order': 12, 'dyadic_j': [0,15],
+                   'normal_K': [1,8], 'normal_L': ['K+1','2K','3K'],
+                   'normal_viscosity': 1, 'normal_amplitude': '32K'},
         'non_claims': ['not a universal PDE proof', 'not independent mathematical review',
                        'no numerical solver or full-repository verifier run',
                        'no arbitrary-data NS-R3 progress certified']

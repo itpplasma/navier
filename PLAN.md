@@ -9,7 +9,7 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: RF1-test-invariant-closure-and-repair-with-causal-resonant-memory
+active_task: RF3-input-bounded-moving-metric-and-nonlinear-interlevel-feedback
 active_architecture: compatible-refinement-with-defect-and-tracking-control-unproved
 complete_terminal_route: none-established
 terminal_status: not-proved
@@ -192,3 +192,77 @@ Terminal promotion requires separate mathematical, source and statement audits.
 Every end-of-wave report states MODE / RESULT, CLAIM AND SCOPE, EVIDENCE,
 FIRST GAP, SURVIVING CONDITIONAL SUFFIX, NON-CLAIMS and NEXT DISTINCT ACTION.
 A benchmark success is not described as a breakthrough in arbitrary-data NS.
+
+## 7. Current wave: a proved obstruction and a causal repair
+
+Read `research/evidence/2026-09-07-resonant-slaving-and-causal-refinement.md`.
+Theorem 1 excludes time-independent C2 invariant spectral graphs tangent to
+all modes |k|<=K in the periodic Galerkin family when the fine cutoff includes
+sqrt(2)K. A nonzero orthogonal-parent interaction is heat-rate resonant, so
+its quadratic invariance equation has no solution. More Taylor orders with
+that same graph and zero quadratic defect cannot repair it. This is not a
+no-go for all slow manifolds or all compatible discretizations.
+
+Theorems 2--3 repair the same interaction with exact causal memory in an
+actual periodic shear/passive-component NS sector. The full time-ordered
+series has remainder bounded by
+
+    ||w0||2 exp(-nu K^2 t)
+      [alpha(1-exp(-nu K^2 t))]^(M+1)/(M+1)!,
+    alpha=|a0|/(nu K),
+
+uniformly in the Galerkin cutoff and for every t>=0 and finite alpha. For
+N_j=2^jK it yields the exact RF-SUM benchmark bound
+
+    sum_j sqrt(N_j) sup_t ||u_(N_(j+1))-u_(N_j)||2
+       <=2 sqrt(K)||w0||2 alpha exp(alpha).
+
+This tests the nominated general mechanism but is NOT a strict singularity
+reduction, a whole-space result or a general NS convergence theorem. The
+absence of three-dimensional feedback in that sector is explicit. The next
+question is the normal propagator and critically weighted signed feedback
+in the full error equation of contract Section 5, not another passive model.
+The exact rational oracle initially passed 469 finite checks. The strain/metric
+extension below brings this to 631, including negative controls. These are
+not independent mathematical audit; review remains pending.
+
+## 8. Strain test completed; the remaining producer is explicit
+
+Read `research/evidence/2026-09-07-normal-transient-and-metric-repair.md`.
+An exact global unforced periodic NS shear has a high-frequency normal
+variation whose L2 norm grows: for L=2K and |A0|=32 nu K, the explicit
+variation is amplified at t=1/(5nu K^2). It is a derivative of an actual
+nonlinear NS family, not a prescribed strain or forced-Stokes surrogate.
+Thus universal normal contraction with prefactor one in the uncorrected
+mass norm is PROVED FALSE in the test class. No conclusion about arbitrary
+whole-space singularities is inferred.
+
+The same strain-containing test is repaired: a triangular Duhamel formula
+bounds its normal propagator by (1+alpha) exp[-nu L^2(t-s)],
+alpha=|A0|/(nu K), uniformly in the fine cutoff. A two-mode moving metric
+with correction h(t)=(A0 K/sqrt(2)) t exp(-nu K^2 t) is explicitly coercive,
+with constants depending only on alpha, and has an exact dissipative law.
+The metric derivative is essential. This is neither a fixed universal
+Lyapunov functional nor an assumed bounded inverse fundamental matrix.
+
+**Next distinct action:** work on the full coupled three-dimensional normal
+propagator and paired forcing/feedback, including B(error,coarse), resolved
+errors, pressure projection and critical interscale weights. Derive the
+first off-diagonal correction and prove its coercivity and accumulated
+reconstruction cost from inputs. A moving metric or propagator defined via
+an unknown future solution does not count without these quantitative bounds.
+Individual finite transient bounds do not control their infinite interlevel
+accumulation. RF3, RF4 and NS-R3 remain OPEN, not disproved.
+
+Do not restart the defeated static C2 or uncorrected-contraction premises.
+Do not drop the resonant or strain terms; do not extend the passive-sector
+factorial proof by renaming its explicit shear budget an unknown NS norm.
+Further passive special cases, another solver, or normal-form infrastructure
+are not the primary task. The periodic benchmark and transient metric are
+completed tests; the remaining mathematical work must address actual feedback.
+
+Verdict: one static-closure branch and one contraction premise were cut by
+proofs; causal reconstruction and bounded nonnormal tracking survived in
+specified actual NS tests. No general critical estimate, new strict singularity
+reduction or terminal breakthrough was obtained. Independent audit, whole-space
+and FEEC transfer, and the kinetic/microscopic programme remain separately open.

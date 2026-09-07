@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "arithmetic": "exact rational, standard library",
-  "assertions": 469,
+  "assertions": 631,
   "groups": {
     "orthogonal_parent": 16,
     "leray_numerator_survives": 16,
@@ -22,7 +22,16 @@
     "dyadic_tail_order": 16,
     "negative_wrong_ns_sign": 1,
     "negative_missing_shear_decay": 1,
-    "negative_dropped_resonant_forcing": 1
+    "negative_dropped_resonant_forcing": 1,
+    "normal_variation_heat": 23,
+    "normal_variation_forcing": 23,
+    "normal_high_modes_stable_rates": 23,
+    "moving_metric_full_identity": 23,
+    "moving_metric_positive_determinant": 23,
+    "negative_omitted_metric_derivative": 23,
+    "critical_transient_scaling": 8,
+    "rigorous_amplification_e_lt_3": 8,
+    "fine_cutoff_retains_variation": 8
   },
   "ranges": {
     "parent_K": [
@@ -46,7 +55,18 @@
     "dyadic_j": [
       0,
       15
-    ]
+    ],
+    "normal_K": [
+      1,
+      8
+    ],
+    "normal_L": [
+      "K+1",
+      "2K",
+      "3K"
+    ],
+    "normal_viscosity": 1,
+    "normal_amplitude": "32K"
   },
   "non_claims": [
     "not a universal PDE proof",
