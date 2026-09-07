@@ -10,7 +10,7 @@ paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: exclude-remaining-three-dimensional-fast-records-and-slow-records
-active_architecture: marked-record-one-slice-rigidity-partially-closed
+active_architecture: marked-record-spatial-and-local-return-rigidity-partially-closed
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -33,6 +33,7 @@ single_channel_transfer_status: author-checked-independent-audit-pending
 integrated_vorticity_entropy_status: author-checked-independent-audit-pending
 generated_covariance_sign_status: author-checked-independent-audit-pending
 one_slice_record_rigidity_status: author-checked-independent-audit-pending
+local_return_rigidity_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: genuinely-three-dimensional-fast-records-and-slow-records-open
 formal_work_this_run: deferred
@@ -71,9 +72,10 @@ additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
 **Next substantive action:** continue the direct singularity/record architecture
-in Section 1.4. The one-slice rigidity lemma and its uniform late-record
-consequences now exclude a specified locally planar fast-record class. They
-do not exclude genuinely three-dimensional fast records or slow records.
+in Sections 1.4--1.5. The spatial and local-return rigidity results exclude
+locally planar fast records and the stated nonconcentrating recurrent class.
+Genuinely nonreturning or concentrating three-dimensional fast profiles and
+slow records remain open. No recurrence property has been forced.
 The next result must remove an actual remaining singularity possibility,
 not merely rename a critical bound or construct another observable.
 
@@ -267,6 +269,55 @@ Euler-shear, single-channel and forced-response falsifiers keep their exact
 scopes. Canonical graph nodes, kinetic/microscopic contracts, manuscripts
 and formalization are unchanged. Sections 2--5 remain gated alternatives;
 direct singularity work takes priority over their former kinetic ordering.
+
+### 1.5 Further strict reduction: no nonconcentrating local return
+
+Read [the local-return rigidity proof](research/evidence/2026-09-07-nonconcentrating-return-rigidity.md).
+At input `31b6f607ce9d268bf670d9413ce58e4612c3a29e`, this adds an author
+proof excluding a specified recurrent fast-record class, including fully
+three-dimensional profiles. Independent mathematical audit and prior-art
+assessment remain pending. NS-R3 is NOT PROVED.
+
+For a marked ancient mild U from Section 1.4, no relation
+
+    U(y,s1)=lambda Q U(lambda Q^T(y-a),s0)+b
+
+can hold on even one nonempty open ball, when s0<s1<=0, 0<lambda<=1,
+Q in SO(3), and a,b in R3. Lambda is the velocity/inverse-length factor:
+lambda<1 EXPANDS the earlier spatial profile, while lambda>1 concentrates
+it and is NOT covered. Arbitrary translations, rotations, and Galilean
+boosts are included in the exact theorem.
+
+The producer is the exact transformed NS solution with moving argument
+lambda Q^T[y-a-b(s-s1)] and time s0+lambda^2(s-s1). Spatial analyticity,
+mild uniqueness and time analyticity propagate the local slice identity.
+Iteration contracts the velocity when lambda<1. When lambda=1, boundedness
+forces b=(I-Q)c, and a sequence Q^k->I makes the accumulated boost vanish
+while returning to the half-amplitude ancient past. The unit peak contradicts
+both alternatives. The transformed field is proved mild; no arbitrary
+harmonic-pressure or separately-analytic composition argument is used.
+
+There is a uniform finite-history and actual-record consequence. Fix A,R>0,
+B>=delta>0 and D>=0. For all sufficiently late actual records with ell_n<=A,
+
+    inf integral_(B_R) |U_n(y,s1)
+        -lambda Q U_n(lambda Q^T(y-a),s0)-b|^2 dy >= eta>0,
+
+where -B<=s0<s1<=0, s1-s0>=delta, 0<lambda<=1, Q in SO(3), |a|<=D,
+and b is unrestricted. Constants depend only on A,R,B,delta,D, not on the
+datum, viscosity, record level or maximizing point. Vanishing error itself
+bounds b, and the lambda->0 boundary gives a forbidden constant slice.
+The physical squared-error factor is Mn/nu^3. No uniformity as delta->0,
+D->infinity, B->infinity or R->0 is claimed.
+
+The remaining fast profiles must satisfy this separation as well as the
+one-slice directional gap. Nonreturning evolution and concentrating returns
+with lambda>1 remain open, as does the entire slow-record alternative.
+There is NO theorem forcing an arbitrary singularity to recur in the
+forbidden class. Do not assume recurrence from compactness, or turn the
+return gap into nonsummable dissipation; the single-packet cost is unchanged.
+Canonical graph nodes, prior evidence, kinetic/microscopic contracts,
+manuscripts and formalization remain unchanged.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
