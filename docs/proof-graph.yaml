@@ -348,3 +348,11 @@ candidate_supplements:
     evidence: research/evidence/2026-09-06-material-response.md
     paper_labels: ['mr:response', 'mr:hadamard', 'mr:material', 'mr:residual', 'mr:balance', 'mr:rigid']
     scope: Strong moving-metric and zero-set natural differentiation, exact orthogonal diffusion-strain action and full material residual commutator; endpoint action control and uniform refinement remain unproved, no arbitrary-data critical bound or node promotion.
+
+research_no_go_supplements:
+  - id: PRESSURE-STRETCHING-GRAPH-LIFT
+    title: Pressure-stretching deterministic graph-lift finite-contact obstruction
+    status: author-checked-independent-audit-pending
+    evidence: research/evidence/2026-09-07-pressure-stretching-graph-lift-test.md
+    scope: The exact pressure-stretching system retains a critical-order viscous correlation. A deterministic Dirac graph lift has the wrong sign for an independent positive value-space diffusion; every smooth positive graph-preserving mixed-diffusion lift is tangent to the graph, so its conormal contains nonzero directions on which every finite Hamiltonian-contact iterate vanishes. This retires that graph-lift implementation only; it is not a no-go for all symplectic, metriplectic, stochastic, kinetic, or genuine critical-defect mechanisms and gives no NS-R3 reduction.
+    review: No canonical node promotion. NS-R3, CRITICAL, HIGH-PRESSURE, HIGH-STRAIN and all existing terminal dependencies remain unchanged and open. Independent mathematical audit and prior-art assessment pending.
