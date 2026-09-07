@@ -1,368 +1,218 @@
-# Navier--Stokes: whole-space refinement and signed critical production
+# Navier--Stokes: original-nonlinearity critical control after the Tao audit
 
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: signed-transfer-research-stopped-by-owner-2026-09-08
+phase: tao-audit-and-structural-research-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: RF3-signed-critical-production-on-actual-whole-space-flows
-active_architecture: direct-whole-space-projected-family-with-reviewed-conditional-consumer
+active_task: original-nonlinearity-critical-producer-unresolved
+active_architecture: no-complete-positive-producer-selected
 complete_terminal_route: none-established
 terminal_status: not-proved
-terminal_obstruction: input-only-critical-refinement-estimate-not-produced
-refinement_wave: interrupted-author-candidates-unreviewed
-run_status: stopped-at-owner-request
-averaging_gate: required-for-every-producer-lane-2026-09-08
-incumbent_producer_class: averaging-invariant-shell-budgets-retired-2026-09-08
+terminal_obstruction: input-only-critical-bound-not-produced
+refinement_wave: reviewed-conditional-consumer-preserved
+run_status: completed-with-terminal-gaps-open
+averaging_gate: exact-proof-assumptions-not-lane-names
+averaging_audit: preceding-proof-repair-required
+averaging_repair: author-proof-independent-audit-pending
+incumbent_producer_class: averaging-invariant-budgets-remain-excluded
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
 public_release: false
 ```
 
-## Authority and frozen frontier
+## Authority, target, and preserved state
 
-This is the sole live allocation. The exact target remains every real
-solenoidal Schwartz datum on R3 and every fixed nu>0: the original unforced
-incompressible NS equation has globally smooth velocity AND normalized
-pressure, the prescribed initial trace, and energy no greater than initially.
-A rigorous counterexample in this exact class is a separate terminal outcome.
-Periodic, forced, modified, kinetic and microscopic claims retain their own
-scopes. NS-R3 and CRITICAL remain gaps in the unchanged canonical proof graph.
+This is the sole live task/status record. The current owner request resumes
+research, asks for solutions to the blockers, and authorizes commit/push in
+private `itpplasma/navier`. It does not authorize publication, outside
+contact, authorship changes, force pushes, or writes to the manuscript and
+formal repositories. No worker or background computation is running.
 
-The owner explicitly authorized available frontier models and concurrent
-research on distinct mechanisms for this run, superseding Claude-only and
-single-primary allocation. One controller owns state, integration and
-promotion. Workers own only assigned evidence. No public release, outside
-contact, manuscript/formal-repository write, authorship change, purchase or
-force push is authorized. Unsigned commits and ordinary private-repo pushes
-remain authorized. All repository writes belong to navier.
+NS-R3 remains: every real solenoidal Schwartz datum on R3, every fixed
+nu>0, original unforced incompressible NS, globally smooth velocity AND
+normalized pressure, the prescribed initial trace, and energy at most its
+initial value. A rigorous counterexample must meet that same equation and
+data contract. Modified, forced, periodic, kinetic and microscopic claims
+are different claims. NS-R3 and CRITICAL remain gaps in the UNCHANGED
+canonical `docs/proof-graph.yaml`.
 
-The wave began at main `ec2ed88c8d1fdf3b66b0e989827d44d93f1f76df`, with
-origin/main identical and no tracked or untracked edits. The empty patch
-SHA256 was `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
-The preceding PLAN is preserved byte-for-byte in
-`research/history/PLAN-before-cubic-refinement-2026-09-07.md`, original blob
-`5dae5bf243b3536d74001eba7488245f4d1e4c65`. Its archives preserve all earlier
-results, audit qualifications and scoped exclusions.
+This run read main at `0b087fe886d829ecca8a5591232030fcd6df45b0`.
+The entire preceding PLAN is preserved by its original Git blob
+`51f9fa38bdf3140ff75fb6e9917ce3704193af22` at
+`research/history/PLAN-before-tao-audit-2026-09-08.md`. Its completed-worker,
+resource, validation, and stopped-run descriptions are history, not claims
+about workers or checks performed in this run. All preceding reviewed
+components, exact counterexample scopes, and pending audit qualifications
+remain in force except for the corrections below.
 
-Actual concurrency is eight agents including the controller, hence at most
-seven workers. No fixed wall-time, token or monetary balance is exposed;
-work assignments use bounded periods and no purchased services. Scratch is
-under `.git/navier-wave-20260907`, under 0.5 MB at the latest check, on disk
-rather than tmpfs. The filesystem has about 112 GB available; /tmp about
-46 GB and /dev/shm about 47 GB. Recheck before large work; this programme
-needs small text artifacts, not local PDF collections or build caches.
+Read `AGENTS.md`, `docs/proof.md`, the canonical graph and
+`research/verify.py`; the refinement contract/maps and kinetic contracts
+retain their separate mathematical specifications. This PLAN supersedes
+stale allocation words such as "active" or "incumbent" in those maps.
 
-Read `docs/proof.md`, `docs/proof-graph.yaml`, `research/verify.py`,
-`research/refinement-slow-manifold-contract.md`, the two refinement maps,
+## Completed this run: repair of the averaging argument
+
+The full derivation and source ledger are
+`research/evidence/2026-09-08-tao-packet-audit-and-repair.md`.
+The preceding averaging proof is preserved byte-for-byte at
+`research/history/averaging-obstruction-before-audit-2026-09-08.md`, blob
+`501e99d2a7b070252ff791f0651563a42be8e326`. Its old path now points to the
+corrigendum. The old proof is NOT accepted as written.
+
+The fresh-context audit found the following substantive defects: finite-q
+synthesis produces L^{3,q}, not L3; the final published averaging includes
+dilations; exact original triad identities do not all transfer; and an
+inequality's syntax does not identify its invariant proof assumptions.
+Using Tao's actual checkpoints also requires a maximal-lifespan adapter,
+not a silent use of a proposition stated under global-existence hypotheses.
+
+The replacement author proof establishes the stronger averaged-only claim
+
+    sup_(0<=t<=H) sup_j
+      N_j^(1/2)||v_(N_(j+1))(t)-v_(N_j)(t)||2 = infinity,
+    N_j=2^j N0,
+
+for one fixed Tao cascade operator and Schwartz datum at unit viscosity,
+on a finite H, for every N0>0. Thus even the uniform ell-infinity increment
+bound fails there, and all finite-q RF bounds fail as well.
+
+Its chain is explicit: Sobolev mapping estimates including dilations give
+projected global flows and compact-classical L2 identification; the
+published finite-step cascade is localised by excluding a lifespan exit
+using its high-mode H4 bound; a telescoping annular-packet test contradicts
+the resulting growing critical packet amplitudes. No original-NS endpoint
+theorem is applied to the averaged equation. The new derivation, especially
+its lifespan adapter, still needs an independent mathematical audit.
+
+Additional exact results in the same file: weak-L3 divergence of that
+particular cascade; a smooth solenoidal field sequence disproving the
+false L2-plus-L^{3,q}-to-L3 inference; failure of common-translation
+covariance for the fixed cascade; and the one-carrier Fourier-support
+obstruction to an exact same-annulus original-NS pump.
+
+These results repair and sharpen the obstruction. They are NOT a positive
+critical estimate for original NS, and are not terminal regularity progress.
+
+## The corrected averaging gate
+
+A proposed positive producer must identify a necessary step whose hypotheses
+or conclusion fail for the specific averaged counterexample. Energy and
+operator-uniform norm estimates alone remain insufficient. Keep the valid
+reviewed component estimates; do not promote an unproved budget.
+
+Do NOT retire every method called "smooth-block", "signed-phase", or
+"shell-budget" merely by its name. Original NS has the exact identity
+
+    B(T_a f,T_a g)=T_a B(f,g),
+
+whereas the fixed packet cascade fails it on real Schwartz inputs. Exact
+common transport, common-translation Fourier phases, pressure structure,
+and physical-space locality must be examined in an actual proof rather
+than declared averaging-invariant. Passing this test only avoids this
+counterexample; it is not evidence that the remaining estimate is true.
+The existing absolute comparable-scale bound still returns to the
+uncontrolled squared-enstrophy integral. No new bound for it was proved.
+
+For a negative terminal attempt, a cascade must be realized by the ORIGINAL
+Leray-projected quadratic operator, with all unwanted interactions and
+viscous errors controlled. A scalar assigned pump is not such a realization.
+The new one-carrier support test eliminates that particular exact embedding,
+not multi-carrier circuits or all possible blowup constructions.
+
+## Exact remaining positive edge
+
+The reviewed original-NS LOCAL/ENERGY/CONTINUATION suffix remains available.
+A full-input-dependent bound in L-infinity_t L3_x on every finite horizon
+would close NS-R3. A fixed finite L^{3,q}, q>3, also closes it through the
+separately inspected Phuc adapter. No q=infinity continuation is assumed.
+
+The exact Fourier-ball family and the reviewed conditional RF-q consumer
+are preserved, not required as the only architecture. With
+ e_j=u_(N_(j+1))-u_(N_j), a_j=N_j^(1/2)||e_j||2, the sufficient target is
+
+    sup_(0<=t<=H) sup_M sum_(j<M) a_j(t)^q
+         <= K(d,nu,H,N0,q)^q < infinity
+
+for ONE fixed finite q>3, uniformly in all cutoffs and every upper time.
+Arbitrary amplitude, full-datum dependence, fixed positive viscosity and
+non-polynomial costs are allowed. The paired identity retains BOTH source
+work and resolved response:
+
+    (1/q) Wq_M' + nu Dq_M = Piq_M,
+    Piq_M=sum N_j^(q/2)||e_j||2^(q-2)
+                     [<F_j,e_j>-b(e_j,u_j,e_j)],
+    F_j=-(I-P_j)B(u_j,u_j).
+
+Bounding integral_0^t Piq_M by nu integral_0^t Dq_M+C(inputs), for EVERY
+upper time and uniformly M, would suffice. No such bound was obtained.
+The first uncontrolled term is signed comparable-frequency production
+correlated with the actual resolved response. Bounding source and strain
+separately, or returning to integral ||grad u||2^4, does not close it.
+
+A direct original-pressure alternative retains the canonical cubic balance
+
+    (1/3)(||u(t)||3^3-||d||3^3)
+       = integral_0^t [P3(u)-nu D3(u)].
+
+A uniform input-only upper bound on its right side would also suffice.
+This is the same missing positive estimate in another formulation, not a
+new solution. A proposed geometric, Lagrangian, pressure-Hessian, kinetic,
+or phase-sensitive mechanism must supply its actual quantitative gain
+without assuming a future critical norm, recurrence, Type I behaviour, or
+uniform conditioning. Merely adding a discriminator or a new functional
+is not a producer. No complete positive producer is selected by this run.
+
+## Other blockers: retained scopes, not silently marked solved
+
+The causal/restart and slow-manifold branches retain their finite-cutoff
+results and nonuniform reconstruction/conditioning gaps. Static C2 slaving,
+polynomial metric costs, and entire zero-centred series retain their exact
+scoped exclusions. They are optional mechanisms, not prerequisites of the
+reviewed direct whole-space conditional consumer.
+
+The singularity/rigidity branch still requires both an admissible extraction
+and a Liouville theorem for the ACTUAL limit class. Affine, shear and
+inviscid limits cannot be excluded by importing a theorem for a smaller
+bounded positive-viscosity class. The interrupted record and signed-transfer
+notes retain pending-review status; this run supplied no new rigidity.
+
+The kinetic route still lacks its uniform resolved-momentum critical bound
+and complete application audit in the stated whole-space hard-sphere class.
+The microscopic extension additionally needs a compatible particle-to-kinetic
+solution class and a whole-space/domain limit. Regular-fluid-target and
+regular-Boltzmann results cannot be used to assume the missing regularity.
+These are not all discharged by a fluid estimate. See
 `research/kinetic-clay-hilbert-contracts.md` and
-`literature/kinetic-hilbert-scope.md`. Load detailed sources/history only
-for a concrete lane. Specification graphs and author candidates are not
-theorems. The old manuscript/formal phase strings are preserved, with no
-new formal coverage.
+`literature/kinetic-hilbert-scope.md`. No kinetic or microscopic gap was closed.
 
-## Reviewed construction and conditional consumer
+Formal Phase I/II meanings and statuses are unchanged. No Lean coverage,
+manuscript theorem, new imported canonical claim, or independent audit of
+the replacement proof is asserted.
 
-The complete proof is
-`research/evidence/2026-09-07-whole-space-cubic-refinement.md`.
-The actual fresh-context reviews are recorded in
-`research/evidence/2026-09-07-cubic-refinement-audit.md`, including the full
-independent integration report. These are component/adapter results;
-there is no new arbitrary-data critical bound or singularity exclusion.
+## Validation and next handoff
 
-Fix N0>0 once, N_j=2^j N0, and orthogonal Fourier ball projections P_N.
-The exact whole-space flows
+The new exact regression has 204 passing assertions; its output is
+`research/evidence/2026-09-08-tao-packet-checks.json`. The existing
+`research/check_closed_feedback.py` was also rerun: 652 assertions passed,
+after verifying the local script against frozen Git blob
+`ba8c7d8df16d943bb8738bb12c526acbc282b20e`. These are finite algebra,
+scaling, support and phase checks, not PDE certification. Local PLAN
+YAML/status and changed-file whitespace checks passed separately. The
+execution environment did not provide a full research checkout, so
+`research/verify.py --research-only`, the rest of the regression suite,
+manuscript checks and Lean builds were NOT run. Do not relabel this
+narrower validation as a full checkout PASS. The canonical graph is
+preserved rather than promoted.
 
-    u_N,t = nu Delta u_N-P_N P((u_N.grad)u_N),
-    u_N(0)=P_N d
-
-exist globally in the infinite-dimensional bandlimited solenoidal L2 space.
-A Hilbert-space ODE contraction plus exact energy proves this at each
-cutoff. No finite-dimensional assertion, sharp L3 ball multiplier bound,
-fixed-box spectral gap or expanding-domain limit is used.
-
-Set e_j=u_(N_(j+1))-u_(N_j), a_j(t)=N_j^(1/2)||e_j(t)||2. The sufficient
-cubic output is
-
-    sup_(0<=t<=H) sup_M sum_(j<M) a_j(t)^3
-         <= K(d,nu,H,N0)^3 < infinity.                      (RF-CUBE)
-
-The sum is inside the time supremum. Full datum, viscosity and finite
-horizon dependence is allowed; energy-only, polynomial or inviscid-uniform
-costs are not required. RF-CUBE is unproved. It is weaker than RF-SUM in
-the original contract and is not claimed equivalent to global regularity.
-
-Sharp L2 shell estimates and a layer-cake argument prove the L3 synthesis
-for overlapping ball-supported increments, including resolved corrections.
-This gives a uniform finite-approximation L-infinity L3 bound under RF-CUBE.
-On every compact classical lifespan, an H3 residual and energy comparison
-identify u_N with the canonical classical branch in C_t L2. Those local
-comparison constants may diverge at the endpoint; the conditional critical
-constant comes only from RF-CUBE. Fatou transfers that same critical bound
-to the classical branch, and canonical LOCAL/CONTINUATION/ENERGY finish the
-original velocity, pressure, trace and energy target. No new weak-solution
-uniqueness or approximate-pressure limit is needed for this selected route.
-
-The generic time-family theorem was repaired to assume strong L2
-measurability explicitly. RF-CUBE gives finite L^p_t L3_x convergence and
-uniform L2 tails, but need not give uniform-in-time L3 tail convergence.
-Actual projected paths satisfy measurability automatically. Independent
-integration review accepted the complete repaired composition.
-
-## First missing estimate
-
-For each actual neighboring pair, v=u_j, U=u_(j+1), w=U-v on the common
-fine space, retain the full equation
-
-    w_t+nu A w+B(v,w)+B(w,v)+B(w,w)=F,
-    F=-(I-P_j)B(v,v),
-    (1/2)d||w||2^2/dt+nu||grad w||2^2
-        =<F,w>-b(w,v,w).
-
-Here b(a,b,c)=integral(a.grad)b.c and B includes fine Leray/Fourier
-projection. Resolved corrections in w are not zero. For finite M,
-
-    (1/3)W_M'+nu D_M=Pi_M,
-    W_M=sum_(j<M)a_j^3,
-    D_M=sum_(j<M)N_j^(3/2)||e_j||2||grad e_j||2^2,
-    Pi_M=sum_(j<M)N_j^(3/2)||e_j||2
-                         [<F_j,e_j>-b(e_j,u_j,e_j)].
-
-A bound integral_0^t Pi_M <= nu integral_0^t D_M+C(inputs), uniformly
-in M at EVERY upper time t<=H, would suffice. Strict absorption also
-bounds accumulated D_M but is not necessary for RF-CUBE alone. The
-initial W_M is uniformly finite for Schwartz data. This signed producer,
-or a weaker adequate critical output with its full consumer, is the first
-gap. Future strain, critical norms and separate worst-case source/feedback
-bounds cannot stand in for it.
-
-One actual positive transfer estimate is now proved: if U is a fine flow,
-p=P_N U, q=(I-P_N)U and G=-P_N P div(p tensor q+q tensor p+q tensor q),
-then for K<=N/2,
-
-    integral_0^H ||P_K G||2
-        <= C K^(5/2) N^(-2)||d||2^2/nu.
-
-Low output forces both parents high, so dissipation pays for them. The
-constant is independent of fine cutoff and horizon. The estimate controls
-actual forcing, not its nonlinear response. At neighboring scales its
-upper bound deteriorates; this is not an optimality obstruction. Signed
-near-diagonal transfer and its correlated resolved response remain open.
-
-## Interrupted signed-transfer run (2026-09-08)
-
-The owner requested the terminal breakthrough after recovery of the completed
-wave, then explicitly requested conclusion, a plan update, commit, push and
-stop. This continuation started from clean main
-`acc498daecc2a914d499019194e198bc658ebcf8`, refreshed against origin/main.
-Research is stopped. No terminal breakthrough, critical producer or new
-independent mathematical audit was completed. The reviewed preceding wave
-remains intact; the canonical proof graph and verifier are unchanged.
-
-The interrupted worker returns are preserved in
-`research/evidence/2026-09-08-signed-transfer-interrupted.md`, with their
-original file digests and unfinished obligations. They are author working
-notes, not promoted claims. The original frontier packet and scratch remain
-under `.git/navier-wave-20260908`.
-
-The common target is RF-q for one fixed finite q>3, with full datum, fixed
-positive viscosity and finite-horizon dependence allowed, uniformly over
-all cutoffs and every upper time. A single-flow smooth-block bound with a
-complete consumer may replace paired RF-q. The first uncontrolled term is
-the signed comparable-frequency part of the smooth-block commutator.
-
-- The direct worker began an angularly resolved vector-transfer factorization;
-  it produced no signed spacetime bound.
-- The falsification worker identified central oddness as a mechanism fixing
-  Cartesian Fourier phases and drafted a smooth-block positive-transfer test.
-  The complete test and its quantitative persistence remain unaudited.
-- The correction worker examined a correction adapted to Euler transport;
-  arbitrary-amplitude coercivity and the viscous remainder remain open.
-
-No worker is assigned continuing research. Any future owner-authorized
-resumption should first check the saved exact formulas and scope, then seek
-signed comparable-frequency control retaining vector polarization dynamics.
-Fixed Cartesian phases alone do not freeze polarization. Returning to an
-uncontrolled critical amplitude times dissipation or to the squared-enstrophy
-integral does not supply the missing estimate.
-
-Closeout checks: research-only integrity, the existing 652-assertion exact
-closed-feedback regression, the prose checker and whitespace checks passed.
-These checks do not certify the interrupted derivations. Manuscript/formal
-checks and Lean builds were not run.
-
-## Averaging obstruction and the averaging gate (2026-09-08)
-
-After the stop, the owner requested a lemma. The author proof is
-`research/evidence/2026-09-08-averaging-obstruction-rf-q.md`, base
-`141122011ef9383a12b622335f8b1af01f666a60`, independent audit pending.
-It is a scoped negative result about Tao's averaged equation, not a
-statement about NS-R3, and the canonical proof graph is unchanged.
-
-The lemma: for Tao's averaged operator with the same ball projections and
-projected family, RF-q is false for every finite q>3 on some finite horizon.
-Proof: Tao's Theorem 1.5 solution blows up at finite T* and, by his footnote
-11, is Type II with diverging critical norms; the reviewed construction,
-Lorentz synthesis, identification and Fatou steps use only cancellation,
-projection orthogonality, Fourier-support bookkeeping, Bernstein, layer-cake
-and energy comparison, all of which the averaged operator satisfies, so
-RF-q would bound the L3 norm up to T*. The only NS-specific step in the
-reviewed consumer is the final Phuc/Escauriaza--Seregin--Sverak continuation.
-
-Consequences, effective now:
-
-- Averaging gate. No producer lane is assigned, audited or integrated until
-  it names the exact step of its argument that is false for the averaged
-  operator. A lane that cannot name one is rejected before audit.
-- Retired class. Signed or unsigned shell budgets of the form
-  int Pi_M <= nu int D_M + C built from energy, trichotomy, Bernstein and
-  projection identities are retired as producer candidates. This covers
-  the positive transfer estimate above and the paired-history, single-flow
-  cubic, smooth-block, three-level, signed-phase and large-q lanes. Their
-  audited lemmas stay valid as component results.
-- RF3 is no longer incumbent. The reviewed consumer is archived as a
-  conditional theorem. Any future critical bound closes through classical
-  continuation without the refinement machinery.
-- Surviving structures for any resumption: local energy inequality and
-  epsilon-regularity, Lagrangian transport and Cauchy invariants, the exact
-  Riesz-transform pressure and its Hessian, backward uniqueness and Carleman
-  inequalities, vorticity-direction geometry. The 2026-09-08 record-pressure
-  lemma is the one current result inside this class.
-- Recorded dead end. A Galilean-quotiented concentration-scale extraction
-  for Type II blowup lands in a class containing affine and heat-polynomial
-  shear flows, where no Liouville theorem holds. Do not repeat it without a
-  new rigidity input; see the evidence note.
-
-Research remains stopped. The next owner-authorized step is an independent
-audit of the lemma with the two named scopes, then reallocation of any
-resumed lanes to the surviving structures only.
-
-## Previous refinement checkpoint and discriminating results
-
-RF3 remains incumbent, with independent alternatives and a smaller fresh
-exploration allocation. The initial allocation was roughly half direct
-refinement, one quarter competing mechanisms, one quarter fresh ideas;
-reviewers were added as concrete candidates appeared. Slots are not filled
-with duplicate estimates. The completed second period found these shared
-unknowns:
-
-- A shared-advector history comparison removes strain Gronwall and has an
-  additive dissipation bound at each cutoff. Returning to the actual coarse
-  flow leaves integral ||v w||2^2/nu and a cutoff cost. A new proof must
-  control that actual mismatch jointly with source work.
-- Full single-flow cubic band accounting retains triad cancellations but
-  its present bound returns to integral ||grad U||2^4. Energy provides only
-  the squared-gradient integral. A sharp-projector boundary example blocks
-  one proposed low-strain estimate; smooth-filter implementations remain
-  distinct repair candidates.
-- A kinetic initial-layer corrector retains collision invariants and
-  epsilon transport. Its relaxed production returns to the macroscopic
-  cubic-gradient term. This coefficient calculation is not an actual
-  kinetic trajectory theorem or a new critical estimate.
-- Fresh heat-cubic and speed-superlevel pressure projections supplied
-  exact testable objects. Present implementations lose coercivity or
-  retain moving-boundary pressure; global reconstruction returns to the
-  existing gradient quotient's signed defect. The broader mechanisms
-  remain open at that additional obligation.
-- A remote-pressure slow-record family is an unaudited candidate involving
-  different smooth data and fixed record ratios near one. It does not
-  extract a singularity from one datum or establish a dyadic-record
-  obstruction. Universal nonrecurrent three-dimensional extraction and
-  rigidity remain missing.
-
-Restart-relevant derivations and scope qualifications are retained as
-explicitly unaudited snapshots: paired history alignment, single-flow
-cubic accounting, kinetic initial-layer production, slow finite records,
-speed-level pressure and large-q production, all dated 2026-09-07 in
-research/evidence. They are not canonical theorems. Routine exploratory
-scratch is not canonical evidence.
-Two returns to the same critical clock do not count as distinct progress.
-
-The selected weaker target is now RF-q: sup_t sum a_j(t)^q for ONE fixed
-finite q>3, say q=6, on every finite horizon. The complete synthesis and
-classical continuation adapter are independently reviewed, including Phuc's
-actual local hypotheses, normalized pressure, closed upper-time boundary
-and control of spatial escape. See the Lorentz synthesis, continuation and
-audit records in research/evidence. This removes an unnecessary ell3 demand
-but produces no critical bound. q=infinity is not an accepted endpoint.
-
-The large-q experiment supplies an actual high-component threshold
-occupation bound and a bound on the rate of record crossings. It still
-leaves exceptional-time concentration and resolved corrections; the energy
-cost of a higher-scale crossing decays as N_j^(-1). The resulting geometric
-sum cannot exclude infinitely many records by this argument. An actual
-common-data family shows that one dominant increment can grow well above
-nu for every finite q. Full-input-dependent barriers remain allowed.
-These new producer derivations are retained with audit pending; they are
-not promoted as obstructions to RF-q.
-
-The smooth-block repair has passed independent review after two scope
-corrections: its multiplier is smooth away from zero, and exact fixed-grid
-scale invariance is dyadic. It retains the full projected equation even
-when blocks cross the cutoff. Low/high transport now costs low strain
-with an additional frequency-separation factor. Its comparable-scale
-remainder still has no small factor and the current absolute estimate
-returns to integral ||grad U||2^4. The full derivation and repair audit are
-`2026-09-07-smooth-block-repair.md` and `2026-09-07-smooth-block-audit.md`.
-
-The fresh helical lane also completed review after explicitly adding the
-Leray projection to the Fourier-packet construction. Actual compact data
-produce growth of both chiral energies while every radial signed-helicity
-history vanishes. Actual pure-positive Schwartz data create negative
-chirality at order t squared. These are scoped closure exclusions, not a
-failure of all helical geometry or of an additional full-input bound.
-See `2026-09-07-helical-production.md` and its audit record.
-
-At the preceding checkpoint the bounded worker assignments were complete.
-The selected next analytic assignment was a signed, phase-sensitive comparable-scale
-commutator estimate in the smooth-block formulation, tested first on the
-reflection-symmetric and chiral-birth families above. It must retain
-angularly resolved vector correlations that signed radial budgets discard.
-An estimate that merely returns to sup a times D or the squared-enstrophy
-clock is not a new mechanism. The full-input finite-q producer remains the
-terminal consumer; independent source review and mathematical audits do
-not substitute for producing it.
-
-Keep alternative mechanisms alive only when the next lemma offers a
-structural gain, missing hypothesis or different proof attack. Temporal
-reconstruction accuracy is not spatial refinement control. Staff kinetic,
-representation or whole-space adapters only for a named advancing consumer;
-microscopic completion and formalization remain downstream.
-
-## Preserved exclusions and verification
-
-The preceding wave's causal-series and metric results retain their original
-pending independent-audit status. Preserve the exact exclusions for static
-C2 slaving, mass-norm prefactor-one contraction, universal entire causal
-series, polynomial metric conditioning and polynomial paired source-linear
-costs. Real causal restart remains a finite-cutoff repair with nonuniform
-costs. None refutes nonlinear input-dependent refinement or NS-R3.
-The earlier entropy, covariance, Fisher, resonance, packet-scaling and
-graph-lift obstructions retain their separate premises and reopening
-conditions. No new symmetry, recurrence, Type-I or record-frequency
-hypothesis is imposed on a general hypothetical singularity.
-
-Freeze each complete candidate and its patch before fresh adversarial
-review. Distinguish author proof, actual source inspection, independent
-mathematical audit and formal verification. Refresh main, stage explicit
-paths and use ordinary pushes; preserve concurrent edits. Run
-`python3 research/verify.py --research-only`, `git diff --check`, and the
-relevant existing finite algebra oracle. Structural checks and finite
-regressions certify neither the new PDE implication nor terminal regularity.
-The canonical graph and its status guard stay unchanged while the critical
-producer remains missing.
-
-The completed checkpoint checks passed: research-only integrity (29 canonical
-records and eight historical pending supplements), both research graph
-DAG/reference checks, the 652-assertion exact closed-feedback regression,
-new proof/plan prose checks and whitespace. The verbatim smooth-block audit
-retains one nonblocking phrase-checker finding; its original wording is
-preserved for review provenance. The original PLAN is archived byte-for-byte;
-the canonical graph and verifier are unchanged. Manuscript includes/labels,
-formal manifests and Lean builds were outside the executed research-only
-check. These check scopes do not certify the new mathematics.
+The next review input is the frozen replacement proof, with special scrutiny
+of the lifespan-exit argument in Section 4 and the quantifiers in Section 2.
+Further positive work must attack the remaining original-operator estimate,
+not re-prove the conditional consumer or repeat an invariant shell budget.
+Refresh main before every write; preserve concurrent edits and use ordinary
+non-force updates. No task is running after this handoff.

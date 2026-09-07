@@ -1,0 +1,21 @@
+{
+  "assertions": 204,
+  "groups": {
+    "cascade_exponents": 8,
+    "dyadic_tail": 21,
+    "energy_algebra": 100,
+    "lorentz_gap": 16,
+    "one_carrier_support": 8,
+    "packet_threshold": 30,
+    "solenoidal_cutoff": 4,
+    "translation_phase": 17
+  },
+  "not_certified": [
+    "PDE existence or convergence",
+    "Tao checkpoint localisation",
+    "independent mathematical audit",
+    "NS-R3 regularity"
+  ],
+  "scope": "exact finite algebra and exponent regressions only",
+  "status": "PASS"
+}
