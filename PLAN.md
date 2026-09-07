@@ -16,6 +16,8 @@ terminal_status: not-proved
 terminal_obstruction: input-only-critical-refinement-estimate-not-produced
 refinement_wave: interrupted-author-candidates-unreviewed
 run_status: stopped-at-owner-request
+averaging_gate: required-for-every-producer-lane-2026-09-08
+incumbent_producer_class: averaging-invariant-shell-budgets-retired-2026-09-08
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
@@ -193,6 +195,52 @@ Closeout checks: research-only integrity, the existing 652-assertion exact
 closed-feedback regression, the prose checker and whitespace checks passed.
 These checks do not certify the interrupted derivations. Manuscript/formal
 checks and Lean builds were not run.
+
+## Averaging obstruction and the averaging gate (2026-09-08)
+
+After the stop, the owner requested a lemma. The author proof is
+`research/evidence/2026-09-08-averaging-obstruction-rf-q.md`, base
+`141122011ef9383a12b622335f8b1af01f666a60`, independent audit pending.
+It is a scoped negative result about Tao's averaged equation, not a
+statement about NS-R3, and the canonical proof graph is unchanged.
+
+The lemma: for Tao's averaged operator with the same ball projections and
+projected family, RF-q is false for every finite q>3 on some finite horizon.
+Proof: Tao's Theorem 1.5 solution blows up at finite T* and, by his footnote
+11, is Type II with diverging critical norms; the reviewed construction,
+Lorentz synthesis, identification and Fatou steps use only cancellation,
+projection orthogonality, Fourier-support bookkeeping, Bernstein, layer-cake
+and energy comparison, all of which the averaged operator satisfies, so
+RF-q would bound the L3 norm up to T*. The only NS-specific step in the
+reviewed consumer is the final Phuc/Escauriaza--Seregin--Sverak continuation.
+
+Consequences, effective now:
+
+- Averaging gate. No producer lane is assigned, audited or integrated until
+  it names the exact step of its argument that is false for the averaged
+  operator. A lane that cannot name one is rejected before audit.
+- Retired class. Signed or unsigned shell budgets of the form
+  int Pi_M <= nu int D_M + C built from energy, trichotomy, Bernstein and
+  projection identities are retired as producer candidates. This covers
+  the positive transfer estimate above and the paired-history, single-flow
+  cubic, smooth-block, three-level, signed-phase and large-q lanes. Their
+  audited lemmas stay valid as component results.
+- RF3 is no longer incumbent. The reviewed consumer is archived as a
+  conditional theorem. Any future critical bound closes through classical
+  continuation without the refinement machinery.
+- Surviving structures for any resumption: local energy inequality and
+  epsilon-regularity, Lagrangian transport and Cauchy invariants, the exact
+  Riesz-transform pressure and its Hessian, backward uniqueness and Carleman
+  inequalities, vorticity-direction geometry. The 2026-09-08 record-pressure
+  lemma is the one current result inside this class.
+- Recorded dead end. A Galilean-quotiented concentration-scale extraction
+  for Type II blowup lands in a class containing affine and heat-polynomial
+  shear flows, where no Liouville theorem holds. Do not repeat it without a
+  new rigidity input; see the evidence note.
+
+Research remains stopped. The next owner-authorized step is an independent
+audit of the lemma with the two named scopes, then reallocation of any
+resumed lanes to the surviving structures only.
 
 ## Previous refinement checkpoint and discriminating results
 
