@@ -1,0 +1,44 @@
+schema_version: 1
+title: Compatible refinement and resonant slow reduction
+terminal_claim: NS-R3
+map_kind: research-specification-not-canonical-proof
+source_main: f0add720620a4e381c98bb6ed762bc2906f77e11
+workflow_repository: krystophny/prompts
+workflow_revision: 2929639d8ed611917bd1086df002296a611a475b
+workflow_path: skills/math-frontier/SKILL.md
+terminal_status: not-proved
+contract: research/refinement-slow-manifold-contract.md
+nodes:
+  - id: RF0
+    status: open
+    claim: Faithful compatible semidiscretization with uniform reconstruction hypotheses.
+    depends_on: []
+  - id: RF1
+    status: active
+    claim: A quantitatively valid reduction retains nonremovable resonant NS interactions.
+    depends_on: [RF0]
+  - id: RF2
+    status: open
+    claim: Cutoff-uniform reconstruction and normal tracking, including initial deviations.
+    depends_on: [RF1]
+  - id: RF3
+    status: gap
+    claim: Signed three-dimensional strain/feedback and critical weights are controlled without unknown critical norms.
+    depends_on: [RF2]
+  - id: RF4
+    status: gap
+    claim: One faithful sequence has input-only summable critically weighted refinement increments.
+    depends_on: [RF0, RF3]
+  - id: RF5
+    status: conditional
+    claim: Consistency, trace, energy and whole-space passage identify the critical limit with the classical branch.
+    depends_on: [RF4]
+  - id: RF-TERMINAL
+    status: conditional
+    claim: RF5 plus canonical LOCAL, CONTINUATION and ENERGY imply NS-R3.
+    depends_on: [RF5]
+    canonical_consumers: [LOCAL, CONTINUATION, ENERGY]
+notes:
+  - These edges are proposed sufficient research obligations, not proved implications with constructed inputs.
+  - A benchmark or a periodic theorem never promotes RF3, RF4 or NS-R3.
+  - Kinetic/microscopic contracts and the canonical proof graph remain separate.
