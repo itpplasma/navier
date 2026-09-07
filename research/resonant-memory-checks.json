@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact rational, standard library",
+  "assertions": 469,
+  "groups": {
+    "orthogonal_parent": 16,
+    "leray_numerator_survives": 16,
+    "homological_obstruction": 48,
+    "high_mode_outside_coarse": 16,
+    "compressed_skew_adjoint": 9,
+    "operator_schur_bound": 9,
+    "first_resonant_coefficient": 1,
+    "initial_coefficient": 5,
+    "lossless_below_cutoff": 19,
+    "coarse_omits_resonance": 1,
+    "exact_duhamel_recurrence": 90,
+    "zero_initial_correction": 90,
+    "support_and_parity": 90,
+    "factorial_envelope_recurrence": 12,
+    "factorial_envelope_initial": 12,
+    "dyadic_lossless_support": 16,
+    "dyadic_tail_order": 16,
+    "negative_wrong_ns_sign": 1,
+    "negative_missing_shear_decay": 1,
+    "negative_dropped_resonant_forcing": 1
+  },
+  "ranges": {
+    "parent_K": [
+      1,
+      16
+    ],
+    "viscosities": [
+      "1/4",
+      "1",
+      "3/2"
+    ],
+    "max_duhamel_order": 7,
+    "compressed_cutoffs": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "max_envelope_order": 12,
+    "dyadic_j": [
+      0,
+      15
+    ]
+  },
+  "non_claims": [
+    "not a universal PDE proof",
+    "not independent mathematical review",
+    "no numerical solver or full-repository verifier run",
+    "no arbitrary-data NS-R3 progress certified"
+  ]
+}
