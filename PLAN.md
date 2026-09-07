@@ -10,7 +10,7 @@ paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: exclude-remaining-three-dimensional-fast-records-and-slow-records
-active_architecture: marked-record-spatial-and-local-return-rigidity-partially-closed
+active_architecture: marked-record-concentrating-return-compatibility-partially-closed
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -34,6 +34,7 @@ integrated_vorticity_entropy_status: author-checked-independent-audit-pending
 generated_covariance_sign_status: author-checked-independent-audit-pending
 one_slice_record_rigidity_status: author-checked-independent-audit-pending
 local_return_rigidity_status: author-checked-independent-audit-pending
+concentrating_return_compatibility_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: genuinely-three-dimensional-fast-records-and-slow-records-open
 formal_work_this_run: deferred
@@ -72,10 +73,11 @@ additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
 **Next substantive action:** continue the direct singularity/record architecture
-in Sections 1.4--1.5. The spatial and local-return rigidity results exclude
-locally planar fast records and the stated nonconcentrating recurrent class.
-Genuinely nonreturning or concentrating three-dimensional fast profiles and
-slow records remain open. No recurrence property has been forced.
+in Sections 1.4--1.6. The concentrating-return result now also excludes
+incompatible endpoints/drifts and robustly incompatible pairs of unrotated
+scales. Compatible single-scale or rotated concentrating returns, nonreturning
+fast profiles and slow records remain open. No recurrence has been forced;
+these exclusions do not supply a complete terminal producer.
 The next result must remove an actual remaining singularity possibility,
 not merely rename a critical bound or construct another observable.
 
@@ -318,6 +320,64 @@ forbidden class. Do not assume recurrence from compactness, or turn the
 return gap into nonsummable dissipation; the single-packet cost is unchanged.
 Canonical graph nodes, prior evidence, kinetic/microscopic contracts,
 manuscripts and formalization remain unchanged.
+
+### 1.6 Concentrating returns: compatibility and discrete unrotated scales
+
+Read [the concentrating-return compatibility proof](research/evidence/2026-09-07-concentrating-return-compatibility.md).
+At input `b70c6486ae4087f5673c39b7b7bbd6e2df7b4d8d`, this adds a complete
+author derivation with independent mathematical audit pending. Outcome B:
+a scoped further singularity reduction, not NS-R3 or a novelty claim.
+
+For any exact local return of a marked ancient mild U,
+
+    U(y,beta)=lambda Q U(lambda Q^T(y-a),alpha)+b,
+    alpha<beta<=0, lambda>1,
+
+analyticity and actual NS symmetry now give a constructive continuation of
+the tangent, after an explicitly computed constant Galilean change, to
+
+    T=(lambda^2 beta-alpha)/(lambda^2-1)>0,
+    v=(I-lambda Q)^(-1)b.
+
+It has temporal Type-I control relative to v up to T and unbounded local
+oscillation at T. It approaches v uniformly in space as s->-infinity.
+Hence ALL concentrating returns of that U, including rotated ones, have the
+same T and v: these are the unique maximal future bounded-mild endpoint
+and the unique backward limiting velocity. This is conditional information
+about the tangent, not a constructed Schwartz-data counterexample, an
+inherited finite-energy bound, or a bound on the parent's unknown lifespan.
+
+For UNROTATED returns, spatial commutators produce arbitrarily small periods
+unless their Galilean centers coincide; the banked one-slice planar rigidity
+excludes the former case. Their centered log-scale symmetry group is closed.
+If dense, it produces a bounded stationary Leray profile, which is constant
+by Chae--Wolf Theorem 1.2/Remark 1.3. Mildness removes the time-dependent
+constant. Thus the group is h0 Z with h0>0: every unrotated return scale is
+an integer power of a single lambda0>1. Two unrotated returns with irrational
+logarithmic scale ratio are therefore impossible. Rotated scale groups are
+NOT classified by this argument.
+
+There is a robust actual-record consequence, not only an exact-profile
+assertion. Fix A,R>0, B>=delta>0, D>=0 and Lambda1,Lambda2>1 with irrational
+logarithmic ratio, for example 2 and 3. For all sufficiently late records
+with ell_n<=A, the SUM of two local squared return errors on B_R is at least
+eta>0 whenever both pairs of times lie in [-B,0] with separation >=delta,
+translations have magnitude <=D, scales are sufficiently close to Lambda1,
+Lambda2, and rotations are sufficiently close to I. Boosts are unrestricted;
+vanishing error automatically bounds them. Constants depend only on the
+fixed normalized parameters, not on datum, nu, record level or maximizing
+point. The proof includes the finite-history adapter and physical error
+factor Mn/nu^3. A single dyadic cascade or compatible powers of one scale
+are NOT excluded.
+
+The new exact and robust pair exclusions narrow the concentrating recurrent
+class. They do not force recurrence, eliminate a compatible discrete group,
+or address nonreturning fast profiles or slow records. Temporal Type-I
+control of a continued tangent does not supply spatial 1/|x| decay for a
+rotated-profile theorem. No nonsummable physical cost follows from these
+compatibility results. The canonical graph, all earlier evidence and exact
+counterexample scopes, kinetic/microscopic contracts, manuscripts and
+formalization remain unchanged; NS-R3 and CRITICAL remain gaps.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
