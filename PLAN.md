@@ -9,8 +9,8 @@ phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
-active_task: select-trajectory-specific-terminal-producer-after-kinetic-falsifiers
-active_architecture: kinetic-macro-transfer-unclosed-after-output-information-falsifiers
+active_task: select-nonmonotone-or-signed-terminal-producer-after-integrated-falsifiers
+active_architecture: none-closed-kinetic-and-stochastic-signed-output-still-unproved
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -30,6 +30,8 @@ prepared_fisher_falsification_status: author-checked-independent-audit-pending
 stress_output_falsification_status: author-checked-independent-audit-pending
 local_velocity_entropy_status: author-checked-independent-audit-pending
 single_channel_transfer_status: author-checked-independent-audit-pending
+integrated_vorticity_entropy_status: author-checked-independent-audit-pending
+generated_covariance_sign_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: unchanged
 formal_work_this_run: deferred
@@ -161,6 +163,46 @@ K1 still requires the actual signed trajectory-specific remainder estimate.
 The unsuccessful absolute-value convective-flux estimate is not a new
 producer or a new stress no-go. Preserve all existing evidence, the canonical
 proof graph, kinetic/microscopic contracts, manuscripts and formalization.
+
+### 1.3 Integrated-vorticity and generated-covariance exclusions at 07d5e48
+
+Read [the vorticity-entropy rigidity and actual covariance counterexample](research/evidence/2026-09-07-vorticity-entropy-and-generated-covariance.md).
+These are complete author derivations; independent mathematical audit and
+prior-art assessment remain pending. NS-R3 is not proved; the terminal
+obstruction is unchanged. No positive closure mechanism is promoted.
+
+For fixed nu>0 and eta in C2(R3), eta(0)=0 and D eta(0)=0, initial
+nonincrease of integral eta(curl u) on EVERY actual compact-solenoidal-data
+local whole-space NS branch forces eta=0. Convexity is derived using
+curl-compatible high-frequency probes, not assumed. Rotation averaging,
+compact irrotational strain plateaus and a compact elongated vorticity test
+then contradict the necessary integrated tensor constraint. Every nonzero
+density has an actual local entropy-growth counterexample at the fixed nu.
+Retire fixed vorticity-local INTEGRATED monotone entropies, not merely
+pointwise maximum rules. The explicit smooth critical-growth consumer in
+the evidence does yield L3 from entropy plus energy; its monotone producer
+is what fails. Do not extend this theorem to mixed u/vorticity densities,
+full strain, nonlocal or nonsmooth functionals, datum/time-dependent weights,
+combined dissipating functionals, or controlled nonmonotone production.
+
+For the common-noise inverse-flow Jacobian J, let M=E J and
+Q=E[(J-M)^T(J-M)]. Actual compact-data NS branches at every fixed nu>0 can
+have Q(0)=0, Q>=0 and integral tr((sym grad u)Q)<0 for all sufficiently small
+positive times. The proof uses the exact coefficient
+Q(t)=(2nu/3)t^3 sum_k (partial_k grad u0)^T(partial_k grad u0)+O_L2(t^4)
+and an explicitly localized solenoidal trigonometric field with the required
+negative integrated cubic coefficient. Retire dropping this strain term as
+nonnegative even for covariance actually generated from zero; this is not
+merely an arbitrary-matrix warning. The signed mean Weber output and all
+other stochastic mechanisms are NOT excluded, but no endpoint estimate for
+them is supplied. Local moment equations do not constitute a new producer.
+
+Kinetic signed nonlinear output and genuinely dynamical cascade cost remain
+unproved alternatives with their existing gates. The repeated absolute-value
+kinetic estimate and summable single-bubble energy accounting are not new
+progress. Do not resume a failed monotonicity or favorable-sign step under
+new terminology. Preserve all previous evidence, canonical graph nodes,
+kinetic/microscopic contracts, manuscripts and formalization.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
