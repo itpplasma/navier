@@ -35,7 +35,8 @@ inverse; asymptotic series to each order -> convergence; graph-lift obstruction
 
 CHECK: exact projected NS interaction and invariance equation; then a causal
 reconstruction with rigorous remainder. Keep only one main mathematical
-mechanism. The final proposed consumer is Section 2, not a new criterion
+mechanism under the original allocation; the owner's current parallel-run
+override and allocation are in PLAN. The final proposed consumer is Section 2, not a new criterion
 advertised as the desired producer.
 
 ## 2. Explicit sufficient terminal interface (conditional)
@@ -71,6 +72,31 @@ It need hold for only one faithfully constructed family. A direct uniformly
 resolved momentum certificate or another precisely consumed critical norm
 may replace it. No existence, consistency or tail hypothesis is supplied
 merely by writing (S).
+
+## 2a. Reviewed direct whole-space alternative
+
+The original sufficient interface (S) remains valid in its stated scope.
+For the selected exact Fourier-ball family on R3, the 2026-09-07 wave
+constructs every projected flow and replaces (S) by the weaker conditional
+RF-CUBE output: sup_t sum_j [N_j^(1/2)||u_(j+1)-u_j||2]^3 is finite on
+every finite horizon, with constants depending on full datum and nu.
+The [complete reviewed proof](evidence/2026-09-07-whole-space-cubic-refinement.md)
+supplies overlapping-increment synthesis and direct compact-classical L2
+identification. This selected consumer uses the canonical branch's pressure,
+trace and energy, so it needs no approximate-pressure limit or new
+weak--strong uniqueness interface. A separately claimed global weak-limit
+construction retains all its own pressure/tail/energy obligations.
+
+The later [finite-Lorentz synthesis](evidence/2026-09-07-lorentz-synthesis.md)
+and [continuation adapter](evidence/2026-09-07-lorentz-continuation.md) allow
+one fixed finite q>3 in place of the cubic exponent. Their full conditional
+composition has passed independent review. The required RF-q producer and
+RF-CUBE remain unproved; weak q=infinity is not an accepted endpoint. The construction
+is on an infinite-dimensional bandlimited Hilbert space, not a finite-mode
+whole-space discretization. Causal/slaving representations are optional
+methods for RF3, not prerequisites of this selected family. Audit scopes
+and the repaired generic time-measurability assumption are recorded with
+the evidence. PLAN allocates further weakening and producer experiments.
 
 ## 3. Exact slow-manifold bookkeeping
 

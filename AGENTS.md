@@ -21,8 +21,10 @@ must have separate contracts and proofs.
 
 The controller integrates authoritative state and claim promotions. Workers
 own only explicitly assigned evidence files; they do not edit PLAN, docs or
-manuscripts and do not promote their own proofs. Existing delegation policy
-remains Claude-only: do not delegate to OpenAI/Codex/local/other-vendor models.
+manuscripts and do not promote their own proofs. For the current 2026-09-07
+research run, the owner explicitly authorizes the available frontier models
+and simultaneous distinct mechanisms, superseding the earlier Claude-only
+and single-primary allocation restrictions. Other boundaries remain intact.
 Historical model names are provenance, not evidence of tools available now.
 Independent review requires a fresh context/adversarial lens, preferably a
 different tier. Do not invent worker execution or call self-review independent.
@@ -31,9 +33,9 @@ different tier. Do not invent worker execution or call self-review independent.
 
 State the exact estimate, data/solution class, constant dependence, complete
 consumer chain and first uncontrolled term before substantial work. Attack
-arbitrary amplitude and limiting uniformity first. K1 is the initial main
-mechanism; K2/KF are actual alternatives, A supports a specified consumer,
-and G requires both extraction and rigidity. A criterion, representation,
+arbitrary amplitude and limiting uniformity first. PLAN alone allocates
+the current mechanisms. RF3 starts as incumbent; kinetic and other routes
+receive distinct proof assignments. G requires both extraction and rigidity. A criterion, representation,
 local estimate, known identity, new functional, build or documentation update
 is not terminal mathematical progress. Two serious returns to the same
 unknown critical quantity require a genuine change of mechanism.

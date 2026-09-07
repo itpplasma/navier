@@ -34,6 +34,26 @@ remain missing. Their retired primary allocation is not a retraction. The
 structural-obstructions paper and no-go notes keep their distinct premise
 classes and independent-audit/prior-art qualifications.
 
+## Reviewed refinement consumer
+
+The [whole-space refinement proof](../research/evidence/2026-09-07-whole-space-cubic-refinement.md)
+constructs exact global Fourier-ball projected flows directly on R3 and
+proves that a simultaneous-time cubic bound on their critically weighted
+L2 increments gives a uniform L3 bound. A direct compact-classical L2
+comparison identifies the classical branch, then the existing continuation,
+pressure, trace and energy suffix applies. Independent component and full
+integration reviews accepted this conditional argument after an explicit
+generic time-measurability repair. The required nonlinear cubic bound is
+unproved; no canonical theorem status or terminal dependency is promoted.
+A further [finite-Lorentz synthesis](../research/evidence/2026-09-07-lorentz-synthesis.md)
+permits any one fixed finite exponent q>3, for example q=6. The
+[inspected continuation adapter](../research/evidence/2026-09-07-lorentz-continuation.md)
+checks the pressure, spatial-tail and upper-time hypotheses of Phuc's local
+results. Independent integration review accepted the combined conditional
+consumer. Its weaker nonlinear RF-q bound is also unproved.
+The [refinement research graph](refinement-proof-graph.yaml) distinguishes
+these reviewed components from the missing producer and older candidates.
+
 ## Kinetic candidate suffix (not yet an instantiated proof)
 
 Use the whole-space hard-sphere GSR framework with the Maxwellian preparation

@@ -1,8 +1,8 @@
 schema_version: 1
-title: Compatible refinement and resonant slow reduction
+title: Whole-space refinement and signed critical production
 terminal_claim: NS-R3
 map_kind: research-specification-not-canonical-proof
-source_main: 49b67060edbda947f76cd1da290678096a415827
+source_main: ec2ed88c8d1fdf3b66b0e989827d44d93f1f76df
 workflow_repository: krystophny/prompts
 workflow_revision: 2929639d8ed611917bd1086df002296a611a475b
 workflow_path: skills/math-frontier/SKILL.md
@@ -10,8 +10,9 @@ terminal_status: not-proved
 contract: research/refinement-slow-manifold-contract.md
 nodes:
 - id: RF0
-  status: periodic-prototype-only
-  claim: Faithful compatible semidiscretization with uniform reconstruction hypotheses.
+  status: reviewed-direct-whole-space-family
+  claim: Exact global Fourier-ball projected flows on the infinite-dimensional solenoidal bandlimited
+    L2 space over R3, with energy and uniform neighboring-ball inverse estimates.
   depends_on: []
 - id: RF1
   status: static-C2-branch-refuted-causal-test-repaired
@@ -25,21 +26,23 @@ nodes:
   - RF1
 - id: RF3
   status: active-gap
-  claim: Nonlinear paired refinement source, feedback, amplification and reconstruction have an input-only
-    critically summable bound; polynomial universal costs are not assumed.
+  claim: Bound signed nonlinear refinement production on the actual whole-space family with input-only
+    constants, allowing nonlinear and non-polynomial costs.
   depends_on:
-  - RF2
+  - RF0
 - id: RF4
   status: gap
-  claim: One faithful sequence has input-only summable critically weighted refinement increments.
+  claim: One faithful sequence satisfies input-only simultaneous-time RF-q for one fixed finite q>3 (q=6
+    suffices), or RF-CUBE as a stronger sufficient output; production remains open.
   depends_on:
   - RF0
   - RF3
 - id: RF5
-  status: conditional
-  claim: Consistency, trace, energy and whole-space passage identify the critical limit with the classical
-    branch.
+  status: reviewed-conditional-direct-identification
+  claim: Under RF4, uniform finite-approximation critical control and compact-classical L2 identification
+    feed the canonical continuation, pressure, trace and energy suffix.
   depends_on:
+  - RF0
   - RF4
 - id: RF-TERMINAL
   status: conditional
@@ -51,9 +54,12 @@ nodes:
   - CONTINUATION
   - ENERGY
 notes:
-- These edges are proposed sufficient research obligations, not proved implications with constructed inputs.
+- Per-node status distinguishes reviewed component proofs, conditional implications, specifications and
+  open producers; no terminal path is complete.
 - A benchmark or a periodic theorem never promotes RF3, RF4 or NS-R3.
 - Kinetic/microscopic contracts and the canonical proof graph remain separate.
+- RF1/RF2 retain optional causal-representation obligations and previous scope; the direct Fourier family
+  does not require them before RF3.
 research_evidence:
 - path: research/evidence/2026-09-07-resonant-slaving-and-causal-refinement.md
   status: author-checked-independent-audit-pending
@@ -86,6 +92,37 @@ research_evidence:
   - exponential response to true coarse refinement residual
   terminal_progress: false
   oracle: research/check_closed_feedback.py
+- path: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+  status: independently-reviewed-components-and-conditional-consumer
+  claims:
+  - global whole-space projected family
+  - simultaneous cubic synthesis for overlapping increments
+  - direct compact-classical identification and conditional continuation
+  - actual separated-scale stress bound
+  terminal_progress: false
+  audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+- path: research/evidence/2026-09-07-lorentz-synthesis.md
+  status: independently-reviewed-conditional-consumer
+  claims:
+  - sharp-shell and overlapping-ball synthesis into fixed finite Lorentz L3q
+  - finite-horizon pressure, tail and closed-endpoint adapter to original classical continuation
+  continuation: research/evidence/2026-09-07-lorentz-continuation.md
+  audit: research/evidence/2026-09-07-lorentz-refinement-audit.md
+  terminal_progress: false
+- path: research/evidence/2026-09-07-smooth-block-repair.md
+  status: independently-reviewed-after-scoped-repair
+  claims:
+  - cutoff-uniform low-strain transport repair including crossing blocks
+  - comparable-scale critical production remains open
+  audit: research/evidence/2026-09-07-smooth-block-audit.md
+  terminal_progress: false
+- path: research/evidence/2026-09-07-helical-production.md
+  status: independently-reviewed-after-scoped-repair
+  claims:
+  - actual reflected R3 chiral growth invisible to signed radial budgets
+  - minority-helicity birth from exact pure-positive Schwartz data
+  audit: research/evidence/2026-09-07-helical-production-audit.md
+  terminal_progress: false
 branch_decisions:
 - id: STATIC-C2-SLAVING
   status: refuted-in-specified-Galerkin-family
@@ -110,3 +147,22 @@ branch_decisions:
   status: proved-at-every-finite-cutoff-uniform-limit-open
   first_gap: cutoff/domain-uniform nonlinear reconstruction and source/feedback control
 proof_map: docs/refinement-proof-graph.yaml
+exploratory_records:
+- path: research/evidence/2026-09-07-paired-history-alignment.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false
+- path: research/evidence/2026-09-07-single-flow-cubic.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false
+- path: research/evidence/2026-09-07-kinetic-initial-layer-production.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false
+- path: research/evidence/2026-09-07-slow-finite-record-candidate.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false
+- path: research/evidence/2026-09-07-speed-level-pressure-candidate.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false
+- path: research/evidence/2026-09-07-large-q-production.md
+  status: author-derivation-independent-audit-pending
+  terminal_progress: false

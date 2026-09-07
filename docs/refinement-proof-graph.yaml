@@ -1,15 +1,15 @@
 schema_version: 1
-title: Closed feedback, causal reconstruction and the remaining critical edge
+title: Whole-space construction, critical refinement and preserved causal branches
 map_kind: author-derived-research-proof-graph-not-terminal-certificate
 terminal_claim: NS-R3
 terminal_status: not-proved
-source_main: 49b67060edbda947f76cd1da290678096a415827
+source_main: ec2ed88c8d1fdf3b66b0e989827d44d93f1f76df
 first_proof_checkpoint: d8787ff4f65164e6339be673ad9f9646cd15bd37
 workflow:
   repository: krystophny/prompts
   path: skills/math-frontier/SKILL.md
   blob: d32e4a8dcb1e5f06c3fc9b44620f6f4c8d0d562e
-review_status: author-checked-independent-audit-pending
+review_status: per-node-reviewed-components-and-pending-historical-candidates
 canonical_graph: docs/proof-graph.yaml
 contract: research/refinement-slow-manifold-contract.md
 nodes:
@@ -100,7 +100,7 @@ nodes:
     depends_on: []
     evidence: research/refinement-slow-manifold-contract.md
     section: '2,6'
-    scope: A fixed torus or AP limit at fixed mesh is not this interface.
+    scope: General reconstruction interface retained for other families. The selected direct R3 family discharges its needed variant through RF-R3-FLOW, RF-CUBIC-SYNTHESIS and RF-LOCAL-ID below; a fixed torus or AP limit at fixed mesh does not.
   - id: CF-TERMINAL-CONSUMER
     kind: conditional
     status: uninstantiated-conditional-suffix
@@ -110,6 +110,117 @@ nodes:
     evidence: research/refinement-slow-manifold-contract.md
     section: '2'
     scope: No proved path to this node exists while either predecessor is open.
+  - id: RF-R3-FLOW
+    kind: paper
+    status: independently-reviewed
+    statement: Exact global Fourier-ball projected flows exist in the infinite-dimensional solenoidal bandlimited L2 space over R3, with exact energy, Bernstein and full neighboring-flow error equation.
+    depends_on: []
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '2'
+    scope: No finite-dimensional whole-space assertion, sharp L3 multiplier estimate, spectral gap or unprojected regularity premise.
+    audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+  - id: RF-CUBIC-SYNTHESIS
+    kind: paper
+    status: independently-reviewed
+    statement: Critically weighted simultaneous-time cubic control of overlapping ball-supported L2 increments implies uniform finite-approximation L-infinity L3 control, including resolved corrections.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '3'
+    scope: Spatial theorem is universal; the generic time theorem explicitly requires strong measurability. It produces no nonlinear certificate or uniform L3 tail convergence in time.
+    audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+  - id: RF-LOCAL-ID
+    kind: paper
+    status: independently-reviewed-relative-to-canonical-LOCAL
+    statement: The exact R3 projected flows converge to the canonical original-NS branch in C_t L2 on every compact classical interval by the H3 residual comparison.
+    depends_on: [RF-R3-FLOW]
+    canonical_inputs: [LOCAL]
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '4'
+    scope: Local comparison constants may deteriorate at the endpoint; they are not the missing critical bound.
+    audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+  - id: RF-CUBIC-PRODUCER
+    kind: gap
+    status: open-not-refuted
+    statement: For every Schwartz datum, fixed viscosity and finite horizon, the exact R3 family has a cutoff-uniform simultaneous-time cubic bound on N_j^(1/2) times the full neighboring L2 error.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '5'
+    scope: Signed source and all resolved/unresolved strain correlations remain uncontrolled. An integrated sufficient estimate must hold at every upper time.
+  - id: RF-SEPARATED-FEEDBACK
+    kind: paper
+    status: independently-reviewed
+    statement: The actual resolved stress of a fine flow satisfies integral ||P_K G||2 <= C K^(5/2) N^(-2)||d||2^2/nu for K<=N/2, uniformly in fine cutoff and horizon.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '6'
+    scope: Actual forcing into a separated low band only; no nonlinear response or critical neighboring-level control follows.
+    audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+  - id: RF-DIRECT-CONSUMER
+    kind: conditional
+    status: independently-reviewed-conditional-on-open-producer
+    statement: RF-CUBIC-PRODUCER implies NS-R3 through finite-approximation synthesis, compact-classical L2 identification, and the canonical continuation, pressure, trace and energy suffix.
+    depends_on: [RF-CUBIC-PRODUCER, RF-CUBIC-SYNTHESIS, RF-LOCAL-ID]
+    canonical_consumers: [LOCAL, CONTINUATION, ENERGY]
+    evidence: research/evidence/2026-09-07-whole-space-cubic-refinement.md
+    section: '4'
+    scope: Complete conditional consumer, with its producer unproved. No canonical graph node or manuscript/formal status is promoted.
+    audit: research/evidence/2026-09-07-cubic-refinement-audit.md
+  - id: RF-LQ-SYNTHESIS
+    kind: paper
+    status: independently-reviewed
+    statement: For one fixed finite q>3, sharp L2 shell bounds and ball-supported increment convolution give uniform finite-approximation Lorentz L3q control under the simultaneous-time RF-q certificate.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-lorentz-synthesis.md
+    section: L1-L2
+    scope: Actual resolved corrections and low frequencies are included. q=infinity is not being supplied to a continuation theorem.
+    audit: research/evidence/2026-09-07-lorentz-refinement-audit.md
+  - id: RF-LQ-CONTINUATION
+    kind: paper
+    status: independently-reviewed-source-application-and-adapter
+    statement: A bounded Lorentz L-infinity-time L3q-space norm for any one fixed finite q>3 rules out a finite maximal time of the canonical Schwartz-data branch.
+    depends_on: []
+    canonical_inputs: [LOCAL, ENERGY, CONTINUATION]
+    evidence: research/evidence/2026-09-07-lorentz-continuation.md
+    section: '2-7'
+    scope: Inspected Phuc local Theorem 1.5 and Proposition 3.2, derived L4 velocity and normalized L2 pressure, spatial tails and closed upper-time regularity. No global weak extension is presumed.
+    audit: research/evidence/2026-09-07-lorentz-refinement-audit.md
+  - id: RF-LQ-PRODUCER
+    kind: gap
+    status: active-open-not-refuted
+    statement: For the actual R3 family and one fixed finite q>3 (q=6 suffices), sup over 0<=t<=H and M>=1 of sum over 0<=j<M of (N_j^(1/2)||e_j(t)||2)^q has an input-only finite bound for every datum, positive viscosity and finite horizon.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-lorentz-synthesis.md
+    section: RF-q
+    scope: A weaker output requirement than RF-CUBE. The integrated signed source/strain production remains uncontrolled; a larger exponent alone supplies no favorable sign.
+  - id: RF-LQ-DIRECT-CONSUMER
+    kind: conditional
+    status: independently-reviewed-conditional-on-open-producer
+    statement: RF-LQ-PRODUCER supplies the original whole-space NS-R3 conclusion through finite-Lorentz synthesis, local classical identification and the inspected finite-Lorentz continuation adapter.
+    depends_on: [RF-LQ-PRODUCER, RF-LQ-SYNTHESIS, RF-LOCAL-ID, RF-LQ-CONTINUATION]
+    canonical_consumers: [LOCAL, ENERGY, CONTINUATION]
+    evidence: research/evidence/2026-09-07-lorentz-synthesis.md
+    section: RF-q
+    scope: Reviewed conditional composition. RF-q is unproved; no canonical terminal node, manuscript or formal claim is promoted.
+    audit: research/evidence/2026-09-07-lorentz-refinement-audit.md
+  - id: RF-SMOOTH-TRANSPORT
+    kind: paper
+    status: independently-reviewed-after-scope-repair
+    statement: Smooth dyadic blocks of the unchanged R3 projected equation have a cutoff-uniform low-strain transport estimate, including blocks crossing the outer cutoff after exact solenoidal energy pairing.
+    depends_on: [RF-R3-FLOW]
+    evidence: research/evidence/2026-09-07-smooth-block-repair.md
+    section: '1-5'
+    scope: Repairs the sharp boundary loss; comparable-scale signed production remains open. The symbol is smooth away from zero; fixed-grid exact scaling is dyadic.
+    audit: research/evidence/2026-09-07-smooth-block-audit.md
+  - id: RF-HELICAL-SIGNED-BUDGET
+    kind: no-go
+    status: independently-reviewed-after-solenoidal-packet-repair
+    statement: Actual compact R3 data have growing chiral energies with identically zero radial signed-helicity histories; actual pure-positive Schwartz data create minority energy quadratically in time.
+    depends_on: []
+    canonical_inputs: [LOCAL]
+    evidence: research/evidence/2026-09-07-helical-production.md
+    section: '2-4'
+    scope: Excludes only closures from signed radial budgets with vanishing right side, and homogeneous minority-energy control. Angular information, additive full-input costs and stronger dynamic constraints remain open.
+    audit: research/evidence/2026-09-07-helical-production-audit.md
 branch_review:
   - direction: Static smooth spectral slaving
     decision: previously-refuted-specified-branch
