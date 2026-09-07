@@ -10,7 +10,7 @@ paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: exclude-remaining-three-dimensional-fast-records-and-slow-records
-active_architecture: marked-record-concentrating-return-compatibility-partially-closed
+active_architecture: marked-record-temporal-type-I-local-energy-partially-closed
 complete_terminal_route: none-established
 kinetic_interface_status: source-scoped-application-audit-required
 kinetic_terminal_certificate: limit-first-resolved-momentum-bound-unproved
@@ -35,6 +35,7 @@ generated_covariance_sign_status: author-checked-independent-audit-pending
 one_slice_record_rigidity_status: author-checked-independent-audit-pending
 local_return_rigidity_status: author-checked-independent-audit-pending
 concentrating_return_compatibility_status: author-checked-independent-audit-pending
+temporal_type_i_local_energy_status: author-checked-independent-audit-pending
 terminal_status: not-proved
 terminal_obstruction: genuinely-three-dimensional-fast-records-and-slow-records-open
 formal_work_this_run: deferred
@@ -73,17 +74,18 @@ additional compatibility obligations beyond NS-R3; do not call them solved
 by merely prefixing an existing particle theorem.
 
 **Next substantive action:** continue the direct singularity/record architecture
-in Sections 1.4--1.6. The concentrating-return result now also excludes
-incompatible endpoints/drifts and robustly incompatible pairs of unrotated
-scales. Compatible single-scale or rotated concentrating returns, nonreturning
-fast profiles and slow records remain open. No recurrence has been forced;
-these exclusions do not supply a complete terminal producer.
+in Sections 1.4--1.7. The new pressure-work producer gives scale-uniform local
+energy and endpoint control for the temporal Type-I continuation of any
+concentrating-return tangent. Superlinear drift-subtracted spatial energy
+is excluded; bounded critical local energy is not regularity. Compatible
+return tangents satisfying these budgets, nonreturning fast profiles, and
+slow records remain open. No recurrence or parent Type-I bound is assumed.
 The next result must remove an actual remaining singularity possibility,
 not merely rename a critical bound or construct another observable.
 
 The kinetic sequence below is retained as a conditional alternative, not the
 default allocation. K1 can re-enter only through its TRUE signed nonlinear
-source; K2 must add more than dualizing an L2 budget; KF must supply genuinely
+source; K2 must supply more than dualizing an L2 budget; KF must supply genuinely
 controlled production. None currently has a terminal producer. Preserve every
 counterexample scope and do not default to another monotonicity screening run.
 
@@ -378,6 +380,72 @@ rotated-profile theorem. No nonsummable physical cost follows from these
 compatibility results. The canonical graph, all earlier evidence and exact
 counterexample scopes, kinetic/microscopic contracts, manuscripts and
 formalization remain unchanged; NS-R3 and CRITICAL remain gaps.
+
+### 1.7 A pressure-work producer for temporal Type-I local energy
+
+Read [the temporal Type-I local-energy proof](research/evidence/2026-09-07-temporal-type-I-local-energy.md).
+At input `5a3912806a6e3883afaacb746fa0b43638a580b0`, this supplies an author
+proof of a new spatial-energy restriction on concentrating-return tangents.
+Independent mathematical audit and prior-art assessment remain pending.
+NS-R3 is NOT PROVED; the canonical graph is not promoted.
+
+On the full whole-space unit-viscosity MILD equation put
+
+    M(t)=||u(t)||_infinity,
+    a_r(t)=sup_c integral_(B_r(c)) |u(t)|^2.
+
+The proved pressure-work estimate is C M(t) a_r(t)/r for BOTH the near and
+far canonical pressure contributions. Its far kernel difference decays as
+r/|y-c|^4; covering by radius-r balls gives |p_far|<=C a_r/r^3. The step
+from a_r^(3/2)/r^(5/2) to M a_r/r uses only a_r<=|B1|r^3 M^2, not an
+assumed critical energy bound. Taking the spatial supremum AFTER the
+integrated local energy identity gives
+
+    a_r(t) <= C a_r(a) exp[C((t-a)/r^2 + integral_a^t M/r)],
+
+and the corresponding dissipation bound. The coefficient contains M, not
+M^2. The full Oseen identity fixes the pressure gradient; a spatially linear
+harmonic-pressure acceleration in an arbitrary weak solution is not allowed.
+
+For an ancient trajectory with ||u(t)||_infinity<=K/sqrt(T-t), choose
+a=tau-r^2 for each cylinder ending at tau<=T. Then a_r(a)<=C K^2 r and
+integral_a^tau M/r<=2K. Hence, uniformly over ALL centers/radii/top times,
+
+    sup_t integral_(B_r) |u|^2 + integral_(Q_r) |grad u|^2 <= F(K) r,
+    integral_(Q_r) |u|^3 <= 2K F(K) r^2,
+    integral_(Q_r) |p-(p)_(B_r)|^(3/2)
+        <= C[K F(K)+F(K)^(3/2)] r^2,
+    F(K)=C K^2 exp[C(1+K)].
+
+The bound reaches T and produces a weak L2_loc trace and local energy
+inequality there; no smooth or strong-trace continuation is claimed.
+This is a separate author derivation: Albritton--Barker Remark 3.2 explicitly
+flags the temporal L-infinity-to-local-energy issue. That source is NOT
+cited as supplying this producer. The mild pressure identification and the
+uniform-center estimate need particular independent scrutiny.
+
+Section 1.6 already produces this temporal bound for a concentrating-return
+continuation W=U(xi+z+v s,s)-v, with K=lambda sqrt(T)(1+|v|). Therefore
+
+    sup_c integral_(B_r(c)) |U(y,s)-v|^2 <= F(K) r,
+                         s<=0, every r>0.
+
+This excludes superlinear bulk energy and loss of critical local-energy
+control for those tangents, without inheriting finite energy from the parent.
+The proof also supplies a robust fixed-observation finite-history adapter:
+small return error in a compact concentrating parameter family forces a
+finite drift-subtracted local-energy ceiling at sufficiently late fast
+records. Its physical squared-energy factor is Mn/nu^3. Do not assert the
+all-radius limit bound uniformly for prelimit fields after a constant shift.
+
+The new budget need not be small and does not give global L3, finite total
+energy, or the spatial 1/|x| bound in the rotated-profile literature. No
+nonreturning fast or slow-record case has acquired a temporal Type-I bound.
+Single-packet dissipation still scales as nu^3/Mn. The actual missing task
+is a rigidity mechanism for the surviving class, not another local estimate
+or another pressure decomposition. All earlier evidence, exact countermodel
+scopes, kinetic/microscopic contracts, manuscripts and formalization remain
+unchanged.
 
 ## 2. Endpoint first: do not impose an unnecessarily strong kinetic theorem
 
