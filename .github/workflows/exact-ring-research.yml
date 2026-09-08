@@ -1,0 +1,43 @@
+name: Check exact full-ring research without rewriting status
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'PLAN.md'
+      - 'research/check_phase_locked_ring.py'
+      - 'research/discovery_phase_locked_ring.py'
+      - 'research/evidence/2026-09-08-phase-locked-full-ring.md'
+      - 'research/evidence/2026-09-08-ring-turnover-discovery.md'
+      - '.github/workflows/exact-ring-research.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 2
+      - name: Install graph and earlier arithmetic dependencies
+        run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3
+      - name: Exact arithmetic and full-checkout structural verification
+        run: |
+          python3 research/check_exact_ns_circuits.py
+          python3 research/check_remote_pressure.py
+          python3 research/check_phase_locked_ring.py --order 8 --json exact-ring-checks.json
+          python3 research/verify.py --research-only
+          git diff --check HEAD^ HEAD
+          git diff --check
+          git rev-parse HEAD > verified-source-commit.txt
+          git archive --format=tar.gz -o verified-sources.tar.gz HEAD
+      - name: Retain source and arithmetic evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: exact-ring-research
+          retention-days: 3
+          path: |
+            exact-ring-checks.json
+            verified-source-commit.txt
+            verified-sources.tar.gz
