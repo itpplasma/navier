@@ -9,7 +9,7 @@ hexagon turnover certificate has been obtained.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: relative-background-full-state-return-exclusion-2026-09-08
+phase: relative-return-cost-after-mesoscopic-falsification-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -22,7 +22,7 @@ terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
 dominant_research_nut: vanishing-energy-regenerative-core-with-inherited-exterior
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: relative-background-return-exclusion-no-terminal-breakthrough
+run_status: relative-return-exclusion-plus-mesoscopic-full-flow-obstruction
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -65,7 +65,9 @@ retained_bulk_shadow: critical-and-pressure-convergence-author-audit-pending
 relative_background_pressure: exact-bulk-speed-independent-author-proof
 relative_background_block_cost: positive-actual-full-viscous-cost-in-stated-class
 relative_background_recurrence: excluded-in-stated-class-author-audit-pending
-relative_endpoint_energy_automatic: not-proved
+relative_endpoint_energy_automatic: refuted-by-mesoscopic-full-flow-family
+mesoscopic_cloud: physical-critical-norm-vanishes-global-small-data-in-isolation
+finite_flow_energy_coercivity: refuted-for-nonempty-strict-critical-open-tests
 regenerative_turnovers_certified: 0
 source_symbolic_checker: repaired-tuple-comparison-10-checks
 secondary_goal: MIC-R3
@@ -571,6 +573,57 @@ scale repetition or pays an input-summable CRITICAL cost with extraction.
 Mere regeneration is not a Tao discriminator; the actual local transport,
 canonical mixed pressure and local relative-energy identities are used here.
 
+## 4h. A critically vanishing mesoscopic cloud defeats automatic relative bounds
+
+Evidence: `research/evidence/2026-09-08-mesoscopic-relative-energy-obstruction.md`.
+AUTHOR proof; independent mathematical audit PENDING. No canonical promotion.
+This follows through on Section 4g rather than assuming its endpoint bounds.
+
+For fixed real solenoidal Schwartz f,h, a fixed compact smooth background h0,
+fixed physical nu>0, and a fixed smooth Euler reference w from f, take
+
+    A=K^(1/4), L=K^(1/4), C=K^(-1/16),
+    d_K=A K f(K.)+C L h(L.)+h0.
+
+The mesoscopic cloud alone tends to zero in PHYSICAL dotHhalf and finite
+L^{3,q}; the included energy/enstrophy proof places it in the global smooth
+small-data class for all large K. Yet the WHOLE actual normalized original
+NS flow approximates w in dotH1, dotH3, dotHhalf and canonical-pressure H1
+through a fixed normalized interval, with error O(K^(-1/4)). An efficient
+reference gives a_K comparable to A and gamma_K uniformly positive there.
+All exterior, feedback and pressure are retained, not independently evolved.
+
+Let B be the actual NS evolution of h0. Throughout that complete interval,
+
+    ||u_K(t)-B(t)||2^2 asymptotic to K^(-3/8)||h||2^2,
+    (K/A^2)||u_K(t)-B(t)||2^2 comparable to K^(1/8) -> infinity,
+    actual full viscous expenditure <=constant nu K^(-3/4).
+
+The normalized divergence also holds against EVERY fixed C1-in-time L2
+physical reference F, including every fixed smooth NS background. The cloud
+has vanishing physical critical norm and is harmless in isolation: its
+relative L2 divergence is not a required critical loss. An open set of power
+choices has the same property. No successive scale/amplitude gains are
+asserted for this family, whose datum varies with K.
+
+A second theorem embeds ANY fixed smooth ORIGINAL NS trajectory at the SAME
+physical viscosity: d_K=K f(K.)+C L h(L.). Its entire normalized flow converges
+to the reference in dotH1+dotH3+dotHhalf and canonical-pressure H1, while
+normalized L2 energy grows like K^(5/8). Exact scale identities preserve every
+strict finite gain/efficiency/clock test and every critical-open finite output
+condition already satisfied by that reference. Thus no nonempty strict finite
+critical flow condition can by itself force fixed-background L2 coercivity.
+This preserves a positive regenerative cell IF one exists; it constructs none.
+
+A K-dependent or history-adaptive background is NOT excluded. It must retain
+its evolving error, mixed pressure and feedback over the whole block, without
+being reset at the next cell. Section 4g remains valid, but automatic endpoint
+energy normalization is false in the scopes above. The dominant nut is still
+full-state concentrating regeneration with dynamically essential inherited
+exterior: construct and shadow it, or prove an input-summable CRITICAL cost
+with blowup-event extraction. Physical or relative L2 divergence is not that
+cost. Certified positive regenerative turnovers remain ZERO.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -687,6 +740,16 @@ source tree 6f6f8ad81f7119f53fb178ab891b9fdb9cbb4bd8 and the exact shallow
 base commit verified. Research-only structural verification, Python syntax,
 and staged/unstaged whitespace checks pass. These checks do not certify the
 continuum compactness proof, the imported theorem, or a regenerative orbit.
+
+The mesoscopic full-flow follow-through passed 194 exact finite assertions,
+including 19 rational exponent choices in the proved open parameter strip.
+All 14 predecessor checkers were rerun successfully with the actual counts
+recorded above. The first relative-background commit 641a58b6 also passed
+connected full-checkout CI run 34256625068. The complete local research-only
+verifier, Python syntax, and staged/unstaged whitespace checks pass. The new
+checks concern exact scaling, full difference/pressure/energy identities and
+finite-event invariance, not numerical PDE evolution, continuum stability,
+independent mathematical review, or a positive regenerative turnover.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before

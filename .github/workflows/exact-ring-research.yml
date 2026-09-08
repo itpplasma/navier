@@ -14,6 +14,8 @@ on:
       - 'research/check_no_atom_regenerative_blocks.py'
       - 'research/check_retained_bulk_full_flow.py'
       - 'research/check_relative_background_return.py'
+      - 'research/check_mesoscopic_relative_energy.py'
+      - 'research/evidence/2026-09-08-mesoscopic-relative-energy-obstruction.md'
       - 'research/evidence/2026-09-08-relative-background-return.md'
       - 'research/evidence/2026-09-08-retained-bulk-full-flow.md'
       - 'research/evidence/2026-09-08-no-atom-regenerative-blocks.md'
@@ -45,6 +47,7 @@ jobs:
           python3 research/check_no_atom_regenerative_blocks.py --json no-atom-block-checks.json
           python3 research/check_retained_bulk_full_flow.py --json retained-bulk-checks.json
           python3 research/check_relative_background_return.py --json relative-background-checks.json
+          python3 research/check_mesoscopic_relative_energy.py --json mesoscopic-relative-energy-checks.json
           python3 research/check_exact_ns_circuits.py
           python3 research/check_remote_pressure.py
           python3 research/check_narrow_packet_escape.py
@@ -67,6 +70,7 @@ jobs:
             no-atom-block-checks.json
             retained-bulk-checks.json
             relative-background-checks.json
+            mesoscopic-relative-energy-checks.json
             exact-ring-checks.json
             fourier-cone-checks.json
             convex-cone-linearity-checks.json
