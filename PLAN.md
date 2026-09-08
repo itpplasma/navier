@@ -9,7 +9,7 @@ hexagon turnover certificate has been obtained.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: full-state-return-after-compact-localization-obstruction-2026-09-08
+phase: no-atom-full-state-block-cost-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -20,9 +20,9 @@ active_architecture: full-real-vector-regeneration-with-nonperturbative-exterior
 complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
-dominant_research_nut: full-state-regeneration-with-noncompact-or-tail-accreting-exterior
+dominant_research_nut: vanishing-energy-regenerative-core-with-inherited-exterior
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: full-state-finite-block-class-exclusion-no-terminal-breakthrough
+run_status: no-atom-block-cost-and-noncompact-class-exclusion-no-terminal-breakthrough
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -56,6 +56,10 @@ full_state_return_map: exact-partial-augmented-map-author-proof
 localized_compact_return_class: excluded-at-high-amplitude-in-stated-class
 material_vorticity_turnover: exact-viscous-defect-bound-author-audit-pending
 small_power_vorticity_tail_implies_critical_cost: refuted-by-Schwartz-satellites
+no_atom_ns_endpoint: vanishing-viscosity-and-dissipation-author-proof
+full_state_block_cost: positive-normalized-viscous-cost-in-stated-class
+noncompact_bounded_enstrophy_returns: excluded-in-stated-class-author-audit-pending
+input_summable_critical_regeneration_cost: not-produced
 regenerative_turnovers_certified: 0
 source_symbolic_checker: repaired-tuple-comparison-10-checks
 secondary_goal: MIC-R3
@@ -422,6 +426,54 @@ is certified. The dominant nut is the full-state return with this inherited
 exterior, either shadowed concentration or a REQUIRED critical cost plus
 extraction and the complete Section 1 consumer.
 
+## 4e. Full-state block cost WITHOUT spatial compactness or small-power tails
+
+Evidence: `research/evidence/2026-09-08-no-atom-regenerative-blocks.md`.
+AUTHOR proof using the directly inspected Chae--Wolf Euler no-energy-atom
+corollary; independent mathematical audit PENDING. No canonical promotion.
+
+A new uniform endpoint lemma retains the full local NS energy identity:
+uniform finite energy and `(T-t)||grad u||infinity<=A`, together with
+viscosity AND total dissipation tending to zero, cannot produce an endpoint
+energy atom. The proof takes only LOCAL strong limits, controls the remote
+canonical pressure by its actual kernel, and passes the final energy via
+an integrable time-flux bound. No global energy tightness is assumed.
+The Euler no-atom result is imported prior art, not a new theorem claimed here.
+
+For the existing full-state map, fix theta in [theta0,Theta], lambda>=lambda0>1,
+g>=g0>1 and a uniform bound L for grad W in L-infinity on every WHOLE normalized
+interval. Bound ||V||2 only at the first and final endpoints by M0, and require
+final gamma_1>=gamma_*>0. Then constants N_*,mu_*,delta_*>0 forbid any block
+of N>=N_* returns, initial mu<=mu_*, with normalized viscous expenditure
+
+    Dblock=2 mu integral_block ||grad u||2^2 <= delta_*.
+
+Thus a sufficiently long return must pay a positive full-interval viscous
+cost IN THIS CLASS. No compactness, small-power vorticity, uniform compression,
+upper scale/gain ratio, or intermediate normalized-energy bound is used.
+The proof derives its Type-I bound from the actual clocks, rather than
+assuming Type I for hypothetical arbitrary NS blowup.
+
+If also ||grad W||2<=M1 throughout the full tubes, exact energy scaling gives
+
+    Dblock <= [2 Theta M1^2 M0^2/(1-g0^(-1))] mu.
+
+This excludes long high-amplitude returns even in NONCOMPACT classes, and
+excludes an infinite orbit with recurrent jointly energy-bounded/efficient
+endpoints under those uniform tube bounds. It strictly removes the predecessor's
+spatial-compactness and small-power-tail assumptions. All exterior, reverse
+channels, rotations, phases and pressure are retained. Thresholds are qualitative;
+no numeric N_* or positive regenerative turnover is certified.
+
+The physical cost is `(a_start^2/K_start) Dblock`. That weight can vanish.
+Ordinary energy summability therefore does NOT bound the number of normalized
+costs. No arbitrary blowup-event extraction or RF-q producer follows.
+The one dominant nut is now a full-state critically regenerative return outside
+these bounds, especially a vanishing-energy critical core with inherited bulk
+and unbounded normalized full energy: construct and shadow it, or prove a
+REQUIRED critical cost with extraction and the complete Section 1 consumer.
+Unbounded normalized gradients or failure of the fixed clocks also remain live.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -503,6 +555,19 @@ The full-checkout research-only verifier, Python syntax and git diff --check
 passed. CI now includes the source, repaired symbolic and new full-state
 checkers. These are finite identity/integrity checks, not continuum validation.
 Proof graphs remain unchanged and no independent audit is claimed.
+
+The no-atom block contribution passed 341 exact finite identity checks over
+24 rational clock sequences. The complete local source tree was recovered
+from the connected CI artifact for 9c69d763 and its Git tree was checked equal
+to e7fa62f6ed6589339fe48d2fd8d7ec5f29bceb1e before editing. All 11 predecessor
+checkers above were rerun with the same actual counts (including 12,351 source
+and 10 symbolic checks); the order-eight ring check again passed 82 assertions.
+The full-checkout research-only verifier passed with 29 claim records and
+8 pending supplements. Python syntax and git diff --check passed separately
+after the combined test command reached its execution timeout following the
+successful verifier output. No missing test is inferred from that timeout.
+CI now includes the new checker. Finite identities do not validate the Euler
+source theorem, compactness, endpoint limits, or qualitative PDE thresholds.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before

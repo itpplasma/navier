@@ -11,6 +11,8 @@ on:
       - 'research/check_source_cycles_and_birth.py'
       - 'research/check_symbolic_cycle_geometry.py'
       - 'research/check_full_state_vorticity_return.py'
+      - 'research/check_no_atom_regenerative_blocks.py'
+      - 'research/evidence/2026-09-08-no-atom-regenerative-blocks.md'
       - 'research/evidence/2026-09-08-full-state-vorticity-return.md'
       - 'research/evidence/2026-09-08-source-cycles-and-newborn-efficiency.md'
       - 'research/evidence/2026-09-08-convex-cone-linearity.md'
@@ -36,6 +38,7 @@ jobs:
           python3 research/check_source_cycles_and_birth.py
           python3 research/check_symbolic_cycle_geometry.py
           python3 research/check_full_state_vorticity_return.py --json full-state-return-checks.json
+          python3 research/check_no_atom_regenerative_blocks.py --json no-atom-block-checks.json
           python3 research/check_exact_ns_circuits.py
           python3 research/check_remote_pressure.py
           python3 research/check_narrow_packet_escape.py
@@ -55,6 +58,7 @@ jobs:
           retention-days: 3
           path: |
             full-state-return-checks.json
+            no-atom-block-checks.json
             exact-ring-checks.json
             fourier-cone-checks.json
             convex-cone-linearity-checks.json
