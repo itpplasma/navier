@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - 'PLAN.md'
+      - 'research/check_smooth_inverse_and_work.py'
+      - 'research/evidence/2026-09-08-smooth-pulse-inverse-and-history.md'
+      - 'research/evidence/2026-09-08-normalized-work-falsification.md'
       - 'research/check_unforced_preparation.py'
       - 'research/evidence/2026-09-08-unforced-support-and-pulse-audit.md'
       - 'research/evidence/2026-09-08-mixed-trace-principal-inverse.md'
@@ -47,6 +50,7 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3
       - name: Exact arithmetic and full-checkout structural verification
         run: |
+          python3 research/check_smooth_inverse_and_work.py --json smooth-inverse-work-checks.json
           python3 research/check_unforced_preparation.py --json unforced-preparation-checks.json
           python3 research/check_autonomous_pulse_obstruction.py --json autonomous-pulse-checks.json
           python3 research/check_source_cycles_and_birth.py
@@ -74,6 +78,7 @@ jobs:
           name: exact-ring-research
           retention-days: 3
           path: |
+            smooth-inverse-work-checks.json
             unforced-preparation-checks.json
             autonomous-pulse-checks.json
             full-state-return-checks.json

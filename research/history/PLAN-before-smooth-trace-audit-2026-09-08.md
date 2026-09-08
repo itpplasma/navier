@@ -1,4 +1,4 @@
-# Navier--Stokes: common-data realization after smooth-inverse and work-budget tests
+# Navier--Stokes: unforced exactification of an anisotropic singular architecture
 
 This is the sole live task and status record. Owner-directed pivot: 2026-09-08.
 Frozen integration input: `cb1faa311774f69a9e776483b695b6c0fe2c3681`; formal-core
@@ -8,12 +8,6 @@ The complete preceding PLANs are preserved byte-for-byte in
 `research/history/PLAN-before-unforced-exactification-2026-09-08.md` and
 `research/history/PLAN-before-formal-core-2026-09-08.md`; their old
 allocations are history, not a second active queue. All evidence files remain.
-Current research integration input: `373bd3e0504df775434ad579607ded9481af624f`.
-Its PLAN is preserved byte-for-byte in
-`research/history/PLAN-before-smooth-trace-audit-2026-09-08.md`. Section 8,
-including the concurrent kernel-replication and formal-core outcome, is
-preserved byte-for-byte. The missing PLAN integration of `ececd70f` is
-included below; none of its evidence is overwritten.
 
 The objective is still to resolve the ORIGINAL UNFORCED whole-space problem:
 prove NS-R3, or construct an admissible unforced counterexample. The new primary
@@ -24,7 +18,7 @@ endorsement of every step of an external manuscript, or a prize determination.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: smooth-principal-inverse-after-connected-history-and-work-falsification-2026-09-08
+phase: separated-pulse-exactification-obstruction-plus-formal-core-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -33,12 +27,12 @@ external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed
 complete_terminal_route: none-established
-active_task: UE1-one-common-cauchy-trace-not-independent-pulse-traces
+active_task: UE1-coupled-autonomous-preparation-after-separated-no-start
 active_architecture: continuous-anisotropic-concentration-with-full-exterior
 primary_direction: unforced-blowup-exactification-with-regularity-fallback
-dominant_research_nut: specific-autonomous-coupled-history-with-one-schwartz-trace
-source_forced_result: accepted-research-input-owner-checked-Lean
-source_full_proof_audit: not-performed-by-this-research-run
+dominant_research_nut: autonomous-nonaxisymmetric-pulse-preparation-with-inherited-overlap
+source_forced_result: manuscript-claim-statement-inspected-independent-audit-pending
+source_full_proof_audit: not-performed
 source_unforced_implication: not-established
 source_prize_outcome: not-determined-by-this-project
 refinement_wave: reviewed-conditional-consumer-preserved
@@ -54,12 +48,6 @@ legacy_discrete_cell_lane: retained-as-falsification-tool-not-default
 separated_pulse_unforced_conversion: excluded-in-stated-full-state-class-author-proof
 flat_principal_pulse_inverse: superalgebraic-loss-on-raw-flat-sources
 autonomous_coupled_preparation: not-proved
-smooth_principal_inverse: sharp-value-and-polynomial-parameter-bounds-on-regular-patches
-clamped_trace_parameter_smoothness: false-with-explicit-one-sided-derivative-example
-connected_two_pulse_inverse: no-polynomial-loss-even-with-free-initial-value-in-stated-class
-normalized_angular_work_budget: refuted-by-globally-small-original-NS-solutions
-nonzero_seed_work_budget: unbounded-on-Schwartz-compact-globally-small-family
-new_results_audit: author-proofs-independent-mathematical-audit-pending
 secondary_goal: MIC-R3
 secondary_goal_status: separately-gated-and-not-primary
 formal_work_this_run: route-invariant-core-authorized-2026-09-08
@@ -68,7 +56,7 @@ source_lean_certificate: openai/NavierStokesAndEuler@8937a8f4-local-kernel-repli
 formal_conditional_theorem: thm-conditional-proved-over-two-coarse-literature-axioms-2026-09-08
 formal_core_landed: FC0-FC7-partial-see-navier-formal-verification-status
 source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
-run_status: positive-principal-repair-plus-full-PDE-work-falsification-no-terminal-resolution
+run_status: separated-full-PDE-no-start-and-flat-amplitude-inverse-obstruction-plus-formal-core
 public_release: false
 ```
 
@@ -146,104 +134,10 @@ Audit the prehistory of the ENTIRE countable pulse family before another
 formal residual iteration. UE2--UE4 remain unproved. No critical budget,
 blowup extraction, positive regenerative turnover, or recurrent set follows.
 
-## 1b. Integrated predecessor results: what the last push actually proves
-
-Evidence retained from `ececd70f`:
-`research/evidence/2026-09-08-mixed-trace-principal-inverse.md`,
-`research/evidence/2026-09-08-angular-preparation-obstruction.md`, and
-`research/evidence/2026-09-08-unforced-support-and-pulse-audit.md`.
-These remain AUTHOR proofs, not independently audited full-PDE exactification.
-
-The principal system admits an O(sqrt(L)) mixed-trace inverse at value level,
-uniform over all nonzero harmonics, with O(m^-2) control at high harmonics.
-The exact scalar tail repair (1-psi)h cancels a seed without deleting its pulse
-when the initial trace is free. This is not a causal zero-data inverse and
-not one common Cauchy realization. The source's cutoff support identities are
-lost when the tails are filled; their new interactions must be retained.
-
-Positive-time spatial analyticity excludes an unchanged compactly supported
-unforced snapshot or exact open z-independent/axisymmetric patches of the
-stated types. Nonzero analytic leakage must be allowed. The angular preparation
-inequality retains the whole exterior and exact nonlinear supply. It excludes
-homogeneous high-angular-frequency preloads confined to a shrinking column;
-otherwise it requires mostly exterior prehistory or large ENERGY-NORMALIZED
-nonlinear work. That last quantity is not a physical-energy or critical budget.
-
-## 1c. New positive inverse and a complete connected-history falsification
-
-Evidence: `research/evidence/2026-09-08-smooth-pulse-inverse-and-history.md`.
-AUTHOR proofs; independent audit pending. These are principal operators only.
-
-For D_a=partial_v-a on [0,L], a'<=-kappa/L, solve
-
-    (-partial_v^2+a^2-a')y=f, y(0)=y(L)=0,
-    x=(-partial_v-a)y.
-
-This gives the minimum-L2-norm right inverse, with integral x h_a=0,
-where D_a h_a=0. Its L2 bound is sqrt(L/kappa), its L-infinity bound is
-3 sqrt(pi L/(2kappa)), and sqrt(L) is sharp. The fixed Dirichlet problem
-has smooth slow-parameter dependence and polynomial fixed-order derivative
-bounds, even when the root of a crosses an endpoint. The old clamped trace
-actually has a derivative jump for a_theta=theta-v/L, f=1. This repairs an
-extension that the predecessor explicitly had not claimed.
-
-The replacement extends to the entire nonzero-harmonic principal family,
-with regular-patch parameter derivatives and the exact principal pressure.
-It does not supply uniform control across singular collars, transverse/mean
-PDE equations, or compatibility between independent pulse intervals.
-
-Following it through gives a sharp negative result. Put
-
-    h_L(v)=exp[-L cos^2(2pi v/L)], a_L=h_L'/h_L,
-    g_L=(1/L)chi'(v/L)h_L,
-
-where chi rises from zero to one in the valley between the two peaks.
-The source and every fixed derivative are O(poly(L)exp(-L/2)), but every
-solution of x'-a_L x=g_L, with ANY initial value, has supremum at least 1/2:
-its two peak values are c and c+1. Thus a small independent pulse inverse
-does NOT compose into a small connected-history inverse, even after freeing
-the initial trace. This is not a claim that the actual source's multi-channel
-NS history has that scalar obstruction; it proves that a composition shortcut
-requires an additional theorem, not another formal order.
-
-## 1d. New full-PDE falsifier: normalized angular work can be infinite in small flow
-
-Evidence: `research/evidence/2026-09-08-normalized-work-falsification.md`.
-AUTHOR proofs; independent audit pending. ORIGINAL unforced R3 NS, canonical
-pressure, fixed positive viscosity, real Schwartz data, all modes retained.
-
-Let F=exp(-|x|^2), psi=x1 F, d=(partial_2 psi,-partial_1 psi,0).
-The parent has only vector rotation modes +/-1. For c=(d.grad)d,
-
-    [curl c]_3=8 x1 x2 F^2,
-    b=-Pi_2 P c != 0.
-
-For arbitrarily small epsilon, the actual flow from epsilon d is globally
-regular and uniformly small in L3, hence finite L^{3,q}. The whole PDE gives
-
-    v_2(t)=epsilon^2 t b+O(t^2), G_2(t)=epsilon^2 b+O(t),
-    [Re<G_2,v_2>]_+/||v_2||2^2 = 1/t+O(1).
-
-Consequently the predecessor's W_2^+(t) is INFINITE for small positive t.
-A seeded Schwartz-compact family, using the real part of
--Pi_2 curl curl c, has v_2 nonzero throughout a common interval and
-W_2^+(t_*)>=log(1/delta)-C while every flow is uniformly globally small.
-The global claim follows from the ordinary small-data energy/enstrophy
-bootstrap, not a numerical trajectory or a merely formal time coefficient.
-
-This does not retract the exact angular occupation inequality or its
-homogeneous-preload corollaries. It kills promoting raw normalized work into
-a finite arbitrary-input budget, including a locally bounded budget after
-excluding exactly zero seeds. A genuinely large-amplitude event cost might
-avoid this counterexample, but extraction and a finite budget would still
-need proof. Do not infer critical growth from a logarithmic newborn gain.
-
 ## 2. Primary-source gate: what was actually inspected
 
-[OA] OpenAI, *Finite Time Blowup for Navier--Stokes*, accessed 2026-09-08
-at the owner's supplied URL. The earlier planning record counted 165 pages;
-the current retrieval reports 166 physical pages. This is a metadata record,
-not an assertion that the theorem or its proof changed:
+[OA] OpenAI, *Finite Time Blowup for Navier--Stokes*, 165-page PDF accessed
+2026-09-08 at the owner's supplied URL:
 
 https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
 
@@ -254,11 +148,7 @@ https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
 [OA, Theorem 1.1, p.1] claims bounded-energy velocity blowup from zero datum
 with a smooth compactly supported force, for every positive viscosity, and
 claims C/D. [CMI, p.2] states A with zero force and permits forcing in C.
-The owner has checked the Lean proof and instructs this research to accept
-the forced theorem. The concurrent kernel-replication record in Section 8
-is preserved. Do not spend this lane re-litigating that input. Neither an
-unforced implication nor a prize decision is inferred from it. Exact imported
-coefficients and uniformity conditions still have to be checked at their source.
+Neither an unforced result nor prize acceptance is inferred here.
 
 The source's local target is a residual flat at the singularity, not zero
 [OA, Theorem 3.1(iii), (3.4), pp.14--16]. Its pulse description explicitly uses
@@ -345,12 +235,7 @@ for UE1. Do not postpone pulse seeding until after a full reconstruction.
 ### UE1 -- Autonomous pulse preparation and a uniform linear inverse
 
 Do not retain the now-excluded exact separation with zero late-label data.
-Do not apply the causal envelope inverse to raw-flat errors with a polynomial
-loss. The smooth principal inverse in Section 1c repairs the regular-fiber
-parameter issue; it does not repair connected histories. The immediate task
-is ONE COMPATIBLE ARRAY arising from ONE datum, not arbitrary independent
-control of every trace. Retain the entire preparation history and analytic
-leakage, or alter the profile/geometry if those requirements make it impossible.
+Do not apply the envelope inverse to raw-flat errors with a polynomial loss.
 Test whether the required pulses can be generated from a single admissible
 initial perturbation, carrying their phases, polarizations, tails and all
 feedback continuously, with no time-localized external starts or stops.
@@ -409,10 +294,6 @@ Check the global pressure, energy identity, initial trace, smoothness through
 t0 and all tails. Schwartz is required at the initial time; do not additionally
 assume permanent compact support or permanent Schwartz decay of the flow.
 Consumer: an exact full-space solution on [t0,T) with the UE2 lower bound.
-The compact-support comparison adapter recorded in Section 8 is not by itself
-sufficient for this noncompact unforced candidate. Use the full classical
-uniqueness interface or prove the required noncompact adapter; do not reimpose
-positive-time compact support merely to fit an available formal theorem.
 
 ### UE4 -- Terminal verification
 
@@ -437,11 +318,6 @@ A positive use of a discovered forcing/strain cost must supply both extraction
 from every hypothetical unforced blowup and an input-summable critical budget,
 then feed Section 1 or prove a complete replacement continuation chain.
 No adaptive-background reset is free: retain its comparison-change defect.
-Do not use W_n^+ as the required finite resource: Section 1d refutes that on
-arbitrarily small global unforced solutions. An amended cost must survive
-both the zero-seed and Schwartz-compact nonzero-seed tests and still extract
-all required concentrating events. Introducing another uncontrolled normalized
-source does not meet the positive consumer.
 Two serious returns to the same uncontrolled quantity require a different
 mechanism, not a renamed norm or another formal correction order.
 
@@ -503,27 +379,23 @@ Computations must test the original residual, compatibility, stability or an
 actual continuum remainder. No broad finite-mode optimization campaign is
 required by this pivot.
 
-Keep the existing theorem/audit/formal statuses. Accept the forced theorem
-as instructed by the owner; an unforced implication still requires its own
-proof. Distinguish source verification, author proof of our new statements,
-independent mathematical review, finite exact checking and formal coverage.
-No prize, priority, journal, publication or outside-contact decision is made
-here. No additional Lean build was run by the present research controller.
+Keep the existing theorem/audit/formal statuses. The external forced claim
+is not a proved dependency for an unforced theorem merely because it is on a
+publisher's server. Distinguish statement inspection, author proof, independent
+mathematical review, finite exact checking and formal verification. No prize,
+priority, journal, publication or outside-contact decision is made here.
 
 For every subsequent mathematical result: refresh main, preserve concurrent
 work, record the precise theorem and first remaining gap, update this PLAN,
 run applicable checks, and commit/push ordinary fast-forward changes. Never
 force-push. Keep third-party PDFs and generated artifacts outside the repo.
 
-Historical planning-only validation at fedb45a6 changed PLAN and its history
-snapshot; its source tree was restored from the private CI artifact at
-334ff7c8 plus the added cb1faa31 evidence and checked against tree
-`bf1cbb722e0b338f2b5853c06c1135cf33d19bf9`.
-The CURRENT mathematical integration instead restores the full ececd70f CI
-source tree and preserves the subsequent 373bd3e0 PLAN changes; the refreshed
-full source tree matches `cbbaecc114cfde96fc3cc8c7590b79521e451620`.
-New evidence/checker and PLAN changes do not promote any canonical graph,
-manuscript or Lean statement. Run
+This planning update changes only PLAN and its byte-identical history snapshot;
+no proof graph, mathematical evidence, checker, manuscript or Lean file is
+promoted or modified. The verification checkout was restored from the private
+CI source artifact at 334ff7c8, with its tree hash checked, then the sole added
+evidence file at cb1faa31 was restored and the full tree checked equal to
+`bf1cbb722e0b338f2b5853c06c1135cf33d19bf9`. Run
 
     python3 research/verify.py --research-only
     git diff --check
@@ -540,44 +412,19 @@ continuum verification or independent review. Current full-checkout checks
 are recorded with the integration commit; the earlier planning-only check
 record above remains historical provenance.
 
-The smooth-inverse/work follow-through passed all 75 finite exact assertions
-in `research/check_smooth_inverse_and_work.py`. All 19 predecessor checkers
-were rerun successfully, including the three older closed-feedback, resonant-
-memory and Tao-packet checks outside the current CI list. One combined batch
-timed out before the final ring result; the ring order-8 checker was rerun
-separately and returned success. Full-checkout research-only verification,
-Python syntax, link checks, archive identity, concurrent Section 8 identity,
-and staged/unstaged whitespace checks pass. These are algebra/structure
-checks, not continuum validation, an independent audit, or a new Lean proof.
-
 ## 7. Next handoff: one dominant nut
 
-    Construct a specific continuously coupled concentrating pulse/exterior
-    history whose ENTIRE countable trace array is realized by one nonzero
-    Schwartz Cauchy datum for original unforced R3 NS, with a uniform
-    full-PDE correction estimate that preserves its singular amplitude.
+    Prove a uniform, compatibility-preserving correction of the FULL
+    solenoidal residual of a concentrating trial field, including pulse
+    preparation and inherited exterior, that is realizable from ONE nonzero
+    Schwartz datum and preserves the singularity at fixed nu>0;
+    or identify the first exact obstruction and prove its precise scope.
 
-Accept [OA]'s forced result as the input. The first missing theorem is common
-Cauchy-trace realization, not another independent principal inverse. Work with
-one connected history, including preparation, analytic leakage, mean/transverse
-transport, actual pressure, and every newly generated cross-label interaction.
-Only one compatible orbit is needed; a right inverse for arbitrary trace arrays
-is not required. A finite list of controls or dense trace range is insufficient
-unless the common initial-data norms and all nonlinear errors are uniform and
-summable through the singular endpoint.
-
-Use the smooth minimum-norm fiber inverse as a local tool. Test any proposed
-joining estimate against Section 1c's connected two-peak example. If actual
-cross-mode coupling supplies compatibility, calculate it rather than resetting
-the next pulse. If common-data preparation succeeds, proceed immediately to
-the full nonlinear inverse, whole-space realization and endpoint verification
-UE2--UE4. A failed ansatz is not a proof of regularity; a genuinely better
-complete route may replace this one.
-
-The alternative positive route must first replace the now-falsified raw angular
-work budget by an input-summable critical cost and prove event extraction, then
-feed Section 1. No new theorem here completes either terminal chain. Certified
-regenerative turnovers remain zero; no full-state recurrent set is constructed.
+The first missing theorem is UE1, informed by the UE0 forcing audit. Neither
+localization nor the passage from a flat residual to zero may be deferred as
+routine. Continue through nonlinear convergence, global embedding and endpoint
+verification if UE1 succeeds. If a genuinely better complete route emerges,
+replace this allocation rather than protecting the chosen ansatz.
 
 ## 8. Route-invariant formal core (Phase I / Phase II), authorized 2026-09-08
 
