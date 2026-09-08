@@ -1,25 +1,25 @@
-# Navier--Stokes: full-ring turnover after the phase/helicity obstruction
+# Navier--Stokes: narrow packet escape and the retained full-turnover problem
 
-This is the sole live status record. The terminal target remains original
-unforced incompressible NS on R3, every real solenoidal Schwartz datum,
-every fixed nu>0, global smooth velocity and normalized pressure. NS-R3 is
-NOT PROVED. No genuine repeating NS cascade or turnover contraction is proved.
+This is the sole live status record. NS-R3 remains original unforced R3 NS,
+all real solenoidal Schwartz inputs, fixed positive viscosity, global smooth
+velocity and normalized pressure. It is NOT PROVED. No infinite original-NS
+cascade, full-turnover contraction, or continuum turnover certificate exists.
 
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: full-ring-phase-and-turnover-2026-09-08
+phase: narrow-packet-escape-and-full-turnover-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: original-nonlinearity-critical-producer-unresolved
-active_architecture: full-real-vector-turnover-with-generated-tail
+active_architecture: full-real-vector-turnover-with-nonperturbative-exterior
 complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
-dominant_research_nut: signed-full-turnover-with-polarization-and-all-returns
+dominant_research_nut: turnover-and-repetition-with-nonperturbative-angular-repopulation
 refinement_wave: reviewed-conditional-consumer-preserved
 run_status: new-scoped-obstructions-no-terminal-breakthrough
 averaging_gate: exact-proof-assumptions-not-lane-names
@@ -42,181 +42,164 @@ secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
 public_release: false
+narrow_miller_packet_shadowing: excluded-if-critical-exterior-is-uniformly-small
+narrow_packet_result: author-proof-independent-audit-pending
 ```
 
-## 1. New proved statements and their exact limitations
+## 1. New quantitative branch obstruction
 
-Evidence: `research/evidence/2026-09-08-phase-locked-full-ring.md`.
-All new mathematical proofs are AUTHOR proofs, independent audit PENDING.
+Frozen input: `c2c34f870ed0fad5f14030629c5bbf5363006f98`.
+The whole preceding PLAN is preserved byte-for-byte at
+`research/history/PLAN-before-narrow-packet-2026-09-08.md`, original Git blob
+`6a7e146883fd7f2fef7c2bb92377e04c318e2b1f`.
+
+Evidence: `research/evidence/2026-09-08-narrow-packet-escape.md`.
+All new claims are author proofs, independent mathematical audit PENDING.
 No canonical or reviewed-consumer node is promoted.
 
-**The phase line does not have to decohere.** Original NS, its whole-space
-ball-projected flows, and their full neighboring differences preserve real
-central-odd data. Their Fourier coefficients stay i times real vectors.
-Pointwise spectral signed helicity is zero at EVERY frequency, hence all
-integrable diagonal angular as well as radial signed-helicity budgets vanish.
-On this real linear sector the polarized helicity form is also zero; it is
-not a second nondegenerate metric alongside energy. Odd symmetry is prior
-art. The new result is its quantitative application to the actual producer.
+For a symmetric Fourier set Gamma assume shell volume at most M L^(12/5)
+and |p cross q|<=A |p|^(4/5)|q| for |p|<=|q| in Gamma. The exact original
+NS symmetrized symbol proves
 
-**Actual accumulated RF work is invisible to those budgets.** For fixed
-nu,H>0 and finite q>3, one fixed small odd Schwartz hexagon packet and
-varying amplitudes A yield actual neighboring R3 flows with
+    |T(g)| <= C_Gamma ||grad g||2 ||Lambda^(1/2)g||2
+                                      ||Lambda^(3/2)g||2,
+    T(g)=-<Lambda g,P[(g.grad)g]>, C_Gamma=C_* A sqrt(M).
 
-    integral_0^t (Pi_q,1 - nu D_q,1) > L
+A separate symmetric mixed estimate controls ALL interactions with the
+actual exterior h=u-P_Gamma u:
 
-for arbitrarily large L, while all those signed-helicity histories vanish.
-Here t=s/A, with fixed sufficiently small input-selected s, and the exact
-identity is N0^(q/2)||e(t)||2^q/q. All resolved response is included. This
-refutes only bounds whose right side vanishes on those histories; it does
-NOT refute arbitrary full-input remainders, one-fixed-input RF-q, or a
-full-turnover mechanism. A separate odd compact datum has growing critical
-energy on an actual original unprojected NS interval with the same vanishing
-helicity histories. Cartesian phase locking modulo pi does NOT mean fixed
-helical angles or absence of sign crossings: those possible mechanisms survive.
+    |T(u)-T(P_Gamma u)| <= C_mix ||Lambda^(1/2)h||2
+                                          ||Lambda^(3/2)u||2^2.
 
-**An explicit all-orders side ladder survives viscosity.** For the full
-periodic NS equation from the real hexagon, let p=(0,1,2), q=(0,2,1).
-At k_n=n p+q, the degree-(n+1) input-amplitude coefficient is c_n(t)e1,
-where c=3/5, K_n^2=5n^2+8n+5 and
+Therefore exterior critical norm <=nu/(4C_mix) makes the full equation obey
 
-    c_1'+18nu c_1=2c exp(-10nu t),
-    c_n'+nu K_n^2 c_n=-c exp(-5nu t)c_(n-1),
-    2 c^n t^n exp(-nu K_n^2 t)/n! <= |c_n(t)|
-          <= 2 c^n t^n exp(-5nu(n+1)t)/n!.
+    S(u(t)) <= S(d) exp(C_Gamma^2 ||d||2^2/nu^2),
+    S(u)=||Lambda^(1/2)u||2^2/2.
 
-This sums ALL contributing trees at that degree by an exposed-support-face
-argument. It does not delete higher-degree return interactions of the actual
-solution or determine their sign. The ladder has linearly increasing
-frequencies and factorial leading coefficients: it is NOT a geometric cascade.
-It must be retained, but might be a controlled tail of a finite-width cell.
+Only the ordinary energy integral of enstrophy enters the exponent. No
+unknown strain clock, projection of the dynamics, or independently evolved
+packet subsystem is used. Time-dependent packet sets are allowed with
+uniform constants, since only the actual S(u) is differentiated.
 
-**The full ring changes polarization instead.** Exact no-cutoff convolution
-through nonlinear jet order eight gives support counts
-12,24,120,240,504,792,1296,1824,2640. A nonmeridional mode occurs at order two;
-24 exactly transverse modes first occur at order three. The full critical
-energy coefficients, including parent back reaction, satisfy
+This rules out a precise attempted cascade architecture: boundedly many
+R3 packets per level with axial frequencies 2^m and transverse radii AND
+packet widths O((sqrt(3))^m), even with arbitrary phases/polarizations and
+a uniformly small critical exterior. The inequality 3^5<2^8 makes the
+angularly depleted power subcritical; a generic norm bound lacks this gain.
+Both first-generation rings of the clean hexagon fit this class, but the
+full equation need not remain in it.
 
-    67<C2<68, 49<C4<50, -2815<C6<-2814, 39739<C8<39740.
+A finite low-frequency ball may be added. Hence a hypothetical singularity
+shadowing such packet centers must, for EVERY K and every t0<Tstar, have
 
-These are rigorously certified finite arithmetic, not an extrapolation of
-Taylor series through a turnover. Both the positive quartic correction and
-later sign changes must be retained; neither proves eventual restoration.
+    sup_(t0<t<Tstar) ||Lambda^(1/2) 1_(|D|>K)
+                             (I-P_(Gamma_t))u(t)||2 > nu/(4C_mix).
 
-The prior PLAN is preserved byte-for-byte at
-`research/history/PLAN-before-phase-locked-ring-2026-09-08.md`, original blob
-`4e7c807685ebfa05722a6055f4c9739d950d7007`. All older history and evidence remain.
+This is quantitative high-frequency escape, not just a nonzero daughter.
+It gives no stabilizing sign or input-summable count for those events.
+Fixed relative-width packets, independently changing axes across scales,
+large exterior tails and broad angular replication remain unexcluded.
+This is a scoped no-cascade/shadowing obstruction, NOT another condition
+being advertised as an arbitrary-data regularity proof.
 
-## 2. ONE dominant nut: the full real-vector turnover, then repetition
+## 2. ONE dominant nut: full turnover with a nonperturbative exterior
 
-Do not spend the next run waiting for scalar Cartesian phase escape, enforcing
-one meridional polarization, or estimating only the intended daughter ring.
-Evolve the exact vector convolution, including T, S, their returns, changing
-polarizations, transverse daughters, and the entire later tail.
+The next repeating cell must carry, not perturbatively discard, the angular
+exterior generated by the full equation. Prove a signed input-summable cost
+for that repopulation, or construct a repeating full-vector cell in which it
+helps forward amplification. Do not return to a narrow common-axis packet
+ansatz with an assumed small critical error: Section 1 excludes it.
 
-The explicit first test is the original periodic equation with nu=1/100 and
-initial coefficients -i P_k(1,1,1) at permutations of (2,1,0), plus reality.
-Let P_parent select those twelve carriers, E0=72/5, S0=36 sqrt(5)/5. Certify
-or refute the following finite-event statement, without a spatial truncation:
+The concrete full-ring falsification hurdle is retained, not solved:
+original periodic NS with nu=1/100 and initial coefficients -i P_k(1,1,1)
+at permutations of (2,1,0), plus reality; E0=72/5, S0=36 sqrt(5)/5. Prove
+or disprove a smooth interval through some tau<=1/4 with
 
-    There is a smooth interval through some tau <= 1/4 such that
-    ||(I-P_parent)u(tau)||2^2 >= E0/5
-    and (1/2)|| |D|^(1/2)u(tau)||2^2 >= (11/10) S0.
+    ||(I-P_parent)u(tau)||2^2 >= E0/5,
+    (1/2)||Lambda^(1/2)u(tau)||2^2 >= (11/10)S0.
 
-These explicit thresholds are a conjectural test, NOT a theorem. Discovery
-runs locate an order-one transfer there; an interval-certified continuum
-remainder and regular-lifespan certificate have not been supplied. See
-`research/evidence/2026-09-08-ring-turnover-discovery.md` for exact run scope.
+Previous Galerkin runs locate such transfer, but there is still no rigorous
+continuum tail/response or lifespan bound at that time. This run repeated
+the N=18 calculation with dt=.00125 and explicitly measured the unretained
+quadratic residual, not just boundary energy. It was not small enough for
+the straightforward high-Sobolev posteriori estimates attempted here. Those
+are unvalidated discovery diagnostics, not a proof that validation is
+impossible, and not a theorem about the full periodic PDE or R3.
 
-Then the decisive mathematical nut is whether this full turnover admits a
-scale-repeating output neighborhood, with inherited side/polarization tails
-and viscosity controlled, or instead forces an input-summable loss. A single
-positive-gain event does not prove replication. A failed symmetric cell does
-not exclude other cells or arbitrary singularities. A loss only relative to
-an ideal Tao pump is also insufficient: moving energy fraction eta to lambda
-higher frequency gives squared critical gain lambda eta, not eta alone.
+A finite positive-gain event would still need a scale-repetition theorem
+accepting all inherited tails, changing polarizations and true viscosity.
+A negative result for one symmetric input would not classify arbitrary NS.
+No reduction of arbitrary singularities to the tested ring is assumed.
 
-A positive result still needs a proved consumer for general trajectories,
-not an assumed reduction of arbitrary blowup to this hexagon. The full-input,
-every-upper-time, M-uniform estimate in Section 3 remains the first TERMINAL
-lemma. This distinction is mandatory; the finite event is a falsification
-hurdle, not an equivalent reformulation of NS-R3.
+## 3. Unchanged exact terminal edge and complete consumer
 
-## 3. Unchanged complete conditional terminal chain
-
-For N_j=2^j N0, e_j=u_(N_(j+1))-u_(N_j), a_j=N_j^(1/2)||e_j||2 and one
-fixed finite q>3, the actual full-error identity is
+For actual whole-space projected flows, N_j=2^j N0 and
+ e_j=u_(N_(j+1))-u_(N_j), the full-error identity is
 
     (1/q) Wq_M' + nu Dq_M = Piq_M,
     Piq_M=sum_j N_j^(q/2)||e_j||2^(q-2)
                     [<F_j,e_j>-b(e_j,u_j,e_j)].
 
-Proving integral_0^t Piq_M <= nu integral_0^t Dq_M+C(d,nu,H,N0,q) for EVERY
-t<=H, uniformly M, gives RF-q because Wq_M(0) is uniformly finite for
-Schwartz data. RF-LQ-SYNTHESIS gives uniform finite L^{3,q}; RF-LOCAL-ID
-and Lorentz Fatou transfer that bound to the classical original branch;
-RF-LQ-CONTINUATION excludes a finite endpoint; LOCAL and ENERGY finish
-normalized smooth pressure, initial trace and NS-R3. No new positive edge
-in this chain was proved. The new Pi result is a scoped negative test.
+For one fixed finite q>3 the missing input-only estimate remains
 
-## 4. Preserved exclusions and live alternatives
+    integral_0^t Piq_M <= nu integral_0^t Dq_M+C(d,nu,H,N0,q)
 
-All previous scopes are retained: critically large birth need not have a
-fixed immediate leakage fraction; the clean hexagon forces a side ring with
-squared source ratio >3; that side ring initially ADDS critical curvature;
-remote compact swirls freely prescribe the trace-free Hessian with energy
-cost O(distance^5 times Hessian size), ruling out instantaneous local-germ
-restoring signs but not nonlocal temporal control. Static resonant C2
-slaving, single-center entire causal expansion, polynomial metric and
-source-linear response costs, and earlier shear/affine tangent rigidity
-remain excluded only in their recorded classes.
+for EVERY upper time t<=H and uniformly M. Schwartz initial shells have
+bounded Wq_M(0), so this gives RF-q. RF-LQ-SYNTHESIS gives uniform finite
+L^{3,q}; RF-LOCAL-ID and Lorentz Fatou identify the classical branch;
+RF-LQ-CONTINUATION excludes a finite endpoint; LOCAL/ENERGY supply pressure,
+initial trace and NS-R3. Neither the exterior smallness hypothesis nor a
+signed cost for its failure has been proved for general trajectories.
+The new no-shadowing proof instead has a direct conditional H^(1/2)->L3
+consumer via the existing spatial cubic synthesis and continuation.
 
-Alive, not proved: helical/polarization phase torque, real sign frustration,
-full-turnover back reaction, unsigned angular broadening, nonlocal pressure
-multipole histories, material-frequency cost with an input-controlled
-consumer, and genuine NS packet-cell replication or its obstruction. No new
-Liouville extraction or quantized event-resource theorem was obtained.
-The exact NS discriminator used here is k=p+q with the actual Leray numerator.
-Tao's Table 1 same-carrier pump has a nonzero coefficient where original
-support forces zero. Phase locking itself is NOT a Tao discriminator, and
-this support difference has not yielded a positive critical-work bound.
-The repaired Tao packet obstruction and reviewed Lorentz consumer retain
-their stated scopes; finite L^{3,q} has not been upgraded silently to L3.
-MIC-R3, kinetic interfaces, manuscript and formal work are unchanged.
+## 4. Preserved mathematical results and exact scopes
 
-## 5. Computation, review and writes
+The phase-locked-full-ring note remains valid with its ordered-term repair:
+odd real data preserve a Cartesian imaginary Fourier line and zero signed
+helicity at every frequency. Their actual accumulated RF work can be
+arbitrarily large on varying inputs. Helical phases/vector polarization
+can still change. Its all-orders minimal-degree side ladder keeps viscosity
+and all contributing trees, but is not a geometric cascade. Its finite
+jets and transverse births have no remainder certificate at a full turnover.
 
-`python3 research/check_phase_locked_ring.py --order 8` passed 82 exact
-assertions locally, using only rational arithmetic and certified rational
-square-root enclosures. A second vector formula checks the occupied network;
-this is NOT an independent mathematical reviewer. Python syntax checks pass.
-Changed-file snapshot whitespace and PLAN YAML are checked before writing.
+Earlier results remain: immediate fractional leakage is false in the
+varying-input class; the pairwise-clean hexagon has an unavoidable >3
+squared side-source ratio; both rings initially increase critical curvature;
+remote swirls prescribe the trace-free pressure Hessian with the local
+velocity germ fixed, paying the displayed distance/energy cost. Generic
+resonant slaving, zero-centered entire reconstruction, polynomial metric and
+source-response bounds, signed radial budgets and broad shear/affine ancient
+rigidity retain ONLY their documented exclusions.
 
-The discovery code retains every mode INSIDE a spherical cutoff with a
-quadratically dealiased convolution; it DOES discard modes above that cutoff.
-Runs at N=10,14,18 and nu=.01 are hypotheses, not PDE theorems. No broad
-randomized search, exhaustive carrier-network classification, interval
-trajectory proof or continuum shadowing calculation was completed.
+The exact Tao-breaking step here is the common convolution triple with
+transverse polarization and the resulting small-angle numerator. Table 1's
+same-carrier pump violates the original support identity. Odd phase locking
+itself is not a discriminator. The repaired averaged-only packet obstruction
+and reviewed finite-Lorentz consumer remain unchanged; finite L^{3,q} is not
+silently upgraded to L3. Kinetic/MIC-R3, manuscript and formal work are separate
+and unchanged. No independent mathematical review was obtained.
 
-The read-only workflow succeeded on the actual pushed mathematical revision
-`e3dd381f40cbebc3f3b2d65c4dad1dc44f40af1b`: run 34196329940, job 101964764582.
-It reran 54 circuit + 45 pressure + the initial 81 new exact assertions,
-`python3 research/verify.py --research-only`, `git diff --check HEAD^ HEAD`,
-and `git diff --check`. The verifier reports 29 claims and 8 pending
-supplements. Its scope is structural, not mathematical correctness.
+## 5. Actual validation and remote-write discipline
 
-The downloaded full source archive matched Git tree
-`eb97db14460fa137de4068755340ffd99c6ea93d`; it was not a partial-file snapshot.
-A further author audit repaired one proof sentence: at p+q each ordered
-term has a normal component c e1, but nonzero tangential parts cancel only
-in their sum. The summed coefficient and the theorem are unchanged. An
-explicit rational check now covers the two separate terms, raising the new
-count to 82. All three scripts (181 assertions total), the verifier, Python
-syntax and whitespace checks passed again locally on the full source tree
-with this correction. The workflow never rewrites status or pushes.
+The full source artifact from prior read-only workflow run 34196329940 was
+downloaded. Its extracted source matched tree eb97db14460fa137de4068755340ffd99c6ea93d;
+applying the inspected c2c34f8 diff reproduced current tree
+09c04571391b6554c9d67b197604cd12266272af exactly. Thus the local source is not
+a partial-file snapshot. The prior workflow result is historical, not an
+execution performed by this run.
 
-Independent mathematical audits obtained: NONE. All new author arguments,
-including the R3 packet/time rescaling and all-orders support-face proof,
-remain pending review. No Lean or manuscript build, terminal promotion, or
-Tier A-D breakthrough is claimed. Refresh main before every remote write,
-base trees on the latest head, preserve concurrent work, and never force-push.
+`python3 research/check_narrow_packet_escape.py` passed 1889 assertions,
+including 624 rational triads, exact six-term symmetrization, full-field
+critical-work matching, transverse identities and all endpoint/scaling powers.
+The proof, not finite enumeration, establishes the universal inequalities.
+The existing circuit, pressure and order-eight phase-ring scripts passed
+54+45+82 assertions in this run, for 2070 assertions combined. The full
+`python3 research/verify.py --research-only` passed (29 claims, 8 pending
+supplements), as did syntax and changed-file `git diff --check`. These are
+structural/algebraic checks, not independent mathematical certification.
+No generated binaries or numerical snapshots are pushed.
+
+Refresh main before every remote write, use the latest base tree, preserve
+concurrent work, and never force-push. All new proofs require independent
+mathematical review. Canonical and reviewed-consumer statuses stay unchanged.
