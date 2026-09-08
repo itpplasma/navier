@@ -1,12 +1,9 @@
 # Navier--Stokes: unforced exactification of an anisotropic singular architecture
 
 This is the sole live task and status record. Owner-directed pivot: 2026-09-08.
-Frozen integration input: `cb1faa311774f69a9e776483b695b6c0fe2c3681`; formal-core
-update input: `fedb45a640ea8537aa90578f2cafda9adca01756`, merged on top of the
-concurrent separated-pulse update `694be9648450dbb1528232e08d20ec07ace302d0`.
-The complete preceding PLANs are preserved byte-for-byte in
-`research/history/PLAN-before-unforced-exactification-2026-09-08.md` and
-`research/history/PLAN-before-formal-core-2026-09-08.md`; their old
+Frozen integration input: `cb1faa311774f69a9e776483b695b6c0fe2c3681`.
+The complete preceding PLAN is preserved byte-for-byte in
+`research/history/PLAN-before-unforced-exactification-2026-09-08.md`; its old
 allocations are history, not a second active queue. All evidence files remain.
 
 The objective is still to resolve the ORIGINAL UNFORCED whole-space problem:
@@ -18,7 +15,7 @@ endorsement of every step of an external manuscript, or a prize determination.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: separated-pulse-exactification-obstruction-plus-formal-core-2026-09-08
+phase: unforced-exactification-source-audit-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -27,10 +24,10 @@ external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed
 complete_terminal_route: none-established
-active_task: UE1-coupled-autonomous-preparation-after-separated-no-start
+active_task: UE0-forcing-audit-then-UE1-uniform-exactification
 active_architecture: continuous-anisotropic-concentration-with-full-exterior
 primary_direction: unforced-blowup-exactification-with-regularity-fallback
-dominant_research_nut: autonomous-nonaxisymmetric-pulse-preparation-with-inherited-overlap
+dominant_research_nut: cancel-projected-residual-and-realize-one-schwartz-cauchy-flow
 source_forced_result: manuscript-claim-statement-inspected-independent-audit-pending
 source_full_proof_audit: not-performed
 source_unforced_implication: not-established
@@ -45,16 +42,10 @@ unforced_singular_shadowing: not-proved
 integrated_background_strain_cost: author-claim-scope-audit-pending
 relative_endpoint_energy_automatic: refuted-by-mesoscopic-full-flow-family
 legacy_discrete_cell_lane: retained-as-falsification-tool-not-default
-separated_pulse_unforced_conversion: excluded-in-stated-full-state-class-author-proof
-flat_principal_pulse_inverse: superalgebraic-loss-on-raw-flat-sources
-autonomous_coupled_preparation: not-proved
 secondary_goal: MIC-R3
 secondary_goal_status: separately-gated-and-not-primary
-formal_work_this_run: route-invariant-core-authorized-2026-09-08
-formal_core_task: FC0-FC7-see-section-8
-source_lean_certificate: openai/NavierStokesAndEuler@8937a8f4-inspected-self-certified-replication-in-progress
-source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
-run_status: separated-full-PDE-no-start-and-flat-amplitude-inverse-obstruction-plus-formal-core
+formal_work_this_run: deferred
+run_status: owner-authorized-plan-pivot-no-theorem-promotion
 public_release: false
 ```
 
@@ -91,46 +82,6 @@ geometric variable q is unrelated to this Lorentz exponent. A negative route
 instead needs an exact unforced solution and a proved singularity; it need not
 pass through RF-q. Before pursuing any lemma, name its precise consumer in
 one of these two complete chains.
-
-## 1a. UE0/UE1 result: separated late pulses cannot start autonomously
-
-Evidence: `research/evidence/2026-09-08-autonomous-pulse-obstruction.md`.
-AUTHOR proof; independent audit pending. No terminal or graph promotion.
-The source's complete nonzero-angular labels retain disjoint physical
-spacetime supports, including all harmonics and curl/iteration corrections.
-For any original-NS decomposition U=B+sum W_gamma with B axisymmetric,
-M W_gamma=0, each W_gamma divergence-free, and those separated supports,
-the ENTIRE equation gives the exact label identity
-
-    (1/2) d||W_gamma||2^2/dt + nu ||grad W_gamma||2^2
-       = -integral W_gamma . S(B) W_gamma + <P f,W_gamma>.
-
-Hence a zero label stays zero on every compact classical unforced interval,
-regardless of how large or dynamically coupled the axisymmetric background
-is. The canonical pressure is retained in the full equation and cancels only
-in this divergence-free pairing. This excludes ANY unforced exactification
-preserving zero late-band initial values and exact label separation while
-retaining nonzero late pulses, not merely an unchanged leading ansatz.
-The source condition q>=T-t makes all sufficiently late labels initially
-zero at any fixed t0<T. Taking a later initial time does not remove the issue.
-
-A second, separately scoped theorem uses the actual principal pulse ODE.
-For a homogeneous Gaussian pulse h and its cutoff psi, the exact raw-flat
-source g=psi' h has zero-data response psi h, with order-one peak. At length
-L comparable to ell^2 and Q=2^(-ell), every fixed derivative of g is flat in Q,
-but the causal inverse norm grows at least exp(c L)/poly(L). No fixed
-algebraic Q-loss bound extends to all raw-flat sources, even after finitely
-many linear gauges in the decoupled amplitude system. This does NOT refute
-the source's envelope-weighted inverse and is NOT a full-PDE inverse theorem.
-
-The source's FORCED statement is not contradicted. The first unforced nut is
-now actual autonomous nonaxisymmetric preparation: permit inherited overlap
-or justify one continuous initial preload, retaining every resulting cross
-term, pressure, mean, phase and viscous loss. Neither a fresh label reset
-nor an axisymmetric mean correction can create an absent separated label.
-Audit the prehistory of the ENTIRE countable pulse family before another
-formal residual iteration. UE2--UE4 remain unproved. No critical budget,
-blowup extraction, positive regenerative turnover, or recurrent set follows.
 
 ## 2. Primary-source gate: what was actually inspected
 
@@ -209,8 +160,7 @@ singularity diagnostics are allowed. No such correction is currently proved.
 
 ### UE0 -- Identify the first indispensable projected forcing
 
-The separated-support conversion has been excluded in Section 1a. For any
-new architecture, first audit whether the actual global P f vanishes on ANY terminal time slab.
+First audit whether the actual global P f vanishes on ANY terminal time slab.
 If it does, taking a smooth Schwartz time slice at its start would already
 supply an unforced segment; prove all its hypotheses rather than assuming it.
 Flatness at one point, smallness, or compact time support does NOT imply such
@@ -232,8 +182,6 @@ for UE1. Do not postpone pulse seeding until after a full reconstruction.
 
 ### UE1 -- Autonomous pulse preparation and a uniform linear inverse
 
-Do not retain the now-excluded exact separation with zero late-label data.
-Do not apply the envelope inverse to raw-flat errors with a polynomial loss.
 Test whether the required pulses can be generated from a single admissible
 initial perturbation, carrying their phases, polarizations, tails and all
 feedback continuously, with no time-localized external starts or stops.
@@ -404,12 +352,6 @@ also triggers on PLAN changes and runs exact checks plus full-checkout
 verification. Report observed outcomes, not anticipated success. These checks
 do not audit [OA], prove exactification, or certify a regenerative turnover.
 
-The source audit follow-through passed 86 finite exact assertions in
-`research/check_autonomous_pulse_obstruction.py`. These concern algebra, not
-continuum verification or independent review. Current full-checkout checks
-are recorded with the integration commit; the earlier planning-only check
-record above remains historical provenance.
-
 ## 7. Next handoff: one dominant nut
 
     Prove a uniform, compatibility-preserving correction of the FULL
@@ -423,130 +365,3 @@ localization nor the passage from a flat residual to zero may be deferred as
 routine. Continue through nonlinear convergence, global embedding and endpoint
 verification if UE1 succeeds. If a genuinely better complete route emerges,
 replace this allocation rather than protecting the chosen ansatz.
-
-## 8. Route-invariant formal core (Phase I / Phase II), authorized 2026-09-08
-
-Owner instruction of 2026-09-08: fix what Lean must contain NO MATTER HOW the
-remaining paper proof develops, and reach it in parallel with the research
-gates above. Lean work lives in `itpplasma/navier-formal`; its live status is
-this section plus `navier-formal/docs/verification-status.md`. Phase I means
-manuscript-owned steps proved over precisely stated, source-recorded
-literature axioms; Phase II means every such axiom discharged from Mathlib.
-The phase status strings above are unchanged by this section.
-
-### 8.1 Source Lean certificate: what was inspected, what is permitted
-
-[OA-LEAN] `https://github.com/openai/NavierStokesAndEuler`, commit
-`8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538`, Apache-2.0, Lean `v4.34.0-rc2`,
-Mathlib `85e3a25e006c35636f0e53b0e9296caca2685bc0`, inspected 2026-09-08.
-It advertises `NavierStokes.Comparator.navier_stokes_breakdown_R3` (C) and
-`navier_stokes_breakdown_periodic` (D) through a Comparator challenge adapted
-from Formal Conjectures (`FormalConjectures/Millenium/NavierStokes.lean` at
-`8bf45ed7`), self-reporting axioms `propext, Classical.choice, Quot.sound`,
-review status `self-assessed`. The NavierStokes library is 580 modules,
-about 20 MB of Lean; the whole-space comparison closure
-(`NavierStokes.R3.WholeSpaceUniqueness`) is 67 modules, about 0.7 MB.
-A local replication build with `#print axioms` was started 2026-09-08 and its
-observed outcome must be recorded in `navier-formal/docs/verification-status.md`
-before any imported statement is cited as verified. A Comparator/NanoDa
-replay is a separate, later check.
-
-Permitted use: a SOLUTION-ONLY pinned dependency of `navier-formal`
-(Palomar: `Challenge.lean` imports only Mathlib; proof dependencies may be any
-publicly readable pinned Git repository; permitted axioms unchanged). This
-required bumping `navier-formal` to the same toolchain and Mathlib pin.
-Only modules under `NavierFormal/External/` may import [OA-LEAN]; every
-imported declaration gets a statement-faithfulness row and an axiom report.
-Importing (C) does not import an unforced theorem; its research use is the
-forced-insensitivity falsifier in
-`research/evidence/2026-09-08-forced-insensitivity-falsifier.md` (author
-evidence, independent audit pending): any producer whose proof survives a
-smooth compactly supported force from zero datum is refuted by (C).
-
-Related public certificates, inspected only at the README/manifest level:
-`tristanbuckmaster/fluid_lean` (Euler and Boussinesq forced blowup, Lean
-`v4.32.2`, Palomar layout, no top-level licence file seen); they are not
-dependencies. Statements of their `vendor/cm24-r2` transport/uniqueness
-library may be consulted as designs, never copied without licence.
-
-### 8.2 The invariant core: theorem-sized formal tasks
-
-Every item below is consumed by BOTH complete chains of Section 1: the
-positive chain needs it to identify the maximal branch and close at the
-endpoint; a negative route needs it to prove that a constructed field is THE
-solution of its Schwartz datum, has finite lifespan, and diverges. Items are
-ordered by consumer distance from the terminal statements.
-
-FC0 -- Statement alignment. A Mathlib-only reference module for Fefferman's
-(A) and (C) in the Formal Conjectures form (Apache-2.0 header retained), and
-proved bridges: `NavierFormal.ClayAlternativeA_all` versus the reference (A)
-(curried versus uncurried fields, `derivWithin` at `t=0`, energy as a bound),
-and Schwartz data versus Fefferman's decay condition (4) in both directions.
-Consumer: any terminal Lean statement of this project must be comparable with
-the community reference used by [OA-LEAN]. Phase II.
-
-FC1 -- Local theory interface (`prop:localtheory`, Tao Theorem 5.4 with
-Corollaries 4.3, 5.8). Phase I: an axiom module with the exact statement in
-the project's classical class (existence of a maximal branch, uniqueness
-among classical solutions with the regularity package, one-sided smoothness
-at `t=0`, the `H^1` blow-up alternative, viscosity scaling) and a source
-record. Consumer: `thm:continuation`, `thm:conditional`, and UE4's
-identification of a constructed field with the branch. Phase II: class F,
-to be scheduled after FC5; do not start it before the class bridges exist.
-
-FC2 -- Endpoint interface (`thm:ess`, Escauriaza--Seregin--Sverak Theorem 1.3;
-GKP corroboration only). Phase I: axiom module with the verbatim mixed-norm
-hypothesis `L^\infty_t L^3_x` and the conclusion `L^5`, plus the manuscript's
-`lem:leray-hopf`, `lem:l3-to-l5`, `lem:serrin-enstrophy` bridges proved or
-listed as open. Consumer: `thm:continuation`. Phase II is route-dependent
-(positive route only) and is NOT part of the invariant core.
-
-FC3 -- Conditional theorem `thm:conditional` in Lean from FC1 and FC2 axioms:
-`CriticalHypothesis -> ClayAlternativeA_all`. This is the first end-to-end
-Phase I theorem of the project; record its axiom report (exactly the FC1/FC2
-axioms plus the three standard ones). Consumer: Section 1 positive chain.
-
-FC4 -- Energy identity `prop:energy` and the PDE half of `prop:scaling`.
-Phase II: derivative form and integrated form for the classical class with
-explicit integrability hypotheses, then the bridge from the regularity
-package to those hypotheses; the dilation `(u_lambda,p_lambda)` is a
-classical solution. Consumer: every energy or scaling statement in either
-chain, and UE4's finite-energy clause.
-
-FC5 -- Class bridges. Phase II: bounded gradient implies global Lipschitz
-(feeds the Rademacher lemmas of `prop:pressure`); regularity package plus
-boundedness implies every `L^1` hypothesis used by the integration-by-parts
-lemmas; Frobenius/operator norm bookkeeping is closed. Consumer: FC4, FC6.
-
-FC6 -- Uniqueness and comparison on the whole space. Phase I via
-[OA-LEAN] `NavierStokesR3.WholeSpaceUniqueness.classical_uniqueness_on_Icc`
-(compactly supported smooth reference versus any smooth finite-energy
-competitor at viscosity 1), adapted to the project's classical class with the
-viscosity normalization `eq:nu-normalization`. Record the exact obstacle: the
-reference must be compactly supported at every time, which an unforced
-Schwartz-data flow is not; so this covers the [OA]-type candidate of UE3/UE4
-but not the identification of the maximal branch, which stays with FC1.
-Phase II: the imported theorem is already Mathlib-only if the replication
-axiom report confirms it. Consumer: UE4; positive-route class identification
-remains FC1.
-
-FC7 -- Blow-up statement surface. Definitions of maximal lifespan, unbounded
-speed, `L^3` divergence, and the unforced counterexample statement
-(nonzero Schwartz datum, classical on `[0,T)`, no global smooth bounded-energy
-solution), with the trivial theorem that it refutes `ClayAlternativeA_all`.
-Consumer: UE4 terminal statement, Comparator comparability with FC0.
-
-Remaining `prop:pressure`, `prop:enstrophy`, `prop:lowpressure` and the
-quotient-section results are positive-route Phase II work; they continue as
-supporting lemmas but are not in the invariant core. `sec:quotient` stays
-paper only.
-
-### 8.3 Execution rules for the formal core
-
-Distinct workers own disjoint new files; the controller integrates, runs the
-single `lake build`, records `#print axioms` for every new declaration in
-`verification-status.md`, and audits statement fidelity row by row in
-`paper-lean-specification.md`. A zero-sorry file with a weaker statement is
-not the manuscript result. No formal step promotes a research claim in
-`docs/proof-graph.yaml`; `machine_checked` entries require the axiom report
-and the fidelity row. Report observed build and axiom outcomes only.
