@@ -186,7 +186,7 @@ MIC-R3, kinetic interfaces, manuscript and formal work are unchanged.
 
 ## 5. Computation, review and writes
 
-`python3 research/check_phase_locked_ring.py --order 8` passed 81 exact
+`python3 research/check_phase_locked_ring.py --order 8` passed 82 exact
 assertions locally, using only rational arithmetic and certified rational
 square-root enclosures. A second vector formula checks the occupied network;
 this is NOT an independent mathematical reviewer. Python syntax checks pass.
@@ -198,12 +198,22 @@ Runs at N=10,14,18 and nu=.01 are hypotheses, not PDE theorems. No broad
 randomized search, exhaustive carrier-network classification, interval
 trajectory proof or continuum shadowing calculation was completed.
 
-At this initial checkpoint the full-checkout verifier and prior 54 circuit /
-45 pressure regressions have not been rerun in this wave. A separate read-only
-workflow is included to run those checks plus the new checker and
-`python3 research/verify.py --research-only` at the exact pushed revision.
-Its actual outcome must be read, not assumed. It does not run the older
-status-rewriting integration workflow, and never commits or pushes.
+The read-only workflow succeeded on the actual pushed mathematical revision
+`e3dd381f40cbebc3f3b2d65c4dad1dc44f40af1b`: run 34196329940, job 101964764582.
+It reran 54 circuit + 45 pressure + the initial 81 new exact assertions,
+`python3 research/verify.py --research-only`, `git diff --check HEAD^ HEAD`,
+and `git diff --check`. The verifier reports 29 claims and 8 pending
+supplements. Its scope is structural, not mathematical correctness.
+
+The downloaded full source archive matched Git tree
+`eb97db14460fa137de4068755340ffd99c6ea93d`; it was not a partial-file snapshot.
+A further author audit repaired one proof sentence: at p+q each ordered
+term has a normal component c e1, but nonzero tangential parts cancel only
+in their sum. The summed coefficient and the theorem are unchanged. An
+explicit rational check now covers the two separate terms, raising the new
+count to 82. All three scripts (181 assertions total), the verifier, Python
+syntax and whitespace checks passed again locally on the full source tree
+with this correction. The workflow never rewrites status or pushes.
 
 Independent mathematical audits obtained: NONE. All new author arguments,
 including the R3 packet/time rescaling and all-orders support-face proof,

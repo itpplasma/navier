@@ -292,8 +292,10 @@ The initial coefficient vectors are
     b0(p)=(-1,-2/5,1/5),  b0(q)=(-1,1/5,-2/5),
     q.b0(p)=p.b0(q)=-3/5.
 
-At p+q the two ordered source terms each give c e1. To reach n p+q
-for n>=2, the only nonzero remaining step adds p to (n-1)p+q:
+At p+q the two ordered projected terms are
+(3/5,-9/50,9/50) and (3/5,9/50,-9/50). Their tangential parts cancel,
+and their normal components each give c e1. To reach n p+q for n>=2,
+the only nonzero remaining step adds p to (n-1)p+q:
 its coefficient is -c exp(-5nu t)c_(n-1)e1. A normal velocity at a
 first-coordinate-zero wavevector cannot advect either tangential parent.
 Pure multiples of p have no nonlinear birth. These facts sum the entire
@@ -487,10 +489,21 @@ has been proved. The first terminal gap is unchanged. These results narrow
 specific mechanisms; they do not supply a universality theorem reducing
 all hypothetical singularities to this symmetric ring.
 
-Checks actually run before the initial commit: `check_phase_locked_ring.py
---order 8`, 81 exact assertions. Author adversarial rechecking covered
+Checks before the initial commit: `check_phase_locked_ring.py --order 8`,
+81 exact assertions. The follow-up author audit corrected the wording about
+the two ordered terms at p+q: only their NORMAL components each equal c e1;
+their nonzero tangential parts cancel in the sum. The summed recurrence and
+all theorem statements are unchanged. The explicit ordered-pair check raises
+the count to 82, rerun successfully through order eight. Author adversarial rechecking covered
 Fourier signs, reality, Cartesian versus helical phases, the varying-input
 quantifier, the time normalization, full pair support, exposed-face leaf
 counting, viscous simplex bounds, and the absence of a full-turnover remainder.
-No independent reviewer or spawned agent was available. No Lean build or
-full-checkout `research/verify.py --research-only` run is claimed here.
+No independent reviewer or spawned agent was available. The read-only CI
+run 34196329940 checked source e3dd381f40cbebc3f3b2d65c4dad1dc44f40af1b
+in a full checkout: the 54 circuit, 45 pressure, and initial 81 ring checks,
+`python3 research/verify.py --research-only`, and both whitespace checks passed.
+The full source archive was downloaded and its Git tree matched
+eb97db14460fa137de4068755340ffd99c6ea93d. The repaired 82-count version and
+the earlier checks/verifier were then rerun locally on that full source tree.
+These are arithmetic and structural checks, not an independent mathematical
+audit, a PDE proof, a manuscript verification, or a Lean build.

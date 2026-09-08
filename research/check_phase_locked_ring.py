@@ -149,6 +149,11 @@ def main() -> None:
     args = parser.parse_args()
     coeff = [initial_ring()]
     check('initial squared energy = 72/5', inner(coeff[0], coeff[0]) == F(72, 5))
+    p, q = (0, 1, 2), (0, 2, 1)
+    bp, bq = coeff[0][p], coeff[0][q]
+    check('ordered edge terms: opposite tangential parts before summation',
+          project(add(p, q), scale(dot(q, bp), bq)) == (F(3, 5), F(-9, 50), F(9, 50))
+          and project(add(p, q), scale(dot(p, bq), bp)) == (F(3, 5), F(9, 50), F(-9, 50)))
     for n in range(args.order):
         coeff.append(multiply(F(1, n+1), combine(*(
             bilinear(coeff[j], coeff[n-j]) for j in range(n+1)))))
