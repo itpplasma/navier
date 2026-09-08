@@ -46,6 +46,7 @@ finite_mixing_cascade_concentrating: false-in-stated-varying-input-class
 regenerative_critical_cascade: not-constructed
 mixing_result_audit: independent-mathematical-audit-pending
 acute_decomposable_fourier_cone: proved-trivial-author-audit-pending
+convex_decomposable_fourier_cone: proved-linear-author-audit-pending
 independent_packet_orthant: outgoing-face-for-nonzero-clean-triad
 cone_boundary_exterior_cost: necessary-L2-amplitude-not-turnover-or-summable-cost
 correlated_full_state_cones: not-excluded
@@ -306,6 +307,37 @@ packet orthant with a nonzero triad. Correlated full-state invariant sets,
 sign changes and non-decomposable packet architectures remain live. The
 terminal nut in Section 4 and the signed RF-q upper producer are unchanged.
 
+## 4b. Acuteness-free classification: every decomposable invariant convex cone is linear
+
+Evidence: `research/evidence/2026-09-08-convex-cone-linearity.md`.
+AUTHOR proof; independent mathematical audit PENDING. No canonical promotion.
+
+For a fixed nu>0, let K be a closed convex cone in real L2_sigma(R3),
+closed under EVERY symmetric measurable Fourier restriction. Assume local
+invariance under the original NS flow for every member in the intersection
+of all integer H^m spaces. Then
+
+    K = K intersect (-K): K is a real LINEAR subspace.
+
+In particular every pointed such cone is zero. Acuteness and any uniform
+polarization aperture are unnecessary. The proof splits off lineality,
+builds a measurable strictly dual-positive section in the pointed Fourier
+fibers, kills a possible lineality output with a two-sided energy test,
+and exhausts the nonuniform dual margins. The predecessor's original Leray
+pair rigidity then kills the whole pointed component. Its Fourier-hole
+argument concerns actual unprojected NS, not Galerkin closure.
+
+Widening a pointwise polarization cone or adding arbitrary linear directions
+therefore cannot repair an independently deletable one-sided cone. The real
+odd sector is a sharp surviving LINEAR example. Nondecomposable correlated
+cones, non-conical sets, nonconvex traps and return-time-only invariance are
+not excluded. Invariance merely for Schwartz members is not silently promoted
+to the stated all-H^m hypothesis after sharp Fourier deletion.
+
+This supplies no turnover cost, angular-exterior budget, event extraction or
+RF-q upper bound. The one dominant terminal nut remains the correlated full-
+state regenerative return of Section 4, retaining the mandatory exterior.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -362,6 +394,15 @@ full source snapshot's Git tree was checked equal to the live base tree;
 8 pending supplements. Python syntax and whitespace were checked locally.
 The CI workflow now also executes the cone, narrow-packet and mixing checks.
 These are algebraic/structural checks, not validation of the continuum proof.
+
+The acuteness-free extension passed 4568 exact assertions, including 59
+nonacute rational cones, and reran all six preceding exact checkers with
+the counts above. The full-checkout research-only verifier, Python syntax
+and whitespace checks passed. Its separate exact checker,
+`research/check_convex_cone_linearity.py`, covering symbolic quadratic energy
+coefficients, nonacute rational cone margins, the two-sided lineality test,
+exhaustion powers and sharpness examples. Its finite identities do not certify
+the measurable-fiber construction or the continuum theorem. CI includes it.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before

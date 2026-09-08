@@ -7,6 +7,8 @@ on:
       - 'research/check_phase_locked_ring.py'
       - 'research/discovery_phase_locked_ring.py'
       - 'research/check_fourier_cone.py'
+      - 'research/check_convex_cone_linearity.py'
+      - 'research/evidence/2026-09-08-convex-cone-linearity.md'
       - 'research/evidence/2026-09-08-fourier-cone-obstruction.md'
       - 'research/evidence/2026-09-08-phase-locked-full-ring.md'
       - 'research/evidence/2026-09-08-ring-turnover-discovery.md'
@@ -31,6 +33,7 @@ jobs:
           python3 research/check_narrow_packet_escape.py
           python3 research/check_turnover_mixing.py
           python3 research/check_fourier_cone.py --json fourier-cone-checks.json
+          python3 research/check_convex_cone_linearity.py --json convex-cone-linearity-checks.json
           python3 research/check_phase_locked_ring.py --order 8 --json exact-ring-checks.json
           python3 research/verify.py --research-only
           git diff --check HEAD^ HEAD
@@ -45,5 +48,6 @@ jobs:
           path: |
             exact-ring-checks.json
             fourier-cone-checks.json
+            convex-cone-linearity-checks.json
             verified-source-commit.txt
             verified-sources.tar.gz
