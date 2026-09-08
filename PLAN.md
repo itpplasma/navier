@@ -9,7 +9,7 @@ hexagon turnover certificate has been obtained.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: regenerative-turnover-after-exterior-escape-and-mixing-2026-09-08
+phase: full-state-return-after-compact-localization-obstruction-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -20,9 +20,9 @@ active_architecture: full-real-vector-regeneration-with-nonperturbative-exterior
 complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
-dominant_research_nut: critically-timed-regeneration-with-nonperturbative-exterior-and-inherited-tail
+dominant_research_nut: full-state-regeneration-with-noncompact-or-tail-accreting-exterior
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: two-scoped-structural-obstructions-no-terminal-breakthrough
+run_status: full-state-finite-block-class-exclusion-no-terminal-breakthrough
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -49,7 +49,15 @@ acute_decomposable_fourier_cone: proved-trivial-author-audit-pending
 convex_decomposable_fourier_cone: proved-linear-author-audit-pending
 independent_packet_orthant: outgoing-face-for-nonzero-clean-triad
 cone_boundary_exterior_cost: necessary-L2-amplitude-not-turnover-or-summable-cost
-correlated_full_state_cones: not-excluded
+correlated_full_state_cones: not-generally-excluded
+full_source_scale_cycle: exact-source-map-only-author-audit-pending
+full_time_tree_equals_source_composition: refuted-at-four-leaf-order
+full_state_return_map: exact-partial-augmented-map-author-proof
+localized_compact_return_class: excluded-at-high-amplitude-in-stated-class
+material_vorticity_turnover: exact-viscous-defect-bound-author-audit-pending
+small_power_vorticity_tail_implies_critical_cost: refuted-by-Schwartz-satellites
+regenerative_turnovers_certified: 0
+source_symbolic_checker: repaired-tuple-comparison-10-checks
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
@@ -338,6 +346,82 @@ This supplies no turnover cost, angular-exterior budget, event extraction or
 RF-q upper bound. The one dominant terminal nut remains the correlated full-
 state regenerative return of Section 4, retaining the mandatory exterior.
 
+## 4c. Full source cycles are possible; complete flow recurrence is different
+
+Evidence: `research/evidence/2026-09-08-source-cycles-and-newborn-efficiency.md`
+at the refreshed input `89e121f53c31da9e546fda3130ffd281983c2a63`.
+The exact planar field U=(sin(x+y),sin(2x)-sin(x+y),0) obeys
+N(N(U))=(1/5)U(2.), with the difference channel indispensable. Schwartz
+approximations retain the inherited source error. This kills any universal
+no-go based on original quadratic source copying alone.
+
+The full four-leaf time tree is not N composed with N: its copied carriers
+have different gains and it creates an exterior carrier. The ring's newborn
+packet efficiency can exceed 0.51 of the parent's, but newborn amplitude
+tends to zero. Neither result is a critically timed regenerative turnover.
+The actual full-state return, not source composition, remains the object.
+
+## 4d. New full-state finite-block exclusion and its sharp critical limitation
+
+Evidence: `research/evidence/2026-09-08-full-state-vorticity-return.md`.
+AUTHOR proof; independent mathematical audit PENDING. No canonical promotion.
+The material small-power mechanism has Chae--Tsai prior art; no priority claim.
+
+For the ENTIRE original NS state set V(y)=u(t,x+y/K)/(a K),
+a=K^(1/2)||Q_K u(t)||2 and mu=nu/a. Evolve W with viscosity mu over theta,
+then define
+
+    g=sqrt(lambda)||Q_lambda W(theta)||2,
+    Vplus(z)=(g lambda)^(-1) O^T W(theta,c+Oz/lambda),
+    muplus=mu/g.
+
+This is an exact partial augmented map, with canonical pressure and all
+exterior retained. No globally defined event selector or recurrent set exists
+in the proof. Growing a forces an Euler boundary; it is not suppressed.
+
+For 0<p<=1 let S_p(V)=integral|curl V|^p / ||V||2^p. The exact material
+Cauchy formula, with the entire viscous defect E, gives on a full interval
+
+    S_p(Vplus) >= lambda^(3-5p/2) exp(-p ell)(1-eps) S_p(V),
+    ell=log sup||D Phi_theta^(-1)||op,
+    eps=exp(p ell)||E||_Lp^p/integral|curl V|^p <1.
+
+FULL energy cancels g. This is not an input-summable critical cost.
+
+A stronger finite-block theorem needs NO small viscous Lp-defect assumption.
+Fix a full-state L2-compact class with ||Q_1 V||2=1, uniform H^s bounds
+(s>=6), integral|curl V|^p<=B, and uniformly H^s-bounded full normalized
+flow intervals of duration <=Theta and endpoint compression <=L. Let
+lambda in [lambda0,Lambda], lambda0>1, g>=g0>1, and
+
+    r=lambda0^(3-5p/2)exp(-p L)>1,
+    b=(4/9)Momega^(p-2)M^(-p).
+
+For any integer N with b r^N>B there is mu_*>0 forbidding N consecutive
+returns in this class starting at mu<mu_*. The proof derives a complete
+finite Euler boundary block by GLOBAL L2 convergence, retains energy and
+canonical pressure, bounds translations rather than discarding exterior,
+and contradicts its material-volume inequality. The threshold is qualitative,
+not numerically validated. This excludes indefinite high-amplitude returns
+in the stated localized compact class, not arbitrary full-state recurrence.
+
+Under the other class hypotheses a putative infinite return must accumulate
+unbounded small-power vorticity mass outside every fixed normalized ball.
+But exact Schwartz satellites h_R=R^(-3/2-beta)h((x-R^2 e1)/R), with
+0<beta<3/p-5/2, tend to zero in all H^s and finite L^{3,q} while their
+vorticity Lp mass diverges. Thus this forced tail mass is NOT a critical
+Lorentz-growth detector or a positive expenditure. At the critical power
+p=6/5 the favorable geometric exponent itself vanishes.
+
+Consequent branch cut: no uniformly localized smooth compact high-amplitude
+trap as quantified above; no promotion of small-power tail growth alone to
+RF-q. Still live are noncompact or tail-accreting full-state returns, loss of
+uniform normalized smoothness/compression, and a genuinely critical dynamical
+cost. No positive regenerative turnover, shadowing or blowup-event extraction
+is certified. The dominant nut is the full-state return with this inherited
+exterior, either shadowed concentration or a REQUIRED critical cost plus
+extraction and the complete Section 1 consumer.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -403,6 +487,22 @@ and whitespace checks passed. Its separate exact checker,
 coefficients, nonacute rational cone margins, the two-sided lineality test,
 exhaustion powers and sharpness examples. Its finite identities do not certify
 the measurable-fiber construction or the continuum theorem. CI includes it.
+
+The full-state-return theorem adds 116 exact symbolic/arithmetic assertions.
+The full local source tree was reconstructed from the connected CI artifact
+plus the four newer files and checked equal to input tree
+`643b78c7286f8cb02901ea6a0f3ab1ba1cd67e29` before editing. The rational source
+checker actually reports 12,351 assertions over 384 geometries at this input,
+not the historical 12,357. The symbolic predecessor initially CRASHED on tuple
+subtraction; its componentwise repair now passes 10 checks, not 11. The note
+preserves these qualifications rather than silently validating old counts.
+
+This run also passed the 204 Tao, 54 circuit, 45 pressure, 1889 narrow-packet,
+97 mixing, 2577 acute-cone, 4568 convex-cone and 82 order-eight ring assertions.
+The full-checkout research-only verifier, Python syntax and git diff --check
+passed. CI now includes the source, repaired symbolic and new full-state
+checkers. These are finite identity/integrity checks, not continuum validation.
+Proof graphs remain unchanged and no independent audit is claimed.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before

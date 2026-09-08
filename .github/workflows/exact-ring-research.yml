@@ -8,6 +8,11 @@ on:
       - 'research/discovery_phase_locked_ring.py'
       - 'research/check_fourier_cone.py'
       - 'research/check_convex_cone_linearity.py'
+      - 'research/check_source_cycles_and_birth.py'
+      - 'research/check_symbolic_cycle_geometry.py'
+      - 'research/check_full_state_vorticity_return.py'
+      - 'research/evidence/2026-09-08-full-state-vorticity-return.md'
+      - 'research/evidence/2026-09-08-source-cycles-and-newborn-efficiency.md'
       - 'research/evidence/2026-09-08-convex-cone-linearity.md'
       - 'research/evidence/2026-09-08-fourier-cone-obstruction.md'
       - 'research/evidence/2026-09-08-phase-locked-full-ring.md'
@@ -28,6 +33,9 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3
       - name: Exact arithmetic and full-checkout structural verification
         run: |
+          python3 research/check_source_cycles_and_birth.py
+          python3 research/check_symbolic_cycle_geometry.py
+          python3 research/check_full_state_vorticity_return.py --json full-state-return-checks.json
           python3 research/check_exact_ns_circuits.py
           python3 research/check_remote_pressure.py
           python3 research/check_narrow_packet_escape.py
@@ -46,6 +54,7 @@ jobs:
           name: exact-ring-research
           retention-days: 3
           path: |
+            full-state-return-checks.json
             exact-ring-checks.json
             fourier-cone-checks.json
             convex-cone-linearity-checks.json

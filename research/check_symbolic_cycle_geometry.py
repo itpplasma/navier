@@ -10,7 +10,14 @@ S = r**2 + z**2
 checks = []
 
 def eq(a, b, label):
-    if s.simplify(a-b) != 0:
+    # Fourier coefficients are tuples; compare components, not tuple subtraction.
+    if isinstance(a, tuple) or isinstance(b, tuple):
+        if not (isinstance(a, tuple) and isinstance(b, tuple) and len(a) == len(b)):
+            raise AssertionError(label + ': incompatible shapes')
+        equal = all(s.simplify(x-y) == 0 for x, y in zip(a, b))
+    else:
+        equal = s.simplify(a-b) == 0
+    if not equal:
         raise AssertionError(label)
     checks.append(label)
 
