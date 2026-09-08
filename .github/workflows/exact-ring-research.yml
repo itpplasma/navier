@@ -6,6 +6,8 @@ on:
       - 'PLAN.md'
       - 'research/check_phase_locked_ring.py'
       - 'research/discovery_phase_locked_ring.py'
+      - 'research/check_fourier_cone.py'
+      - 'research/evidence/2026-09-08-fourier-cone-obstruction.md'
       - 'research/evidence/2026-09-08-phase-locked-full-ring.md'
       - 'research/evidence/2026-09-08-ring-turnover-discovery.md'
       - '.github/workflows/exact-ring-research.yml'
@@ -26,6 +28,9 @@ jobs:
         run: |
           python3 research/check_exact_ns_circuits.py
           python3 research/check_remote_pressure.py
+          python3 research/check_narrow_packet_escape.py
+          python3 research/check_turnover_mixing.py
+          python3 research/check_fourier_cone.py --json fourier-cone-checks.json
           python3 research/check_phase_locked_ring.py --order 8 --json exact-ring-checks.json
           python3 research/verify.py --research-only
           git diff --check HEAD^ HEAD
@@ -39,5 +44,6 @@ jobs:
           retention-days: 3
           path: |
             exact-ring-checks.json
+            fourier-cone-checks.json
             verified-source-commit.txt
             verified-sources.tar.gz

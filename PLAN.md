@@ -45,6 +45,10 @@ finite_original_ns_spectral_cascade: arbitrarily-many-finite-events-author-proof
 finite_mixing_cascade_concentrating: false-in-stated-varying-input-class
 regenerative_critical_cascade: not-constructed
 mixing_result_audit: independent-mathematical-audit-pending
+acute_decomposable_fourier_cone: proved-trivial-author-audit-pending
+independent_packet_orthant: outgoing-face-for-nonzero-clean-triad
+cone_boundary_exterior_cost: necessary-L2-amplitude-not-turnover-or-summable-cost
+correlated_full_state_cones: not-excluded
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
@@ -267,6 +271,41 @@ whether the resulting full state regenerates another critically timed driver,
 or whether the mandatory exterior/polarization/pressure response carries an
 input-summable loss.
 
+## 4a. New exact cone obstruction, not a regenerative-event theorem
+
+Evidence: `research/evidence/2026-09-08-fourier-cone-obstruction.md`.
+AUTHOR proof; independent mathematical audit PENDING. No canonical promotion.
+
+For original R3 NS at every fixed nu>0, a closed convex acute L2 cone that
+permits arbitrary symmetric Fourier restrictions and is locally invariant
+for its smooth finite-energy data must be ZERO. A Fourier-hole argument
+first puts the entire quadratic vector field into the cone; acuteness and
+energy cancellation force it to vanish; the exact unequal-length Leray
+pair classification and Lebesgue differentiation then force zero Fourier
+support. This is a continuum theorem, not a finite Galerkin classification.
+
+Separately, three independently activatable orthonormal Schwartz packets
+with zero measured self-pumps have cyclic coefficients summing to zero,
+so a nonzero triad forces an outgoing face in every fixed-sign orthant.
+The explicit packet triple has coefficients (-beta,-beta,2beta). Repairing
+its negative face with the actual exterior h requires
+
+    beta bc <= ||grad f1||infinity (2 sqrt(b^2+c^2)||h||2+||h||2^2)
+                   +nu ||Delta f1||2 ||h||2.
+
+This is a snapshot full-state L2 tangency bound, NOT angular-critical
+control, viscous expenditure, a turnover loss or an input-summable budget.
+The same exterior can be reused. Correlated amplitudes evade independent
+activation: the exact abstract triad with x=y is a positive pump, but its
+full original-NS packet realization still has nonzero side and polarization
+outputs. It is not a closed NS cell. Odd phase-line invariance is preserved.
+
+Consequent branch cut: do not seek a nontrivial invariant acute cone with
+arbitrary Fourier deletion, or an invariant independently loaded clean
+packet orthant with a nonzero triad. Correlated full-state invariant sets,
+sign changes and non-decomposable packet architectures remain live. The
+terminal nut in Section 4 and the signed RF-q upper producer are unchanged.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -315,7 +354,16 @@ It does NOT certify the analytic PDE adapter, the parameter limits, the imported
 Chemin--Gallagher theorem, an independent mathematical audit, the hexagon
 continuum turnover, scale regeneration or the RF-q upper bound.
 
-No independent mathematical audit is claimed for either new 2026-09-08 theorem.
+For the cone theorem, the current run passed 2577 exact assertions over
+1296 rational pair cases, and reran the 54 circuit, 45 pressure, 1889
+narrow-packet, 97 mixing and 82 order-eight phase-ring assertions. The
+full source snapshot's Git tree was checked equal to the live base tree;
+`research/verify.py --research-only` passed with 29 canonical records and
+8 pending supplements. Python syntax and whitespace were checked locally.
+The CI workflow now also executes the cone, narrow-packet and mixing checks.
+These are algebraic/structural checks, not validation of the continuum proof.
+
+No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before
 every write, preserve newer commits, use only ordinary fast-forward updates and
 never force-push.
