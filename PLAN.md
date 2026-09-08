@@ -9,7 +9,7 @@ hexagon turnover certificate has been obtained.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: no-atom-full-state-block-cost-2026-09-08
+phase: no-atom-block-cost-after-dynamical-bulk-falsification-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -22,7 +22,7 @@ terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
 dominant_research_nut: vanishing-energy-regenerative-core-with-inherited-exterior
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: no-atom-block-cost-and-noncompact-class-exclusion-no-terminal-breakthrough
+run_status: no-atom-block-cost-plus-full-flow-bulk-obstruction-no-terminal-breakthrough
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -60,6 +60,8 @@ no_atom_ns_endpoint: vanishing-viscosity-and-dissipation-author-proof
 full_state_block_cost: positive-normalized-viscous-cost-in-stated-class
 noncompact_bounded_enstrophy_returns: excluded-in-stated-class-author-audit-pending
 input_summable_critical_regeneration_cost: not-produced
+normalized_bulk_energy_forces_critical_cost: refuted-over-fixed-full-flow-interval
+retained_bulk_shadow: critical-and-pressure-convergence-author-audit-pending
 regenerative_turnovers_certified: 0
 source_symbolic_checker: repaired-tuple-comparison-10-checks
 secondary_goal: MIC-R3
@@ -473,6 +475,48 @@ these bounds, especially a vanishing-energy critical core with inherited bulk
 and unbounded normalized full energy: construct and shadow it, or prove a
 REQUIRED critical cost with extraction and the complete Section 1 consumer.
 Unbounded normalized gradients or failure of the fixed clocks also remain live.
+In the uniform-gradient/clock class, an infinite uniformly efficient orbit
+would necessarily have annular energy fraction 1/||V_n||2^2 tending to zero.
+This is a necessary condition within the class, not a blowup extraction theorem.
+
+## 4f. Full-flow falsification of charging harmless retained bulk
+
+Evidence: `research/evidence/2026-09-08-retained-bulk-full-flow.md`.
+AUTHOR proof; independent mathematical audit PENDING. No canonical promotion.
+The homogeneous smooth-reference stability method is standard; no priority claim.
+
+For a fixed smooth Euler reference w from Schwartz f on a fixed interval,
+fixed nonzero solenoidal compact smooth h, fixed physical nu>0 and 0<alpha<1/2,
+put A=K^alpha and take ORIGINAL NS data
+
+    d_K(x)=A K f(Kx)+h(x).
+
+The complete actual normalized flow U_K(tau,y)=u_K(tau/(A K^2),y/K)/(A K)
+exists through that whole interval and converges to w in dotH1 intersect
+dotH3 AND dotHhalf, hence in every fixed finite L^{3,q}, q>3. Its canonical
+pressure converges in H1. The error is O((1+nu)/A); no large L2 norm enters
+the homogeneous stability estimate. All generated modes and feedback remain.
+Nevertheless ||U_K||2 tends to infinity uniformly over the interval, while
+physical input energy tends to ||h||2^2 and actual viscous expenditure tends
+to zero. Choosing f with nonzero gamma gives a_K comparable to A and gamma
+bounded below throughout, with full normalized gradients bounded in L2 and
+L-infinity. Exact current annular normalization still has divergent full L2.
+
+Thus efficient large critical packets plus a controlled WHOLE normalized
+interval do NOT imply bounded normalized full energy or a required critical
+cost for the extra bulk. The counterexample is dynamical, not a static tail.
+It does NOT exhibit successive scale/amplitude gains, refute Section 4e, or
+show that the mandatory regenerative angular exterior is harmless. Data vary
+with K; the reference interval is fixed; no infinite shadowing is asserted.
+Certified positive regenerative turnovers remain ZERO.
+
+The single dominant nut is the full-state critical return with inherited
+DYNAMICALLY ESSENTIAL exterior, allowing vanishing core-energy fraction and
+distinguishing harmless bulk without deleting it: construct and shadow robust
+scale repetition, or prove a REQUIRED critical cost with blowup-event
+extraction and the complete Section 1 consumer. Neither single-annulus
+amplitude growth nor this return parametrization is proved necessary for all
+hypothetical blowup. The gradient/clock escape branches also remain live.
 
 ## 5. Preserved exclusions and surviving mechanisms
 
@@ -568,6 +612,17 @@ after the combined test command reached its execution timeout following the
 successful verifier output. No missing test is inferred from that timeout.
 CI now includes the new checker. Finite identities do not validate the Euler
 source theorem, compactness, endpoint limits, or qualitative PDE thresholds.
+
+The retained-bulk full-flow follow-through passed 138 finite exact identities,
+including the complete difference equation, derivative product counts, pressure
+stress terms, homogeneous scalings and annular energy-fraction identity.
+All 12 preceding checkers were rerun, retaining their actual counts above;
+the full-checkout research-only verifier passed again. The combined command
+again timed out after successful checker/verifier outputs; separate bounded
+syntax and both unstaged/staged whitespace checks returned exit code zero.
+The first new commit cf3658b3 also passed connected full-checkout CI run
+34241246059. These checks do not validate the continuum stability proof or
+supply independent review. CI now includes the retained-bulk checker too.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before
