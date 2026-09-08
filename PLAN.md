@@ -66,7 +66,9 @@ formal_work_this_run: route-invariant-core-authorized-2026-09-08
 formal_core_task: FC0-FC7-see-section-8
 source_lean_certificate: openai/NavierStokesAndEuler@8937a8f4-local-kernel-replication-standard-axioms-2026-09-08
 formal_conditional_theorem: thm-conditional-proved-over-two-coarse-literature-axioms-2026-09-08
-formal_core_landed: FC0-FC7-partial-see-navier-formal-verification-status
+formal_core_landed: FC0-FC7-partial-plus-tao-split-ess-split-2026-09-08
+forced_type_rigidity: author-theorem-A-assembled-plus-quantified-overlap-no-start-theorem-C
+obstruction_independent_audit: 2026-09-08-different-tier-confirmed-with-repairs-no-start-subsumed-by-analyticity
 source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
 run_status: positive-principal-repair-plus-full-PDE-work-falsification-no-terminal-resolution
 public_release: false
@@ -237,6 +239,46 @@ a finite arbitrary-input budget, including a locally bounded budget after
 excluding exactly zero seeds. A genuinely large-amplitude event cost might
 avoid this counterexample, but extraction and a finite budget would still
 need proof. Do not infer critical growth from a logarithmic newborn gain.
+
+## 1b. Forced-type rigidity and the independent obstruction audit (2026-09-08)
+
+Evidence: `research/evidence/2026-09-08-forced-type-rigidity.md` (AUTHOR,
+79 exact checks in `research/check_forced_type_rigidity.py`) and
+`research/evidence/2026-09-08-obstruction-audit.md` (INDEPENDENT AUDIT,
+different model tier, of the three obstruction notes of Sections 1a and
+the support/pulse audit). No graph promotion.
+
+Theorem A assembles the compact-support, exact-patch and separated-label
+obstructions into one rigidity statement whose hypothesis class contains
+[OA-LEAN]'s `CandidateProperties` verbatim: no unforced finite-energy
+whole-space flow lies in that class unless it vanishes. The audit CONFIRMS
+the analyticity lemma (with two hypothesis repairs: `s>3/2`, the uniqueness
+class), the exact label energy identity, and the angular inequality, and
+finds Corollary 3 STRONGER than stated: the actual global `P f` of the
+localized source construction cannot vanish on ANY open time interval. It
+also finds that the separated-label no-start conclusion is SUBSUMED by
+analyticity (three lines), that the flat-seed "superalgebraic inverse cost"
+is an unweighted-norm artifact with no obstructive content, and that the
+angular exclusion reaches only the `q ~ tau` core sub-family.
+
+The new component, Theorem C, replaces exact label separation by a
+cross-coupling parameter `kappa` and proves a Groenwall bound
+`A(t) <= e^{int m} A(s) + int e^{int m}(kappa+phi)`, `m = b + sigma - lambda`,
+with every constant named. On net-damped windows the integrated seeding
+must exceed the produced amplitude; on net-growth windows the required
+seeding is only `a_1 e^{-Gamma}/(t_1-s)` with `Gamma ~ c l^2/4` for [OA]'s
+pulses. CONSEQUENCE: no `L^2` identity of this shape can exclude
+overlap-driven birth; a future exclusion must control the sign or
+realizability of an exponentially small overlap, not its size.
+
+Net verdict of both notes: the obstructions exclude every relabelling
+shortcut (terminal slab, compact snapshot, exact patches, exact separation
+with zero late data, zero-trace cancellation, trapped preload, and now U-8:
+overlap confined to a net-damped window with `int kappa < a_1`). They do NOT
+exclude removal of [OA]'s force by an overlapping, continuously preloaded,
+analytically leaking autonomous cascade with a single Schwartz datum
+realizing all pulse traces. That free-trace realization is the first
+missing theorem of UE1; UE2--UE4 are unchanged behind it.
 
 ## 2. Primary-source gate: what was actually inspected
 
@@ -722,12 +764,21 @@ reference); FC7 (`Blowup`: `UnforcedCounterexample` refutes
 `ClayAlternativeA_all`; viscosity rescaling of the counterexample statement
 incomplete). Not landed: `‖D²u‖₂ = ‖Δu‖₂` and the gradient interpolation.
 
-Residual formal-core queue, in order: split the two coarse axioms into pure
-literature statements plus proved bridges (`lem:global-smooth`, energy bound
-from `EnergyIdentity`, `lem:leray-hopf`, `lem:l3-to-l5`, `lem:serrin-enstrophy`);
-derive the `EnergyHypotheses` time-derivative predicate from the regularity
-package; finish the enstrophy inequality; global viscosity rescaling in
-`Blowup`. Nothing here changes any research claim status.
+Second run, same day (navier-formal, 34 more checked declarations):
+`Literature.taoLocalTheory` is now a pure Tao interface, and
+`lem:global-smooth` plus the energy bound are PROVED from it
+(`localTheory_of_tao`); `conditional_clay_A_of_tao` depends exactly on
+`taoLocalTheory` and the coarse `endpointContinuation`. `Literature.essL3ToL5`
+(ESS Theorem 1.3 plus `lem:leray-hopf`) is the purer endpoint axiom;
+`lem:serrin-enstrophy` is proved with the manuscript's constant under explicit
+hypotheses, and `endpointContinuation_of_ess` derives the coarse axiom from
+it under four explicit analytic hypotheses, so the coarse axiom stays the
+consumer until those are discharged. The cubic inequality `eq:enstrophy`,
+the viscosity rescaling of `UnforcedCounterexample` (both directions), and
+three of five `EnergyHypotheses` fields are proved. Still not landed:
+`‖D²u‖₂ = ‖Δu‖₂` (two failed attempts), the gradient interpolation, the
+`L²` difference-quotient limit `lem:R-consequences`(a) from the package
+alone. Nothing here changes any research claim status.
 
 ### 8.3 Execution rules for the formal core
 
