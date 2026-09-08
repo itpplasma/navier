@@ -1,218 +1,187 @@
-# Navier--Stokes: original-nonlinearity critical control after the Tao audit
+# Navier--Stokes: exact original-operator circuit tests
+
+This is the sole live status record. The unchanged terminal target is the
+original unforced incompressible equation on R3, every real solenoidal
+Schwartz datum and every fixed positive viscosity. NS-R3 is NOT PROVED.
+No singular solution or complete positive critical producer is established.
 
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: tao-audit-and-structural-research-2026-09-08
+phase: exact-original-operator-circuits-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: writable-authorized-2026-09-06
 external_deps: permitted-if-no-axioms-beyond-mathlib
 active_task: original-nonlinearity-critical-producer-unresolved
-active_architecture: no-complete-positive-producer-selected
+active_architecture: joint-comparable-frequency-source-and-response-unresolved
 complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: completed-with-terminal-gaps-open
+run_status: in-progress-exact-circuit-wave
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
 incumbent_producer_class: averaging-invariant-budgets-remain-excluded
+circuit_results: author-proof-independent-audit-pending
+immediate_fractional_leakage: refuted-in-stated-varying-input-class
+clean_six_carrier_embedding: refuted-in-stated-pairwise-clean-ring-class
+side_ring_automatically_stabilizes: refuted-at-initial-critical-curvature
+indefinite_original_ns_cascade: neither-constructed-nor-excluded
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
 public_release: false
 ```
 
-## Authority, target, and preserved state
+## 1. New mathematical results, with exact scope
 
-This is the sole live task/status record. The current owner request resumes
-research, asks for solutions to the blockers, and authorizes commit/push in
-private `itpplasma/navier`. It does not authorize publication, outside
-contact, authorship changes, force pushes, or writes to the manuscript and
-formal repositories. No worker or background computation is running.
+Evidence: `research/evidence/2026-09-08-exact-circuit-obstructions.md`.
+These are mechanism obstructions, not an input-only critical estimate.
+Independent mathematical review is pending; no canonical node is promoted.
 
-NS-R3 remains: every real solenoidal Schwartz datum on R3, every fixed
-nu>0, original unforced incompressible NS, globally smooth velocity AND
-normalized pressure, the prescribed initial trace, and energy at most its
-initial value. A rigorous counterexample must meet that same equation and
-data contract. Modified, forced, periodic, kinetic and microscopic claims
-are different claims. NS-R3 and CRITICAL remain gaps in the UNCHANGED
-canonical `docs/proof-graph.yaml`.
+**Critically large birth need not have an immediate fixed leakage fraction.**
+For every nu>0, L>0 and eta>0, a real Schwartz datum and an actual time
+exist for which the neighboring whole-space error e=u_(2N)-u_N, N=6/5,
+has N^(1/2)||J e||2>=L but ||(I-J)e||2<=eta||J e||2.
+J selects the forward pair of packets. All resolved response is counted
+in I-J. The original unprojected NS nonlinear increment has the same
+property. The proof uses an exact two-carrier cancellation, a solenoidal
+Schwartz packet lift, and uniform input-only short-time estimates after
+amplitude rescaling. The datum varies: this does not exclude a cost
+depending on that full datum, a full-turnover result, or a many-cell theorem.
 
-This run read main at `0b087fe886d829ecca8a5591232030fcd6df45b0`.
-The entire preceding PLAN is preserved by its original Git blob
-`51f9fa38bdf3140ff75fb6e9917ce3704193af22` at
-`research/history/PLAN-before-tao-audit-2026-09-08.md`. Its completed-worker,
-resource, validation, and stopped-run descriptions are history, not claims
-about workers or checks performed in this run. All preceding reviewed
-components, exact counterexample scopes, and pending audit qualifications
-remain in force except for the corrections below.
+**A clean six-carrier NS gate has a stronger omitted ring.**
+For the equal-amplitude conical hexagon, pairwise cancellation of every
+difference daughter forces a common helical mixture (or pure azimuthal
+polarization). Except at the Beltrami zeros, full Leray convolution creates
+both an intended adjacent-sum ring and an omitted step-two ring, with
 
-Read `AGENTS.md`, `docs/proof.md`, the canonical graph and
-`research/verify.py`; the refinement contract/maps and kinetic contracts
-retain their separate mathematical specifications. This PLAN supersedes
-stale allocation words such as "active" or "incumbent" in those maps.
+    ||Q_side||2^2/||Q_intended||2^2
+       =3(z^2+3r^2/4)/(z^2+r^2/4)>3.
 
-## Completed this run: repair of the averaging argument
+Individual phases and the common helical parameter cannot remove the side
+ring while retaining the target. On Miller's iterative carrier geometry
+the ratio decreases from 27/7 to 3. Narrow common Schwartz packets retain
+this obstruction. This quantitatively forbids dropping those daughters;
+it does not say that leakage dissipates their energy or blocks all cascades.
 
-The full derivation and source ledger are
-`research/evidence/2026-09-08-tao-packet-audit-and-repair.md`.
-The preceding averaging proof is preserved byte-for-byte at
-`research/history/averaging-obstruction-before-audit-2026-09-08.md`, blob
-`501e99d2a7b070252ff791f0651563a42be8e326`. Its old path now points to the
-corrigendum. The old proof is NOT accepted as written.
+**The side ring initially contributes positively to critical curvature.**
+For a spherical parent set of radius R, the exact nonlinear critical
+curvature, including parent back reaction, is
 
-The fresh-context audit found the following substantive defects: finite-q
-synthesis produces L^{3,q}, not L3; the final published averaging includes
-dilations; exact original triad identities do not all transfer; and an
-inequality's syntax does not identify its invariant proof assumptions.
-Using Tao's actual checkpoints also requires a maximal-lifespan adapter,
-not a silent use of a proposition stated under global-existence hypotheses.
+    sum_k (|k|-R)|Q_k|^2.
 
-The replacement author proof establishes the stronger averaged-only claim
+Both daughter rings in the hexagon have |k|>R. The positive sign survives
+the Schwartz lift, and large-amplitude original NS data have an actual
+short interval of critical-norm growth at every fixed viscosity. Thus a
+forcing-norm lower bound on leakage is not already a stabilizing signed
+estimate. No sustained singular cascade follows from this short-time test.
 
-    sup_(0<=t<=H) sup_j
-      N_j^(1/2)||v_(N_(j+1))(t)-v_(N_j)(t)||2 = infinity,
-    N_j=2^j N0,
+**Three-carrier closure also fails explicitly.** The full second derivative
+of the e1,e2,e3 meridional circuit contains 24 modes, including all parent
+responses, repeated-index daughters, and mixed-sign daughters. Its intended
+complementary-sum recurrence collapses angles toward a common axis, but
+this recurrence alone is not the exact full trajectory.
 
-for one fixed Tao cascade operator and Schwartz datum at unit viscosity,
-on a finite H, for every N0>0. Thus even the uniform ell-infinity increment
-bound fails there, and all finite-q RF bounds fail as well.
+The previous live PLAN is preserved byte-for-byte at
+`research/history/PLAN-before-exact-circuit-2026-09-08.md`, using original
+Git blob `a2b12a98bd2b5b11dfb41e741d34297134150cf1`. The older history
+and all preceding evidence remain in place, not overwritten.
 
-Its chain is explicit: Sobolev mapping estimates including dilations give
-projected global flows and compact-classical L2 identification; the
-published finite-step cascade is localised by excluding a lifespan exit
-using its high-mode H4 bound; a telescoping annular-packet test contradicts
-the resulting growing critical packet amplitudes. No original-NS endpoint
-theorem is applied to the averaged equation. The new derivation, especially
-its lifespan adapter, still needs an independent mathematical audit.
+## 2. Unchanged complete conditional consumer and first terminal gap
 
-Additional exact results in the same file: weak-L3 divergence of that
-particular cascade; a smooth solenoidal field sequence disproving the
-false L2-plus-L^{3,q}-to-L3 inference; failure of common-translation
-covariance for the fixed cascade; and the one-carrier Fourier-support
-obstruction to an exact same-annulus original-NS pump.
+For N_j=2^j N0, e_j=u_(N_(j+1))-u_(N_j), a_j=N_j^(1/2)||e_j||2,
+fix any one finite q>3. The reviewed sufficient output is
 
-These results repair and sharpen the obstruction. They are NOT a positive
-critical estimate for original NS, and are not terminal regularity progress.
+    sup_(0<=t<=H) sup_M sum_(j<M) a_j(t)^q < infinity,
 
-## The corrected averaging gate
-
-A proposed positive producer must identify a necessary step whose hypotheses
-or conclusion fail for the specific averaged counterexample. Energy and
-operator-uniform norm estimates alone remain insufficient. Keep the valid
-reviewed component estimates; do not promote an unproved budget.
-
-Do NOT retire every method called "smooth-block", "signed-phase", or
-"shell-budget" merely by its name. Original NS has the exact identity
-
-    B(T_a f,T_a g)=T_a B(f,g),
-
-whereas the fixed packet cascade fails it on real Schwartz inputs. Exact
-common transport, common-translation Fourier phases, pressure structure,
-and physical-space locality must be examined in an actual proof rather
-than declared averaging-invariant. Passing this test only avoids this
-counterexample; it is not evidence that the remaining estimate is true.
-The existing absolute comparable-scale bound still returns to the
-uncontrolled squared-enstrophy integral. No new bound for it was proved.
-
-For a negative terminal attempt, a cascade must be realized by the ORIGINAL
-Leray-projected quadratic operator, with all unwanted interactions and
-viscous errors controlled. A scalar assigned pump is not such a realization.
-The new one-carrier support test eliminates that particular exact embedding,
-not multi-carrier circuits or all possible blowup constructions.
-
-## Exact remaining positive edge
-
-The reviewed original-NS LOCAL/ENERGY/CONTINUATION suffix remains available.
-A full-input-dependent bound in L-infinity_t L3_x on every finite horizon
-would close NS-R3. A fixed finite L^{3,q}, q>3, also closes it through the
-separately inspected Phuc adapter. No q=infinity continuation is assumed.
-
-The exact Fourier-ball family and the reviewed conditional RF-q consumer
-are preserved, not required as the only architecture. With
- e_j=u_(N_(j+1))-u_(N_j), a_j=N_j^(1/2)||e_j||2, the sufficient target is
-
-    sup_(0<=t<=H) sup_M sum_(j<M) a_j(t)^q
-         <= K(d,nu,H,N0,q)^q < infinity
-
-for ONE fixed finite q>3, uniformly in all cutoffs and every upper time.
-Arbitrary amplitude, full-datum dependence, fixed positive viscosity and
-non-polynomial costs are allowed. The paired identity retains BOTH source
-work and resolved response:
+with the bound depending arbitrarily on the full datum, nu, H, N0 and q.
+The exact identity remains
 
     (1/q) Wq_M' + nu Dq_M = Piq_M,
-    Piq_M=sum N_j^(q/2)||e_j||2^(q-2)
-                     [<F_j,e_j>-b(e_j,u_j,e_j)],
-    F_j=-(I-P_j)B(u_j,u_j).
+    Piq_M=sum_j N_j^(q/2)||e_j||2^(q-2)
+                  [<F_j,e_j>-b(e_j,u_j,e_j)].
 
-Bounding integral_0^t Piq_M by nu integral_0^t Dq_M+C(inputs), for EVERY
-upper time and uniformly M, would suffice. No such bound was obtained.
-The first uncontrolled term is signed comparable-frequency production
-correlated with the actual resolved response. Bounding source and strain
-separately, or returning to integral ||grad u||2^4, does not close it.
+The first TERMINAL lemma is still an input-only bound, for every upper
+time t<=H and uniformly M, on
 
-A direct original-pressure alternative retains the canonical cubic balance
+    integral_0^t Piq_M - nu integral_0^t Dq_M.
 
-    (1/3)(||u(t)||3^3-||d||3^3)
-       = integral_0^t [P3(u)-nu D3(u)].
+Its proof would give RF-q by integration, uniform L^{3,q} by
+`2026-09-07-lorentz-synthesis.md`, the same bound on the classical branch
+by compact-classical identification, and continuation by
+`2026-09-07-lorentz-continuation.md`; LOCAL and ENERGY complete NS-R3.
+No bound on an unknown future strain clock may be inserted into this chain.
 
-A uniform input-only upper bound on its right side would also suffice.
-This is the same missing positive estimate in another formulation, not a
-new solution. A proposed geometric, Lagrangian, pressure-Hessian, kinetic,
-or phase-sensitive mechanism must supply its actual quantitative gain
-without assuming a future critical norm, recurrence, Type I behaviour, or
-uniform conditioning. Merely adding a discriminator or a new functional
-is not a producer. No complete positive producer is selected by this run.
+The more concrete next CIRCUIT question is the signed joint response of
+the intended and side rings, with all cross-generation modes retained.
+The forcing ratio above is not that response theorem. In addition, no
+reduction of arbitrary blowup to symmetric hexagons is available. Solving
+only this circuit question must not be advertised as closing NS-R3.
+A general proof still requires a genuine trajectory mechanism operating
+on the actual full refinement family, not a universality assumption.
 
-## Other blockers: retained scopes, not silently marked solved
+## 3. Tao discriminator, prior art, and preserved exclusions
 
-The causal/restart and slow-manifold branches retain their finite-cutoff
-results and nonuniform reconstruction/conditioning gaps. Static C2 slaving,
-polynomial metric costs, and entire zero-centred series retain their exact
-scoped exclusions. They are optional mechanisms, not prerequisites of the
-reviewed direct whole-space conditional consumer.
+Use the exact k=p+q relation and full divergence-free Leray numerator.
+The new ring coefficients and mandatory daughter sets are concrete
+identities that Tao's assigned local-cascade coefficients need not obey.
+A positive proof must additionally show how its discriminator controls
+signed critical work; structural difference alone does not suffice.
 
-The singularity/rigidity branch still requires both an admissible extraction
-and a Liouville theorem for the ACTUAL limit class. Affine, shear and
-inviscid limits cannot be excluded by importing a theorem for a smaller
-bounded positive-viscosity class. The interrupted record and signed-transfer
-notes retain pending-review status; this run supplied no new rigidity.
+The corrected averaged-only packet obstruction remains
+`research/evidence/2026-09-08-tao-packet-audit-and-repair.md`, with its
+independent audit pending. The superseded argument at
+`2026-09-08-averaging-obstruction-rf-q.md` is explicitly a corrigendum.
+In particular finite L^{3,q} is not silently upgraded to L3, independent
+dilations belong to Tao's published averaging class, and no original-NS
+continuation theorem is applied to his averaged equation.
 
-The kinetic route still lacks its uniform resolved-momentum critical bound
-and complete application audit in the stated whole-space hard-sphere class.
-The microscopic extension additionally needs a compatible particle-to-kinetic
-solution class and a whole-space/domain limit. Regular-fluid-target and
-regular-Boltzmann results cannot be used to assume the missing regularity.
-These are not all discharged by a fluid estimate. See
-`research/kinetic-clay-hilbert-contracts.md` and
-`literature/kinetic-hilbert-scope.md`. No kinetic or microscopic gap was closed.
+The following earlier scopes remain unchanged: static C2 slaving fails
+at a nonzero heat-rate resonance; a single zero-centered entire causal
+series fails in the recorded closed Galerkin sector; polynomial moving
+metric and source-linear response costs fail in the specified family;
+shear/affine/inviscid tangents prevent the earlier blanket rigidity
+suffixes; signed radial helicity misses common chiral production.
+These exclusions do not refute nonlinear input-dependent costs, all
+causal reconstruction, the kinetic programme, FEEC, or arbitrary-data RF-q.
+Smooth-block low-transport repair and separated-scale feedback estimates
+remain valid in their reviewed scopes; their comparable-frequency gap
+has not been filled.
 
-Formal Phase I/II meanings and statuses are unchanged. No Lean coverage,
-manuscript theorem, new imported canonical claim, or independent audit of
-the replacement proof is asserted.
+Direct primary-source inspection also checked Kishimoto--Yoneda's
+finite-mode classification and Miller's exact carrier definitions,
+ordinary-viscosity regularity result for his restricted model, and his
+explicit non-invariance warning. Those are prior art, not new claims here.
+The new work computes the omitted-source ratio and the scoped consequences
+for the original operator; it never evolves the restricted model as NS.
 
-## Validation and next handoff
+MIC-R3 and kinetic/hydrodynamic/domain interfaces remain separately gated.
+No advancement, retirement, or manuscript/formal change is asserted there.
 
-The new exact regression has 204 passing assertions; its output is
-`research/evidence/2026-09-08-tao-packet-checks.json`. The existing
-`research/check_closed_feedback.py` was also rerun: 652 assertions passed,
-after verifying the local script against frozen Git blob
-`ba8c7d8df16d943bb8738bb12c526acbc282b20e`. These are finite algebra,
-scaling, support and phase checks, not PDE certification. Local PLAN
-YAML/status and changed-file whitespace checks passed separately. The
-execution environment did not provide a full research checkout, so
-`research/verify.py --research-only`, the rest of the regression suite,
-manuscript checks and Lean builds were NOT run. Do not relabel this
-narrower validation as a full checkout PASS. The canonical graph is
-preserved rather than promoted.
+## 4. Verification and commit discipline
 
-The next review input is the frozen replacement proof, with special scrutiny
-of the lifespan-exit argument in Section 4 and the quantifiers in Section 2.
-Further positive work must attack the remaining original-operator estimate,
-not re-prove the conditional consumer or repeat an invariant shell budget.
-Refresh main before every write; preserve concurrent edits and use ordinary
-non-force updates. No task is running after this handoff.
+`python3 research/check_exact_ns_circuits.py` passed 54 exact assertions:
+full ordered convolution, complete first/second supports, reality,
+solenoidality, energy/helicity, five exact hexagon levels, and symbolic
+polarization identities. The reproducible script is committed with the proof.
+These assertions are not independent mathematical review or numerical
+validation of a PDE theorem. No agent spawning or external review is claimed.
+
+The repository was accessed through the GitHub connector at immutable
+revisions. A full local checkout was unavailable. The full command
+`python3 research/verify.py --research-only` has NOT been run in this wave;
+its status must not be inferred from the exact arithmetic checks.
+Whitespace and PLAN YAML checks are performed in a changed-file local
+snapshot; this is narrower than a checkout-wide regression. No Lean or
+manuscript build is claimed. Prior-run counts in archived records are
+historical, not tests rerun by this wave.
+
+Refresh main before each remote write. Use the current base tree and
+ordinary fast-forward updates only, retaining concurrent work. Commit
+mathematical progress with this live record; do not promote a theorem
+because the finite regression passes. Independent review is still needed
+for the packet/Taylor arguments and the scope of every branch exclusion.
