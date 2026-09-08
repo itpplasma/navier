@@ -1,4 +1,4 @@
-# Navier--Stokes: exact original-operator circuit tests
+# Navier--Stokes: exact circuit and pressure-response obstructions
 
 This is the sole live status record. The unchanged terminal target is the
 original unforced incompressible equation on R3, every real solenoidal
@@ -20,7 +20,7 @@ complete_terminal_route: none-established
 terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: in-progress-exact-circuit-wave
+run_status: scoped-obstructions-committed-terminal-producer-unresolved
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -30,6 +30,8 @@ immediate_fractional_leakage: refuted-in-stated-varying-input-class
 clean_six_carrier_embedding: refuted-in-stated-pairwise-clean-ring-class
 side_ring_automatically_stabilizes: refuted-at-initial-critical-curvature
 indefinite_original_ns_cascade: neither-constructed-nor-excluded
+local_pressure_restoring_sign: refuted-with-arbitrary-remote-trace-free-hessian
+pressure_results: author-proof-independent-audit-pending
 secondary_goal: MIC-R3
 secondary_goal_status: kinetic-and-microscopic-interfaces-remain-separately-gated
 formal_work_this_run: deferred
@@ -86,6 +88,19 @@ responses, repeated-index daughters, and mixed-sign daughters. Its intended
 complementary-sum recurrence collapses angles toward a common axis, but
 this recurrence alone is not the exact full trajectory.
 
+**The complete local velocity germ does not determine a restoring pressure
+sign.** `research/evidence/2026-09-08-remote-pressure-control.md` proves
+that any symmetric trace-free perturbation H of the canonical pressure
+Hessian at zero is realized EXACTLY by at most two disjoint remote compact
+swirls, leaving all velocity derivatives near zero unchanged. Their energy
+cost is O(L^5 lambda_max(H)) at distance L; no fixed-input estimate is
+refuted. On actual fixed-viscosity local NS branches the corresponding
+initial material vorticity acceleration changes by -H omega. This remains
+true at maximal positive strain alignment. Only instantaneous local-germ
+closure/restoring-sign mechanisms are excluded, not a nonlocal temporal
+response theorem. This extends the existing compact-swirl kernel method,
+not a claim of priority for remote pressure influence.
+
 The previous live PLAN is preserved byte-for-byte at
 `research/history/PLAN-before-exact-circuit-2026-09-08.md`, using original
 Git blob `a2b12a98bd2b5b11dfb41e741d34297134150cf1`. The older history
@@ -115,6 +130,15 @@ Its proof would give RF-q by integration, uniform L^{3,q} by
 by compact-classical identification, and continuation by
 `2026-09-07-lorentz-continuation.md`; LOCAL and ENERGY complete NS-R3.
 No bound on an unknown future strain clock may be inserted into this chain.
+
+The pressure and material lanes did not produce a competing terminal
+estimate. The exact material vorticity equation preserves a nonlocal
+Hessian term and leading viscous correlations; the remote-control theorem
+prevents assigning that term a sign from local alignment alone. A metric
+change that returns to unknown deformation/strain costs is not a new
+producer, and the previously recorded conditioning obstruction remains
+in force. No new Liouville class excluding the old shear tangents was
+obtained. These limitations are not an exclusion of all remaining routes.
 
 The more concrete next CIRCUIT question is the signed joint response of
 the intended and side rings, with all cross-generation modes retained.
@@ -168,8 +192,13 @@ No advancement, retirement, or manuscript/formal change is asserted there.
 full ordered convolution, complete first/second supports, reality,
 solenoidality, energy/helicity, five exact hexagon levels, and symbolic
 polarization identities. The reproducible script is committed with the proof.
-These assertions are not independent mathematical review or numerical
-validation of a PDE theorem. No agent spawning or external review is claimed.
+`python3 research/check_remote_pressure.py` additionally passed 45 exact
+assertions covering the Newton kernel, harmonic trace, swirl solenoidality,
+spectral assembly, input-energy weights, affine extension, maximal alignment,
+and material/Laplacian commutation. Both scripts were rerun successfully.
+The combined count is 99 exact assertions, not an independent mathematical
+review or numerical validation of a PDE theorem. No agent spawning or
+external review is claimed.
 
 The repository was accessed through the GitHub connector at immutable
 revisions. A full local checkout was unavailable. The full command
