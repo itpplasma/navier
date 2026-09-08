@@ -9,7 +9,7 @@ hexagon turnover certificate has been obtained.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: no-atom-block-cost-after-dynamical-bulk-falsification-2026-09-08
+phase: relative-background-full-state-return-exclusion-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -22,7 +22,7 @@ terminal_status: not-proved
 terminal_obstruction: input-only-critical-bound-not-produced
 dominant_research_nut: vanishing-energy-regenerative-core-with-inherited-exterior
 refinement_wave: reviewed-conditional-consumer-preserved
-run_status: no-atom-block-cost-plus-full-flow-bulk-obstruction-no-terminal-breakthrough
+run_status: relative-background-return-exclusion-no-terminal-breakthrough
 averaging_gate: exact-proof-assumptions-not-lane-names
 averaging_audit: preceding-proof-repair-required
 averaging_repair: author-proof-independent-audit-pending
@@ -62,6 +62,10 @@ noncompact_bounded_enstrophy_returns: excluded-in-stated-class-author-audit-pend
 input_summable_critical_regeneration_cost: not-produced
 normalized_bulk_energy_forces_critical_cost: refuted-over-fixed-full-flow-interval
 retained_bulk_shadow: critical-and-pressure-convergence-author-audit-pending
+relative_background_pressure: exact-bulk-speed-independent-author-proof
+relative_background_block_cost: positive-actual-full-viscous-cost-in-stated-class
+relative_background_recurrence: excluded-in-stated-class-author-audit-pending
+relative_endpoint_energy_automatic: not-proved
 regenerative_turnovers_certified: 0
 source_symbolic_checker: repaired-tuple-comparison-10-checks
 secondary_goal: MIC-R3
@@ -518,6 +522,55 @@ extraction and the complete Section 1 consumer. Neither single-annulus
 amplitude growth nor this return parametrization is proved necessary for all
 hypothetical blowup. The gradient/clock escape branches also remain live.
 
+## 4g. Return exclusion modulo ONE smoothly evolving original-NS background
+
+Evidence: `research/evidence/2026-09-08-relative-background-return.md`.
+AUTHOR proof using the inspected Chae--Wolf whole-space Euler corollary;
+independent mathematical audit PENDING. No canonical promotion.
+
+The whole original flow U is NOT projected or reset. Compare it with one
+actual smooth original-NS background B of the same viscosity, evolved on the
+entire block. For R=U-B the complete difference and local relative-energy
+identities retain all background transport, strain, pressure and viscosity.
+The mixed canonical pressure obeys the exact identity and estimate
+
+    grad p_cross=-2(I-P)[(R.grad)B],
+    ||grad p_cross||2<=2||grad B||infinity||R||2.
+
+A background-following translation eliminates arbitrary bulk drift. Neither
+its maximum speed nor its total energy enters the resulting relative
+no-atom endpoint lemma; the actual pressure and final relative-energy trace
+survive the limit to original Euler.
+
+The preceding full-state block theorem therefore remains true when its
+first/final L2 bounds hold for the WHOLE normalized difference from this
+same B, instead of for the full normalized U, provided B's L2 and Linfinity
+gradient norms are sufficiently small in the first cell's coordinates.
+A long return pays positive actual FULL-FLOW viscous expenditure, not just
+a relative dissipation. Uniform full normalized enstrophy again excludes
+such sufficiently long high-amplitude blocks. Full normalized energies may
+be arbitrarily large; no spatial compactness or tail tightness is assumed.
+
+For one hypothetical infinite return with uniform full gradient tubes,
+clocks, gains and efficiency, every fixed smooth same-viscosity NS reference
+B with bounded L2/Linfinity gradients up to the accumulation time must satisfy
+
+    (K_n/a_n^2)||u(t_n)-B(t_n)||2^2 -> infinity.
+
+Thus hiding behind a fixed smoothly evolving bulk is not a way to construct
+a bounded relative return trap. All core-generated exterior remains in the
+difference; independently choosing a new background or deleting its defect
+at the next return is NOT licensed. No automatic relative endpoint bound,
+blowup-event extraction or positive regenerative turnover was proved.
+
+The cost still has physical weight a_start^2/K_start and supplies no RF-q
+upper producer. The surviving return must escape this same-background bound,
+or the controlled tubes/clocks. The dominant terminal question is still
+whether its inherited dynamically evolving exterior enables concentrating
+scale repetition or pays an input-summable CRITICAL cost with extraction.
+Mere regeneration is not a Tao discriminator; the actual local transport,
+canonical mixed pressure and local relative-energy identities are used here.
+
 ## 5. Preserved exclusions and surviving mechanisms
 
 Preserved exact negative scopes:
@@ -623,6 +676,17 @@ syntax and both unstaged/staged whitespace checks returned exit code zero.
 The first new commit cf3658b3 also passed connected full-checkout CI run
 34241246059. These checks do not validate the continuum stability proof or
 supply independent review. CI now includes the retained-bulk checker too.
+
+The relative-background extension passed 478 new exact finite identities over
+18 rational clock sequences, including the complete mixed-pressure divergence,
+Helmholtz sign, relative local energy identity, moving-frame cancellation and
+conversion to actual full-flow viscous cost. All 13 predecessor checkers were
+rerun successfully with the actual counts already recorded above. The exact
+source checkout was restored from the connected artifact at bc795c85, with
+source tree 6f6f8ad81f7119f53fb178ab891b9fdb9cbb4bd8 and the exact shallow
+base commit verified. Research-only structural verification, Python syntax,
+and staged/unstaged whitespace checks pass. These checks do not certify the
+continuum compactness proof, the imported theorem, or a regenerative orbit.
 
 No independent mathematical audit is claimed for the new 2026-09-08 theorems.
 No canonical graph, manuscript or formal status is promoted. Refresh main before

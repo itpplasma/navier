@@ -13,6 +13,8 @@ on:
       - 'research/check_full_state_vorticity_return.py'
       - 'research/check_no_atom_regenerative_blocks.py'
       - 'research/check_retained_bulk_full_flow.py'
+      - 'research/check_relative_background_return.py'
+      - 'research/evidence/2026-09-08-relative-background-return.md'
       - 'research/evidence/2026-09-08-retained-bulk-full-flow.md'
       - 'research/evidence/2026-09-08-no-atom-regenerative-blocks.md'
       - 'research/evidence/2026-09-08-full-state-vorticity-return.md'
@@ -42,6 +44,7 @@ jobs:
           python3 research/check_full_state_vorticity_return.py --json full-state-return-checks.json
           python3 research/check_no_atom_regenerative_blocks.py --json no-atom-block-checks.json
           python3 research/check_retained_bulk_full_flow.py --json retained-bulk-checks.json
+          python3 research/check_relative_background_return.py --json relative-background-checks.json
           python3 research/check_exact_ns_circuits.py
           python3 research/check_remote_pressure.py
           python3 research/check_narrow_packet_escape.py
@@ -63,6 +66,7 @@ jobs:
             full-state-return-checks.json
             no-atom-block-checks.json
             retained-bulk-checks.json
+            relative-background-checks.json
             exact-ring-checks.json
             fourier-cone-checks.json
             convex-cone-linearity-checks.json
