@@ -52,7 +52,9 @@ secondary_goal: MIC-R3
 secondary_goal_status: separately-gated-and-not-primary
 formal_work_this_run: route-invariant-core-authorized-2026-09-08
 formal_core_task: FC0-FC7-see-section-8
-source_lean_certificate: openai/NavierStokesAndEuler@8937a8f4-inspected-self-certified-replication-in-progress
+source_lean_certificate: openai/NavierStokesAndEuler@8937a8f4-local-kernel-replication-standard-axioms-2026-09-08
+formal_conditional_theorem: thm-conditional-proved-over-two-coarse-literature-axioms-2026-09-08
+formal_core_landed: FC0-FC7-partial-see-navier-formal-verification-status
 source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
 run_status: separated-full-PDE-no-start-and-flat-amplitude-inverse-obstruction-plus-formal-core
 public_release: false
@@ -446,10 +448,15 @@ from Formal Conjectures (`FormalConjectures/Millenium/NavierStokes.lean` at
 review status `self-assessed`. The NavierStokes library is 580 modules,
 about 20 MB of Lean; the whole-space comparison closure
 (`NavierStokes.R3.WholeSpaceUniqueness`) is 67 modules, about 0.7 MB.
-A local replication build with `#print axioms` was started 2026-09-08 and its
-observed outcome must be recorded in `navier-formal/docs/verification-status.md`
-before any imported statement is cited as verified. A Comparator/NanoDa
-replay is a separate, later check.
+Observed 2026-09-08: a local `lake build NavierStokes` of the pinned commit
+(32 cores, about 20 minutes, zero errors) printed
+`[propext, Classical.choice, Quot.sound]` for both advertised breakdown
+theorems, recorded in `navier-formal/docs/verification-status.md`. This is a
+kernel replication of the axiom claim, not a Comparator/NanoDa replay, not a
+statement-faithfulness certification beyond
+`navier-formal/docs/external-openai-audit.md`, and not a mathematical review.
+The adapter lane also printed the standard three axioms for the imported
+whole-space comparison, Sobolev and pressure-recovery theorems.
 
 Permitted use: a SOLUTION-ONLY pinned dependency of `navier-formal`
 (Palomar: `Challenge.lean` imports only Mathlib; proof dependencies may be any
@@ -540,6 +547,34 @@ Remaining `prop:pressure`, `prop:enstrophy`, `prop:lowpressure` and the
 quotient-section results are positive-route Phase II work; they continue as
 supporting lemmas but are not in the invariant core. `sec:quotient` stays
 paper only.
+
+### 8.2a Observed outcome of the first formal-core run (2026-09-08)
+
+Eleven Sonnet lanes on disjoint files; nine landed, one landed truncated,
+one discarded. `navier-formal` main now builds at the new pin with 130 new
+checked declarations. Landed: FC0 (`ClayReference`, `SchwartzDecay`: (A) is
+proved equivalent to the Formal Conjectures shape, Schwartz data equivalent
+to Fefferman's condition (4)); FC1/FC2 as COARSE axioms
+(`Literature.localTheory`, `Literature.endpointContinuation`, each folding
+manuscript-owned bridges into the cited theorem, with the deviations listed
+in their docstrings); FC3 (`conditional_clay_A : CriticalHypothesis ->
+ClayAlternativeA_all`, axioms exactly those two plus the standard three);
+FC4 (`IsClassicalSolution.dilate`; `EnergyIdentity.energy_identity` under an
+explicit hypothesis bundle; the enstrophy identity under explicit
+hypotheses, cubic inequality NOT landed); FC5 (`ClassBridges`: bounded
+derivatives, Lipschitz, all IBP integrability facts at fixed time); FC6
+(`External.classical_uniqueness_of_compact_support(_nu)` over the imported
+theorem, needing closed-slab smoothness and a compactly supported
+reference); FC7 (`Blowup`: `UnforcedCounterexample` refutes
+`ClayAlternativeA_all`; viscosity rescaling of the counterexample statement
+incomplete). Not landed: `‖D²u‖₂ = ‖Δu‖₂` and the gradient interpolation.
+
+Residual formal-core queue, in order: split the two coarse axioms into pure
+literature statements plus proved bridges (`lem:global-smooth`, energy bound
+from `EnergyIdentity`, `lem:leray-hopf`, `lem:l3-to-l5`, `lem:serrin-enstrophy`);
+derive the `EnergyHypotheses` time-derivative predicate from the regularity
+package; finish the enstrophy inequality; global viscosity rescaling in
+`Blowup`. Nothing here changes any research claim status.
 
 ### 8.3 Execution rules for the formal core
 
