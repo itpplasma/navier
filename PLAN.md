@@ -15,7 +15,7 @@ endorsement of every step of an external manuscript, or a prize determination.
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: unforced-exactification-source-audit-2026-09-08
+phase: separated-pulse-exactification-obstruction-2026-09-08
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -24,10 +24,10 @@ external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed
 complete_terminal_route: none-established
-active_task: UE0-forcing-audit-then-UE1-uniform-exactification
+active_task: UE1-coupled-autonomous-preparation-after-separated-no-start
 active_architecture: continuous-anisotropic-concentration-with-full-exterior
 primary_direction: unforced-blowup-exactification-with-regularity-fallback
-dominant_research_nut: cancel-projected-residual-and-realize-one-schwartz-cauchy-flow
+dominant_research_nut: autonomous-nonaxisymmetric-pulse-preparation-with-inherited-overlap
 source_forced_result: manuscript-claim-statement-inspected-independent-audit-pending
 source_full_proof_audit: not-performed
 source_unforced_implication: not-established
@@ -42,10 +42,13 @@ unforced_singular_shadowing: not-proved
 integrated_background_strain_cost: author-claim-scope-audit-pending
 relative_endpoint_energy_automatic: refuted-by-mesoscopic-full-flow-family
 legacy_discrete_cell_lane: retained-as-falsification-tool-not-default
+separated_pulse_unforced_conversion: excluded-in-stated-full-state-class-author-proof
+flat_principal_pulse_inverse: superalgebraic-loss-on-raw-flat-sources
+autonomous_coupled_preparation: not-proved
 secondary_goal: MIC-R3
 secondary_goal_status: separately-gated-and-not-primary
 formal_work_this_run: deferred
-run_status: owner-authorized-plan-pivot-no-theorem-promotion
+run_status: separated-full-PDE-no-start-and-flat-amplitude-inverse-obstruction
 public_release: false
 ```
 
@@ -82,6 +85,46 @@ geometric variable q is unrelated to this Lorentz exponent. A negative route
 instead needs an exact unforced solution and a proved singularity; it need not
 pass through RF-q. Before pursuing any lemma, name its precise consumer in
 one of these two complete chains.
+
+## 1a. UE0/UE1 result: separated late pulses cannot start autonomously
+
+Evidence: `research/evidence/2026-09-08-autonomous-pulse-obstruction.md`.
+AUTHOR proof; independent audit pending. No terminal or graph promotion.
+The source's complete nonzero-angular labels retain disjoint physical
+spacetime supports, including all harmonics and curl/iteration corrections.
+For any original-NS decomposition U=B+sum W_gamma with B axisymmetric,
+M W_gamma=0, each W_gamma divergence-free, and those separated supports,
+the ENTIRE equation gives the exact label identity
+
+    (1/2) d||W_gamma||2^2/dt + nu ||grad W_gamma||2^2
+       = -integral W_gamma . S(B) W_gamma + <P f,W_gamma>.
+
+Hence a zero label stays zero on every compact classical unforced interval,
+regardless of how large or dynamically coupled the axisymmetric background
+is. The canonical pressure is retained in the full equation and cancels only
+in this divergence-free pairing. This excludes ANY unforced exactification
+preserving zero late-band initial values and exact label separation while
+retaining nonzero late pulses, not merely an unchanged leading ansatz.
+The source condition q>=T-t makes all sufficiently late labels initially
+zero at any fixed t0<T. Taking a later initial time does not remove the issue.
+
+A second, separately scoped theorem uses the actual principal pulse ODE.
+For a homogeneous Gaussian pulse h and its cutoff psi, the exact raw-flat
+source g=psi' h has zero-data response psi h, with order-one peak. At length
+L comparable to ell^2 and Q=2^(-ell), every fixed derivative of g is flat in Q,
+but the causal inverse norm grows at least exp(c L)/poly(L). No fixed
+algebraic Q-loss bound extends to all raw-flat sources, even after finitely
+many linear gauges in the decoupled amplitude system. This does NOT refute
+the source's envelope-weighted inverse and is NOT a full-PDE inverse theorem.
+
+The source's FORCED statement is not contradicted. The first unforced nut is
+now actual autonomous nonaxisymmetric preparation: permit inherited overlap
+or justify one continuous initial preload, retaining every resulting cross
+term, pressure, mean, phase and viscous loss. Neither a fresh label reset
+nor an axisymmetric mean correction can create an absent separated label.
+Audit the prehistory of the ENTIRE countable pulse family before another
+formal residual iteration. UE2--UE4 remain unproved. No critical budget,
+blowup extraction, positive regenerative turnover, or recurrent set follows.
 
 ## 2. Primary-source gate: what was actually inspected
 
@@ -160,7 +203,8 @@ singularity diagnostics are allowed. No such correction is currently proved.
 
 ### UE0 -- Identify the first indispensable projected forcing
 
-First audit whether the actual global P f vanishes on ANY terminal time slab.
+The separated-support conversion has been excluded in Section 1a. For any
+new architecture, first audit whether the actual global P f vanishes on ANY terminal time slab.
 If it does, taking a smooth Schwartz time slice at its start would already
 supply an unforced segment; prove all its hypotheses rather than assuming it.
 Flatness at one point, smallness, or compact time support does NOT imply such
@@ -182,6 +226,8 @@ for UE1. Do not postpone pulse seeding until after a full reconstruction.
 
 ### UE1 -- Autonomous pulse preparation and a uniform linear inverse
 
+Do not retain the now-excluded exact separation with zero late-label data.
+Do not apply the envelope inverse to raw-flat errors with a polynomial loss.
 Test whether the required pulses can be generated from a single admissible
 initial perturbation, carrying their phases, polarizations, tails and all
 feedback continuously, with no time-localized external starts or stops.
@@ -351,6 +397,12 @@ on the complete source checkout before pushing. Existing read-only GitHub CI
 also triggers on PLAN changes and runs exact checks plus full-checkout
 verification. Report observed outcomes, not anticipated success. These checks
 do not audit [OA], prove exactification, or certify a regenerative turnover.
+
+The source audit follow-through passed 86 finite exact assertions in
+`research/check_autonomous_pulse_obstruction.py`. These concern algebra, not
+continuum verification or independent review. Current full-checkout checks
+are recorded with the integration commit; the earlier planning-only check
+record above remains historical provenance.
 
 ## 7. Next handoff: one dominant nut
 
