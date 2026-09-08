@@ -8,10 +8,10 @@ MODE: REVIEW, proof-audit discipline. Date: 2026-09-05. Lane: audit of
 
 | Item | Value |
 | --- | --- |
-| Candidate file | `/home/ert/proj/navier/research/evidence/cp02-quotient-evolution.md` |
+| Candidate file | `../navier/research/evidence/cp02-quotient-evolution.md` |
 | `sha256sum` | `cb117fe34d4d8c8f1f037fef5223e1691ca2fdf05bd37bf38016496c86c4171b` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
-| Manuscript | `/home/ert/proj/navier-paper/main.tex`, 562 lines, read in full |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| Manuscript | `../navier-paper/main.tex`, 562 lines, read in full |
 | Sibling lanes read | `cp02-quotient-functional.md`, `cp02-lowpressure.md`, `cp01-manuscript-obligations.md` §1.14, `cp01-literature-statements.md`, `cp01-quotient-section-structure.md` |
 | Independent compile | LaTeX block extracted, spliced under an independent stub preamble, `latexmk -pdf` run twice: exit 0, **zero** undefined references, zero undefined citations, zero overfull boxes. The author's compile claim is confirmed. |
 

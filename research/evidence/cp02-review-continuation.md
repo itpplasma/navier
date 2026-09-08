@@ -8,10 +8,10 @@ lane for CP02-2. File written: this one only. Nothing in the audited file, in
 
 | item | value |
 |---|---|
-| audited file | `/home/ert/proj/navier/research/evidence/cp02-continuation.md` |
+| audited file | `../navier/research/evidence/cp02-continuation.md` |
 | sha256 | `c0f2bcd86b4e00c42eca7e63ab19cef9ec760adb8cec9ce75217b52950f153bf` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
-| manuscript compared against | `/home/ert/proj/navier-paper/main.tex`, 562 lines, read in full |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| manuscript compared against | `../navier-paper/main.tex`, 562 lines, read in full |
 | records read in full | `research/evidence/cp01-manuscript-obligations.md`, `research/evidence/cp01-literature-statements.md` |
 
 The author's own summary was treated as untrusted and is not relied on
@@ -556,7 +556,7 @@ Reopen this audit if any of the following changes:
 15. Preamble: `\newtheorem{lemma}[theorem]{Lemma}` is required, as the block
     says. No `definition` environment is needed. All `\cite` keys used
     (`Tao2013`, `ESS2003`, `GKP2013`, `Fefferman2000`, `Kato1984`) exist in
-    `/home/ert/proj/navier-paper/references.bib`. `\R`, `\norm` exist;
+    `../navier-paper/references.bib`. `\R`, `\norm` exist;
     `\operatorname*`, `\mathring`, `\mathbb C`, `\qedhere` are all available
     from the `amsmath`/`amssymb`/`amsthm` already loaded.
 16. Label inventory checked against (D4): `prop:energy`, `prop:scaling`,

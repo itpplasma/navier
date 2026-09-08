@@ -7,11 +7,11 @@ this file; nothing else was edited, nothing pushed.
 
 | item | value |
 |---|---|
-| candidate file | `/home/ert/proj/navier/research/evidence/cp02-pressure.md` |
+| candidate file | `../navier/research/evidence/cp02-pressure.md` |
 | `sha256sum` | `ad6a10f1f30436ee8e4e7680d3e445e49219263e66156e7b2b29cbfe254fb58e` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
 | candidate length | 783 lines |
-| manuscript state read in full | `/home/ert/proj/navier-paper/main.tex` (562 lines), `references.bib` (5 keys: `Fefferman2000`, `ESS2003`, `Kato1984`, `GKP2013`, `Tao2013`) |
+| manuscript state read in full | `../navier-paper/main.tex` (562 lines), `references.bib` (5 keys: `Fefferman2000`, `ESS2003`, `Kato1984`, `GKP2013`, `Tao2013`) |
 | CP01 records read in full | `cp01-manuscript-obligations.md` (624 lines), `cp01-literature-statements.md` (806 lines) |
 | sibling lane read for interface | `research/evidence/cp02-energy-enstrophy.md` |
 | primary source re-opened in this lane | Tao, *Analysis & PDE* **6** (2013) 25–107, publisher PDF `https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf`, printed pp. 28, 35, 36, 37, 38 read as text |
@@ -235,7 +235,7 @@ Neither defect touches the truth of any statement. Hence REPAIR, not FAIL.
   306–318, 345–353, 393–409; the corollary matches the manuscript's own `M`
   formula.
 * Lean cross-check of Remark `rem:lean-majorant`: the four named lemmas exist in
-  `/home/ert/proj/navier-formal/NavierFormal/Regularization.lean`
+  `../navier-formal/NavierFormal/Regularization.lean`
   (`rEps_le_norm_add_sqrt` l. 94, `HEps_le_norm_sq_mul_rEps` l. 141,
   `abs_HEps_le_two` l. 177, `tendsto_HEps` l. 202, `hasFDerivAt_HEps` l. 260),
   the module header does state "Everything is stated for a general real inner
@@ -648,8 +648,8 @@ Reopen this audit if any of the following changes:
 | 6 | Tao Theorem 5.4(iv) and Corollary 5.8 (the literature inputs behind `prop:localtheory`) | `cp01-literature-statements.md` §1.2–1.3, quoting APDE pp. 52–53, 56–57 | **[DI] there**, not re-opened here |
 | 7 | `R_iR_j = ∂_i∂_j(−Δ)^{-1} = −Δ^{-1}∂_i∂_j`; identity of `main.tex`'s `p` with Tao's normalised pressure; no sign error | `cp01-literature-statements.md` §7.3 | **[DI] there** |
 | 8 | Hölder / Cauchy–Schwarz on `L^p(R^3)` | `cp01-literature-statements.md` §6, S10 | **[DI] there** |
-| 9 | `abs_HEps_le_two : 0 ≤ ε → ε ≤ 1 → |HEps ε v| ≤ 2*(‖v‖^2+‖v‖^3)`, plus `rEps_le_norm_add_sqrt`, `HEps_le_norm_sq_mul_rEps`, `tendsto_HEps`, `hasFDerivAt_HEps`, stated "for a general real inner product space `E`" | `/home/ert/proj/navier-formal/NavierFormal/Regularization.lean`, lines 1–38, 94, 141, 177, 202, 260 | **[DI]** (file read in this lane) |
-| 10 | `hyp:absorption` (`eq:absorption`), `hyp:critical` (`eq:missing`), `eq:pressure-consequence`, the `M` formula, `L_J`/`Q_J` | `/home/ert/proj/navier-paper/main.tex` lines 199–353, 393–409 | **[DI]** |
+| 9 | `abs_HEps_le_two : 0 ≤ ε → ε ≤ 1 → |HEps ε v| ≤ 2*(‖v‖^2+‖v‖^3)`, plus `rEps_le_norm_add_sqrt`, `HEps_le_norm_sq_mul_rEps`, `tendsto_HEps`, `hasFDerivAt_HEps`, stated "for a general real inner product space `E`" | `../navier-formal/NavierFormal/Regularization.lean`, lines 1–38, 94, 141, 177, 202, 260 | **[DI]** (file read in this lane) |
+| 10 | `hyp:absorption` (`eq:absorption`), `hyp:critical` (`eq:missing`), `eq:pressure-consequence`, the `M` formula, `L_J`/`Q_J` | `../navier-paper/main.tex` lines 199–353, 393–409 | **[DI]** |
 | 11 | Plancherel; `L^2` Fourier inversion; DCT, MCT, Tonelli/Fubini; MVT, FTC for `C^1` | Stein–Weiss 1971 Ch. I; Rudin, *RCA* 3rd ed.; Rudin, *PMA* 3rd ed. | **[MO]** — theorem numbers proposed in §5 are unverified |
 | 12 | `∫_0^∞ r^2(1+r^2)^{-2}dr = π/4`, hence `∫_{R^3}(1+|ξ|^2)^{-2}dξ = π^2` | recomputed inline (`r = tan ϑ`) | proved here |
 

@@ -924,7 +924,7 @@ from `NavierFormal.young_five_fourths_eps`. The enstrophy identity Step 1–2
 the batch.
 
 Each batch file: docstrings name the manuscript label; check with
-`cd /home/ert/proj/navier-formal && lake env lean <file>`; zero errors, zero
+`cd ../navier-formal && lake env lean <file>`; zero errors, zero
 `sorry`; `#print axioms` via a temporary trailer, then deleted; report the
 axiom list (expected `[propext, Classical.choice, Quot.sound]`).
 

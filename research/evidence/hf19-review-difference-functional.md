@@ -6,9 +6,9 @@ reconstruct-from-first-implication).
 **Frozen candidate.**
 `research/evidence/hf19-difference-functional.md`,
 sha256 `c88f90b9843a06dffbccbc47690c200175e5466857f4688070c0c8be09dca5d5`,
-629 lines. Repository `/home/ert/proj/navier` at
+629 lines. Repository `../navier` at
 `1014e7e3c33af4a341a5f46156a22b808170257b`. Manuscript
-`/home/ert/proj/navier-paper/main.tex` at `39ccb66` (clean tree, 7007 lines).
+`../navier-paper/main.tex` at `39ccb66` (clean tree, 7007 lines).
 Audited background read in full and used as given (all PASS):
 `hf18-hodge-regularity.md` (§0 hypothesis (0.1), (1.12), Theorem 2 Steps 1–4,
 (0.3), (F1), (F5)–(F7), (4.2)), `hf18-divergence-speed-link.md` (§1 (1.6),

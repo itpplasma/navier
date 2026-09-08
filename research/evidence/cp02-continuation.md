@@ -17,7 +17,7 @@ text, recorded with the exact action for the integrator (Section 5 below
 lists each item against the change). No statement was weakened and no
 hypothesis was added.
 
-Inputs read in full: `/home/ert/proj/navier-paper/main.tex` (562 lines),
+Inputs read in full: `../navier-paper/main.tex` (562 lines),
 `research/evidence/cp01-manuscript-obligations.md`,
 `research/evidence/cp01-literature-statements.md`,
 `research/evidence/cp02-review-continuation.md`; read for interface purposes

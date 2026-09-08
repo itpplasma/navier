@@ -12,7 +12,7 @@ nothing outside this file was edited.
 | Target SHA-256 | `24b538280c8639b81a1f6f86d4c72370362625ca8a52d1d81a99b29236a540ab` (recomputed, matches the index note) |
 | Target line count | 1432 (matches the index note) |
 | Controller index note | `research/evidence/hf26-temporal-continuation.md` (context only) |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `30d715d` (audit ran on `main`, clean) |
+| `git -C ../navier rev-parse HEAD` | `30d715d` (audit ran on `main`, clean) |
 | Audit date | 2026-09-06 |
 
 Sections audited, by label:

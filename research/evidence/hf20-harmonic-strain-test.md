@@ -11,9 +11,9 @@ including by the auditor's independent numerics.
 
 Provenance. The candidate arrived as a typeset PDF on the work capture
 surface, not as a repository note. It was produced on 2026-09-05 20:13 UTC
-(pdfTeX, 7 pages) and dropped at `~/Nextcloud/navier-hf20-candidate-proof.pdf`
+(pdfTeX, 7 pages) and dropped at `<vault path, not in this repository>`
 on 2026-09-06 07:33; the controller moved it to
-`~/Nextcloud/navier/navier-hf20-candidate-proof.pdf`. Frozen by
+`<work vault, not in this repository>/navier-hf20-candidate-proof.pdf`. Frozen by
 SHA-256 `4be9a53b244ba385e7b1e18bf02bee9b10db44a4329438612742ac32b7e15009`.
 The PDF is the immutable artifact; this file is the controller's transcription
 of its mathematics into the repository's evidence format, because generated

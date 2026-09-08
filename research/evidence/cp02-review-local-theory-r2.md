@@ -8,10 +8,10 @@ HIGH-PRESSURE, HIGH-STRAIN, CRITICAL, ABSORPTION, or NS-R3.
 
 | item | value |
 |---|---|
-| candidate | `/home/ert/proj/navier/research/evidence/cp02-local-theory.md` |
+| candidate | `../navier/research/evidence/cp02-local-theory.md` |
 | sha256 | `cd6371c58eb542be8b21fa48eaedd19f679b9156384c91f64d68e84c240a4e56` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
-| manuscript read in full | `/home/ert/proj/navier-paper/main.tex` (562 lines) |
+| `git -C ../navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
+| manuscript read in full | `../navier-paper/main.tex` (562 lines) |
 | CP01 records read in full | `cp01-manuscript-obligations.md`, `cp01-literature-statements.md` |
 | round-1 audit read in full | `cp02-review-local-theory.md` |
 | cross-lane files inspected | `cp02-pressure.md` (label collision), `cp02-continuation.md` (C-0/C-3 interface) |

@@ -7,8 +7,8 @@ untouched; no commit or push is made.
 **Frozen target.** `research/evidence/hf22-direct-attack.md`,
 `sha256 = 4945036f17c325353175c8667b180ac02a53552090888a48f50a70e1743fc38f`
 (984 lines), at repository HEAD `e36fec455e970a004519e5c91b856a3e1bba28bc`
-(`/home/ert/proj/navier`, branch `main`, clean). Manuscript read at
-`/home/ert/proj/navier-paper` HEAD `4084330f6b8130241c7afbde3878861229c4cceb`,
+(`../navier`, branch `main`, clean). Manuscript read at
+`../navier-paper` HEAD `4084330f6b8130241c7afbde3878861229c4cceb`,
 `main.tex` (7098 lines).
 
 **Directly inspected [DI].** `main.tex`: `lem:upgrade` (674),

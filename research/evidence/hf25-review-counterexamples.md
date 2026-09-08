@@ -16,7 +16,7 @@ the consumption explicitly.
 | research HEAD at audit | `a3e85f2d75fb01f1421e95f51ec6f8eedab0ec50` |
 | target | `research/evidence/hf25-beyond-hf21-continuation.tex`, sha256 `3ce562bb59346fc700c522bf5e857e3500b318e283febed0c9db9b7f652c6d4f` (1293 lines, read in full) |
 | index note | `research/evidence/hf25-beyond-hf21-continuation.md` |
-| manuscript | `/home/ert/proj/navier-paper/main.tex` at `34cdffd2fe2bd8a35068e96f907302e00c10850f` (clean) |
+| manuscript | `../navier-paper/main.tex` at `34cdffd2fe2bd8a35068e96f907302e00c10850f` (clean) |
 | manuscript revision the candidate pins | `4084330f6b8130241c7afbde3878861229c4cceb` |
 | research revision the candidate pins | `b711149aea11d6147c9144fb5431eca4dc1d83af` (resolves in this repository) |
 | cited attachment | 23-page **PDF** `navier-divcurl-proof-continuation-2026-09-06.pdf`, sha256 `12163ca4d214c953a097bc9ad24377a54cbf19efab962ae9c6dc629d73ef286b` |

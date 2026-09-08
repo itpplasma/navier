@@ -25,9 +25,9 @@ inspected" means the file body (or its full rendered text) was returned to me;
 | formalization.yaml standard | `https://github.com/mathlib-initiative/formalization.yaml`, `schema/v0.4.schema.json` | repo HEAD `99c678e569c7c4c0772db297c5ddd5e4c9b6322e`, 2026-08-25T17:06:01Z, "Add project.description to formalization.yaml v0.4 (#23)" | schema JSON directly-inspected and machine-enumerated |
 | Comparator | `https://github.com/leanprover/comparator` | repo HEAD `2312244ac716564a61cc0bf4e107d9abf1757a61`, 2026-08-30T06:50:43Z | README summary only (metadata-only for exact bytes) |
 | Registered example | `https://github.com/anthropics/formal-math` (`zeta23/`) | repo HEAD `2bafb8c88f177284a2123b5fefa2ff84e2365eb6`, 2026-08-28T21:37:34Z | `zeta23/comparator.json` directly-inspected; `zeta23/lakefile.toml`, `zeta23/Challenge.lean`, `zeta23/formalization.yaml`, `.github/scripts/comparator-check.sh`, root README returned as summaries (metadata-only for exact bytes) |
-| Sibling project conventions | `/home/ert/proj/stafford38/PLAN.md` §"Repository restructuring and Palomar preparation"; `/home/ert/proj/stafford38/docs/literature-assumptions.yaml` | local working tree, 2026-09-05 | directly-inspected |
+| Sibling project conventions | `../stafford38/PLAN.md` §"Repository restructuring and Palomar preparation"; `../stafford38/docs/literature-assumptions.yaml` | local working tree, 2026-09-05 | directly-inspected |
 | lean4export tags | GitHub API `leanprover/lean4export/tags` | full tag list (43 tags) | directly-inspected |
-| mathlib4 tags | GitHub API `leanprover-community/mathlib4/tags` | `v4.33.1` = `0df444a360eaa60ab8c11dca51a86af692955474` | directly-inspected; confirmed identical to the local checkout at `/home/ert/proj/stafford38/.lake/packages/mathlib` (tag `v4.33.1`, committed 2026-08-21T12:04:53Z) |
+| mathlib4 tags | GitHub API `leanprover-community/mathlib4/tags` | `v4.33.1` = `0df444a360eaa60ab8c11dca51a86af692955474` | directly-inspected; confirmed identical to the local checkout at `../stafford38/.lake/packages/mathlib` (tag `v4.33.1`, committed 2026-08-21T12:04:53Z) |
 
 **Not accessed / could not verify** — recorded in §7.
 
@@ -335,7 +335,7 @@ work — must be written out of Mathlib primitives inside `Challenge.lean`. It m
 not be imported from `NavierFormal/`. The sibling project states the same rule
 for itself: "Its Challenge import closure excludes AlgebraicAnalysis… Never
 vendor the library to evade that restriction"
-(`/home/ert/proj/stafford38/PLAN.md`, §"Repository restructuring and Palomar
+(`../stafford38/PLAN.md`, §"Repository restructuring and Palomar
 preparation", item 5). Vendoring library sources into the Challenge to dodge the
 rule is an explicit anti-pattern there and would in any case be caught by the
 verifier's record of "every Lean source file used by that compilation".
@@ -435,7 +435,7 @@ route and can be done first.
    `status.main_results[].literature_dependencies[]` with
    `statement`/`source` pairs for Tao 2013 Thm 5.4 and GKP 2013 Thm 4, mirroring
    the `inputs:` records in
-   `/home/ert/proj/stafford38/docs/literature-assumptions.yaml`. That file's
+   `../stafford38/docs/literature-assumptions.yaml`. That file's
    status vocabulary (`FORMALIZED`, `LITERATURE-INPUT`, `CONDITIONAL`, `OPEN`)
    is directly reusable and its `phase_i` / `phase_ii` split is the right shape
    for a `navier-formal/docs/literature-assumptions.yaml`.
@@ -471,7 +471,7 @@ inspected. Copy it and `scripts/landrun-wrapper.sh` into `navier-formal`
 unchanged, then:
 
 ```bash
-cd /home/ert/proj/navier-formal
+cd ../navier-formal
 bash scripts/verify-comparator.sh
 ```
 

@@ -7,12 +7,12 @@ nothing else was edited and nothing was pushed.
 
 | item | value |
 |---|---|
-| candidate file | `/home/ert/proj/navier/research/evidence/cp02-energy-enstrophy.md` |
+| candidate file | `../navier/research/evidence/cp02-energy-enstrophy.md` |
 | sha256 | `1859df86aec9589737e832388b6f19379ef2b6b94a7b4eac9bd35f13b56d3729` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
-| manuscript reviewed against | `/home/ert/proj/navier-paper/main.tex`, HEAD `1ad73c2` (matches the candidate's recorded HEAD) |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| manuscript reviewed against | `../navier-paper/main.tex`, HEAD `1ad73c2` (matches the candidate's recorded HEAD) |
 | navier-formal HEAD | `9c8b37d` |
-| Mathlib checkout | `/home/ert/proj/stafford38/.lake/packages/mathlib`, `git rev-parse --short HEAD` = `0df444a360` |
+| Mathlib checkout | `../stafford38/.lake/packages/mathlib`, `git rev-parse --short HEAD` = `0df444a360` |
 | author's summary | untrusted; used only to locate claims |
 
 Reviewed scope: the whole fenced LaTeX block of §2 of the candidate, i.e. the

@@ -128,7 +128,7 @@ inline by Cauchy–Schwarz; general reference Bahouri–Chemin–Danchin, Lemma
 commutator (not used by the quotient route; it belongs to the pressure
 route).
 
-Mathlib v4.33.1 checkout (`/home/ert/proj/stafford38/.lake/packages/mathlib`,
+Mathlib v4.33.1 checkout (`../stafford38/.lake/packages/mathlib`,
 commit `0df444a3`) findings relevant to Phase II: Sobolev spaces exist as
 Bessel-potential spaces on tempered distributions
 (`Mathlib/Analysis/Distribution/Sobolev.lean`, `MemSobolev`,

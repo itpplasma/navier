@@ -8,10 +8,10 @@ HIGH-STRAIN, CRITICAL, ABSORPTION, or NS-R3.
 
 | item | value |
 |---|---|
-| candidate | `/home/ert/proj/navier/research/evidence/cp02-local-theory.md` |
+| candidate | `../navier/research/evidence/cp02-local-theory.md` |
 | sha256 | `8bddb4031170d5c2949ae1c865b1092255716ebc2b7b61a7f1a95e8dc2c82d0b` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
-| manuscript read in full | `/home/ert/proj/navier-paper/main.tex` (562 lines) |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| manuscript read in full | `../navier-paper/main.tex` (562 lines) |
 | CP01 records read in full | `cp01-manuscript-obligations.md`, `cp01-literature-statements.md` |
 
 Primary source opened in this audit (not merely trusted from CP01): the

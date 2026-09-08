@@ -10,10 +10,10 @@ here, and the reviewed note asserts none of them either.
 
 | Item | Value |
 | --- | --- |
-| Candidate file | `/home/ert/proj/navier/research/evidence/cp02-quotient-functional.md` |
+| Candidate file | `../navier/research/evidence/cp02-quotient-functional.md` |
 | `sha256sum` of candidate | `2963d31a3faa6d176b80f7ff5295ae780c9399aa7ee13664f6640fb8d014fb84` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
-| Manuscript audited against | `/home/ert/proj/navier-paper/main.tex`, HEAD `1ad73c2960ed5bc28958ce063b637fa28f603642`, `sha256(main.tex) = 2b2c072f0e461c5abb94d11430bdc2f4940dc4c3e2a93c999071e07a22c40012` |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| Manuscript audited against | `../navier-paper/main.tex`, HEAD `1ad73c2960ed5bc28958ce063b637fa28f603642`, `sha256(main.tex) = 2b2c072f0e461c5abb94d11430bdc2f4940dc4c3e2a93c999071e07a22c40012` |
 | Records read in full | `cp01-manuscript-obligations.md` (§1.14 Q-0…Q-18), `cp01-literature-statements.md` (§1.4, §6, §7, §8) |
 
 The candidate's own summary was treated as untrusted and was not used as

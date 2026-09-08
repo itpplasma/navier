@@ -22,7 +22,7 @@ It is delivered here against research HEAD `30d715d` and manuscript `sec:quotien
 Inputs (all audited PASS, cited and **not** re-proved): `hf17-quotient-functional.md`,
 `hf17-quotient-evolution.md`, `hf18-hodge-regularity.md` (+ `hf18-review-hodge-regularity.md`),
 `hf18-divergence-speed-link.md` (+ its two reviews, final PASS), the manuscript
-`/home/ert/proj/navier-paper/main.tex` §`sec:quotient`, and `PLAN.md`
+`../navier-paper/main.tex` §`sec:quotient`, and `PLAN.md`
 ("Frontier packet", "Beyond the checkpoint", "HF16–HF17", "HF18", "HF19", "HF20",
 "Ordered next actions"). The three HF19 notes and `hf20-harmonic-strain-test.md` are
 UNAUDITED and are **not used**, not even as motivation, anywhere below.
@@ -1186,7 +1186,7 @@ the two new tools of this note meet, and it is not attempted here.
   `hf18-divergence-speed-link.md` (§0, §1.1–1.5 including Prop. 1.1, Remark 1.2,
   Prop. 1.4, Lemma A; §2.1–2.4 including Prop. 2.2 and Lemma B);
   `hf19-review-shifted-hodge-regularity.md` (§§1–5 and the full audit record).
-- `/home/ert/proj/navier-paper/main.tex`, `sec:quotient`: `rem:quotient-related`,
+- `../navier-paper/main.tex`, `sec:quotient`: `rem:quotient-related`,
   `subsec:quotient-conventions` (F1)–(F5), `def:quotient`, `lem:cubic-pointwise`,
   `lem:cubic-frechet`, `lem:density`, `lem:quotient-minimizer`, `lem:gradient-closure`,
   `lem:leray`, `lem:quotient-coercive`, `def:qe-dissipation`, `prop:quotient-evolution`,

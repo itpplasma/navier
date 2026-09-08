@@ -12,14 +12,14 @@ original historical signing time or public disclosure date.
 Existing evidence citations retain the original IDs: resolve them with this
 map; the corresponding source tree is unchanged. Original Git bundles are
 retained locally outside the repositories in
-`/home/ert/proj/.history-signing/20260905-102900/`.
+`../.history-signing/20260905-102900/`.
 
 Overleaf initially rejected history replacement because forced pushes are
 prohibited. The owner subsequently requested GitHub-only work. The Navier
 project `6a9bb675ea9d4d0d368d8ee6` was deleted on 2026-09-05 after its sources
 were verified identical to GitHub; the project-list comparison showed only
 that project removed. Its final history is preserved locally in
-`/home/ert/proj/.history-signing/20260905-102900/before-overleaf-delete.bundle`.
+`../.history-signing/20260905-102900/before-overleaf-delete.bundle`.
 There is no Overleaf synchronization workflow or remote now.
 
 Global Git signing defaults are managed in chezmoi, with the public key at

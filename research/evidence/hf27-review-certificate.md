@@ -13,7 +13,7 @@ sympathetically, and attempt explicit refutations of each new fact.
 | target | `research/evidence/hf27-critical-residual-continuation.tex`, 996 lines |
 | target SHA-256 | `3898e9a020d31c4fc58c9f1289ea4794ec9f787b885086e411b98b0cb1f97488` (rehashed; matches the index note) |
 | index note (context only) | `research/evidence/hf27-critical-residual-continuation.md` |
-| manuscript consulted | `/home/ert/proj/navier-paper/main.tex` (working tree at audit time) |
+| manuscript consulted | `../navier-paper/main.tex` (working tree at audit time) |
 | audited inputs consulted | `hf18-hodge-regularity.md` + `hf18-review-hodge-regularity.md` (PASS); `hf23-divcurl-continuation.tex` + `hf23-review-regularity-core.md` (PASS) + `hf23-review-reconstruction-boundary.md` (PASS WITH SCOPE); `hf25-review-defect-criterion.md`; `hf24-review-badset-restriction.md`; `hf24-review-modulus-of-continuity.md`; `hf26-review-temporal-producer.md`; `hf26-review-weighted-linearization.md`; `hf26-review-countermodel-crossings.md`; `PLAN.md`; `docs/proof-graph.yaml`; `literature/current-status.md` |
 
 Nothing outside this file was edited. No commit, no push. The candidate,

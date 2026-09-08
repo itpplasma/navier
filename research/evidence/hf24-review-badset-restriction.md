@@ -11,8 +11,8 @@ it.**
 | Object | Digest / revision |
 |---|---|
 | Target `research/evidence/hf24-badset-restriction.md` | `sha256 8a625c5f9a89ade386905334badc4ec3691b708cc5480b04fda24428007b3fa5` (790 lines) |
-| Repository `/home/ert/proj/navier` HEAD | `a91fe79a10f810b81c9560186ef0f657a622f589` |
-| Manuscript `/home/ert/proj/navier-paper` HEAD | `12f90758526a09e4a1bed55ae3eb79708394b32d` |
+| Repository `../navier` HEAD | `a91fe79a10f810b81c9560186ef0f657a622f589` |
+| Manuscript `../navier-paper` HEAD | `12f90758526a09e4a1bed55ae3eb79708394b32d` |
 
 Directly inspected for this audit: `main.tex` `lem:quotient-coercive`
 (L5455), `lem:quotient-scaling` (L5479), `prop:quotient-divcurl` (L5802),

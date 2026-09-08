@@ -9,8 +9,8 @@ the first nontrivial one, recompute every exponent, refute each new fact.
 |---|---|
 | research HEAD | `1014e7e3c33af4a341a5f46156a22b808170257b` |
 | target note | `research/evidence/hf20-harmonic-strain-test.md`, sha256 `2ab72f57234707577ff34c7f5871b92638f9ed6ccd3e6002a0d67530c67130d2` |
-| immutable artifact | `~/Nextcloud/navier/navier-hf20-candidate-proof.pdf`, sha256 `4be9a53b244ba385e7b1e18bf02bee9b10db44a4329438612742ac32b7e15009` (7 pp., read in full via the PDF tool) |
-| manuscript | `/home/ert/proj/navier-paper/main.tex` at `39ccb664bf055fac94b3cfac97bf00a60191373d` |
+| immutable artifact | `<work vault, not in this repository>/navier-hf20-candidate-proof.pdf`, sha256 `4be9a53b244ba385e7b1e18bf02bee9b10db44a4329438612742ac32b7e15009` (7 pp., read in full via the PDF tool) |
+| manuscript | `../navier-paper/main.tex` at `39ccb664bf055fac94b3cfac97bf00a60191373d` |
 
 The PDF was read and compared line by line with the transcription. Two
 wording discrepancies, both resolved in favour of the PDF and both harmless:

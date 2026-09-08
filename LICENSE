@@ -1,0 +1,14 @@
+Dual licence for this repository (2026-09-08)
+
+1. Source code (Python checkers under research/ and tools/, GitHub workflow
+   files, YAML graph files, and any other executable or machine-readable
+   files): Apache License, Version 2.0. See LICENSE-APACHE.
+
+2. Prose and mathematics (Markdown notes, PLAN.md, README.md, AGENTS.md,
+   docs/*.md, research/evidence/*.md, research/history/*.md, TeX fragments):
+   Creative Commons Attribution 4.0 International (CC BY 4.0).
+   See LICENSE-CC-BY.
+
+Third-party material is not included: the OpenAI manuscript and Lean
+certificate referenced in PLAN.md are cited, never vendored, and retain
+their own licences.

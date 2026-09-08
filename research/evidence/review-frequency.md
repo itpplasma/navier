@@ -10,7 +10,7 @@ changes the low/high reduction or its conditional suffix.
 
 ## Reviewed scope and frozen input
 
-The immutable candidate is repository `/home/ert/proj/navier`, exact commit
+The immutable candidate is repository `../navier`, exact commit
 `6c68c7ae07c1fb385b8068f83d2fc7aae957668c`, file
 `research/evidence/frequency.md`.  I also checked the repaired opening of
 `research/evidence/enstrophy.md` at the same commit.  No pressure-control

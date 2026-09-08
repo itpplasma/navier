@@ -3,7 +3,7 @@
 Status: bounded prior-art audit, 2026-09-05.  Scope: the objects of
 `hf17-quotient-functional.md`, `hf18-hodge-regularity.md`,
 `hf18-divergence-speed-link.md` and manuscript `sec:quotient`
-(`/home/ert/proj/navier-paper/main.tex`, from `\label{sec:quotient}`).
+(`../navier-paper/main.tex`, from `\label{sec:quotient}`).
 
 MODE: SOURCE AUDIT.  No mathematical claim of the programme is proved,
 strengthened or weakened here.  **No novelty is claimed anywhere in this

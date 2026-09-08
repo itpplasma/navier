@@ -7,15 +7,15 @@ file; nothing else was edited, nothing pushed.
 
 | item | value |
 |---|---|
-| candidate file | `/home/ert/proj/navier/research/evidence/cp02-pressure.md` |
+| candidate file | `../navier/research/evidence/cp02-pressure.md` |
 | `sha256sum` | `0b9fbb4aaf52f4ba7b0b41aca2e8fe96becc09a89ee76b1f4c7b8391ac8a4953` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `f20e6bf579f74c3fef4e365fa5267929667f1228` |
+| `git -C ../navier rev-parse HEAD` | `f20e6bf579f74c3fef4e365fa5267929667f1228` |
 | candidate length | 1012 lines |
 | round-1 audit compared | `research/evidence/cp02-review-pressure.md` (712 lines, verdict REPAIR) |
-| manuscript read in full | `/home/ert/proj/navier-paper/main.tex` (562 lines), `references.bib` (5 keys) |
+| manuscript read in full | `../navier-paper/main.tex` (562 lines), `references.bib` (5 keys) |
 | CP01 records read in full | `cp01-manuscript-obligations.md` (624 lines), `cp01-literature-statements.md` (806 lines) |
 | sibling lane read for interface | `research/evidence/cp02-energy-enstrophy.md` |
-| Lean development re-opened | `/home/ert/proj/navier-formal/NavierFormal/Regularization.lean` |
+| Lean development re-opened | `../navier-formal/NavierFormal/Regularization.lean` |
 | primary source re-opened **in this lane** | Tao, *Analysis & PDE* **6** (2013) 25–107, publisher PDF `https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf`, printed pp. 28, 35, 36, 37, 38 read as text (`helpy_pdf`, `mode:"text"`) |
 
 ## 1. VERDICT
@@ -294,7 +294,7 @@ numerical, one with an explicit `L^2` counterexample. Six failed; the seventh
 (item 6) succeeded and is §3.
 
 **Lean cross-check of `rem:lean-majorant`:** all five named lemmas exist in
-`/home/ert/proj/navier-formal/NavierFormal/Regularization.lean` at the lines the
+`../navier-formal/NavierFormal/Regularization.lean` at the lines the
 candidate's fact table gives — `rEps_le_norm_add_sqrt` l. 94,
 `HEps_le_norm_sq_mul_rEps` l. 141, `abs_HEps_le_two` l. 177, `tendsto_HEps`
 l. 202, `hasFDerivAt_HEps` l. 260 — and the module header does say "Everything is
@@ -543,8 +543,8 @@ Reopen if any of the following changes:
 | 7 | Rudin *RCA* Ch. 1 (dominated convergence), Ch. 3 (Hölder), Ch. 8 (Fubini/Tonelli); Rudin *PMA* Ch. 5 (mean value theorem), Ch. 6 (fundamental theorem of calculus) | standard chapter structure of the two volumes | **[MO]** |
 | 8 | `R_iR_j = ∂_i∂_j(−Δ)^{-1} = −Δ^{-1}∂_i∂_j`; identity of `main.tex`'s `p` with Tao's normalised pressure; no sign error; sign audit of `eq:NS` against Tao (3), GKP, ESS (1.1), Kato, Fefferman (1) | `research/evidence/cp01-literature-statements.md` §7.3 | **[DI] there**, re-read here |
 | 9 | Tao Theorem 5.4(iv) and Corollary 5.8 behind `prop:localtheory`; the recorded under-citation of the maximal development | `cp01-literature-statements.md` §1.2–1.3, §8 item 1 | **[DI] there**, not re-opened here |
-| 10 | `rEps_le_norm_add_sqrt` (l. 94), `HEps_le_norm_sq_mul_rEps` (l. 141), `abs_HEps_le_two` (l. 177), `tendsto_HEps` (l. 202), `hasFDerivAt_HEps` (l. 260), and additionally `norm_le_rEps` (l. 87), `HEps_nonneg` (l. 131), `tendsto_rEps` (l. 190), `hasFDerivAt_rEps` (l. 238); module header "Everything is stated for a general real inner product space `E`" | `/home/ert/proj/navier-formal/NavierFormal/Regularization.lean` | **[DI]** (file read in this lane) |
-| 11 | `\section{A signed critical balance}` at l. 199; old `prop:pressure` l. 201–254; `L_J`,`Q_J` l. 256–262; `eq:pressure-consequence` paragraph l. 345–353; `hyp:critical` and the `M` formula l. 393–412; `Tao2013` = APDE, `pages = {25--107}` | `/home/ert/proj/navier-paper/main.tex`, `references.bib` | **[DI]** |
+| 10 | `rEps_le_norm_add_sqrt` (l. 94), `HEps_le_norm_sq_mul_rEps` (l. 141), `abs_HEps_le_two` (l. 177), `tendsto_HEps` (l. 202), `hasFDerivAt_HEps` (l. 260), and additionally `norm_le_rEps` (l. 87), `HEps_nonneg` (l. 131), `tendsto_rEps` (l. 190), `hasFDerivAt_rEps` (l. 238); module header "Everything is stated for a general real inner product space `E`" | `../navier-formal/NavierFormal/Regularization.lean` | **[DI]** (file read in this lane) |
+| 11 | `\section{A signed critical balance}` at l. 199; old `prop:pressure` l. 201–254; `L_J`,`Q_J` l. 256–262; `eq:pressure-consequence` paragraph l. 345–353; `hyp:critical` and the `M` formula l. 393–412; `Tao2013` = APDE, `pages = {25--107}` | `../navier-paper/main.tex`, `references.bib` | **[DI]** |
 | 12 | Sibling lane declares `\newtheorem{lemma}`/`{definition}` (l. 16–17), fixes the same `χ_R` (l. 69–70), proves `lem:div-zero` (l. 130), and cites Tao as `p.~14`/`p.~15` | `research/evidence/cp02-energy-enstrophy.md` | **[DI]** |
 | 13 | `∫_{R^3}(1+|ξ|^2)^{-2}dξ = π^2 < ∞`, so `\hat g = (1+|ξ|^2)^{-1}` is in `L^2(R^3)` while `ξ_1^2\hat g ∉ L^2` | recomputed inline (`r = tan λ`), §2.2 item 6 | proved here |
 | 14 | The shear-field verification of `eq:pressure-balance` and of the factor `2` in `D_3` | computed inline, §2.2 item 1 | proved here |

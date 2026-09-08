@@ -1,5 +1,17 @@
 # Navier--Stokes: kinetic regularity and Newtonian-to-fluid programme
 
+> **Public status (2026-09-08).** This repository was made public on the day
+> OpenAI released a forced finite-time-blowup theorem (Clay alternatives C/D)
+> with a Lean certificate, as a documented record of what this programme did
+> before and after that release. It is a research notebook: every proof here
+> is author-level unless a file is explicitly marked as an independent audit,
+> nothing is promoted beyond the status recorded in `docs/proof-graph.yaml`,
+> and no priority, prize or publication claim is made. **The arbitrary-data
+> theorem (alternative A) is not proved, and no unforced counterexample is
+> constructed.** Licences: Apache-2.0 for code, CC BY 4.0 for prose
+> (`LICENSE`). Companion Lean repository: `itpplasma/navier-formal` (public).
+> The manuscript repository `navier-paper` stays private for now.
+
 Private research on the original three-dimensional incompressible
 Navier--Stokes problem. **The arbitrary-data theorem is not proved.**
 
@@ -51,13 +63,43 @@ current task queue.
 
 `itpplasma/navier` owns research, contracts, evidence and claim status.
 `itpplasma/navier-paper` owns manuscripts and generated paper maps;
-`itpplasma/navier-formal` owns Lean and formal coverage. This programme update
-changes only the research repository. Existing Phase I/II status is unchanged.
+`itpplasma/navier-formal` owns Lean and formal coverage. Existing Phase I/II status is unchanged.
 No new paper theorem, Lean proof, priority result or independent audit is claimed.
 
 On a full checkout, run `python3 research/verify.py --research-only` and
 `git diff --check`. The default verifier additionally requires the paper and
 formal checkouts. These are integrity checks, not mathematical certification.
-Keep all repositories private, preserve concurrent work and use non-force
-updates; unsigned commits are authorized. No release, submission, outside
+Preserve concurrent work and use non-force updates; unsigned commits are
+authorized; `navier` and `navier-formal` are public since 2026-09-08. No release, submission, outside
 contact or recreation of the deleted Overleaf project is authorized.
+
+## Blockers for anyone continuing this work (2026-09-08)
+
+Read `PLAN.md` Sections 1, 1a, 1b, 3, 4 and 8 first. The concrete walls are:
+
+1. **The critical estimate.** The positive route is fully reduced (paper and
+   Lean) to one finite-horizon `L³` bound for arbitrary Schwartz data,
+   `hyp:critical` (equivalently the signed high-frequency pressure or
+   high-strain hypotheses). No producer exists. Any candidate must use
+   unforcedness in an essential way: an argument that survives a smooth
+   compactly supported force from zero datum is refuted by OpenAI's theorem
+   (`research/evidence/2026-09-08-forced-insensitivity-falsifier.md`).
+2. **Free-trace realization of the pulse family.** On the negative route,
+   removing OpenAI's force from its concentrating architecture is excluded
+   for every relabelling shortcut (compact support, exact patches, exact
+   label separation, trapped preload; `PLAN.md` Section 1b) but not for an
+   overlapping, continuously preloaded cascade. The first missing theorem is
+   one Schwartz datum realizing all pulse traces with exponentially small,
+   sign-controlled overlap seeding (Theorem C of
+   `research/evidence/2026-09-08-forced-type-rigidity.md`); energy identities
+   cannot decide it, so a sign or realizability argument is needed.
+3. **Independent audits.** Every 2026-09-08 note except
+   `2026-09-08-obstruction-audit.md` is an author proof with audit pending;
+   the audit itself asks for two hypothesis repairs in the analyticity lemma.
+4. **Verifier.** `python3 research/verify.py --research-only` passes on this
+   checkout; the full three-repository mode needs the private manuscript
+   checkout and currently fails on a pre-existing manuscript label
+   (`dc:l9`), unrelated to the public content.
+5. **Formal residuals** are listed in the README of `itpplasma/navier-formal`
+   (Hessian--Laplacian identity, endpoint hypotheses, difference-quotient
+   limit, Leray--Hopf class, local theory Phase II).

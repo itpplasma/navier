@@ -10,11 +10,11 @@ repair round.
 
 | Item | Value |
 | --- | --- |
-| Candidate file | `/home/ert/proj/navier/research/evidence/cp02-quotient-evolution.md` |
+| Candidate file | `../navier/research/evidence/cp02-quotient-evolution.md` |
 | `sha256sum` | `799b3590e6163e0ebfb8cf15cd2ba9a8a297ffc7f116899a9a263b6307c5b46a` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
+| `git -C ../navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
 | Candidate length | 1501 lines; LaTeX block 1179 lines (extracted verbatim) |
-| Manuscript | `/home/ert/proj/navier-paper/main.tex`, 562 lines, read in full |
+| Manuscript | `../navier-paper/main.tex`, 562 lines, read in full |
 | Round-1 audit | `cp02-review-quotient-evolution.md`, 593 lines, read in full |
 | Sibling lanes read at source | `cp02-quotient-functional.md` (all cited labels and sub-item letters), `cp02-lowpressure.md` (`def:lp`, `eq:lp-symbol`, `lem:lp-coincide`, `lem:lowpass-kernel`, `lem:bernstein`), `cp02-local-theory.md` (`prop:localtheory`, `lem:sobolev-norms`, `lem:embedding`), `cp01-manuscript-obligations.md` §1.14, `cp01-literature-statements.md` §1.4/§6 |
 | Independent compile | block extracted, spliced under a stub preamble written here (six theorem environments, `\R`, `\norm`, 26 label stubs), `latexmk -pdf` twice: exit 0, **0** undefined references, **0** overfull boxes |

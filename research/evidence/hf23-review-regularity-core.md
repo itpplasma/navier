@@ -19,7 +19,7 @@ are **not** audited here.
 | research HEAD at audit time | `928713dcc012adbbea279d681d5298d5a887fcfb` |
 | target | `research/evidence/hf23-divcurl-continuation.tex`, 1129 lines, sha256 `abe74421ef6a8a7bacc108c0c08834e32f2a6116530fceb00368c8e67b129075` |
 | index note | `research/evidence/hf23-divcurl-continuation.md` |
-| manuscript compared | `/home/ert/proj/navier-paper/main.tex` at `4084330f6b8130241c7afbde3878861229c4cceb`, `sec:quotient` |
+| manuscript compared | `../navier-paper/main.tex` at `4084330f6b8130241c7afbde3878861229c4cceb`, `sec:quotient` |
 | audited inputs consulted | `hf18-divergence-speed-link.md`, `hf21-shifted-hodge-regularity.md` |
 
 The candidate's own pinned revisions (`1014e7e`, `39ccb66`, `54f8e89`) are

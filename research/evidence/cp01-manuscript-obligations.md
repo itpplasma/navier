@@ -6,11 +6,11 @@ formalization. Date: 2026-09-05.
 
 Reviewed inputs (all directly inspected unless marked):
 
-- Manuscript `/home/ert/proj/navier-paper/main.tex` at HEAD `1ad73c2` (562
+- Manuscript `../navier-paper/main.tex` at HEAD `1ad73c2` (562
   lines, read in full). The graph's recorded `manuscript_commit: d84950b…`
   resolves as a commit object in that repository but is not HEAD; the
   quotient section postdates it.
-- `/home/ert/proj/navier/PLAN.md` (the CP1 definition and wave table were
+- `../navier/PLAN.md` (the CP1 definition and wave table were
   updated on disk during this audit; the version with `checkpoint: CP1` and
   the CP01–CP07 wave table is the one compared against),
   `docs/proof-graph.yaml`, `docs/proof.md`.
@@ -40,7 +40,7 @@ Reviewed inputs (all directly inspected unless marked):
   - Fefferman's Clay statement: **metadata-only here** (not reopened in this
     audit); the exact text is taken from `literature/foundations.md`, which
     records direct inspection of PDF pages 63–64 of the Clay volume.
-- Mathlib: local checkout `/home/ert/proj/stafford38/.lake/packages/mathlib`
+- Mathlib: local checkout `../stafford38/.lake/packages/mathlib`
   at `0df444a` (2026-08-21, toolchain `leanprover/lean4:v4.33.1`), grepped
   only, not built. Coverage statements below are grep-level, not
   type-checked.

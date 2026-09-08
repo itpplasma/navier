@@ -1,7 +1,7 @@
 # CP02 review: over-claim and citation audit of `subsec:related`
 
 Status: independent review, 2026-09-05 (Europe/Vienna).
-Object: the working-tree state of `/home/ert/proj/navier-paper/main.tex` and
+Object: the working-tree state of `../navier-paper/main.tex` and
 `references.bib` (uncommitted, diffed against git HEAD `b0cebe3` /
 `46541ba`), specifically the new `\subsection{Related work and the scope of
 what is new}` (`subsec:related`, lines 110--206), the abstract (lines

@@ -9,8 +9,8 @@ manuscript is untouched.
 `sha256 = 0221d30c8bbe5620f86b6226 …` (full:
 `827d1c5116a0c4070adca5013ae4333852cb61580221d30c8bbe5620f86b6226`), 646 lines.
 Repository HEAD at audit time: `e36fec455e970a004519e5c91b856a3e1bba28bc`
-(`/home/ert/proj/navier`, branch `main`, clean). Manuscript frozen at
-`/home/ert/proj/navier-paper` HEAD `4084330f6b8130241c7afbde3878861229c4cceb`.
+(`../navier`, branch `main`, clean). Manuscript frozen at
+`../navier-paper` HEAD `4084330f6b8130241c7afbde3878861229c4cceb`.
 
 **Sources directly inspected [DI].** The target in full; `PLAN.md` lines
 1006–1050 and 1124–1211; `../navier-paper/main.tex` §`sec:quotient` and the

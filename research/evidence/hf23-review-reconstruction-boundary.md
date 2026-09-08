@@ -16,7 +16,7 @@ and marks the conclusion conditional.
 | research HEAD when this note was written | `e36fec455e970a004519e5c91b856a3e1bba28bc` (the controller committed the HF22 wave during this audit; it touches nothing in Scope B and the target file's hash is unchanged) |
 | target | `research/evidence/hf23-divcurl-continuation.tex`, sha256 `abe74421ef6a8a7bacc108c0c08834e32f2a6116530fceb00368c8e67b129075` (1129 lines, read in full) |
 | index note | `research/evidence/hf23-divcurl-continuation.md` |
-| manuscript | `/home/ert/proj/navier-paper/main.tex` at `4084330f6b8130241c7afbde3878861229c4cceb` |
+| manuscript | `../navier-paper/main.tex` at `4084330f6b8130241c7afbde3878861229c4cceb` |
 | manuscript revision the candidate pins | `39ccb664bf055fac94b3cfac97bf00a60191373d` |
 | research revision the candidate pins | `1014e7e3c33af4a341a5f46156a22b808170257b` |
 | audited HF20 record | `research/evidence/hf20-harmonic-strain-test.md` (post-repair) and `hf20-review-harmonic-strain-test.md` |

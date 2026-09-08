@@ -758,7 +758,7 @@ this audit does not perform them):
   rank-stratified Lemma R1, since the analytic-continuation step covers only
   `rank L = 3`.
 
-**B. To `/home/ert/proj/navier-paper/main.tex`** — one edit only, and it is a citation
+**B. To `../navier-paper/main.tex`** — one edit only, and it is a citation
 correction, not a new result:
 
 - B1. In `rem:quotient-related` (line ≈4856), after the Sibner–Sibner / Scott /

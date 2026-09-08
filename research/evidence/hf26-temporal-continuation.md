@@ -7,7 +7,7 @@ return.
 Provenance. A third LaTeX continuation arrived on the work capture surface,
 1432 lines, dropped 2026-09-06 10:55. The source is committed verbatim beside
 this note as `hf26-temporal-continuation.tex`; the original is filed at
-`~/Nextcloud/navier/navier-temporal-continuation-2026-09-06.tex`. Both are
+`<work vault, not in this repository>/navier-temporal-continuation-2026-09-06.tex`. Both are
 frozen by SHA-256
 `24b538280c8639b81a1f6f86d4c72370362625ca8a52d1d81a99b29236a540ab`.
 

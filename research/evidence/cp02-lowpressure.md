@@ -5,7 +5,7 @@ paper proof, every step written, every external fact with a primary source
 and a [DI]/[MO] label. Nothing here proves or approaches HIGH-PRESSURE,
 HIGH-STRAIN, CRITICAL, ABSORPTION, or NS-R3.
 
-Inputs read in full: `/home/ert/proj/navier-paper/main.tex` (562 lines),
+Inputs read in full: `../navier-paper/main.tex` (562 lines),
 `research/evidence/cp01-manuscript-obligations.md`,
 `research/evidence/cp01-literature-statements.md`. Consulted for label
 consistency: `cp01-quotient-section-structure.md` (its `lem:lowpass`,

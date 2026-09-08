@@ -7,7 +7,7 @@ return.
 Provenance. A fifth LaTeX continuation arrived on the work capture surface,
 1078 lines, dropped 2026-09-06 12:26. The source is committed verbatim beside
 this note as `hf28-weighted-spectral-continuation.tex`; the original is filed at
-`~/Nextcloud/navier/navier-weighted-spectral-continuation-2026-09-06.tex`. Both
+`<work vault, not in this repository>/navier-weighted-spectral-continuation-2026-09-06.tex`. Both
 are frozen by SHA-256
 `80c6b1339704261d5540ce9620e5799f0e9c9ea7c78cd1af412d075ea8699055`.
 

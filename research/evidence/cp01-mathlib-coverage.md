@@ -13,7 +13,7 @@ HF17 quotient-functional results of `sec:quotient`), **what already exists in
 Mathlib at tag `v4.33.1`, under what exact hypotheses, and what must be
 formalized from scratch.**
 
-- Checkout inspected: `/home/ert/proj/stafford38/.lake/packages/mathlib`,
+- Checkout inspected: `../stafford38/.lake/packages/mathlib`,
   `git describe`/`git log -1` → commit `0df444a360eaa60ab8c11dca51a86af692955474`,
   tag `v4.33.1`, `origin/stable`, dated 2026-08-21 12:04:53 +0000.
   `lean-toolchain` = `leanprover/lean4:v4.33.1`. **Directly inspected** by
@@ -21,10 +21,10 @@ formalized from scratch.**
   so every "available" claim below is a claim about *source text of a
   declaration*, not about a successfully type-checked application to CP1's
   concrete instantiation.
-- Manuscript read in full: `/home/ert/proj/navier-paper/main.tex` (562 lines),
+- Manuscript read in full: `../navier-paper/main.tex` (562 lines),
   **directly inspected**. `PLAN.md` frontier packet **directly inspected**.
 - All file paths below are relative to
-  `/home/ert/proj/stafford38/.lake/packages/mathlib/Mathlib/`.
+  `../stafford38/.lake/packages/mathlib/Mathlib/`.
   Line numbers are from this checkout.
 
 **Disposal classes used.**

@@ -6,9 +6,9 @@ VERDICT: **REPAIR**
 
 Candidate `research/evidence/hf19-temporal-normal-form.md`, frozen at SHA-256
 `17730f1b39509bd25a61625f8eaf6bbbe35b8c3c3bab1642a3aa4ac4c20e9197`
-(593 lines), repository `/home/ert/proj/navier` at
+(593 lines), repository `../navier` at
 `git rev-parse HEAD = 1014e7e3c33af4a341a5f46156a22b808170257b`.
-Manuscript `/home/ert/proj/navier-paper/main.tex` at `39ccb66` (verified by
+Manuscript `../navier-paper/main.tex` at `39ccb66` (verified by
 `git log --oneline -1`), section `sec:quotient`.
 
 Everything in the note was reconstructed from its first nontrivial

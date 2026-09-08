@@ -520,7 +520,7 @@ companion file is missing.
 | factor-of-two margin at `H_E` | **reproduces**: `E_0·E_0/(2 nu H_E) = nu^4/(32S^6)`, exactly half the `nu^4/(16S^6)` threshold |
 | cap's energy/enstrophy differentiation | **reproduces** (§3c above) |
 | powers in `thm:weightedF` (not listed but implied) | **reproduce**: I re-derived `eq:weightedF` and `U_N` end to end and got the displayed constants `4S^2 nu Y_0 Φ/N` and `3^{-2/3}(κ_0/N)e^{βa}[S+16S^2Φ]` exactly |
-| `check_weighted_spectral.py` | **DOES NOT EXIST.** Not in the repository (`find` over the whole tree), and not beside the original drop in `~/Nextcloud/navier/` (which holds only `.tex`/`.pdf`). The randomized two-point natural-distance sample is therefore **unreproducible as delivered**. (R10) |
+| `check_weighted_spectral.py` | **DOES NOT EXIST.** Not in the repository (`find` over the whole tree), and not beside the original drop in `<work vault, not in this repository>/` (which holds only `.tex`/`.pdf`). The randomized two-point natural-distance sample is therefore **unreproducible as delivered**. (R10) |
 
 ---
 

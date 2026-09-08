@@ -14,10 +14,10 @@ obstruction" (`sec:budgets`), and the conditional completion section
 |---|---|
 | Audit target | `research/evidence/hf25-beyond-hf21-continuation.tex` |
 | Target SHA-256 | `3ce562bb59346fc700c522bf5e857e3500b318e283febed0c9db9b7f652c6d4f` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `a3e85f2d75fb01f1421e95f51ec6f8eedab0ec50` |
-| Manuscript | `/home/ert/proj/navier-paper/main.tex` at `34cdffd2fe2bd8a35068e96f907302e00c10850f` |
+| `git -C ../navier rev-parse HEAD` | `a3e85f2d75fb01f1421e95f51ec6f8eedab0ec50` |
+| Manuscript | `../navier-paper/main.tex` at `34cdffd2fe2bd8a35068e96f907302e00c10850f` |
 | Cross-check artifact | `research/evidence/hf23-divcurl-continuation.tex`, SHA-256 `abe74421ef6a8a7bacc108c0c08834e32f2a6116530fceb00368c8e67b129075` |
-| Source drop | `~/Nextcloud/navier/navier-hf21-proof-continuation-2026-09-06.tex` (same hash as target) |
+| Source drop | `<work vault, not in this repository>/navier-hf21-proof-continuation-2026-09-06.tex` (same hash as target) |
 | Audit date | 2026-09-06 |
 
 Nothing outside this file was edited. No commit, no push. The candidate,
@@ -89,7 +89,7 @@ phrase is correct, so the plan edit is a clarification, not a correction.
 - HF25 cites the attachment as a *23-page PDF* named
   `navier-divcurl-proof-continuation-2026-09-06.pdf`. Our repository holds the
   *LaTeX source* `navier-divcurl-proof-continuation-2026-09-06.tex`
-  (`~/Nextcloud/navier/`, byte-identical to
+  (`<work vault, not in this repository>/`, byte-identical to
   `research/evidence/hf23-divcurl-continuation.tex`). Two different files of the
   same document necessarily have different hashes. The PDF was never delivered
   here, so its hash cannot be reproduced.

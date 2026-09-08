@@ -10,7 +10,7 @@ with `hf17-review-quotient-evolution.md` (PASS), obligations Q-8 .. Q-18 of
 `cp01-manuscript-obligations.md` §1.14, the source record
 `cp01-literature-statements.md`, and the audit
 `cp02-review-quotient-evolution.md` (read in full). Manuscript read in full
-(`/home/ert/proj/navier-paper/main.tex`, 562 lines). Sibling lanes read for the
+(`../navier-paper/main.tex`, 562 lines). Sibling lanes read for the
 interface: `cp02-quotient-functional.md` (labels and sub-item letters checked
 at the source), `cp02-lowpressure.md` (`def:lp`, `eq:lp-symbol`,
 `lem:lp-coincide`, `lem:lowpass-kernel`, `lem:bernstein` read).
@@ -1324,7 +1324,7 @@ Legend as in `cp01-literature-statements.md` §0: [DI] directly inspected
 (primary text opened and the statement read, in this session or in the
 cited CP01/CP02 record); [MO] metadata or secondary record only. Mathlib
 references are to the local checkout
-`/home/ert/proj/stafford38/.lake/packages/mathlib` at `0df444a` (grep and
+`../stafford38/.lake/packages/mathlib` at `0df444a` (grep and
 statement read; not built; every line reference re-opened by the audit).
 Textbook page images were read in this session from the PDF mirrors named
 in the audit (`math.stonybrook.edu/~bishop/classes/math638.F20/` for

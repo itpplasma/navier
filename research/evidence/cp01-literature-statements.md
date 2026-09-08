@@ -7,9 +7,9 @@ than to a paraphrase. Nothing here proves, weakens, or strengthens any project
 claim. NS-R3 remains open; HIGH-PRESSURE and HIGH-STRAIN remain open.
 
 Audit date: 5 September 2026. Files consulted locally:
-`/home/ert/proj/navier-paper/main.tex`, `/home/ert/proj/navier/PLAN.md`,
-`/home/ert/proj/navier/literature/{foundations,critical-criteria}.md`,
-Mathlib checkout `/home/ert/proj/stafford38/.lake/packages/mathlib`.
+`../navier-paper/main.tex`, `../navier/PLAN.md`,
+`../navier/literature/{foundations,critical-criteria}.md`,
+Mathlib checkout `../stafford38/.lake/packages/mathlib`.
 
 ## 0. Legend and method
 
@@ -645,7 +645,7 @@ Exactness notes.
 ## 6. Standard analysis facts: exact statement, source, and Mathlib status
 
 Legend for the last column, checked against the local Mathlib checkout at
-`/home/ert/proj/stafford38/.lake/packages/mathlib` (grep only, no build):
+`../stafford38/.lake/packages/mathlib` (grep only, no build):
 **present** = a usable statement exists; **partial** = a nearby statement exists
 but not the one needed; **absent** = no such development.
 

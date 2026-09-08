@@ -9,7 +9,7 @@ wave-HF19 lane "shifted-hodge-regularity" of the Track B frontier packet.
 | --- | --- |
 | Audit target | `research/evidence/hf19-shifted-hodge-regularity.md` |
 | SHA-256 of target | **undefined — the file does not exist** |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `5aefa82b99ac194c9f979ec96834042ae5a201d3` |
+| `git -C ../navier rev-parse HEAD` | `5aefa82b99ac194c9f979ec96834042ae5a201d3` |
 | Working tree at audit time | clean except three untracked HF19 lane notes (below) |
 | Author summary supplied to this audit | `null` |
 
@@ -27,9 +27,9 @@ shifted-Hodge-regularity candidate:
 1. `ls research/evidence/ | grep -i hf19` → exactly three files:
    `hf19-difference-functional.md`, `hf19-temporal-normal-form.md`,
    `hf19-second-order-falsifier.md`.
-2. `find /home/ert/proj/navier -iname '*hf19*' -not -path '*/.git/*'` → the same
+2. `find ../navier -iname '*hf19*' -not -path '*/.git/*'` → the same
    three files.
-3. `find /home/ert -maxdepth 6 -iname '*shifted*hodge*'` → empty.
+3. `find ~ -maxdepth 6 -iname '*shifted*hodge*'` → empty.
 4. `git log --oneline --all -- 'research/evidence/*hf19*'` → empty (no HF19 file
    has ever been committed on any ref).
 5. `git ls-files | grep -i hf19` → empty.

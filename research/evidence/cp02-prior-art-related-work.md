@@ -6,7 +6,7 @@ Scope: every external work named in
 audit; its `citeturn…` / `fileciteturn…` markers are artifacts of the tool
 that produced it and carry no evidential weight), checked against the primary
 text or the official abstract page, and compared with the objects the
-manuscript `/home/ert/proj/navier-paper/main.tex` actually fixes.
+manuscript `../navier-paper/main.tex` actually fixes.
 
 MODE: SOURCE AUDIT.  No mathematical claim of the programme is proved,
 strengthened or weakened here.  **No novelty is claimed anywhere in this
@@ -592,7 +592,7 @@ is in physical space" without changing any claim.
 Verified entries follow.  Provenance is stated per entry.  `Kato1990`,
 `MannaSritharan2007`, `SibnerSibner1970`, `Scott1995` and
 `IwaniecScottStroffolini1999` are **already present in
-`/home/ert/proj/navier-paper/references.bib`**; their fields were re-checked
+`../navier-paper/references.bib`**; their fields were re-checked
 against Crossref in this lane and are correct as written, with two optional
 additions noted.  `Cox2025` is **not supplied**: see §1.8.
 

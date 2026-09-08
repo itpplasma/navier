@@ -183,7 +183,7 @@ quoted verbatim from printed p.1.
 
 The same class is the Lean predicate `CandidateProperties` of
 `openai/NavierStokesAndEuler@8937a8f4`, audited in
-`/home/ert/proj/navier-formal/docs/external-openai-audit.md` Sections 1.2 and
+`../navier-formal/docs/external-openai-audit.md` Sections 1.2 and
 3.1. Its fields, at `NavierStokes/R3/ProblemStatement.lean:90-111`, are
 `velocity_smooth`, `pressure_smooth`, `support_compact : IsCompact K`,
 `velocity_support : ∀ t ∈ Ico 0 1, tsupport (fun x => u (t,x)) ⊆ K`,
@@ -674,7 +674,7 @@ audit of [OA] and no third-party PDF is stored in this repository.
 `NavierStokes/R3/ProblemStatement.lean` lines 60-175 (`CandidateProperties`,
 `GlobalFiniteEnergySolution`, `candidateStatement`, `coreBreakdownStatement`,
 `breakdownStatement`). Prior statement-faithfulness analysis:
-`/home/ert/proj/navier-formal/docs/external-openai-audit.md` Sections 1.1,
+`../navier-formal/docs/external-openai-audit.md` Sections 1.1,
 1.2, 3.1, including the finding recorded there that `breakdownStatement` and
 `coreBreakdownStatement` are never proved in that repository and that the
 exported Comparator theorems are the weaker existential form. Nothing here

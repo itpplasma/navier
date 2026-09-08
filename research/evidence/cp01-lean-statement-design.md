@@ -16,9 +16,9 @@ elaborated.
 
 Inputs, all directly inspected on this machine unless marked:
 
-- `/home/ert/proj/navier-paper/main.tex` (562 lines, read in full; HEAD
+- `../navier-paper/main.tex` (562 lines, read in full; HEAD
   contains `sec:quotient`).
-- `/home/ert/proj/navier/PLAN.md` (CP1 definition, gates 1–3, wave table),
+- `../navier/PLAN.md` (CP1 definition, gates 1–3, wave table),
   `docs/proof-graph.yaml`, `docs/proof.md`.
 - `research/evidence/cp01-mathlib-coverage.md` (Mathlib survey, the prescribed
   input), `cp01-manuscript-obligations.md` (obligation IDs L-1, C-0, C-2, C-3,
@@ -28,11 +28,11 @@ Inputs, all directly inspected on this machine unless marked:
   `hf17-review-quotient-functional.md`, `hf17-quotient-evolution.md`,
   `hf17-review-quotient-evolution.md`.
 - `literature/foundations.md`, `literature/critical-criteria.md`.
-- Sibling conventions: `/home/ert/proj/stafford38/{AGENTS.md,PLAN.md,
+- Sibling conventions: `../stafford38/{AGENTS.md,PLAN.md,
   lakefile.toml,Stafford38.lean,Stafford38/Statement.lean,
   Stafford38/PaperInputs.lean,Stafford38/PaperAxioms.lean,
   docs/literature-assumptions.yaml,docs/paper-lean-specification.md}`.
-- Mathlib at `/home/ert/proj/stafford38/.lake/packages/mathlib`, tag
+- Mathlib at `../stafford38/.lake/packages/mathlib`, tag
   `v4.33.1`, commit `0df444a360eaa60ab8c11dca51a86af692955474`, toolchain
   `leanprover/lean4:v4.33.1`. Declarations cited below were located by
   `grep`/`sed` at the stated `file:line`; none was type-checked.
@@ -686,7 +686,7 @@ Phase-II theorem after Phase II.
 
 ---
 
-## 5. Module plan for `/home/ert/proj/navier-formal`
+## 5. Module plan for `../navier-formal`
 
 Mirrors the sibling: repository root is the Lake project; default library
 `NavierFormal` with root `NavierFormal.lean` importing every default module;

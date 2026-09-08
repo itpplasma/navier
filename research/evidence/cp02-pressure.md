@@ -4,14 +4,14 @@ MODE: PROOF WRITING, round 2 (repair after `cp02-review-pressure.md`).
 Date: 2026-09-05. Owner file: this one. Nothing else was edited; nothing
 pushed.
 
-Inputs read in full: `/home/ert/proj/navier-paper/main.tex` (562 lines),
-`/home/ert/proj/navier-paper/references.bib`,
+Inputs read in full: `../navier-paper/main.tex` (562 lines),
+`../navier-paper/references.bib`,
 `research/evidence/cp01-manuscript-obligations.md`,
 `research/evidence/cp01-literature-statements.md`,
 `research/evidence/cp02-review-pressure.md` (the round-1 audit, verdict
 REPAIR), the Conventions/regularity block of the sibling lane
 `research/evidence/cp02-energy-enstrophy.md` (interface only), and
-`/home/ert/proj/navier-formal/NavierFormal/Regularization.lean` (header and
+`../navier-formal/NavierFormal/Regularization.lean` (header and
 the five lemmas named in Remark `rem:lean-majorant`). Primary source
 re-opened **in this lane**: Tao, *Analysis & PDE* 6 (2013) 25–107, publisher
 PDF (`msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf`), printed pages 26–28 and
@@ -877,10 +877,10 @@ F-1's obligation).
 | 8 | Dominated convergence theorem; Tonelli's and Fubini's theorems on `[s,t]×R^3` | Rudin, *Real and Complex Analysis*, 3rd ed., Ch. 1 and Ch. 8 | **[MO]** (chapter-level) |
 | 9 | Hölder's inequality `∫|fg| ≤ ‖f‖_r‖g‖_{r'}` on `L^p(R^3)`; Cauchy–Schwarz as the case `r=2` | Rudin, *RCA*, Ch. 3; also `cp01-literature-statements` §6 S10 (Mathlib `eLpNorm_smul_le_mul_eLpNorm`) | **[MO]** for Rudin; **[DI]** for the Mathlib statement in the CP01 record |
 | 10 | Mean value theorem; fundamental theorem of calculus for `C^1` functions on `[a,b]` | Rudin, *Principles of Mathematical Analysis*, 3rd ed., Ch. 5 and Ch. 6 | **[MO]** (chapter-level) |
-| 11 | `|H_ε(a)| ≤ 2(|a|²+|a|³)` for `0 ≤ ε ≤ 1` (cited only as a remark; proved on paper in `lem:reg-calculus`(ii)); plus `rEps_le_norm_add_sqrt`, `HEps_le_norm_sq_mul_rEps`, `tendsto_HEps`, `hasFDerivAt_HEps`, stated "for a general real inner product space `E`" | `/home/ert/proj/navier-formal/NavierFormal/Regularization.lean` (module header; lemmas at lines 94, 141, 177, 202, 260) | **[DI]** (file read) |
-| 12 | Verbatim `hyp:absorption` (`eq:absorption`, quantified over `0<τ<min{H,T_*}`), `hyp:critical` (`eq:missing`), the `M` formula, `L_J`/`Q_J` | `/home/ert/proj/navier-paper/main.tex` lines 199–353, 393–409 | **[DI]** |
+| 11 | `|H_ε(a)| ≤ 2(|a|²+|a|³)` for `0 ≤ ε ≤ 1` (cited only as a remark; proved on paper in `lem:reg-calculus`(ii)); plus `rEps_le_norm_add_sqrt`, `HEps_le_norm_sq_mul_rEps`, `tendsto_HEps`, `hasFDerivAt_HEps`, stated "for a general real inner product space `E`" | `../navier-formal/NavierFormal/Regularization.lean` (module header; lemmas at lines 94, 141, 177, 202, 260) | **[DI]** (file read) |
+| 12 | Verbatim `hyp:absorption` (`eq:absorption`, quantified over `0<τ<min{H,T_*}`), `hyp:critical` (`eq:missing`), the `M` formula, `L_J`/`Q_J` | `../navier-paper/main.tex` lines 199–353, 393–409 | **[DI]** |
 | 13 | `R_iR_j = ∂_i∂_j(−Δ)^{-1} = −Δ^{-1}∂_i∂_j`; identity of the manuscript's `p` with Tao's normalised pressure; no sign error | `cp01-literature-statements` §7.3 | **[DI]** there; re-derived in `lem:pressure-convention` |
-| 14 | `references.bib`: `Tao2013` is the APDE article, `pages = {25--107}`; printed pagination is therefore the one `\cite` must use | `/home/ert/proj/navier-paper/references.bib` | **[DI]** |
+| 14 | `references.bib`: `Tao2013` is the APDE article, `pages = {25--107}`; printed pagination is therefore the one `\cite` must use | `../navier-paper/references.bib` | **[DI]** |
 
 Elementary facts proved inline in the block (no source needed): the
 smoothness of `g(s) = e^{−1/s}` extended by `0` and the cutoff construction;

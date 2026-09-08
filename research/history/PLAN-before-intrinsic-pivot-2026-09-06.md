@@ -963,7 +963,7 @@ repository note, written against research `30d715d` and paper `39ccb66`. It
 is transcribed into `research/evidence/hf20-harmonic-strain-test.md`; the
 PDF is frozen by SHA-256
 `4be9a53b244ba385e7b1e18bf02bee9b10db44a4329438612742ac32b7e15009` at
-`~/Nextcloud/navier/navier-hf20-candidate-proof.pdf` and is not committed,
+`<work vault, not in this repository>/navier-hf20-candidate-proof.pdf` and is not committed,
 because generated PDFs stay out of the repository.
 
 It claims an analytic two-sign certificate for the transport term of the

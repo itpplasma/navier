@@ -7,7 +7,7 @@ returns.
 Provenance. A second LaTeX continuation arrived on the work capture surface,
 1293 lines, dropped 2026-09-06 10:14. The source is committed verbatim beside
 this note as `hf25-beyond-hf21-continuation.tex`; the original is filed at
-`~/Nextcloud/navier/navier-hf21-proof-continuation-2026-09-06.tex`. Both are
+`<work vault, not in this repository>/navier-hf21-proof-continuation-2026-09-06.tex`. Both are
 frozen by SHA-256
 `3ce562bb59346fc700c522bf5e857e3500b318e283febed0c9db9b7f652c6d4f`.
 

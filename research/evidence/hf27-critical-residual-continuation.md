@@ -7,7 +7,7 @@ return.
 Provenance. A fourth LaTeX continuation arrived on the work capture surface,
 996 lines, dropped 2026-09-06 11:49. The source is committed verbatim beside
 this note as `hf27-critical-residual-continuation.tex`; the original is filed at
-`~/Nextcloud/navier/navier-critical-residual-continuation-2026-09-06.tex`. Both
+`<work vault, not in this repository>/navier-critical-residual-continuation-2026-09-06.tex`. Both
 are frozen by SHA-256
 `3898e9a020d31c4fc58c9f1289ea4794ec9f787b885086e411b98b0cb1f97488`.
 

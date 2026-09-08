@@ -69,7 +69,10 @@ preserve concurrent edits; update only explicit paths; no force pushes.
 Unsigned commits are authorized. Store source metadata and original notes,
 not third-party PDFs, generated binaries, build products, caches or credentials.
 The owner did not authorize publishing, submission, outside contact, added
-authorship or recreating the deleted Overleaf project. Keep all repos private.
+authorship or recreating the deleted Overleaf project. Since 2026-09-08 the
+`navier` and `navier-formal` repositories are public (Apache-2.0 code, CC BY
+4.0 prose); `navier-paper` stays private. Publicity is not submission,
+registration or outside contact.
 
 Run `python3 research/verify.py --research-only` and `git diff --check` on a
 full research checkout. Default verification also requires paper/formal

@@ -7,11 +7,11 @@ only; nothing else was edited and nothing was pushed.
 
 | item | value |
 |---|---|
-| candidate file | `/home/ert/proj/navier/research/evidence/cp02-energy-enstrophy.md` |
+| candidate file | `../navier/research/evidence/cp02-energy-enstrophy.md` |
 | sha256 | `1fa71d15cac3870da924616c351d2848a7411ff309f4bcc95b3aabc16f2efb20` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `f20e6bf579f74c3fef4e365fa5267929667f1228` |
-| manuscript audited against | `/home/ert/proj/navier-paper/main.tex` (read in full) |
-| Mathlib checkout | `/home/ert/proj/stafford38/.lake/packages/mathlib`, `git rev-parse --short HEAD` = `0df444a360` |
+| `git -C ../navier rev-parse HEAD` | `f20e6bf579f74c3fef4e365fa5267929667f1228` |
+| manuscript audited against | `../navier-paper/main.tex` (read in full) |
+| Mathlib checkout | `../stafford38/.lake/packages/mathlib`, `git rev-parse --short HEAD` = `0df444a360` |
 | navier-formal | HEAD now `e9519e9`; candidate records `9c8b37d` (its parent) |
 | Grafakos PDF read | `scratchpad/graf.pdf` (3rd ed., GTM 249) |
 | Tao PDF read | `scratchpad/tao/apde-full.pdf` (published APDE version) |

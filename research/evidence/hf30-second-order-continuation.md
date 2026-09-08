@@ -5,7 +5,7 @@ manuscript is read-only from today and is not touched.
 
 Provenance. A sixth LaTeX continuation, 1317 lines, dropped 2026-09-06 13:20.
 Committed verbatim as `hf30-second-order-continuation.tex`; original filed at
-`~/Nextcloud/navier/navier-second-order-continuation-2026-09-06.tex`. Frozen by
+`<work vault, not in this repository>/navier-second-order-continuation-2026-09-06.tex`. Frozen by
 SHA-256 `d9b92ed2eec83042fa26a869097748933e3753fb32efa35cb244f80b24a38668`.
 All three pinned revisions verify with `git rev-parse`; the manuscript pin is
 our own attribution commit from earlier today.

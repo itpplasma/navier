@@ -8,11 +8,11 @@ file, in `main.tex`, or in any other evidence file was edited.
 
 | item | value |
 |---|---|
-| audited file | `/home/ert/proj/navier/research/evidence/cp02-continuation.md` |
+| audited file | `../navier/research/evidence/cp02-continuation.md` |
 | sha256 | `c6c2717e4f2751863095531a768d70981933134cdd1f088347a3bd5503167a54` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
+| `git -C ../navier rev-parse HEAD` | `fc1ee2bcc7afbbef43bb41a9c5070009034e603f` |
 | candidate length | 1262 lines; LaTeX block extracted to 933 lines |
-| manuscript compared against | `/home/ert/proj/navier-paper/main.tex`, 562 lines, read in full |
+| manuscript compared against | `../navier-paper/main.tex`, 562 lines, read in full |
 | records read in full | `cp01-manuscript-obligations.md`, `cp01-literature-statements.md`, `cp02-review-continuation.md` (round 1) |
 | interfaces read | `cp02-local-theory.md` (`prop:localtheory`(i)–(vi), `cor:Lq`, `lem:sup-esssup`, `lem:global-smooth`, `lem:nu-scaling`, `eq:nu-map`), `cp02-energy-enstrophy.md` (`def:sobolev-constant`, `lem:sobolev`), `references.bib` |
 

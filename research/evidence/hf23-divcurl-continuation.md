@@ -13,7 +13,7 @@ Provenance. Arrived as a LaTeX source on the work capture surface, 1129 lines,
 dropped 2026-09-06 09:14. The source is committed verbatim beside this note as
 `hf23-divcurl-continuation.tex`, so no transcription step stands between the
 repository and the artifact; the original is filed at
-`~/Nextcloud/navier/navier-divcurl-proof-continuation-2026-09-06.tex`. Both are
+`<work vault, not in this repository>/navier-divcurl-proof-continuation-2026-09-06.tex`. Both are
 frozen by SHA-256
 `abe74421ef6a8a7bacc108c0c08834e32f2a6116530fceb00368c8e67b129075`.
 It states the revisions it was written against: research `1014e7e`, paper

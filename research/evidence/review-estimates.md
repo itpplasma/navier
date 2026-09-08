@@ -12,9 +12,9 @@ as the manuscript itself already does.
 
 The review used these immutable inputs:
 
-* paper repository `/home/ert/proj/navier-paper`, exact commit `d3b60b7`,
+* paper repository `../navier-paper`, exact commit `d3b60b7`,
   file `main.tex`;
-* evidence repository `/home/ert/proj/navier`, exact commit `f092178`, files
+* evidence repository `../navier`, exact commit `f092178`, files
   `research/evidence/enstrophy.md` and
   `research/evidence/compactness.md`.
 

@@ -8,11 +8,11 @@ NS-R3.
 
 | Item | Value |
 | --- | --- |
-| Candidate file | `/home/ert/proj/navier/research/evidence/cp02-lowpressure.md` |
+| Candidate file | `../navier/research/evidence/cp02-lowpressure.md` |
 | `sha256sum` | `17b31df58db461bab404ecf6a4fd236cb48331c26367614f06b956f0f7adcdf3` |
-| `git -C /home/ert/proj/navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
+| `git -C ../navier rev-parse HEAD` | `715ce84ec78d64c510e150360a354b5d55648b9c` |
 | Candidate length | 808 lines; LaTeX block 595 lines |
-| Manuscript read in full | `/home/ert/proj/navier-paper/main.tex` (562 lines) |
+| Manuscript read in full | `../navier-paper/main.tex` (562 lines) |
 | Records read in full | `cp01-manuscript-obligations.md`, `cp01-literature-statements.md` |
 
 The author's own summary was treated as untrusted and was not used as
