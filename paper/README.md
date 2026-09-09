@@ -21,7 +21,7 @@ From the repository root:
 
 ```sh
 # Debian/Ubuntu dependencies:
-sudo apt-get install latexmk texlive-latex-extra texlive-fonts-recommended texlive-science python3-yaml
+sudo apt-get install latexmk texlive-latex-extra texlive-fonts-recommended texlive-science lmodern python3-yaml
 make -C paper documents check
 python3 research/verify.py --paper-only
 ```

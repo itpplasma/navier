@@ -32,7 +32,7 @@ kinetic and microscopic specifications; it is not the canonical proof graph.
 ## Build the papers and check the repository
 
 On Debian/Ubuntu, install `latexmk`, `texlive-latex-extra`,
-`texlive-fonts-recommended`, `texlive-science` and `python3-yaml`. Then run:
+`texlive-fonts-recommended`, `texlive-science`, `lmodern` and `python3-yaml`. Then run:
 
 ```sh
 make -C paper documents check

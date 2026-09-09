@@ -29,6 +29,7 @@ phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
 paper_repo: integrated-in-navier-paper-directory
+legacy_paper_repo: archived-private-2026-09-09
 external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed

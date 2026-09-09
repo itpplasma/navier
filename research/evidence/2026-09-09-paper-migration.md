@@ -67,7 +67,14 @@ These checks establish source preservation, buildability and document/map
 consistency. They are not a new mathematical audit, Lean build, axiom report,
 proof of global regularity or construction of an unforced counterexample.
 
+The first GitHub document build exposed a missing `lmodern` font package in
+the minimal CI environment. The dependency list and installation step were
+corrected; this required no manuscript change.
+
 ## Archive completion
 
-Archival is performed after the public source push and recorded here once
-GitHub confirms the old repository's archived state.
+Public migration commit: `57accaa65a10f1957e81b21695364cebc9af1467`.
+GitHub served `paper/main.tex` from that public repository after the push.
+The old repository then received redirect commit `d6ac1a0`, and the GitHub
+API confirmed `archived: true`, `private: true` on 2026-09-09. New manuscript
+work belongs in `navier/paper/`.
