@@ -22,7 +22,7 @@ external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed
 complete_terminal_route: none-established
-active_task: UE1-common-trace-without-the-now-excluded-global-pressure-budget
+active_task: UE1-viscosity-specific-common-Cauchy-trace-inverse
 active_architecture: continuous-anisotropic-concentration-with-full-exterior
 primary_direction: unforced-blowup-exactification-with-regularity-fallback
 dominant_research_nut: common-trace-and-viscous-inverse-tolerating-unbounded-positive-pressure-curvature
@@ -61,7 +61,10 @@ obstruction_independent_audit: 2026-09-08-different-tier-confirmed-with-repairs-
 source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
 global_upper_pressure_budget_transfer: excluded-by-full-original-NS-continuation-author-proof
 positive_pressure_curvature_clock: complete-author-proof-independent-audit-pending
-run_status: full-PDE-pressure-budget-transfer-excluded-no-terminal-resolution
+full_viscous_displacement_action: exact-author-identity
+viscous_time_only_semiboundedness: equivalent-to-zero-finite-energy-background-author-proof
+critical_curvature_hardy_repair: interior-Euler-form-only-not-a-viscous-inverse
+run_status: pressure-budget-and-displacement-coercivity-transfers-excluded-no-terminal-resolution
 public_release: true
 repository_visibility: {navier: public, navier-formal: public, navier-paper: private}
 external_contributions: pull-requests-welcome-owner-review-required
@@ -133,6 +136,55 @@ It does not contradict the inviscid theorem: bounded velocity alone does
 not give Euler derivative continuation. Bounds on only one curve or a proper
 core are not global semiconcavity and are outside this exclusion.
 
+## 2a. Full viscous action: the next inverse shortcut is excluded
+
+Integration input: `69cc6a45cf27f14d7ef0961a03df5245c23cdbfb`.
+Evidence: `research/evidence/2026-09-09-viscous-packet-action.md`.
+Full proofs are already in `paper/sections/viscous_history.tex`, labels
+`va:identity`, `va:negative`, `va:classification`, and `va:hardy`.
+AUTHOR PROOFS; independent mathematical audit pending; novelty undetermined.
+Canonical graphs and formal status remain unchanged.
+
+For an ACTUAL unforced NS background put G=grad u, H=Hess p,
+D_t=partial_t+u.grad, w=D_t eta-G eta, and
+L_u w=P[D_t w+G w-nu Delta w]. The exact displacement operator is
+
+    L_u w=P[D_t^2 eta+H eta-nu Delta D_t eta
+                  +nu G Delta eta+2nu sum_j(partial_j G)partial_j eta].
+
+After the full solenoidal pairing, its negative quadratic form is the
+Euler-shaped form integral(|D_t eta|^2-eta.H eta) PLUS
+
+    nu integral[sum_j partial_j eta.G partial_j eta
+          -sum_jk G_kj partial_j eta.partial_k eta
+          -sum_j eta.(partial_j G)partial_j eta].
+
+The two leading spatial terms at grad eta=a tensor xi give
+|xi|^2 a.G a-|a|^2 xi.G xi, a strain eigenvalue DIFFERENCE of either sign.
+They are not nonnegative viscous dissipation. Pressure was not discarded.
+
+A complete continuum theorem classifies the failure: on any nonzero smooth
+finite-energy unforced NS background, there is NO finite lower bound for
+this form by -C(||eta||2^2+||D_t eta||2^2), even when C may depend on that
+entire background. On a short fixed interval, compact solenoidal material
+wave tests have ||D_t eta_N||2=1, Euler-shaped action >=1/2, and the full
+viscous action tends to minus infinity. The background can in particular be
+one arbitrarily small compact-datum, globally smooth R3 solution. All of its
+actual exterior is retained. Test displacements are not nonlinear NS flows.
+The only finite-energy background on which the stated semiboundedness holds
+is zero. Endpoint penalties do not help because the tests vanish near both
+endpoints. This does NOT make the parabolic Cauchy problem ill posed or
+exclude a different inverse or a justified restricted displacement space.
+
+The next constructive repair was tested too: the classical Hardy identity
+gives an interior Euler-shaped form bound (1-4c)||D_t eta||2^2 under
+H<=c/(T0-t)^2 I for c<1/4 and zero-endpoint tests. It tolerates a logarithmically
+divergent majorant curvature clock, but does not control the indefinite
+viscous terms above and is NOT a common free-trace NS inverse. Ordinary
+velocity-linearization energy instead retains signed strain, whose endpoint
+control on a concentrating common history is still missing. No critical
+producer, unforced singular solution or certified regenerative turnover follows.
+
 ## 3. ONE dominant nut: one common trace with a different viscous inverse
 
 Construct a specific continuously coupled concentrating history for original
@@ -164,7 +216,10 @@ UE1: prove common Cauchy-trace realization and an actual viscous history
 inverse, with endpoint-uniform estimates in spaces controlling the singular
 amplitude and all mean/exterior couplings. The inverse must use a coercivity
 mechanism compatible with Section 2: perhaps local/directional or weighted
-form control, NOT a uniform global upper-Hessian bound. The actual viscous
+form control, NOT a uniform global upper-Hessian bound. Section 2a additionally
+rules out unrestricted Euler-shaped time-only displacement coercivity on any
+nonzero finite-energy NS background. A new inverse must estimate its actual
+viscous spatial terms or prove an invariant admissible restriction. The actual viscous
 history and pressure equations must be derived. Formal backward heat is not
 an admissible initialization. Include damping over the ENTIRE prehistory.
 
@@ -249,6 +304,16 @@ for a broken system bibtex symlink. The final main PDF has resolved citations
 and references; its changed pages were rendered and inspected. No PDF, cache,
 font, shim or build product is committed. Exact and structural checks are not
 mathematical audits. Independent review of the new theorem remains pending.
+
+The displacement-action follow-up passes 27 new exact assertions and all 23
+`research/check_*.py` programs (the full phase-ring checker at order eight).
+Both verifier modes and whitespace checks pass on the complete checkout.
+`make -C paper documents check` and a forced main rebuild pass; the main PDF
+has 146 pages, with the new section on pages 139--143. All changed pages were
+rendered and inspected. An unsupported `mathscr` macro was corrected to
+`mathcal` before the successful rebuild. Section 8 below is preserved
+byte-for-byte from the integration base. These are author algebra/source/build
+checks, not independent audit or new Lean verification.
 
 Before each write refresh main, inspect concurrent changes and preserve them.
 Run applicable exact checks, `research/verify.py --research-only`,

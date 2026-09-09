@@ -319,3 +319,321 @@ remain undetermined. We have not bounded $A$ or the exponential-history
 integral from arbitrary initial data. Thus this is a complete
 construction-class obstruction and a conditional continuation estimate,
 not a positive producer for the original unrestricted problem.
+
+\subsection{The full viscous displacement action is not the Euler action}
+\label{va:section}
+
+\paragraph{Consumer and scope.}
+The pressure-curvature barrier has ruled out retaining the Euler construction's
+uniform global upper-Hessian budget in a singular viscous realization.
+A separate question remains: can the Euler displacement coercivity argument
+at least be transferred locally to Navier--Stokes? The following exact identity
+and full-flow counterexample answer negatively for the unrestricted displacement
+form. They do not exclude a viscosity-specific parabolic inverse or a more
+restricted admissible displacement space. All results below are author proofs;
+independent audit and priority remain undetermined.
+
+Write $G_{ij}=\partial_j u_i$, $H_p=D^2p$ and $D_t=\partial_t+u\cdot\nabla$
+on an actual smooth unforced NS solution at fixed $\nu>0$. The solenoidal
+linearized operator is
+\[
+ \mathcal L_u w=\mathbb P(D_t w+Gw-\nu\Delta w).
+\]
+For a smooth solenoidal displacement $\eta$ compactly supported in
+$(0,T)\times\R^3$, put $w=D_t\eta-G\eta$. This $w$ is solenoidal:
+the two gradient contractions in $\operatorname{div}(D_t\eta-G\eta)$ cancel.
+Define
+\[
+ \mathfrak q_\nu(\eta)=-\int_0^T\!\int_{\R^3}
+       \eta\cdot\mathcal L_u(D_t\eta-G\eta),\qquad
+ \mathfrak q_E(\eta)=\int_0^T\!\int_{\R^3}
+       (|D_t\eta|^2-\eta\cdot H_p\eta).
+\]
+The subscript $E$ identifies the Euler-shaped form, even when its coefficients
+come from an actual NS background. It is not a substitution of an Euler
+trajectory for that background.
+
+\begin{proposition}[Complete viscous displacement identity]
+\label{va:identity}
+With the definitions above,
+\begin{align}
+ \mathcal L_u(D_t\eta-G\eta)
+ =\mathbb P\bigg(&D_t^2\eta+H_p\eta-\nu\Delta D_t\eta
+       +\nu G\Delta\eta
+       +2\nu\sum_j(\partial_jG)\partial_j\eta\bigg),
+ \label{va:operator}
+\end{align}
+and
+\begin{align}
+ \mathfrak q_\nu(\eta)=\mathfrak q_E(\eta)+\nu\int_0^T\!\int_{\R^3}
+ \bigg(&\sum_j\partial_j\eta\cdot G\partial_j\eta
+ -\sum_{j,k}G_{kj}\partial_j\eta\cdot\partial_k\eta
+ -\sum_j\eta\cdot(\partial_jG)\partial_j\eta\bigg).
+ \label{va:action}
+\end{align}
+In particular the viscous correction has no automatic nonnegative sign.
+\end{proposition}
+\begin{proof}
+The gradient of the original equation gives
+$D_tG+G^2=\nu\Delta G-H_p$. Expanding $D_tw+Gw$ first produces
+$D_t^2\eta+(H_p-\nu\Delta G)\eta$. Expanding
+$-\nu\Delta(D_t\eta-G\eta)$ cancels the term
+$-\nu(\Delta G)\eta$ and gives \eqref{va:operator}.
+No pressure term was set to zero before this calculation.
+
+Since $\eta$ is solenoidal, the outer Leray projection disappears only
+in its $L^2$ pairing. Integration by parts in $D_t$ uses
+$\operatorname{div}u=0$ and the zero temporal boundary values. For the
+viscous part integrate first in space. The identity
+\[
+ \partial_jD_t\eta=D_t\partial_j\eta
+                      +\sum_kG_{kj}\partial_k\eta
+\]
+shows that $\int\eta\cdot\Delta D_t\eta$ contributes
+$-\int\sum_{j,k}G_{kj}\partial_j\eta\cdot\partial_k\eta$;
+its material time derivative integrates to zero. Integration of
+$-\int\eta\cdot G\Delta\eta$ gives
+$\int\sum_j[\partial_j\eta\cdot G\partial_j\eta+
+\eta\cdot(\partial_jG)\partial_j\eta]$.
+Combining the remaining factor $-2$ gives \eqref{va:action}.
+Compact support of the test field justifies all boundary removals.
+\end{proof}
+
+For a rank-one leading derivative $\nabla\eta=a\otimes\xi$, the principal
+viscous integrand in \eqref{va:action} is
+\begin{equation}\label{va:symbol}
+ |\xi|^2a\cdot G a-|a|^2\xi\cdot G\xi.
+\end{equation}
+Only the symmetric part of $G$ enters. For transverse unit vectors in two
+strain eigendirections it is their eigenvalue difference, not a nonnegative
+viscous energy. The following theorem realizes its negative sign around a
+\emph{finite-energy actual NS flow}; an infinite-energy affine solution is
+not used as the counterexample.
+
+\begin{theorem}[Failure of Euler-shaped coercivity in arbitrarily small flow]
+\label{va:negative}
+Fix $\nu>0$ and $\delta>0$. There exists a nonzero real solenoidal
+$d\in C_c^\infty(\R^3)^3$, with $\|d\|_{H^3}<\delta$, whose original
+unforced solution is globally smooth, and a fixed $T>0$, with the following
+properties. Its canonical pressure satisfies $H_p\le K I$ on $[0,T]$ for
+a finite $K$ with $KT^2/\pi^2\le1/2$. There are real solenoidal test fields
+$\eta_N\in C_c^\infty((0,T)\times\R^3)^3$ such that
+\[
+ \|D_t\eta_N\|_{L^2_{t,x}}=1,\qquad
+ \mathfrak q_E(\eta_N)\ge\tfrac12,\qquad
+ \mathfrak q_\nu(\eta_N)\longrightarrow-\infty.
+\]
+Thus neither a positive lower bound by the Euler-shaped action nor a finite
+lower bound depending only on $\|\eta\|_2$ and $\|D_t\eta\|_2$ holds for
+this unrestricted viscous displacement form on that one background.
+\end{theorem}
+\begin{proof}
+Let $G_0=\operatorname{diag}(-1,1,0)$ and choose a real smooth compactly
+supported cutoff $\theta$ equal to one on $B_2$. Set
+\[
+ d_\epsilon=\epsilon\,\nabla\times
+             \left[-\frac{\theta(x)}3\,x\times G_0x\right].
+\]
+The identity $\nabla\times(x\times G_0x)=-3G_0x$ implies
+$d_\epsilon=\epsilon G_0x$ on $B_2$. Its full global datum is solenoidal
+and compactly supported, not affine. Choose $\epsilon>0$ sufficiently small
+for the requested $H^3$ bound and the following elementary global bootstrap.
+Testing NS with $-\Delta u$ and using Sobolev and interpolation gives
+\[
+ |\langle(u\cdot\nabla)u,\Delta u\rangle|
+ \le c\|u\|_3\|\Delta u\|_2^2,\qquad
+ \|u\|_3\le c\|u\|_2^{1/2}\|\nabla u\|_2^{1/2}.
+\]
+For small enough $\epsilon$, energy and a continuity bootstrap make
+$c\|u\|_3<\nu/2$ and keep the enstrophy nonincreasing. The local $H^1$
+blowup alternative supplies global smoothness. This argument uses the fixed
+positive viscosity; its smallness threshold can depend on $\nu$.
+
+Let $X(t,a)$ be this actual solution's flow map, $F=D_aX$. On a sufficiently
+short interval all needed derivatives of $X,F,F^{-1},u,p$ are bounded,
+$\det F=1$, and $X(0,a)=a$. On $a\in B_1$ define
+\[
+ v(t,a)=F(t,a)e_1,\qquad \xi(t,a)=F(t,a)^{-T}e_2,
+\]
+and let $G$ in the next expression be evaluated at $(t,X(t,a))$.
+At $t=0$,
+\[
+ L(t,a):=|\xi|^2v\cdot Gv-|v|^2\xi\cdot G\xi=-2\epsilon.
+\]
+Uniform continuity permits choosing a fixed $T>0$, independent of $N$,
+so that $L\le-\epsilon$ on $[0,T]\times B_1$. Shrinking $T$ also ensures
+$KT^2/\pi^2\le1/2$, where $K$ is a common nonnegative upper bound for the
+actual pressure Hessian on this interval. Such a bound exists by local
+classical regularity, without prescribing the pressure.
+
+Choose nonzero real $\phi\in C_c^\infty(B_1)$ and
+$\chi\in C_c^\infty((0,T))$, and start with the exact solenoidal seed
+\[
+ z_N(a)=\nabla_a\times
+           \left[e_3\phi(a)\frac{\sin(Na_2)}N\right].
+\]
+Define the unnormalised test field by its entire transported value,
+\[
+ \widetilde\eta_N(t,X(t,a))=\chi(t)F(t,a)z_N(a).
+\]
+Pushforward by a volume-preserving diffeomorphism preserves divergence:
+for a scalar test $f$, changing variables gives
+$\int Fz_N\cdot\nabla_xf(X)\,da
+ =\int z_N\cdot\nabla_a(f\circ X)\,da=0$.
+Thus these are legitimate compactly supported solenoidal spacetime tests.
+They are not claimed to be independently evolving NS velocities.
+Since $D_t(Fz_N)=G Fz_N$, their $L^2$ and material-derivative $L^2$ norms
+are bounded independently of $N$. All derivatives of the actual background
+on the fixed transported support are bounded.
+
+Differentiating the complete seed, including its envelope corrections,
+gives uniformly on that support
+\[
+ \nabla_x\widetilde\eta_N
+ =-N\chi(t)\phi(a)\sin(Na_2)\,v(t,a)\otimes\xi(t,a)+O(1).
+\]
+The last term of \eqref{va:action}, which includes $\nabla G$, is $O(N)$
+after integration; so are cross terms with the $O(1)$ derivative remainder.
+The Euler-shaped action is $O(1)$. Volume preservation and the elementary
+oscillatory limit for $\sin^2(Na_2)$ now give the exact limiting sign
+\begin{equation}\label{va:limit}
+ \lim_{N\to\infty}N^{-2}\mathfrak q_\nu(\widetilde\eta_N)
+ =\frac\nu2\int_0^T\!\int_{B_1}\chi(t)^2\phi(a)^2 L(t,a)\,da\,dt<0.
+\end{equation}
+This limit follows by writing $\sin^2=(1-\cos(2Na_2))/2$ and integrating
+by parts against the fixed smooth compact coefficient. No Fourier mode of
+the background or test has been deleted.
+
+For every compact test, apply the one-dimensional Dirichlet Poincare
+inequality to $\eta(t,X(t,a))$ for each $a$, and use $\det F=1$:
+\[
+ \|\eta\|_2^2\le(T/\pi)^2\|D_t\eta\|_2^2,\qquad
+ \mathfrak q_E(\eta)\ge\tfrac12\|D_t\eta\|_2^2.
+\]
+The unnormalised tests have a strictly positive limiting $L^2$ norm,
+as follows from the corresponding $\cos^2$ average and the nonsingularity
+of $F$. Their material-derivative norms are consequently bounded above
+and away from zero. Divide by those norms. The Poincare inequality and
+\eqref{va:limit} give all the conclusions.
+\end{proof}
+
+\begin{theorem}[Complete semiboundedness classification on finite-energy backgrounds]
+\label{va:classification}
+Let $u$ be an actual smooth unforced NS solution at fixed $\nu>0$ on an open
+classical interval $I$, with the canonical pressure and the finite-energy
+regularity of \textup{LOCAL}. The following are equivalent:
+\begin{enumerate}
+\item $u$ vanishes on $I\times\R^3$.
+\item There is a finite $C_I\ge0$ such that every real solenoidal
+$\eta\in C_c^\infty(I\times\R^3)^3$ satisfies
+\[
+ \mathfrak q_\nu(\eta)\ge
+ -C_I\bigl(\|\eta\|_{L^2_{t,x}}^2+\|D_t\eta\|_{L^2_{t,x}}^2\bigr).
+\]
+\end{enumerate}
+In fact, on every nonzero such background there is a fixed compactly
+contained subinterval and a sequence supported in its transported spatial
+patch for which
+\[
+ \|D_t\eta_N\|_2=1,\qquad
+ \mathfrak q_E(\eta_N)\ge\tfrac12,\qquad
+ \mathfrak q_\nu(\eta_N)\longrightarrow-\infty.
+\]
+The constant in the failed bound is allowed to depend on the entire fixed
+background. Thus this is not merely a lack of uniformity over varying data.
+\end{theorem}
+\begin{proof}
+If $u=0$, its canonical pressure is zero and \eqref{va:action} gives
+$\mathfrak q_\nu=\|\partial_t\eta\|_2^2\ge0$.
+For the converse, suppose $u(t_0)$ is nonzero at an interior classical time.
+The symmetric strain $S=(G+G^T)/2$ has trace zero and obeys
+\[
+ \int_{\R^3}|S|^2=\frac12\int_{\R^3}|\nabla u|^2.
+\]
+Indeed expansion leaves the cross term
+$\int\partial_j u_i\partial_i u_j=0$ by solenoidality and integration by
+parts. This is justified by the global $H^1$ regularity. If $S$ vanished
+everywhere, $\nabla u$ would vanish, and the only constant $L^2$ field is zero.
+Consequently $S(t_0,x_0)$ has two distinct eigenvalues at some point $x_0$.
+Choose orthonormal vectors $a_0,\xi_0$ in its minimum and maximum
+eigendirections. The coefficient \eqref{va:symbol} there equals
+$\lambda_{\min}(S)-\lambda_{\max}(S)<0$.
+
+Translate $x_0$ to the origin and choose a positively oriented orthonormal
+coordinate system with first two directions $a_0,\xi_0$. Initialize the
+actual flow map at $t_0$, rather than prescribing a new background flow.
+By continuity there is a spatial ball and a fixed forward subinterval
+$J\Subset I$ on whose transported tube
+\[
+ |F^{-T}\xi_0|^2(Fa_0)\cdot G(Fa_0)
+       -|Fa_0|^2(F^{-T}\xi_0)\cdot G(F^{-T}\xi_0)\le-\sigma
+\]
+for some $\sigma>0$. The actual pressure Hessian is bounded on a larger
+compact classical time interval; shrink $J$ so that its bound $K$ satisfies
+$K|J|^2/\pi^2\le1/2$.
+
+The complete curl seed, pushforward, oscillatory calculation and material
+Poincare estimate in the proof of Theorem~\ref{va:negative} now apply
+verbatim in these rotated coordinates, replacing $\epsilon$ by $\sigma$.
+The fields vanish near the endpoints of $J$ and are extended by zero within
+$I$. The limit \eqref{va:limit} is strictly negative; after normalization
+$\mathfrak q_\nu\to-\infty$ while
+$\|\eta_N\|_2^2+\|D_t\eta_N\|_2^2\le1+(|J|/\pi)^2$.
+This contradicts every finite $C_I$ and proves both the classification and
+the stated stronger form of failure.
+\end{proof}
+
+\paragraph{What this theorem actually eliminates.}
+The full linearized parabolic Cauchy problem has not become ill posed.
+An indefinite nonsymmetric displacement form can have other useful inverses.
+The excluded assertion is transfer of Euler's pressure-only displacement
+coercivity to the full NS operator on all solenoidal displacements. Adding
+only initial or terminal quadratic boundary penalties cannot repair this
+counterexample: the test fields vanish near both temporal endpoints.
+The negative term is present on a single globally regular small-data
+background; it is not caused by a blowup hypothesis, a remote imposed force,
+an infinite-energy affine approximation or a discarded exterior.
+A proof on a smaller displacement space must establish that its constraints
+exclude these tests and that the required NS corrections remain in that space.
+
+\subsection{Testing the critical-curvature escape rather than stopping at a no-go}
+\label{va:hardy}
+
+One can abandon a uniform upper pressure bound without automatically losing
+the Euler-shaped interior form. For a fixed terminal time $T_0$ suppose only
+$H_p(t,x)\le c(T_0-t)^{-2}I$. On compactly supported displacements with zero
+endpoints in $[0,T']$, $T'<T_0$, the classical Hardy calculation gives
+\[
+ \mathfrak q_E(\eta)\ge(1-4c)\|D_t\eta\|_2^2.
+\]
+To check uniformity in $T'$, pull back by the volume-preserving flow and
+extend the test by zero to $T_0$. For each component write
+$\zeta(t)=\sqrt{T_0-t}\,h(t)$. Direct expansion yields
+\[
+ |\zeta'|^2-\frac{|\zeta|^2}{4(T_0-t)^2}
+ =(T_0-t)|h'|^2-\tfrac12(|h|^2)'.
+\]
+Integration proves Hardy's constant four and the assertion. Hence $c<1/4$
+is an available \emph{interior variational} range with a logarithmically
+divergent majorant for the curvature clock. This is the classical Hardy
+inequality, not a newly constructed pressure or NS solution. The preceding
+NS type-I threshold already excludes sufficiently small $c$; no claim of
+sharpness or of a nonempty family of singular flows in the remaining range
+is made. Initial free-trace boundary conditions require their own estimates.
+
+Most importantly, \eqref{va:action} remains the exact viscous form in this
+range. The Hardy estimate does not control its spatial-derivative correction;
+Theorem~\ref{va:negative} disproves such an automatic implication even when
+$K$ is bounded and the Euler-shaped form is strongly coercive. The revised
+common-trace construction therefore needs a genuinely viscous inverse, not
+merely a different exponent in the Euler action. Testing the velocity
+linearization with $w$ instead gives the exact identity
+\[
+ \tfrac12\partial_t\|w\|_2^2+\nu\|\nabla w\|_2^2
+ =-\int w\cdot G w+\langle\mathcal L_u w,w\rangle.
+\]
+It restores ordinary dissipative control but leaves signed strain work.
+No endpoint-uniform estimate for that work on a concentrating common history
+has been produced here. Accordingly neither these identities nor the Hardy
+repair supply the missing nonlinear inverse, a regenerative cascade,
+a critical producer, or a resolution of NS-R3.
