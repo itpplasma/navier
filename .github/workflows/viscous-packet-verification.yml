@@ -11,6 +11,10 @@ on:
       - 'research/evidence/2026-09-09-pressure-curvature-barrier.md'
       - 'paper/sections/viscous_history.tex'
       - 'PLAN.md'
+      - 'research/check_viscous_fredholm.py'
+      - 'research/evidence/2026-09-09-viscous-fredholm-inverse.md'
+      - 'paper/sections/viscous_fredholm.tex'
+      - 'paper/sections/viscous_history_core.tex'
 permissions:
   contents: read
 jobs:
@@ -31,6 +35,7 @@ jobs:
             python3 research/check_viscous_packet_action.py
           fi
           python3 research/check_pressure_curvature.py
+          python3 research/check_viscous_fredholm.py
           git diff --check HEAD^ HEAD
           git diff --check
       - name: Record immutable source snapshot

@@ -14,7 +14,7 @@ check: check-clock check-defect check-conformal check-signed check-shell check-d
 .PHONY: all continuation clean
 all: main.pdf proof_map.pdf
 
-main.pdf: main.tex references.bib sections/viscous_history.tex sections/dissipation_clock.tex sections/defect_extensions.tex sections/conformal_moment.tex sections/signed_defect.tex sections/speed_shell.tex sections/shell_dynamics.tex sections/material_response.tex
+main.pdf: main.tex references.bib sections/viscous_fredholm.tex sections/viscous_history_core.tex sections/viscous_history.tex sections/dissipation_clock.tex sections/defect_extensions.tex sections/conformal_moment.tex sections/signed_defect.tex sections/speed_shell.tex sections/shell_dynamics.tex sections/material_response.tex
 	latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 
 proof_map.pdf: proof_map.tex

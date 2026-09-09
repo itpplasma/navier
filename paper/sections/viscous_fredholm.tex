@@ -1,0 +1,218 @@
+\section{A localized mixed-trace inverse without pressure coercivity}
+\label{vf:section}
+
+\paragraph{Status and consumer.}
+This is an author proof, with independent mathematical audit and priority
+undetermined. Its input revision is
+\texttt{75ca907cad70b7ced4469d8492e7e5dc27cc7444}.
+It preserves the displacement-form obstruction of
+Section~\ref{va:section}; it does not try to restore that form's positivity.
+Instead it solves a specified mixed-trace problem for the \emph{full}
+linearized viscous equation on each fixed smooth time interval. The
+initial velocity correction is compactly supported. Neither an upper
+pressure-Hessian bound nor a spatial Galerkin cutoff is assumed.
+This removes finite-interval solvability of this mean-type problem as an
+obstruction. It does not supply a singular packet, a uniform inverse at a
+singular endpoint, or one common trace for a sequence of different horizons.
+
+Fix $\nu,T>0$. Let $U$ be a real solenoidal field in
+$C^\infty([0,T];H^m(\R^3))$ for every integer $m\ge0$.
+It can be a known smooth solution or a smooth trial field.
+All constants in this section may depend on this \emph{specified} $U$,
+$\nu,T$, and the fixed cutoffs. No norm of the as-yet unknown corrected
+solution is used to construct the linear inverse.
+Write $D_U=\partial_t+U\cdot\nabla$, $M=\nabla U$, and
+$\mathcal H=L^2_\sigma(\R^3;\R^3)$. Let
+\[
+ \mathcal L_U v=\partial_tv-\nu\Delta v+
+       \mathbb P\operatorname{div}(U\otimes v+v\otimes U).
+\]
+Let $E(t,s)$ be its homogeneous forward evolution on $\mathcal H$.
+Let $\mathcal T(t,s)$ denote the divergence-preserving transport evolution
+$D_U b=M b$. It is the pushforward by the volume-preserving flow of $U$.
+Thus $\mathcal T(0,s)=\mathcal T(s,0)^{-1}$ and
+\[
+ \|\mathcal T(0,s)\|_{2\to2}
+ \le \exp\left(\int_0^s\|\nabla U(r)\|_\infty\,dr\right).
+\]
+This bound concerns the prescribed smooth background on a fixed interval;
+it is not offered as a critical continuation estimate.
+
+\begin{lemma}[A positive localized trace operator]\label{vf:localizer}
+For real $\chi\in C_c^\infty(\R^3)$ the operator
+\[
+ A=\operatorname{curl}\,\chi(-\Delta)^{-1}\chi\operatorname{curl}
+\]
+extends to a bounded nonnegative self-adjoint operator on $\mathcal H$.
+It maps every $H^m_\sigma$ into itself and its output is supported in
+$\operatorname{supp}\chi$. It is not asserted to be a projection or to
+commute with heat evolution.
+\end{lemma}
+\begin{proof}
+Put $C=(-\Delta)^{-1/2}\chi\operatorname{curl}$, so $A=C^*C$ on smooth
+tests. The identity
+$\chi\operatorname{curl}f=\operatorname{curl}(\chi f)-\nabla\chi\times f$
+proves boundedness of $C$ on $L^2$. For the second term, if $g$ has support
+in a fixed bounded set, splitting its Fourier transform at radius one gives
+\[
+ \|(-\Delta)^{-1/2}g\|_2
+ \le C(\|g\|_1+\|g\|_2)\le C_\chi\|f\|_2,
+ \qquad g=\nabla\chi\times f.
+\]
+Here $\int_{|\xi|<1}|\xi|^{-2}\,d\xi<\infty$ in three dimensions.
+For $C^*g=\operatorname{curl}(\chi(-\Delta)^{-1/2}g)$, the derivative
+on the potential is an order-zero Fourier multiplier. The remaining
+localized potential is bounded in $L^2$ by the homogeneous Sobolev
+inequality $\|(-\Delta)^{-1/2}g\|_6\le C\|g\|_2$ and finite-volume
+H\"older. Commuting integer derivatives gives the same bounds with
+derivatives of $\chi$, hence $C,C^*$ and $A$ are bounded on $H^m$.
+The outer curl proves both the stated support and solenoidality.
+Density proves self-adjointness and positivity of the bounded extension.
+\end{proof}
+
+\begin{lemma}[Forward evolution and integrated smoothing]\label{vf:smoothing}
+The evolutions $E$ and $\mathcal T$ exist on the whole prescribed interval.
+For every real $r\ge0$ and $0\le\sigma\le2$,
+\[
+ \|E(t,s)\|_{H^r\to H^{r+\sigma}}
+ \le C_{r,\sigma}(t-s)^{-\sigma/2},\qquad 0\le s<t\le T.
+\]
+Transport and its inverse are bounded on each $H^r$.
+Consequently the operators
+\[
+ K=\int_0^T\mathcal T(0,s)E(s,0)A\,ds,\qquad
+ b_f=\int_0^T\mathcal T(0,s)\int_0^sE(s,r)f(r)\,dr\,ds
+\]
+satisfy $K:H^r\to H^{r+\sigma}$ for $0\le\sigma<2$ and
+$b_f\in H^{r+\sigma}$ whenever $f\in C([0,T];H^r_\sigma)$.
+The operator $K:\mathcal H\to\mathcal H$ is compact.
+\end{lemma}
+\begin{proof}
+The linear equation is the Volterra equation with heat evolution and the
+actual operator $-\mathbb P\operatorname{div}(U\otimes\cdot+
+\cdot\otimes U)$. This operator maps $H^r$ to $H^{r-1}$, and the heat
+gain has integrable kernel $C(t-s)^{-1/2}$. Picard iteration on short
+intervals and concatenation construct $E$. Differentiated energy estimates,
+using bounded spatial derivatives of $U$, give
+\[
+ \sup_{s\le r\le t}\|v(r)\|_{H^m}^2+
+ \nu\int_s^t\|v(r)\|_{H^{m+1}}^2\,dr
+ \le C_m\|v(s)\|_{H^m}^2
+\]
+with the harmless inhomogeneous low-order term incorporated into $C_m$.
+On the first half of an interval, this supplies a time with an
+$H^{m+1}$ bound $C(t-s)^{-1/2}\|v(s)\|_{H^m}$.
+Propagating from that time in $H^{m+1}$ proves one derivative of smoothing.
+Splitting the interval into two parts gives two derivatives; interpolation
+of Sobolev spaces gives the displayed real-order bounds. Smooth
+approximation justifies the argument for $L^2$ inputs.
+The flow formula and the chain rule give the transport bounds.
+The two integrated smoothing assertions now follow from
+$\int_0^T s^{-\sigma/2}\,ds<\infty$ for $\sigma<2$.
+
+We verify compactness without asserting a compact Sobolev embedding on
+$\R^3$. Choose $\zeta\in C_c^\infty$ equal to one on
+$\operatorname{supp}\chi$. Then $A=\mathbb P\zeta A$.
+For each $s>0$, $e^{\nu s\Delta}\mathbb P\zeta$ is Hilbert--Schmidt:
+its translation-invariant heat--Leray kernel is in $L^2$, and $\zeta\in L^2$.
+In the Volterra series for $E(s,0)\mathbb P\zeta$, each iterated term
+is compact. Inductively the integrand is a bounded operator composed with
+a compact one for $0<r<s$; the weak singularity at $s$ is integrable,
+and the bounded operator norm near zero allows that endpoint to be removed.
+Norm convergence of the series, first on short intervals and then by
+composition, proves compactness of $E(s,0)\mathbb P\zeta$.
+Thus $\mathcal T(0,s)E(s,0)A$ is compact for every $s>0$.
+On intervals away from zero it is norm continuous: strong continuity of
+transport becomes norm continuity after composition with a compact operator.
+The omitted interval $[0,\delta]$ has norm $O(\delta)$.
+The integral defining $K$ is therefore a norm limit of compact operators.
+\end{proof}
+
+\begin{theorem}[Generic full-PDE mixed-trace solvability]\label{vf:inverse}
+There is a locally finite exceptional subset $\mathcal Z\subset(0,\infty)$
+such that for every $\lambda\in(0,\infty)\setminus\mathcal Z$ and every
+smooth solenoidal $f$ with all spatial Sobolev norms finite, the system
+\begin{align*}
+ \mathcal L_Uv&=f,& D_U\eta-M\eta&=v,\\
+ v(0)&=\lambda A\eta(0),&\eta(T)&=0
+\end{align*}
+has a unique smooth all-Sobolev solution. Its initial velocity $v(0)$ is
+in $C_c^\infty$, with support in $\operatorname{supp}\chi$.
+Arbitrarily large admissible positive $\lambda$ exist.
+No pressure-curvature hypothesis is required.
+\end{theorem}
+\begin{proof}
+Variation of constants gives
+\[
+ v(s)=E(s,0)\lambda A\eta_0+v_f(s),\qquad
+ v_f(s)=\int_0^sE(s,r)f(r)\,dr.
+\]
+Solving the displacement equation and pulling its terminal value back to
+time zero shows that its sole compatibility equation is
+\begin{equation}\label{vf:schur}
+ (I+\lambda K)\eta_0=-b_f.
+\end{equation}
+All propagators act on the original solenoidal whole-space Hilbert space.
+In particular this formula retains the mean pressure and all exterior modes.
+
+Here is a finite-dimensional proof of the required compact-operator
+alternative. Complexify $\mathcal H$. On any disk $|z|\le R$, approximate
+$K$ in operator norm by a finite-rank $K_N$ with
+$\|K-K_N\|<1/(4R)$. Put $B_z=(I+z(K-K_N))^{-1}$, defined by its
+Neumann series on the larger disk $|z|<4R$.
+Let $W=\operatorname{ran}K_N$. The factorization
+\[
+ I+zK=(I+z(K-K_N))(I+zB_zK_N)
+\]
+and finite-rank linear algebra show that invertibility is equivalent to
+nonvanishing of
+\[
+ D(z)=\det\bigl(I_W+zK_NB_z|_W\bigr).
+\]
+This analytic function has $D(0)=1$, so has only finitely many zeros on
+$[0,R]$. The same argument on each larger disk proves that the positive
+exceptional set is locally finite and proves both existence and uniqueness
+off that set. Since all operators are real, uniqueness makes the inverse
+real on real inputs.
+
+Equation~\eqref{vf:schur} initially gives $\eta_0\in L^2$.
+The relation $\eta_0=-b_f-\lambda K\eta_0$ and the gain of one
+spatial derivative from Lemma~\ref{vf:smoothing} inductively give every
+$H^m$ norm. The forward and transport equations give the claimed solution
+regularity. Lemma~\ref{vf:localizer} then gives the compact smooth initial
+velocity. Conversely every solution must satisfy \eqref{vf:schur}, so
+there are no additional compatibility conditions or hidden initial traces.
+\end{proof}
+
+\begin{proposition}[Heat background: every positive penalty works]\label{vf:heat}
+When $U=0$, set $G=\int_0^T e^{\nu s\Delta}\,ds$.
+Then $K=GA$, and for every $\lambda\ge0$,
+\[
+ (I+\lambda GA)^{-1}
+ =I-\lambda G A^{1/2}
+   (I+\lambda A^{1/2}GA^{1/2})^{-1}A^{1/2},
+ \qquad
+ \|(I+\lambda GA)^{-1}\|\le1+\lambda T\|A\|.
+\]
+\end{proposition}
+\begin{proof}
+Both $G$ and $A$ are bounded nonnegative self-adjoint operators.
+Hence $I+\lambda A^{1/2}GA^{1/2}$ has inverse norm at most one.
+Multiplication verifies the stated formula; $\|G\|\le T$ proves the bound.
+Commutation of $G$ and $A$ is neither assumed nor needed.
+\end{proof}
+
+\paragraph{What is and is not repaired.}
+The inverse is a non-self-adjoint forward-propagator construction, not a
+positive displacement action. It therefore does not contradict
+Theorem~\ref{va:classification}, even for the arbitrarily small genuine
+NS backgrounds used there. Its trace is a \emph{velocity} condition at
+time zero; the displacement is transported using the full background.
+No compact support is imposed on positive-time velocity or pressure.
+For countably many fixed smooth histories, a common positive $\lambda$
+can avoid their countably many exceptional sets. This does \emph{not}
+make their initial velocities equal or their inverse norms uniformly bounded.
+The first outstanding use in UE1 remains quantitative inversion and
+Cauchy-trace coherence on a concentrating sequence. No forward amplification,
+blowup-preserving nonlinear correction, or arbitrary-data RF-$q$ bound is
+obtained merely from Theorem~\ref{vf:inverse}.

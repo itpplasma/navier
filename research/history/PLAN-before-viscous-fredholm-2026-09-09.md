@@ -1,18 +1,18 @@
-# Navier--Stokes: the viscous mixed-trace inverse and its endpoint gap
+# Navier--Stokes: common-data realization after the pressure-curvature barrier
 
 This is the sole live task/status record. NS-R3 remains NOT PROVED; no
-unforced counterexample has been constructed. Mathematical input:
-`75ca907cad70b7ced4469d8492e7e5dc27cc7444`.
-The entire preceding PLAN is preserved byte-for-byte in
-`research/history/PLAN-before-viscous-fredholm-2026-09-09.md`.
-Its formal-core Section 8 is retained verbatim below. The archive preserves
-all earlier hypotheses and provenance; it is not a second active queue.
-Manuscripts live in this repository's `paper/`.
+unforced counterexample has been constructed. Current mathematical input:
+`68cf0c6cea4aab2689ad8be1219f14a1764938ff`.
+The complete preceding PLAN is preserved byte-for-byte in
+`research/history/PLAN-before-pressure-curvature-2026-09-09.md`.
+Its Section 8 is also retained verbatim below as the live formal-core record.
+All earlier evidence and review qualifications remain; history is not a
+second active queue. Manuscripts now live in this repository's `paper/`.
 
 ```yaml
 terminal_claim: NS-R3
 checkpoint: CP1
-phase: finite-horizon-viscous-mixed-trace-repair-2026-09-09
+phase: global-pressure-budget-transfer-exclusion-2026-09-09
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
@@ -48,10 +48,6 @@ clamped_trace_parameter_smoothness: false-with-explicit-one-sided-derivative-exa
 connected_two_pulse_inverse: no-polynomial-loss-even-with-free-initial-value-in-stated-class
 normalized_angular_work_budget: refuted-by-globally-small-original-NS-solutions
 nonzero_seed_work_budget: unbounded-on-Schwartz-compact-globally-small-family
-finite_viscous_mixed_trace_inverse: proved-for-generic-positive-penalty-author-audit-pending
-finite_inverse_initial_velocity: compact-smooth-in-fixed-trace-support
-finite_inverse_endpoint_uniformity: not-proved
-finite_inverse_common_trace: not-produced
 new_results_audit: author-proofs-independent-mathematical-audit-pending
 secondary_goal: MIC-R3
 secondary_goal_status: separately-gated-and-not-primary
@@ -68,25 +64,27 @@ positive_pressure_curvature_clock: complete-author-proof-independent-audit-pendi
 full_viscous_displacement_action: exact-author-identity
 viscous_time_only_semiboundedness: equivalent-to-zero-finite-energy-background-author-proof
 critical_curvature_hardy_repair: interior-Euler-form-only-not-a-viscous-inverse
-run_status: finite-interval-viscous-inverse-constructed-no-terminal-resolution
+run_status: pressure-budget-and-displacement-coercivity-transfers-excluded-no-terminal-resolution
 public_release: true
 repository_visibility: {navier: public, navier-formal: public, navier-paper: private}
 external_contributions: pull-requests-welcome-owner-review-required
 ```
 
-## 1. Rigid target and complete positive consumer
+## 1. Rigid terminal equation and the existing positive consumer
 
 For fixed nu>0, original unforced incompressible NS on R3 is
 
     u_t-nu Delta u+P div(u tensor u)=0, div u=0,
     u(0)=d in S_sigma(R3;R3), p=sum R_i R_j(u_i u_j).
 
-The positive target concerns EVERY such datum. A negative solution needs
-ONE finite-energy Schwartz datum and a genuine finite endpoint of its
-classical branch. Forced, inviscid, periodic, averaged and restricted models
-are not substitutes. Schwartz is an initial condition, not permanent decay.
+A positive resolution concerns EVERY such datum. A negative resolution
+requires ONE finite-energy Schwartz datum and a genuine finite endpoint
+of its classical solution at the fixed positive viscosity. Forced, inviscid,
+periodic, averaged and restricted models are not terminal substitutes.
+Schwartz is an initial condition, not a claim about permanent spatial decay.
 
-The reviewed positive consumer, for one fixed finite q>3, remains
+For the actual whole-space projected-flow increments and one fixed finite
+q>3, the reviewed RF-q chain remains
 
     (1/q) W_q,M' + nu D_q,M = Pi_q,M,
     integral_0^t Pi_q,M <= nu integral_0^t D_q,M+C(d,nu,H,N0,q)
@@ -94,160 +92,234 @@ The reviewed positive consumer, for one fixed finite q>3, remains
     -> RF-LOCAL-ID / Lorentz Fatou -> RF-LQ-CONTINUATION
     -> LOCAL / ENERGY / canonical pressure -> NS-R3.
 
-The estimate is required for EVERY upper t<=H uniformly in M. It remains
-unproved. The new inverse is not an arbitrary-data critical producer.
+The estimate must hold for EVERY upper t<=H uniformly in M. It is unproved.
+No sharp projected flow is silently substituted into a pointwise speed
+maximum principle. The new theorem below uses the ORIGINAL branch instead.
 
-## 2. Constructive result: full-PDE finite-horizon mixed-trace solvability
+## 2. New full-PDE theorem: the global upper-pressure budget cannot transfer
 
-Evidence: `research/evidence/2026-09-09-viscous-fredholm-inverse.md`.
-Complete author proof: `paper/sections/viscous_fredholm.tex`, included from
-`viscous_history.tex`. The preceding history/action manuscript is preserved
-byte-for-byte as `viscous_history_core.tex`. Independent audit and novelty
-remain undetermined. Neither canonical graph nor formal status is promoted.
+Evidence: `research/evidence/2026-09-09-pressure-curvature-barrier.md`.
+Complete proofs are immediately in `paper/sections/viscous_history.tex`,
+subsection `pc:section`. AUTHOR proof; independent mathematical audit pending;
+novelty undetermined. Canonical graphs and formal theorem statuses unchanged.
 
-For any specified smooth all-Sobolev solenoidal background U on [0,T], fixed
-nu>0, let E(t,s) be the FULL forward linearized viscous evolution, T(t,s)
-the solenoidal Piola transport, and A=curl chi(-Delta)^(-1)chi curl. Then
+Set, for the actual canonical pressure,
 
-    K=integral_0^T T(0,s) E(s,0) A ds
+    K(t)=max(0,sup_x lambda_max(Hess p(t,x))),
+    A(t)=integral_0^t sqrt(K(s)) ds.
 
-is compact on L2_sigma(R3) and gains every spatial order below two.
-The mixed problem
+Global semiconcavity and the full pressure BMO estimate prove
 
-    L_U v=f, D_U eta-(grad U)eta=v,
-    v(0)=lambda A eta(0), eta(T)=0
+    ||grad p||infinity <= C sqrt(K) ||u||infinity,
+    ||u(t)||infinity <= ||d||infinity exp(C A(t)).
 
-reduces EXACTLY to (I+lambda K)eta(0)=-b_f. Every positive lambda outside
-a locally finite exceptional set gives a unique smooth solution with
-compact smooth initial velocity correction; arbitrarily large such lambda
-exist. At U=0 every positive lambda works, even though A does not commute
-with heat. The proof uses the full forward parabolic propagator and a
-finite-rank determinant, not a pressure-coercive displacement action.
-All Leray, mean, exterior and return interactions remain in the operator.
+The semiconcavity lemma has explicit nonsharp constant 48 sqrt(2);
+C=48 sqrt(2 C_p) with C_p a dimensional pressure-BMO constant. All negative
+pressure eigenvalues, all modes and the entire exterior are retained.
+If integral_0^T exp(2 C A(t))dt is finite, the viscous enstrophy estimate
+and LOCAL exclude a finite endpoint. A finite A(T) also feeds
+ENERGY -> bounded L3 -> canonical CONTINUATION. The clock is NS-scale
+invariant. A sufficiently small one-sided type-I K<=c/(T-t)^2 is excluded.
+There is NO arbitrary-input bound for either clock.
 
-This closes finite-interval existence for THIS mean-type mixed condition,
-not arbitrary final velocity assignment, singular endpoint estimates, or
-one shared trace across horizons. The next step is quantitative spectral
-selection and nonlinear exactification. UE1 is not complete.
+The exact family consequence is stronger than a ray obstruction. ANY
+fixed-nu family of exact unforced solutions with uniformly bounded initial
+H3 and L-infinity norms, bounded observation times and uniformly bounded
+integral sqrt(K) has uniformly bounded final gradients. In particular,
+summable Hm initial increments, one global Hess p_j<=K_plus I bound, and
+diverging final gradients are incompatible. No assumption on support,
+frequency scales, overlap, phases, polarizations or exterior smallness occurs.
 
-## 3. Preserved exact exclusions: what the new inverse must not assume
+This kills the proposed viscous transfer that RETAINS the Euler source's
+global upper-Hessian budget, even after repairing pre-activation damping.
+It does not contradict the inviscid theorem: bounded velocity alone does
+not give Euler derivative continuation. Bounds on only one curve or a proper
+core are not global semiconcavity and are outside this exclusion.
 
-The full statements are retained in the preceding PLAN and linked evidence.
-The two newest exclusions are complete author proofs, audit pending:
+## 2a. Full viscous action: the next inverse shortcut is excluded
 
-**Global upper pressure curvature.** `2026-09-09-pressure-curvature-barrier.md`
-proves for the ACTUAL canonical pressure, K=max(0,sup_x lambda_max Hess p),
+Integration input: `69cc6a45cf27f14d7ef0961a03df5245c23cdbfb`.
+Evidence: `research/evidence/2026-09-09-viscous-packet-action.md`.
+Full proofs are already in `paper/sections/viscous_history.tex`, labels
+`va:identity`, `va:negative`, `va:classification`, and `va:hardy`.
+AUTHOR PROOFS; independent mathematical audit pending; novelty undetermined.
+Canonical graphs and formal status remain unchanged.
 
-    ||grad p||infinity <= C sqrt(K)||u||infinity,
-    ||u(t)||infinity <= ||d||infinity exp(C integral_0^t sqrt(K)).
-
-The full viscous enstrophy identity excludes a finite endpoint if the
-squared exponential is time integrable. Thus fixed-nu families with bounded
-initial H3 and velocity supremum, bounded observation times, and a uniform
-global integral sqrt(K) cannot have diverging final gradients. It excludes
-transferring the Euler source's GLOBAL upper-Hessian budget to a singular
-fixed-viscosity family. It does not exclude local/directional constraints;
-no input-only curvature bound was proved.
-
-**Full viscous displacement action.** `2026-09-09-viscous-packet-action.md`
-proves, with G=grad u, H=Hess p, D_t=partial_t+u.grad, w=D_t eta-G eta,
+For an ACTUAL unforced NS background put G=grad u, H=Hess p,
+D_t=partial_t+u.grad, w=D_t eta-G eta, and
+L_u w=P[D_t w+G w-nu Delta w]. The exact displacement operator is
 
     L_u w=P[D_t^2 eta+H eta-nu Delta D_t eta
                   +nu G Delta eta+2nu sum_j(partial_j G)partial_j eta].
 
-The complete action includes the signed principal spatial symbol
-|xi|^2 a.G a-|a|^2 xi.G xi. It has a finite lower bound in the material-time
-norm on all compact solenoidal tests if and only if the finite-energy
-background is zero. On every nonzero background a localized transported
-high-frequency test defeats the pressure-only coercivity shortcut. A Hardy
-bound under H<=c/(T-t)^2, c<1/4, controls only the Euler-shaped form, not
-this viscous action. These are form obstructions, not parabolic ill-posedness.
-Section 2 supplies an inverse that does not use that failed form.
+After the full solenoidal pairing, its negative quadratic form is the
+Euler-shaped form integral(|D_t eta|^2-eta.H eta) PLUS
 
-Other preserved scopes: separated zero pulses cannot start autonomously;
-flatness does not imply zero forcing; regular-fiber inverses do not provide
-small common-trace connected-history inverses; raw normalized angular work
-is unbounded even on globally small unforced solutions; narrow singular
-replicas need a nonperturbative exterior; many spectral transfers can be
-harmless mixing; source composition is not time evolution; decomposable
-convex cones do not supply one-sided nonlinear traps. Their evidence and
-audit qualifications remain unchanged. The old symmetric six-carrier test
-is secondary, not a universal singularity ansatz.
+    nu integral[sum_j partial_j eta.G partial_j eta
+          -sum_jk G_kj partial_j eta.partial_k eta
+          -sum_j eta.(partial_j G)partial_j eta].
 
-## 4. ONE dominant nut: nonlinear amplification with a common viscous trace
+The two leading spatial terms at grad eta=a tensor xi give
+|xi|^2 a.G a-|a|^2 xi.G xi, a strain eigenvalue DIFFERENCE of either sign.
+They are not nonnegative viscous dissipation. Pressure was not discarded.
 
-Construct ONE continuously coupled concentrating full history with a
-nonzero Schwartz trace and a full-PDE correction preserving its singularity.
-It must tolerate the necessary unbounded positive-pressure-curvature history.
-For a globally defined trial U, retain the exact residual and correction:
+A complete continuum theorem classifies the failure: on any nonzero smooth
+finite-energy unforced NS background, there is NO finite lower bound for
+this form by -C(||eta||2^2+||D_t eta||2^2), even when C may depend on that
+entire background. On a short fixed interval, compact solenoidal material
+wave tests have ||D_t eta_N||2=1, Euler-shaped action >=1/2, and the full
+viscous action tends to minus infinity. The background can in particular be
+one arbitrarily small compact-datum, globally smooth R3 solution. All of its
+actual exterior is retained. Test displacements are not nonlinear NS flows.
+The only finite-energy background on which the stated semiboundedness holds
+is zero. Endpoint penalties do not help because the tests vanish near both
+endpoints. This does NOT make the parabolic Cauchy problem ill posed or
+exclude a different inverse or a justified restricted displacement space.
 
-    F_U=partial_t U-nu Delta U+P div(U tensor U),
+The next constructive repair was tested too: the classical Hardy identity
+gives an interior Euler-shaped form bound (1-4c)||D_t eta||2^2 under
+H<=c/(T0-t)^2 I for c<1/4 and zero-endpoint tests. It tolerates a logarithmically
+divergent majorant curvature clock, but does not control the indefinite
+viscous terms above and is NOT a common free-trace NS inverse. Ordinary
+velocity-linearization energy instead retains signed strain, whose endpoint
+control on a concentrating common history is still missing. No critical
+producer, unforced singular solution or certified regenerative turnover follows.
+
+## 3. ONE dominant nut: one common trace with a different viscous inverse
+
+Construct a specific continuously coupled concentrating history for original
+unforced NS, with one nonzero Schwartz trace and a full-PDE correction which
+preserves its singularity, while tolerating the NECESSARY unbounded positive-
+pressure-curvature history. Do NOT preserve the now-excluded global pressure
+budget merely because it supplies the Euler displacement inverse.
+
+For a globally defined solenoidal trial U, the exact equation is
+
+    F_U = partial_t U-nu Delta U+P div(U tensor U),
     L_U w+P div(w tensor w)=-F_U,
+    L_U w=partial_t w-nu Delta w+P div(U tensor w+w tensor U),
     d=U(t0)+w(t0) in S_sigma, d!=0.
 
-UE0: remove the first indispensable SOLENOIDAL forcing from the entire
-preparation, core, means, exterior and localization history. Pure gradients
-are absorbed into canonical pressure; a nonzero flat remainder is not.
+Only zero SOLENOIDAL residual is required: a pure gradient is absorbed into
+the final canonical pressure. Flatness, all-order asymptotics, or smallness of
+a nonzero residual is not zero force. Local trial fields need a global
+extension before P is applied, including all extension and pressure defects.
+A correction must preserve a stated singular lower bound, not just exist in
+an unspecified norm. Neither an arbitrary trace-array inverse nor a reset
+of each daughter is required or allowed: ONE compatible orbit is needed.
 
-UE1: strengthen Section 2 to quantitative inverse bounds in spaces detecting
-singular amplitude and compatible Cauchy traces on a concentrating sequence.
-The full prehistory damping is required. Arbitrary backward heat or resetting
-each daughter is not initialization. A common lambda avoiding all resonances
-does not make the resulting initial traces equal or summable.
+UE0: identify and remove the first indispensable projected forcing in the
+entire core, preparation, mean, exterior and localization history. A zero
+terminal-force slab must be proved, not inferred from endpoint flatness.
 
-UE2: cancel the FULL nonlinear residual by a convergent argument, with all
-cross-label products, pressure, tails and ordinary diffusion. Follow any
-successful quantitative inverse immediately into this step.
+UE1: prove common Cauchy-trace realization and an actual viscous history
+inverse, with endpoint-uniform estimates in spaces controlling the singular
+amplitude and all mean/exterior couplings. The inverse must use a coercivity
+mechanism compatible with Section 2: perhaps local/directional or weighted
+form control, NOT a uniform global upper-Hessian bound. Section 2a additionally
+rules out unrestricted Euler-shaped time-only displacement coercivity on any
+nonzero finite-energy NS background. A new inverse must estimate its actual
+viscous spatial terms or prove an invariant admissible restriction. The actual viscous
+history and pressure equations must be derived. Formal backward heat is not
+an admissible initialization. Include damping over the ENTIRE prehistory.
 
-UE3: obtain ONE Schwartz datum on all R3, canonical pressure, finite energy,
-initial trace and pre-endpoint smoothness. No remote forcing or imposed
-boundary stress is permitted. Nonlocal matching belongs inside the proof.
+UE2: cancel the full nonlinear residual by a convergent argument, including
+all tails, cross-label products, pressure and ordinary diffusion. A formal
+or Borel reconstruction with a flat remainder does not suffice.
 
-UE4: identify the exact field with its datum's classical branch and prove
-its finite endpoint by a preserved singular lower bound. Independent review
-is required before canonical promotion. No numerical orbit is a certificate.
+UE3: realize the exact field on all R3 from ONE Schwartz datum, with no remote
+forcing or imposed boundary stresses. Prove pressure normalization, finite
+energy, trace and pre-endpoint smoothness. Integrate this with UE1 whenever
+the inverse or matching is nonlocal.
 
-A successful positive mechanism may instead feed Section 1. Two returns to
-an uncontrolled future critical/strain norm require changing mechanism.
-The finite inverse's constants concern a KNOWN smooth trial, not a bound
-for arbitrary unknown solutions. No terminal breakthrough is claimed.
+UE4: identify the constructed field with that datum's classical branch and
+prove a finite endpoint. Independent adversarial review is required before
+canonical promotion. No numerical orbit is a continuum certificate.
 
-## 5. Provenance, manuscript and checks
+Follow a successful UE1 immediately through UE2--UE4. If the revised inverse
+fails, prove its precise obstruction and pivot. A general input-only bound
+for Section 2's exponential-history integral would instead close the positive
+route, but writing that quantity introduces no new arbitrary-data estimate.
+Two returns to the same uncontrolled critical norm require changing mechanism.
 
-Accepted source input: the owner-checked forced OpenAI theorem stays accepted
-at its recorded forced scope; no unforced implication or prize decision is
-inferred. The proposed unforced Euler construction was inspected for its
-history/mean operator, not independently audited or kernel rebuilt here.
-The current source ref was rechecked at
-`openai/NavierStokesAndEuler@8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538`.
-Its inviscid pressure-controlled inverse is not a viscous theorem.
+## 4. Retained exclusions and source gates
 
-Keep `literature/recent-progress-2026-09.md`,
-`literature/openai-euler-transfer-2026-09-09.md`, and
-`literature/viscous-history-source-audit-2026-09-09.md` as source records.
-Parsed/rendered Euler PDF pagination differs; inherited fingerprints are
-not newly recomputed fingerprints. Palasek's pre-activation damping is
-model prior art, not unforced NS. The Caltech half-exponent profile has
-leading-order viscosity; its complete stability certificate was not newly
-obtained. Other recent regularity/extraction theorems retain their assumptions.
-Project manuscripts are internal work, not separate external prior art.
+All detailed theorem hypotheses and earlier task boundaries are preserved in
+the archived predecessor PLAN and their evidence, particularly:
 
-The new checker passes 205 exact finite assertions, including 14 genuinely
-noncommuting heat-matrix cases and all mixed-boundary signs. All 24 research
-check programs passed, phase ring through order eight. Both full-checkout
-verifier modes passed: 29 canonical records, 8 pending supplements. Nested
-TeX includes now resolve relative to the manuscript build working directory,
-matching latexmk. `make -C paper documents check` and whitespace passed.
-The new section on pages 143--146 of the 148-page main PDF was rendered and
-inspected. No PDF, cache, local bibtex shim or generated log is committed.
-These are exact/structural checks, not independent mathematical certification.
+* `2026-09-08-autonomous-pulse-obstruction.md`,
+  `2026-09-08-unforced-support-and-pulse-audit.md`,
+  `2026-09-08-forced-type-rigidity.md`, and the different-tier
+  `2026-09-08-obstruction-audit.md` in `research/evidence/`.
+  Zero separated labels cannot start autonomously; analyticity subsumes the
+  exact no-start case. Exact compact patches/snapshots are unavailable.
+  Tiny overlap on growth windows is NOT excluded by its size alone.
+* `2026-09-08-smooth-pulse-inverse-and-history.md` and
+  `2026-09-08-mixed-trace-principal-inverse.md`: the regular-fiber smooth
+  minimum-norm inverse is a tool; independent pulse inverses do not compose
+  into a small connected-history inverse with one Cauchy trace.
+* `2026-09-08-normalized-work-falsification.md`: raw normalized angular work
+  can diverge even in globally small unforced NS, including the nonzero-seed
+  compact-data family. It is not a finite arbitrary-input resource.
+* The narrow-packet, mixing, source-cycle, cone, full-return, relative-energy
+  and remote-pressure evidence remains intact. Spectral growth is not
+  regeneration; source composition is not time evolution; exterior is not
+  automatically dissipative. The old six-carrier benchmark is secondary,
+  not a universal representation of a singularity.
 
-The public manuscript migration remains recorded in `paper/migration-source.json`.
-The legacy `navier-paper` repository remains a private archive. Before every
-write refresh main and preserve concurrent changes. Run applicable checks,
-`research/verify.py --research-only`, `--paper-only`, manuscript checks and
-`git diff --check`. Use ordinary fast-forward updates only. No external
-submission, new authorship, release or formal claim promotion is authorized.
+Accepted source input: the owner-checked forced OpenAI theorem remains accepted
+at its recorded scope. It does not supply an unforced implication or decide
+this project's terminal goal. The new Euler construction was inspected as an
+inviscid proposed transfer, not independently audited or kernel-rebuilt here.
+Its globally controlled positive pressure curvature is now a mathematically
+excluded invariant for any successful fixed-viscosity transfer.
+
+Source provenance: `literature/recent-progress-2026-09.md`,
+`literature/openai-euler-transfer-2026-09-09.md`,
+`literature/viscous-history-source-audit-2026-09-09.md`, and the new evidence's
+primary-source ledger. Parsed/rendered Euler PDF pagination differs; inherited
+fingerprints are not silently described as newly recomputed. The connected
+source main was rechecked at `8937a8f4cbc7abaab5e9e97d1cc7f5d2319d9538`.
+Palasek's pre-activation damping is model prior art. Caltech's recorded profile
+has leading-order viscosity at exponent one half, and its complete stability
+certificate was not newly obtained. Other recent criteria retain their gates.
+No new source is claimed to provide the arbitrary unforced NS conclusion.
+
+## 5. Manuscript, validation and operations
+
+The manuscript and standalone papers live in public `paper/`, migrated from
+`navier-paper@b6d0c6100ceba3783dc0c1bc8de4df3e1089396c`; the original fingerprints
+remain in `paper/migration-source.json`. The old repository is a private
+historical archive. This is one research project, not separate prior art.
+No external submission, added authorship or release is made by this update.
+
+The new checker passes 69 exact finite assertions: convex-average constants,
+pressure-kernel derivatives, the speed diffusion sum of squares, interpolation
+exponents, viscous Young absorption and the critical/type-I powers. It does
+not certify the universal continuum proof, novelty or independent correctness.
+Both full-checkout verifier modes pass (29 canonical records, 8 pending
+supplements). `make -C paper documents check` and a forced complete main rebuild
+passed after using the installed `bibtex.original` through a local PATH shim
+for a broken system bibtex symlink. The final main PDF has resolved citations
+and references; its changed pages were rendered and inspected. No PDF, cache,
+font, shim or build product is committed. Exact and structural checks are not
+mathematical audits. Independent review of the new theorem remains pending.
+
+The displacement-action follow-up passes 27 new exact assertions and all 23
+`research/check_*.py` programs (the full phase-ring checker at order eight).
+Both verifier modes and whitespace checks pass on the complete checkout.
+`make -C paper documents check` and a forced main rebuild pass; the main PDF
+has 146 pages, with the new section on pages 139--143. All changed pages were
+rendered and inspected. An unsupported `mathscr` macro was corrected to
+`mathcal` before the successful rebuild. Section 8 below is preserved
+byte-for-byte from the integration base. These are author algebra/source/build
+checks, not independent audit or new Lean verification.
+
+Before each write refresh main, inspect concurrent changes and preserve them.
+Run applicable exact checks, `research/verify.py --research-only`,
+`research/verify.py --paper-only`, manuscript checks and `git diff --check`.
+Use only ordinary fast-forward updates. Never force-push. Do not promote
+canonical graphs or author theorems on the basis of successful builds.
 
 ## 8. Route-invariant formal core (Phase I / Phase II), authorized 2026-09-08
 

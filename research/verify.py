@@ -80,7 +80,9 @@ else:
         clean = re.sub(r'(?<!\\)%[^\n]*', '', raw)
         expanded = clean
         for name in re.findall(r'\\(?:input|include)\{([^}]+)\}', clean):
-            child = path.parent/name
+            # latexmk runs in paper_root; nested \input paths are relative
+            # to that working directory, not to the including file.
+            child = paper_root/name
             if not child.suffix:
                 child = child.with_suffix('.tex')
             expanded += '\n'+read_tex(child)
