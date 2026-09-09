@@ -1,4 +1,4 @@
-# Navier--Stokes: kinetic regularity and Newtonian-to-fluid programme
+# Navier--Stokes research programme
 
 > **Public status (2026-09-08).** This repository was made public on the day
 > OpenAI released a forced finite-time-blowup theorem (Clay alternatives C/D)
@@ -18,7 +18,7 @@ The current provenance wording and the superseded historical CP1 source-origin
 wording are distinguished in
 [`research/evidence/cp01-provenance-clarification-2026-09-09.md`](research/evidence/cp01-provenance-clarification-2026-09-09.md).
 
-Private research on the original three-dimensional incompressible
+Public research on the original three-dimensional incompressible
 Navier--Stokes problem. **The arbitrary-data theorem is not proved.**
 
 Start with [PLAN.md](PLAN.md), the sole live allocation/status record, then
@@ -30,18 +30,20 @@ class and infinite-volume obligations; it is not all of Hilbert's sixth problem.
 
 ## Current mathematical task
 
-Prove an input-derived critical bound on the limiting macroscopic momentum,
-using the interaction of kinetic transport and momentum-conserving collisions.
-The first attack is the nonlinear stress remainder after the known Maxwellian
-correction. A limit-first, resolved-momentum estimate suffices; uniformly
-smooth finite-Knudsen solutions are not a prerequisite for the Clay route.
-Nonlinear dual observability and transport-coupled information are alternatives,
-not extra unproved theorems silently appended to that route. Stafford/Weyl
-geometry is useful only through a quantitative estimate consumed by this task.
+UE1 asks whether one nonzero Schwartz datum can prepare a continuously
+coupled pulse family for the original unforced whole-space equation at fixed
+positive viscosity. The [OpenAI Euler inspection](literature/openai-euler-transfer-2026-09-09.md)
+records a common-data construction and the first viscous transfer gaps.
+[PLAN.md](PLAN.md) contains the current estimate and acceptance conditions.
+The conditional regularity route remains available; its arbitrary-data
+critical estimate is still missing.
 
-The known local theory, energy identity and endpoint continuation are retained.
-The old pressure/quotient/defect/shell/material-response family is retired as
-the primary producer, not deleted or declared mathematically invalid.
+Contributions through pull requests are welcome in this repository and in
+[navier-formal](https://github.com/itpplasma/navier-formal). Research notes,
+source corrections and proof audits belong here; Lean contributions belong
+there. State the exact claim, hypotheses, source versions and validation,
+and distinguish author proofs from independent audits. Claim promotion
+requires owner integration and the existing review rules in [AGENTS.md](AGENTS.md).
 
 ## Programme and evidence
 
@@ -77,7 +79,7 @@ On a full checkout, run `python3 research/verify.py --research-only` and
 `git diff --check`. The default verifier additionally requires the paper and
 formal checkouts. These are integrity checks, not mathematical certification.
 Preserve concurrent work and use non-force updates; unsigned commits are
-authorized; `navier` and `navier-formal` are public since 2026-09-08. No release, submission, outside
+authorized; `navier` and `navier-formal` are public since 2026-09-08. No submission or outside
 contact or recreation of the deleted Overleaf project is authorized.
 
 ## Blockers for anyone continuing this work (2026-09-08)

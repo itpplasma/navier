@@ -109,8 +109,10 @@ is established by either paper.
 OpenAI, *Finite Time Blowup for the Euler Equation*, released 8 September
 2026 ([paper](https://cdn.openai.com/pdf/315b36cd-ec98-4023-8342-93345194ece1/euler.pdf)).
 The release and Lean repository are the same as OA-NS; this is a distinct
-theorem and construction. Inspection: Theorem 1.1, §§2.1--2.3, Proposition
-3.1, and §§6.1--6.2; not a complete proof audit.
+theorem and construction. The [detailed September 9 inspection](openai-euler-transfer-2026-09-09.md)
+extends the initial statement reading through the history inverses, pressure,
+correction, scale induction and limiting datum, with a pinned Lean trail.
+It is not a complete or independent proof audit.
 
 Theorem 1.1 claims one smooth compactly supported solenoidal R3 datum whose
 unforced Euler evolution has finite maximal lifespan, unbounded gradient,
@@ -122,8 +124,8 @@ signed pressure increments preserve that bound. Section 6 takes one smooth
 initial-data limit and argues by stability against hypothetical continuation.
 
 This is the closest new source to UE1's common-Cauchy-trace problem. Its
-claimed history construction merits inspection before another independent
-pulse inverse. It does not solve that problem for NS: viscosity adds
+history construction supplies a concrete reference for a viscous history
+calculation before another independent pulse inverse. It does not solve that problem for NS: viscosity adds
 nu Delta u to Lagrangian acceleration and diffusion to the packet equations.
 The first transfer task is to retain these terms and prove uniform viscous
 history, pressure, correction, and initial-summability estimates. Increasing
@@ -292,8 +294,10 @@ fixed-positive-viscosity unforced theorem.
 
 ## Transfer priorities
 
-The most relevant next source audit is OA-E's connected history and
-initial-data summability, retaining its exact pressure assumptions. Its
+OA-E's connected history and initial-data summability now have a
+[detailed source inspection](openai-euler-transfer-2026-09-09.md), retaining
+the exact pressure assumptions and distinguishing viscosity in the correction
+from physical viscosity. The next estimate is its fixed-viscosity history map. Its
 potential chain is:
 
     viscous history/correction estimates + one Schwartz datum

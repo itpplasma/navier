@@ -13,9 +13,9 @@ ONLY that repository. Earlier broader authorizations and phase history remain
 in `research/history/AGENTS-before-clay-hilbert-programme-2026-09-06.md`.
 No current instruction requests manuscript or formalization changes.
 
-Research/evidence/claim status belongs to private `navier`; manuscripts and
+Research/evidence/claim status belongs to public `navier`; manuscripts and
 generated paper maps to private `navier-paper`; Lean/Palomar interfaces and
-formal coverage to private `navier-formal`. Keep them separate. Preserve the
+formal coverage to public `navier-formal`. Keep them separate. Preserve the
 original whole-space terminal target; periodic or microscopic companion goals
 must have separate contracts and proofs.
 
@@ -71,8 +71,10 @@ not third-party PDFs, generated binaries, build products, caches or credentials.
 The owner did not authorize publishing, submission, outside contact, added
 authorship or recreating the deleted Overleaf project. Since 2026-09-08 the
 `navier` and `navier-formal` repositories are public (Apache-2.0 code, CC BY
-4.0 prose); `navier-paper` stays private. Publicity is not submission,
-registration or outside contact.
+4.0 prose); `navier-paper` stays private. The owner welcomes external
+contributions via PRs, subject to the same source,
+audit and claim-promotion rules. Publicity is not submission, registration or
+outside contact.
 
 Run `python3 research/verify.py --research-only` and `git diff --check` on a
 full research checkout. Default verification also requires paper/formal

@@ -47,7 +47,10 @@ assert state['phase_i_status'] == graph['phase_i_status'] == 'reopened-2026-09-0
 assert state['phase_ii_status'] == graph['phase_ii_status'] == 'reopened-2026-09-06-target'
 assert state['paper_repo'] in {'read-only-pull-only', 'writable-authorized-2026-09-06'}
 assert state['external_deps'] == 'permitted-if-no-axioms-beyond-mathlib'
-assert state['public_release'] is False
+assert state['public_release'] is True
+assert state['repository_visibility'] == {
+    'navier': 'public', 'navier-formal': 'public', 'navier-paper': 'private',
+}
 assert by_id['NS-R3']['kind'] == 'gap', 'terminal promotion needs a new mathematical audit'
 candidates = graph.get('candidate_supplements', [])
 assert len({c['id'] for c in candidates}) == len(candidates), 'duplicate candidate IDs'

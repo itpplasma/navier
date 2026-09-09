@@ -71,7 +71,9 @@ forced_type_rigidity: author-theorem-A-assembled-plus-quantified-overlap-no-star
 obstruction_independent_audit: 2026-09-08-different-tier-confirmed-with-repairs-no-start-subsumed-by-analyticity
 source_lean_dependency: solution-only-pinned-toolchain-v4.34.0-rc2-authorized
 run_status: positive-principal-repair-plus-full-PDE-work-falsification-no-terminal-resolution
-public_release: false
+public_release: true
+repository_visibility: {navier: public, navier-formal: public, navier-paper: private}
+external_contributions: pull-requests-welcome-owner-review-required
 ```
 
 ## 1. Rigid terminal equation and unchanged positive consumer
@@ -317,14 +319,23 @@ and correction. Store original notes and source metadata, not a vendored PDF.
 
 ### September 9 source search
 
+Both `navier` and `navier-formal` are public since September 8; `navier-paper`
+remains private. The owner welcomes contributions through PRs. Contributions
+retain the existing source, audit and claim-promotion rules.
+
 The [source ledger](literature/recent-progress-2026-09.md) now records [OA]'s
 forced NS theorem and the owner-supplied Caltech unforced Euler profile and
 conditional stability framework, with exact source fingerprints. The broad
 web/arXiv search also located OpenAI's separate unforced Euler construction:
 its connected displacement histories and summable smooth initial-data limit
 are the closest new source lead for UE1. Their transfer to positive viscosity
-is unproved; inspect the viscous prehistory and pressure terms before using
-the inviscid construction. The Caltech exponent 1/2 retains leading-order
+is unproved. The [detailed inspection](literature/openai-euler-transfer-2026-09-09.md)
+now records the source hash, pinned Lean declaration trail, history coercivity,
+signed pressure increment, exact residual correction and scale summability.
+The first failed unchanged bridge is F_tt=-HF: NS adds nu grad Delta u.
+High-frequency diffusion acts over the entire preparation history, and the
+source's auxiliary correction viscosity is sent to zero. The Caltech exponent
+1/2 retains leading-order
 viscosity and its complete Euler stability certificate remains unfinished.
 
 Recent one-component and vorticity-direction criteria, pressure/energy-atom
@@ -430,8 +441,16 @@ A bound depending on an uncontrolled future norm, an unestimated
 exp(integral ||grad U||_infinity), or a cutoff-dependent inverse is not this
 result. Finite-dimensional solvability or a source-only cycle is not enough.
 
-First experiment: one complete pulse INCLUDING its preparation and cutoff
-remainders, then its actual inherited output. Immediately extend a successful
+First experiment: use the inspected OpenAI Euler history as a reference,
+retaining fixed positive viscosity in the actual packet equation. Estimate
+nu (k/ell)^2 integral |F^{-T}m0|^2 over the ENTIRE prehistory, with harmonic
+damping, mean coupling, envelope derivatives and analytic exterior leakage.
+Compare the resulting initial H^m costs to the source's summability budgets
+and retain its one-sided pressure-Hessian control. The unchanged Euler scales
+face a leading-symbol damping obstruction, not a proved exclusion of all
+redesigned cascades. Change the frequency history or geometry if this test
+fails. Then include all preparation and cutoff remainders and inherited output.
+Immediately extend a successful
 estimate to the entire countable pulse family; do not stop at a finite birth.
 Consumer: the uniform inverse and residual estimate feed UE2.
 
