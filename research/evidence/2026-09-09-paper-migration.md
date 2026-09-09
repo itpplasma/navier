@@ -69,7 +69,14 @@ proof of global regularity or construction of an unforced counterexample.
 
 The first GitHub document build exposed a missing `lmodern` font package in
 the minimal CI environment. The dependency list and installation step were
-corrected; this required no manuscript change.
+corrected; this required no manuscript change. The corrected
+[GitHub build](https://github.com/itpplasma/navier/actions/runs/34317565484)
+succeeded on `50bf66e`, including clean map regeneration and all five PDF
+artifacts. GitHub emitted a non-blocking Node.js runtime deprecation warning
+for the pinned checkout/upload actions; updating those pins is separate
+maintenance. The formal repository's live manuscript pointers were also
+updated to `navier/paper/`, preserving concurrent provenance clarifications;
+no Lean source, axiom or coverage status was changed.
 
 ## Archive completion
 
