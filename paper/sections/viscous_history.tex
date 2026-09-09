@@ -1,0 +1,65 @@
+\section{Recent constructions and the fixed-viscosity transfer problem}
+\label{vh:source-scope}
+
+\paragraph{Status and provenance (9 September 2026).}
+This section is a dated research supplement, not a new premise of the
+conditional regularity theorem. External author claims, the project's
+acceptance of an input, independent review, and kernel verification are
+separate evidence levels. The project source ledger is
+\texttt{literature/recent-progress-2026-09.md}; its Euler inspection is
+\texttt{literature/openai-euler-transfer-2026-09-09.md}.
+Historical manuscript commits belong to this same project, not to an
+independent prior presentation. No theorem in the canonical graph is
+promoted by this supplement.
+
+\paragraph{Forced Navier--Stokes is not the unforced target.}
+OpenAI's September 8 manuscript states a bounded-energy singular solution
+with smooth external force and zero initial velocity
+\cite{OpenAINavier2026}. The project accepts that forced result as specified
+in its live plan; the recorded kernel replication belongs to the pinned
+source revision, not to a new build performed for this supplement.
+It does not provide a singular trajectory with zero force and nonzero
+Schwartz initial velocity. In particular a residual flat at the candidate
+endpoint is not an identically vanishing solenoidal residual.
+
+\paragraph{Unforced Euler and the preparation history.}
+The separate Euler manuscript states a singular unforced solution from
+smooth compactly supported solenoidal data \cite{OpenAIEuler2026}.
+Its use here is as a proposed construction to adapt, not a theorem about
+positive viscosity. The inspected ingredients include connected preparation
+histories, a pressure-based displacement inverse, and summable initial
+increments. At fixed positive viscosity one must change the actual
+history equations and retain diffusion throughout preparation, rather than
+switching it on only during the final growth interval. The publicly
+served PDF gave different parsed and rendered pagination in this search;
+we therefore do not assign a newly verified byte fingerprint to it.
+The frozen source trail and the precise comparison are recorded in
+\texttt{literature/viscous-history-source-audit-2026-09-09.md}.
+
+\paragraph{Prior art for the pre-activation obstruction.}
+Palasek's variable-gap Obukhov construction distinguishes an unforced
+inviscid model from a viscous construction requiring a force
+\cite{Palasek2026Obukhov}. Its discussion of the viscous case explicitly
+tracks dissipation before a mode's activation, and uses the force to
+remove that cost. This is prior art for the preparation problem, not an
+original-NS embedding. We import neither the model's blowup nor its
+unforced regularity into the PDE. The latter is attributed there to
+work listed as ``to appear'', which was not independently inspected here.
+
+\paragraph{Exact missing equation.}
+For a globally defined solenoidal trial field $U$, put
+\[
+ \mathcal F_U=\partial_tU-\nu\Delta U+
+                 \mathbb P\operatorname{div}(U\otimes U).
+\]
+An unforced correction must satisfy the entire equation
+\[
+ \partial_tw-\nu\Delta w+
+ \mathbb P\operatorname{div}(U\otimes w+w\otimes U+w\otimes w)
+       =-\mathcal F_U,
+\]
+with one compatible Schwartz initial trace and a proved
+blowup-preserving error bound on the whole interval before the endpoint.
+The final pressure is reconstructed from $U+w$; it need not equal a trial
+pressure. No such correction, no endpoint-uniform inverse for it, and no
+replacement arbitrary-data critical estimate is established here.
