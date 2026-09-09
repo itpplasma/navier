@@ -12,6 +12,12 @@
 > (`LICENSE`). Companion Lean repository: `itpplasma/navier-formal` (public).
 > The manuscript repository `navier-paper` stays private for now.
 
+The private manuscript, this research notebook, and `navier-formal` are records
+of the same internal research project rather than separate prior presentations.
+The current provenance wording and the superseded historical CP1 source-origin
+wording are distinguished in
+[`research/evidence/cp01-provenance-clarification-2026-09-09.md`](research/evidence/cp01-provenance-clarification-2026-09-09.md).
+
 Private research on the original three-dimensional incompressible
 Navier--Stokes problem. **The arbitrary-data theorem is not proved.**
 
@@ -62,9 +68,10 @@ current task queue.
 ## Repository and verification boundaries
 
 `itpplasma/navier` owns research, contracts, evidence and claim status.
-`itpplasma/navier-paper` owns manuscripts and generated paper maps;
-`itpplasma/navier-formal` owns Lean and formal coverage. Existing Phase I/II status is unchanged.
-No new paper theorem, Lean proof, priority result or independent audit is claimed.
+`itpplasma/navier-paper` owns internal manuscript records and generated paper
+maps; `itpplasma/navier-formal` owns Lean and formal coverage. Existing Phase
+I/II status is unchanged. No new paper theorem, Lean proof, priority result or
+independent audit is claimed.
 
 On a full checkout, run `python3 research/verify.py --research-only` and
 `git diff --check`. The default verifier additionally requires the paper and
