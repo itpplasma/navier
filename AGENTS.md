@@ -7,24 +7,27 @@ contains unproved specifications; never promote it into proved mathematics.
 
 ## Current authorization and ownership
 
-The 2026-09-06 owner request authorizes updating and pushing the whole research
-programme in `itpplasma/navier`, including unsigned commits. This update writes
-ONLY that repository. Earlier broader authorizations and phase history remain
-in `research/history/AGENTS-before-clay-hilbert-programme-2026-09-06.md`.
-No current instruction requests manuscript or formalization changes.
+The owner authorizes updates and ordinary pushes needed for the current
+research/provenance maintenance task. Earlier phase history remains in
+`research/history/AGENTS-before-clay-hilbert-programme-2026-09-06.md`.
+Preserve concurrent work and restrict edits to files directly required by the
+active task.
 
-Research/evidence/claim status belongs to public `navier`; manuscripts and
-generated paper maps to private `navier-paper`; Lean/Palomar interfaces and
-formal coverage to public `navier-formal`. Keep them separate. Preserve the
-original whole-space terminal target; periodic or microscopic companion goals
-must have separate contracts and proofs.
+Research/evidence/claim status belongs to public `navier`; internal manuscript
+records and generated paper maps to private `navier-paper`; Lean/Palomar
+interfaces and formal coverage to public `navier-formal`. These are separate
+repository responsibilities inside the same research project, not separate
+prior presentations of the mathematics. The private manuscript is not an
+external literature source; preserve its dated chronology for provenance and
+review. Genuine external literature remains a distinct trust boundary. Preserve
+the original whole-space terminal target; periodic or microscopic companion
+goals must have separate contracts and proofs.
 
 The controller integrates authoritative state and claim promotions. Workers
 own only explicitly assigned evidence files; they do not edit PLAN, docs or
-manuscripts and do not promote their own proofs. For the current 2026-09-07
-research run, the owner explicitly authorizes the available frontier models
-and simultaneous distinct mechanisms, superseding the earlier Claude-only
-and single-primary allocation restrictions. Other boundaries remain intact.
+manuscripts and do not promote their own proofs. For the current research run,
+the owner explicitly authorizes the available frontier models and simultaneous
+distinct mechanisms where assigned. Other boundaries remain intact.
 Historical model names are provenance, not evidence of tools available now.
 Independent review requires a fresh context/adversarial lens, preferably a
 different tier. Do not invent worker execution or call self-review independent.
@@ -53,7 +56,9 @@ Phase I means manuscript-owned Lean proofs over precisely stated and sourced
 literature interfaces. Phase II removes those extra interfaces down to
 Mathlib's foundational axioms. Keep the existing phase status strings; K0,
 K1, K2, KF and P0--P4 are research tasks, not new formal phases. The current
-critical-estimate task takes priority over formalization and manuscript work.
+critical-estimate task takes priority over formalization and manuscript work
+except when the owner explicitly requests formalization/provenance maintenance,
+as in the current task.
 
 External Lean dependencies, when separately in scope, must introduce no axioms
 beyond `propext`, `Classical.choice`, `Quot.sound`; require downstream axiom
