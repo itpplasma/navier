@@ -63,3 +63,259 @@ blowup-preserving error bound on the whole interval before the endpoint.
 The final pressure is reconstructed from $U+w$; it need not equal a trial
 pressure. No such correction, no endpoint-uniform inverse for it, and no
 replacement arbitrary-data critical estimate is established here.
+
+\subsection{A global upper-pressure-curvature obstruction to viscous transfer}
+\label{pc:section}
+
+\paragraph{Research status.}
+The proofs in this subsection are author derivations, with independent
+mathematical audit pending. They exclude a specified unforced viscous
+transfer of the preceding Euler construction; they do not establish
+arbitrary-data Navier--Stokes regularity. No claim of priority for a
+pressure criterion or for the harmonic-analysis ingredients is made.
+The source-inspection and test boundaries are recorded in
+\texttt{research/evidence/2026-09-09-pressure-curvature-barrier.md}.
+
+For a smooth classical branch, set
+\[
+ M(t)=\|u(t)\|_{L^\infty},\qquad
+ K(t)=\max\{0,\sup_{x\in\R^3}\lambda_{\max}(D^2p(t,x))\},\qquad
+ A(t)=\int_0^t\sqrt{K(s)}\,ds.
+\]
+Only the largest positive pressure eigenvalue is measured. In particular,
+large negative eigenvalues are not bounded by hypothesis. Suprema over
+rational spatial points and a countable dense set of unit directions give
+measurability. On every compact classical interval these quantities are
+finite. Any measurable nonnegative majorant for $K$ can be used instead.
+The pressure is always the canonical whole-space double-Riesz pressure.
+
+\begin{lemma}[One-sided curvature and mean oscillation]
+\label{pc:semiconcavity}
+Let $f\in C^2(\R^3)$, let
+\[
+ B=[f]_{\mathrm{BMO}}:=\sup_Q\frac{1}{|Q|}\int_Q|f-f_Q|<\infty,
+\]
+where $Q$ runs over Euclidean balls, and suppose $D^2f\le kI$ everywhere
+for some $k\ge0$. Then
+\[
+ \|\nabla f\|_\infty\le48\sqrt{2kB}.
+\]
+\end{lemma}
+\begin{proof}
+Fix $x$ and $r>0$, write $Q=B_r(0)$, and set
+$h(y)=k|y|^2/2-f(x+y)$. This is convex. Put
+$b=\frac{1}{|Q|}\int_Q|h-h_Q|$. Convexity along segments from zero gives
+$h(y/2)\le(h(0)+h(y))/2$. Averaging yields
+\[
+ h(0)\ge2h_{B_{r/2}}-h_Q\ge h_Q-16b.
+\]
+If $|z|\le r/2$, Jensen's inequality on $B_{r/2}(z)\subseteq Q$ gives
+$h(z)\le h_Q+8b$. The supporting-plane inequality, with
+$z=(r/2)\nabla h(0)/|\nabla h(0)|$ when the gradient is nonzero, therefore
+implies $|\nabla h(0)|\le48b/r$. Furthermore,
+$b\le B+kr^2/2$. Since $\nabla h(0)=-\nabla f(x)$,
+\[
+ |\nabla f(x)|\le48(B/r+kr/2).
+\]
+For $kB>0$ take $r=\sqrt{2B/k}$. If $k=0$ let $r\to\infty$;
+if $B=0$ let $r\downarrow0$. These also handle the zero cases.
+\end{proof}
+
+\begin{lemma}[Canonical pressure oscillation]
+\label{pc:bmo}
+There is a fixed dimensional constant $C_p<\infty$ such that, for every
+real solenoidal $u\in L^2\cap L^\infty$,
+\[
+ [R_iR_j(u_i u_j)]_{\mathrm{BMO}}\le C_p\|u\|_\infty^2.
+\]
+Here and below the repeated indices in the pressure are summed.
+\end{lemma}
+\begin{proof}
+We give the needed endpoint singular-integral argument rather than assume
+$L^\infty$ boundedness of the Riesz transforms, which is false. Write
+$F=u_i u_j$ for one scalar tensor entry; $F\in L^1\cap L^\infty$ and
+$\|F\|_\infty\le\|u\|_\infty^2$. For $Q=B_r(x_0)$ split
+$F=F\mathbf1_{2Q}+F\mathbf1_{(2Q)^c}$. The Fourier multiplier
+$-\xi_i\xi_j/|\xi|^2$ has absolute value at most one. Plancherel and
+Cauchy--Schwarz consequently bound the mean absolute value of its near
+output on $Q$ by $2^{3/2}\|F\|_\infty$.
+Away from zero the kernel is $\partial_i\partial_j(4\pi|x|)^{-1}$;
+its gradient is bounded by $C|x|^{-4}$. Any distribution supported at zero
+in this kernel is a bounded local multiple of $F$ and is already covered
+by the near part. For the far output subtract its value at $x_0$.
+The mean-value estimate gives, for $x\in Q$,
+\[
+ |T(F\mathbf1_{(2Q)^c})(x)-T(F\mathbf1_{(2Q)^c})(x_0)|
+ \le Cr\|F\|_\infty\int_{2r}^\infty \rho^{-4}\rho^2\,d\rho
+ \le C'\|F\|_\infty.
+\]
+The subtracted value is well defined since $F\in L^1$. For any chosen
+constant $c$, $\frac{1}{|Q|}\int_Q|TF-(TF)_Q|\le2\frac{1}{|Q|}\int_Q|TF-c|$.
+Combining the estimates and summing the nine tensor entries proves the
+claim. These estimates also justify the distributional splitting by
+approximation. They are the classical endpoint argument; see
+\cite{Stein1970} for its general setting.
+\end{proof}
+
+\begin{theorem}[Positive pressure-curvature clock]
+\label{pc:clock}
+There is a dimensional constant $C=48\sqrt{2C_p}$, independent of $\nu$,
+such that every canonical unforced whole-space classical branch satisfies
+\begin{equation}\label{pc:speed}
+ M(t)\le M(0)e^{CA(t)}\qquad(0\le t<T_*).
+\end{equation}
+If $T_*<\infty$, necessarily
+\begin{equation}\label{pc:necessary}
+ \int_0^{T_*}e^{2CA(t)}\,dt=\infty.
+\end{equation}
+In particular $A(T_*)=\infty$. More generally, the finiteness of the
+integral in \eqref{pc:necessary} implies continuation.
+\end{theorem}
+\begin{proof}
+Lemmas~\ref{pc:semiconcavity}--\ref{pc:bmo} give at every classical time
+\[
+ \|\nabla p(t)\|_\infty\le C\sqrt{K(t)}M(t).
+\]
+For $v_\epsilon=(|u|^2+\epsilon^2)^{1/2}$, direct differentiation of the
+original equation gives
+\[
+ (\partial_t+u\cdot\nabla-\nu\Delta)v_\epsilon
+ =-\frac{u\cdot\nabla p}{v_\epsilon}
+ -\nu\left(\frac{|\nabla u|^2}{v_\epsilon}
+       -\frac{\sum_j(u\cdot\partial_j u)^2}{v_\epsilon^3}\right)
+ \le |\nabla p|.
+\]
+The parenthesized term is nonnegative by Cauchy--Schwarz. The bounded
+whole-space maximum principle on a compact classical time interval,
+followed by $\epsilon\downarrow0$, implies
+\[
+ M(t)\le M(0)+\int_0^t\|\nabla p(s)\|_\infty\,ds.
+\]
+One may justify the whole-space principle by subtracting a vanishing
+positive spatial barrier before taking its coefficient to zero. All
+coefficients and sources are bounded on the compact interval. Integral
+Gronwall proves \eqref{pc:speed}; no division by $M$ is needed.
+
+For completeness the required viscous consumer can be proved directly.
+Testing the equation with $-\Delta u$, using solenoidality to remove
+pressure only in this pairing, and then Young's inequality gives
+\[
+ \frac{d}{dt}\|\nabla u\|_2^2+\nu\|\Delta u\|_2^2
+ \le \nu^{-1} M(t)^2\|\nabla u\|_2^2.
+\]
+Thus $\int_0^{T_*}M(t)^2\,dt<\infty$ bounds the enstrophy and
+contradicts the $H^1$ blowup alternative of
+Proposition~\ref{prop:localtheory}. Equation~\eqref{pc:speed} proves
+\eqref{pc:necessary}. If only $A(T_*)<\infty$ is used, there is also the
+already reviewed endpoint chain
+$M\hbox{ bounded}+\|u\|_2^2\le\|d\|_2^2
+\Rightarrow\|u\|_3^3\le M\|d\|_2^2
+\Rightarrow$ Theorem~\ref{thm:continuation}.
+\end{proof}
+
+\begin{corollary}[A one-sided type-I threshold]
+\label{pc:typeI}
+A finite endpoint is impossible if, on a terminal interval,
+$K(t)\le c(T_*-t)^{-2}$ with $2C\sqrt c<1$.
+Consequently a finite singular endpoint requires
+\[
+ \limsup_{t\uparrow T_*}(T_*-t)^2 K(t)\ge\frac1{4C^2}.
+\]
+The constant is not claimed sharp.
+\end{corollary}
+\begin{proof}
+On such an interval $A(t)\le A(s)+\sqrt c\log((T_*-s)/(T_*-t))$.
+Hence $M(t)^2\le C_s(T_*-t)^{-2C\sqrt c}$ is integrable, and the
+preceding enstrophy argument applies. A strict limsup below the displayed
+threshold supplies a $c$ with the required strict inequality.
+\end{proof}
+
+\begin{proposition}[Uniform full-state no-transfer bound]
+\label{pc:no-transfer}
+Fix $\nu>0$ and $H<\infty$. Consider any family of exact original
+unforced solutions $u_j$ defined on $[0,t_j]$, $t_j\le H$, with
+canonical pressures and real solenoidal Schwartz initial data $d_j$.
+Suppose
+\[
+ \sup_j\|d_j\|_{H^3}\le B_3,\qquad
+ \sup_j\|d_j\|_\infty\le B_\infty,\qquad
+ \sup_j\int_0^{t_j}\sqrt{K_j(t)}\,dt\le B.
+\]
+Then $\sup_j\|\nabla u_j(t_j)\|_\infty<\infty$. In particular,
+no such family can simultaneously have summable initial increments in
+every $H^m$, bounded $t_j$, a uniform global upper bound
+$D^2p_j\le K_+I$, and $\|\nabla u_j(t_j)\|_\infty\to\infty$.
+No hypothesis on packet supports, overlaps, tails, or polarizations is used.
+\end{proposition}
+\begin{proof}
+Here is a uniform estimate, avoiding any exchange of endpoints in a
+continuous-dependence argument. Write $\mathcal H_3$ for the norm obtained
+by summing the squared $L^2$ norms of all ordered derivatives of orders
+zero through three; it is equivalent to $H^3$. The product estimates
+\[
+ \|D^k(u\otimes u)\|_2\le c_3 M\|D^k u\|_2,
+ \qquad 0\le k\le3,
+\]
+hold with dimension-dependent constants. The only nontrivial intermediate
+products follow from
+\[
+ \|Du\|_4^2\le cM\|D^2u\|_2,\qquad
+ \|Du\|_6^2\le cM\|D^2u\|_3,\qquad
+ \|D^2u\|_3^2\le c\|Du\|_6\|D^3u\|_2.
+\]
+Each follows by integrating one derivative by parts in the corresponding
+power of the derivative norm and applying Holder. Spatial cutoffs and
+regularization of the Euclidean derivative-tensor magnitude justify the
+zero sets and the infinite domain. The last two inequalities imply
+$\|Du\|_6\|D^2u\|_3\le cM\|D^3u\|_2$; Leibniz then gives the product
+estimates. Differentiating the equation, using its divergence form, and
+pairing gives
+\[
+ \frac{d}{dt}\mathcal H_3(u)^2
+ \le \frac{c_3}{\nu}M(t)^2\mathcal H_3(u)^2.
+\]
+Pressure vanishes only in these solenoidal pairings; it was retained in
+\eqref{pc:speed}. Consequently
+\[
+ \|\nabla u_j(t_j)\|_\infty
+ \le c_s B_3\exp\left(\frac{c_3}{2\nu}
+                  B_\infty^2 H e^{2CB}\right),
+\]
+where $c_s$ includes norm equivalence and $H^3\hookrightarrow W^{1,\infty}$.
+The latter embedding follows also by Fourier Cauchy--Schwarz, since
+$\int |\xi|^2(1+|\xi|^2)^{-3}\,d\xi<\infty$ in dimension three.
+For the final assertion, summable increments give $B_3,B_\infty<\infty$;
+$B=H\sqrt{\max(K_+,0)}$ is an admissible common clock bound.
+\end{proof}
+
+\paragraph{What is excluded and what is not.}
+The Euler source explicitly maintains one global upper pressure-Hessian
+bound over its exact approximating sequence \cite{OpenAIEuler2026}.
+Proposition~\ref{pc:no-transfer} rules out preserving this invariant in
+\emph{any} fixed-positive-viscosity unforced realization of that sequence,
+even with arbitrary autonomous overlap and the entire exterior retained.
+Merely repairing the pre-activation heat loss cannot overcome this
+obstruction. It does not refute the Euler result: the velocity estimate
+also holds inviscidly, but its derivative continuation uses $\nu>0$.
+It does not refute a forced construction either: both the speed equation
+and the canonical pressure input would have to be changed for forcing.
+Bounds confined to one trajectory or a proper core do not satisfy the
+global semiconcavity hypothesis. A redesigned viscous construction with
+unbounded positive-curvature clock and a different history inverse is
+not excluded.
+
+\paragraph{Terminal and originality boundaries.}
+Pressure regularity criteria and endpoint $L^\infty$ to BMO estimates are
+prior art. Related primary records include Seregin and Sverak's
+\emph{Navier--Stokes equations with lower bounds on the pressure}
+(2002, DOI 10.1007/s002050200199), and Chae and Constantin's
+\emph{Remarks on type I blow up for the 3D Euler equations and the 2D
+Boussinesq equations} (arXiv:2103.10672). The latter uses directional
+signed Hessian/strain quantities for Euler, not the criterion proved
+here. The former's precise full theorem was not imported: only its
+institutional abstract and publication metadata were accessible in this
+retrieval. Novelty and independent verification of the present combination
+remain undetermined. We have not bounded $A$ or the exponential-history
+integral from arbitrary initial data. Thus this is a complete
+construction-class obstruction and a conditional continuation estimate,
+not a positive producer for the original unrestricted problem.
