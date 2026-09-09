@@ -1,0 +1,46 @@
+name: Verify viscous packet research and retain exact source
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/viscous-packet-verification.yml'
+      - 'research/check_viscous_packet_action.py'
+      - 'research/evidence/2026-09-09-viscous-packet-action.md'
+      - 'paper/sections/viscous-packet-action.tex'
+      - 'PLAN.md'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 2
+      - run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3
+      - name: Check complete research and manuscript source structure
+        run: |
+          python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
+          if test -f research/check_viscous_packet_action.py; then
+            python3 research/check_viscous_packet_action.py
+          fi
+          git diff --check HEAD^ HEAD
+          git diff --check
+      - name: Record immutable source snapshot
+        run: |
+          git rev-parse HEAD > verified-source-commit.txt
+          git rev-parse HEAD^{tree} > verified-source-tree.txt
+          git cat-file commit HEAD > verified-commit-object.txt
+          git archive --format=tar.gz -o verified-sources.tar.gz HEAD
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: viscous-packet-source
+          retention-days: 3
+          path: |
+            verified-source-commit.txt
+            verified-source-tree.txt
+            verified-commit-object.txt
+            verified-sources.tar.gz
