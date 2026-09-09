@@ -89,6 +89,19 @@ sources are synchronized from it. Historical source-commit fields retain their
 original repository provenance. The migration/build record is
 [here](research/evidence/2026-09-09-paper-migration.md).
 
+## September 9 fixed-viscosity attack and immediate manuscript update
+
+Input: `1fc5f5b1f1e6cf2ca52ae4bdbd71c8d7b7a07352`. The manuscript now records
+the forced/unforced/inviscid distinction in `paper/sections/viscous_history.tex`.
+The follow-up source ledger is
+`literature/viscous-history-source-audit-2026-09-09.md`; it explicitly discloses
+served-PDF pagination mismatch, inherited rather than newly recomputed hashes,
+and Palasek's prior-art preparation-time obstruction. No external theorem is
+silently upgraded. The active mathematical task remains UE1: one autonomous
+common trace. First recompute the exact fixed-viscosity history and displacement
+operators, then test a genuinely coupled repair. A source audit is not a
+terminal advance; current theorem, audit and formal statuses remain unchanged.
+
 ## 1. Rigid terminal equation and unchanged positive consumer
 
 For each fixed nu>0, the equation is
