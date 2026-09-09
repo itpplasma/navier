@@ -1,0 +1,72 @@
+{
+  "files": {
+    "main.tex": [
+      {
+        "old": "\\input{sections/defect_extensions}",
+        "new": "\\input{sections/defect_extensions}\n\\input{sections/conformal_moment}"
+      },
+      {
+        "old": "No arbitrary-data critical bound is proved here.",
+        "new": "A further review-pending component in Section~\\ref{cm:section} proves,\nby conformal inversion, finite energy of the cubic representative and\n$L^{3/2}$ integrability of its divergence defect under a spatial moment\nhypothesis. Weighted energy on the original equation supplies input-only\nspacetime budgets, but not the critical temporal estimate.\nNo arbitrary-data critical bound is proved here."
+      },
+      {
+        "old": "branch and this time.  No decay of $u(t)$ beyond membership in every\n$H^k(\\R^3)$ is ever used: the Schwartz property of $u_0$ need not be\npreserved in time (Remark~\\ref{rem:tao-scope}).",
+        "new": "branch and this time. The original conditional reduction uses no decay\nof $u(t)$ beyond membership in every $H^k(\\R^3)$. The review-pending\nSection~\\ref{cm:section} derives, rather than assumes, spatial moment\nbounds from the Schwartz datum and the equation. The full Schwartz\nproperty need not be preserved in time (Remark~\\ref{rem:tao-scope})."
+      },
+      {
+        "old": "No smallness of any norm of $u$ is assumed.  These statements do not assert\n$w\\in L^2(\\R^3)$.",
+        "new": "No smallness of any norm of $u$ is assumed. These unweighted statements\nalone do not assert $w\\in L^2(\\R^3)$. With the additional hypothesis\n$|x|\\nabla u\\in L^2$, the review-pending Theorem~\\ref{cm:snapshot}\nestablishes that membership."
+      },
+      {
+        "old": "No $L^2$ norm of $w(t)$ is used, and none is asserted to be finite.",
+        "new": "No $L^2$ norm of $w(t)$ is used in this corollary. Its finiteness on the\nSchwartz-data branch is established separately by the review-pending\nTheorem~\\ref{cm:snapshot} and Proposition~\\ref{cm:moment}."
+      },
+      {
+        "old": "limitations should be stated explicitly.  To begin with, $w\\in L^2(\\R^3)$ is not\nasserted anywhere: what is proved is $w\\in L^6$ with $\\nabla w\\in L^2$, hence\n$w\\in W^{1,2}_{\\rm loc}$, and every argument above is arranged so that no\n$L^2$ norm of $w$ is required.  Second, $\\sigma\\in L^{3/2}(\\R^3)$ remains\nunproved; it does not follow from $\\sigma\\in L^2(\\R^3)$ on a space of\ninfinite measure, and Lemma~\\ref{lem:quotient-mixed-pressure} bypasses it by\npairing in $L^2\\times L^2$ rather than establishing it.  Third, none of these",
+        "new": "limitations should be stated explicitly. From the bare $H^1$ hypotheses,\nthis block proves $w\\in L^6$, $\\nabla w\\in L^2$ and\n$w\\in W^{1,2}_{\\rm loc}$ without using $\\|w\\|_2$; it does not by itself\nprove $w\\in L^2$ or $\\sigma\\in L^{3/2}$. The latter does not follow from\n$\\sigma\\in L^2$ on an infinite-measure space. The review-pending\nTheorem~\\ref{cm:snapshot} resolves both spatial questions with the extra\nhypothesis $|x|\\nabla u\\in L^2$, and Proposition~\\ref{cm:moment} establishes\nthat hypothesis at every classical time for the Schwartz-data branch,\ntogether with an endpoint-uniform integrated budget. The mixed-pressure\nargument above still uses only its original $L^2\\times L^2$ pairing.\nThird, none of these"
+      },
+      {
+        "old": "hold for every solenoidal $H^1$ datum, with no smallness; they do not assert\n$w\\in L^2$, they leave $\\sigma\\in L^{3/2}(\\R^3)$ unproved, and they bound no\ntime integral of $Y^2$, so the estimate of\nHypothesis~\\ref{hyp:highstrain} is untouched by them.",
+        "new": "hold for every solenoidal $H^1$ datum, with no smallness. Without extra\nspatial information they do not establish $w\\in L^2$ or\n$\\sigma\\in L^{3/2}(\\R^3)$. Section~\\ref{cm:section} supplies those two\nmemberships under a weighted-gradient hypothesis and along every\nSchwartz-data classical branch. Neither that pending extension nor the\nunweighted block bounds the critical time integral of $Y^2$; the\narbitrary-data estimate of Hypothesis~\\ref{hyp:highstrain} remains unproved."
+      }
+    ],
+    "references.bib": [
+      {
+        "old": "ath.AP},\n  note = {Version 2, 28 August 2022; methodological comparison only}\n}\n",
+        "new": "ath.AP},\n  note = {Version 2, 28 August 2022; methodological comparison only}\n}\n\n\n@article{LiimatainenSalo2014,\n  author = {Liimatainen, Tony and Salo, Mikko},\n  title = {{$n$}-harmonic coordinates and the regularity of conformal mappings},\n  journal = {Mathematical Research Letters},\n  volume = {21},\n  number = {2},\n  pages = {341--361},\n  year = {2014},\n  eprint = {1209.1285},\n  archivePrefix = {arXiv},\n  note = {Version 2, 3 June 2016. Conformal-invariance background; not a regularity theorem for the nonzero-curl representative}\n}\n"
+      }
+    ],
+    "Makefile": [
+      {
+        "old": "main.pdf: main.tex references.bib sections/dissipation_clock.tex sections/defect_extensions.tex",
+        "new": "main.pdf: main.tex references.bib sections/dissipation_clock.tex sections/defect_extensions.tex sections/conformal_moment.tex"
+      },
+      {
+        "old": "eck-defect\ncheck-defect:\n\tpython3 tools/check_defect_extensions.py --integrated\n",
+        "new": "eck-defect\ncheck-defect:\n\tpython3 tools/check_defect_extensions.py --integrated\n\n.PHONY: check-conformal\ncheck-conformal:\n\tpython3 tools/check_conformal_moment.py --integrated\n"
+      }
+    ],
+    "README.md": [
+      {
+        "old": "roducer remains\nopen. No full-range weighted estimate or novelty claim is made.\n",
+        "new": "roducer remains\nopen. No full-range weighted estimate or novelty claim is made.\n\n\n## Conformal inversion and moment component (2026-09-06)\n\n`sections/conformal_moment.tex`, included in `main.tex`, contains a full\ncomponent proof, author-checked with independent mathematical audit pending.\nConformal pullback preserves the cubic gradient minimizer. Applying the\naccepted div-curl estimate to the Leray projection of the inverted datum\nproves `w,q in H1` and `sigma in L^(3/2)` when `|x| grad u in L2`.\nThe weighted energy argument establishes that hypothesis at every classical\ntime on the original Schwartz-data branch and gives input-only finite-horizon\nintegrated moment bounds, including `sigma in L2_t L^(3/2)_x`.\n\nThis answers the earlier spatial questions for this branch, not for every\nbare H1 datum. The new spacetime norm is supercritical in Navier-Stokes\nscaling: it does not supply DEFECT-L4 or any arbitrary-data regularity proof.\nAn explicit non-solution curve verifies why finiteness of the new budgets\nalone does not imply the missing fourth-power time integral.\n\nRun `make all clock check-clock check-defect check-conformal`. The conformal\ncheck is a finite algebra/source regression, not an independent audit.\nThe anchor-checked integration tool replaces the older frozen-map\nintegrators for the current workflow; their historical evidence is retained.\n"
+      }
+    ],
+    "proof_map.tex": [
+      {
+        "old": "Graph SHA-256: \\texttt{6e43cbe19aa9faced3712749009f86e6}\\texttt{10255a5026c54880416a566866d96bbe}.\n",
+        "new": "Graph SHA-256: \\texttt{04632a86e3cc0cb725d710d800b492de}\\texttt{3dc2a5abdf73d2f6880f6ca7dbf4e8e2}.\n"
+      },
+      {
+        "old": "\\end{document}\n",
+        "new": "\\clearpage\\section*{Review-pending component: Conformal moment and spatial defect bounds}\n\\textbf{Not a promoted claim or an arbitrary-data producer.}\n\nauthor-checked-independent-audit-pending. Finite-energy representative and L3/2 defect under a weighted-gradient hypothesis, proved at every classical time with input-only integrated moment budgets for Schwartz data; supercritical time control only, no arbitrary-data critical producer or node promotion.\n\n\\textbf{Evidence:} \\texttt{research/evidence/2026-09-06-conformal-moment.md}.\n\n\\textbf{Manuscript labels:} \\texttt{cm:covariance}, \\texttt{cm:inverted-h1}, \\texttt{cm:snapshot}, \\texttt{cm:moment}, \\texttt{cm:spacetime}, \\texttt{cm:scaling-test}.\n\\end{document}\n"
+      }
+    ]
+  },
+  "guards": {
+    "proof_map.tex": {
+      "base": "aee67a692f8ff3abc72b5a6347bc3109acac8c56c305bc170b264496882bfb8b",
+      "target": "5c1aafa529332543675f3aa63957d9b16ced2b0493fc523a1fa765aac9bd8288"
+    }
+  }
+}

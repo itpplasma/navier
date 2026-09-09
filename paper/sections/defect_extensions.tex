@@ -1,0 +1,253 @@
+\section{Near-quadratic defect regularity and a direct quotient clock}
+\label{de:section}
+
+\paragraph{Status and dependencies.}
+The following are author-checked component proofs, with independent
+mathematical audit pending.  They do not establish the arbitrary-data
+fourth-power defect estimate or promote a terminal claim.  The first proof
+uses the already audited unweighted regularity of
+Proposition~\ref{prop:quotient-divcurl}; the second uses the already audited
+weighted dissipation and defect inequality.  Both keep the original
+whole-space equation and its selected classical branch.  The fixed-point
+argument is a Cordes-type perturbation, not a new general elliptic
+regularity principle.  For related scalar $p$-harmonic regularity see
+Haarala--Sarsa~\cite{HaaralaSarsa2022}; that theorem is not applied to our
+nonzero-curl representative.  The only additional analytic inputs to the
+first proof are the classical unweighted Riesz-transform bounds and
+Riesz--Thorin interpolation, in the framework of~\cite{Stein1970}.
+
+\subsection{An unweighted interval of exponents around two}
+
+Let $\mathcal H=D^2\Delta^{-1}$ denote the scalar-to-matrix multiplier
+with symbol $\xi\otimes\xi/|\xi|^2$ for $\xi\ne0$, and put
+\[
+ \mathcal T f=\mathcal H f-\tfrac13 fI,
+ \qquad \tau_r=\|\mathcal T\|_{L^r(\mathbb R^3;\mathbb C)
+                  \to L^r(\mathbb R^3;\mathbb C^{3\times3})}.
+\]
+The matrix norm is Frobenius.  Defining these norms on the complex spaces
+allows direct use of interpolation; the resulting bounds apply to real
+fields.  Componentwise Riesz-transform boundedness and the triangle
+inequality give $\tau_r<\infty$ for every $1<r<\infty$.
+Plancherel gives the exact value
+\begin{equation}\label{de:tracefree-norm}
+ \tau_2=\sqrt{2/3},
+ \qquad
+ \left|\frac{\xi\otimes\xi}{|\xi|^2}-\frac I3\right|_F^2=\frac23.
+\end{equation}
+All occurrences of $\Delta^{-1}$ below mean this order-zero Hessian
+multiplier, not a separately assumed integrable Newtonian potential.
+
+\begin{lemma}[A measurable-coefficient fixed-point identity]
+\label{de:fixedpoint}
+Let $u\in H^1(\mathbb R^3;\mathbb R^3)$ be solenoidal, let $w=u+q$ be
+its cubic minimizing representative, and put $d=\operatorname{div}w$.
+Choose $n=w/|w|$ on $\{w\ne0\}$ and $n=e_1$ on $\{w=0\}$, and set
+$N=n\otimes n-I/3$.  Then, as an equality in $L^2$,
+\begin{equation}\label{de:fixedpoint-eq}
+ d=K_n d+F_n,\qquad
+ K_nf=-\frac34 N:\mathcal T f,\qquad F_n=-\frac34 N:\nabla u.
+\end{equation}
+Here $\|K_n\|_{2\to2}\le1/2$, uniformly in the datum.  No derivative
+of $n$ or $N$ is asserted or used.
+\end{lemma}
+\begin{proof}
+By Proposition~\ref{prop:quotient-divcurl}, $\nabla w,\nabla q,d\in L^2$
+and $w\in W^{1,2}_{\rm loc}$.  Since $q$ is a distributional gradient,
+$\operatorname{curl}q=0$, while $\operatorname{div}q=d$.  The Fourier
+div--curl identities therefore give
+\begin{equation}\label{de:hessian}
+ \nabla q=\mathcal H d.
+\end{equation}
+For completeness, distributionally
+$\Delta(\partial_jq_i)=\partial_i\partial_jd$; after Fourier
+transformation the asserted multiplier identity follows off $\xi=0$.
+The difference of the two sides is an $L^2$ field with Fourier support at
+one point, hence zero.  This excludes any harmonic ambiguity without a
+decay assumption on a scalar potential.
+
+The variational equation is $\operatorname{div}(|w|w)=0$.  The local
+Sobolev chain rule yields
+\[
+ |w|\operatorname{div}w+
+ |w|^{-1}\sum_{i,j}w_iw_j\partial_iw_j=0
+ \quad\hbox{almost everywhere on }\{w\ne0\}.
+\]
+One may apply bounded truncations of the $C^1$ map $z\mapsto|z|z$ and
+pass locally in $W^{1,1}$: $|w||\nabla w|$ is locally integrable, so this
+step introduces no derivative of the unit direction.  Division by $|w|$
+on the indicated set gives $d+n^T(\nabla w)n=0$.  On the zero set,
+$\nabla w=0$ almost everywhere by the Sobolev level-set property, so the
+same identity holds with the chosen value $n=e_1$.
+
+Use $\operatorname{tr}\nabla u=0$, \eqref{de:hessian}, and
+$\mathcal H d=\mathcal T d+Id/3$ to obtain
+\[
+ 0=d+N:\nabla u+N:\mathcal T d+d/3.
+\]
+This is \eqref{de:fixedpoint-eq}.  Since $|N|_F=\sqrt{2/3}$ pointwise,
+\eqref{de:tracefree-norm} implies
+$\|K_n\|_{2\to2}\le(3/4)(2/3)=1/2$.
+\end{proof}
+
+\begin{theorem}[Near-$2$ unweighted defect estimate]
+\label{de:near2}
+Set
+\begin{align*}
+ M&=\max\{2,\tau_{4/3}/\tau_2,\tau_4/\tau_2\},&
+ \vartheta(r)&=4|1/r-1/2|,\\
+ \mathcal I&=\{r\in(4/3,4):\vartheta(r)\log M<\log2\},&
+ k_r&=\tfrac12M^{\vartheta(r)},\qquad
+ A_r=\frac{\sqrt6}{4(1-k_r)}.
+\end{align*}
+Thus $\mathcal I$ is a nonempty open interval containing $2$, fixed
+independently of the datum.  If $u$ is as in Lemma~\ref{de:fixedpoint}
+and additionally $\nabla u\in L^r$ for $r\in\mathcal I$, then
+\begin{align}
+ \|d\|_r=\|\sigma\|_r&\le A_r\|\nabla u\|_r,
+       \qquad \sigma=-d,\label{de:defect-bound}\\
+ \|\nabla q\|_r&\le(\tau_r+1/\sqrt3)A_r\|\nabla u\|_r,\label{de:q-bound}\\
+ \|\nabla w\|_r&\le[1+(\tau_r+1/\sqrt3)A_r]\|\nabla u\|_r.
+       \label{de:w-bound}
+\end{align}
+These constants are not claimed sharp.  At $r=2$ the stronger audited
+bound $\|d\|_2\le\frac12\|\nabla u\|_2$ remains available.
+\end{theorem}
+\begin{proof}
+Interpolate $\mathcal T$ between $L^2$ and respectively $L^{4/3}$ or
+$L^4$.  On either side of $2$, the interpolation parameter at the other
+endpoint is $\vartheta(r)$, so
+\[
+ \tau_r\le\tau_2M^{\vartheta(r)},\qquad
+ \|K_n\|_{r\to r}\le\frac34\sqrt{2/3}\,\tau_r\le k_r<1,
+ \qquad \|F_n\|_r\le\frac{\sqrt6}{4}\|\nabla u\|_r.
+\]
+This estimate alone must not be applied to $d$ before proving $d\in L^r$.
+Instead, $F_n\in L^2\cap L^r$, and the same partial sums
+\[
+ d_m=\sum_{j=0}^m K_n^jF_n
+\]
+converge in $L^2$, because $\|K_n\|_{2\to2}\le1/2$, and in $L^r$,
+because $\|K_n\|_{r\to r}\le k_r<1$.  The Riesz multipliers agree on
+the intersection of these spaces, so these are genuinely the same
+functions in both constructions.  The $L^2$ limit is the given $d$, by
+\eqref{de:fixedpoint-eq} and uniqueness of an $L^2$ fixed point.  Both
+limits are also limits in distributions, hence the $L^r$ limit is $d$.
+Summing the geometric series proves \eqref{de:defect-bound}.
+Equation~\eqref{de:hessian} then holds also in $L^r$, and
+$\|Id/3\|_r=\|d\|_r/\sqrt3$ gives \eqref{de:q-bound}.
+Finally $\nabla w=\nabla u+\nabla q$ gives \eqref{de:w-bound}.
+\end{proof}
+
+\paragraph{Extent of the repair.}
+This supplies an unweighted estimate near $2$, not a weighted
+Calder\'on--Zygmund theorem for all exponents.  In particular, for
+$r\in\mathcal I\cap(3/2,\infty)$ and $s=2r/(2r-3)$, a supplied bound
+on $\int\|\nabla u\|_r^s$ supplies the corresponding defect bound, with
+factor $A_r^s$.  The lower-exponent whole-space assumption
+$\nabla u\in L^r$ for $r<2$ is not inferred from smoothness or $H^k$
+regularity.  Neither the spatial improvement nor interpolation supplies a
+new time-integrability budget for an arbitrary trajectory.
+
+\subsection{The quotient dissipation also drives enstrophy}
+
+On the original classical branch use $E,Y,Z$ and the Sobolev constant $S$
+of Section~\ref{dc:section}.  Let $C_9$ be the norm of the Leray
+projection on vector $L^9$, as in \textup{(F5)}, and set
+\[
+ Q_0=\mathcal Q(u_0),\quad
+ B_{\mathcal Q}(t)=\int_0^tD_{\mathcal Q}(s)\,ds,\quad
+ I_\sigma(t)=\int_0^t\|\sigma(s)\|_2^4\,ds,\quad
+ \Lambda_\sigma(t)=C_\sigma\nu^{-3}I_\sigma(t).
+\]
+Here $C_\sigma$ is the already proved constant
+\eqref{eq:qe-Csigma}, and $S=C_S$ in that formula.
+
+\begin{proposition}[A direct quotient-dissipation clock]
+\label{de:quotient-clock}
+For every $t<T_*$,
+\begin{align}
+ Y'(t)+\nu Z(t)&\le c_{\mathcal Q}D_{\mathcal Q}(t)Y(t),
+ &c_{\mathcal Q}&=\frac{4S^3C_9^3}{3\nu^2},\label{de:clock-diff}\\
+ Y(t)+\nu\int_0^tZ(s)\,ds
+ &\le Y(0)\exp\bigl(c_{\mathcal Q}B_{\mathcal Q}(t)\bigr).
+ &&\label{de:clock-bound}
+\end{align}
+In particular, a finite quotient-dissipation budget up to a finite horizon
+continues the branch past that horizon, without the endpoint ESS theorem.
+\end{proposition}
+\begin{proof}
+The audited weighted dissipation bound gives
+$\|w\|_9^3\le(9S^2/8)D_{\mathcal Q}$.  Since $\mathbb Pw=u$ and the
+$L^3$ and $L^9$ extensions of the Leray projection agree on their
+intersection,
+\[
+ \|u\|_9^3\le\frac{9S^2C_9^3}{8}D_{\mathcal Q}.
+\]
+The pressure-free enstrophy test, H\"older and interpolation yield
+\[
+ \tfrac12Y'+\nu Z
+ \le\|u\|_9\|\nabla u\|_{18/7}\|\Delta u\|_2
+ \le S^{1/3}\|u\|_9Y^{1/3}Z^{2/3}.
+\]
+Indeed $\|\nabla u\|_{18/7}\le Y^{1/3}(S Z^{1/2})^{1/3}$, using
+the Fourier equality $\|D^2u\|_2=\|\Delta u\|_2$.  Applying
+$2az^{2/3}\le\nu z+32a^3/(27\nu^2)$ gives
+\[
+ Y'+\nu Z\le\frac{32S}{27\nu^2}\|u\|_9^3Y
+ \le\frac{4S^3C_9^3}{3\nu^2}D_{\mathcal Q}Y.
+\]
+Multiply by $\exp(-c_{\mathcal Q}B_{\mathcal Q})$, integrate, and use
+monotonicity of $B_{\mathcal Q}$ to obtain \eqref{de:clock-bound}.
+Energy bounds $E$; hence bounded $B_{\mathcal Q}$ excludes the finite
+$H^1$ blow-up alternative, including a maximal time equal to the horizon.
+No estimate comparing $D_{\mathcal Q}$ with $D_3$ is used.
+\end{proof}
+
+\begin{corollary}[No defect/enstrophy finiteness separation on this branch]
+\label{de:no-separation}
+For every $t<T_*$ put
+\[
+ A_* =\frac{8S^3C_9^3Q_0}{3\nu^3}.
+\]
+Then
+\begin{align}
+ Y(t)+\nu\int_0^t Z(s)\,ds
+ &\le Y(0)\exp\bigl(A_*e^{\Lambda_\sigma(t)}\bigr),\label{de:double-exp}\\
+ \int_0^tY(s)^2\,ds
+ &\le\frac{E(0)Y(0)}{2\nu}
+          \exp\bigl(A_*e^{\Lambda_\sigma(t)}\bigr),\label{de:reverse-budget}\\
+ I_\sigma(t)&\le\frac1{16}\int_0^tY(s)^2\,ds.\label{de:forward-budget}
+\end{align}
+Consequently, on every interval $[0,T)$ with $0<T\le T_*$, including
+$T=\infty$ when $T_*=\infty$, one of the two nonnegative integrals
+$\int_0^T\|\sigma\|_2^4$ and $\int_0^TY^2$ is finite if and only if
+the other is finite.  In particular a finite-lifespan branch with the
+second integral infinite but the first finite is impossible.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{cor:qe-defect-gronwall}, including its nonnegative
+quotient term, gives
+$B_{\mathcal Q}(t)\le(2Q_0/\nu)e^{\Lambda_\sigma(t)}$.
+Substitute this in \eqref{de:clock-bound} to obtain
+\eqref{de:double-exp}.  For $s\le t$, monotonicity of
+$\Lambda_\sigma$ gives the same upper bound for $Y(s)$; multiplication
+by $\int_0^tY\le E(0)/(2\nu)$ proves \eqref{de:reverse-budget}.
+The audited pointwise estimate $\|\sigma(s)\|_2\le\frac12Y(s)^{1/2}$
+gives \eqref{de:forward-budget}.  Monotone convergence as $t\uparrow T$
+proves the finiteness equivalence.  At zero datum all quantities vanish;
+no argument divided by $Q_0$ or $Y(0)$.  At finite $T_*$, finite
+$I_\sigma(T_*)$ would also bound $Y$ in \eqref{de:double-exp}, directly
+contradicting the local blow-up alternative.
+\end{proof}
+
+\paragraph{The missing producer is not hidden in these estimates.}
+The energy budget still gives only $\int\|\sigma\|_2^2\le E(0)/(8\nu)$.
+It does not control $I_\sigma$, even on a fixed finite time interval:
+$(1-t)^{-1/3}$ on $(0,1)$ has a finite square integral and an infinite
+fourth-power integral.  This scalar example is not a Navier--Stokes
+trajectory.  Theorem~\ref{de:near2} changes a spatial exponent only, and
+\eqref{de:reverse-budget} places the unknown fourth-power integral on
+its right-hand side.  Neither proves that integral finite for arbitrary
+data.  The signed pressure estimate, the defect producer, and the terminal
+regularity statement therefore remain unproved.

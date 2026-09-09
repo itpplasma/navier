@@ -57,7 +57,7 @@ out = [r'''\documentclass[10pt]{article}
 \usepackage[a4paper,landscape,margin=8mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows.meta,backgrounds}
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \usepackage{parskip}
 \usepackage{needspace}
@@ -81,10 +81,12 @@ for n in nodes:
     out.append(r'\node[' + n['kind'] + '] (' + n['id'] + ') at (' + f'{x:.2f},{y:.2f}' + ') {'
                + r'\hyperref[node:' + n['id'] + ']{' + esc(n['title']) + r'}\\{\scriptsize '
                + tags[n['kind']] + '}};\n')
+out.append(r'\begin{pgfonlayer}{background}' + '\n')
 for n in nodes:
     for dep in n['depends_on']:
         style = 'edge,dashed' if by_id[dep]['kind'] == 'gap' else 'edge'
         out.append(r'\draw[' + style + '] (' + dep + ') -- (' + n['id'] + ');\n')
+out.append(r'\end{pgfonlayer}' + '\n')
 out += [r'''\end{tikzpicture}}
 
 Phase I: ''' + esc(graph['phase_i_status']) + r'''. Phase II: ''' + esc(graph['phase_ii_status']) + r'''.

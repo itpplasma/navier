@@ -1,6 +1,8 @@
 # Whole-space proof dossier and extended endpoint interfaces
 
 PLAN.md is the live allocation; this file describes the logical interfaces.
+The public manuscripts and generated map are in [paper/](../paper/README.md).
+Historical manuscript commit citations retain their original provenance.
 The terminal theorem is NOT PROVED. This update promotes no graph node.
 The complete previous dossier is preserved byte-for-byte in
 [the archived dossier](history/proof-before-clay-hilbert-programme-2026-09-06.md).

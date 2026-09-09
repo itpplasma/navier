@@ -1,70 +1,43 @@
-name: Integrate paper-continuation research checkpoints
+name: Build papers and verify proof map
 on:
   push:
     branches: [main]
-    paths:
-      - 'research/evidence/2026-09-06-dissipation-clock.md'
-      - 'research/evidence/2026-09-06-defect-extensions.md'
-      - 'tools/integrate_dissipation_clock.py'
-      - 'tools/integrate_defect_extensions.py'
-      - 'research/evidence/2026-09-06-conformal-moment.md'
-      - 'tools/*conformal*'
-      - 'research/verify.py'
-      - 'tools/*signed*'
-      - 'research/evidence/2026-09-06-signed-defect.md'
-      - 'tools/*speed_shell*'
-      - 'tools/*shell_dynamics*'
-      - 'tools/*material_response*'
-      - 'research/evidence/2026-09-06-material-response.md'
-      - 'research/evidence/2026-09-06-shell-dynamics.md'
-      - 'research/evidence/2026-09-06-speed-shell.md'
-      - '.github/workflows/dissipation-clock.yml'
+    paths: ['paper/**', 'docs/proof-graph.yaml', 'docs/proof_map.tex', 'tools/generate_map.py', 'research/verify.py', 'PLAN.md', '.github/workflows/dissipation-clock.yml']
+  pull_request:
+    paths: ['paper/**', 'docs/proof-graph.yaml', 'docs/proof_map.tex', 'tools/generate_map.py', 'research/verify.py', 'PLAN.md', '.github/workflows/dissipation-clock.yml']
+  workflow_dispatch:
 permissions:
-  contents: write
-concurrency:
-  group: dissipation-clock-research-integration
-  cancel-in-progress: false
+  contents: read
 jobs:
-  integrate:
-    if: github.repository == 'itpplasma/navier'
+  documents:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          ref: main
-          fetch-depth: 0
-      - name: Install existing graph dependency
-        run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2
-      - name: Refresh and integrate without promoting claims
+      - name: Install document tools
         run: |
-          git pull --ff-only origin main
-          python3 tools/integrate_material_response.py
-          python3 research/verify.py --research-only
-          python3 tools/generate_map.py
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-science python3-yaml
+      - name: Check manuscript and graph
+        run: |
+          python3 research/verify.py --paper-only
+          make -C paper documents check
+          git diff --exit-code -- docs/proof_map.tex paper/proof_map.tex
           git diff --check
-      - name: Commit explicit status and source paths
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add PLAN.md README.md docs/proof.md docs/proof-graph.yaml docs/proof_map.tex
-          if ! git diff --cached --quiet; then
-            git -c commit.gpgsign=false commit -m 'Integrate strong material response and diffusion-strain action without promoting the endpoint bound'
-            git pull --rebase origin main
-            python3 tools/integrate_material_response.py --check
-            python3 research/verify.py --research-only
-            python3 tools/generate_map.py
-            git diff --exit-code -- docs/proof_map.tex
-            git push origin HEAD:main
-          fi
-          git rev-parse HEAD > verified-source-commit.txt
-          git archive --format=tar.gz -o verified-sources.tar.gz HEAD
-      - name: Retain private source and graph evidence
+          if grep -E 'There were undefined references|Citation .* undefined|Reference .* undefined|Overfull' paper/main.log paper/proof_map.log paper/dissipation_clock.log paper/dissipation_budget_continuation.log paper/structural-obstructions/main.log; then exit 1; fi
+      - name: Upload paper PDFs
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: dissipation-clock-research
-          retention-days: 3
+          name: navier-papers
           path: |
-            docs/proof_map.tex
-            verified-source-commit.txt
-            verified-sources.tar.gz
+            paper/main.pdf
+            paper/proof_map.pdf
+            paper/dissipation_clock.pdf
+            paper/dissipation_budget_continuation.pdf
+            paper/structural-obstructions/main.pdf
+      - name: Upload build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: paper-build-logs
+          path: paper/**/*.log

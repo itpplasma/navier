@@ -13,15 +13,15 @@ research/provenance maintenance task. Earlier phase history remains in
 Preserve concurrent work and restrict edits to files directly required by the
 active task.
 
-Research/evidence/claim status belongs to public `navier`; internal manuscript
-records and generated paper maps to private `navier-paper`; Lean/Palomar
-interfaces and formal coverage to public `navier-formal`. These are separate
-repository responsibilities inside the same research project, not separate
-prior presentations of the mathematics. The private manuscript is not an
-external literature source; preserve its dated chronology for provenance and
-review. Genuine external literature remains a distinct trust boundary. Preserve
-the original whole-space terminal target; periodic or microscopic companion
-goals must have separate contracts and proofs.
+Research, evidence, claim status, manuscript sources and generated paper maps
+belong to public `navier`; manuscripts live in `paper/`. The owner authorized
+the public manuscript migration and archiving `navier-paper` on 2026-09-09.
+The old repository is a private historical archive, not a live editing target.
+Lean/Palomar interfaces and formal coverage belong to public `navier-formal`.
+These are parts of the same research project, not separate prior presentations.
+Preserve dated internal provenance; project manuscripts are not external
+literature. Preserve the original whole-space terminal target; periodic or
+microscopic companion goals need separate contracts and proofs.
 
 The controller integrates authoritative state and claim promotions. Workers
 own only explicitly assigned evidence files; they do not edit PLAN, docs or
@@ -73,17 +73,19 @@ Use the connected GitHub repository directly. Refresh main before updating;
 preserve concurrent edits; update only explicit paths; no force pushes.
 Unsigned commits are authorized. Store source metadata and original notes,
 not third-party PDFs, generated binaries, build products, caches or credentials.
-The owner did not authorize publishing, submission, outside contact, added
-authorship or recreating the deleted Overleaf project. Since 2026-09-08 the
+Public manuscript hosting and the repository migration are authorized.
+Submission, outside contact, added authorship and recreating the deleted
+Overleaf project are not authorized. Since 2026-09-08 the
 `navier` and `navier-formal` repositories are public (Apache-2.0 code, CC BY
-4.0 prose); `navier-paper` stays private. The owner welcomes external
+4.0 prose), including `paper/` since September 9. The historical
+`navier-paper` archive stays private. The owner welcomes external
 contributions via PRs, subject to the same source,
 audit and claim-promotion rules. Publicity is not submission, registration or
 outside contact.
 
 Run `python3 research/verify.py --research-only` and `git diff --check` on a
-full research checkout. Default verification also requires paper/formal
-checkouts; report unavailable checks or a narrower snapshot validation as
+full research checkout. Default verification checks `paper/` and also needs
+the formal checkout; `--paper-only` skips that external manifest; report unavailable checks or a narrower snapshot validation as
 such. Builds and schema checks are not mathematical certification. When a
 new source or theorem is used, inspect its actual statement and record domain,
 quantifiers, solution class, collision model and uniformity. No unproved

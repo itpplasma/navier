@@ -1,0 +1,344 @@
+\section{Signed defect cancellation and a one-sided form bound}
+\label{sd:section}
+
+\paragraph{Status and scope.}
+These are author-checked component proofs; independent mathematical audit
+is pending.  They sharpen the missing-bound reduction, but the required
+arbitrary-data time estimate remains unproved.  Throughout this section the
+equation is the original unforced Navier--Stokes equation on $\mathbb R^3$,
+with viscosity $\nu>0$ and the selected Schwartz-data classical branch.
+No weighted moment hypothesis is needed.  The only project inputs are the
+accepted quotient regularity, evolution and weighted-dissipation identities;
+the final nonendpoint continuation implication also uses
+Proposition~\ref{de:quotient-clock}, whose independent audit is pending.
+
+Write $\rho=|w|$, $V=\rho^{1/2}w$, $Q=\|w\|_3^3/3$,
+$D=D_{\mathcal Q}$, and $\sigma=-\operatorname{div}w$. Set
+\[
+ B_{ij}=R_iR_j\sigma=\partial_iq_j,\qquad
+ B^0=B+\tfrac13\sigma I,\qquad
+ a_0=\frac{9C_S^2}{8}.
+\]
+The matrix $B$ is the Hessian multiplier from
+\eqref{eq:qdc-potential}, not a pointwise Newtonian convolution.  It is
+symmetric, $\operatorname{tr}B=-\sigma$, and $B^0$ is trace free.
+
+\subsection{A cancellation before taking absolute values}
+
+\begin{lemma}[Scalar cancellation and three signed representations]
+\label{sd:cancellation}
+For every solenoidal $u\in H^m(\mathbb R^3;\mathbb R^3)$, $m\ge4$,
+with its cubic minimizing representative, all the following integrals
+converge absolutely and
+\begin{align}
+ \int_{\mathbb R^3}\sigma\rho^3\,dx&=0,\label{sd:scalar}\\
+ K_u=-\int q_j A_i\partial_i u_j
+ &=-\int V^{\mathsf T}S(u)V
+   =\int V^{\mathsf T}BV
+   =\int V^{\mathsf T}B^0V.\label{sd:signed}
+\end{align}
+Here $A=\rho w$ and $S(u)_{ij}=(\partial_i u_j+\partial_j u_i)/2$.
+In particular,
+\begin{equation}\label{sd:sharp-entry}
+ |K_u|\le\frac23\|\sigma\|_2\|w\|_6^3.
+\end{equation}
+The number $2/3$ is the constant supplied by the trace-free algebra;
+no optimality assertion is made for the nonlinear class of representatives.
+\end{lemma}
+\begin{proof}
+The accepted div--curl result gives $w\in L^3\cap L^6$ and
+$\nabla w\in L^2$. Hence $w\in L^4$ by interpolation, $\rho^3\in L^2$,
+and $\rho^3|\nabla w|\in L^1$. Apply the local Sobolev chain rule, first
+to bounded truncations, to $F=\rho^3w$. The derivative is dominated by
+$4\rho^3|\nabla w|$, so $F\in W^{1,1}(\mathbb R^3)$ and $F\in L^1$.
+The identities $\operatorname{div}w=-\sigma$ and
+$w\cdot\nabla\rho=\rho\sigma$, including the zero set by the Sobolev
+level-set property, give
+\[
+ \operatorname{div}(\rho^3w)=2\rho^3\sigma.
+\]
+For a standard cutoff $\chi_R$ with $|\nabla\chi_R|\le C/R$,
+\[
+ \left|\int\chi_R\operatorname{div}F\right|
+ =\left|\int F\cdot\nabla\chi_R\right|
+ \le\frac CR\|F\|_1\longrightarrow0.
+\]
+Since $\operatorname{div}F\in L^1$, dominated convergence proves
+\eqref{sd:scalar}. This argument never divides by $\rho$ at a zero.
+
+Next substitute $q=w-u$ into the accepted expression for $K_u$.
+The extra term is $\int A\cdot\nabla(|u|^2/2)=0$ because
+$\operatorname{div}A=0$. To justify this test globally,
+$A|u|^2\in L^1$ by $A\in L^{3/2}$ and $u\in L^6$; also
+$|A||u||\nabla u|\in L^1$ by $u\in L^\infty$,
+$\nabla u\in L^3$. Cutoff errors therefore vanish and the product rule
+is valid after local smooth approximation. It follows that
+$K_u=-\int\rho w_iw_j\partial_i u_j=-\int V^{\mathsf T}S(u)V$.
+On the other hand,
+\[
+ \int\rho w_iw_j\partial_i w_j=\int\rho^3\sigma=0.
+\]
+Subtract $\nabla u$ from $\nabla w$ and use $\nabla q=B$ to obtain
+the representation with $B$. Adding $\sigma I/3$ changes this integral
+by $\frac13\int\rho^3\sigma=0$. All terms involving $B$ or
+$\nabla w$ lie in $L^1$ because these matrices are in $L^2$ and
+$|V|^2=\rho^3\in L^2$; the $S(u)$ term is integrable since
+$S(u)\in L^\infty$ and $|V|^2\in L^1$.
+
+The Fourier symbol of $\sigma\mapsto B^0$ is
+$I/3-\xi\otimes\xi/|\xi|^2$. Thus Plancherel gives
+\begin{equation}\label{sd:plancherel}
+ \|B^0\|_2=\sqrt{2/3}\,\|\sigma\|_2.
+\end{equation}
+For any vector $z$,
+$|z\otimes z-|z|^2I/3|_F=\sqrt{2/3}|z|^2$.
+Since $B^0$ is trace free, Cauchy--Schwarz in space now gives
+\[
+ |K_u|\le\sqrt{2/3}\,\|B^0\|_2\|V\|_4^2
+ =\frac23\|\sigma\|_2\|w\|_6^3.
+\]
+\end{proof}
+
+\begin{proposition}[A smaller fourth-power coefficient]
+\label{sd:improved}
+On every compact classical interval,
+\begin{equation}\label{sd:improved-diff}
+ Q'+\frac\nu2D\le\frac{a_0^3}{2\nu^3}\|\sigma\|_2^4Q.
+\end{equation}
+Consequently Corollary~\ref{cor:qe-defect-gronwall} remains valid with
+$\Lambda_\sigma$ replaced by
+$\widehat\Lambda_\sigma(t)=a_0^3(2\nu^3)^{-1}
+\int_0^t\|\sigma(s)\|_2^4\,ds$.
+The previously audited inequality is still valid; this is a separately
+review-pending strengthening, not a silent replacement of its constant.
+\end{proposition}
+\begin{proof}
+The accepted weighted dissipation gives $\|w\|_9^3\le a_0D$.
+Interpolation and \eqref{sd:sharp-entry} yield
+\[
+ |K_u|\le\frac23\|\sigma\|_2(3Q)^{1/4}(a_0D)^{3/4}.
+\]
+Use $\alpha x^{3/4}\le\varepsilon x+
+27\alpha^4/(256\varepsilon^3)$ with $\varepsilon=\nu/2$.
+The coefficient is
+\[
+ \frac{27}{32}\left(\frac23\right)^4 3a_0^3
+ =\frac12a_0^3.
+\]
+Insert this into $Q'+\nu D=K_u$ and apply the same integrating-factor
+argument as before. Neither the exponent four nor the missing uniform
+bound on its time integral has changed.
+\end{proof}
+
+\subsection{Only the amplifying part of a quadratic form must be bounded}
+
+For a real symmetric matrix field $M\in L^2(\mathbb R^3)$ define
+\begin{equation}\label{sd:form-definition}
+ b_\nu(M)=\max\left\{0,\sup_{0\ne\psi\in C_c^\infty(\mathbb R^3;\mathbb R^3)}
+ \frac{\displaystyle\int\psi^{\mathsf T}M\psi
+       -\frac{4\nu}{9}\int|\nabla\psi|^2}
+      {\displaystyle\int|\psi|^2}\right\}.
+\end{equation}
+This is a variational definition. No existence of an eigenfunction,
+discrete spectrum, or spectral theorem is assumed. Put
+$b_\nu(t)=b_\nu(B^0(t))$ along the branch.
+
+\begin{theorem}[One-sided form clock]
+\label{sd:form-clock}
+The function $b_\nu(t)$ is nonnegative, Borel and locally bounded on the
+classical lifespan. It satisfies
+\begin{align}
+ 0\le3b_\nu(t)&\le\frac{a_0^3}{2\nu^3}\|\sigma(t)\|_2^4,
+       \label{sd:form-domination}\\
+ Q'(t)+\frac\nu2D(t)&\le3b_\nu(t)Q(t).\label{sd:form-diff}
+\end{align}
+Writing $L_b(t)=3\int_0^t b_\nu(s)\,ds$, one has
+\begin{equation}\label{sd:form-budget}
+ Q(t)+\frac\nu2\int_0^tD(s)\,ds\le Q(0)e^{L_b(t)}.
+\end{equation}
+Thus a uniform finite bound on $\int_0^t b_\nu(s)\,ds$ below a finite
+horizon is sufficient for continuation to that horizon and beyond, should
+it coincide with a finite maximal time. It is not necessary to estimate
+the full fourth-power defect integral first.
+\end{theorem}
+\begin{proof}
+For fixed $M\in L^2$ the potential term is continuous on $H^1$:
+$H^1\hookrightarrow L^4$ and
+\[
+ \left|\int\psi^{\mathsf T}M\psi-\int\phi^{\mathsf T}M\phi\right|
+ \le\|M\|_2\|\psi-\phi\|_4(\|\psi\|_4+\|\phi\|_4).
+\]
+Thus the variational inequality extends by density to every $H^1$
+vector field, and the supremum can be taken over a fixed countable
+dense set of smooth compactly supported fields. In particular it
+applies to the accepted $V\in H^1$.
+
+For the special matrix $M=B^0$, trace-free algebra and
+\eqref{sd:plancherel} imply, with $x=\|\nabla\psi\|_2^2/\|\psi\|_2^2$,
+\[
+ \frac{\int\psi^{\mathsf T}B^0\psi}{\|\psi\|_2^2}
+ \le\frac23\|\sigma\|_2 C_S^{3/2}x^{3/4}.
+\]
+Here we used $\|\psi\|_4^2\le
+\|\psi\|_2^{1/2}\|\psi\|_6^{3/2}$ and the vector Sobolev inequality.
+The exact Young maximization, now with $\varepsilon=4\nu/9$, gives
+\[
+ b_\nu(B^0)\le\frac{27}{256}
+ \frac{(2/3)^4 C_S^6\|\sigma\|_2^4}{(4\nu/9)^3}
+ =\frac{a_0^3}{6\nu^3}\|\sigma\|_2^4.
+\]
+This proves finiteness and \eqref{sd:form-domination}.
+
+For measurability, on any compact classical interval the map
+$t\mapsto w(t)$ is continuous into $L^3$ and
+$\|\sigma(t)\|_2\le\frac12\sqrt{Y(t)}$ is uniformly bounded.
+For a smooth compactly supported scalar $\eta$,
+$\langle\sigma(t),\eta\rangle=\int w(t)\cdot\nabla\eta$ is continuous.
+Density and the uniform $L^2$ bound extend this continuity to every
+$L^2$ test, so $\sigma(t)$ is weakly continuous into $L^2$ there.
+The same holds for $B^0(t)$ by the bounded linear multiplier.
+Each fixed smooth-field Rayleigh expression in
+\eqref{sd:form-definition} is therefore continuous in time. Its
+countable supremum, and its maximum with zero, are Borel. The displayed
+upper bound and the local boundedness of $Y$ prove local boundedness.
+
+The form inequality for $V$, \eqref{sd:signed}, and the accepted
+$D\ge\frac89\|\nabla V\|_2^2$ give
+\[
+ K_u\le\frac{4\nu}{9}\|\nabla V\|_2^2+b_\nu(t)\|V\|_2^2
+ \le\frac\nu2D+3b_\nu(t)Q.
+\]
+This proves \eqref{sd:form-diff}. The nondecreasing, locally absolutely
+continuous function $L_b$ permits the integrating-factor argument,
+including its nonnegative dissipation term, and gives
+\eqref{sd:form-budget}. Bounded $L_b$ implies bounded $\int D$;
+Proposition~\ref{de:quotient-clock} and the local $H^1$ blow-up
+alternative give the claimed continuation. No endpoint theorem is used.
+\end{proof}
+
+\begin{corollary}[An explicit bound for the original missing integral]
+\label{sd:missing-bound-consumer}
+Put $E_0=\|u_0\|_2^2$, $Y_0=\|\nabla u_0\|_2^2$,
+$Q_0=\mathcal Q(u_0)$, and
+$A_* =8C_S^3C_9^3Q_0/(3\nu^3)$. For every $t<T_*$,
+\begin{equation}\label{sd:conditional-missing-bound}
+ \int_0^t\|\sigma(s)\|_2^4\,ds
+ \le\frac{E_0Y_0}{32\nu}
+       \exp\!\left(A_*\exp\!\left(3\int_0^t b_\nu(s)\,ds\right)\right).
+\end{equation}
+An input-only bound on the new form clock would therefore supply the
+original missing fourth-power bound with the displayed constants.
+No such arbitrary-data form-clock bound is established in this section.
+\end{corollary}
+\begin{proof}
+Equation~\eqref{sd:form-budget} gives
+$\int_0^tD\le2Q_0e^{L_b(t)}/\nu$.
+Proposition~\ref{de:quotient-clock} implies
+$\sup_{s\le t}Y(s)\le Y_0\exp(A_*e^{L_b(t)})$.
+Use $\|\sigma(s)\|_2^4\le Y(s)^2/16$ and
+$\int_0^tY(s)\,ds\le E_0/(2\nu)$.
+\end{proof}
+
+\subsection{A concrete endpoint tail certificate}
+
+Let $f(t,x)=\lambda_{\max}(B^0(t,x))$. Since $B^0$ is trace free,
+$f\ge0$ and the elementary eigenvalue inequality gives
+\begin{equation}\label{sd:positive-potential}
+ \|f(t)\|_2\le\sqrt{2/3}\|B^0(t)\|_2
+ =\frac23\|\sigma(t)\|_2.
+\end{equation}
+For a nonnegative $L^2$ function $f$, define its amplitude threshold
+\begin{equation}\label{sd:threshold-definition}
+ \kappa_\nu(f)=\inf\left\{k\in\mathbb Q_{>0}:
+ \|(f-k)_+\|_{3/2}\le\frac{4\nu}{9C_S^2}\right\}.
+\end{equation}
+This is an amplitude cutoff, not a Fourier cutoff.
+
+\begin{proposition}[Tail certificate and optimal scalar truncation algebra]
+\label{sd:tail}
+The admissible set in \eqref{sd:threshold-definition} is nonempty,
+$t\mapsto\kappa_\nu(f(t))$ is Borel, and
+\begin{equation}\label{sd:tail-chain}
+ 0\le b_\nu(B^0(t))\le\kappa_\nu(f(t))
+ \le\frac{a_0^3}{6\nu^3}\|\sigma(t)\|_2^4.
+\end{equation}
+In particular, a finite time integral of this amplitude threshold is a
+sufficient certificate for the bound in
+\eqref{sd:conditional-missing-bound}. More generally, any measurable
+$k(t)\ge0$ with finite time integral and
+$\|(f(t)-k(t))_+\|_{3/2}\le4\nu/(9C_S^2)$ almost everywhere suffices.
+\end{proposition}
+\begin{proof}
+For any admissible $k$ and any $\psi\in H^1$,
+\[
+ \int\psi^{\mathsf T}B^0\psi\le\int f|\psi|^2
+ \le k\|\psi\|_2^2+\|(f-k)_+\|_{3/2}C_S^2\|\nabla\psi\|_2^2.
+\]
+The definition of $b_\nu$ therefore gives $b_\nu\le k$; take the
+infimum, with no assertion that the infimum is attained.
+
+The exact pointwise inequality
+\begin{equation}\label{sd:truncation}
+ (x-k)_+^{3/2}\le\frac{3\sqrt3}{16}\,k^{-1/2}x^2
+ \qquad(x\ge0,\ k>0)
+\end{equation}
+follows by maximizing $(y-1)^{3/2}/y^2$ for $y>1$; its maximum is at
+$y=4$ and equals $3\sqrt3/16$. If
+$\delta=4\nu/(9C_S^2)$, integration shows that every
+\[
+ k>\frac{27}{256}\delta^{-3}\|f\|_2^4
+\]
+is admissible. Rational approximation and
+\eqref{sd:positive-potential} give
+\[
+ \kappa_\nu(f)\le\frac{27}{256}
+ \left(\frac{9C_S^2}{4\nu}\right)^3\frac{16}{81}\|\sigma\|_2^4
+ =\frac{a_0^3}{6\nu^3}\|\sigma\|_2^4.
+\]
+This also handles $f=0$ by taking $k\downarrow0$.
+
+For completeness, the weakly continuous $L^2$ curve $B^0(t)$ is strongly
+Borel measurable: expand it in a countable orthonormal basis and take the
+pointwise $L^2$ limit of the finite partial sums. The largest-eigenvalue
+map is Lipschitz in the Frobenius norm, so $f(t)$ is strongly Borel in
+$L^2$. For every fixed $k>0$ the map
+$g\mapsto\int(g-k)_+^{3/2}$ on nonnegative $L^2$ is continuous.
+Indeed, its difference is bounded by a constant times
+$\|g-h\|_2(\|g\|_2+\|h\|_2)^{1/2}
+(|\{g>k\}|+|\{h>k\}|)^{1/4}$, by the power difference inequality,
+Cauchy--Schwarz and Chebyshev. These measures are bounded on an
+$L^2$-bounded set for fixed $k$. Thus each rational admissibility set is
+Borel. The infimum over these countably many tests is Borel as well.
+The general measurable certificate follows from the same form inequality.
+\end{proof}
+
+\paragraph{Scaling and the remaining implication.}
+Under the actual Navier--Stokes scaling,
+$B^0_\lambda(t,x)=\lambda^2B^0(\lambda^2t,\lambda x)$.
+Changing variables in the Rayleigh quotient gives
+\[
+ b_\nu(B^0_\lambda(t))=\lambda^2 b_\nu(B^0(\lambda^2t)).
+\]
+The form clock is therefore critical. The same scaling holds for
+$\kappa_\nu$, using continuity of the tail norm in the positive cutoff
+and the density of the rationals. The bounds in
+\eqref{sd:form-domination} and \eqref{sd:tail-chain} run from the
+\emph{unknown fourth-power integral to the new clocks}, not the reverse
+as an unconditional estimate. Neither energy's square-integral budget nor
+the moment-derived $L_t^2L_x^{3/2}$ budget bounds these clocks. The remaining
+producer is an input-only, endpoint-uniform bound on the signed form
+clock (or on a sufficient amplitude certificate) from the vector evolution.
+Formula~\eqref{sd:conditional-missing-bound} is its fully explicit consumer,
+not its proof. No open claim has been promoted.
+
+\paragraph{Relation to existing criteria.}
+One-sided strain and mixed critical sum-space regularity criteria are
+established mechanisms; see Miller~\cite{Miller2021Sum}, especially
+Theorem~1.2 and the amplitude-decomposition arguments. That work controls
+the positive middle eigenvalue of the velocity strain, whereas $B^0$ here
+is the trace-free Hessian of the cubic representative's gradient correction.
+The cited theorem is not applied to $B^0$. The present argument is written
+out above, and no novelty claim is made for the form-bound or sum-space
+mechanism. On an actual finite-horizon branch, a finite form clock gives
+continuation and hence a finite defect integral; no separation of those
+finiteness conditions on such a branch is claimed.

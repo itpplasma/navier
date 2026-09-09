@@ -1,0 +1,283 @@
+\section{Time regularity and a differentiable speed-shell residual}
+\label{st:section}
+
+\paragraph{Scope and status.}
+These are author-checked component derivations, awaiting independent
+mathematical audit. They resolve a temporal regularity obstacle for a
+\emph{finite, regularized} shell residual. They do not bound the critical
+clock at a possible singular endpoint. The natural variable is
+$V=|w|^{1/2}w$, not $w$ itself or its unit direction. The underlying
+monotone-map geometry is standard nonlinear variational geometry; no
+novelty claim is made. All constants and limiting arguments used below
+are supplied here. The Riesz bounds are the same classical
+Calder\'on--Zygmund inputs used earlier, not additional PDE estimates.
+
+\subsection{A natural-distance estimate with gradient freedom}
+
+For $z\in\mathbb R^3$ set $A(z)=|z|z$ and $J(z)=|z|^{1/2}z$.
+Let $\mathcal G_3$ be the closed gradient subspace and $w(f)$ the cubic
+minimizer of $f+\mathcal G_3$, for any $f\in L^3$.
+
+\begin{theorem}[Natural-variable stability]\label{st:stability}
+Let $w_i=w(f_i)$, $\rho_i=|w_i|$, and $V_i=J(w_i)$, for
+$f_0,f_1\in L^3(\mathbb R^3;\mathbb R^3)$. For every $g\in\mathcal G_3$,
+\begin{equation}\label{st:difference}
+ \|V_1-V_0\|_2^2
+ \le\frac98\int(\rho_0+\rho_1)|f_1-f_0+g|^2.
+\end{equation}
+In particular $f\mapsto J(w(f))$ is Lipschitz from every bounded subset
+of $L^3$ into $L^2$, with squared Lipschitz constant at most $9R/4$
+on $\{\|f\|_3\le R\}$.
+\end{theorem}
+\begin{proof}
+Both maps are $C^1$ at zero, with zero derivative there. For $z\ne0$,
+writing $r=|z|$ and $e=z/r$, their derivatives are
+\[
+ DA(z)=r(I+e\otimes e),\qquad
+ DJ(z)=r^{1/2}(I+\tfrac12e\otimes e).
+\]
+Thus, for every vector $d$,
+\begin{equation}\label{st:matrix}
+ |DJ(z)d|^2\le\tfrac98\,d^{\mathsf T}DA(z)d.
+\end{equation}
+The ratios in the radial and transverse directions are respectively
+$9/8$ and $1$; at zero both sides vanish. Along the segment from $a$ to
+$b$, Cauchy--Schwarz in its parameter and \eqref{st:matrix} give
+\[
+ |J(b)-J(a)|^2\le\tfrac98
+ (A(b)-A(a))\cdot(b-a).
+\]
+Set $d=w_1-w_0$ and
+$H(x)=\int_0^1DA(w_0+s d)\,ds$. This is a measurable positive
+semidefinite matrix, and
+\[
+ A(w_1)-A(w_0)=Hd,\qquad 0\le H\le(\rho_0+\rho_1)I.
+\]
+The last inequality follows from $DA(z)\le2|z|I$ and the convexity
+bound $|w_0+s d|\le(1-s)\rho_0+s\rho_1$.
+The Euler--Lagrange condition says that both $A(w_i)$ annihilate
+$\mathcal G_3$. Since $d-(f_1-f_0+g)\in\mathcal G_3$, putting
+$e_0=f_1-f_0+g$ yields
+\[
+ E:=\int d^{\mathsf T}Hd
+   =\int d^{\mathsf T}He_0
+   \le E^{1/2}\left(\int e_0^{\mathsf T}He_0\right)^{1/2}.
+\]
+Every integral is finite by H\"older in $L^3,L^3,L^3$.
+Cauchy--Schwarz is applied to $H^{1/2}d,H^{1/2}e_0$ and does not
+require invertibility of $H$. If $E=0$ the conclusion is immediate;
+otherwise division gives $E\le\int(\rho_0+\rho_1)|e_0|^2$.
+Integrate the pointwise natural-distance inequality to prove
+\eqref{st:difference}. Finally $\|w(f_i)\|_3\le\|f_i\|_3$ and
+H\"older give the stated Lipschitz constant by taking $g=0$.
+\end{proof}
+
+\begin{theorem}[Pressure-free local time derivative]\label{st:time}
+On every compact interval $[0,T]\subset[0,T_*)$ of the selected original
+Schwartz-data branch,
+\[
+ V\in W^{1,\infty}([0,T];L^2),\qquad
+ \|V_t(t)\|_2^2\le\frac94\int\rho(t)|F(t)|^2
+ \quad\hbox{for almost every }t,
+ \qquad F=\nu\Delta u-(u\cdot\nabla)u.
+\]
+Also $V\in L^\infty([0,T];H^1)$ and
+\begin{equation}\label{st:drivers}
+ \|V\|_6^2\le a_0D,\qquad
+ \|V_t\|_2\le\tfrac32\|w\|_3^{1/2}\|F\|_3,
+ \qquad a_0=9C_S^2/8.
+\end{equation}
+No bound uniform as $T\uparrow T_*$ is asserted.
+\end{theorem}
+\begin{proof}
+The local package gives $u\in C^1([0,T];L^3)$ and a bounded $L^3$
+norm. The preceding theorem makes $V$ Lipschitz into the separable
+Hilbert space $L^2$, hence absolutely continuous with essentially
+bounded strong derivative. One can obtain this last fact directly by
+expanding in an orthonormal basis: the scalar coordinates are Lipschitz,
+finite sums of their squared derivatives are bounded by the squared
+Lipschitz constant, and the coordinate fundamental theorems assemble
+into the Bochner integral and its almost-everywhere derivative.
+
+In \eqref{st:difference} use the two times $t,t+h$ and the gradient
+$g=\int_t^{t+h}\nabla p(s)\,ds\in\mathcal G_3$. The inclusion follows
+from the earlier gradient decomposition and the local $C_tL^3_x$
+regularity of $\nabla p$. The equation gives
+$u(t+h)-u(t)+g=\int_t^{t+h}F(s)\,ds$. Divide by $h^2$ and let
+$h\to0$ at a time of strong differentiability of $V$.
+The representative is continuous in $L^3$, $F$ is continuous in $L^3$,
+and their products converge in $L^1$ by H\"older. The right side tends
+to $(9/4)\int\rho|F|^2$, proving the derivative bound.
+This uses an admissible gradient increment, not a claim that the
+pressure term is small.
+
+The accepted weighted identity gives
+$\|\nabla V\|_2^2\le9D/8$, while $\|V\|_2^2=3Q$.
+Moreover $D=-\langle\rho w,\Delta u\rangle$ is continuous and bounded
+on $[0,T]$, since $w$ is continuous in $L^3$ and $\Delta u$ in $L^3$.
+Thus $V$ is locally bounded in $H^1$. Sobolev and H\"older give
+\eqref{st:drivers}. No time derivative of $w$ at its zero set is used.
+\end{proof}
+
+\subsection{Finite smooth features instead of a moving sharp projection}
+
+Let $\Pi$ be the orthogonal projection of matrices onto symmetric
+trace-free matrices and let $\mathcal T M=\sum_{ij}R_iR_jM_{ij}$.
+Write $C_p$ for a fixed bound of $\mathcal T:L^p(\mathbb R^3;
+\mathbb R^{3\times3})\to L^p(\mathbb R^3)$, for $p=3/2,3$.
+Use the same signed-work scalar as in Section~\ref{ss:section}:
+\[
+ \chi=\mathcal T\Pi(V\otimes V).
+\]
+Fix real $g_1,\ldots,g_n\in C_c^\infty((0,\infty))$ and $\eta>0$.
+Set $\phi_j=g_j(\rho)$, $G_{ij}=\langle\phi_i,\phi_j\rangle$,
+$b_i=\langle\chi,\phi_i\rangle$, and
+\begin{equation}\label{st:ridge-definition}
+ a=(G+\eta I)^{-1}b,\qquad
+ R_{n,\eta}=\|\chi\|_2^2-b^{\mathsf T}(G+\eta I)^{-1}b,
+ \qquad r=\chi-\sum_j a_j\phi_j.
+\end{equation}
+The letter $r$ here denotes a residual, not the speed $\rho$.
+
+\begin{theorem}[Differentiable residual and exact signed pairing]
+\label{st:residual}
+All quantities in \eqref{st:ridge-definition} are locally absolutely
+continuous in time; for $r$ this assertion is only needed and asserted
+in $L^{3/2}$ on bounded spatial sets. The scalar residual satisfies
+\begin{align}
+ N_\rho^2\le R_{n,\eta}
+ &=\|r\|_2^2+\eta|a|^2\le\|\chi\|_2^2,\label{st:bounds}\\
+ K_u&=\langle\sigma,r\rangle,\qquad
+ |K_u|\le\|\sigma\|_2\sqrt{R_{n,\eta}},\label{st:work}\\
+ R_{n,\eta}'
+ &=2\langle\chi,\chi_t\rangle-2a\cdot b'+a^{\mathsf T}G'a
+  =2\langle r,\chi_t\rangle-2\left\langle r,\sum_j a_j\phi_{j,t}\right\rangle
+ \quad\hbox{a.e.}\label{st:identity}
+\end{align}
+The first pairing in the last expression is an $L^3$--$L^{3/2}$
+pairing; the second is an $L^2$ pairing. In particular they need not
+be interpreted as an $L^2$ derivative of $\chi$.
+\end{theorem}
+\begin{proof}
+On a compact classical interval write $M=\|V\|_6$ and $W=\|V_t\|_2$;
+both are essentially bounded by Theorem~\ref{st:time}. Products of
+time difference quotients give, distributionally in time,
+\[
+ \chi_t=\mathcal T\Pi(V_t\otimes V+V\otimes V_t),\qquad
+ \|\chi\|_3\le C_3\sqrt{2/3}\,M^2,\quad
+ \|\chi_t\|_{3/2}\le2C_{3/2}MW.
+\]
+Here the product rule follows by time mollification, or first on a
+bounded spatial set by the pointwise absolutely continuous paths and
+then by H\"older. These bounds also show that $\chi\in
+W^{1,\infty}_tL^{3/2}_x\cap L^\infty_tL^3_x$; its membership in
+$L^{3/2}$ follows separately from $V\in L^3$.
+Furthermore $V\in C_tL^2_x\cap L^\infty_tL^6_x$ implies
+$V\in C_tL^p_x$ for $2\le p<6$. In particular $\chi\in C_tL^2_x$.
+Time mollification and H\"older in the dual spaces $L^3,L^{3/2}$ now
+prove
+$(\|\chi\|_2^2)'=2\langle\chi,\chi_t\rangle$ in $L^1$.
+For clarity, mollification converges strongly in $L^q_tL^3_x$ for
+finite $q$ on interior compact intervals, and the derivatives converge
+strongly in $L^q_tL^{3/2}_x$; hence the product converges in $L^1$.
+The continuous $L^2$ representative identifies the endpoint values.
+
+The functions $h_j(z)=g_j(|z|^{2/3})$ are smooth and globally Lipschitz
+on $\mathbb R^3$, being identically zero near zero and outside a ball.
+Let $\ell_j=\sup|Dh_j|<\infty$. Since $\phi_j=h_j(V)$, the ordinary
+chain rule on almost every pointwise time path, followed by Fubini, gives
+\[
+ \phi_{j,t}=Dh_j(V)V_t,\qquad
+ \|\phi_{j,t}\|_2\le\ell_j W.
+\]
+These functions are in $C_tL^2_x\cap C_tL^3_x$. To check spatial
+integrability, if the support of $g_j$ has lower endpoint $k_j>0$,
+then $|\{\phi_j\ne0\}|\le k_j^{-3}\|w\|_3^3$; continuity in $L^3$
+also follows from the uniform $L^\infty$ bound and continuity in $L^2$.
+Consequently the scalar product rules are legitimate:
+\[
+ G_{ij}'=\langle\phi_{i,t},\phi_j\rangle+
+          \langle\phi_i,\phi_{j,t}\rangle,\qquad
+ b_i'=\langle\chi_t,\phi_i\rangle+\langle\chi,\phi_{i,t}\rangle.
+\]
+One can justify both by the same time mollification: the first term
+in $b_i'$ uses $L^{3/2},L^3$ and the second uses $L^2,L^2$.
+Since $G+\eta I\ge\eta I$, its inverse is absolutely continuous and
+its derivative is $-(G+\eta I)^{-1}G'(G+\eta I)^{-1}$.
+Differentiate the scalar expression for $R_{n,\eta}$ to obtain the
+first identity in \eqref{st:identity}. Substitute the formulas for
+$b'$ and $G'$ to get the second. All bounds are uniform on the chosen
+compact interval for fixed $n,\eta$.
+
+Completing the square in
+$\|\chi-\sum d_j\phi_j\|_2^2+\eta|d|^2$ proves that its minimum is
+$R_{n,\eta}$ at $d=a$. It also proves the middle identity and upper
+bound in \eqref{st:bounds}. Its lower bound follows because each
+$\phi_j$ belongs to $\mathcal H_\rho$. The shell cancellation of
+Theorem~\ref{ss:shell} annihilates each $\phi_j$, proving
+\eqref{st:work} from the previously established signed pairing.
+The stated local absolute continuity of $r$ follows from that of
+$\chi$, $a$, and the features, using the inclusion of $L^2$ into
+$L^{3/2}$ on bounded spatial sets.
+\end{proof}
+
+\begin{corollary}[An explicit residual evolution bound]\label{st:evolution}
+Let $A_3=(\sum_j\|\phi_j\|_3^2)^{1/2}$ and
+$\ell=(\sum_j\ell_j^2)^{1/2}$. For $R=R_{n,\eta}$ one has a.e.
+\begin{equation}\label{st:evolution-bound}
+ |R'|\le 4C_{3/2}MW
+       \left(C_3\sqrt{2/3}\,M^2+A_3\sqrt{R/\eta}\right)
+       +2\ell\eta^{-1/2}WR.
+\end{equation}
+For each fixed snapshot there is a single nested choice of smooth
+feature spans, independent of the snapshot, for which
+$R_{n,\eta_n}\downarrow N_\rho^2$ whenever $\eta_n\downarrow0$.
+\end{corollary}
+\begin{proof}
+The identity \eqref{st:bounds} gives $\|r\|_2\le\sqrt R$ and
+$|a|\le\sqrt{R/\eta}$. Hence
+$\|r\|_3\le C_3\sqrt{2/3}M^2+A_3\sqrt{R/\eta}$ and
+$\|\sum a_j\phi_{j,t}\|_2\le\ell W\sqrt{R/\eta}$.
+Apply the two indicated H\"older inequalities to \eqref{st:identity}
+and use the estimate for $\chi_t$.
+
+Choose a countable family in $C_c^\infty((0,\infty))$ whose real
+linear span is uniformly dense in continuous compactly supported
+functions on each compact speed interval, using rational breakpoints,
+rational coefficients and smooth rational-width mollifications.
+For any fixed speed field, composition is dense in $\mathcal H_\rho$:
+on a compact speed interval the pushforward measure is finite, continuous
+functions are dense in its $L^2$, and exhaustion handles both speed tails.
+Enumerate this family and take its first $n$ elements. Enlarging the
+span and decreasing the positive penalty makes the minimum nonincreasing.
+For any fixed finite linear combination approximating $P_\rho\chi$,
+its coefficient penalty tends to zero as $n\to\infty$.
+Comparison with this competitor and then approximation prove that the
+limit is at most $N_\rho^2$; \eqref{st:bounds} gives the reverse bound.
+This is a pointwise-in-time convergence statement, not convergence of
+the derivatives or an estimate uniform at a singular endpoint.
+\end{proof}
+
+\paragraph{What this unblocks, and the remaining bound.}
+For nonzero $w$ set
+$\delta_{n,\eta}=3\sqrt{R_{n,\eta}}/(2\|\rho^3\|_2)$, with value
+zero for $w=0$. Then $\delta_\rho\le\delta_{n,\eta}\le1$, and
+\eqref{st:work} supplies the same fourth-power inequality as
+\eqref{ss:depleted-diff} with $\delta_{n,\eta}$ in place of
+$\delta_\rho$. The new content is the justified evolution
+\eqref{st:identity}--\eqref{st:evolution-bound}, not a new assumed
+continuation theorem. It does not differentiate $P_\rho$ or select an
+optimizer over all speed functions.
+
+The first unsupported step in an attempted closure is an input-only
+endpoint bound for the driver in \eqref{st:evolution-bound}:
+$M^2\le a_0D$ and
+$W^2\le(9/4)\int\rho|\nu\Delta u-(u\cdot\nabla)u|^2$ are local
+identities or bounds, not energy-controlled endpoint integrals. In
+addition the displayed derivative estimate deteriorates as $\eta\downarrow0$
+and as more features with large Lipschitz constants are included.
+Pointwise monotone convergence of the residuals does not remove these
+losses. No bound on $L_c$, on $\int\|\sigma\|_2^4$, or on these drivers
+in terms of arbitrary initial data is obtained. Thus the temporal
+regularity calculation is complete at fixed regularization, but the
+arbitrary-data critical producer and NS-R3 remain open.

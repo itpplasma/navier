@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\allowdisplaybreaks
+\setlength{\emergencystretch}{2em}
+\title{A Dissipation-Clock Continuation Component for Navier--Stokes}
+\author{}
+\date{6 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For the original unforced whole-space equation we derive a direct enstrophy
+bound with exponential coefficient $4S^3/(3\nu^2)$ times the accumulated
+cubic dissipation.  It provides a nonendpoint suffix for strict signed
+pressure absorption and a single-barrier extension allowing a logarithmic
+dissipation deficit.  All component proofs are included.  The arbitrary-data
+pressure estimate remains unproved; independent audit of these sharpenings
+is pending.
+\end{abstract}
+\input{sections/dissipation_clock}
+\begin{thebibliography}{9}
+\bibitem{Tao2013} T. Tao, \emph{Localisation and compactness properties of the
+Navier--Stokes global regularity problem}, Analysis \& PDE 6 (2013),
+25--107; arXiv:1108.1165.  The local package, energy identity and cubic
+balance used here are explicitly imported from the accompanying manuscript;
+no new external regularity theorem is invoked in the suffix.
+\end{thebibliography}
+\end{document}

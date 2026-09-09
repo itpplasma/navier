@@ -1,0 +1,483 @@
+\section{Strong natural response and a corotational material driver}
+\label{mr:section}
+
+\paragraph{Scope and status.}
+This section supplies author-checked component proofs, with independent
+mathematical audit pending. It strengthens the fixed-regularization
+calculus of Section~\ref{st:section}; it does not supply the arbitrary-data
+critical time bound. In particular, a material derivative is not estimated
+by simply deleting the transport term from \eqref{st:difference}.
+Transport changes the metric in the gradient minimization problem. We
+compute that change, including its contribution on the zero set, and keep
+the nonlocal commutator in the shell-residual equation.
+The one-form pullback mechanism is classical; see, for example,
+Constantin--Iyer \cite[Lemmas~3.2--3.3]{ConstantinIyer2008}. Their stochastic
+representation theorem is not an input here. Every deterministic
+pullback and response assertion used below is derived explicitly, and no
+novelty claim is made.
+
+\subsection{The fixed weighted space and moving-metric response}
+
+Fix $f\in L^3(\mathbb R^3;\mathbb R^3)$ and put $w=w(f)$,
+$\rho=|w|$, $n=w/\rho$ where $\rho>0$, and $n=0$ elsewhere. Set
+\[
+ A(z)=|z|z,\qquad J(z)=|z|^{1/2}z,\qquad
+\]
+\[
+ M=DA(w)=\rho(I+n\otimes n),\qquad
+ N=DJ(w)=\rho^{1/2}(I+\tfrac12 n\otimes n).
+\]
+Both matrices are zero on $\{w=0\}$. Let $\mathcal H_w$ be
+$L^2(\rho\,dx;\mathbb R^3)$ with inner product
+$\langle a,b\rangle_w=\int a^{\mathsf T}Mb$; values on the zero
+set are identified. Let $E_w$ be the closure of the image of
+$\mathcal G_3$ in this Hilbert space, and let $P_w$ and $L_w=I-P_w$
+be its orthogonal projections onto $E_w$ and $E_w^\perp$.
+The notation $P_w$ does not denote the ordinary Leray projection.
+We use
+\begin{equation}\label{mr:matrix}
+ \int\rho|a|^2\le\|a\|_w^2\le2\int\rho|a|^2,
+ \qquad
+ \|a\|_w^2\le\|Na\|_2^2\le\tfrac98\|a\|_w^2.
+\end{equation}
+Indeed, the last squared ratios are $1$ in transverse directions and
+$9/8$ in the radial direction. H\"older gives
+$\|a\|_w\le(2\|w\|_3)^{1/2}\|a\|_3$ for $a\in L^3$.
+No distributional gradient representative is asserted for an arbitrary
+element of $E_w$.
+
+\begin{theorem}[Moving-metric response]\label{mr:response}
+Let $h_\varepsilon\to h$ in $L^3$, and let measurable matrix fields satisfy
+\[
+ B_\varepsilon=I+\varepsilon G+o(\varepsilon)
+       \quad\hbox{in }L^\infty,
+ \qquad G\in L^\infty(\mathbb R^3;\mathbb R^{3\times3}).
+\]
+For sufficiently small nonzero $\varepsilon$, let $a_\varepsilon$
+minimize
+\[
+ \frac13\int|B_\varepsilon^{-\mathsf T}a|^3
+       \quad\hbox{over }f+\varepsilon h_\varepsilon+\mathcal G_3.
+\]
+Define, with zero values when $w=0$,
+\[
+ c=(I-\tfrac12n\otimes n)Gw,\qquad b=G^{\mathsf T}w+c,
+ \qquad z=L_wh+P_wb.
+\]
+Then, for both signs of $\varepsilon$,
+\begin{align}
+ z_\varepsilon:=\frac{a_\varepsilon-w}{\varepsilon}
+       &\longrightarrow z\quad\hbox{strongly in }\mathcal H_w,
+       \label{mr:weighted-limit}\\
+ \frac{\|a_\varepsilon-w\|_3^3}{\varepsilon^2}
+       &\longrightarrow0,\label{mr:cubic-small}\\
+ \frac{J(a_\varepsilon)-J(w)}{\varepsilon}
+       &\longrightarrow Nz\quad\hbox{strongly in }L^2,\label{mr:natural-limit}\\
+ \frac{J(B_\varepsilon^{-\mathsf T}a_\varepsilon)-J(w)}{\varepsilon}
+       &\longrightarrow N(z-G^{\mathsf T}w)
+          \quad\hbox{strongly in }L^2.\label{mr:physical-limit}
+\end{align}
+In particular, taking $B_\varepsilon=I$ proves the Hadamard derivative
+\begin{equation}\label{mr:hadamard}
+ D[J\circ w](f)[h]=NL_wh:L^3\longrightarrow L^2.
+\end{equation}
+This statement does not assert an unweighted $L^3$ derivative of $w$.
+\end{theorem}
+
+\begin{proof}
+Uniform invertibility and boundedness of $B_\varepsilon$ follow from its
+expansion. The functional is strictly convex, coercive and weakly lower
+semicontinuous on the closed affine subspace of the reflexive space $L^3$.
+It has a unique minimizer. Its stress
+\[
+ A_\varepsilon(v)=B_\varepsilon^{-1}
+                   A(B_\varepsilon^{-\mathsf T}v)
+\]
+annihilates $\mathcal G_3$ at $a_\varepsilon$. The base stress $A(w)$
+also annihilates that space. Uniformly for small $\varepsilon$,
+\begin{align}
+ (A_\varepsilon(a)-A_\varepsilon(v))\cdot(a-v)
+   &\ge c_0(|a|+|v|)|a-v|^2,\label{mr:monotonicity}\\
+ |A_\varepsilon(a)-A_\varepsilon(v)|
+   &\le C_0(|a|+|v|)|a-v|.\label{mr:stress-lip}
+\end{align}
+Here $c_0>0$ and $C_0<\infty$ are independent of $a,v,x,\varepsilon$.
+For the untransformed stress the first inequality follows from
+\[
+ (A(a)-A(v))\cdot(a-v)
+ -\tfrac12(|a|+|v|)|a-v|^2
+   =\tfrac12(|a|-|v|)^2(|a|+|v|)\ge0.
+\]
+Apply this with $B_\varepsilon^{-\mathsf T}a$ and
+$B_\varepsilon^{-\mathsf T}v$ to obtain \eqref{mr:monotonicity}.
+The second follows by integrating $DA$, whose norm is at most $2|v|$.
+
+Write $d_\varepsilon=a_\varepsilon-w$. Comparing the stresses against
+$d_\varepsilon-\varepsilon h_\varepsilon\in\mathcal G_3$ gives
+\begin{align*}
+ &\langle A_\varepsilon(a_\varepsilon)-A_\varepsilon(w),d_\varepsilon\rangle\\
+ &=\varepsilon\langle A_\varepsilon(a_\varepsilon)
+            -A_\varepsilon(w),h_\varepsilon\rangle
+   -\langle A_\varepsilon(w)-A(w),
+                         d_\varepsilon-\varepsilon h_\varepsilon\rangle.
+\end{align*}
+All these pairings are $L^{3/2}$--$L^3$. Put
+$X=\int\rho|d_\varepsilon|^2$, $Y=\|d_\varepsilon\|_3^3$.
+Using \eqref{mr:monotonicity}, \eqref{mr:stress-lip}, and
+$|A_\varepsilon(w)-A(w)|\le C|\varepsilon|\rho^2$, the identity implies
+\[
+ X+Y\le C|\varepsilon|(X^{1/2}+Y^{2/3})+C\varepsilon^2.
+\]
+For example, the mixed terms are bounded using
+$\int\rho|d_\varepsilon||h_\varepsilon|
+\le\|w\|_3^{1/2}\|h_\varepsilon\|_3X^{1/2}$ and
+$\int\rho^2|d_\varepsilon|\le\|w\|_3^{3/2}X^{1/2}$.
+Constants may depend on bounded norms of $h_\varepsilon$, on $w$, and on
+the matrix expansion, but not on $\varepsilon$. Young's inequality gives
+\begin{equation}\label{mr:rough}
+ \|d_\varepsilon\|_w^2+\|d_\varepsilon\|_3^3=O(\varepsilon^2),
+ \qquad \|z_\varepsilon\|_3=O(|\varepsilon|^{-1/3}).
+\end{equation}
+The potentially divergent last norm must be retained in the next step.
+
+The formula for $DA$ gives a global bound
+$\|DA(a)-DA(v)\|_{\rm op}\le4|a-v|$: expand the difference of
+$a\otimes a/|a|$ and $v\otimes v/|v|$, choosing $|a|\ge|v|$, and
+bound its three terms by $|a-v|$, $|v||a-v|/|a|$ and the same quantity.
+The scalar-matrix part contributes at most $|a-v|$.
+Thus the stress Taylor remainder is quadratic. Expanding the two matrix
+factors yields, for every $v\in L^3$,
+\begin{equation}\label{mr:taylor-stress}
+ T_\varepsilon(v):=\frac{A_\varepsilon(w+\varepsilon v)-A(w)}{\varepsilon}
+       =M(v-b)+r_\varepsilon+e_\varepsilon(v),
+\end{equation}
+where pointwise
+\[
+ |r_\varepsilon|\le o(1)\rho^2,
+ \qquad |e_\varepsilon(v)|
+       \le C|\varepsilon|(\rho|v|+|v|^2).
+\]
+The $o(1)$ is uniform in space. The identity $Mc=GA(w)$ verifies the
+constant term, without dividing by $\rho$ on its zero set.
+The pairing of $r_\varepsilon$ against an $\mathcal H_w$-bounded family
+tends to zero by weighted Cauchy--Schwarz. By \eqref{mr:rough},
+$e_\varepsilon(z_\varepsilon)\to0$ in $L^{3/2}$.
+
+The family $z_\varepsilon$ is bounded in $\mathcal H_w$ and lies in
+$h_\varepsilon+E_w$. Every weak subsequential limit $z_*$ therefore
+lies in $h+E_w$. Test \eqref{mr:taylor-stress} against each fixed
+$g\in\mathcal G_3$. Stationarity and the remainder bounds imply
+$\langle z_*-b,g\rangle_w=0$. Density extends this to $E_w$.
+The unique possible limit is $z=L_wh+P_wb$, so the whole family converges
+weakly to $z$.
+
+To prove strong convergence and the essential extra limit
+\eqref{mr:cubic-small}, choose $z_m=h+g_m\to z$ in $\mathcal H_w$
+with $g_m\in\mathcal G_3$, and put
+$z_{m,\varepsilon}=z_m+h_\varepsilon-h$. Fix $m$ before taking
+$\varepsilon\to0$. Then
+$z_\varepsilon-z_{m,\varepsilon}\in\mathcal G_3$, whence
+\begin{align*}
+ &\langle T_\varepsilon(z_\varepsilon)
+                 -T_\varepsilon(z_{m,\varepsilon}),
+                     z_\varepsilon-z_{m,\varepsilon}\rangle\\
+ &\hspace{1cm}=-\langle T_\varepsilon(z_{m,\varepsilon}),
+                     z_\varepsilon-z_{m,\varepsilon}\rangle.
+\end{align*}
+Let $v_\varepsilon=z_\varepsilon-z_{m,\varepsilon}$.
+The left side is at least
+\[
+ c_0\int(|a_\varepsilon|+|w+\varepsilon z_{m,\varepsilon}|)
+                    |v_\varepsilon|^2.
+\]
+It controls $c_0|\varepsilon|\|v_\varepsilon\|_3^3$. It also
+controls $c_0\int\rho|v_\varepsilon|^2$ up to an error tending to zero,
+since that error is at most
+\[
+ C|\varepsilon|\|z_{m,\varepsilon}\|_3
+            (\|z_\varepsilon\|_3+\|z_{m,\varepsilon}\|_3)^2
+              =O_m(|\varepsilon|^{1/3}).
+\]
+On the right side of the identity the $r_\varepsilon$ error tends to zero
+in the weighted dual pairing. The quadratic part of
+$e_\varepsilon(z_{m,\varepsilon})$ contributes
+$O_m(|\varepsilon|^{2/3})$; its $\rho|z_{m,\varepsilon}|$ part tends
+to zero by weighted Cauchy--Schwarz. The right side therefore tends to
+\[
+ -\langle z_m-b,z-z_m\rangle_w=\|z_m-z\|_w^2,
+\]
+because $z-b\perp E_w$. Consequently
+\[
+ \limsup_{\varepsilon\to0}\|z_\varepsilon-z_{m,\varepsilon}\|_w^2
+   \le C\|z_m-z\|_w^2,
+ \quad
+ \limsup_{\varepsilon\to0}|\varepsilon|
+                \|z_\varepsilon-z_{m,\varepsilon}\|_3^3
+   \le C\|z_m-z\|_w^2.
+\]
+Triangle inequalities, followed by $m\to\infty$, give strong weighted
+convergence and $|\varepsilon|\|z_\varepsilon\|_3^3\to0$.
+No uniform $L^3$ bound on $z_m$ was assumed.
+
+Finally $DJ$ is globally $1/2$-H\"older. To see this, when
+$|a-v|\ge\frac12\max(|a|,|v|)$ bound both derivatives by
+$\frac32\max(|a|,|v|)^{1/2}$. In the complementary case the segment
+stays away from zero, and differentiating the displayed formula for $DJ$
+bounds its variation by $C\max(|a|,|v|)^{-1/2}|a-v|$.
+Both cases give $C|a-v|^{1/2}$. Integration along a segment yields
+\[
+ |J(w+d)-J(w)-Nd|\le C|d|^{3/2}.
+\]
+Its squared $L^2$ error divided by $\varepsilon^2$ tends to zero by
+\eqref{mr:cubic-small}. This proves \eqref{mr:natural-limit}.
+For $\widetilde d_\varepsilon=B_\varepsilon^{-\mathsf T}a_\varepsilon-w$,
+\[
+ \widetilde d_\varepsilon/\varepsilon
+       \longrightarrow z-G^{\mathsf T}w\quad\hbox{in }\mathcal H_w,
+ \qquad
+ \|\widetilde d_\varepsilon\|_3^3/\varepsilon^2\longrightarrow0.
+\]
+These follow by expanding the matrix and using the bounded weighted norms
+in \eqref{mr:rough}. The same Taylor argument proves
+\eqref{mr:physical-limit}. If $w=0$ almost everywhere the weighted space
+is the zero space, and the cubic little-$o$ argument still proves the
+unweighted natural limits. This also covers nontrivial zero sets.
+\end{proof}
+
+\subsection{Removing transport and rigid rotation without losing strain}
+
+On the selected original Navier--Stokes branch use the convention
+$G_{ij}=\partial_j u_i$, and write
+\[
+ S=\tfrac12(G+G^{\mathsf T}),\qquad
+ \Omega=\tfrac12(G-G^{\mathsf T}),\qquad
+ \mathcal D_t=\partial_t+u\cdot\nabla.
+\]
+All assertions in the next theorem are on compact classical intervals;
+none of its right sides is claimed to be uniform as $t\uparrow T_*$.
+
+\begin{theorem}[Exact corotational response and its action]\label{mr:material}
+Let $V=J(w(u))$ and define $U=\mathcal D_tV-\Omega V$. Then, as
+strong $L^2$ derivatives at interior classical times,
+\begin{equation}\label{mr:exact-driver}
+ U=N\left[L_w(\nu\Delta u-Sw)+P_wc_S\right],
+ \qquad c_S=(I-\tfrac12n\otimes n)Sw.
+\end{equation}
+In particular, with
+\begin{equation}\label{mr:action}
+ \mathfrak A(t)=\|L_w(\nu\Delta u-Sw)\|_w^2+\|P_wc_S\|_w^2,
+\end{equation}
+we have
+\begin{align}
+ \mathfrak A&=\|U\|_2^2-\tfrac19\|n\cdot U\|_2^2,
+ &\mathfrak A\le\|U\|_2^2&\le\tfrac98\mathfrak A,\label{mr:two-sided}\\
+ \|U\|_2^2&\le\tfrac92\nu^2\int\rho|\Delta u|^2
+              +\tfrac{81}{16}\int\rho^3\|S\|_{\rm op}^2.
+ &&\label{mr:action-bound}
+\end{align}
+The action is measurable and locally bounded in time. The equation has
+neither a pressure-gradient driver nor a separate vorticity-amplitude
+driver; it retains the full strain and diffusion response.
+\end{theorem}
+
+\begin{proof}
+Fix a time $t$ and let $\Phi_s$ be the flow from $t$ to $t+s$ generated
+by the actual velocity, with $B_s=D\Phi_s$. The compact-interval Sobolev
+package makes $u$ and its spatial derivatives bounded and time continuous.
+Thus $\Phi_s$ is a proper smooth diffeomorphism, $\det B_s=1$, and
+$B_s=I+sG(t)+o(s)$ uniformly in space. Pullback preserves $\mathcal G_3$:
+for a compactly supported smooth potential,
+$B_s^{\mathsf T}(\nabla\psi)\circ\Phi_s=\nabla(\psi\circ\Phi_s)$;
+boundedness on $L^3$ and density prove the assertion on its closure.
+The inverse flow proves surjectivity. This uses unweighted $L^3$ density,
+not an unproved weighted density statement.
+
+The pulled-back representative
+$a_s=B_s^{\mathsf T}w(u(t+s))\circ\Phi_s$ is consequently the
+minimizer in Theorem~\ref{mr:response} for input
+$f_s=B_s^{\mathsf T}u(t+s)\circ\Phi_s$. Indeed, change variables using
+$\det B_s=1$ in its cubic integral. Differentiating the input gives
+\[
+ \frac d{ds}f_s
+   =B_s^{\mathsf T}(\nu\Delta u)(t+s)\circ\Phi_s
+       +\nabla\left[(|u|^2/2-p)(t+s)\circ\Phi_s\right].
+\]
+Here $G^{\mathsf T}u=\nabla(|u|^2/2)$, and the Navier--Stokes
+material equation supplied $\nu\Delta u-\nabla p$.
+Integrating in $s$ proves $f_s=f_0+s h_s+g_s$, with
+$h_s\to\nu\Delta u(t)$ in $L^3$ and $g_s\in\mathcal G_3$.
+The last term changes no affine coset. All the gradient terms are in
+$L^3$ by the compact-interval regularity package.
+
+Apply \eqref{mr:physical-limit} to
+$V(t+s)\circ\Phi_s=J(B_s^{-\mathsf T}a_s)$. It yields
+\[
+ \mathcal D_tV
+   =N\left[L_w(\nu\Delta u-G^{\mathsf T}w)
+                  +P_w(I-\tfrac12n\otimes n)Gw\right].
+\]
+For completeness, the strong derivative of $V(t)$ itself exists by
+\eqref{mr:hadamard} and $u\in C^1_tL^3_x$.
+Since $V(t)\in H^1$, differentiation of the fixed function under the
+smooth volume-preserving flow gives $u(t)\cdot\nabla V(t)$ in $L^2$.
+Splitting the time increment into these two parts identifies the displayed
+material derivative with $V_t+u\cdot\nabla V$.
+Now $n\cdot\Omega w=0$, so the two rotational contributions combine to
+$(L_w+P_w)\Omega w=\Omega w$, and $N\Omega w=\Omega V$.
+This proves \eqref{mr:exact-driver}.
+
+The two terms in brackets in \eqref{mr:exact-driver} are orthogonal in
+$\mathcal H_w$. Inequality \eqref{mr:matrix} proves the two bounds in
+\eqref{mr:two-sided}; diagonalizing the radial and transverse matrices
+proves its identity, since the inverse squared radial ratio is $8/9$.
+On the zero set $U=0$ as an $L^2$ field. The identity also establishes
+measurability without asserting continuity of the moving projections.
+
+For the last estimate write $Sw=\alpha n+\tau$, where $\tau\perp n$.
+Contraction of the projections and the quadratic triangle inequality give
+\[
+ \mathfrak A\le2\|\nu\Delta u\|_w^2
+                    +2\|Sw\|_w^2+\|c_S\|_w^2.
+\]
+The last two terms sum to
+$\int\rho(\frac92\alpha^2+3|\tau|^2)
+\le\frac92\int\rho|Sw|^2$.
+Also $\|\nu\Delta u\|_w^2\le2\nu^2\int\rho|\Delta u|^2$.
+Multiplying by $9/8$ gives \eqref{mr:action-bound}.
+Its terms are locally bounded because $w\in L^3$, $\Delta u\in L^3$
+and $S\in L^\infty$ with compact-interval bounds.
+\end{proof}
+
+\begin{remark}[Check against the accepted first-order balance]\label{mr:balance}
+The response recovers rather than changes the known quotient balance.
+Indeed, $Mw=2A(w)$ implies $w\perp E_w$ and $L_ww=w$. Using
+$N V=\frac32 A(w)$ in \eqref{mr:exact-driver} gives
+\[
+ \frac23\langle V,U\rangle
+   =\langle A(w),\nu\Delta u-Sw\rangle
+   =-\nu D_Q-\int V^{\mathsf T}SV.
+\]
+Transport and skew rotation contribute zero to the derivative of
+$\mathcal Q=\|V\|_2^2/3$. Thus the positive action cannot be substituted
+for the signed strain work in the first-order equation.
+\end{remark}
+
+\subsection{A material residual law with the commutator retained}
+
+Use the finite smooth features, fixed penalty $\eta>0$, coefficients $a$,
+and residual $r$ of Section~\ref{st:section}. Explicitly,
+$\phi_j=g_j(\rho)=h_j(V)$, where
+$h_j(v)=g_j(|v|^{2/3})$ is smooth and globally Lipschitz, and
+\[
+ \Psi=\Pi(V\otimes V),\quad \chi=\mathcal T\Psi,\quad
+ r=\chi-\sum_j a_j\phi_j,\quad
+ R=\|r\|_2^2+\eta|a|^2.
+\]
+Here $\Pi$ is the symmetric trace-free projection and
+$\mathcal T F=\sum_{i,j}R_iR_jF_{ij}$.
+Define the scalar commutator field
+\begin{equation}\label{mr:commutator}
+ \mathcal C_u[V]=[u\cdot\nabla,\mathcal T]\Psi
+   +\mathcal T\Pi(\Omega V\otimes V+V\otimes\Omega V),
+\end{equation}
+with $[u\cdot\nabla,\mathcal T]\Psi
+=u\cdot\nabla(\mathcal T\Psi)-\mathcal T(u\cdot\nabla\Psi)$.
+This notation includes both terms; neither is discarded or given a sign.
+
+\begin{proposition}[Corotational finite-residual equation]\label{mr:residual}
+On every compact classical interval, $\mathcal C_u[V]\in L^{3/2}$ at
+almost every time, with locally bounded norm, and
+\begin{align}
+ R'={}&2\left\langle r,
+   \mathcal T\Pi(U\otimes V+V\otimes U)+\mathcal C_u[V]\right\rangle
+       -2\left\langle r,\sum_j a_jDh_j(V)U\right\rangle.
+       \label{mr:residual-equation}
+\end{align}
+The first pairing is $L^3$--$L^{3/2}$ and the second is $L^2$--$L^2$.
+Put $M_6=\|V\|_6$, $W_c=\|U\|_2$,
+$A_3=(\sum_j\|\phi_j\|_3^2)^{1/2}$ and
+$\ell=(\sum_j\|Dh_j\|_\infty^2)^{1/2}$. With $C_p$ the
+$L^p$ operator norm of $\mathcal T$ on matrix fields,
+\begin{align}
+ |R'|\le{}&2\left(C_3\sqrt{2/3}\,M_6^2+A_3\sqrt{R/\eta}\right)
+        \left(2C_{3/2}M_6W_c+\|\mathcal C_u[V]\|_{3/2}\right)
+       \nonumber\\
+       &+2\ell\eta^{-1/2}W_cR.\label{mr:residual-bound}
+\end{align}
+The identities $K=\langle\sigma,r\rangle$ and $N_\rho^2\le R$ from
+the speed-shell construction remain unchanged.
+\end{proposition}
+
+\begin{proof}
+The radial feature satisfies $Dh_j(V)\Omega V=0$. Therefore
+$\mathcal D_t\phi_j=Dh_j(V)U$ in $L^2$, by the Sobolev chain rule.
+The tensor product rule, in $L^{3/2}$, gives
+\[
+ \mathcal D_t\chi
+     =\mathcal T\Pi(U\otimes V+V\otimes U)+\mathcal C_u[V].
+\]
+All terms in \eqref{mr:commutator} are indeed in $L^{3/2}$:
+$V\in H^1\subset L^6$, so $\nabla\Psi\in L^{3/2}$ and
+$\Psi\in L^{3/2}$ by interpolation of $V$ between $L^2$ and $L^6$.
+The velocity and $\Omega$ are bounded on the interval, and the Riesz
+operator is bounded on $L^{3/2}$. No endpoint commutator estimate has
+been invoked.
+
+The exact ridge envelope identity of Section~\ref{st:section} is
+$R'=2\langle r,\chi_t\rangle
+      -2\langle r,\sum_j a_j\phi_{j,t}\rangle$.
+Replace the time derivatives by material derivatives.
+The additional term is $-2\int r u\cdot\nabla r=0$.
+To justify this on the whole space, observe that $r\in L^2\cap L^3$,
+$\nabla\chi\in L^{3/2}$ and $\nabla\phi_j\in L^2$.
+Thus $r\nabla r\in L^1$ and $r^2\in W^{1,1}$, by the truncated
+Sobolev chain rule and passage to the limit. Integration against spatial
+cutoffs uses $\nabla\cdot u=0$; the boundary term is bounded by
+$C\|u\|_\infty\|r\|_2^2$ times the inverse cutoff radius and tends to
+zero. This proves \eqref{mr:residual-equation}, including its dual spaces.
+
+Finally, completing the ridge square gives
+$\|r\|_2\le\sqrt R$ and $|a|\le\sqrt{R/\eta}$, while
+\[
+ \|r\|_3\le C_3\sqrt{2/3}\,M_6^2+A_3\sqrt{R/\eta},\qquad
+ \|\mathcal T\Pi(U\otimes V+V\otimes U)\|_{3/2}
+       \le2C_{3/2}M_6W_c.
+\]
+H\"older and $\|\sum_j a_jDh_j(V)U\|_2\le|a|\ell W_c$
+prove \eqref{mr:residual-bound}.
+\end{proof}
+
+\begin{remark}[Rigid-motion covariance is only a diagnostic]\label{mr:rigid}
+For a compactly supported smooth test field $V$, the commutator
+\eqref{mr:commutator} vanishes when $u=b+\Omega x$ with constant $b$
+and constant skew matrix $\Omega$. One way to verify this is to push $V$
+forward by the corresponding rigid flow. The Fourier multiplier
+$-\xi_i\xi_j/|\xi|^2$ contracts a rotated tensor into the rotated scalar,
+so $\mathcal D_t(\mathcal T\Psi)=0$ when
+$\mathcal D_tV=\Omega V$. The definition \eqref{mr:commutator} then
+gives zero. A constant or rigidly rotating velocity is not an admissible
+finite-energy whole-space datum; this verifies covariance, not an extra
+Navier--Stokes regularity case. For general $u$, the commutator is retained.
+\end{remark}
+
+\paragraph{The first unsupported estimate.}
+The stronger response theorem removes a zero-set differentiation obstacle,
+and \eqref{mr:exact-driver} removes kinematic terms without treating them
+as small. It does not close the missing bound. The available upper estimate
+\eqref{mr:action-bound} contains
+\[
+ \nu^2\int\rho|\Delta u|^2,
+       \qquad \int\rho^3\|S(u)\|_{\rm op}^2,
+\]
+which are not bounded at the endpoint by the energy or moment identities
+proved earlier. The complete residual equation additionally requires
+control of $\mathcal C_u[V]$, and \eqref{mr:residual-bound} still has
+feature and $\eta^{-1/2}$ losses. The exact action, not its separate
+absolute upper bounds, is a potential place to exploit cancellation.
+Neither an input-only bound on the combined clock $L_c$ nor on
+$\int_0^{\min(H,T_*)}\|\sigma\|_2^4\,dt$ has been proved here.
+In particular, differentiating a moving weighted projection, assuming
+heat convexity of the vector-valued cubic quotient, or omitting the
+commutator would insert an additional unproved step. These component
+proofs do not promote any open node or independently certify an earlier
+review-pending supplement.

@@ -1,0 +1,34 @@
+{
+  "source_repository": "itpplasma/navier",
+  "source_path": "docs/proof-graph.yaml",
+  "source_graph_sha256": "6e43cbe19aa9faced3712749009f86e610255a5026c54880416a566866d96bbe",
+  "generator_sha256": "0c16e0d6020a4e07777d70e1ac1df22f7b86c3875313667b3b57f45c4d2fab3b",
+  "base_map_sha256": "6fd0cde6d3fb8b144bb2c9e33f025af6dbcae93507b9c8f1a845e671f7761932",
+  "target_map_sha256": "aee67a692f8ff3abc72b5a6347bc3109acac8c56c305bc170b264496882bfb8b",
+  "replacements": [
+    {
+      "old": "\\end{tikzpicture}}\n\nPhase I: authorized-2026-09-05-deferred-until-full-paper-proof. Phase II: authorized-2026-09-05-not-started.\nNo terminal proof or counterexample is claimed.\n\\end{center}\n\\clearpage\n\\raggedright\nGraph SHA-256: \\texttt{0de7df3cc02323649ff1631bfc5abebc}\\texttt{070f4bbb44e565c06972304052dc5939}.\n\\Needspace{10\\baselineskip}\\section*{TAO-LOCAL: Tao local H1 theory}\\phantomsection\\label{node:TA",
+      "new": "\\end{tikzpicture}}\n\nPhase I: reopened-2026-09-06-in-progress. Phase II: reopened-2026-09-06-target.\nNo terminal proof or counterexample is claimed.\n\\end{center}\n\\clearpage\n\\raggedright\nGraph SHA-256: \\texttt{6e43cbe19aa9faced3712749009f86e6}\\texttt{10255a5026c54880416a566866d96bbe}.\n\\Needspace{10\\baselineskip}\\section*{TAO-LOCAL: Tao local H1 theory}\\phantomsection\\label{node:TA"
+    },
+    {
+      "old": "QUOTIENT-DEFECT-CRITERION but is itself implied by classical gradient criteria on the same line, so it is a change of observed quantity and not a weaker assumption. Alternative producer of CRITICAL, not an additional required lemma.\n\n\\textbf{Evidence:} \\texttt{re",
+      "new": "QUOTIENT-DEFECT-CRITERION but is itself implied by classical gradient criteria on the same line, so this one-way comparison alone proves no strict improvement; the pending quotient-clock supplement supplies a reverse finiteness implication on actual branches. Alternative producer of CRITICAL, not an additional required lemma.\n\n\\textbf{Evidence:} \\texttt{re"
+    },
+    {
+      "old": "/2)w lies in H1, the dissipation is at least eight ninths of that field's squared gradient, and the ninth power of the representative's L9 norm is bounded by a Sobolev multiple of the dissipation.\n\n\\textbf{Mecha",
+      "new": "/2)w lies in H1, the dissipation is at least eight ninths of that field's squared gradient, and the cube of the representative's L9 norm is bounded by a Sobolev multiple of the dissipation.\n\n\\textbf{Mecha"
+    },
+    {
+      "old": "m:} new time-integrability estimate for the divergence of the representative.\n\n\\textbf{Review:} Open, and audited as NOT a weakening of known hypotheses. Because the defect is at most half the velocity gradient in L2 at every time, this is implied by the classical Ladyzhenskaya-Prodi-Serrin and Beirao da Veiga gradient criterion on the same critical line with a equal to 2 and s equal to 4, so it is not weaker than what the literature already knows; its interest is that it observes only one scalar derivative of the representative rather than the full velocity gradient. It lies in the existential-equivalence class, with the converse written out in rem:qe-defect-scope. What is unconditionally available from the energy identity is the square, not the fourth power. Whether a branch exists with divergent squared-enstrophy integral but finite defect integral is unsettled in both directions.\n\n\\textbf{Evidence:} \\texttt{research/evidence/hf25-beyond-hf21-continuation.md}. Manuscript label:",
+      "new": "m:} new time-integrability estimate for the divergence of the representative.\n\n\\textbf{Review:} Open. The pointwise bound ||sigma||\\_2 <= (1/2)||grad u||\\_2 implies the defect condition from the classical gradient condition, not the opposite by itself; earlier not-weaker wording reversed that implication. The independently unaudited QUOTIENT-DISSIPATION-CLOCK supplement now proves a quantitative reverse finiteness implication on actual selected branches, excluding the previously undecided separation. This is a pending component proof, not a node promotion or a strict improvement over classical trajectory criteria. The energy budget still supplies only the square time integral; no arbitrary-data fourth-power producer is proved.\n\n\\textbf{Evidence:} \\texttt{research/evidence/hf25-beyond-hf21-continuation.md}. Manuscript label:"
+    },
+    {
+      "old": "ted with the mandatory scope remark rem:qe-defect-scope. Conditional consumer; DEFECT-L4 is unproved and is not weaker than classical criteria. No progress toward a proof is claimed by this node's presence.\n\n\\textbf{Evidence:} \\texttt{researc",
+      "new": "ted with the mandatory scope remark rem:qe-defect-scope. Conditional consumer; DEFECT-L4 is unproved. No strict improvement over classical trajectory criteria is claimed; see the pending quantitative quotient-clock supplement. No progress toward a proof is claimed by this node's presence.\n\n\\textbf{Evidence:} \\texttt{researc"
+    },
+    {
+      "old": "TION]{QUOTIENT-EVOLUTION}, \\hyperref[node:HIGH-STRAIN]{HIGH-STRAIN}. \\hyperref[map]{Back to map}.\n\n\\end{document}\n",
+      "new": "TION]{QUOTIENT-EVOLUTION}, \\hyperref[node:HIGH-STRAIN]{HIGH-STRAIN}. \\hyperref[map]{Back to map}.\n\n\\clearpage\\section*{Review-pending component: Direct nonendpoint dissipation-clock continuation}\n\\textbf{Not a promoted claim or an arbitrary-data producer.}\n\nauthor-checked-independent-audit-pending. Full component derivations only; no arbitrary-data producer and no graph-node promotion.\n\n\\textbf{Evidence:} \\texttt{research/evidence/2026-09-06-dissipation-clock.md}.\n\n\\textbf{Manuscript labels:} \\texttt{dc:l9}, \\texttt{dc:clock}, \\texttt{dc:strict}, \\texttt{dc:barrier}, \\texttt{dc:nonlinear}, \\texttt{dc:scalar}.\n\\clearpage\\section*{Review-pending component: Near-2 unweighted defect regularity}\n\\textbf{Not a promoted claim or an arbitrary-data producer.}\n\nauthor-checked-independent-audit-pending. A uniform spatial exponent interval with an additional gradient integrability hypothesis; not an all-exponent weighted estimate or a temporal producer.\n\n\\textbf{Evidence:} \\texttt{research/evidence/2026-09-06-defect-extensions.md}.\n\n\\textbf{Manuscript labels:} \\texttt{de:fixedpoint}, \\texttt{de:near2}.\n\\clearpage\\section*{Review-pending component: Quotient clock and no finiteness separation}\n\\textbf{Not a promoted claim or an arbitrary-data producer.}\n\nauthor-checked-independent-audit-pending. Quantitative defect-enstrophy finiteness equivalence on actual branches; no arbitrary-data fourth-power estimate and no node promotion.\n\n\\textbf{Evidence:} \\texttt{research/evidence/2026-09-06-defect-extensions.md}.\n\n\\textbf{Manuscript labels:} \\texttt{de:quotient-clock}, \\texttt{de:no-separation}.\n\\end{document}\n"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+name: Integrate and check paper continuation components
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sections/dissipation_clock.tex'
+      - 'sections/defect_extensions.tex'
+      - 'dissipation_clock.tex'
+      - 'tools/*dissipation_clock.py'
+      - 'tools/*defect*'
+      - 'sections/conformal_moment.tex'
+      - 'tools/*conformal*'
+      - 'tools/*signed*'
+      - 'sections/signed_defect.tex'
+      - 'sections/speed_shell.tex'
+      - 'tools/*speed_shell*'
+      - 'tools/*shell_dynamics*'
+      - 'sections/shell_dynamics.tex'
+      - 'tools/*material_response*'
+      - 'sections/material_response.tex'
+      - '.github/workflows/dissipation-clock.yml'
+permissions:
+  contents: write
+concurrency:
+  group: dissipation-clock-integration
+  cancel-in-progress: false
+jobs:
+  integrate:
+    if: github.repository == 'itpplasma/navier-paper'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Refresh and apply anchor-checked integration
+        run: |
+          git pull --ff-only origin main
+          python3 tools/integrate_material_response.py
+          python3 tools/check_dissipation_clock.py --integrated
+          python3 tools/check_defect_extensions.py --integrated
+          python3 tools/check_conformal_moment.py --integrated
+          python3 tools/check_signed_defect.py --integrated
+          python3 tools/check_speed_shell.py --integrated
+          python3 tools/check_shell_dynamics.py --integrated
+          python3 tools/check_material_response.py --integrated
+          git diff --check
+      - name: Install document build tools
+        run: |
+          for source in /etc/apt/sources.list /etc/apt/sources.list.d/ubuntu.sources; do
+            if test -f "$source"; then
+              sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|http://archive.ubuntu.com/ubuntu|g' "$source"
+            fi
+          done
+          sudo rm -rf /var/lib/apt/lists/*
+          sudo apt-get -o Acquire::Retries=3 update -qq
+          sudo apt-get -o Acquire::Retries=3 install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-science
+      - name: Build all documents and reject unresolved references
+        run: |
+          make all clock check-clock check-defect check-conformal check-signed check-shell check-dynamics check-material
+          if grep -E 'There were undefined references|Citation .* undefined|Reference .* undefined|Overfull' main.log proof_map.log dissipation_clock.log; then exit 1; fi
+      - name: Commit only integrated sources and preserve concurrent work
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add main.tex Makefile README.md proof_map.tex references.bib
+          if ! git diff --cached --quiet; then
+            git -c commit.gpgsign=false commit -m 'Integrate strong natural response and exact corotational action with complete commutator and endpoint gap'
+            git pull --rebase origin main
+            python3 tools/integrate_material_response.py --check
+            latexmk -g -pdf -interaction=nonstopmode -halt-on-error main.tex
+            make all clock check-clock check-defect check-conformal check-signed check-shell check-dynamics check-material
+            if grep -E 'There were undefined references|Citation .* undefined|Reference .* undefined|Overfull' main.log proof_map.log dissipation_clock.log; then exit 1; fi
+            git push origin HEAD:main
+          fi
+          git rev-parse HEAD > verified-source-commit.txt
+          git archive --format=tar.gz -o verified-sources.tar.gz HEAD
+      - name: Retain private build evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dissipation-clock-build
+          retention-days: 3
+          path: |
+            main.pdf
+            proof_map.pdf
+            dissipation_clock.pdf
+            verified-source-commit.txt
+            verified-sources.tar.gz
+      - name: Preserve diagnostics on failure
+        if: failure()
+        run: |
+          git rev-parse HEAD > diagnostic-base-commit.txt
+          tar --exclude=.git --exclude=diagnostic-sources.tar.gz -czf diagnostic-sources.tar.gz main.tex Makefile README.md AGENTS.md references.bib proof_map.tex sections tools dissipation_clock.tex
+      - name: Retain private failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: dissipation-clock-diagnostics
+          retention-days: 3
+          path: |
+            *.log
+            diagnostic-base-commit.txt
+            diagnostic-sources.tar.gz

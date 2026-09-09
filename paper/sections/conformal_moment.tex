@@ -1,0 +1,401 @@
+\section{Conformal inversion and spatial moments of the cubic representative}
+\label{cm:section}
+
+\paragraph{Status and scope.}
+This is a complete component derivation, author-checked with independent
+mathematical audit pending. It resolves two spatial integrability questions
+under an explicit weighted-gradient hypothesis: the minimizing representative
+belongs to $L^2$, and its scalar divergence defect belongs to $L^{3/2}$.
+A weighted energy estimate then supplies uniform finite-horizon spacetime
+bounds on every original Schwartz-data classical branch, even below a
+putative finite maximal time. It supplies no critical time-integrability
+estimate and does not promote HIGH-PRESSURE, HIGH-STRAIN, or DEFECT-L4.
+
+The mechanism is conformal invariance at exponent equal to dimension,
+not a general weighted Calder\'on--Zygmund theorem. Conformal invariance
+of $n$-harmonic equations is classical; see Liimatainen--Salo
+\cite{LiimatainenSalo2014}, introduction, and the nonlinear Hodge context
+of~\cite{IwaniecScottStroffolini1999}. Our representative generally has
+nonzero curl, so no scalar $n$-harmonic regularity theorem is applied.
+All transformation, density, and moment arguments needed here are proved
+below. In particular, Navier--Stokes is not asserted to be invariant under
+this spatial inversion.
+
+\subsection{An isometry of the gradient cosets}
+
+For $x\ne0$ put
+\[
+ I(x)=\frac{x}{|x|^2},\qquad n_x=\frac{x}{|x|},\qquad
+ R_x=\operatorname{Id}-2n_x\otimes n_x,\qquad
+ (\mathcal Kf)(x)=|x|^{-2}R_x f(I(x)).
+\]
+Values at the origin are immaterial. This is the pullback of a one-form,
+not componentwise composition with inversion. Direct differentiation gives
+$DI(x)=|x|^{-2}R_x$, $R_x^2=\operatorname{Id}$,
+$I(I(x))=x$, and $|\det DI(x)|=|x|^{-6}$.
+Let $\mathcal G_3$ be the closed $L^3$ gradient space already used in the
+manuscript, and let $w(f)$ be the unique minimum-norm representative of
+$f+\mathcal G_3$, defined for all $f\in L^3$, solenoidal or not.
+
+\begin{lemma}[Conformal covariance of the cubic representative]
+\label{cm:covariance}
+The map $\mathcal K$ is a linear isometric involution of $L^3(\R^3;\R^3)$,
+it maps $\mathcal G_3$ onto itself, and
+\begin{equation}\label{cm:commutation}
+ w(\mathcal Kf)=\mathcal K w(f)\qquad(f\in L^3).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Change variables $y=I(x)$; the cubic factor $|x|^{-6}$ cancels the
+Jacobian, proving $\|\mathcal Kf\|_3^3=\|f\|_3^3$. The formulas above
+also give $\mathcal K^2 f=f$ almost everywhere.
+
+For $\phi\in C_c^\infty(\R^3)$ the chain rule away from zero gives
+$\mathcal K\nabla\phi=\nabla(\phi\circ I)$. In fact $\phi\circ I$ is
+identically zero near zero and extends smoothly there. Set
+$\psi=\phi\circ I-\phi(0)$. At infinity, Taylor's theorem gives
+$\psi(x)=O(|x|^{-1})$ and $\nabla\psi(x)=O(|x|^{-2})$. For a fixed smooth
+cutoff $\chi$ equal to one on the unit ball and zero outside the ball of
+radius two, the functions $\chi(x/R)\psi(x)$ are smooth and compactly
+supported. Their gradients converge to $\nabla\psi$ in $L^3$:
+the gradient tail tends to zero by integrability, while
+\[
+ \|R^{-1}(\nabla\chi)(\cdot/R)\psi\|_3
+ \le C R^{-1}R^{-1}|\{R<|x|<2R\}|^{1/3}\le C/R.
+\]
+Thus $\mathcal K\nabla\phi\in\mathcal G_3$. Density and the isometry
+extend this inclusion to $\mathcal G_3$; the involution makes it an
+onto map. Consequently $\mathcal K$ maps the entire affine coset
+$f+\mathcal G_3$ isometrically onto $\mathcal Kf+\mathcal G_3$.
+Uniqueness of the cubic minimizer proves \eqref{cm:commutation}.
+\end{proof}
+
+\subsection{The weighted snapshot estimate}
+
+We use the Hardy inequality
+\begin{equation}\label{cm:hardy}
+ \||x|^{-1}h\|_2\le2\|\nabla h\|_2
+ \quad(h\in\dot H^1(\R^3)),
+\end{equation}
+componentwise for vector fields. Here the canonical homogeneous space has
+its $L^6$ representative. To recall a proof, for a smooth compactly
+supported scalar field, integrate $\operatorname{div}(x/|x|^2)=|x|^{-2}$
+against $|h|^2$. Removal of a ball of radius $\varepsilon$ contributes
+$O(\varepsilon)$; Cauchy--Schwarz then gives
+$\int|h|^2/|x|^2\le2(\int|h|^2/|x|^2)^{1/2}\|\nabla h\|_2$.
+Approximation in the gradient norm, and identification of the $L^6$
+limit, proves \eqref{cm:hardy}. Summing the squared component inequalities
+proves the vector version.
+
+\begin{lemma}[Sobolev control after inversion]\label{cm:inverted-h1}
+If $f\in H^1(\R^3;\R^3)$ and $|x|\nabla f\in L^2$, then
+$\mathcal Kf\in H^1$ and, with $A=\||x|\nabla f\|_2$ and $U=\|f\|_2$,
+\begin{equation}\label{cm:inverted-bound}
+ \|\mathcal Kf\|_2\le2\|\nabla f\|_2,
+ \qquad \|\nabla\mathcal Kf\|_2\le A+2\sqrt3\,U.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Change of variables, initially for nonnegative integrands, gives
+$\|\mathcal Kf\|_2^2=\int |y|^{-2}|f(y)|^2\,dy$, so the first bound is
+\eqref{cm:hardy}. On every annulus the weak chain rule is legitimate and
+\begin{equation}\label{cm:derivative}
+ \nabla\mathcal Kf(x)
+ =|x|^{-4}R_x(\nabla f)(I(x))R_x
+     +|x|^{-3}\mathcal B(n_x,f(I(x))),
+\end{equation}
+where, for a unit vector $n$ and vector $v$,
+\[
+ \mathcal B(n,v)=-2v\otimes n-2(n\cdot v)\operatorname{Id}
+                -2n\otimes v+8(n\cdot v)n\otimes n.
+\]
+Rotation to $n=e_1$ gives
+\[
+ |\mathcal B(n,v)|_F^2=8|v|^2+4(n\cdot v)^2\le12|v|^2.
+\]
+The first term on the right of \eqref{cm:derivative} has squared $L^2$
+norm $\int|y|^2|\nabla f(y)|_F^2\,dy$, and the second has norm at most
+$2\sqrt3\,U$. This proves the asserted bound for the punctured weak
+gradient.
+
+There is no distribution supported at the omitted point. Indeed, test
+with a smooth function times a cutoff vanishing on $B_\varepsilon$ and
+one outside $B_{2\varepsilon}$. The extra derivative pairing is bounded
+by $C\|\mathcal Kf\|_{L^2(B_{2\varepsilon})}\varepsilon^{1/2}$, since
+the $L^2$ norm of that cutoff's gradient is $O(\varepsilon^{1/2})$.
+It tends to zero; all other terms pass by their local $L^2$
+integrability. Thus the punctured derivatives are the global weak
+derivatives, and $\mathcal Kf\in H^1$.
+\end{proof}
+
+\begin{theorem}[Finite energy and $L^{3/2}$ defect from a spatial moment]
+\label{cm:snapshot}
+Let $u\in H^1(\R^3;\R^3)$ be solenoidal and assume
+$A=\||x|\nabla u\|_2<\infty$. Set $U=\|u\|_2$,
+$c_0=\sqrt5/2$, $c_1=1+4\sqrt3$, and
+$F=c_0(A+2\sqrt3 U)$. For its cubic representative $w=w(u)$,
+$q=w-u$, and $\sigma=-\operatorname{div}w$, one has
+\begin{align}
+ \|w\|_2&\le2F,& \|q\|_2&\le2F+U,\label{cm:l2}\\
+ \||x|\nabla w\|_2&\le c_1F,&
+ \||x|\sigma\|_2&\le c_1F/\sqrt3.\label{cm:weighted}
+\end{align}
+In particular $w,q\in H^1$ and $\sigma\in L^{3/2}$, with
+\begin{equation}\label{cm:sigma-threehalves}
+ \|\sigma\|_{3/2}
+ \le C_*\bigl(\|\sigma\|_2\,\||x|\sigma\|_2\bigr)^{1/2},
+ \qquad C_*=2^{2/3}(4\pi/3)^{1/6}.
+\end{equation}
+The constants are not claimed sharp. No bound of $\|w\|_2$ by $U$
+alone is asserted.
+\end{theorem}
+\begin{proof}
+Although $\mathcal Ku$ need not be solenoidal, the Leray projection
+$v=\mathbb P\mathcal Ku$ is in $H^1$, is solenoidal, and satisfies
+$\|\nabla v\|_2\le\|\nabla\mathcal Ku\|_2$. Moreover
+$(\operatorname{Id}-\mathbb P)\mathcal Ku\in\mathcal G_3$, by the
+already established $L^3$ gradient decomposition. Thus
+$w(v)=w(\mathcal Ku)=\mathcal Kw$.
+Proposition~\ref{prop:quotient-divcurl}, applied to $v$, now gives
+\begin{equation}\label{cm:inverted-representative}
+ \mathcal Kw\in L^6,\qquad \|\nabla\mathcal Kw\|_2\le F.
+\end{equation}
+This use of the projection is essential: inversion itself does not
+preserve ordinary solenoidality.
+
+Apply \eqref{cm:hardy} to \eqref{cm:inverted-representative}. A second
+change of variables gives the identity, valid also for infinite
+nonnegative integrals,
+\[
+ \|w\|_2^2=\int\frac{|\mathcal Kw(x)|^2}{|x|^2}\,dx\le4F^2.
+\]
+This proves $w\in L^2$, rather than assuming it in a Hardy argument.
+The estimate for $q$ follows by subtraction. The previously proved
+unweighted div--curl estimate supplies $\nabla w,\nabla q\in L^2$.
+
+Apply the annular chain rule \eqref{cm:derivative} to $w$ and rearrange it.
+The same norm computation, using the just-proved $w\in L^2$, yields
+\[
+ \||x|\nabla w\|_2
+ \le\|\nabla\mathcal Kw\|_2+2\sqrt3\|w\|_2\le c_1F.
+\]
+One can first integrate over annuli and let their endpoints tend to zero
+and infinity; thus finiteness of the left side is a conclusion.
+The nonlinear divergence constraint and Lemma~\ref{lem:trace-control}
+give the pointwise inequality
+$|\sigma|^2\le|\operatorname{sym}\nabla w|_F^2/3
+\le|\nabla w|_F^2/3$. On $\{w=0\}$ its weak gradient vanishes almost
+everywhere. Multiplication by $|x|^2$ proves the second bound of
+\eqref{cm:weighted} without differentiating the unit direction.
+
+For any $f$ with $f,|x|f\in L^2$ and any $R>0$, H\"older on the ball and
+its complement gives
+\[
+ \int|f|^{3/2}\le(4\pi/3)^{1/4}
+  \left(R^{3/4}\|f\|_2^{3/2}
+       +R^{-3/4}\||x|f\|_2^{3/2}\right).
+\]
+Here $\int_{|x|>R}|x|^{-6}\,dx=(4\pi/3)R^{-3}$.
+If either norm is zero then $f=0$ almost everywhere. Otherwise choose
+$R=\||x|f\|_2/\|f\|_2$ and raise to power $2/3$.
+This proves \eqref{cm:sigma-threehalves} with $f=\sigma$.
+\end{proof}
+
+\subsection{The weighted velocity budget on the original equation}
+
+Fix the maximal branch of Proposition~\ref{prop:localtheory}. Put
+\[
+ E_0=\|u_0\|_2^2,\quad M_0=\||x|u_0\|_2^2,\quad
+ Y(t)=\|\nabla u(t)\|_2^2,\quad
+ M(t)=\||x|u(t)\|_2^2,\quad W(t)=\||x|\nabla u(t)\|_2^2.
+\]
+The last two integrals are initially allowed to be infinite. Let $S$ be
+the homogeneous Sobolev constant used in Section~\ref{dc:section}.
+
+\begin{proposition}[Input-only moment and weighted-gradient budget]
+\label{cm:moment}
+For every $H>0$, define
+\begin{align*}
+ K_H&=M_0+6\nu E_0H,\\
+ I_H&=6S^{3/2}E_0^{1/4}H^{1/4}(E_0/(2\nu))^{3/4},\\
+ L_H&=\tfrac12\left(I_H+\sqrt{I_H^2+4K_H}\right).
+\end{align*}
+Then for every $t<\min(H,T_*)$,
+\begin{equation}\label{cm:moment-budget}
+ M(t)+2\nu\int_0^tW(s)\,ds\le L_H^2.
+\end{equation}
+Moreover $W$ is bounded on every compact classical interval. Its latter
+bound may depend on local high Sobolev norms; it is not claimed to be
+uniform through $T_*$. The integrated estimate
+\eqref{cm:moment-budget} is uniform through that endpoint and uses only
+the displayed input quantities.
+\end{proposition}
+\begin{proof}
+Use the bounded increasing weights
+\[
+ \rho_R(x)=\frac{|x|^2}{1+|x|^2/R^2},\qquad
+ |\nabla\rho_R|\le2\sqrt{\rho_R},\qquad
+ \Delta\rho_R=\frac{6-2|x|^2/R^2}{(1+|x|^2/R^2)^3}\le6.
+\]
+Set $M_R=\int\rho_R|u|^2$ and $W_R=\int\rho_R|\nabla u|^2$.
+Testing the classical equation against $2\rho_Ru$, followed by integration
+by parts, gives
+\[
+ M_R'+2\nu W_R
+ =\nu\int\Delta\rho_R|u|^2
+   +\int(\nabla\rho_R\cdot u)|u|^2
+   +2\int p\,\nabla\rho_R\cdot u.
+\]
+For each fixed $R$ all coefficients are bounded and the local Sobolev
+package justifies the identity by a further cutoff at infinity.
+The pressure multiplier, as a linear map from matrix fields to scalars,
+has Fourier symbol of Frobenius norm one. Consequently Plancherel gives
+$\|p\|_2\le\|u\otimes u\|_2=\|u\|_4^2$.
+Cauchy--Schwarz, interpolation and Sobolev therefore yield
+\begin{equation}\label{cm:moment-differential}
+ M_R'+2\nu W_R
+ \le6\nu E_0+6\sqrt{M_R}\|u\|_4^2
+ \le6\nu E_0+6S^{3/2}E_0^{1/4}\sqrt{M_R}Y^{3/4}.
+\end{equation}
+The factors in the middle expression are two from transport and four
+from pressure. The energy identity gives
+\[
+ \int_0^tY^{3/4}\le H^{1/4}\left(\int_0^tY\right)^{3/4}
+ \le H^{1/4}(E_0/(2\nu))^{3/4}.
+\]
+For a fixed compact time interval ending below $\min(H,T_*)$, let
+$a_R$ be the supremum of $\sqrt{M_R}$ there. Integration of
+\eqref{cm:moment-differential} gives $a_R^2\le K_H+I_Ha_R$.
+Solving this quadratic yields $a_R\le L_H$ and, retaining dissipation,
+$M_R(t)+2\nu\int_0^tW_R\le K_H+I_HL_H=L_H^2$.
+Monotone convergence in $R$ proves \eqref{cm:moment-budget}.
+No division by $E_0$ or $M_0$ is used, so zero data are included.
+
+For pointwise weighted-gradient finiteness, differentiate the original
+equation in each spatial direction and test against the corresponding
+$2\rho_R\partial_k u$. The same cutoff justifications give
+\[
+ W_R'\le 2\|\nabla u\|_\infty W_R+6\nu Y
+      +2\|u\|_\infty\sqrt{W_R}\sqrt Y
+      +4\sqrt{W_R}\|\nabla p\|_2.
+\]
+The norm on the velocity gradient can be taken to be Frobenius.
+The pressure multiplier also gives
+$\|\nabla p\|_2\le2\|u\|_\infty\sqrt Y$.
+For any fixed rate $\alpha>0$, Young's inequality therefore gives
+\[
+ W_R'\le(2\|\nabla u\|_\infty+\alpha)W_R
+       +(6\nu+25\|u\|_\infty^2/\alpha)Y.
+\]
+All coefficients are bounded on each compact classical interval, and
+$W_R(0)\le\||x|\nabla u_0\|_2^2<\infty$. Gronwall, followed by monotone
+convergence in $R$, proves the stated local bound for $W$.
+This step establishes pointwise applicability of Theorem~\ref{cm:snapshot};
+it is not used as an endpoint-uniform producer.
+\end{proof}
+
+\begin{corollary}[Unconditional moment-based spacetime bounds]
+\label{cm:spacetime}
+For every $H>0$ and every $t<\min(H,T_*)$, set
+\[
+ T_H=\frac{L_H^2}{2\nu}+12HE_0,
+ \qquad B_H=\frac56(1+4\sqrt3)^2T_H.
+\]
+Then
+\begin{align}
+ \int_0^t\|w(s)\|_2^2\,ds&\le10T_H,\label{cm:w-budget}\\
+ \int_0^t\||x|\sigma(s)\|_2^2\,ds&\le B_H,\label{cm:sigma-weight-budget}\\
+ \int_0^t\|\sigma(s)\|_{3/2}^2\,ds
+ &\le C_*^2\sqrt{\frac{E_0B_H}{8\nu}}.\label{cm:sigma-spacetime}
+\end{align}
+Thus $w(t)\in L^2$ and $\sigma(t)\in L^{3/2}$ at every classical time,
+and the displayed time integrals have input-only bounds through any
+putative finite endpoint. Also $q=w-u\in L^2_tL^2_x$ on those intervals.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{cm:snapshot} applies at every time by
+Proposition~\ref{cm:moment}. Since
+$(A+2\sqrt3 U)^2\le2A^2+24U^2$ and $c_0^2=5/4$, its estimates give
+\[
+ \|w\|_2^2\le10(W+12E),\qquad
+ \||x|\sigma\|_2^2\le\tfrac56(1+4\sqrt3)^2(W+12E).
+\]
+Integrate, use $E\le E_0$ and \eqref{cm:moment-budget}, and apply
+Cauchy--Schwarz in time to the square of
+\eqref{cm:sigma-threehalves}. The already proved defect budget is
+$\int_0^t\|\sigma\|_2^2\le E_0/(8\nu)$, giving
+\eqref{cm:sigma-spacetime}. The assertion for $q$ follows from
+$\|q\|_2^2\le2\|w\|_2^2+2E$.
+
+For measurability, $w(t)$ is continuous into $L^3$ by the existing
+minimizer stability theorem. Its distributional derivatives are weakly
+measurable by pairing with smooth compactly supported tests. On each
+ball, their weighted norms are supremums over countable dense sets of
+dual tests; exhaustion of space gives Borel measurability of all extended
+norms used above. The same argument applies to the $L^2$ norm of $w$ and
+the $L^{3/2}$ norm of $\sigma$. Thus the integrals are well defined.
+\end{proof}
+
+\subsection{Why this does not close the temporal producer}
+
+The critical defect line is $2/s+3/a=2$, because under Navier--Stokes
+scaling $\sigma_\lambda(t,x)=\lambda^2\sigma(\lambda^2t,\lambda x)$.
+The new bound has $(s,a)=(2,3/2)$ and left side $3$, not $2$.
+In the usual Navier--Stokes terminology this is a supercritical,
+not a subcritical, bound. It gives neither a uniform small $L^{3/2}$
+defect nor the critical
+fourth-power time integral of its $L^2$ norm. This is not a defect of the
+endpoint justification: the time integrals themselves are uniform, but
+are of the wrong scaling strength.
+
+\begin{remark}[A self-similar curve testing only the proposed inference]
+\label{cm:scaling-test}
+The following is an explicit curve of fields, not a Navier--Stokes
+solution. It tests the implication from the new integrability budgets
+alone, not the signed vector equation. Let
+\[
+ U(x)=(4x_2,-2x_1,0)\exp[-(x_1^2+2x_2^2+x_3^2)].
+\]
+It is Schwartz and solenoidal, and
+$\operatorname{div}(|U|U)(1,1,0)=-8e^{-6}/\sqrt5\ne0$.
+Its minimizing defect $\sigma_U$ is nonzero: otherwise $w(U)$ would
+be both solenoidal and in $U+\mathcal G_3$, hence equal to $U$ by the
+Leray decomposition, contradicting the variational divergence condition.
+Let $E_U=\|U\|_2^2$, $Y_U=\|\nabla U\|_2^2$, fix $T>0$, and define
+\[
+ \lambda(t)=\left(4\nu Y_U(T-t)/E_U\right)^{-1/2},\qquad
+ v(t,x)=\lambda(t)U(\lambda(t)x),\qquad 0\le t<T.
+\]
+The homogeneity and dilation covariance of the cubic minimizer imply
+$w(v)=\lambda w(U)(\lambda x)$ and
+$\sigma_v=\lambda^2\sigma_U(\lambda x)$. In particular
+\[
+ \|\sigma_v\|_2^2=\lambda\|\sigma_U\|_2^2,\quad
+ \||x|\sigma_v\|_2^2=\lambda^{-1}\||x|\sigma_U\|_2^2,\quad
+ \|\sigma_v\|_{3/2}=\|\sigma_U\|_{3/2}.
+\]
+All three squared time integrals in the new and old defect budgets are
+finite; so is $\int_0^T\|w(v)\|_2^2$. But
+$\int_0^T\|\sigma_v\|_2^4=\infty$. Moreover the choice of $\lambda$
+makes the ordinary energy identity exact:
+\[
+ \frac{d}{dt}\|v\|_2^2+2\nu\|\nabla v\|_2^2
+ =-E_U\lambda'/\lambda^2+2\nu Y_U\lambda=0.
+\]
+The spatial moment and weighted-gradient integrals are finite as well,
+since they scale respectively as $\lambda^{-3}$ and $\lambda^{-1}$.
+This example asserts finiteness of the budgets, not every numerical
+constant in \eqref{cm:moment-budget} for the curve. It is a backward
+self-similar test curve of the same type as the earlier research
+countermodels, not a new singular solution or a novelty claim. Its
+constant critical velocity norm already prevents it from being a
+singular selected branch by the manuscript's endpoint theorem.
+\end{remark}
+
+\paragraph{Remaining obligation.}
+The spatial questions are answered here with weighted data, and the
+weights have an unconditional integrated budget on the original equation.
+The arbitrary-data critical temporal estimate remains unproved. A proof
+must still use additional trajectory information to obtain signed
+pressure/strain control or a critical defect budget; it cannot replace
+that step by the new spatial membership assertions.

@@ -28,7 +28,7 @@ phase: smooth-principal-inverse-after-connected-history-and-work-falsification-2
 phase_i_status: reopened-2026-09-06-in-progress
 phase_ii_status: reopened-2026-09-06-target
 paper_status: conditional-manuscript-held-after-strategic-pivot
-paper_repo: writable-authorized-2026-09-06
+paper_repo: integrated-in-navier-paper-directory
 external_deps: permitted-if-no-axioms-beyond-mathlib
 terminal_status: not-proved
 unforced_counterexample: not-constructed
@@ -75,6 +75,18 @@ public_release: true
 repository_visibility: {navier: public, navier-formal: public, navier-paper: private}
 external_contributions: pull-requests-welcome-owner-review-required
 ```
+
+## Repository consolidation (2026-09-09)
+
+The manuscript and standalone papers now live in public [paper/](paper/README.md),
+imported from `navier-paper` at `b6d0c6100ceba3783dc0c1bc8de4df3e1089396c`.
+The original file fingerprints are retained in `paper/migration-source.json`.
+The old repository is retained as a private historical archive; its manuscript
+content is now public here. Mathematical statements and review statuses are
+unchanged. `docs/proof-graph.yaml` remains authoritative; both generated map
+sources are synchronized from it. Historical source-commit fields retain their
+original repository provenance. The migration/build record is
+[here](research/evidence/2026-09-09-paper-migration.md).
 
 ## 1. Rigid terminal equation and unchanged positive consumer
 
@@ -320,7 +332,9 @@ and correction. Store original notes and source metadata, not a vendored PDF.
 ### September 9 source search
 
 Both `navier` and `navier-formal` are public since September 8; `navier-paper`
-remains private. The owner welcomes contributions through PRs. Contributions
+is the historical repository. On September 9 the owner authorized moving
+the manuscript into public `navier/paper/` and archiving the old repository.
+The owner welcomes contributions through PRs. Contributions
 retain the existing source, audit and claim-promotion rules.
 
 The [source ledger](literature/recent-progress-2026-09.md) now records [OA]'s

@@ -1,0 +1,877 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Quadratic Lyapunov obstructions and instantaneous vorticity growth for the three-dimensional Navier--Stokes equations},pdfauthor={}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\N}{\mathcal N}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand{\diver}{\operatorname{div}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\mean}{\operatorname{mean}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\ip}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\allowdisplaybreaks
+\setlength{\emergencystretch}{2em}
+\title{Quadratic Lyapunov obstructions and instantaneous vorticity growth\newline for the three-dimensional Navier--Stokes equations}
+\author{}
+\date{6 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We establish two obstructions to particular a priori arguments for the
+original unforced incompressible Navier--Stokes equation on $\R^3$.
+First, no fixed symmetric quadratic form continuous on a finite-order
+Sobolev space can both dominate the squared $L^3$ norm and be nonincreasing
+on every local classical solution. No translation, rotation, locality,
+Fourier-multiplier, or scaling assumption is imposed on the form. Amplitude
+testing, averaging over translations and orthogonal transformations, and a
+localized three-component Fourier interaction reduce its averaged form to
+kinetic energy. Second, for each positive viscosity we construct smooth
+compactly supported initial data with identical energy, enstrophy, and
+maximum vorticity, whose corresponding solutions are all globally smooth,
+but whose initial maximum-vorticity growth rates are unbounded. The initial
+supports lie in one compact set, and every positive-order spatial vorticity
+derivative vanishes at the exhibited maximizing point. This rules out a
+finite instantaneous maximum-growth bound based solely on those scalar
+values and that local vorticity jet. Both results concern precisely specified
+classes of estimates; neither proves nor disproves arbitrary-data global
+regularity. The qualitative quadratic-energy obstruction is established
+background; the scope of the whole-space formulation and of the matched-scalar
+construction is stated explicitly.
+\end{abstract}
+
+\section{Introduction and statements}
+\label{sec:introduction}
+We consider
+\begin{equation}
+ \partial_tu+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad \diver u=0,\qquad \nu>0,
+ \label{eq:NS}
+\end{equation}
+on $\R^3$, with solenoidal Schwartz initial data. All solutions used below
+are solutions of \eqref{eq:NS}; no averaged nonlinearity or forcing is
+introduced. The first result is an impossibility theorem for a class of
+quadratic functionals. The second is a construction within a class of
+\emph{globally smooth} solutions. Neither statement requires a singular
+Navier--Stokes solution.
+
+Let $H^m_\sigma$ be the real closed subspace of divergence-free vector fields
+in $H^m(\R^3;\R^3)$. Norms without a specified domain are on $\R^3$.
+
+\begin{theorem}[Quadratic obstruction]\label{thm:quadratic}
+Fix an integer $m\ge1$ and a viscosity $\nu>0$. There is no continuous
+symmetric real bilinear form $B$ on $H^m_\sigma$ for which both of the
+following hold:
+\begin{enumerate}
+\item There is $c>0$ such that $B(v,v)\ge c\norm v_3^2$ for every
+$v\in H^m_\sigma$.
+\item For the local classical solution of \eqref{eq:NS} from every
+solenoidal Schwartz datum, $t\mapsto B(u(t),u(t))$ is nonincreasing on some
+initial existence interval.
+\end{enumerate}
+The form and the coercivity constant may depend on $\nu$, but not on the
+datum or time. No spatial symmetry is a hypothesis on $B$.
+\end{theorem}
+
+Continuity means $|B(v,w)|\le C\norm v_{H^m}\norm w_{H^m}$ for a finite
+constant $C$. This permits arbitrary matrix Fourier weights and spatially
+inhomogeneous kernels satisfying that bound. It excludes neither nonlinear
+functionals nor datum-dependent or time-dependent quadratic forms. An
+argument requiring monotonicity only in a small-data region also lies
+outside the theorem.
+
+For a classical solution write
+\begin{equation}
+ E(t)=\norm{u(t)}_2^2,\quad Y(t)=\norm{\nabla u(t)}_2^2,
+ \quad \omega=\curl u,\quad \Omega(t)=\norm{\omega(t)}_\infty.
+ \label{eq:observables}
+\end{equation}
+The upper right Dini derivative is
+$D^+\Omega(t)=\limsup_{h\downarrow0}(\Omega(t+h)-\Omega(t))/h$.
+
+\begin{theorem}[Matched scalar values and unbounded initial growth]
+\label{thm:growth}
+For each $\nu>0$ there are constants $E_*,Y_*,\gamma>0$, a compact set
+$K\subset\R^3$, and real odd fields
+$u_{0,N}\in C_c^\infty(\R^3;\R^3)$, $N\ge1$, such that:
+\begin{enumerate}
+\item The data are solenoidal, supported in $K$, uniformly bounded in
+$L^\infty$, and satisfy
+\begin{equation}
+ E(u_{0,N})=E_*,\qquad Y(u_{0,N})=Y_*,\qquad
+ \norm{\curl u_{0,N}}_\infty=1.\label{eq:matched}
+\end{equation}
+\item For a radius $\varepsilon_N>0$,
+$\curl u_{0,N}=e_3$ on $B_{\varepsilon_N}(0)$. In particular, the origin is a
+global vorticity maximizer and all positive-order spatial derivatives of
+vorticity vanish there.
+\item The solution of \eqref{eq:NS} from every $u_{0,N}$ is global and
+smooth, and
+\begin{equation}
+ \liminf_{t\downarrow0}\frac{\Omega_N(t)-1}{t}\ge\gamma N.
+ \label{eq:unbounded-growth}
+\end{equation}
+\end{enumerate}
+Moreover, the common product $E_*Y_*$ can be made arbitrarily small while
+retaining these assertions.
+\end{theorem}
+
+Only the \emph{initial} supports are compact. No compact-support propagation
+for the equation is asserted. The radii $\varepsilon_N$ shrink with $N$,
+and \eqref{eq:unbounded-growth} contains no time interval uniform in $N$.
+Thus the result is not a norm-inflation theorem and does not assert
+persistence of large growth.
+
+\subsection{Relation to existing work}
+The large-amplitude obstruction to using general quadratic functionals as
+global Lyapunov functions is established background. Goulart and
+Chernyshenko \cite{GC} discuss why the highest-degree advective contribution
+must cancel. Darrow, Carlson, and Goluskin \cite{DCG}, in developing quartic
+Lyapunov functions, explicitly discuss the energy-only quadratic restriction
+for typical incompressible systems. Theorem~\ref{thm:quadratic} gives a
+precise whole-space statement with $H^m$ continuity and $L^3$ coercivity,
+without imposing symmetries on the original form. It is not a claim to have
+discovered the qualitative energy-only principle.
+
+Quadratic invariants of Fourier-truncated inviscid dynamics were already
+studied by Lee \cite{Lee} and in the helical equilibrium literature
+\cite{Kraichnan}. Here a localized interaction supplies the necessary
+scalar-symbol classification directly; no truncated-system classification
+is imported as a theorem about the full equation. In particular, the
+orthogonal averaging includes reflections, not just rotations.
+
+Large instantaneous growth must also be distinguished from sustained
+growth. Lu and Doering \cite{LD} study bounds and constrained optimization
+of enstrophy production, with numerical evidence for the three-dimensional
+extremizers. Kang, Yun, and Protas \cite{KYP} study finite-time enstrophy
+amplification numerically. Theorem~\ref{thm:growth} instead fixes energy,
+enstrophy, \emph{and} maximum vorticity exactly, and proves unbounded initial
+growth of the last quantity analytically on globally regular whole-space
+solutions. Nonlocal strain--vorticity interactions are familiar
+\cite{BPB}; local directional coherence on a shrinking ball is not the
+quantitative geometric control entering regularity criteria such as
+\cite{CF}. The theorem makes this distinction through an explicit family.
+
+Tao's averaged-equation construction \cite{TaoAveraged} provides a different
+kind of obstruction: energy cancellation survives in a modified equation
+that admits blowup. Neither result here modifies the equation. Conversely,
+neither result establishes that every conceivable regularity proof must
+use a particular combination of nonlocal, temporal, or full-datum
+information. Their conclusions apply only to the quantified classes above.
+
+\subsection{Organisation and scope}
+Section~\ref{sec:prelim} records the local theory used and proves the
+estimates needed below. Section~\ref{sec:quadratic} proves
+Theorem~\ref{thm:quadratic}, including localization for measurable symbols.
+Section~\ref{sec:growth} proves Theorem~\ref{thm:growth}.
+Section~\ref{sec:consequences} states the exact comparison-law exclusions.
+The proofs of both main results are contained in this manuscript; only
+standard local Navier--Stokes theory and standard functional analysis are
+used as background. This is an author-checked manuscript, not a claim of
+independent expert certification or established priority for either exact
+formulation.
+
+\section{Preliminaries}\label{sec:prelim}
+We use the unitary Fourier transform, with $\widehat{\partial_jv}(\xi)=
+i\xi_j\widehat v(\xi)$. The Leray projection $\Pj$ has symbol
+\begin{equation}
+ P(\xi)=I-\frac{\xi\otimes\xi}{|\xi|^2},\qquad \xi\ne0.
+ \label{eq:leray}
+\end{equation}
+It is bounded on each $H^s$ and self-adjoint on $L^2$. Put
+$\N(w)=\Pj((w\cdot\nabla)w)$. Then the projected equation is
+$u_t=\nu\Delta u-\N(u)$.
+
+\subsection{Local theory used}
+We use the classical maximal solution supplied by local $H^1$ theory:
+for solenoidal Schwartz data there is $T_*\in(0,\infty]$, with a unique
+$H^1$ mild branch, such that on each $[0,T]$, $T<T_*$, the velocity belongs
+to $C^j([0,T];H^k)$ for all nonnegative integers $j,k$. If $T_*<\infty$,
+its $H^1$ norm is unbounded as $t\uparrow T_*$. The normalised pressure
+is determined by \eqref{eq:NS} and the Leray projection.
+
+At unit viscosity these facts follow from Theorem~5.4 and Corollary~5.8
+of Tao \cite{TaoLocal}, with the smooth-data regularity in the same local
+theorem. The common maximal branch is obtained by uniqueness and gluing
+local branches; the supremum of their existence times is $T_*$. Smooth
+spatial bounds and the projected equation give continuity and time
+differentiability in each finite Sobolev norm, increasing the spatial
+index before differentiating. For general viscosity set
+$u(x,t)=\nu v(x,\nu t)$, $p(x,t)=\nu^2q(x,\nu t)$; then $v$ solves the
+unit-viscosity equation with datum $u_0/\nu$. This establishes the version
+used here without an inviscid limit. In particular differentiation at
+$t=0$ in $H^m$ is legitimate for every datum used below.
+
+\subsection{Energy and enstrophy estimates}
+Let $Z=\norm{\Delta u}_2^2$ and
+$S=\int\omega\cdot((\omega\cdot\nabla)u)$. On each compact classical
+interval, integration by parts gives
+\begin{equation}
+ E'=-2\nu Y,\qquad \frac12Y'+\nu Z=S.\label{eq:balances}
+\end{equation}
+Indeed the velocity transport and pressure vanish against $u$, and the
+vorticity equation
+\begin{equation}
+ \partial_t\omega+(u\cdot\nabla)\omega
+       =(\omega\cdot\nabla)u+\nu\Delta\omega\label{eq:vorticity}
+\end{equation}
+paired with $\omega$ gives the second identity. Solenoidality and
+Plancherel give $\norm\omega_2^2=Y$ and
+$\norm{\nabla\omega}_2^2=Z$. Smooth Sobolev bounds justify these integrations,
+for instance by cutoffs followed by their removal.
+
+Sobolev interpolation yields
+\begin{equation}
+ |S|\le \norm\omega_3^2\norm{\nabla u}_3
+       \le C Y^{3/4}Z^{3/4}.
+\end{equation}
+Here $\norm\omega_6\le C\norm{\nabla\omega}_2$ and
+$\norm{\nabla u}_6\le C\norm{\nabla^2u}_2=C Z^{1/2}$.
+Young's inequality and \eqref{eq:balances} imply, with an absolute $C_0>0$,
+\begin{equation}
+ Y'+\nu Z\le C_0\nu^{-3}Y^3.\label{eq:enstrophy-inequality}
+\end{equation}
+Also Fourier Cauchy--Schwarz gives
+\begin{equation}
+ Y^2\le EZ.\label{eq:EYCS}
+\end{equation}
+
+\begin{lemma}[A small-product region]\label{lem:small}
+If a nonzero solenoidal Schwartz datum satisfies
+$C_0E(0)Y(0)/\nu^4<1/2$, its classical solution is global and
+$Y(t)\le Y(0)$ for all $t\ge0$.
+\end{lemma}
+\begin{proof}
+Write $E_0=E(0)>0$ and $Y_0=Y(0)>0$. By
+\eqref{eq:balances}--\eqref{eq:EYCS},
+\begin{equation}
+ Y'\le -\frac{\nu}{E_0}Y^2+C_0\nu^{-3}Y^3
+       =-\frac{\nu}{E_0}Y^2
+          \left(1-\frac{C_0E_0Y}{\nu^4}\right).\label{eq:barrier}
+\end{equation}
+At every state with $Y=Y_0$ the right side is strictly negative. Since
+$Y$ is continuously differentiable and starts at $Y_0$, it initially
+decreases and cannot subsequently cross that level upwards: at a first
+return from below its derivative would be nonnegative. Thus $Y\le Y_0$
+throughout the maximal interval. Together with $E\le E_0$ this rules out
+the finite-time $H^1$ blowup alternative. The local theory gives global
+smoothness on every finite interval.
+\end{proof}
+
+We will also use the elementary inequalities
+\begin{equation}
+ |S|\le\Omega\norm\omega_2\norm{\nabla u}_2=\Omega Y,
+ \qquad \norm u_3^4\le C E Y.\label{eq:comparison}
+\end{equation}
+The second follows by interpolation between $L^2$ and $L^6$, then Sobolev.
+
+\section{Proof of the quadratic obstruction}\label{sec:quadratic}
+Assume that $B$ satisfies Theorem~\ref{thm:quadratic}'s two requirements.
+We derive a contradiction.
+
+\subsection{Amplitude testing forces an exact cancellation}
+For $w\in C_c^\infty(\R^3;\R^3)$ solenoidal and $a\in\R$, the solution
+from $aw$ has initial derivative $\nu a\Delta w-a^2\N(w)$. Thus
+\begin{equation}
+ \left.\frac{\mathrm d}{\mathrm dt}B(u(t),u(t))\right|_{t=0}
+ =2\nu a^2B(w,\Delta w)-2a^3B(w,\N(w))\le0.\label{eq:amplitude}
+\end{equation}
+The vectors in these pairings lie in $H^m_\sigma$. Taking arbitrarily large
+positive and negative $a$ forces
+\begin{equation}
+                 B(w,\N(w))=0
+ \quad(w\in C_c^\infty,\ \diver w=0).\label{eq:cancellation}
+\end{equation}
+We have varied the initial datum. We have not used velocity sign reversal
+as a symmetry of the solution equation.
+
+\subsection{Translation and orthogonal averaging}
+For $\tau_yv(x)=v(x-y)$ and $R>0$ define
+\begin{equation}
+ B_R(v,w)=\frac{1}{|B_R(0)|}\int_{B_R(0)}
+                         B(\tau_yv,\tau_yw)\dd y.
+\end{equation}
+Translations are strongly continuous isometries on $H^m$ and $L^3$.
+The forms $B_R$ are symmetric, obey the same continuity bound, and satisfy
+\begin{equation}
+ B_R(v,v)\ge c\norm v_3^2,
+ \qquad B_R(w,\N(w))=0\quad(w\in C_c^\infty{}_\sigma).
+ \label{eq:average-properties}
+\end{equation}
+For the cancellation use $\N(\tau_yw)=\tau_y\N(w)$ and
+\eqref{eq:cancellation}. Choose a countable dense subset of $H^m_\sigma$.
+Boundedness and a diagonal subsequence along $R\to\infty$ give convergence
+on all pairs from that subset. The uniform continuity bound extends the
+limiting bilinear form to all of $H^m_\sigma$ and gives convergence on
+every fixed pair there. Denote this form by $B_\infty$; it retains
+\eqref{eq:average-properties}.
+
+For fixed $z\in\R^3$,
+\begin{align}
+ &|B_R(\tau_zv,\tau_zw)-B_R(v,w)|\notag\\
+ &\hspace{1cm}\le C\norm v_{H^m}\norm w_{H^m}
+ \frac{|(B_R(0)+z)\mathbin\triangle B_R(0)|}{|B_R(0)|}
+ \longrightarrow0.
+\end{align}
+Consequently $B_\infty$ is translation invariant. This compactness argument
+concerns uniformly bounded bilinear forms, not solution trajectories.
+
+For $O\in O(3)$ write $T_Ov(x)=O v(O^Tx)$ and use probability Haar measure
+to set
+\begin{equation}
+ \overline B(v,w)=\int_{O(3)}B_\infty(T_Ov,T_Ow)\dd O.
+ \label{eq:orthogonal-average}
+\end{equation}
+Orthogonal changes of variables preserve the relevant norms,
+solenoidality, and covariance of $\N$, including when $\det O=-1$.
+Thus $\overline B$ is symmetric, translation invariant and $O(3)$ invariant,
+and retains coercivity, continuity, and cancellation. We henceforth work
+with $\overline B$.
+
+\subsection{The averaged multiplier}
+\begin{lemma}\label{lem:multiplier}
+There is a real measurable function $q:(0,\infty)\to\R$ such that
+\begin{equation}
+ |q(r)|\le C(1+r^2)^m\quad\text{for a.e. }r>0,
+ \qquad
+ \overline B(v,v)=\int_{\R^3}q(|\xi|)|\widehat v(\xi)|^2\dd\xi
+ \quad(v\in H^m_\sigma).
+ \label{eq:radial-multiplier}
+\end{equation}
+\end{lemma}
+\begin{proof}
+Extend the form to all real vector-valued $H^m$ by inserting $\Pj$ in
+both slots. Let $J=(1-\Delta)^{m/2}:H^m\to L^2$. The form
+$\overline B(\Pj J^{-1}f,\Pj J^{-1}g)$ is represented on real $L^2$ by a
+bounded self-adjoint operator. Complexify this operator. It commutes with
+translations, so its Fourier transform commutes with multiplication by
+every character $e^{iy\cdot\xi}$. By the spectral theorem for the three
+coordinate multiplication operators, it commutes with their spectral
+projections, and therefore with every bounded scalar multiplication
+operator.
+
+For clarity, the last commutation property implies matrix multiplication
+without any regularity assumption on the symbol. Exhaust frequency space
+by nested finite-measure sets $K_n$. Apply the operator to
+$1_{K_n}e_j$. Commutation with $1_{K_n}$ shows that the results for larger
+sets restrict consistently to $K_n$, defining measurable columns of a
+matrix $A(\xi)$. Commutation with indicators then identifies the operator
+on all simple vector functions supported in $K_n$. For any constant vector
+$a$ and measurable $F\subset K_n$, its norm bound gives
+$\int_F|A(\xi)a|^2\dd\xi\le C^2|a|^2|F|$.
+A countable dense set of $a$ implies $\norm{A(\xi)}\le C$ a.e.; density
+identifies the operator on all $L^2$. Self-adjointness makes $A$ Hermitian.
+
+Transferring back through $J$ gives a measurable Hermitian symbol
+$M(\xi)$ for the $H^m$ form, with
+\begin{equation}
+ M=PMP,\qquad \norm{M(\xi)}\le C(1+|\xi|^2)^m.\label{eq:matrix-bound}
+\end{equation}
+There is no distribution supported at $\xi=0$ in this representation.
+To justify pointwise symmetry despite possible exceptional null sets,
+one may first represent $B_\infty$ by its symbol $M_\infty$ and then form
+\begin{equation}
+ M_*(\xi)=\int_{O(3)}O^T M_\infty(O\xi)O\dd O.\label{eq:symbol-average}
+\end{equation}
+Fubini and polar coordinates make this integral well-defined on every
+direction for almost every radius. It represents
+\eqref{eq:orthogonal-average} and gives an equivariant representative:
+$M_*(R\xi)=R M_*(\xi)R^T$. Indeed substitute $O'=OR$ in
+\eqref{eq:symbol-average}. The same construction retains
+\eqref{eq:matrix-bound}.
+
+At a fixed nonzero $\xi$, its stabilizer in $O(3)$ acts as the full $O(2)$
+on $\xi^\perp$. Commutation with reflections about the two coordinate
+axes of this plane eliminates off-diagonal entries of its Hermitian
+restriction. Interchange of these axes makes the diagonal entries equal.
+The longitudinal restriction is zero by $M=PMP$. Hence
+$M_*(\xi)=q(|\xi|)P(\xi)$, with $q$ real; equivariance makes it radial.
+This proves \eqref{eq:radial-multiplier}. Full orthogonal averaging is
+essential: averaging only over $SO(3)$ would leave a possible helical
+component on the transverse plane.
+\end{proof}
+
+\subsection{Localization with a measurable radial weight}
+We need a localization statement because an infinite periodic field is not
+an admissible datum on $\R^3$.
+
+\begin{lemma}\label{lem:localization}
+Let $q$ satisfy the bound in \eqref{eq:radial-multiplier}, and let
+$\chi\in C_c^\infty(\R^3)$ be radial. There is a full-measure set
+$G\subset(0,\infty)$ such that, for every nonzero $\eta$ with $|\eta|\in G$
+and every $a\in\C^3$,
+\begin{equation}
+ \norm{q(D)(\chi(x/L)a e^{i\eta\cdot x})
+      -q(|\eta|)\chi(x/L)a e^{i\eta\cdot x}}_2=o(L^{3/2})
+ \quad(L\to\infty).
+ \label{eq:localization}
+\end{equation}
+Here $q(D)$ denotes the scalar Fourier multiplier with symbol $q(|\xi|)$.
+\end{lemma}
+\begin{proof}
+Choose $G$ to consist of the positive Lebesgue points of both $q$ and
+$q^2$, with a compatible representative of $q$. For $r_0\in G$ the
+one-dimensional mean of $|q(r)-q(r_0)|^2$ near $r_0$ tends to zero.
+If $|\eta|=r_0$ and $0<\varepsilon<r_0/2$, the area of each spherical
+slice of $B_\varepsilon(\eta)$ is bounded by $C\varepsilon^2$.
+The coarea formula therefore gives
+\begin{equation}
+ \frac{1}{|B_\varepsilon|}
+ \int_{B_\varepsilon(\eta)}|q(|\xi|)-q(r_0)|^2\dd\xi
+ \le\frac{C}{\varepsilon}
+       \int_{r_0-\varepsilon}^{r_0+\varepsilon}
+                       |q(r)-q(r_0)|^2\dd r\longrightarrow0.
+ \label{eq:radial-lebesgue}
+\end{equation}
+This works in every direction at radius $r_0$.
+
+Plancherel and the change $\xi=\eta+\zeta/L$ show that the square of the
+left side of \eqref{eq:localization}, divided by $L^3$, equals
+\begin{equation}
+ |a|^2\int_{\R^3}|q(|\eta+\zeta/L|)-q(r_0)|^2
+                              |\widehat\chi(\zeta)|^2\dd\zeta.
+ \label{eq:localization-integral}
+\end{equation}
+Near $\eta$, this tends to zero by \eqref{eq:radial-lebesgue} and the
+approximate-identity property of a rapidly decaying radial kernel.
+One can verify that property directly: dominate $|\widehat\chi(\zeta)|^2$
+by $C_M(1+|\zeta|)^{-M}$, split into dyadic annuli, and bound each annular
+integral by the mean over the containing ball. For balls of sufficiently
+small radius those means are as small as desired; the remaining annular
+weights have a summable tail. Local boundedness of $q$ controls them.
+For $|\zeta|>\delta L$, with fixed $\delta>0$, the polynomial bound on $q$
+gives a dominating constant times
+$(1+|\zeta|)^{4m}|\widehat\chi(\zeta)|^2$, whose tail integral tends to
+zero. This proves \eqref{eq:localization-integral} tends to zero without
+assuming continuity of $q$.
+\end{proof}
+
+\subsection{A three-component interaction forces a constant weight}
+Fix $k,l>0$, set $r=(k^2+l^2)^{1/2}$, and consider the finite Fourier fields
+\begin{align}
+ U&=(0,-\cos(kx_1),\ \sin(lx_2)+\cos(kx_1+lx_2)),\label{eq:triad-U}\\
+ A&=(l^{-1}\cos(lx_2),\ k^{-1}\sin(kx_1+lx_2),\ k^{-1}\sin(kx_1)).
+ \label{eq:triad-A}
+\end{align}
+Direct differentiation gives $\curl A=U$ and $\diver U=0$, while
+\begin{equation}
+ (U\cdot\nabla)U
+  =(0,0,-l\cos(kx_1)[\cos(lx_2)-\sin(kx_1+lx_2)]).
+ \label{eq:triad-nonlinearity}
+\end{equation}
+Temporarily interpreting $q(D)$ on these finitely many modes,
+\begin{equation}
+ \mean\{q(D)U\cdot (U\cdot\nabla)U\}
+                     =\frac l4\{q(l)-q(r)\}.\label{eq:triad-mean}
+\end{equation}
+The mean is over the two periods in $x_1,x_2$; the fields are independent
+of $x_3$. The two surviving products use
+$\mean(\sin(lx_2)\cos(kx_1)\sin(kx_1+lx_2))=1/4$ and
+$\mean(\cos(kx_1+lx_2)\cos(kx_1)\cos(lx_2))=1/4$.
+
+Choose a nonnegative nonzero radial $\chi\in C_c^\infty$ and put
+$\chi_L(x)=\chi(x/L)$,
+\begin{equation}
+ W_L=\curl(\chi_L A)=\chi_LU+R_L,
+ \qquad R_L=\nabla\chi_L\times A.\label{eq:localized-triad}
+\end{equation}
+Now $W_L$ is a genuinely compactly supported smooth solenoidal field.
+For every fixed integer $s\ge0$,
+\begin{align}
+ \norm{R_L}_{H^s}&=O(L^{1/2}),&
+ \norm{R_L}_{W^{1,\infty}}&=O(L^{-1}),\label{eq:remainder-est}\\
+ \norm{W_L\cdot\nabla W_L-\chi_L^2U\cdot\nabla U}_2
+                         &=O(L^{1/2}).\label{eq:nonlinear-est}
+\end{align}
+To see these bounds, every cutoff derivative supplies $L^{-1}$,
+all derivatives of $U,A$ are bounded, and the supports have volume
+$O(L^3)$. In \eqref{eq:nonlinear-est} the remaining main error is
+$\chi_L(U\cdot\nabla\chi_L)U$, with the same estimates.
+
+Choose $k,l,r\in G$, where $G$ is furnished by
+Lemma~\ref{lem:localization}. Apply that lemma to each of the finite
+frequencies of $U$. The symbol bound and \eqref{eq:remainder-est} at
+$s=2m$ also give $\norm{q(D)R_L}_2=O(L^{1/2})$. Consequently
+\begin{equation}
+ q(D)W_L=\chi_Lq(D)U+o_{L^2}(L^{3/2}).\label{eq:main-localized}
+\end{equation}
+The scalar multiplier preserves solenoidality. By polarization of
+\eqref{eq:radial-multiplier}, moving the multiplier to the smooth first
+factor and removing the Leray projection is legitimate. Thus
+\begin{align}
+ 0&=\overline B(W_L,\N(W_L))\notag\\
+  &=\ip{q(D)W_L}{W_L\cdot\nabla W_L}\notag\\
+  &=\int\chi_L^3\,q(D)U\cdot(U\cdot\nabla U)+o(L^3)\notag\\
+  &=\frac l4\{q(l)-q(r)\}L^3\int\chi^3+o(L^3).
+ \label{eq:triad-conclusion}
+\end{align}
+For the last equality, each nonconstant Fourier mode has integral
+$O(L^2)$ after one integration by parts against $\chi_L^3$; the constant
+mode is \eqref{eq:triad-mean}. Hence $q(l)=q(r)$.
+
+The conditions $k,l,(k^2+l^2)^{1/2}\in G$ hold for almost every pair
+$(k,l)\in(0,\infty)^2$. The smooth change of variables
+$(k,l)\mapsto(r,l)$ is a local diffeomorphism onto $0<l<r$, so
+$q(l)=q(r)$ for almost every such pair. Symmetry and Fubini imply that
+$q$ is constant a.e. on every finite interval separated from zero;
+overlap makes the constant the same on $(0,\infty)$. Denote it by $a_0$.
+
+The third component in \eqref{eq:triad-U} is important. This argument does
+not classify quadratic invariants of two-component two-dimensional
+velocity fields, which possess enstrophy as well as energy.
+
+\subsection{Contradiction with critical coercivity}
+The preceding argument gives $\overline B(v,v)=a_0\norm v_2^2$. But its
+coercivity was retained during both averages. For a nonzero
+$v\in C_c^\infty{}_\sigma$ set $v_\lambda(x)=\lambda v(\lambda x)$. Then
+\begin{equation}
+ c\norm v_3^2=c\norm{v_\lambda}_3^2
+ \le a_0\norm{v_\lambda}_2^2
+ =a_0\lambda^{-1}\norm v_2^2\longrightarrow0
+ \quad(\lambda\to\infty),
+\end{equation}
+a contradiction. This proves Theorem~\ref{thm:quadratic}.
+We classified only the averaged scalar symbol; no classification of the
+original unsymmetrized bilinear form is needed or asserted.
+
+\section{A globally smooth matched-scalar family}\label{sec:growth}
+We now give the complete construction for Theorem~\ref{thm:growth}.
+The nested fields produce strain at the origin while keeping their
+vorticity supports disjoint. Two remote reservoirs then match energy and
+enstrophy exactly. A small-product choice places every datum in
+Lemma~\ref{lem:small}'s global region.
+
+\subsection{Compact strain with annular vorticity}
+Let
+\begin{equation}
+ H=\diag(-1/2,-1/2,1),\qquad
+ A(x)=(-x_2x_3/2,x_1x_3/2,0).
+\end{equation}
+One has $\curl A=Hx$. Choose a smooth radial cutoff $\chi$ equal to one
+on $B_1$ and zero outside $B_2$, and set $W=\curl(\chi A)$. It is odd,
+compactly supported, and solenoidal. On $B_1$ it equals $Hx$, which is
+irrotational. Therefore $\curl W$ is supported in
+$\{1\le|x|\le2\}$. Put
+\begin{equation}
+ C=\norm{\curl W}_\infty>0,\qquad \gamma=\frac{1}{4C}.
+ \label{eq:gamma}
+\end{equation}
+If $C$ were zero, the compact field would have zero curl and divergence;
+Plancherel would force it to vanish, contrary to $W=Hx$ on $B_1$.
+For $r>0$ define
+\begin{equation}
+ W_r(x)=rW(x/r).\label{eq:strain-scaling}
+\end{equation}
+It has gradient $H$ on $B_r$, and its vorticity has supremum $C$ and is
+supported in $\{r\le|x|\le2r\}$. Also
+$E(W_r)=r^5E(W)$, $Y(W_r)=r^3Y(W)$, and
+$\norm{W_r}_\infty=r\norm W_\infty$.
+
+\subsection{A rotation core with a certified global maximum}
+Choose $g\in C_c^\infty((0,4))$ with $0\le g\le1$ and
+$\int g=1$. Define
+\begin{equation}
+ f(r)=\begin{cases}
+  1,&0\le r\le1,\\
+  1-\displaystyle\int_0^{\log r}g(s)\dd s,&r>1,
+ \end{cases}
+ \qquad R=e^4.
+\end{equation}
+Then $f=0$ for $r\ge R$, $0\le f\le1$, and $-1\le rf'(r)\le0$;
+the joins are smooth. Put
+\begin{equation}
+ V(x)=\tfrac12 f(|x|)(-x_2,x_1,0).\label{eq:rotation}
+\end{equation}
+It is odd, smooth, compactly supported and solenoidal, with curl $e_3$ on
+$B_1$. For $n=x/|x|$ and $c=n_3$ direct differentiation gives
+\begin{align}
+ \curl V&=(f+rf'/2)e_3-(rf'/2)c n,\notag\\
+ |\curl V|^2&=f^2c^2+(f+rf'/2)^2(1-c^2)\le1.\label{eq:rotation-bound}
+\end{align}
+The inequality uses $f\in[0,1]$ and $f+rf'/2\in[-1/2,1]$.
+Thus $\norm{\curl V}_\infty=1$ exactly, including the cutoff region.
+For $\varepsilon>0$ set
+$V_\varepsilon(x)=\varepsilon V(x/\varepsilon)$. Its vorticity has the
+same supremum and equals $e_3$ on $B_\varepsilon$.
+
+\subsection{Nested fields and uniform bounds}
+Choose $r_0\in(0,1)$ later, and put
+\begin{equation}
+ r_k=r_0 4^{-(k-1)},\quad
+ \varepsilon_N=\frac{r_N}{4R},\quad
+ C_N=\gamma\sum_{k=1}^N W_{r_k}+V_{\varepsilon_N}.
+ \label{eq:central}
+\end{equation}
+The vorticity annuli of the $W_{r_k}$ are mutually disjoint.
+The rotation core is supported in $B_{r_N/4}$, disjoint from every annulus.
+By \eqref{eq:gamma} and \eqref{eq:rotation-bound},
+\begin{equation}
+ \norm{\curl C_N}_\infty=1.
+\end{equation}
+On $B_{\varepsilon_N}$,
+\begin{equation}
+ C_N(x)=(\gamma N H+K_0)x,\qquad
+ K_0=\begin{pmatrix}0&-1/2&0\\1/2&0&0\\0&0&0\end{pmatrix}.
+ \label{eq:affine-core}
+\end{equation}
+In particular $C_N(0)=0$ and $\curl C_N=e_3$ near zero.
+
+The velocity supports of the nested strain fields overlap, so energy
+must not be added as if they were disjoint. Instead the triangle inequality
+and scaling give
+\begin{equation}
+ \norm{C_N}_2\le
+ \frac{\gamma\norm W_2 r_0^{5/2}}{1-4^{-5/2}}
+       +\norm V_2\left(\frac{r_0}{4R}\right)^{5/2}.
+ \label{eq:central-energy}
+\end{equation}
+For enstrophy the vorticity supports \emph{are} disjoint, and the div--curl
+identity gives the exact formula
+\begin{equation}
+ Y(C_N)=\gamma^2Y(W)\sum_{k=1}^N r_k^3
+                         +\varepsilon_N^3Y(V).
+ \label{eq:central-enstrophy}
+\end{equation}
+Hence there are constants $C_E,C_Y$ independent of $N,r_0$ such that
+\begin{equation}
+ E(C_N)\le C_Er_0^5,\qquad Y(C_N)\le C_Yr_0^3.
+ \label{eq:central-small}
+\end{equation}
+The analogous convergent sum of $r_k$ bounds $\norm{C_N}_\infty$
+uniformly in $N$. Every $C_N$ is supported in $B_{2r_0}$.
+
+\subsection{Exact matching with two remote reservoirs}
+Take fixed length scales $L_1=1,L_2=2$. Choose fixed centres
+$\pm a_1,\pm a_2$ so that the four closed balls of radii $RL_j$ are
+pairwise disjoint and avoid $\overline B_2$. For a parameter
+$\delta\in(0,1/8)$ put
+\begin{equation}
+ R_j(x)=\delta L_j
+ \left[V\left(\frac{x-a_j}{L_j}\right)
+       +V\left(\frac{x+a_j}{L_j}\right)\right],\quad j=1,2.
+ \label{eq:reservoirs}
+\end{equation}
+They are odd and solenoidal, have disjoint supports, and satisfy
+\begin{equation}
+ E_j:=E(R_j)=2\delta^2L_j^5 E(V),\quad
+ Y_j:=Y(R_j)=2\delta^2L_j^3 Y(V),\quad
+ \norm{\curl R_j}_\infty=\delta.
+ \label{eq:reservoir-scalars}
+\end{equation}
+Let
+\begin{equation}
+ M=\begin{pmatrix}E_1&E_2\\Y_1&Y_2\end{pmatrix},\qquad
+ E_*=E_1+E_2,\qquad Y_*=Y_1+Y_2.
+\end{equation}
+The matrix is invertible, since
+$Y_j/E_j=L_j^{-2}Y(V)/E(V)$ differs for $j=1,2$.
+Moreover
+\begin{equation}
+ E_*Y_*=C_R\delta^4\label{eq:reservoir-small}
+\end{equation}
+for a positive constant $C_R$ determined by $V,L_1,L_2$.
+
+First choose $\delta>0$ sufficiently small that
+$C_0E_*Y_*/\nu^4<1/2$. The product in
+\eqref{eq:reservoir-small} may also be made smaller than any prescribed
+positive number. Next choose $r_0>0$ sufficiently small and define
+\begin{equation}
+ \binom{a_N^2}{b_N^2}
+   =\binom11-M^{-1}\binom{E(C_N)}{Y(C_N)}.
+ \label{eq:matching-coefficients}
+\end{equation}
+Indeed $M=\delta^2 M_0$ with $M_0$ fixed and invertible; by
+\eqref{eq:central-small} one can choose $r_0$, after $\delta$, such that
+\begin{equation}
+                 \frac34\le a_N^2,b_N^2\le\frac54
+                 \qquad\text{for every }N.\label{eq:coefficient-bounds}
+\end{equation}
+Take the positive square roots and set
+\begin{equation}
+                   u_{0,N}=C_N+a_NR_1+b_NR_2.\label{eq:final-data}
+\end{equation}
+The three terms in \eqref{eq:final-data} now have disjoint
+\emph{velocity} supports. Equations \eqref{eq:matching-coefficients} and
+\eqref{eq:reservoir-scalars} give $E(u_{0,N})=E_*$ and
+$Y(u_{0,N})=Y_*$ exactly. The reservoirs have vorticity at most
+$\sqrt{5/4}\,\delta<1$, so the exact maximum vorticity remains one.
+They vanish near the origin and change none of \eqref{eq:affine-core}.
+Oddness, common compact initial support, and the uniform velocity bound
+follow from their construction and \eqref{eq:coefficient-bounds}.
+
+\subsection{Global smoothness and actual initial growth}
+For the fixed viscosity $\nu$, Lemma~\ref{lem:small} applies to every datum
+\eqref{eq:final-data}, with the \emph{same} constants $E_*,Y_*$. Thus each
+solution is globally smooth and obeys $E_N(t)\le E_*$, $Y_N(t)\le Y_*$.
+This uses only smallness of their common product, not arbitrary-data global
+regularity.
+
+Evaluate the actual vorticity equation \eqref{eq:vorticity} at $(0,0)$.
+The advection term vanishes because the vorticity is constant near zero;
+its Laplacian vanishes for the same reason. Equations
+\eqref{eq:affine-core} and \eqref{eq:final-data} yield
+\begin{equation}
+ \partial_t\omega_N(0,0)
+       =(e_3\cdot\nabla)u_{0,N}(0)=\gamma N e_3.
+ \label{eq:actual-generator}
+\end{equation}
+Local smoothness up to $t=0$ gives
+\begin{equation}
+ |\omega_N(0,t)|=1+\gamma Nt+o_N(t).
+\end{equation}
+Since $\Omega_N(t)\ge|\omega_N(0,t)|$ and $\Omega_N(0)=1$, this proves
+\eqref{eq:unbounded-growth} and completes Theorem~\ref{thm:growth}.
+No differentiability of the maximum or persistence of its spatial location
+has been assumed. The error $o_N(t)$ is not asserted uniform in $N$.
+
+\section{Consequences and limitations}\label{sec:consequences}
+\begin{corollary}[No finite scalar instantaneous bound]\label{cor:pointwise}
+There is no function $F$, finite at every positive scalar tuple, such that
+\begin{equation}
+ D^+\Omega(t)\le F(\nu,E(t),Y(t),\Omega(t))\label{eq:scalar-law}
+\end{equation}
+holds at every classical state, including $t=0$, of every global smooth
+solution from solenoidal Schwartz data. Adding the initial scalar values
+$E(0),Y(0),\Omega(0)$ as arguments does not change this conclusion.
+\end{corollary}
+\begin{proof}
+At $t=0$, Theorem~\ref{thm:growth} gives the same input tuple
+$(\nu,E_*,Y_*,1)$ for every $N$, but a lower bound $\gamma N$ for its upper
+right derivative. The initial scalar values are identical as well.
+\end{proof}
+
+\begin{corollary}[An almost-everywhere version]\label{cor:ae}
+No locally bounded function $F$ of the same scalar arguments can make
+\eqref{eq:scalar-law} hold merely for almost every time on an initial
+classical interval of every solution in Theorem~\ref{thm:growth}.
+\end{corollary}
+\begin{proof}
+The scalar tuple is continuous in time on each branch. Local boundedness
+provides a neighborhood of the common initial tuple and a finite upper
+bound $B$ for $F$ on it. For each $N$, the tuple remains in that neighborhood
+on a positive interval, possibly depending on $N$. The smooth-data local
+theory bounds $\partial_t\omega_N$ in $L^\infty$ on compact time intervals;
+therefore $\Omega_N$ is locally Lipschitz. At its a.e. differentiability
+points the assumed inequality gives $\Omega_N'\le B$, so integration gives
+$\Omega_N(t)\le1+Bt$ on that interval. This contradicts
+\eqref{eq:unbounded-growth} when $\gamma N>B$.
+\end{proof}
+
+At the exhibited point every spatial derivative of $\omega_{0,N}$ of
+positive order is zero, and its value is $e_3$. The stretching in that
+direction nevertheless equals $\gamma N$. Thus no finite bound for the
+\emph{pointwise initial vorticity growth at this maximizing point} can
+be recovered from the same scalar inputs and any finite, or the entire,
+spatial vorticity jet there. This assertion is not about the full velocity
+jet: its strain is precisely the varying quantity. A rule using all
+maximizers or remote geometry is a different premise class.
+
+\subsection{Why the excluded comparisons would have been useful}
+For perspective, suppose an input-controlled positive continuous
+comparison function $g$ gave $D^+\Omega\le g(\Omega)$ and
+$\int_1^\infty g(s)^{-1}\dd s=\infty$, so that its scalar comparison
+solution remains finite on finite intervals. Then
+\eqref{eq:balances} and \eqref{eq:comparison} imply
+\begin{equation}
+ Y(t)\le Y(0)\exp\left(2\int_0^t\Omega(s)\dd s\right).
+\end{equation}
+An input-derived finite bound for this integral would contradict the local
+blowup alternative at any finite maximal time. The corollaries exclude
+only the indicated scalar-input instantaneous producers of this bound;
+they do not exclude an estimate using additional controlled information
+about the full initial datum or the evolving spatial field.
+
+The first theorem has a similarly limited meaning. A fixed monotone form
+coercive in $L^3$ would immediately bound that critical norm on the branch.
+Theorem~\ref{thm:quadratic} prevents this particular universal quadratic
+construction; it does not prevent nonlinear, time-dependent, or
+datum-adapted constructions, nonmonotone estimates, or conditional
+small-data results such as Lemma~\ref{lem:small}.
+
+\subsection{No conclusion about arbitrary-data breakdown}
+The coherent ball in Theorem~\ref{thm:growth} shrinks as $N$ grows. High
+initial Sobolev norms need not be uniformly bounded. A large initial
+vorticity derivative is compatible with global regularity, as the same
+construction proves. These facts prevent the initial derivative from being
+silently converted into a uniform-duration growth statement. The two main
+theorems neither resolve arbitrary-data global regularity nor establish
+that its remaining obstruction is strictly weaker. They delimit two
+specified classes of proof mechanisms and leave other classes untouched.
+
+\begin{thebibliography}{99}
+\bibitem{BPB}
+D.~Buaria, A.~Pumir, and E.~Bodenschatz,
+\emph{Self-attenuation of extreme events in Navier--Stokes turbulence},
+Nature Communications \textbf{11} (2020), 5852.
+\href{https://doi.org/10.1038/s41467-020-19530-1}{doi:10.1038/s41467-020-19530-1}.
+
+\bibitem{CF}
+P.~Constantin and C.~Fefferman,
+\emph{Direction of vorticity and the problem of global regularity for the
+Navier--Stokes equations}, Indiana Univ. Math. J. \textbf{42} (1993), 775--789.
+\href{https://doi.org/10.1512/iumj.1993.42.42034}{doi:10.1512/iumj.1993.42.42034}.
+
+\bibitem{DCG}
+D.~Darrow, E.~Carlson, and D.~Goluskin,
+\emph{Quartic Lyapunov functions for global fluid stability},
+arXiv:2606.18232v1 (16 June 2026).
+\url{https://arxiv.org/abs/2606.18232}.
+
+\bibitem{GC}
+P.~J.~Goulart and S.~I.~Chernyshenko,
+\emph{Global stability analysis of fluid flows using sum-of-squares},
+Physica D \textbf{241} (2012), 692--704.
+\href{https://doi.org/10.1016/j.physd.2011.12.008}{doi:10.1016/j.physd.2011.12.008}.
+
+\bibitem{KYP}
+D.~Kang, D.~Yun, and B.~Protas,
+\emph{Maximum amplification of enstrophy in three-dimensional
+Navier--Stokes flows}, J. Fluid Mech. \textbf{893} (2020), A22.
+\url{https://arxiv.org/abs/1909.00041}.
+
+\bibitem{Kraichnan}
+R.~H.~Kraichnan,
+\emph{Helical turbulence and absolute equilibrium},
+J. Fluid Mech. \textbf{59} (1973), 745--752.
+\href{https://doi.org/10.1017/S0022112073001837}{doi:10.1017/S0022112073001837}.
+
+\bibitem{Lee}
+J.~Lee,
+\emph{Isolating constants of motion for the homogeneous turbulence of two
+and three dimensions}, J. Math. Phys. \textbf{16} (1975), 1367--1373.
+\href{https://doi.org/10.1063/1.522705}{doi:10.1063/1.522705}.
+
+\bibitem{LD}
+L.~Lu and C.~R.~Doering,
+\emph{Limits on enstrophy growth for solutions of the three-dimensional
+Navier--Stokes equations}, Indiana Univ. Math. J. \textbf{57} (2008), 2693--2728.
+\href{https://doi.org/10.1512/iumj.2008.57.3716}{doi:10.1512/iumj.2008.57.3716}.
+
+\bibitem{TaoLocal}
+T.~Tao,
+\emph{Localisation and compactness properties of the Navier--Stokes global
+regularity problem}, Analysis \& PDE \textbf{6} (2013), 25--107.
+\href{https://doi.org/10.2140/apde.2013.6.25}{doi:10.2140/apde.2013.6.25}.
+
+\bibitem{TaoAveraged}
+T.~Tao,
+\emph{Finite time blowup for an averaged three-dimensional Navier--Stokes
+equation}, J. Amer. Math. Soc. \textbf{29} (2016), 601--674.
+\url{https://arxiv.org/abs/1402.0290}.
+\end{thebibliography}
+\end{document}

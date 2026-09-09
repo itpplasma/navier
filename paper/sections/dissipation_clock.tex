@@ -1,0 +1,253 @@
+\section{Dissipation-clock continuation without an endpoint theorem}
+\label{dc:section}
+
+\paragraph{Scope and review status.}
+This section gives full component derivations for the original unforced
+three-dimensional equation, not an arbitrary-data regularity proof.  The
+strict-absorption consequence reconstructs and sharpens the separate
+\texttt{dissipation\_budget\_continuation.tex} supplement: the useful Serrin
+pair is $(3,9)$, directly supplied by cubic dissipation, rather than $(4,6)$.
+The sharper estimate and the nonlinear barriers below are author-checked
+additions awaiting an independent mathematical audit; they are not promoted
+claims in the dependency graph.  The nonendpoint testing mechanism is
+classical.  No novelty claim is made.
+
+\paragraph{Inputs and conventions.}
+Fix $\nu>0$, a real divergence-free Schwartz datum $u_0$ on $\mathbb R^3$,
+and its maximal classical branch $u$ on $[0,T_*)$.  The imported local
+package, assembled earlier from Tao's local and maximal theory
+\cite{Tao2013}, gives $u\in C^j([0,T];H^k)$ for every $T<T_*$ and all
+$j,k$, and $\|u(t)\|_{H^1}\to\infty$ at a finite $T_*$.  We use the energy
+identity and the integrated cubic pressure balance already proved for this
+branch.  Put
+\begin{align*}
+ E(t)&=\|u(t)\|_2^2,&Y(t)&=\|\nabla u(t)\|_2^2,&Z(t)&=\|\Delta u(t)\|_2^2,\\
+ X(t)&=\|u(t)\|_3^3,&
+ D_3(t)&=\int_{\mathbb R^3}|u|
+          \bigl(|\nabla u|^2+|\nabla |u||^2\bigr)\,dx,&
+ B(t)&=\int_0^tD_3(s)\,ds.
+\end{align*}
+Here $\nabla|u|$ is the weak gradient, taken as zero almost everywhere on
+$\{u=0\}$; equivalently the second integrand is
+$|(\nabla u)^Tu|^2/|u|$, with zero value on that set.  With
+$P_3=\int p\,u\cdot\nabla|u|$, the two input balances are
+\begin{equation}\label{dc:balances}
+ E(t)+2\nu\int_0^tY=E(0),\qquad
+ \frac{X(t)}3+\nu B(t)=\frac{X(0)}3+\int_0^tP_3.
+\end{equation}
+Let $S$ be any constant in $\|f\|_6\le S\|\nabla f\|_2$ on
+$\dot H^1(\mathbb R^3)$.  The same constant applies to finite-dimensional
+vector and tensor fields by the weak norm-gradient inequality.  All norms
+below are spatial.  No assumption about the value of a continuation norm is
+part of these inputs.
+
+\begin{lemma}[The cubic dissipation supplies a nonendpoint Serrin norm]
+\label{dc:l9}
+On every compact classical interval,
+\begin{equation}\label{dc:l9-bound}
+ \|u\|_9^3\le \frac{9S^2}{8}D_3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Set $r=|u|$ and $f=r^{3/2}$.  The local package gives $u\in L^3\cap
+L^\infty$ and $\nabla u\in L^2$.  Thus $f\in H^1$ and
+$\nabla f=(3/2)r^{1/2}\nabla r$ almost everywhere, including the zero set.
+This follows either from the Sobolev chain rule with bounded truncations or
+by smoothing the norm and passing to the limit.  Since
+$|\nabla r|\le |\nabla u|$ almost everywhere,
+\[
+ \|u\|_9^3=\|f\|_6^2
+ \le S^2\|\nabla f\|_2^2
+ =\frac{9S^2}{4}\int r|\nabla r|^2
+ \le\frac{9S^2}{8}D_3.
+\]
+There is no division by $r$ in this argument.
+\end{proof}
+
+\begin{proposition}[Enstrophy in the dissipation clock]
+\label{dc:clock}
+For every $t<T_*$,
+\begin{equation}\label{dc:clock-differential}
+ Y'(t)+\nu Z(t)\le \frac{4S^3}{3\nu^2}D_3(t)Y(t),
+\end{equation}
+and consequently
+\begin{equation}\label{dc:clock-bound}
+ Y(t)+\nu\int_0^t Z(s)\,ds
+ \le Y(0)\exp\!\left(\frac{4S^3}{3\nu^2}B(t)\right).
+\end{equation}
+In particular, for any finite $H>0$, a uniform finite bound on
+$B(t)$ for $t<\min(H,T_*)$ implies $T_*>H$.  Conversely, $T_*>H$ implies
+$B(H)<\infty$.
+\end{proposition}
+\begin{proof}
+Test the equation against $-\Delta u$.  The pressure cancels because
+$\operatorname{div}u=0$.  Spatial integration by parts is justified by the
+local Sobolev package, for example by cutoffs followed by their removal.
+H\"older, interpolation and Sobolev give
+\begin{align*}
+ \frac12Y'+\nu Z
+ &\le \|u\|_9\|\nabla u\|_{18/7}\|\Delta u\|_2\\
+ &\le S^{1/3}\|u\|_9Y^{1/3}Z^{2/3}.
+\end{align*}
+Indeed $1/9+7/18+1/2=1$ and
+$\|\nabla u\|_{18/7}\le\|\nabla u\|_2^{2/3}
+\|\nabla u\|_6^{1/3}$; moreover
+$\|\nabla u\|_6\le S\|D^2u\|_2=S\|\Delta u\|_2$, the last equality
+being the Fourier Hessian identity.  For $a,z\ge0$,
+\[
+ 2az^{2/3}\le\nu z+\frac{32}{27\nu^2}a^3.
+\]
+For $a>0$ this is the exact maximum of $2az^{2/3}-\nu z$, attained at
+$z=(4a/(3\nu))^3$; at $a=0$ it is immediate.  Therefore
+\[
+ Y'+\nu Z\le\frac{32S}{27\nu^2}\|u\|_9^3Y
+ \le\frac{4S^3}{3\nu^2}D_3Y,
+\]
+where $(32/27)(9/8)=4/3$.  Put $c=4S^3/(3\nu^2)$.  Multiplication by
+$e^{-cB(t)}$ and integration yield
+\[
+ e^{-cB(t)}Y(t)+\nu\int_0^t e^{-cB(s)}Z(s)\,ds\le Y(0).
+\]
+Since $B$ is nondecreasing, multiplication by $e^{cB(t)}$ implies
+\eqref{dc:clock-bound}.  This also handles $Y(0)=0$ without division.
+
+If $T_*\le H<\infty$ and $B$ is bounded below $T_*$, then
+\eqref{dc:clock-bound} bounds $Y$ there.  The energy identity bounds $E$,
+contradicting the local $H^1$ blow-up alternative.  This includes the case
+$T_*=H$.  Conversely the local package makes $D_3$ integrable on $[0,H]$
+whenever $T_*>H$.  No endpoint $L^\infty_tL^3_x$ theorem, backward
+uniqueness, comparison flow, or quotient-minimizer regularity is used.
+\end{proof}
+
+\begin{corollary}[Strict signed pressure absorption: explicit direct suffix]
+\label{dc:strict}
+Fix $H>0$.  Suppose there are $0\le\theta<1$ and a finite $A\ge0$, chosen
+before $t$, such that for every $t<\min(H,T_*)$,
+\begin{equation}\label{dc:strict-hyp}
+ \int_0^tP_3\le\theta\nu B(t)+A.
+\end{equation}
+Then $T_*>H$, and on that interval, with $R=X(0)+3A$,
+\begin{equation}\label{dc:strict-bound}
+ Y(t)+\nu\int_0^tZ
+ \le Y(0)\exp\!\left(\frac{4S^3R}{9(1-\theta)\nu^3}\right).
+\end{equation}
+\end{corollary}
+\begin{proof}
+Subtract \eqref{dc:strict-hyp} from the cubic balance, retaining both
+nonnegative terms:
+\[
+ X(t)+3(1-\theta)\nu B(t)\le R.
+\]
+Thus $B(t)\le R/[3(1-\theta)\nu]$.  Apply
+Proposition~\ref{dc:clock}.  In particular the original fixed-cutoff
+HIGH-PRESSURE hypothesis, together with the proved low-pressure bound,
+implies this corollary with $A=A_{\rm high}+L_J(H)$.  The cutoff and
+remainder quantifiers are unchanged.  Strictness is used only to bound
+$B$, not to invoke an endpoint theorem.
+\end{proof}
+
+\begin{theorem}[A single finite barrier in accumulated dissipation]
+\label{dc:barrier}
+Fix $H>0$ and an integer cutoff $J$.  Write $Q_J$ for high-output pressure
+work and suppose the established low-output estimate is
+\[
+ \left|\int_0^t(P_3-Q_J)\right|\le L_J(H)<\infty
+ \quad\text{for every }t<\min(H,T_*).
+\]
+Suppose there are $b>0$ and $\varepsilon>0$, chosen from the inputs before
+$t$, with the following property: if $\tau_b<\min(H,T_*)$ is the first
+time at which $B(\tau_b)=b$, then
+\begin{equation}\label{dc:crossing-hyp}
+ \int_0^{\tau_b}Q_J
+ \le\nu b-\frac{X(0)}3-L_J(H)-\varepsilon.
+\end{equation}
+Then $B(t)<b$ below $\min(H,T_*)$, $T_*>H$, and the right-hand side of
+\eqref{dc:clock-bound} is at most $Y(0)e^{4S^3b/(3\nu^2)}$.
+\end{theorem}
+\begin{proof}
+$B$ is continuous, nondecreasing and zero at time zero.  If it reaches
+$b$ before $\min(H,T_*)$, continuity gives a first such time.  At that
+time \eqref{dc:balances}, the low-output bound and
+\eqref{dc:crossing-hyp} imply $X(\tau_b)/3\le-\varepsilon$, impossible.
+Consequently $B<b$ throughout the open interval.  Apply
+Proposition~\ref{dc:clock}; no assertion at the unconstructed singular
+endpoint is required.
+\end{proof}
+
+\begin{corollary}[Nonlinear deficits and vanishing absorption margins]
+\label{dc:nonlinear}
+In Theorem~\ref{dc:barrier}, suppose instead that a finite $A_{\rm high}\ge0$
+and a function $\Phi:[0,\infty)\to\mathbb R$, both fixed from the inputs,
+satisfy
+\begin{equation}\label{dc:nonlinear-hyp}
+ \int_0^tQ_J\le\nu B(t)-\Phi(B(t))+A_{\rm high}
+ \quad(t<\min(H,T_*)).
+\end{equation}
+It suffices that there be one finite $b>0$ for which
+\begin{equation}\label{dc:barrier-value}
+ \Phi(b)>K,\qquad K=\frac{X(0)}3+A_{\rm high}+L_J(H).
+\end{equation}
+No monotonicity, continuity, or coercivity of $\Phi$ is required for this
+single-barrier conclusion.  In particular, with $b_0,\eta>0$, the choice
+\begin{equation}\label{dc:log-deficit}
+ \Phi(B)=\eta\nu b_0\log(1+B/b_0)
+\end{equation}
+gives continuation and the explicit bound
+\begin{equation}\label{dc:log-bound}
+ B(t)\le b_0\left[\exp\!\left(\frac{K}{\eta\nu b_0}\right)-1\right].
+\end{equation}
+\end{corollary}
+\begin{proof}
+At the hypothetical first crossing use
+$\varepsilon=\Phi(b)-K>0$ in Theorem~\ref{dc:barrier}.
+For the logarithmic choice, either this theorem applies at any $b$ larger
+than the right-hand side of \eqref{dc:log-bound}, or one can directly
+subtract \eqref{dc:nonlinear-hyp} from the cubic balance to obtain
+$X(t)/3+\Phi(B(t))\le K$ and invert the increasing logarithm.
+The positive constants ensure a finite barrier even when $K=0$.
+\end{proof}
+
+\paragraph{What the logarithm does and does not remove.}
+Here $\Phi(B)/B\to0$ as $B\to\infty$, so a fixed positive fractional
+margin below viscosity is not necessary in this sufficient-condition
+framework.  An example of a stronger, pointwise hypothesis implying
+\eqref{dc:nonlinear-hyp} is
+\[
+ Q_J(t)\le\left(\nu-\frac{\eta\nu}{1+B(t)/b_0}\right)D_3(t)+a(t),
+ \qquad \int_0^t a(s)\,ds\le A_{\rm high},
+\]
+by the ordinary chain rule for the absolutely continuous $B$.  Neither
+this inequality nor \eqref{dc:nonlinear-hyp} has been proved for arbitrary
+Navier--Stokes data.  Choosing $\Phi$ is not a way to establish the
+pressure estimate that contains it.
+
+\begin{remark}[Exact scalar boundary; not a PDE counterexample]
+\label{dc:scalar}
+A bounded deficit whose supremum stays below the available budget does not
+control $B$ through the cubic balance alone.  For a nonnegative bounded
+$C^1$ function $\Phi$ with $\Phi(0)=0$, choose $K>\sup\Phi$, and for
+$0\le t<1$ set
+\[
+ B(t)=-\log(1-t),\quad D(t)=\frac1{1-t},\quad
+ X(t)=3\bigl(K-\Phi(B(t))\bigr),\quad
+ P(t)=\bigl(\nu-\Phi'(B(t))\bigr)D(t).
+\]
+Then $X>0$, $X'/3+\nu D=P$ and
+$\int_0^tP=\nu B(t)-\Phi(B(t))$, but $B(t)\to\infty$.
+These are scalar functions, not a velocity field, pressure, or solution of
+Navier--Stokes.  This only rejects that scalar inference.  In particular
+$\theta=1$ with a constant remainder is not justified by the direct
+suffix.  The separately proved bare $L^\infty_tL^3_x$ criterion still
+retains its endpoint theorem.
+\end{remark}
+
+\paragraph{Remaining quantified mathematical obligation.}
+For every viscosity, every admissible datum and every finite horizon, one
+must still \emph{derive}, from the original equation, the fixed-cutoff
+HIGH-PRESSURE estimate, a barrier such as \eqref{dc:crossing-hyp}, or some
+other sufficient budget.  None is supplied by the energy identity or by
+merely introducing the dissipation clock.  At the existential level the
+barrier formulation is also equivalent to continuation: on a branch already
+known to extend past $H$, choose $b>B(H)$ and its first-crossing condition
+is vacuous.  That converse is a scope observation, not an a priori
+construction.  No terminal or open estimate is discharged by this section.

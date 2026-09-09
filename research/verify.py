@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Document integrity only. Default mode checks all three repository surfaces."""
+"""Document integrity only. Default mode checks research, the integrated paper and the formal manifest."""
 from pathlib import Path
 import argparse
 import re
@@ -9,9 +9,13 @@ root = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--research-only', action='store_true',
                     help='check research structure only; explicitly skip external repositories')
-parser.add_argument('--paper', type=Path, default=root.parent/'navier-paper')
+parser.add_argument('--paper-only', action='store_true',
+                    help='check research and manuscript; skip the external formal manifest')
+parser.add_argument('--paper', type=Path, default=root/'paper')
 parser.add_argument('--formal', type=Path, default=root.parent/'navier-formal')
 args = parser.parse_args()
+if args.research_only and args.paper_only:
+    parser.error('--research-only and --paper-only are mutually exclusive')
 graph = yaml.safe_load((root/'docs/proof-graph.yaml').read_text())
 nodes = graph['nodes']
 by_id = {n['id']: n for n in nodes}
@@ -45,7 +49,7 @@ state = yaml.safe_load(match.group(1))
 assert state['checkpoint'] == 'CP1'
 assert state['phase_i_status'] == graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
 assert state['phase_ii_status'] == graph['phase_ii_status'] == 'reopened-2026-09-06-target'
-assert state['paper_repo'] in {'read-only-pull-only', 'writable-authorized-2026-09-06'}
+assert state['paper_repo'] == 'integrated-in-navier-paper-directory'
 assert state['external_deps'] == 'permitted-if-no-axioms-beyond-mathlib'
 assert state['public_release'] is True
 assert state['repository_visibility'] == {
@@ -82,11 +86,15 @@ else:
             expanded += '\n'+read_tex(child)
         return expanded
     text = read_tex(paper_root/'main.tex')
+    assert graph['manuscript_path'] == 'paper/main.tex'
+    assert graph['proof_map_path'] == 'paper/proof_map.tex'
     for n in nodes:
         assert '\\label{'+n['paper_label']+'}' in text, f'missing paper label {n["id"]}'
     for c in candidates:
         for label in c['paper_labels']:
             assert text.count('\\label{'+label+'}') == 1, f'missing/duplicate candidate label {label}'
-    assert (args.formal/'lakefile.toml').is_file(), 'missing formal repository manifest'
-    print(f'PASS: {len(nodes)} claim records, acyclic dependencies, evidence, status, manuscript labels across {len(seen)} TeX sources, {len(candidates)} pending supplements, formal manifest.')
+    if not args.paper_only:
+        assert (args.formal/'lakefile.toml').is_file(), 'missing formal repository manifest'
+    print(f'PASS: {len(nodes)} claim records, acyclic dependencies, evidence, status, manuscript labels across {len(seen)} TeX sources, {len(candidates)} pending supplements.')
+    print('NOT CHECKED: formal manifest.' if args.paper_only else 'PASS: formal manifest.')
 print('Scope: structural integrity only; no mathematical correctness, independent audit or Lean build is certified.')

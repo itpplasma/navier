@@ -1,0 +1,523 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm]{geometry}
+\usepackage{microtype,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\G}{\mathcal G_3}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\diver}{\operatorname{div}}
+\numberwithin{equation}{section}
+\allowdisplaybreaks[2]
+\setlength{\parskip}{3pt}
+\title{Dissipation-budget continuation\\and critical divergence-defect criteria}
+\author{}
+\date{6 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Retaining cubic dissipation removes the endpoint continuation theorem from
+the existing strict pressure-absorption route. We give its explicit enstrophy
+bound, extend the quotient divergence-defect criterion from $L^4_tL^2_x$ to
+every finite spatial exponent on the nonendpoint derivative-critical line,
+and reconstruct the finite-horizon defect--enstrophy comparison in HF30.
+The comparison is resolved for actual classical trajectories, not by a
+pointwise reverse norm inequality. An additional endpoint-smallness statement
+is proved with its strict threshold. None of these arguments supplies an
+arbitrary-data critical estimate.
+\end{abstract}
+\noindent\fbox{\begin{minipage}{0.96\linewidth}
+\textbf{Status.} Full component derivations, dependent on the explicitly stated
+existing local and quotient packages. Author self-check only; independent
+mathematical audit is pending. No claim-graph promotion and no claim of a
+complete NS-R3 proof. This supplement is not a replacement for the manuscript.
+\end{minipage}}
+
+\section{Setting, provenance, and exact inputs}
+We work only with the original unforced equation on $\R^3$,
+\begin{equation}\label{db:NS}
+ u_t+(u\cdot\nabla)u+\nabla p=\nu\Delta u,
+ \qquad\diver u=0,\qquad u(0)=u_0,
+\end{equation}
+where $\nu>0$ and $u_0$ is real, solenoidal, and Schwartz. All norms are on
+$\R^3$. The gradient convention is $(\nabla u)_{ij}=\partial_j u_i$.
+For the selected maximal classical branch on $[0,T_*)$ set
+\[
+ E(t)=\norm{u(t)}_2^2,\quad Y(t)=\norm{\nabla u(t)}_2^2,
+ \quad Z(t)=\norm{\Delta u(t)}_2^2,
+ \qquad E_0=E(0),\quad Y_0=Y(0).
+\]
+The imported local package is precisely the manuscript's LOCAL node:
+$u,p\in C^j([0,t];H^m)$ for every $j,m$ and $t<T_*$, uniqueness in the
+$H^1$ mild class, and $Y(t)\to\infty$ at a finite $T_*$. The energy identity
+\begin{equation}\label{db:energy}
+ E(t)+2\nu\int_0^tY(s)\dd s=E_0
+\end{equation}
+is an existing manuscript result. This assembled package is a project input
+based on Tao's local theory, not a theorem newly proved here \cite{paper,tao}.
+No positive-time Schwartz persistence is assumed.
+
+Fix the ordinary homogeneous Sobolev constant $S$ in
+$\norm f_6\le S\norm{\nabla f}_2$. This also holds for finite arrays by
+applying the scalar inequality to their magnitude. Riesz transforms and the
+Leray projection have their usual unweighted $L^p$ bounds for $1<p<\infty$.
+These are the manuscript's analytic foundations; no weighted multiplier
+bound is assumed. Throughout,
+\begin{equation}\label{db:constants}
+ a_0=\frac98S^2,\qquad k=\frac{27}{16}S^2.
+\end{equation}
+
+\paragraph{Relation to earlier work.}
+The nonendpoint mechanism is classical Serrin-type interpolation and an
+enstrophy test \cite{serrin}; that test is proved below rather than imported
+as a regularity theorem. HF28 already retained dissipation to avoid the
+endpoint theorem in its comparison-field route. HF30 reconstructs the
+fourth-power defect comparison \cite{hf28,hf30}. The present dependency
+repair applies that principle directly to the manuscript's original strict
+pressure hypothesis. The full finite-exponent defect calculation extends the
+single exponent displayed in HF25/HF30. We make no novelty or priority claim.
+Serrin's bibliographic metadata and Tao's primary preprint record were checked;
+no unseen theorem from those sources is used to fill a missing estimate.
+
+\paragraph{Frozen research inputs.}
+The initial reads used \texttt{itpplasma/navier} at
+\nolinkurl{9c5def29be04e0d0e723677feae0437a0ea61300} and
+\texttt{itpplasma/navier-paper} at
+\nolinkurl{065a962d6c6672dcf4bed2db17eb004081014a68}.
+The companion evidence record distinguishes these read pins from the later
+commit parents chosen after refreshing the remote branches.
+
+\section{An elementary continuation lemma}
+\begin{lemma}[Direct $L^4_tL^6_x$ continuation]\label{db:direct}
+On every compact classical interval,
+\begin{equation}\label{db:enstrophy}
+ Y'+\nu Z\le k\nu^{-3}\norm u_6^4Y.
+\end{equation}
+For $I(t)=\nu^{-3}\int_0^t\norm{u(s)}_6^4\dd s$ this implies
+\begin{equation}\label{db:YZ}
+ Y(t)+\nu\int_0^t Z(s)\dd s\le Y_0e^{kI(t)}.
+\end{equation}
+If $H<\infty$ and $I(t)$ is bounded uniformly for
+$0<t<\min(H,T_*)$, then $T_*>H$.
+\end{lemma}
+\begin{proof}
+Test \eqref{db:NS} with $-\Delta u$. Pressure vanishes by solenoidality.
+H\"older, interpolation, Sobolev, and Plancherel give
+\[
+ \frac12Y'+\nu Z
+ \le\norm u_6\norm{\nabla u}_3\norm{\Delta u}_2
+ \le S^{1/2}\norm u_6Y^{1/4}Z^{3/4}.
+\]
+For $b,x\ge0$ and $\epsilon>0$, maximization in $x$ gives
+\[
+ bx^{3/4}\le\epsilon x+\frac{27b^4}{256\epsilon^3}.
+\]
+Use $\epsilon=\nu/2$ and multiply by two. This proves
+\eqref{db:enstrophy}, including its constant. An integrating factor yields
+\[
+ Y(t)+\nu\int_0^t e^{k(I(t)-I(s))}Z(s)\dd s\le Y_0e^{kI(t)}.
+\]
+Since $I$ is nondecreasing, \eqref{db:YZ} follows. All spatial tests are first
+justified on compact classical intervals; the all-orders Sobolev package
+makes the boundary products integrable and cutoff errors vanish. Uniformity
+of the displayed bound, together with \eqref{db:energy}, contradicts the
+local blow-up alternative if $T_*\le H$. This includes $T_*=H$; no solution
+at the hypothetical endpoint has been presumed.
+\end{proof}
+
+\section{Strict pressure absorption without the endpoint theorem}
+Let $r=|u|$ and use the weak gradient of $r$, with zero-set conventions as in
+the manuscript. Define
+\begin{equation}\label{db:D3}
+ X=\frac13\norm u_3^3,\qquad
+ D_3=\int_{\R^3}\bigl(r|\nabla u|^2+r|\nabla r|^2\bigr)\dd x,
+ \qquad P_3=\int_{\R^3}p\,u\cdot\nabla r\dd x.
+\end{equation}
+The imported integrated cubic balance is
+\begin{equation}\label{db:cubic}
+ X(t)+\nu\int_0^tD_3(s)\dd s=X(0)+\int_0^tP_3(s)\dd s.
+\end{equation}
+
+\begin{lemma}[Cubic dissipation controls the nonendpoint norm]\label{db:speed}
+At every classical time,
+\begin{equation}\label{db:l6speed}
+ \norm u_9^3\le a_0D_3,\qquad
+ \norm u_6^4\le a_0\norm u_3D_3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The Lipschitz chain rule gives $|\nabla r|\le|\nabla u|$ almost everywhere.
+On a compact classical interval, $u$ is bounded and in $H^1\cap L^3$;
+therefore $r^{3/2}\in H^1$ and
+$\nabla(r^{3/2})=(3/2)r^{1/2}\nabla r$ almost everywhere. At zeros the
+factor $r^{1/2}$ makes this formula unambiguous. Consequently
+\[
+ D_3\ge2\int r|\nabla r|^2
+       =\frac89\norm{\nabla(r^{3/2})}_2^2.
+\]
+Sobolev applied to $r^{3/2}$ gives the first inequality. Interpolating
+$\norm u_6\le\norm u_3^{1/4}\norm u_9^{3/4}$ gives the second. This
+argument introduces no derivative divided by $|u|$ at its zero set.
+\end{proof}
+
+\begin{theorem}[Quantitative direct pressure-absorption suffix]\label{db:pressure}
+Fix a finite $H>0$. Suppose $0\le\theta<1$ and $A\ge0$ are finite and
+\begin{equation}\label{db:absorption}
+ \int_0^t P_3(s)\dd s\le\theta\nu\int_0^tD_3(s)\dd s+A
+ \quad\text{for every }0<t<\min(H,T_*).
+\end{equation}
+Put $\delta=1-\theta$ and $R=\norm{u_0}_3^3+3A$. Then
+\begin{align}
+ \norm{u(t)}_3^3+3\delta\nu\int_0^tD_3\dd s&\le R,\label{db:R}\\
+ \int_0^t\norm u_6^4\dd s&\le\frac{3S^2}{8\delta\nu}R^{4/3},
+ \label{db:pressurel6}\\
+ Y(t)+\nu\int_0^tZ\dd s
+ &\le Y_0\exp\left(\frac{81S^4R^{4/3}}{128\delta\nu^4}\right).
+ \label{db:pressureY}
+\end{align}
+In particular $T_*>H$. If the hypothesis is supplied for every input datum,
+viscosity, and finite horizon, it implies the programme's global NS-R3
+conclusion using LOCAL and ENERGY, without ESS.
+\end{theorem}
+\begin{proof}
+Subtract \eqref{db:absorption} from \eqref{db:cubic} to obtain
+\eqref{db:R}. Thus $\sup\norm u_3\le R^{1/3}$ and
+$\int D_3\le R/(3\delta\nu)$. Integrating \eqref{db:l6speed} proves
+\eqref{db:pressurel6}, since $a_0/3=3S^2/8$. Lemma~\ref{db:direct}
+then proves \eqref{db:pressureY} and $T_*>H$. A finite maximal time would
+contradict the conclusion for a horizon larger than it. Global smoothness and
+the uniform kinetic-energy bound follow from the imported local package and
+\eqref{db:energy}. The datum $u_0=0$ is handled by uniqueness; no division by
+$Y_0$ or $R$ has been used.
+\end{proof}
+
+\begin{corollary}[The original high-pressure hypothesis suffices directly]
+In the existing split $P_3=Q_J+L_J$, suppose the manuscript's low-frequency
+lemma supplies
+$\int_0^tL_J\dd s\le L_{J,H}<\infty$ uniformly below $\min(H,T_*)$,
+and HIGH-PRESSURE supplies
+$\int_0^tQ_J\dd s\le\theta\nu\int_0^tD_3\dd s+A_{J,H}$
+with $\theta<1$. Theorem~\ref{db:pressure} applies with
+$A=A_{J,H}+L_{J,H}$. The cutoff and remainders retain exactly their existing
+input-dependent quantifiers; no new smallness condition is imposed.
+\end{corollary}
+
+\begin{remark}[What cannot be deleted]
+This replaces the \emph{sufficiency path from strict absorption}, not the
+standalone theorem that a mere $L^\infty_tL^3_x$ bound implies continuation.
+The latter does not supply $\int D_3$ and retains its existing endpoint input.
+Likewise a high-strain hypothesis allowing $\theta=1$ must not be silently
+strengthened to $\theta<1$. At the scalar level, $X(t)=1$,
+$D(t)=(H-t)^{-1}$ and $K(t)=\nu D(t)$ obey $X'+\nu D=K$ and the
+$\theta=1$ bound with zero remainder, while $\int_0^H D=\infty$.
+These are not Navier--Stokes fields; they isolate the invalid inference from
+coefficient-one absorption to a dissipation budget.
+\end{remark}
+
+\section{The quotient package and its exact mixed-pressure identity}
+Set
+\[
+ \G=\overline{\{\nabla\phi:\phi\in C_c^\infty(\R^3)\}}^{L^3},\qquad
+ w=\arg\min_{z\in u+\G}\frac13\norm z_3^3,
+ \quad q=w-u,\quad Q=\Q(u)=\frac13\norm w_3^3.
+\]
+Write $A_w=|w|w$, $\sigma=-\diver w=-\diver q$, and let $D$ denote the
+quotient dissipation. These are not the physical pressure or the velocity's
+ordinary divergence. The following precise statements are imported from the
+manuscript's audited quotient and unweighted div--curl package
+\cite{paper,hf25}:
+\begin{align}
+ &u=\PP w,\quad\diver A_w=0,\quad
+ Q'+\nu D=-\int q_i u_j\partial_j(A_w)_i,\label{db:Qidentity}\\
+ &\norm w_9^3\le a_0D,\quad A_w\in W^{1,3/2},\quad
+ w,q\in L^6\cap W^{1,2}_{\mathrm{loc}},\label{db:Qtoolkit}\\
+ &\norm{\nabla q}_2^2=\norm\sigma_2^2\le\frac14Y.
+ \label{db:defectspatial}
+\end{align}
+$Q$ is locally absolutely continuous in time. The derivative formulas use
+global weak derivatives across zero sets; $w,q\in L^2$ is not asserted.
+These are project results, not relabelled published literature theorems.
+
+Let $R_i$ have Fourier symbol $-i\xi_i/|\xi|$. For $1<s<\infty$ define a
+finite unweighted multiplier constant $M_s$ by
+\begin{equation}\label{db:Ms}
+ \left\|\bigl(R_iR_j f\bigr)_{i,j=1}^3\right\|_s\le M_s\norm f_s.
+\end{equation}
+Plancherel permits $M_2=1$. Write $C_p=\norm{\PP}_{L^p\to L^p}$.
+
+\begin{lemma}[Mixed identity with no extra defect assumption]\label{db:mixed}
+At classical times,
+\begin{equation}\label{db:mixedformula}
+ K:=Q'+\nu D=\int (R_iR_j\sigma)(A_w)_i u_j.
+\end{equation}
+In particular the identity is already an $L^2$ pairing before any additional
+$L^s$ hypothesis on $\sigma$ is imposed.
+\end{lemma}
+\begin{proof}
+Integrating \eqref{db:Qidentity} by parts and using $\diver u=0$ gives
+$K=\int (A_w)_i u_j\partial_jq_i$. The weak gradient of $q$ is symmetric,
+so $\partial_jq_i=\partial_iq_j$. Since $q$ is a distributional gradient
+and $\sigma=-\diver q$, the Fourier identity is
+$\partial_iq_j=R_iR_j\sigma$. A possible distribution supported at zero
+frequency disappears because both derivative fields are in $L^2$.
+The products are integrable: $uA_w\in L^2$ by $u,w\in L^6$, while
+$\nabla q\in L^2$. In the integration-by-parts step, the cutoff boundary
+product is integrable by boundedness of $u$, $q\in L^3$, and
+$A_w\in L^{3/2}$. The original differentiated product is integrable by
+\eqref{db:Qtoolkit} and the existing quotient identity. Density and removal
+of cutoffs therefore prove \eqref{db:mixedformula}.
+\end{proof}
+
+\section{The entire finite-exponent nonendpoint defect line}
+\begin{theorem}[Critical scalar-defect criterion]\label{db:family}
+Let $3/2<s<\infty$ and define
+\begin{equation}\label{db:exponents}
+ \alpha=\frac{3}{2s},\quad p_s=\frac{2s}{2s-3}=\frac1{1-\alpha},
+ \quad r_s=\frac{3s}{s-1},\quad
+ b_s=M_s C_{r_s}3^{1-\alpha}a_0^\alpha,
+\end{equation}
+\begin{equation}\label{db:cs}
+ c_s=(1-\alpha)\alpha^{\alpha/(1-\alpha)}
+           2^{\alpha/(1-\alpha)}b_s^{p_s},\qquad
+ h_s(t)=c_s\nu^{-3/(2s-3)}\norm{\sigma(t)}_s^{p_s}.
+\end{equation}
+Suppose, for a finite horizon $H$, that $\sigma(t)\in L^s$ almost everywhere
+and
+\begin{equation}\label{db:Hfinite}
+ \sup_{t<\min(H,T_*)}\mathcal H_s(t)<\infty,\qquad
+ \mathcal H_s(t)=\int_0^t h_s(\tau)\dd\tau.
+\end{equation}
+Then $T_*>H$. Quantitatively, with
+\begin{equation}\label{db:J0}
+ B_6=3^{1/3}C_6^4a_0,\qquad
+ J_0=\frac32 B_6\frac{Q(0)^{4/3}}{\nu^4},
+\end{equation}
+we have
+\begin{align}
+ Q(t)&\le Q(0)e^{\mathcal H_s(t)},\label{db:Qbound}\\
+ \nu^{-3}\int_0^t\norm u_6^4\dd\tau
+ &\le J_0e^{4\mathcal H_s(t)/3},\label{db:familyl6}\\
+ Y(t)+\nu\int_0^t Z\dd\tau
+ &\le Y_0\exp\bigl(kJ_0e^{4\mathcal H_s(t)/3}\bigr).
+ \label{db:familyY}
+\end{align}
+\end{theorem}
+\begin{proof}
+First apply Lemma~\ref{db:mixed}, H\"older, and the Leray bound. Since
+$3<r_s<9$, all norms of $w$ below are supplied by interpolation between the
+existing $L^3$ and $L^9$ bounds:
+\begin{align*}
+ |K|&\le M_s\norm\sigma_s\norm u_{r_s}\norm w_{r_s}^2\\
+ &\le M_s C_{r_s}\norm\sigma_s\norm w_{r_s}^3
+ \le b_s\norm\sigma_s Q^{1-\alpha}D^\alpha.
+\end{align*}
+The interpolation exponent is exactly $\alpha$, because
+$1/r_s=(1-\alpha)/3+\alpha/9$. For $0<\alpha<1$, maximizing
+$bx^\alpha-\epsilon x$ gives
+\begin{equation}\label{db:younggeneral}
+ bx^\alpha\le\epsilon x+
+ (1-\alpha)\alpha^{\alpha/(1-\alpha)}
+ \epsilon^{-\alpha/(1-\alpha)}b^{1/(1-\alpha)}.
+\end{equation}
+Use $b=b_s\norm\sigma_s Q^{1-\alpha}$ and $\epsilon=\nu/2$ to obtain
+\begin{equation}\label{db:defectODE}
+ Q'+\frac\nu2D\le h_s Q.
+\end{equation}
+The $L^2$ and $L^s$ Riesz extensions agree on $L^2\cap L^s$ by smooth
+approximation. Thus the $s=2$ pairing and the $s$-pairing represent the same
+integrable function; no new integration-by-parts step in an unproved
+regularity class is needed.
+The coefficient $h_s$ is measurable, for instance using the countable-test
+characterization of the $L^s$ norm of the distribution $\sigma$. The norm
+of an absent $L^s$ representative is understood as infinity.
+
+Gronwall gives \eqref{db:Qbound}. For the sharper dissipation estimate,
+multiply \eqref{db:defectODE} by $(4/3)Q^{1/3}$:
+\[
+ (Q^{4/3})'+\frac{2\nu}{3}Q^{1/3}D
+ \le\frac43 h_sQ^{4/3}.
+\]
+This is valid at $Q=0$ because the power is continuously differentiable there;
+there is no division by $Q$. Its integrating factor gives
+\[
+ Q(t)^{4/3}+\frac{2\nu}{3}\int_0^t
+ e^{\frac43(\mathcal H_s(t)-\mathcal H_s(\tau))}
+ Q(\tau)^{1/3}D(\tau)\dd\tau
+ \le Q(0)^{4/3}e^{4\mathcal H_s(t)/3}.
+\]
+The exponential in the integral is at least one. Moreover
+\[
+ \norm u_6^4\le C_6^4\norm w_3\norm w_9^3
+              \le B_6Q^{1/3}D.
+\]
+These two inequalities prove \eqref{db:familyl6}, with exactly the constant
+in \eqref{db:J0}. Lemma~\ref{db:direct} proves \eqref{db:familyY} and the
+continuation conclusion. Every step is made first below the maximal time;
+uniformity in \eqref{db:Hfinite} is the input excluding its endpoint.
+\end{proof}
+
+\begin{remark}[Critical scaling, the endpoint, and the missing bound]
+Under Navier--Stokes dilation $u_\lambda(t,x)=\lambda u(\lambda^2t,\lambda x)$,
+uniqueness of the minimizer gives
+$w_\lambda=\lambda w(\lambda^2t,\lambda x)$ and
+$\sigma_\lambda=\lambda^2\sigma(\lambda^2t,\lambda x)$.
+Thus the time-space integral in \eqref{db:Hfinite} is invariant precisely
+when $2/p_s+3/s=2$, as satisfied here. The theorem does not cover $s=\infty$;
+no $L^1$ or $L^\infty$ endpoint Riesz bound was used. The case $s=3/2$
+requires the distinct smallness statement below. Most importantly,
+\eqref{db:Hfinite} is a hypothesis, not an estimate established for arbitrary
+data. Changing exponents has not solved the producer problem.
+\end{remark}
+
+\begin{proposition}[Endpoint defect smallness]\label{db:endpoint}
+Put $b_*=M_{3/2}C_9a_0$. If, uniformly below $\min(H,T_*)$,
+\[
+ b_*\norm\sigma_{3/2}\le\theta\nu\quad\text{almost everywhere},
+ \qquad 0\le\theta<1,
+\]
+then $Q'+(1-\theta)\nu D\le0$ and
+\[
+ \int_0^t\norm u_6^4\dd\tau
+ \le\frac{B_6Q(0)^{4/3}}{(1-\theta)\nu}.
+\]
+In particular $T_*>H$.
+\end{proposition}
+\begin{proof}
+Lemma~\ref{db:mixed} with $s=3/2$ gives
+$|K|\le M_{3/2}C_9\norm\sigma_{3/2}\norm w_9^3
+\le b_*\norm\sigma_{3/2}D$.
+Hence $Q(t)+(1-\theta)\nu\int_0^tD\le Q(0)$. Multiply the bound on
+$\int D$ by $B_6Q(0)^{1/3}$ and use Lemma~\ref{db:direct}.
+No assertion is made for a merely finite, arbitrarily large
+$L^\infty_tL^{3/2}_x$ defect norm.
+\end{proof}
+
+\section{Resolution of the finite-horizon comparison in HF30}
+Define
+\[
+ \Gamma(t)=\nu^{-3}\int_0^t\norm\sigma_2^4\dd\tau,
+ \qquad B(t)=\nu^{-3}\int_0^tY(\tau)^2\dd\tau,
+ \qquad C_\sigma=\frac{81}{32}C_6^4a_0^3.
+\]
+\begin{corollary}[Defect and enstrophy integrability on the actual branch]
+\label{db:comparison}
+For $t<T_*$,
+\begin{equation}\label{db:comparisonbounds}
+ \Gamma(t)\le\frac1{16}B(t),\qquad
+ B(t)\le\frac{E_0Y_0}{2\nu^4}
+   \exp\bigl(kJ_0e^{4C_\sigma\Gamma(t)/3}\bigr).
+\end{equation}
+For any $0<L\le T_*$ with $L<\infty$, finiteness of
+$\int_0^L\norm\sigma_2^4$ is equivalent to finiteness of
+$\int_0^L Y^2$. If $L=T_*<\infty$, both integrals must be infinite.
+\end{corollary}
+\begin{proof}
+At $s=2$, \eqref{db:exponents} gives $\alpha=3/4$, $p_s=4$, and $r_s=6$.
+With $M_2=1$, the constant in \eqref{db:cs} is $C_\sigma$; thus
+$\mathcal H_2=C_\sigma\Gamma$ and Theorem~\ref{db:family} applies on every
+compact classical interval. The first inequality of
+\eqref{db:comparisonbounds} follows by squaring
+\eqref{db:defectspatial}. The second follows from
+\[
+ B(t)\le\nu^{-3}\sup_{0\le\tau\le t}Y(\tau)
+                \int_0^tY(\tau)\dd\tau
+       \le\frac{E_0}{2\nu^4}\sup_{0\le\tau\le t}Y(\tau)
+\]
+and \eqref{db:familyY}. Nondecreasing $\Gamma$ makes the bound at time $t$
+a common bound for all earlier times. Monotone convergence proves the
+finiteness equivalence at $L$. Finiteness at $T_*<\infty$ contradicts
+Lemma~\ref{db:direct}. This reconstructs the HF30 comparison using the
+already stated project inputs; it is not a new unconditional regularity
+assertion.
+\end{proof}
+
+\paragraph{The precise logical repair.}
+The current DEFECT-L4 review says the finite-lifespan comparison is
+``unsettled in both directions.'' Corollary~\ref{db:comparison} resolves it
+under the same actual-branch hypotheses. This is not a reverse instantaneous
+inequality $Y^2\lesssim\norm\sigma_2^4$, which has not been proved. Nor does
+$\norm\sigma_2\le\norm{\nabla u}_2/2$ by itself show that the defect
+criterion is not weaker: it says that the gradient hypothesis implies the
+defect hypothesis. The converse in this corollary uses evolution and
+continuation, not that one-sided spatial bound. There is no strictly weaker
+finite-endpoint trajectory class exhibited by this comparison.
+
+\paragraph{Why energy still does not close it.}
+The available unconditional estimate is only
+\[
+ \int_0^{T_*}\norm\sigma_2^2\dd t\le\frac{E_0}{8\nu}.
+\]
+For an elementary integrability check, $g(t)=(L-t)^{-1/3}$ has finite
+$\int_0^Lg^2$ but infinite $\int_0^Lg^4$. It is not an actual defect or a
+Navier--Stokes solution. It simply prevents replacing the required fourth
+power by the energy-controlled second power without an additional argument.
+
+\section{Dependency repair and remaining proof task}
+For the strict pressure route the candidate dependency path is
+\[
+ \begin{gathered}
+ \text{LOCAL, ENERGY, PRESSURE, LOW-PRESSURE, HIGH-PRESSURE}\\
+ \Longrightarrow\ \text{Theorem~\ref{db:pressure}}
+ \Longrightarrow\ \text{NS-R3}.
+ \end{gathered}
+\]
+The nonendpoint Sobolev and enstrophy steps are proved in this supplement;
+ESS, the Leray--Hopf extension, and the endpoint $L^3$ continuation theorem
+are not on this sufficiency path. They remain dependencies of the separately
+stated endpoint result. Thus this offers an alternative formalization target
+without falsely declaring the entire existing manuscript independent of ESS.
+
+For the defect route the path is the existing quotient package, the
+mixed identity, \eqref{db:defectODE}, the weighted $Q^{4/3}$ balance, and
+Lemma~\ref{db:direct}. Again there is no endpoint theorem. The missing
+arbitrary-data input is an upper bound on at least one critical accumulated
+defect norm, for instance $\Gamma$, uniformly to a putative finite maximal
+time. Neither the exponent family nor the comparison provides that bound.
+The spectral-index producer of HF30 is unchanged.
+
+The next integration steps are a separate mathematical audit of these
+component derivations, the scoped repair of DEFECT-L4's review text, and an
+additional conditional graph edge for strict absorption. Do not delete ESS
+from the bare-CRITICAL theorem, do not promote any gap node, and do not treat
+improved constants or a conditional equivalence as an arbitrary-data estimate.
+
+\begin{thebibliography}{9}
+\bibitem{paper} \texttt{itpplasma/navier-paper}, \emph{main.tex}, revision
+\nolinkurl{065a962d6c6672dcf4bed2db17eb004081014a68}.
+Project-level input: local package, integrated cubic balance, quotient
+functional and div--curl results. Private source, not published literature.
+\bibitem{hf25} \texttt{itpplasma/navier},
+\nolinkurl{research/evidence/hf25-beyond-hf21-continuation.md} and
+\nolinkurl{hf25-review-defect-criterion.md}, as present at the research read pin
+in Section~1. Project evidence and recorded audit, not an external theorem.
+\bibitem{hf28} \texttt{itpplasma/navier},
+\nolinkurl{research/evidence/hf28-weighted-spectral-continuation.tex},
+as present at the research read pin in Section~1. Prior project continuation.
+\bibitem{hf30} \texttt{itpplasma/navier},
+\nolinkurl{research/evidence/hf30-second-order-continuation.tex},
+as present at the research read pin in Section~1, especially its section ``A quantitative resolution of the defect--enstrophy comparison.''
+Imported candidate; no independent audit claimed by this supplement.
+\bibitem{tao} T.~Tao, \emph{Localisation and compactness properties of the
+Navier--Stokes global regularity problem}, primary preprint arXiv:1108.1165.
+\url{https://arxiv.org/abs/1108.1165}.
+The local/maximal package is imported from the manuscript's assembled proof,
+not inferred from the preprint abstract.
+\bibitem{serrin} J.~Serrin, \emph{On the interior regularity of weak solutions
+of the Navier--Stokes equations}, Archive for Rational Mechanics and Analysis
+\textbf{9} (1962), 187--195. \url{https://doi.org/10.1007/BF00253344}.
+Historical attribution and verified metadata only; the nonendpoint estimate
+used here is proved in Lemma~\ref{db:direct}.
+\end{thebibliography}
+\end{document}
