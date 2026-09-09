@@ -1,5 +1,11 @@
 # Current status of the Navier–Stokes Millennium problem
 
+**Historical cutoff.** The status conclusions below describe the September 5
+search. For the September 7--8 releases and the September 9 source search, see
+[the source update](recent-progress-2026-09.md) and [PLAN](../PLAN.md).
+The project accepts OpenAI's forced NS result as directed by the owner;
+the original unforced whole-space target remains unresolved in this project.
+
 **Cut-off and coverage.** This note records a source search performed on 5 September 2026 (Europe/Vienna). I checked the Clay Mathematics Institute problem page and Fefferman's official problem statement, then searched arXiv and publisher pages for 2024–2026 work on regularity, weak-solution nonuniqueness, convex integration, and computation. This is a focused status note, not an exhaustive bibliography. Search results and publication metadata can change; preprints are identified as such.
 
 ## Clay's status and exact target

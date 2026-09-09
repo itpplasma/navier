@@ -1,7 +1,8 @@
 # Literature dossier
 
-The dossier is a source-based starting collection, checked on 5 September
-2026. It is not an exhaustive bibliography of Navier–Stokes research.
+The dossier is a source-based collection, initially checked on 5 September
+2026, with a recent-progress search added on 9 September. It is not an
+exhaustive bibliography of Navier–Stokes research.
 Primary theorem text, author abstracts, and bibliographic records have
 different evidentiary roles; each note records the distinction.
 
@@ -11,6 +12,8 @@ different evidentiary roles; each note records the distinction.
 | [Critical criteria](critical-criteria.md) | Serrin, ESS/GKP endpoint, vorticity criteria, critical small data, quantitative estimates |
 | [Blowup barriers](blowup-barriers.md) | Averaged equation, scaling, self-similarity, ancient solutions, vorticity geometry |
 | [Current status](current-status.md) | Clay status, recent weak and rough-data nonuniqueness, computation, source and date audit |
+| [September source update](recent-progress-2026-09.md) | OpenAI forced NS and unforced Euler, Caltech Euler profile, recent critical criteria, cascade and self-similarity applicability |
+| [Kinetic source scope](kinetic-hilbert-scope.md) | Collision models, hydrodynamic and particle limits, domain and uniformity gates |
 
 ## Proof premises
 

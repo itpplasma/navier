@@ -315,6 +315,24 @@ Before importing a lemma, inspect its exact hypotheses and proof, including
 uniformity and all derivative/cutoff costs. Record any later source version
 and correction. Store original notes and source metadata, not a vendored PDF.
 
+### September 9 source search
+
+The [source ledger](literature/recent-progress-2026-09.md) now records [OA]'s
+forced NS theorem and the owner-supplied Caltech unforced Euler profile and
+conditional stability framework, with exact source fingerprints. The broad
+web/arXiv search also located OpenAI's separate unforced Euler construction:
+its connected displacement histories and summable smooth initial-data limit
+are the closest new source lead for UE1. Their transfer to positive viscosity
+is unproved; inspect the viscous prehistory and pressure terms before using
+the inviscid construction. The Caltech exponent 1/2 retains leading-order
+viscosity and its complete Euler stability certificate remains unfinished.
+
+Recent one-component and vorticity-direction criteria, pressure/energy-atom
+results, and rotating-self-similarity exclusions are recorded with their
+domain and hypothesis gates. They supply no arbitrary-input producer or
+terminal counterexample. UE1 remains the active task; no canonical graph,
+independent mathematical audit, or formal-verification status is promoted.
+
 ## 3. One dominant mathematical challenge
 
 Determine whether the anisotropic concentrating core and its coupled exterior
