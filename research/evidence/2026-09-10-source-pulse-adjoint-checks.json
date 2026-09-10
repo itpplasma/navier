@@ -1,0 +1,187 @@
+{
+  "exact_symbolic_assertions": 12,
+  "numerical_assertions": 102,
+  "scope": "Source-form principal ODE calibration, not a full NS or dyadic-history computation.",
+  "rows": [
+    {
+      "u": 1.0,
+      "L": 128,
+      "sign": 1,
+      "log10_seed_at_entry": -11.80041738281968,
+      "log10_minimum_single_observation_seed": -11.801667691186958,
+      "startup_pairing": 0.9999999999914966,
+      "max_pairing_error": 2.700029089197642e-11,
+      "max_constraint_error": 5.952238961415087e-12,
+      "covariance_relative_matrix_change": 1.49908271656548e-07,
+      "squared_weights_after_repair": [
+        0.9999998437278392,
+        1.9999997060951675
+      ]
+    },
+    {
+      "u": 1.0,
+      "L": 128,
+      "sign": -1,
+      "log10_seed_at_entry": -11.800417382897361,
+      "log10_minimum_single_observation_seed": -11.801712218186285,
+      "startup_pairing": 0.9999999999982856,
+      "max_pairing_error": 4.1206815737382385e-11,
+      "max_constraint_error": 2.1461726049234518e-11,
+      "covariance_relative_matrix_change": 1.49908271656548e-07,
+      "squared_weights_after_repair": [
+        0.9999998437278392,
+        1.9999997060951675
+      ]
+    },
+    {
+      "u": 1.0,
+      "L": 512,
+      "sign": 1,
+      "log10_seed_at_entry": -47.850722333769376,
+      "log10_minimum_single_observation_seed": -47.85200140010753,
+      "startup_pairing": 0.9999999999912769,
+      "max_pairing_error": 3.39591688103269e-11,
+      "max_constraint_error": 1.2409001728687497e-11,
+      "covariance_relative_matrix_change": 4.256805663875049e-23,
+      "squared_weights_after_repair": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "u": 1.0,
+      "L": 512,
+      "sign": -1,
+      "log10_seed_at_entry": -47.85072233378913,
+      "log10_minimum_single_observation_seed": -47.85201258508335,
+      "startup_pairing": 0.9999999999894849,
+      "max_pairing_error": 5.881606313096199e-11,
+      "max_constraint_error": 4.2456529710909153e-11,
+      "covariance_relative_matrix_change": 4.256805663875049e-23,
+      "squared_weights_after_repair": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "u": 1.0,
+      "L": 1024,
+      "sign": 1,
+      "log10_seed_at_entry": -95.91779571451154,
+      "log10_minimum_single_observation_seed": -95.91907959968344,
+      "startup_pairing": 1.0000000000117606,
+      "max_pairing_error": 4.480438242637774e-11,
+      "max_constraint_error": 2.0326007057164182e-11,
+      "covariance_relative_matrix_change": 4.2206602254992886e-42,
+      "squared_weights_after_repair": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "u": 1.0,
+      "L": 1024,
+      "sign": -1,
+      "log10_seed_at_entry": -95.91779571431341,
+      "log10_minimum_single_observation_seed": -95.91908519636998,
+      "startup_pairing": 0.9999999999882467,
+      "max_pairing_error": 4.897493521838214e-11,
+      "max_constraint_error": 8.310128740477325e-11,
+      "covariance_relative_matrix_change": 4.2206602254992886e-42,
+      "squared_weights_after_repair": [
+        1.0,
+        2.0
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 128,
+      "sign": 1,
+      "log10_seed_at_entry": -12.876842425832649,
+      "log10_minimum_single_observation_seed": -12.878036711414047,
+      "startup_pairing": 1.0000000000001545,
+      "max_pairing_error": 2.418731881448366e-11,
+      "max_constraint_error": 5.148945531953081e-12,
+      "covariance_relative_matrix_change": 1.0773133589449694e-07,
+      "squared_weights_after_repair": [
+        0.9999998910017797,
+        1.9999997855236114
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 128,
+      "sign": -1,
+      "log10_seed_at_entry": -12.876842425969478,
+      "log10_minimum_single_observation_seed": -12.878124539848352,
+      "startup_pairing": 0.9999999999982456,
+      "max_pairing_error": 2.8965607690167872e-11,
+      "max_constraint_error": 1.0543002214863936e-11,
+      "covariance_relative_matrix_change": 1.0773133589449694e-07,
+      "squared_weights_after_repair": [
+        0.9999998910017797,
+        1.9999997855236114
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 512,
+      "sign": 1,
+      "log10_seed_at_entry": -52.46259914151407,
+      "log10_minimum_single_observation_seed": -52.4638639230449,
+      "startup_pairing": 0.9999999999999012,
+      "max_pairing_error": 2.4269031229096072e-11,
+      "max_constraint_error": 5.6629414524717455e-12,
+      "covariance_relative_matrix_change": 8.967991427855438e-24,
+      "squared_weights_after_repair": [
+        1.0000000000000002,
+        2.0
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 512,
+      "sign": -1,
+      "log10_seed_at_entry": -52.462599142061435,
+      "log10_minimum_single_observation_seed": -52.46388621737788,
+      "startup_pairing": 1.0000000000067857,
+      "max_pairing_error": 4.694955535455847e-11,
+      "max_constraint_error": 1.9171963128196318e-11,
+      "covariance_relative_matrix_change": 8.967991427855438e-24,
+      "squared_weights_after_repair": [
+        1.0000000000000002,
+        2.0
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 1024,
+      "sign": 1,
+      "log10_seed_at_entry": -105.24360922976582,
+      "log10_minimum_single_observation_seed": -105.24488594929018,
+      "startup_pairing": 1.0000000000015774,
+      "max_pairing_error": 2.8163915644086046e-11,
+      "max_constraint_error": 9.553355347836191e-12,
+      "covariance_relative_matrix_change": 1.79234270800715e-43,
+      "squared_weights_after_repair": [
+        1.0,
+        1.9999999999999998
+      ]
+    },
+    {
+      "u": 2.0,
+      "L": 1024,
+      "sign": -1,
+      "log10_seed_at_entry": -105.24360923003951,
+      "log10_minimum_single_observation_seed": -105.24489712453494,
+      "startup_pairing": 1.0000000000134213,
+      "max_pairing_error": 5.490496945981249e-11,
+      "max_constraint_error": 2.06254877793224e-11,
+      "covariance_relative_matrix_change": 1.79234270800715e-43,
+      "squared_weights_after_repair": [
+        1.0,
+        1.9999999999999998
+      ]
+    }
+  ]
+}
