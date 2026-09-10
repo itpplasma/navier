@@ -1,0 +1,133 @@
+{
+  "input_main": "115d0f6fc7c6366cd08b85a51bfa53189ab8f635",
+  "tested_files_git_blobs": {
+    "check_source_shear_feedback.py": "09852ea5159151a99ee41d57aad25ccdf00db652",
+    "check_nonlinear_reference.py": "09a64e516326ec6fd69a4a74f13e2a55f5cfeb9e",
+    "2026-09-10-source-shear-feedback.md": "1d24bcf61a3f92497b99398271d82c9b195cd085"
+  },
+  "exact_assertions": 299,
+  "positive_lattice_cases": 12,
+  "prior_checkers": {
+    "adjoint_exact": 1049,
+    "pulse_exact": 12,
+    "pulse_numerical": 102,
+    "regeneration_exact": 28,
+    "regeneration_principal_cases": 9,
+    "phase_exact": 6
+  },
+  "nonlinear_runs": [
+    {
+      "grid": 48,
+      "dt": 0.001,
+      "lambda": 1.0,
+      "at_t_0_2": {
+        "energy": 114.74026357830422,
+        "parent_energy": 78.19246743248719,
+        "doubled_energy": 2.8455925611338118
+      },
+      "at_t_2": {
+        "energy": 48.17482571145618,
+        "parent_energy": 0.22355794976993734,
+        "doubled_energy": 0.0005602383535353774
+      },
+      "control_heat_error": null
+    },
+    {
+      "grid": 64,
+      "dt": 0.001,
+      "lambda": 1.0,
+      "at_t_0_2": {
+        "energy": 114.74024065932335,
+        "parent_energy": 78.19246763851594,
+        "doubled_energy": 2.84559180267416
+      },
+      "at_t_2": {
+        "energy": 40.137565786945046,
+        "parent_energy": 0.889675349147478,
+        "doubled_energy": 0.00019854367007908526
+      },
+      "control_heat_error": null
+    },
+    {
+      "grid": 96,
+      "dt": 0.0005,
+      "lambda": 1.0,
+      "at_t_0_2": {
+        "energy": 114.74024063171929,
+        "parent_energy": 78.19246763069975,
+        "doubled_energy": 2.8455917997091142
+      },
+      "at_t_2": {
+        "energy": 37.41204810848302,
+        "parent_energy": 1.187694953553756,
+        "doubled_energy": 0.001679859564603295
+      },
+      "control_heat_error": null
+    },
+    {
+      "grid": 128,
+      "dt": 0.0005,
+      "lambda": 1.0,
+      "at_t_0_2": {
+        "energy": 114.74024063171925,
+        "parent_energy": 78.19246763069972,
+        "doubled_energy": 2.8455917997091142
+      },
+      "at_t_2": {
+        "energy": 37.25642394137202,
+        "parent_energy": 1.2058213157724214,
+        "doubled_energy": 0.0018325984694788347
+      },
+      "control_heat_error": null
+    },
+    {
+      "grid": 64,
+      "dt": 0.001,
+      "lambda": 0.0,
+      "at_t_0_2": {
+        "energy": 102.7866691408444,
+        "parent_energy": 69.42726274584857,
+        "doubled_energy": 2.2804303703367124
+      },
+      "at_t_2": {
+        "energy": 14.621448005142838,
+        "parent_energy": 14.532392011616167,
+        "doubled_energy": 0.0013943773365011417
+      },
+      "control_heat_error": 5.737846955378213e-15
+    }
+  ],
+  "late_time_nonlinear_convergence": "FAILED at 0.1% tolerance; no late-time trajectory claim",
+  "independent_audit": "not performed",
+  "full_repository_verifier": "not run; no full checkout",
+  "manuscript_build": "not run",
+  "Lean": "not run",
+  "physical_source_history": "not constructed",
+  "unforced_R3_blowup": "not constructed",
+  "lattice_t2": [
+    {
+      "H0": 1.0,
+      "radial_harmonics_each_side": 32,
+      "u1_at_t2": 0.015512534469058608,
+      "exact_lower_at_t2": 0.006819657918394385,
+      "maximum_u1_to_t2": 0.015561971867478134,
+      "maximum_difference_from_previous_section": 2.5852479879073798e-12
+    },
+    {
+      "H0": 16.0,
+      "radial_harmonics_each_side": 32,
+      "u1_at_t2": 0.26815160742007654,
+      "exact_lower_at_t2": 0.10911452669431015,
+      "maximum_u1_to_t2": 0.26815160742007654,
+      "maximum_difference_from_previous_section": 1.8991502814813543e-11
+    },
+    {
+      "H0": 64.0,
+      "radial_harmonics_each_side": 32,
+      "u1_at_t2": 2.387777413753756,
+      "exact_lower_at_t2": 0.4364581067772406,
+      "maximum_u1_to_t2": 2.387777413753756,
+      "maximum_difference_from_previous_section": 1.166591268031425e-10
+    }
+  ]
+}
