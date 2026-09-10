@@ -1,0 +1,331 @@
+{
+  "exact_checks": [
+    "exact cubic integrated squared phase gradient",
+    "L-squared preparation produces L-fourth viscous exponent",
+    "symmetric connection/shear matrix has norm |g|/2",
+    "principal pressure projection preserves n dot a",
+    "normal pressure contributes zero to transverse amplitude energy",
+    "both parent polarizations are transverse",
+    "complete projected sum-frequency coefficient",
+    "daughter growing-coordinate coefficient with pressure retained",
+    "rationalization determines exact sign of growing source",
+    "mirror-symmetric growing parents have zero leading sum output",
+    "difference-frequency shear is retained exactly",
+    "parallel equal-tilt parents have zero interaction",
+    "general-polarization difference cancellation conditions",
+    "opposite eigenbranches cancel difference but seed sum",
+    "source growing polarization is actual reference eigenvector",
+    "opposite polarization is decaying eigenbranch",
+    "finite-L polarization ratio equation cancels common damping",
+    "asymmetric reference daughter has strictly positive net rate",
+    "frozen weak-overlap daughter response",
+    "frozen weak-overlap sideband response",
+    "rational asymmetric source pair produces nonzero sum",
+    "all quadratic plane-wave outputs are exactly sum/difference and conjugates",
+    "every generated quadratic output is solenoidal",
+    "real field conjugacy is retained",
+    "second nonlinear jet creates modes beyond chosen parent/daughter set",
+    "second nonlinear jet feeds back on first parent",
+    "second nonlinear jet feeds back on second parent",
+    "all second-jet outputs remain transverse"
+  ],
+  "exact_check_count": 28,
+  "all_output_jet": {
+    "initial_carriers": [
+      [
+        -96,
+        0,
+        -40
+      ],
+      [
+        -75,
+        0,
+        40
+      ],
+      [
+        75,
+        0,
+        -40
+      ],
+      [
+        96,
+        0,
+        40
+      ]
+    ],
+    "quadratic_outputs": {
+      "(-171, 0, 0)": [
+        "0",
+        "-32319*I/40",
+        "-3591*I/40"
+      ],
+      "(-21, 0, -80)": [
+        "1228122*I/6841",
+        "-3249*I/40",
+        "-12895281*I/273640"
+      ],
+      "(21, 0, 80)": [
+        "-1228122*I/6841",
+        "3249*I/40",
+        "12895281*I/273640"
+      ],
+      "(171, 0, 0)": [
+        "0",
+        "32319*I/40",
+        "3591*I/40"
+      ]
+    },
+    "second_nonlinear_jet_carriers": [
+      [
+        -267,
+        0,
+        -40
+      ],
+      [
+        -246,
+        0,
+        40
+      ],
+      [
+        -117,
+        0,
+        -120
+      ],
+      [
+        -96,
+        0,
+        -40
+      ],
+      [
+        -75,
+        0,
+        40
+      ],
+      [
+        -54,
+        0,
+        120
+      ],
+      [
+        54,
+        0,
+        -120
+      ],
+      [
+        75,
+        0,
+        -40
+      ],
+      [
+        96,
+        0,
+        40
+      ],
+      [
+        117,
+        0,
+        120
+      ],
+      [
+        246,
+        0,
+        -40
+      ],
+      [
+        267,
+        0,
+        40
+      ]
+    ],
+    "additional_second_jet_carriers": [
+      [
+        -267,
+        0,
+        -40
+      ],
+      [
+        -246,
+        0,
+        40
+      ],
+      [
+        -117,
+        0,
+        -120
+      ],
+      [
+        -54,
+        0,
+        120
+      ],
+      [
+        54,
+        0,
+        -120
+      ],
+      [
+        117,
+        0,
+        120
+      ],
+      [
+        246,
+        0,
+        -40
+      ],
+      [
+        267,
+        0,
+        40
+      ]
+    ],
+    "scope": "Exact NS nonlinear Taylor coefficients of plane waves; no PDE solution or autonomous cell."
+  },
+  "formula_tables": {
+    "preparation": [
+      {
+        "L": 16.0,
+        "W": 256.0,
+        "log10_entry_envelope": -0.9176451005886133,
+        "log10_lower_bound_earlier_norm_per_unit_frame_norm": 2983.8986089691157
+      },
+      {
+        "L": 32.0,
+        "W": 1024.0,
+        "log10_entry_envelope": -1.8352902011772265,
+        "log10_lower_bound_earlier_norm_per_unit_frame_norm": 51395.84607377779
+      },
+      {
+        "L": 64.0,
+        "W": 4096.0,
+        "log10_entry_envelope": -3.670580402354453,
+        "log10_lower_bound_earlier_norm_per_unit_frame_norm": 847106.3116354194
+      },
+      {
+        "L": 128.0,
+        "W": 16384.0,
+        "log10_entry_envelope": -7.341160804708906,
+        "log10_lower_bound_earlier_norm_per_unit_frame_norm": 13734205.221423605
+      }
+    ],
+    "overlap": [
+      {
+        "u": 2.0,
+        "center_tilt": 0.0,
+        "sum_growing_coefficient_per_b": 0.0,
+        "difference_norm_per_b_c0_minus_one": 17.88854381999832,
+        "daughter_growth_per_lambda0": 0.6422291236000337,
+        "difference_to_growing_ratio": null
+      },
+      {
+        "u": 2.0,
+        "center_tilt": 0.01,
+        "sum_growing_coefficient_per_b": 0.11576722816815956,
+        "difference_norm_per_b_c0_minus_one": 17.888758481808626,
+        "daughter_growth_per_lambda0": 0.6421433502620814,
+        "difference_to_growing_ratio": 154.52351036533432
+      },
+      {
+        "u": 2.0,
+        "center_tilt": 0.25,
+        "sum_growing_coefficient_per_b": 2.7489812625064216,
+        "difference_norm_per_b_c0_minus_one": 18.02243214022021,
+        "daughter_growth_per_lambda0": 0.5900109439703676,
+        "difference_to_growing_ratio": 6.556040372493485
+      },
+      {
+        "u": 2.0,
+        "center_tilt": 0.5,
+        "sum_growing_coefficient_per_b": 4.791734732197499,
+        "difference_norm_per_b_c0_minus_one": 18.420963674889016,
+        "daughter_growth_per_lambda0": 0.4472135954999579,
+        "difference_to_growing_ratio": 3.8443204193069187
+      }
+    ],
+    "scope": "Floating-point evaluations of proved formulas; no numerical PDE claims."
+  },
+  "principal_ode_calibrations": [
+    {
+      "L": 128,
+      "center_tilt": 0.0,
+      "sum_growing_coordinate": -0.009647695800441287,
+      "reference_sum_growing_coordinate": 0.0,
+      "sum_norm": 0.02087656136001365,
+      "difference_norm": 7.783057062231449,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 128,
+      "center_tilt": 0.026278012976678578,
+      "sum_growing_coordinate": 0.11308099897555218,
+      "reference_sum_growing_coordinate": 0.12191546655344039,
+      "sum_norm": 0.1806135354842779,
+      "difference_norm": 7.783401877891178,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 128,
+      "center_tilt": 0.25,
+      "sum_growing_coordinate": 1.100077885250543,
+      "reference_sum_growing_coordinate": 1.1022262783706318,
+      "sum_norm": 1.741837576026639,
+      "difference_norm": 7.832034611814014,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 512,
+      "center_tilt": 0.0,
+      "sum_growing_coordinate": -0.002376439983148502,
+      "reference_sum_growing_coordinate": 0.0,
+      "sum_norm": 0.005181578109420414,
+      "difference_norm": 7.756244110061899,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 512,
+      "center_tilt": 0.009290680585958758,
+      "sum_growing_coordinate": 0.04082124303790462,
+      "reference_sum_growing_coordinate": 0.04312580414201953,
+      "sum_norm": 0.06427923519211118,
+      "difference_norm": 7.756295962420978,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 512,
+      "center_tilt": 0.25,
+      "sum_growing_coordinate": 1.101725031395514,
+      "reference_sum_growing_coordinate": 1.1022262783706318,
+      "sum_norm": 1.7387654971317208,
+      "difference_norm": 7.806842894817226,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 1024,
+      "center_tilt": 0.0,
+      "sum_growing_coordinate": -0.0011431354557244098,
+      "reference_sum_growing_coordinate": 0.0,
+      "sum_norm": 0.00256077857975375,
+      "difference_norm": 7.751759998194704,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 1024,
+      "center_tilt": 0.005524271728019903,
+      "sum_growing_coordinate": 0.02452228005286982,
+      "reference_sum_growing_coordinate": 0.025643975127218534,
+      "sum_norm": 0.03843001749746093,
+      "difference_norm": 7.7517798562082305,
+      "parent_amplitudes_normalized_by_radial_component": true
+    },
+    {
+      "L": 1024,
+      "center_tilt": 0.25,
+      "sum_growing_coordinate": 1.1020199422876071,
+      "reference_sum_growing_coordinate": 1.1022262783706318,
+      "sum_norm": 1.738310878908515,
+      "difference_norm": 7.802638554102172,
+      "parent_amplitudes_normalized_by_radial_component": true
+    }
+  ],
+  "status": "No common Schwartz history, completed regeneration cell, endpoint estimate, or unforced blow-up."
+}
