@@ -34,7 +34,7 @@ The current manuscript proves a full finite-interval inverse for generic
 positive penalties, but not common traces or endpoint control [R1]. The
 source leaves flat residuals rather than setting them identically to zero
 [OA, Proposition 9.3 and (9.20)]. Its pulse cutoff estimates are of Gaussian
-size in a logarithmic scale, not zero [OA, section 7.6]. Our earlier
+size in a logarithmic scale, not zero [OA, section 7.4, (7.40)]. Our earlier
 connected-pulse example already shows why raw flatness need not survive an
 inverse [R2]. We therefore do not repeat the argument 'flat means removable'.
 
