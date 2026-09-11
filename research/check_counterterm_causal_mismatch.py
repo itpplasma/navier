@@ -72,15 +72,17 @@ for D,z in ((D3,z3),(D4,z4)):
     assert s.simplify(req-um+(1+z)/D)==0
     assert s.simplify(req/um+z)==0
 
-# Restore the actual nonzero forcing amplitudes.  The mismatch cannot disappear
-# by parent phase choice while the dual pair products stay nonzero: both the
-# unstable-manifold value and required counterterm carry the same F factor.
-F3=s.simplify(e3*wB)   # A1*A4 after any factorization of the fixed pair products
-F4=s.simplify(e4*wA)   # schematic nonzero common factor; only nonvanishing matters
+# The actual easy forcing is F3=e3*A1*A4 and F4=e4*A2*A3.  The dual pair
+# products wA=A1*A2 and wB=A3*A4 are nonzero, hence every A_j is nonzero and
+# therefore both F3,F4 are nonzero.  The causal mismatch is multiplicative in
+# F, so parent phases/factorization cannot change the ratio between the two
+# required stable coordinates.
+A1,A2,A3,A4=s.symbols('A1 A2 A3 A4', nonzero=True)
+F3=e3*A1*A4; F4=e4*A2*A3
 assert F3!=0 and F4!=0
 for F,D,z in ((F3,D3,z3),(F4,D4,z4)):
-    y_um=s.simplify(F/D)
-    y_req=s.simplify(-F*z/D)
+    y_um=F/D
+    y_req=-F*z/D
     assert s.simplify(y_req-y_um + F*(1+z)/D)==0
     assert s.simplify(y_req/y_um+z)==0
 
