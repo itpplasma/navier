@@ -13,6 +13,11 @@ KNOWN={
     'comparable-normal-form-wall': {'boundary_primitive_over_entropy': 'M/(nu eta)', 'uniform_arbitrary_amplitude_coercivity': False},
     'raman-simultaneous-ordering': {'claimed_leading_one_order_transfer_survives_full_time_ordering': False},
     'raman-dynamic-parent-birth': {'complete_O_N_target_response': 'zero', 'active_terminal_route': False},
+    'source-spectral-cage': {'unstable_positive_sites': 'exactly four parent sites plus reality partners', 'stable_complement_margin': 'uniform negative'},
+    'source-reference-unstable-manifold': {'full_lattice_causal_prehistory': True, 'pure_decaying_target_generated': True, 'stable_modes_reset': False},
+    'source-finite-L-cage': {'rank_two_lattice_persists': True, 'fixed_window_full_lattice_retuning': True, 'global_parent_supply': False},
+    'source-correlated-rounding': {'two_pair_daughter_index_can_match_exactly': True, 'forced_fourth_rounding_error': 'bounded by 3/2'},
+    'source-harmonic-protection': {'linear_O_epsilon_over_L_daughter_leakage': False, 'first_physical_daughter_error': 'O(epsilon^2/L)+O(epsilon^3)', 'global_parent_supply': False},
     'numerics-not-certificate': {'numerical_orbit_proves_blowup': False, 'numerical_orbit_proves_regularity': False},
 }
 def predict(control): return KNOWN[control['id']]
