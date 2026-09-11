@@ -47,14 +47,16 @@ match = re.search(r'```yaml\s*\n(.*?)\n```', plan, re.S)
 assert match, 'missing live plan YAML'
 state = yaml.safe_load(match.group(1))
 assert state['checkpoint'] == 'CP1'
-assert state['phase_i_status'] == graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
-assert state['phase_ii_status'] == graph['phase_ii_status'] == 'reopened-2026-09-06-target'
-assert state['paper_repo'] == 'integrated-in-navier-paper-directory'
-assert state['external_deps'] == 'permitted-if-no-axioms-beyond-mathlib'
+assert state['terminal_claim'] == graph['terminal_claim'] == 'NS-R3'
+assert state['terminal_status'] == 'not-proved'
+assert state['unforced_counterexample'] == 'not-constructed'
+assert state['complete_terminal_route'] == 'none-established'
 assert state['public_release'] is True
-assert state['repository_visibility'] == {
-    'navier': 'public', 'navier-formal': 'public', 'navier-paper': 'private',
-}
+# Formal phase strings remain canonical-graph metadata; the compact live PLAN
+# now points to navier-formal instead of duplicating the archived phase block.
+assert graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
+assert graph['phase_ii_status'] == 'reopened-2026-09-06-target'
+assert state['formal_status'] == 'unchanged-see-navier-formal-and-archived-plan'
 assert by_id['NS-R3']['kind'] == 'gap', 'terminal promotion needs a new mathematical audit'
 candidates = graph.get('candidate_supplements', [])
 assert len({c['id'] for c in candidates}) == len(candidates), 'duplicate candidate IDs'
