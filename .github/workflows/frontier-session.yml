@@ -1,42 +1,30 @@
-name: Frontier session integration
+name: Frontier phase discriminator
 on:
   push:
     branches: [research/navier-frontier-20260912]
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: navier-frontier-session-integration
+  group: navier-frontier-session-discriminator
   cancel-in-progress: false
 jobs:
-  integrate:
+  discriminate:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze authorized integration script
-        run: cp research/integrate_correction_conveyor_20260912.py /tmp/integrate.py
-      - name: Refresh main and run fast gate first
+      - name: Freeze exact discriminator
+        run: cp research/check_phase_graded_factor_two.py /tmp/check_phase_graded_factor_two.py
+      - name: Refresh authoritative main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Apply exact mathematical checkpoint
-        run: python3 /tmp/integrate.py
-      - name: Replay exact and structural checks
+      - name: Run complete phase-graded recurrence
         run: |
-          python3 research/check_correction_conveyor_scaling.py
-          python3 research/check_prefix_summability.py
-          python3 research/game/run.py fast
-          python3 research/game/selftest.py
+          python3 -m pip install sympy
+          python3 /tmp/check_phase_graded_factor_two.py
+      - name: Structural verification
+        run: |
           python3 research/verify.py --research-only
-          python3 research/verify.py --paper-only
           git diff --check
-      - name: Commit checkpoint and push without force
-        run: |
-          git add -- PLAN.md research/evidence/2026-09-12-correction-conveyor-scaling.md research/check_correction_conveyor_scaling.py research/game/snapshot.json
-          git diff --cached --check
-          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Isolate the correction-driven radial-entry scaling window'
-          git fetch origin main
-          git merge-base --is-ancestor origin/main HEAD
-          git push origin HEAD:main
-          echo "Integrated commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
