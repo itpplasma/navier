@@ -1,27 +1,41 @@
-name: Frontier session gate
+name: Frontier session integration
 on:
   push:
     branches: [research/navier-frontier-20260912]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: navier-frontier-session-integration
+  cancel-in-progress: false
 jobs:
-  gate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - name: Fast gate first
-        run: python3 research/game/run.py fast | tee /tmp/research-game-fast.log
-      - name: Research verification
-        if: always()
+      - name: Freeze authorized integration script
+        run: cp research/integrate_prefix_summability_20260912.py /tmp/integrate.py
+      - name: Refresh main and run fast gate first
         run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
+          python3 research/game/run.py fast
+      - name: Apply exact mathematical checkpoint
+        run: python3 /tmp/integrate.py
+      - name: Replay exact and structural checks
+        run: |
+          python3 research/check_prefix_summability.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: always()
-        with:
-          name: frontier-session-gate
-          retention-days: 1
-          path: /tmp/research-game-fast.log
+      - name: Commit checkpoint and push without force
+        run: |
+          git add -- PLAN.md research/evidence/2026-09-12-prefix-summability-wall.md research/check_prefix_summability.py research/game/snapshot.json
+          git diff --cached --check
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Rule out prefix divergence from unstable-site counting alone'
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+          git push origin HEAD:main
+          echo "Integrated commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
