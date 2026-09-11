@@ -1,28 +1,47 @@
-name: Frontier phase discriminator
+name: Frontier phase integration
 on:
   push:
     branches: [research/navier-frontier-20260912]
 permissions:
-  contents: read
+  contents: write
 concurrency:
-  group: navier-frontier-session-discriminator
-  cancel-in-progress: true
+  group: navier-frontier-phase-integration
+  cancel-in-progress: false
 jobs:
-  discriminate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact phase discriminator
-        run: cp research/check_phase_graded_factor_two.py /tmp/check_phase_graded_factor_two.py
-      - name: Refresh authoritative main and run fast gate first
+      - name: Freeze authorized checkpoint
+        run: |
+          cp research/integrate_phase_graded_relay_20260912.py /tmp/integrate.py
+          cp research/check_phase_graded_factor_two.py /tmp/check_phase.py
+      - name: Refresh main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Test the new phase-grade invariant
-        run: python3 /tmp/check_phase_graded_factor_two.py
-      - name: Structural verification
+      - name: Apply exact checkpoint
         run: |
+          cp /tmp/check_phase.py research/check_phase_graded_factor_two.py
+          python3 /tmp/integrate.py
+      - name: Verify checkpoint
+        run: |
+          python3 research/check_phase_graded_factor_two.py
+          python3 research/check_correction_conveyor_scaling.py
+          python3 research/check_prefix_summability.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
+      - name: Commit and push without force
+        run: |
+          git add -- PLAN.md research/evidence/2026-09-12-phase-graded-factor-two.md research/check_phase_graded_factor_two.py research/game/snapshot.json
+          git diff --cached --check
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Separate factor-two relay by physical phase grade'
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+          git push origin HEAD:main
+          echo "Integrated commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
