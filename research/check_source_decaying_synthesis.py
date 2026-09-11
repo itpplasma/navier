@@ -14,7 +14,7 @@ def check(ok,label):
 def P(k):
     k=s.Matrix(k); return s.eye(3)-k*k.T/k.dot(k)
 def C(p,a,q,b):
-    p,q,a,b=map(s.Matrix,(p,a,q,b))
+    p,a,q,b=map(s.Matrix,(p,a,q,b))
     return s.simplify(P(p+q)*((a.dot(q))*b+(b.dot(p))*a))
 
 def ap(sig):
@@ -43,6 +43,8 @@ check(k==parents[2]+parents[3] and k==s.Matrix([s.Rational(1,5),0,2]),
       'two decompositions share target')
 F1=C(parents[0],pols[0],parents[1],pols[1])
 F2=C(parents[2],pols[2],parents[3],pols[3])
+check(s.simplify(k.dot(F1))==0 and s.simplify(k.dot(F2))==0,
+      'both Leray pair outputs are target-transverse')
 bp1,bm1=eigcoords(k,F1); bp2,bm2=eigcoords(k,F2)
 check(bp1>0 and bp2>0,'both designated pairs have positive growing coordinate')
 
