@@ -47,6 +47,7 @@ source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-
 source_relay_scale_homogeneity: hard-quartic-easy-quadratic-stage-factors-one-eighth-one-half
 source_birth_linear_stage_balance: refuted-by-easy-product-and-rate-ordering
 source_stable_preload_balance: proved-local-reference-counterterm-repair-recursive-supply-open
+source_four_parent_counterterm_supply: refuted-by-opposite-causal-stable-coordinate
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -477,15 +478,30 @@ two easy endpoint growing coordinates to zero, or to prescribed
 `O(epsilon^4)` values, on sufficiently short frozen-reference stages. See
 `research/evidence/2026-09-12-stable-preload-balance.md`.
 
-The cascade blocker therefore moves backward again: these stable counterterms
-are left-edge data and cannot be reset independently. The next exact test is
-**recursive causal supply**. Compare the required easy-target counterterms with
-the uniquely determined quadratic stable coordinates on the four-parent
-backward-eternal unstable manifold. If incompatible, the stage requires
-genuinely additional inherited modes/state. The alternative active routes
-remain the full physical interstage propagator/adjoint adapter, sparse
-thin-collar/nonlocal entry, or the complete full-history adjoint. UE1 and the
-terminal claim remain open.
+The free stable-counterterm repair is **not** supplied by the same four-parent
+backward-eternal unstable manifold. At either easy target, write the nonzero
+quadratic forcing as `F`, the stable target rate as `sigma`, and the parent-rate
+sum as `lambda_p`; the exact mismatch `D=lambda_p-sigma` is positive. The
+unique backward-eternal stable coordinate is `F/D`. In contrast, the unique
+left-edge value which cancels that easy mode after any positive future stage
+`T` is
+
+    -F (exp(D T)-1)/D.
+
+Their ratio is `1-exp(D T)<0` for every `T>0`. Thus the local balanced stage is
+off the four-coordinate causal unstable graph at quadratic order; no parent
+phase/factorization can repair this because both values carry the same `F`. See
+`research/evidence/2026-09-12-counterterm-causal-mismatch.md`.
+
+This is the second serious pass at stable-counterterm supply, so the frozen
+autonomous stage graph is no longer the active mechanism. A constructive route
+now requires genuinely additional inherited modes/state or the source's
+nonautonomous scale-changing physical history. The next active attack is the
+**full physical interstage adapter**: quantify the duration and accumulated
+coefficient variation across one factor-two normalized scale change, rather
+than extrapolating the fixed-fast-window finite-`L` theorem. Alternative active
+routes remain sparse thin-collar/nonlocal entry and the complete full-history
+adjoint. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

@@ -223,6 +223,18 @@
         "exact_short_stage_easy_retuning": true,
         "recursive_counterterm_supply": false
       }
+    },
+    {
+      "id": "counterterm-causal-mismatch",
+      "scope": "easy stable coordinates on the four-parent backward-eternal source-reference unstable manifold",
+      "evidence": "research/evidence/2026-09-12-counterterm-causal-mismatch.md",
+      "rigor": "exact-analytic-author-proof",
+      "observation": {
+        "unstable_manifold_quadratic_coordinate": "F/D",
+        "future_canceling_coordinate": "-F*(exp(D*T)-1)/D",
+        "ratio_for_T_positive": "1-exp(D*T)<0",
+        "four_parent_causal_counterterm_supply": false
+      }
     }
   ]
 }
