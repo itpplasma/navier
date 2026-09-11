@@ -235,6 +235,18 @@
         "ratio_for_T_positive": "1-exp(D*T)<0",
         "four_parent_causal_counterterm_supply": false
       }
+    },
+    {
+      "id": "single-label-interstage-wall",
+      "scope": "direct extension of the finite-L fixed-label cage across one factor-two normalized scale change",
+      "evidence": "research/evidence/2026-09-12-single-label-interstage-wall.md",
+      "rigor": "exact-source-coordinate-lattice-author-proof",
+      "observation": {
+        "same_label_fast_displacement_over_L": "diverges like Q^(-h)/ell^2",
+        "parent_relative_lattice_deformation_lower_bound": "sqrt(9/500)*abs(Delta v/L)",
+        "direct_fixed_label_adapter": false,
+        "recentered_multilabel_adapter": "open"
+      }
     }
   ]
 }

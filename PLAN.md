@@ -48,6 +48,7 @@ source_relay_scale_homogeneity: hard-quartic-easy-quadratic-stage-factors-one-ei
 source_birth_linear_stage_balance: refuted-by-easy-product-and-rate-ordering
 source_stable_preload_balance: proved-local-reference-counterterm-repair-recursive-supply-open
 source_four_parent_counterterm_supply: refuted-by-opposite-causal-stable-coordinate
+source_single_label_interstage_adapter: refuted-by-unbounded-exact-lattice-deformation
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -493,15 +494,28 @@ off the four-coordinate causal unstable graph at quadratic order; no parent
 phase/factorization can repair this because both values carry the same `F`. See
 `research/evidence/2026-09-12-counterterm-causal-mismatch.md`.
 
-This is the second serious pass at stable-counterterm supply, so the frozen
-autonomous stage graph is no longer the active mechanism. A constructive route
-now requires genuinely additional inherited modes/state or the source's
-nonautonomous scale-changing physical history. The next active attack is the
-**full physical interstage adapter**: quantify the duration and accumulated
-coefficient variation across one factor-two normalized scale change, rather
-than extrapolating the fixed-fast-window finite-`L` theorem. Alternative active
-routes remain sparse thin-collar/nonlocal entry and the complete full-history
-adjoint. UE1 and the terminal claim remain open.
+The direct same-label physical adapter is also excluded. A doubled physical
+frequency requires the similarity scale to contract by
+`rho=2^(-2/h)` before it becomes a normalized parent. On the exact `eta=0` ray,
+`Delta t=(1-rho)Q`, while the fixed lifted-label identity gives
+`partial_t v=Q^(-1-h)`. Hence a single label would have to traverse
+
+    Delta v=(1-rho)Q^(-h),
+    Delta(v/L) comparable to Q^(-h)/ell^2 -> infinity.
+
+But the exact finite-`L` lattice map has
+`T k-k=(tau d(k),-eta d(k),0)` with `tau=v/L`; on every one of the four parent
+labels `d(k)^2/|k|^2>=9/500`. Thus the relative lattice deformation becomes
+unbounded across one factor-two scale change. The existing fixed-fast-window
+`O(L^-1)` cage theorem cannot be extrapolated on one fixed label/reference. See
+`research/evidence/2026-09-12-single-label-interstage-wall.md`.
+
+The physical adapter, if it exists, must therefore be **recentered /
+multi-label or genuinely nonperturbative**. It needs a transition map between
+overlapping local source frames which carries the entire inherited expanding
+state and stable counterterms without reset or temporal gluing defects. The
+other active mechanisms remain sparse thin-collar/nonlocal entry and the
+complete full-history adjoint. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
