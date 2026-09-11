@@ -44,6 +44,7 @@ source_prefix_counting_obstruction: exponential-multiplicity-does-not-force-pref
 source_correction_conveyor_scaling: energy-compatible-but-nondegenerate-conveyor-terminal-strength
 source_phase_graded_relay: first-doubling-separated-from-cubic-pollutant-fixed-order-infinite-relay-impossible
 source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-adapter-open
+source_relay_scale_homogeneity: hard-quartic-easy-quadratic-stage-factors-one-eighth-one-half
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -439,12 +440,26 @@ the actual source over the whole ratio `q_1/q_0=2^(-2/h)`: existing finite-`L`
 persistence controls only a fixed fast-time window. See
 `research/evidence/2026-09-12-reference-interstage-exponent.md`.
 
-The next active test must therefore construct continuous/late nonlinear
-stagewise feeding of the expanding state, prove a full physical interstage
-propagator/adjoint adapter that transfers the reference loss, address sparse
-thin-collar/nonlocal entry, or close the complete physical adjoint by another
-full-history mechanism. No bound on the sparse collar stress or full-history
-gain has been obtained. UE1 and the terminal claim remain open.
+A further exact discriminator shows that local late regeneration itself does
+not disappear under stage rescaling. The doubled-parent quartet is mixed order:
+`2p_1,2p_2` have identically zero quadratic self-pair coefficients and retain
+the already proved nonzero quartic births, while `2p_3,2p_4` have strictly
+nonzero growing coordinates already at quadratic order. Uniform frequency
+rescaling by `alpha` multiplies each Leray bilinear vertex by `alpha`; hence the
+hard quartic channels scale as `alpha^3` and the easy quadratic channels as
+`alpha`. At factor-two normalization these are exact factors `1/8` and `1/2`.
+See `research/evidence/2026-09-12-relay-scale-homogeneity.md`.
+
+The next active test must therefore quantify a **finite-duration stage map**
+with this hard/easy amplitude imbalance, the grade-`m` cubic pollutant and the
+expanding inherited unstable family all retained. A constructive proof must
+show that stage amplification restores the two hard `O(epsilon^4)` channels to
+the four-parent input class without losing control to the easy
+`O(epsilon^2)` channels; an obstruction should prove that this is impossible or
+terminal-strength. The alternative active mechanisms remain a full physical
+interstage propagator/adjoint adapter, sparse thin-collar/nonlocal entry, or a
+complete full-history adjoint. No bound on the sparse collar stress or
+full-history gain has been obtained. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

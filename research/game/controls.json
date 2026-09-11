@@ -185,6 +185,18 @@
         "quadratic_far_input": "bounded by initial energy",
         "full_history_gain": false
       }
+    },
+    {
+      "id": "relay-scale-homogeneity",
+      "scope": "dual-tuned source-reference factor-two parent relay",
+      "evidence": "research/evidence/2026-09-12-relay-scale-homogeneity.md",
+      "rigor": "exact-algebra-author-proof",
+      "observation": {
+        "hard_targets": "2p1,2p2 quadratic-zero quartic-nonzero",
+        "easy_targets": "2p3,2p4 quadratic-nonzero",
+        "factor_two_scale": "hard=1/8 easy=1/2",
+        "finite_duration_stage_map": false
+      }
     }
   ]
 }

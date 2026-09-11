@@ -23,5 +23,6 @@ KNOWN={
     'clock-action-obstruction': {'fixed_action_requires': 'S/N^2 >= c0', 'slow_purifier_requires': 'lambda*b >= eta0', 'bounded_fast_parent_requires': 'lambda*sqrt(S) <= C0', 'all_three_with_N_over_b_to_infinity': False},
     'old-strong-scaling-action': {'integrated_clean_action_limit': 0, 'sufficient_for_fixed_positive_filter_action': False},
     'energy-controlled-exterior-pressure': {'L1_stress_to_L2_constant': '3/sqrt(2*pi)', 'optimal_intermediate_radius': '2*N*R/(2*N+5)', 'quadratic_far_input': 'bounded by initial energy', 'full_history_gain': False},
+    'relay-scale-homogeneity': {'hard_targets': '2p1,2p2 quadratic-zero quartic-nonzero', 'easy_targets': '2p3,2p4 quadratic-nonzero', 'factor_two_scale': 'hard=1/8 easy=1/2', 'finite_duration_stage_map': False},
 }
 def predict(control): return KNOWN[control['id']]
