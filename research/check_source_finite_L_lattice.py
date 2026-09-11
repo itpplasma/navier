@@ -68,9 +68,9 @@ check(1+c*c==s.Rational(401,400),'all-label deformation constant squared')
 # The two spanning parents remain independent whenever 1+tau != 0.
 cross=s.simplify(p1.cross(p2))
 cross2=s.factor(cross.dot(cross))
-check(cross2==s.Rational(81,40000)*(401*eta**2+400*tau**2+800*tau+400),
+check(s.simplify(cross2-s.Rational(81,40000)*(401*eta**2+400*tau**2+800*tau+400))==0,
       'exact spanning-area formula')
-check(s.factor(cross2.subs(eta,0)-s.Rational(81,100)*(1+tau)**2)==0,
+check(s.simplify(cross2.subs(eta,0)-s.Rational(81,100)*(1+tau)**2)==0,
       'reference-plane rank remains two away from tau=-1')
 
 print(f'PASS: {len(CHECKS)} exact assertions.')
