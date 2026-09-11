@@ -26,7 +26,6 @@ def eigcoords(k,f):
     k,f=s.Matrix(k),s.Matrix(f); c=s.simplify(k[0]/k[2]); q=s.sqrt(1+c*c)
     return s.simplify((f[0]-f[1]/q)/2),s.simplify((f[0]+f[1]/q)/2)
 
-# Exact rational enclosure for linear combinations of square roots.
 def sqrt_bounds(n,D=10**8):
     m=math.isqrt(int(n)*D*D)
     return s.Rational(m,D),s.Rational(m+1,D)
@@ -44,7 +43,6 @@ def radical_interval(expr,D=10**8):
             raise AssertionError(f'nonlinear radical term: {term}')
     return s.factor(lo),s.factor(hi)
 
-# Caged source geometry.
 mu=s.Rational(3,5)
 c=s.Rational(1,20); da=s.Rational(9,20); db=s.Rational(3,20)
 tilts=[c+da,c-da,c+db,c-db]
@@ -57,8 +55,6 @@ F_B=C(parents[2],pols[2],parents[3],pols[3])
 bAp,bAm=eigcoords(k,F_A); bBp,bBm=eigcoords(k,F_B)
 check(s.simplify(k.dot(F_A))==0 and s.simplify(k.dot(F_B))==0,'pair outputs are Leray transverse')
 
-# DUAL tuning: cancel the daughter decaying coordinate instead of its growing
-# coordinate.  The same 2x2 determinant from the decaying synthesis survives.
 wA=bBm
 wB=-bAm
 Fgrow=s.simplify(wA*F_A+wB*F_B)
@@ -71,9 +67,6 @@ check(s.simplify(gp+dm)==0 and gp<0,'dual daughter is pure growing and nonzero')
 check(all(s.simplify(x)==0 for x in Fgrow-gp*ap(c)),'dual daughter has exact growing eigenpolarization')
 check(wA!=0 and wB!=0,'both pair products needed for dual tuning are nonzero')
 
-# Difference shears and stripped geometry: central daughter plus each pair shear
-# lands exactly on the factor-two copy of one parent, with nonzero growing
-# coordinate.  These checks identify the relay before the complete jet below.
 for i,j in ((0,1),(1,0),(2,3),(3,2)):
     sf=parents[i]-parents[j]
     shear=C(parents[i],pols[i],-parents[j],pols[j])
@@ -85,7 +78,6 @@ for i,j in ((0,1),(1,0),(2,3),(3,2)):
     lo,hi=radical_interval(cp)
     check(hi<0 or lo>0,f'stripped doubled-parent {i} growing coordinate nonzero')
 
-# Complete Taylor jet.  Represent k=((x10)/10,0,z) by integer pair (x10,z).
 K0=s.Matrix([[0,1,0],[1,0,0],[0,0,0]])
 def keyvec(key): return s.Matrix([s.Rational(key[0],10),0,s.Integer(key[1])])
 def proj_key(key):
@@ -121,11 +113,8 @@ amplitudes=[s.Integer(1),wA,s.Integer(1),wB]
 U0={}
 for key,pol,amp in zip(keys,pols,amplitudes):
     U0[key]=amp*pol
-    U0[(-key[0],-key[1])]=amp*pol  # real Fourier field
+    U0[(-key[0],-key[1])]=amp*pol
 
-# u(t)=sum_j t^j U_j.  The recurrence retains the full convolution, not a
-# selected tree.  U_3 therefore includes every linear/nonlinear contribution
-# through cubic time / quartic amplitude order.
 jets=[U0]
 for j in range(3):
     terms=[linear_dict(jets[j])]
@@ -134,7 +123,6 @@ for j in range(3):
     jets.append(combine(terms,s.Rational(1,j+1)))
 
 check([len(D) for D in jets]==[8,28,60,104],'complete jet mode counts through t^3')
-# Reality, divergence and no omitted outputs at the represented orders.
 for j,D in enumerate(jets):
     for key,val in D.items():
         check(all(s.simplify(x)==0 for x in keyvec(key).T*val),f'order {j} output {key} transverse')
@@ -142,14 +130,9 @@ for j,D in enumerate(jets):
         check(neg in D and all(s.simplify(x)==0 for x in D[neg]-s.conjugate(val)),
               f'order {j} output {key} has reality partner')
 
-# Exact sign/nonzero proof for every doubled parent growing coordinate.  The
-# coefficient is imaginary under this Fourier convention, so -i times it is
-# real.  Rational enclosures of all square roots prove separation from zero.
 targets=[(10,2),(-8,2),(4,2),(-2,2)]
 intervals=[]
 for idx,key in enumerate(targets):
-    check(key==2*s.Matrix(keys[idx]) if False else True,'dummy')
-    # key=(2*x10,2*z) is exactly twice the corresponding parent key.
     check(key==(2*keys[idx][0],2*keys[idx][1]),f'target {idx} is doubled parent key')
     cp,_=eigcoords(keyvec(key),jets[3][key])
     realcoef=s.radsimp(-s.I*cp)
