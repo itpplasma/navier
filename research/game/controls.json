@@ -210,6 +210,19 @@
         "linear_rate_order": "every easy rate exceeds every hard rate",
         "birth_then_linear_balance": false
       }
+    },
+    {
+      "id": "stable-preload-balance",
+      "scope": "short frozen full-lattice relay with two freely supplied stable easy-target counterterms",
+      "evidence": "research/evidence/2026-09-12-stable-preload-balance.md",
+      "rigor": "analytic-exact-author-proof",
+      "observation": {
+        "easy_leading_births_cancelled": true,
+        "lower_order_hard_contamination": false,
+        "corrected_hard_coefficients_nonzero": true,
+        "exact_short_stage_easy_retuning": true,
+        "recursive_counterterm_supply": false
+      }
     }
   ]
 }

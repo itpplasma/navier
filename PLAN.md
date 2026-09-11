@@ -46,6 +46,7 @@ source_phase_graded_relay: first-doubling-separated-from-cubic-pollutant-fixed-o
 source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-adapter-open
 source_relay_scale_homogeneity: hard-quartic-easy-quadratic-stage-factors-one-eighth-one-half
 source_birth_linear_stage_balance: refuted-by-easy-product-and-rate-ordering
+source_stable_preload_balance: proved-local-reference-counterterm-repair-recursive-supply-open
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -463,15 +464,28 @@ with `p_3,p_4` the easy channels and `p_1,p_2` the hard channels. Hence every
 common positive linear amplification interval makes the easy/hard imbalance
 worse, not better. See `research/evidence/2026-09-12-stage-balance-wall.md`.
 
-After two serious passes at the same hard/easy stage mismatch, the active
-constructive route must change mechanism. The next test is **nonlinear /
-higher-dimensional balancing**: add stable grade-`2m` counterterms or other
-extra modes and determine whether the easy quadratic births can be canceled
-without producing lower-order hard-sector errors, then ask whether those
-counterterms are themselves recursively supplied by the returned expanding
-state rather than reset. The alternative active routes remain the full physical
-interstage propagator/adjoint adapter, sparse thin-collar/nonlocal entry, or a
-complete full-history adjoint. UE1 and the terminal claim remain open.
+The first higher-dimensional repair succeeds locally. Add the two stable
+grade-`2m` easy-target coordinates at the left edge with leading size
+`-epsilon^2 T Q_j`. They cancel the `O(epsilon^2 T)` easy endpoint births.
+Phase grading prevents any `O(epsilon^3)` hard-sector contamination; the first
+preload correction to the hard grade-`2m` targets enters at
+`O(epsilon^4 T^3)`. After retaining every such leading tree, both corrected
+hard coefficients remain strictly nonzero by exact rational radical
+enclosures. Analytic endpoint dependence and the identity derivative in the
+two preload coordinates then give an implicit-function family which sets the
+two easy endpoint growing coordinates to zero, or to prescribed
+`O(epsilon^4)` values, on sufficiently short frozen-reference stages. See
+`research/evidence/2026-09-12-stable-preload-balance.md`.
+
+The cascade blocker therefore moves backward again: these stable counterterms
+are left-edge data and cannot be reset independently. The next exact test is
+**recursive causal supply**. Compare the required easy-target counterterms with
+the uniquely determined quadratic stable coordinates on the four-parent
+backward-eternal unstable manifold. If incompatible, the stage requires
+genuinely additional inherited modes/state. The alternative active routes
+remain the full physical interstage propagator/adjoint adapter, sparse
+thin-collar/nonlocal entry, or the complete full-history adjoint. UE1 and the
+terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

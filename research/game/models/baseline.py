@@ -25,5 +25,6 @@ KNOWN={
     'energy-controlled-exterior-pressure': {'L1_stress_to_L2_constant': '3/sqrt(2*pi)', 'optimal_intermediate_radius': '2*N*R/(2*N+5)', 'quadratic_far_input': 'bounded by initial energy', 'full_history_gain': False},
     'relay-scale-homogeneity': {'hard_targets': '2p1,2p2 quadratic-zero quartic-nonzero', 'easy_targets': '2p3,2p4 quadratic-nonzero', 'factor_two_scale': 'hard=1/8 easy=1/2', 'finite_duration_stage_map': False},
     'stage-balance-wall': {'easy_product': 'nonzero fixed multiple of epsilon^4', 'balanced_parent_easy_lower_bound': 'at least one Omega(epsilon^2)', 'hard_birth_order': 'O(epsilon^4)', 'linear_rate_order': 'every easy rate exceeds every hard rate', 'birth_then_linear_balance': False},
+    'stable-preload-balance': {'easy_leading_births_cancelled': True, 'lower_order_hard_contamination': False, 'corrected_hard_coefficients_nonzero': True, 'exact_short_stage_easy_retuning': True, 'recursive_counterterm_supply': False},
 }
 def predict(control): return KNOWN[control['id']]
