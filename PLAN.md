@@ -1,9 +1,9 @@
-# Navier--Stokes terminal frontier: physical prehistory or full adjoint
+# Navier--Stokes terminal frontier: global parent supply or full adjoint
 
 This is the sole live task/status record. `NS-R3` remains **NOT PROVED** and no
-unforced counterexample has been constructed. This PLAN supersedes the
-2026-09-09 viscous-Fredholm live plan, preserved verbatim at
-`research/history/PLAN-before-frontier-integration-2026-09-11.md`.
+unforced counterexample has been constructed. The preceding live plan is
+preserved verbatim at
+`research/history/PLAN-before-finite-L-parent-supply-2026-09-11.md`.
 Historical plans are evidence/history only, not parallel task queues.
 
 ```yaml
@@ -12,10 +12,10 @@ terminal_status: not-proved
 unforced_counterexample: not-constructed
 complete_terminal_route: none-established
 checkpoint: CP1
-phase: source-specific-physical-prehistory-or-full-adjoint-2026-09-11
-active_task: UE1-source-prehistory-matching-or-complete-physical-adjoint
+phase: source-specific-global-parent-supply-or-full-adjoint-2026-09-11
+active_task: UE1-global-growing-parent-supply-or-complete-physical-adjoint
 primary_direction: full-PDE-exactification-with-positive-route-fallback
-dominant_research_nut: one-Schwartz-trace-supplying-all-required-source-entry-traces-through-the-full-viscous-history
+dominant_research_nut: one-Schwartz-trace-supplying-the-four-growing-parent-traces-to-each-local-source-window-through-radial-exterior-or-nonlinear-supply
 raman_route: retired-after-two-distinct-leading-time-order-cancellations
 positive_RFq_consumer: reviewed-and-closed-conditional-on-input-only-producer
 arbitrary_data_RFq_producer: not-produced
@@ -30,6 +30,14 @@ source_zero_extension_gluing: refuted-by-solenoidal-time-impulse
 source_localized_adjoint_shortcut: refuted-by-exact-half-unit-defect
 angular_trapped_homogeneous_preparation: superalgebraically-damped-author-proof
 angular_preparation_alternative: radial-exterior-occupation-or-large-nonlinear-supply
+source_four_parent_decaying_synthesis: proved-reference-principal-author
+source_all_orders_spectral_cage: proved-reference-author
+source_reference_unstable_manifold: proved-full-lattice-reference-author
+source_finite_L_lattice_persistence: proved-local-principal-author
+source_correlated_carrier_rounding: proved-exact-arithmetic
+source_physical_harmonic_protection: proved-local-physical-author
+source_local_decaying_branch_generation: closed-on-fixed-physical-pulse-window-author
+source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
 nonlinear_deforcing_contraction: not-produced
@@ -73,13 +81,14 @@ The negative/full-PDE consumer is
       -> preserve a singular observation
       -> identify U+w with its classical unforced branch.
 
-Finite-interval inversion alone is not this consumer.
+Finite-interval inversion or a local pulse replacement alone is not this
+consumer.
 
 ## 2. Retired Raman purifier architecture
 
 The September 11 Raman programme generated several exact scoped positive
 Fourier-symbol theorems, but the physical time-evolution audit found a missing
-ordering term. The load-bearing negative controls are now:
+ordering term. The load-bearing negative controls are:
 
 1. a real field necessarily carries reflected modules, invalidating a one-sided
    pointed slow semigroup;
@@ -132,7 +141,7 @@ or another absolute smooth-block estimate. A future positive attack must use a
 genuinely nonlinear spacetime/trajectory mechanism that controls accumulated
 comparable transfer without `sup a_k` or squared-enstrophy input.
 
-## 4. Full-PDE inverse: what is already proved
+## 4. Full-PDE inverse and common-control criterion
 
 For every prescribed smooth finite history the repository has a full viscous
 mixed-trace inverse. The later positive-normal initialization removes the
@@ -163,7 +172,7 @@ with the exact Pythagorean increment identity for nested constraints. Thus
 "carry the correction globally" does not remove trace coherence; it is exactly
 a bounded common-control problem.
 
-## 5. Source-specific progress: local seeds are cheap, gluing is not
+## 5. Source-specific local seed and gluing results
 
 The source-pulse adjoint calculation is favorable locally. For the actual
 principal primary pulse, whose envelope satisfies
@@ -187,9 +196,6 @@ adjoint defect has an exact order-one half-unit pairing and cancels the apparent
 obstruction. These results are frozen in
 `research/evidence/2026-09-10-source-pulse-adjoint.md`.
 
-Therefore another local pulse inverse, another flatness argument, or another
-artificially localized adjoint is not progress.
-
 ## 6. Whole-prehistory angular obstruction
 
 The whole-space angular preparation theorem supplies the complementary global
@@ -206,45 +212,127 @@ the missing alternative is a quantitatively large cumulative nonlinear supply
 from the complete non-axisymmetric field. No finite harmonic closure is used.
 See `research/evidence/2026-09-08-angular-preparation-obstruction.md`.
 
-This result is not yet an absolute event cost: the nonlinear work is normalized
-by the current mode energy. It therefore neither proves impossibility nor feeds
-RF-q directly.
+The later first-moment/angular-event theorem converts part of this geometry into
+an absolute input-only spacetime budget, but the source's shrinking-volume
+pulses make that quartic cost summable. It does not exclude the source scales.
 
-## 7. ONE active terminal nut
+## 7. New source-reference and finite-L causal module
 
-The next attack is source-specific **physical prehistory matching**. For the
-actual forced singular history, determine whether one Schwartz initial
-correction can supply all required nonzero pulse-entry traces through the full
-viscous evolution, including mean, pressure, exterior, diffusion and nonlinear
-transfer.
+The old conclusion that a decaying source eigenbranch must be independently
+preloaded is false. A sequence of exact checkpoints now closes that local
+startup problem.
 
-There are exactly two acceptable outcomes:
+### 7.1 Four growing parents and the all-orders spectral cage
 
-**Constructive closure.** Build a common initial control with bounded all-order
-Schwartz costs, propagate it through the complete prehistory, cancel the entire
-force by a convergent nonlinear correction, and prove the singular observation
-survives.
+Two different decompositions of one daughter can be made from four **growing**
+source eigenbranches. Their pair products can be weighted so that the daughter
+positive/growing eigencomponent cancels while its negative/decaying component
+is nonzero. Every other first quadratic output is damped.
 
-**Quantitative exclusion of this profile/correction class.** Construct the
-complete physical backward adjoint(s), not locally cut off substitutes, and
-prove that the actual force/observation pairing violates the exact nonlinear
-de-forcing budget for the stated bounded correction class. Such an exclusion
-would retire this forced-profile exactification route; it would NOT prove global
-regularity of arbitrary unforced NS.
+For the explicit rational geometry
 
-The first discriminating subproblem is to combine the actual local entry-seed
-sizes with the full physical prehistory transfer. The angular theorem says that
-a homogeneous high-angular seed cannot simply stay in the shrinking core: the
-proof must quantify radial exterior transport or nonlinear generation. Test the
-minimum-norm prefix controls / complete adjoint against those two alternatives.
+    c=1/20,
+    d_A=9/20,
+    d_B=3/20,
 
-After two serious returns to an uncontrolled future critical quantity or to the
-same trace/prehistory obstruction, change mechanism again. Do not replace this
-source-specific calculation by another generic Fredholm inverse.
+all parent and generated frequencies lie in the rank-two lattice
 
-## 8. UE2--UE4 after UE1
+    k_(m,z)=((3m-z)/10,0,z).
 
-Only after one common trace / prehistory is controlled:
+At the chosen viscous strength the positive branch grows only at the four
+parent sites (plus reality partners); every other mode/branch is uniformly
+stable. This is the all-orders spectral cage of
+`research/evidence/2026-09-11-source-all-orders-spectral-cage.md`.
+
+### 7.2 Full frozen-lattice causal prehistory
+
+Keeping the **entire** Navier--Stokes convolution on that infinite lattice, a
+Lyapunov--Perron construction gives a local backward-eternal unstable manifold.
+Every stable sideband is generated causally from the four growing coordinates.
+After retuning by the actual causal growth mismatches, the designated daughter
+has zero growing coordinate and a nonzero decaying coordinate. See
+`research/evidence/2026-09-11-source-reference-unstable-manifold.md`.
+
+This removes finite-jet and restart objections in the frozen reference system.
+
+### 7.3 Exact finite-L phase lattice and local persistence
+
+The actual unrounded source normals do not open a third frequency direction.
+On every fixed fast-time window the four parents remain on one exact rank-two
+convolution lattice which is a homogeneous `O(L^-1)` shear of the frozen cage.
+The pressure-retaining principal matrix, moving normal and viscous rates retain
+the hyperbolic cage for all sufficiently large `L`.
+
+A finite-horizon full-lattice solution initialized with the four parents at the
+left edge can therefore be retuned so that the **exact nonlinear finite-L
+principal target** has zero growing coordinate and nonzero decaying coordinate,
+with every stable sideband retained. This is
+`research/evidence/2026-09-11-source-finite-L-lattice-persistence.md`.
+
+### 7.4 Carrier rounding and physical harmonic protection
+
+The two decompositions can be rounded coherently so that their physical Fourier
+sums agree **exactly**; three nearest-integer choices force the fourth, whose
+rounding error remains bounded.
+
+More importantly, the source's exact phase-integer calculus removes the feared
+`O(epsilon/L)` contamination of an `O(epsilon^2)` daughter. Put all four parents
+in one nonzero phase integer `m`. Slow/background/mean coefficients have grade
+zero; linear slow transport, diffusion, curls, pressure reconstruction,
+axisymmetric localization and particular pulse propagation preserve `m`.
+Wave products add their phase integers. Hence every linear physical correction
+stays in `m`, while the common daughter is in `2m`.
+
+The first physical correction in the daughter is therefore also quadratic:
+
+    Pi_(2m) Error_physical
+      = O(epsilon^2/L)+O(epsilon^3)
+
+on the fixed local window. The implicit retuning survives, so the local physical
+pulse module can generate the required decaying branch without a reset. See
+`research/evidence/2026-09-11-source-physical-harmonic-protection.md`.
+
+These are author theorems pending independent audit. They are not a global
+unforced construction.
+
+## 8. ONE active terminal nut: global supply of the four growing parents
+
+The first unresolved dependency has moved **backward in physical time**.
+Starting with the four growing parent traces at the left edge of one pulse
+window, the local full-lattice/principal/physical harmonic problem is now
+closed at the stated small-data scope. What is not known is whether one global
+Schwartz initial correction can supply those four growing parent traces at all
+required source scales.
+
+The old homogeneous trapped-preload route is excluded by the angular
+preparation theorem. Therefore a constructive proof must use at least one of:
+
+1. **radial-exterior preparation:** high angular modes spend almost all
+   logarithmic preparation time outside the shrinking column, then enter the
+   local instability window through the complete physical dynamics; or
+2. **nonlinear/parametric parent generation:** earlier/lower-complexity
+   correction modes interact with the actual wave-bearing source background or
+   with each other to generate the four parent harmonics late, avoiding the
+   long trapped viscous history.
+
+The source's own smooth residual may participate in the correction equation
+`L_U w + P div(w tensor w)=-P F`; this is legitimate because the final field
+`U+w` is unforced. However the zero-seed response to a primary startup cutoff
+is `-psi h` and erases the pulse. Any source-driven generation mechanism must
+be shown to preserve the singular observation, not merely cancel the force.
+
+The alternative terminal attack is a **complete physical adjoint** proving that
+both exterior and nonlinear parent-supply mechanisms require divergent
+minimum-prefix control cost or violate the exact nonlinear de-forcing budget.
+A locally cut-off adjoint is already refuted and must not be reused.
+
+This parent-supply problem is now the first terminal dependency. Another frozen
+lattice, finite Fourier jet, local pulse inverse, or generic Fredholm theorem is
+not progress.
+
+## 9. UE2--UE4 after UE1
+
+Only after global parent supply / one common trace is controlled:
 
 - **UE2:** solve the full nonlinear correction with every cross-product,
   pressure term, exterior tail and ordinary diffusion retained;
@@ -255,16 +343,17 @@ Only after one common trace / prehistory is controlled:
 
 No numerical orbit is a certificate for these steps.
 
-## 9. Verification, provenance, formal work
+## 10. Verification, provenance, formal work
 
 The route-invariant formal programme is unchanged. Current Lean status remains
 owned by `itpplasma/navier-formal` and `navier-formal/docs/verification-status.md`;
 no new formal coverage is claimed by this PLAN update. The complete prior formal
-status text and earlier viscous history are preserved in the archived PLAN.
+status and earlier frontier text are preserved in the archived PLANs.
 
 All September 11 theorem/obstruction packets are author proofs unless their own
 files state otherwise; independent mathematical audit and novelty remain
-pending. The accepted forced-source and Euler-source scopes remain unchanged.
+pending. None of the new source-prehistory packets is promoted into the
+canonical proof graph.
 
 A full checkout is required for `python3 research/game/run.py fast`,
 `python3 research/verify.py --research-only`, paper checks and `git diff --check`.
