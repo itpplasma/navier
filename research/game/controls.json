@@ -197,6 +197,19 @@
         "factor_two_scale": "hard=1/8 easy=1/2",
         "finite_duration_stage_map": false
       }
+    },
+    {
+      "id": "stage-balance-wall",
+      "scope": "dual-tuned four-parent birth followed by common linear amplification",
+      "evidence": "research/evidence/2026-09-12-stage-balance-wall.md",
+      "rigor": "exact-algebra-spectral-author-proof",
+      "observation": {
+        "easy_product": "nonzero fixed multiple of epsilon^4",
+        "balanced_parent_easy_lower_bound": "at least one Omega(epsilon^2)",
+        "hard_birth_order": "O(epsilon^4)",
+        "linear_rate_order": "every easy rate exceeds every hard rate",
+        "birth_then_linear_balance": false
+      }
     }
   ]
 }

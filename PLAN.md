@@ -45,6 +45,7 @@ source_correction_conveyor_scaling: energy-compatible-but-nondegenerate-conveyor
 source_phase_graded_relay: first-doubling-separated-from-cubic-pollutant-fixed-order-infinite-relay-impossible
 source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-adapter-open
 source_relay_scale_homogeneity: hard-quartic-easy-quadratic-stage-factors-one-eighth-one-half
+source_birth_linear_stage_balance: refuted-by-easy-product-and-rate-ordering
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -450,16 +451,27 @@ hard quartic channels scale as `alpha^3` and the easy quadratic channels as
 `alpha`. At factor-two normalization these are exact factors `1/8` and `1/2`.
 See `research/evidence/2026-09-12-relay-scale-homogeneity.md`.
 
-The next active test must therefore quantify a **finite-duration stage map**
-with this hard/easy amplitude imbalance, the grade-`m` cubic pollutant and the
-expanding inherited unstable family all retained. A constructive proof must
-show that stage amplification restores the two hard `O(epsilon^4)` channels to
-the four-parent input class without losing control to the easy
-`O(epsilon^2)` channels; an obstruction should prove that this is impossible or
-terminal-strength. The alternative active mechanisms remain a full physical
+The obvious birth-then-linear-amplification repair is now excluded exactly.
+Under the load-bearing dual pair-product constraints, the two easy quadratic
+children obey an invariant nonzero product, so they cannot both be tuned below
+their natural `epsilon^2` scale while the two hard children begin only at
+`epsilon^4`. Moreover the source-reference positive-branch rates satisfy
+
+    r_4 > r_3 > r_2 > r_1,
+
+with `p_3,p_4` the easy channels and `p_1,p_2` the hard channels. Hence every
+common positive linear amplification interval makes the easy/hard imbalance
+worse, not better. See `research/evidence/2026-09-12-stage-balance-wall.md`.
+
+After two serious passes at the same hard/easy stage mismatch, the active
+constructive route must change mechanism. The next test is **nonlinear /
+higher-dimensional balancing**: add stable grade-`2m` counterterms or other
+extra modes and determine whether the easy quadratic births can be canceled
+without producing lower-order hard-sector errors, then ask whether those
+counterterms are themselves recursively supplied by the returned expanding
+state rather than reset. The alternative active routes remain the full physical
 interstage propagator/adjoint adapter, sparse thin-collar/nonlocal entry, or a
-complete full-history adjoint. No bound on the sparse collar stress or
-full-history gain has been obtained. UE1 and the terminal claim remain open.
+complete full-history adjoint. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
