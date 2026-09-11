@@ -1,98 +1,110 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "controls": [
     {
       "id": "terminal-open",
       "scope": "NS-R3",
-      "evidence": "PAPER_AUTHOR_PROOF",
-      "rigor": "exact",
-      "observation": {
-        "terminal_status": "not-proved",
-        "unforced_counterexample": "not-constructed"
-      }
+      "evidence": "AUTHORITATIVE_PLAN",
+      "rigor": "exact-status",
+      "observation": {"terminal_status": "not-proved", "unforced_counterexample": "not-constructed"}
     },
     {
       "id": "positive-consumer",
       "scope": "regularity route",
-      "evidence": "PAPER_AUTHOR_PROOF",
+      "evidence": "REVIEWED_CONDITIONAL_CHAIN",
       "rigor": "exact",
-      "observation": {
-        "needs": "input-only arbitrary-data critical producer",
-        "consumer": "finite L^{3,q} or equivalent continuation bound"
-      }
+      "observation": {"needs": "input-only arbitrary-data critical producer", "consumer": "finite L^{3,q} or equivalent continuation bound"}
     },
     {
       "id": "finite-inverse-scope",
       "scope": "viscous mixed-trace inverse",
       "evidence": "PAPER_AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {
-        "finite_horizon_inverse": true,
-        "endpoint_uniformity": false,
-        "common_trace": false,
-        "arbitrary_data_critical_producer": false
-      }
+      "observation": {"finite_horizon_inverse": true, "common_physical_trace": false, "endpoint_uniformity": false}
     },
     {
-      "id": "pressure-curvature-transfer",
-      "scope": "global upper pressure curvature",
-      "evidence": "PAPER_AUTHOR_PROOF",
+      "id": "all-penalty-selector",
+      "scope": "changed positive-normal initialization",
+      "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {
-        "uniform_global_sqrtK_budget_can_drive_blowup": false,
-        "local_directional_constraints_excluded": false
-      }
+      "observation": {"all_nonnegative_penalties": true, "operator_lipschitz_in_history": true, "source_endpoint_control": false}
     },
     {
-      "id": "viscous-action-coercivity",
-      "scope": "full viscous displacement action",
-      "evidence": "PAPER_AUTHOR_PROOF",
+      "id": "common-control-criterion",
+      "scope": "accumulating pulse observations",
+      "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {
-        "pressure_only_semibounded_nonzero_background": false,
-        "zero_background_exception": true
-      }
+      "observation": {"common_finite_norm_control_iff": "uniformly bounded minimum-norm prefix controls", "source_passes_test": false}
     },
     {
-      "id": "separated-pulse-start",
-      "scope": "unforced exactification",
-      "evidence": "PAPER_AUTHOR_PROOF",
+      "id": "source-local-entry-seed",
+      "scope": "actual primary source pulse",
+      "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {
-        "separated_zero_pulses_start_autonomously": false
-      }
+      "observation": {"entry_seed_cost": "comparable to P(0)=exp(-gamma_- L)", "peak_preserved_locally": true, "one_global_initial_trace": false}
+    },
+    {
+      "id": "source-covariance-retuning",
+      "scope": "actual two-pulse leading mean covariance",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {"positive_weights_preserved": true, "relative_change": "O(sqrt(L) exp(-c L))", "full_mean_pressure_repaired": false}
+    },
+    {
+      "id": "source-zero-extension-gluing",
+      "scope": "uncut locally seeded pulse extended by zero",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {"unforced_full_NS_gluing": false, "obstruction": "nonzero solenoidal temporal delta impulses"}
+    },
+    {
+      "id": "localized-adjoint-shortcut",
+      "scope": "actual source principal pulse",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {"zero_initial_trace_cutoff_adjoint_valid": false, "defect_pairing": "exact half-unit cancellation"}
+    },
+    {
+      "id": "angular-homogeneous-preparation",
+      "scope": "whole-space high angular mode preparation",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {"trapped_homogeneous_preparation": "superalgebraically damped", "surviving_alternatives": "radial exterior occupation or large nonlinear supply"}
+    },
+    {
+      "id": "angular-resonance-budget",
+      "scope": "positive smooth-block route",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {"input_only_weighted_moment_budget": true, "thin_resonance_slab_cost": "O(eta)", "RFq_producer": false}
+    },
+    {
+      "id": "comparable-normal-form-wall",
+      "scope": "heat-resonance split plus one normal form",
+      "evidence": "EXACT_SCALING_OBSTRUCTION",
+      "rigor": "exact",
+      "observation": {"boundary_primitive_over_entropy": "M/(nu eta)", "uniform_arbitrary_amplitude_coercivity": false}
+    },
+    {
+      "id": "raman-simultaneous-ordering",
+      "scope": "preloaded Raman pairs",
+      "evidence": "EXACT_LEADING_SYMBOL",
+      "rigor": "exact",
+      "observation": {"claimed_leading_one_order_transfer_survives_full_time_ordering": false}
+    },
+    {
+      "id": "raman-dynamic-parent-birth",
+      "scope": "2D3C autonomous parent birth repair",
+      "evidence": "EXACT_LEADING_SYMBOL",
+      "rigor": "exact",
+      "observation": {"complete_O_N_target_response": "zero", "active_terminal_route": false}
     },
     {
       "id": "numerics-not-certificate",
       "scope": "terminal evidence",
-      "evidence": "LITERATURE_THEOREM",
+      "evidence": "REPOSITORY_POLICY",
       "rigor": "policy",
-      "observation": {
-        "numerical_orbit_proves_blowup": false,
-        "numerical_orbit_proves_regularity": false
-      }
-    },
-    {
-      "id": "clock-action-obstruction",
-      "scope": "strong 2D3C purifier scaling",
-      "evidence": "EXACT_IDENTITY",
-      "rigor": "exact",
-      "observation": {
-        "fixed_action_requires": "S/N^2 >= c0",
-        "slow_purifier_requires": "lambda*b >= eta0",
-        "bounded_fast_parent_requires": "lambda*sqrt(S) <= C0",
-        "all_three_with_N_over_b_to_infinity": false
-      }
-    },
-    {
-      "id": "old-strong-scaling-action",
-      "scope": "S~b^2 with N/b->infinity",
-      "evidence": "EXACT_IDENTITY",
-      "rigor": "exact",
-      "observation": {
-        "integrated_clean_action_limit": 0,
-        "sufficient_for_fixed_positive_filter_action": false
-      }
+      "observation": {"numerical_orbit_proves_blowup": false, "numerical_orbit_proves_regularity": false}
     }
   ]
 }

@@ -1,21 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "1870c8a4ac191b58560748e4fc3a8eae8ea3babf",
+    "PLAN.md": "af4b6207e2c4a3febc787ca86dc2f411954430d3",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
-    "research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md": "344974c4fe79aaa4fb7afd90e9f9d928f267592a"
+    "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
+    "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
+    "research/evidence/2026-09-11-comparable-normal-form-coercivity-wall.md": "080e378349403278b675eca080b0d60e7f524c49",
+    "research/evidence/2026-09-11-raman-parent-birth-wall.md": "f77019735f01475cfcc20a7f3e55778b7d1f966b"
   },
-  "cycle": [
-    "DISCOVER",
-    "FALSIFY",
-    "REPAIR",
-    "REVIEW",
-    "INTEGRATE"
-  ],
+  "cycle": ["DISCOVER", "FALSIFY", "REPAIR", "REVIEW", "INTEGRATE"],
   "diversification": {
     "serious_repeat_limit": 2,
     "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
   },
+  "active_frontier": "source-specific physical prehistory matching or complete physical adjoint for the actual forced singular history",
   "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
 }
