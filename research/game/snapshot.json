@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "terminal": "NS-R3",
+  "authoritative_sources": {
+    "PLAN.md": "1870c8a4ac191b58560748e4fc3a8eae8ea3babf",
+    "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
+    "research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md": "344974c4fe79aaa4fb7afd90e9f9d928f267592a"
+  },
+  "cycle": [
+    "DISCOVER",
+    "FALSIFY",
+    "REPAIR",
+    "REVIEW",
+    "INTEGRATE"
+  ],
+  "diversification": {
+    "serious_repeat_limit": 2,
+    "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
+  },
+  "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
+}

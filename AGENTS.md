@@ -50,6 +50,45 @@ independent audit and formal verification statuses. Do not treat smooth-target
 hydrodynamic theorems as proofs of the target's smoothness. Do not prepend
 regular-particle theorems to weak kinetic solutions without an adapter.
 
+## Executable research game
+
+`research/game/` is the executable backend for the repository's existing
+math-frontier discipline. It does not replace `PLAN.md` or the canonical proof
+graph.
+
+At the start of a frontier run execute:
+
+    python3 research/game/run.py fast
+
+Then continue the DISCOVER / FALSIFY / REPAIR / REVIEW / INTEGRATE cycle
+against the first unresolved terminal dependency.
+
+For each serious candidate mechanism:
+
+1. state the exact prediction or estimate before testing;
+2. replay every applicable frozen control;
+3. prefer the cheapest exact experiment that distinguishes surviving mechanisms;
+4. preserve exact counterexamples and route-changing failures as controls;
+5. classify numerical PDE experiments as heuristic/discriminating evidence only;
+6. never promote simulation, apparent singularity, resolution convergence or
+   finite computation into a universal regularity/blowup theorem;
+7. after two serious returns to the same uncontrolled critical quantity or exact
+   obstruction, change mechanism, abstraction, representation or route.
+
+Current routes in PLAN are priorities, not a whitelist. New proof or
+counterexample mechanisms from any relevant mathematical or physical framework
+are explicitly encouraged if they respect the terminal contract and known
+controls.
+
+A theorem, obstruction, experiment or commit is a checkpoint, not a stopping
+condition. After a genuine mathematical delta, integrate it, run applicable
+checks, commit/push it, recompute the terminal frontier, and continue.
+
+If authoritative frontier files change, the fast gate may fail closed as stale.
+Read the new state, refresh the game projection/controls only where mathematically
+justified, then rerun the gate. Do not edit frozen observations merely to rescue
+a failed mechanism.
+
 ## Formal phases and proof promotion
 
 Phase I means manuscript-owned Lean proofs over precisely stated and sourced

@@ -1,0 +1,31 @@
+name: research-game-fast
+
+on:
+  push:
+    paths:
+      - AGENTS.md
+      - PLAN.md
+      - docs/proof-graph.yaml
+      - research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md
+      - research/game/**
+      - .github/workflows/research-game-fast.yml
+  pull_request:
+    paths:
+      - AGENTS.md
+      - PLAN.md
+      - docs/proof-graph.yaml
+      - research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md
+      - research/game/**
+      - .github/workflows/research-game-fast.yml
+
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile game Python
+        run: python3 -m py_compile research/game/core.py research/game/run.py research/game/selftest.py research/game/models/baseline.py research/game/models/refuted_peak_strain.py
+      - name: Replay frozen frontier controls
+        run: python3 research/game/run.py fast
+      - name: Exercise hostile control
+        run: python3 research/game/selftest.py

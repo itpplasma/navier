@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "controls": [
+    {
+      "id": "terminal-open",
+      "scope": "NS-R3",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "terminal_status": "not-proved",
+        "unforced_counterexample": "not-constructed"
+      }
+    },
+    {
+      "id": "positive-consumer",
+      "scope": "regularity route",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "needs": "input-only arbitrary-data critical producer",
+        "consumer": "finite L^{3,q} or equivalent continuation bound"
+      }
+    },
+    {
+      "id": "finite-inverse-scope",
+      "scope": "viscous mixed-trace inverse",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "finite_horizon_inverse": true,
+        "endpoint_uniformity": false,
+        "common_trace": false,
+        "arbitrary_data_critical_producer": false
+      }
+    },
+    {
+      "id": "pressure-curvature-transfer",
+      "scope": "global upper pressure curvature",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "uniform_global_sqrtK_budget_can_drive_blowup": false,
+        "local_directional_constraints_excluded": false
+      }
+    },
+    {
+      "id": "viscous-action-coercivity",
+      "scope": "full viscous displacement action",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "pressure_only_semibounded_nonzero_background": false,
+        "zero_background_exception": true
+      }
+    },
+    {
+      "id": "separated-pulse-start",
+      "scope": "unforced exactification",
+      "evidence": "PAPER_AUTHOR_PROOF",
+      "rigor": "exact",
+      "observation": {
+        "separated_zero_pulses_start_autonomously": false
+      }
+    },
+    {
+      "id": "numerics-not-certificate",
+      "scope": "terminal evidence",
+      "evidence": "LITERATURE_THEOREM",
+      "rigor": "policy",
+      "observation": {
+        "numerical_orbit_proves_blowup": false,
+        "numerical_orbit_proves_regularity": false
+      }
+    },
+    {
+      "id": "clock-action-obstruction",
+      "scope": "strong 2D3C purifier scaling",
+      "evidence": "EXACT_IDENTITY",
+      "rigor": "exact",
+      "observation": {
+        "fixed_action_requires": "S/N^2 >= c0",
+        "slow_purifier_requires": "lambda*b >= eta0",
+        "bounded_fast_parent_requires": "lambda*sqrt(S) <= C0",
+        "all_three_with_N_over_b_to_infinity": false
+      }
+    },
+    {
+      "id": "old-strong-scaling-action",
+      "scope": "S~b^2 with N/b->infinity",
+      "evidence": "EXACT_IDENTITY",
+      "rigor": "exact",
+      "observation": {
+        "integrated_clean_action_limit": 0,
+        "sufficient_for_fixed_positive_filter_action": false
+      }
+    }
+  ]
+}
