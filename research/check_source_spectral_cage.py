@@ -45,28 +45,21 @@ check(all(s.simplify(x)==0 for x in F-bm*aminus),'target is pure negative eigenb
 def rate(z,ss):
     q=s.sqrt(1+ss*ss)
     return s.simplify(1/q-mu*z*z*q*q)
-# Worst parent is |s|=1/2.
 check(rate(1,s.Rational(1,2))>0,'all four parent positive branches grow')
-# First new z=1 lattice site has |s|=7/10 and is already damped.
 check(rate(1,s.Rational(7,10))<0,'nearest nonparent z=1 site is damped')
-# Rate is strictly decreasing with |s| because q increases and 1/q-mu q^2 decreases.
 q=s.symbols('q',positive=True)
 check(s.diff(1/q-mu*q*q,q)<0,'positive-branch rate decreases with q')
-# Any |z|>=2 mode is damped regardless of tilt: rate <=1-mu z^2 <=1-12/5.
 check(1-4*mu<0,'every |z|>=2 lattice mode is linearly damped')
 
-# Parent radial numerators in tenths are all -1 modulo 3:
-# p_j=((3m_j-1)/10,0,1), m_j=-1,0,1,2.
-ms=[-1,2,1,0]  # order matching tilts above: 1/2,-2/5,1/5,-1/10
+# Parent labels in k_(m,z)=((3m-z)/10,0,z).
+# Order matches tilts 1/2,-2/5,1/5,-1/10.
+ms=[2,-1,1,0]
 for tilt,m in zip(tilts,ms):
     check(tilt==s.Rational(3*m-1,10),f'parent m={m} lies in affine lattice')
-# Closure under addition is algebraic:
 m1,m2,z1,z2=s.symbols('m1 m2 z1 z2',integer=True)
 x1=s.Rational(1,10)*(3*m1-z1); x2=s.Rational(1,10)*(3*m2-z2)
 check(s.expand(x1+x2-s.Rational(1,10)*(3*(m1+m2)-(z1+z2)))==0,
       'k_(m,z) lattice closed under convolution')
-# For z=1 the tilt sites are (3m-1)/10. Exactly m=-1,0,1,2 lie between -1/2 and 1/2;
-# outside them |s|>=7/10 (left) or 4/5 (right).
 for m in (-1,0,1,2):
     check(abs(s.Rational(3*m-1,10))<=s.Rational(1,2),f'unstable parent site m={m}')
 check(abs(s.Rational(3*(-2)-1,10))==s.Rational(7,10),'left next z=1 site is -7/10')
