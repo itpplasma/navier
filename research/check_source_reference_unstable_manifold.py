@@ -10,7 +10,7 @@ def check(ok,label):
 def P(k):
     k=s.Matrix(k); return s.eye(3)-k*k.T/k.dot(k)
 def C(p,a,q,b):
-    p,q,a,b=map(s.Matrix,(p,a,q,b))
+    p,a,q,b=map(s.Matrix,(p,a,q,b))
     return s.simplify(P(p+q)*((a.dot(q))*b+(b.dot(p))*a))
 def ap(sig): return s.Matrix([1,-s.sqrt(1+sig*sig),-sig])
 def eigcoords(k,f):
@@ -23,6 +23,8 @@ parents=[s.Matrix([x,0,1]) for x in tilts]; pols=[ap(x) for x in tilts]
 k=parents[0]+parents[1]
 F_A=C(parents[0],pols[0],parents[1],pols[1])
 F_B=C(parents[2],pols[2],parents[3],pols[3])
+check(s.simplify(k.dot(F_A))==0 and s.simplify(k.dot(F_B))==0,
+      'both Leray pair outputs are target-transverse')
 bAp,bAm=eigcoords(k,F_A); bBp,bBm=eigcoords(k,F_B)
 
 def gp(z,x):
@@ -40,10 +42,12 @@ check(DAp>0 and DBp>0 and DAm>0 and DBm>0,'all homological denominators positive
 # Pair products retuned for the CAUSAL stable-manifold coefficient.
 wA=s.simplify(bBp*DAp)
 wB=s.simplify(-bAp*DBp)
-hplus=s.simplify(wA*bAp/DAp+wB*bBp/DBp)
-hminus=s.simplify(wA*bAm/DAm+wB*bBm/DBm)
+# The + cancellation is algebraic from the chosen weights; avoid asking the CAS
+# to rediscover it through a large radical simplification.
+hplus=s.cancel(wA*bAp/DAp+wB*bBp/DBp)
+hminus=wA*bAm/DAm+wB*bBm/DBm
 check(hplus==0,'quadratic unstable-manifold target positive coordinate cancels')
-check(hminus>0,'quadratic unstable-manifold target negative coordinate survives')
+check(s.N(hminus,50)>0,'quadratic unstable-manifold target negative coordinate survives')
 
 # Coarse exact spectral margins used in the Lyapunov--Perron proof.
 check(gp(1,s.Rational(1,2))>s.Rational(1,10),'unstable spectral margin exceeds 1/10')
@@ -51,6 +55,6 @@ check(gp(1,s.Rational(7,10))<-s.Rational(1,100),'nearest nonparent z=1 site belo
 check(-mu*s.Rational(9,100)<-s.Rational(1,100),'nearest nonzero radial site below -1/100')
 check(1-4*mu<-s.Rational(1,100),'all |z|>=2 positive branches below -1/100')
 
-print(f'PASS: {len(CHECKS)} exact assertions.')
+print(f'PASS: {len(CHECKS)} exact/symbolic assertions.')
 print('Causal pair-product retuning cancels the target + coefficient while retaining a positive target - coefficient.')
 print('Coarse hyperbolic margins: unstable >1/10, stable <-1/100 outside the four growing sites.')
