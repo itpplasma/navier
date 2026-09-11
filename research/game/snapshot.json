@@ -2,18 +2,21 @@
   "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "af4b6207e2c4a3febc787ca86dc2f411954430d3",
+    "PLAN.md": "cbfa38bc60b1baf3f846d8d6bdb98666f79a3b39",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
     "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
     "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
     "research/evidence/2026-09-11-comparable-normal-form-coercivity-wall.md": "080e378349403278b675eca080b0d60e7f524c49",
-    "research/evidence/2026-09-11-raman-parent-birth-wall.md": "f77019735f01475cfcc20a7f3e55778b7d1f966b"
+    "research/evidence/2026-09-11-raman-parent-birth-wall.md": "f77019735f01475cfcc20a7f3e55778b7d1f966b",
+    "research/evidence/2026-09-11-source-reference-unstable-manifold.md": "da7c9d0eb27cb412acefa90c739af97194b05d6d",
+    "research/evidence/2026-09-11-source-finite-L-lattice-persistence.md": "e19e47c6cf341f5f524d75f1b113b2de8b343007",
+    "research/evidence/2026-09-11-source-physical-harmonic-protection.md": "bdcc45d8670edd61e5a3746b5da8a876799903c9"
   },
   "cycle": ["DISCOVER", "FALSIFY", "REPAIR", "REVIEW", "INTEGRATE"],
   "diversification": {
     "serious_repeat_limit": 2,
     "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
   },
-  "active_frontier": "source-specific physical prehistory matching or complete physical adjoint for the actual forced singular history",
+  "active_frontier": "global supply of the four growing source-parent traces from one Schwartz correction, by radial exterior occupation or nonlinear/parametric generation, or complete physical adjoint exclusion",
   "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
 }
