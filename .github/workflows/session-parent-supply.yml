@@ -16,8 +16,9 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Check exact patch and refresh main
         run: |
-          cp research/session-parent-supply.patch /tmp/checkpoint.patch
-          echo 'a5434d99e8294c74eaca7f6d1586a72cfbce2f831c74ec176fb0113f28875475  /tmp/checkpoint.patch' | sha256sum -c -
+          echo 'ee12e2b6b79531b53d52fb3f8504a31d09e9140141c76c2966469245b4a0f2d1  research/session-parent-supply.patch' | sha256sum -c -
+          sed 's/^ diff --git /diff --git /' research/session-parent-supply.patch > /tmp/checkpoint.patch
+          echo '4f4a4932d233b7b3129547e296b6797fb86618b82b631e1d8ed39d12deda745d  /tmp/checkpoint.patch' | sha256sum -c -
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
@@ -28,6 +29,7 @@ jobs:
           python3 -m pip install PyYAML sympy numpy scipy
           python3 research/game/run.py fast
           python3 research/game/selftest.py
+          python3 research/check_exterior_pressure_energy.py
           python3 research/check_exterior_pressure_transmission.py
           python3 research/check_source_exterior_characteristic_wall.py
           python3 research/check_angular_heat_import.py
@@ -38,9 +40,9 @@ jobs:
           git diff --check
       - name: Commit only authorized paths and push without force
         run: |
-          git add -- PLAN.md research/check_angular_heat_import.py research/check_exterior_pressure_transmission.py research/check_source_exterior_characteristic_wall.py research/evidence/2026-09-11-exterior-pressure-transmission.md research/evidence/2026-09-11-source-exterior-characteristic-wall.md research/game/controls.json research/game/models/baseline.py research/game/snapshot.json
+          git add -- PLAN.md research/check_exterior_pressure_energy.py research/evidence/2026-09-11-exterior-pressure-energy.md research/evidence/2026-09-11-exterior-pressure-transmission.md research/game/controls.json research/game/models/baseline.py research/game/snapshot.json
           git diff --cached --check
-          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Prove angular exterior-pressure barrier and narrow parent-supply frontier'
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Control exterior angular pressure directly by initial energy'
           git fetch origin main
           git merge-base --is-ancestor origin/main HEAD
           git push origin HEAD:main
