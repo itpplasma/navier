@@ -2,7 +2,7 @@
   "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "8aacf27d1ff5032ff998eabd7820efd7c60e99ad",
+    "PLAN.md": "5736a6aebb54765e0f9dd91bd7ad898d9159f074",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
     "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
     "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
@@ -15,7 +15,8 @@
     "research/evidence/2026-09-11-source-exterior-characteristic-wall.md": "b7639d562952afbe2b27cd9fe44105a9a5487826",
     "research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md": "344974c4fe79aaa4fb7afd90e9f9d928f267592a",
     "research/evidence/2026-09-11-exterior-pressure-energy.md": "9ab847721c4d2ceaeab806c1a32820850874241e",
-    "research/evidence/2026-09-12-prefix-summability-wall.md": "b83d87c055756aea2350041011b249c08f185e3b"
+    "research/evidence/2026-09-12-prefix-summability-wall.md": "b83d87c055756aea2350041011b249c08f185e3b",
+    "research/evidence/2026-09-12-correction-conveyor-scaling.md": "8e73d24609bb794a96d7ede23b4ce2433f717bdb"
   },
   "cycle": [
     "DISCOVER",
@@ -28,6 +29,6 @@
     "serious_repeat_limit": 2,
     "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
   },
-  "active_frontier": "correction-driven thin-collar entry or in-core nonlinear parent generation with the inherited angular hierarchy, or a complete physical adjoint with genuine whole-prehistory cost inflation beyond exponential counting",
+  "active_frontier": "sparse correction-driven thin-collar stress/nonlocal entry or in-core nonlinear parent generation with the inherited angular hierarchy, or a complete physical adjoint controlling those mechanisms and full-history gain",
   "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
 }

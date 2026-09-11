@@ -41,6 +41,7 @@ source_exterior_pressure_transmission: exact-cylinder-author-proof-audit-pending
 source_bounded_pressure_import: requires-thin-collar-or-larger-budget
 source_quadratic_far_pressure_budget: input-only-from-finite-energy-author
 source_prefix_counting_obstruction: exponential-multiplicity-does-not-force-prefix-divergence
+source_correction_conveyor_scaling: energy-compatible-but-nondegenerate-conveyor-terminal-strength
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -394,11 +395,25 @@ criterion fails. A complete physical adjoint must show genuine whole-prehistory
 cost inflation or a nonlinear budget obstruction. See
 `research/evidence/2026-09-12-prefix-summability-wall.md`.
 
-The next active test must therefore address actual correction-driven entry or
-in-core nonlinear generation with the inherited angular hierarchy retained,
-or estimate the complete physical adjoint including that hierarchy. No bound
-on the collar stress or full-history gain has been obtained; direct far-field
-quadratic pressure input now has the energy-only bound above. UE1 and the terminal claim remain open.
+An exact source-scale test of correction-driven radial entry gives a sharper
+split. Crossing a macroscopic source radius during one pulse window needs speed
+`V~Q^(-1/2-h)/L`; on a shrinking `r^3` cell its energy is
+`Q^(1/2-2h)/L^2` and viscous action is `Q^(1/2-h)/L`, both vanishing. Even the
+pressure-allowed collar `delta/r~L/n` can be crossed with vanishing energy and
+dissipation scaling. Energy therefore does not close the active-entry route.
+However, if either speed is realized by the total velocity on a nondegenerate
+material parcel, its local `L3` norm diverges (`Q^(-h)/L` for the macroscopic
+cell and `Q^(-h/3)L^(1/3)` for the collar). Such a conveyor would already be a
+terminal negative mechanism. The sharper unresolved object is sparse collar
+stress/nonlocal response or in-core generation that avoids this nondegenerate
+critical parcel. See `research/evidence/2026-09-12-correction-conveyor-scaling.md`.
+
+The next active test must therefore address sparse correction-driven thin-collar
+entry or in-core nonlinear generation with the inherited angular hierarchy
+retained, or estimate the complete physical adjoint including those mechanisms.
+No bound on the sparse collar stress or full-history gain has been obtained;
+direct far-field quadratic pressure input has the energy-only bound above. UE1
+and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
