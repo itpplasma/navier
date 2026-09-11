@@ -1,27 +1,48 @@
-name: Relay rescaling discriminator
+name: Relay rescaling integration
 on:
   push:
     branches: [research/navier-relay-scale-20260912]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: navier-relay-scale-integration
+  cancel-in-progress: false
 jobs:
-  discriminate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact discriminator
-        run: cp research/check_relay_scale_homogeneity.py /tmp/check_relay_scale_homogeneity.py
-      - name: Refresh authoritative main and run fast gate first
+      - name: Freeze authorized checkpoint
+        run: |
+          cp research/check_relay_scale_homogeneity.py /tmp/check_relay_scale_homogeneity.py
+          cp research/evidence/2026-09-12-relay-scale-homogeneity.md /tmp/relay-scale-evidence.md
+          cp tools/integrate_relay_scale_homogeneity_20260912.py /tmp/integrate_relay_scale.py
+      - name: Refresh main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Run exact relay-rescaling discriminator
+      - name: Apply exact checkpoint
         run: |
-          python3 -m pip install sympy
-          python3 /tmp/check_relay_scale_homogeneity.py
-      - name: Structural verification
+          cp /tmp/check_relay_scale_homogeneity.py research/check_relay_scale_homogeneity.py
+          cp /tmp/relay-scale-evidence.md research/evidence/2026-09-12-relay-scale-homogeneity.md
+          cp /tmp/integrate_relay_scale.py /tmp/integrate_relay_scale_work.py
+          python3 /tmp/integrate_relay_scale_work.py
+      - name: Verify checkpoint
         run: |
+          python3 -m pip install sympy PyYAML
+          python3 research/check_relay_scale_homogeneity.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
+      - name: Commit and push without force
+        run: |
+          git add -- PLAN.md research/check_relay_scale_homogeneity.py research/evidence/2026-09-12-relay-scale-homogeneity.md research/game/controls.json research/game/models/baseline.py research/game/snapshot.json
+          git diff --cached --check
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Record mixed-order factor-two relay scale law'
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+          git push origin HEAD:main
