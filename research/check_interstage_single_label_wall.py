@@ -1,25 +1,32 @@
 #!/usr/bin/env python3
-"""Exact scale/action obstruction to extending one finite-L source label across a factor-two interstage interval."""
+"""Exact scale obstruction to extending one finite-L source label across a factor-two interstage interval."""
 from fractions import Fraction
 
-# The factor-two normalization interval from the frozen reference theorem.
-# rho=2^(-2/h), so rho^(-h)=4 and integral q^(-1-h)dq = 3 Q^(-h)/h.
-# On the exact admissible subsequence h=1/200, ell=400*k:
-# Q=2^(-ell), Q^(-h)=4^k and L=ell^2.
+# Use an exact repository-admissible subsequence h=1/200, ell=400*k:
+# Q=2^(-ell), Q^(-h)=4^k, L=ell^2.  A doubled frequency becomes normalized
+# z=1 when q contracts from Q to rho Q with rho=2^(-2/h)=2^-400.
 h=Fraction(1,200)
+rho=Fraction(1,2**400)
+assert rho > 0 and rho < 1
+
+# On the exact eta=0 self-similar ray, 1-t=q and hence Delta t=(1-rho)Q.
+# The inspected fixed lifted-label identity is partial_t v=Q^(-1-h).
+# Therefore the SAME label would have to traverse
+#   Delta v=(1-rho) Q^(-h),
+# so its finite-L deformation parameter tau=Delta v/L is
+#   tau_k=(1-rho)4^k/(160000 k^2).
 rows=[]
 for k in range(1,25):
     ell=400*k
     Qmh=4**k
-    action=Fraction(3,1)*Qmh/h
     L=ell*ell
-    tau=action/L
-    rows.append((k,ell,action,tau))
+    dv=(1-rho)*Qmh
+    tau=dv/L
+    rows.append((k,ell,dv,tau))
+    assert tau == (1-rho)*Fraction(4**k,160000*k*k)
 
-# Exact formula tau_k = 3*4^k/(800 k^2), hence
-# tau_(k+1)/tau_k = 4 k^2/(k+1)^2 >=16/9 for k>=2.
-for k,ell,action,tau in rows:
-    assert tau == Fraction(3*4**k,800*k*k)
+# Exact ratio tau_(k+1)/tau_k=4 k^2/(k+1)^2 >=16/9 for k>=2,
+# so tau diverges geometrically despite L~ell^2.
 for j in range(1,len(rows)-1):
     k=rows[j][0]
     ratio=rows[j+1][3]/rows[j][3]
@@ -42,12 +49,12 @@ for s in tilts:
 # Thus |T k-k|^2/|k|^2 >= (9/500) tau^2. Since tau grows at least
 # geometrically, the same-label lattice embedding leaves every fixed
 # perturbative neighbourhood of the frozen cage.
-for k,ell,action,tau in rows:
+for k,ell,dv,tau in rows:
     lower2=Fraction(9,500)*tau*tau
-    if k>=10:
+    if k>=15:
         assert lower2>1
 
-print('PASS: exact single-label factor-two interstage deformation leaves the finite-L perturbative regime.')
-print('Required reference fast action = 3 Q^(-h)/h and tau=action/L grows geometrically on an exact admissible subsequence.')
-print('For every caged parent, |T k-k|/|k| >= sqrt(9/500)*|tau|, so same-label extrapolation cannot remain O(1/L)-close.')
+print('PASS: exact same-label factor-two interstage deformation leaves the finite-L perturbative regime.')
+print('On eta=0, Delta v=(1-rho)Q^(-h) with rho=2^(-2/h), so Delta(v/L) diverges for L~ell^2.')
+print('For every caged parent, |T k-k|/|k| >= sqrt(9/500)*|Delta v|/L; same-label extrapolation cannot remain O(1/L)-close.')
 print('Scope: rules out direct extension of the existing fixed-reference/fixed-label theorem; recentered multi-label physical propagation remains open.')
