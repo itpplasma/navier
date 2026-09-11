@@ -40,6 +40,7 @@ source_local_decaying_branch_generation: closed-on-fixed-physical-pulse-window-a
 source_exterior_pressure_transmission: exact-cylinder-author-proof-audit-pending
 source_bounded_pressure_import: requires-thin-collar-or-larger-budget
 source_quadratic_far_pressure_budget: input-only-from-finite-energy-author
+source_prefix_counting_obstruction: exponential-multiplicity-does-not-force-prefix-divergence
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -380,6 +381,18 @@ needed for this quadratic direct-pressure input; the necessary thin-collar
 bound follows with input-only constants. The prior generic-stress statement
 remains valid, but its larger-budget escape is unavailable under this energy
 hypothesis. Subsequent amplification by the complete history is not bounded.
+
+A separate exact counting test closes a tempting shortcut on the complete-adjoint
+side. The rescaled unstable family has only exponential multiplicity
+`M_j=O(2^(2j/3))`, whereas the source local entry scale is
+`exp(-gamma L_j)` with `L_j` comparable to `j^2` on a geometric subsequence.
+Even if every unstable site demanded an orthogonal control component at any
+`exp(O(j)) exp(-gamma j^2)` scale, the squared prefix norm and every fixed
+polynomially frequency-weighted sum would converge. Thus unstable dimension,
+orthogonality and the local seed scale alone cannot prove that the common-control
+criterion fails. A complete physical adjoint must show genuine whole-prehistory
+cost inflation or a nonlinear budget obstruction. See
+`research/evidence/2026-09-12-prefix-summability-wall.md`.
 
 The next active test must therefore address actual correction-driven entry or
 in-core nonlinear generation with the inherited angular hierarchy retained,
