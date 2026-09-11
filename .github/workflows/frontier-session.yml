@@ -6,7 +6,7 @@ permissions:
   contents: read
 concurrency:
   group: navier-frontier-session-discriminator
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   discriminate:
     runs-on: ubuntu-latest
