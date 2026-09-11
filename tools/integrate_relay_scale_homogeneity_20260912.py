@@ -2,7 +2,7 @@
 from pathlib import Path
 import json, subprocess
 
-root=Path(__file__).resolve().parents[1]
+root=Path.cwd()
 plan=root/'PLAN.md'
 p=plan.read_text()
 needle='source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-adapter-open\n'
