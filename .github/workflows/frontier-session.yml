@@ -1,0 +1,27 @@
+name: Frontier session gate
+on:
+  push:
+    branches: [research/navier-frontier-20260912]
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Fast gate first
+        run: python3 research/game/run.py fast | tee /tmp/research-game-fast.log
+      - name: Research verification
+        if: always()
+        run: |
+          python3 research/verify.py --research-only
+          git diff --check
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: frontier-session-gate
+          retention-days: 1
+          path: /tmp/research-game-fast.log
