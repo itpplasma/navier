@@ -19,5 +19,8 @@ KNOWN={
     'source-correlated-rounding': {'two_pair_daughter_index_can_match_exactly': True, 'forced_fourth_rounding_error': 'bounded by 3/2'},
     'source-harmonic-protection': {'linear_O_epsilon_over_L_daughter_leakage': False, 'first_physical_daughter_error': 'O(epsilon^2/L)+O(epsilon^3)', 'global_parent_supply': False},
     'numerics-not-certificate': {'numerical_orbit_proves_blowup': False, 'numerical_orbit_proves_regularity': False},
+    'exterior-pressure-transmission': {'norm_attenuation': '(r/R)^abs(n)', 'bounded_budget_import': 'requires thin collar or fails entry scale', 'complete_physical_adjoint': False},
+    'clock-action-obstruction': {'fixed_action_requires': 'S/N^2 >= c0', 'slow_purifier_requires': 'lambda*b >= eta0', 'bounded_fast_parent_requires': 'lambda*sqrt(S) <= C0', 'all_three_with_N_over_b_to_infinity': False},
+    'old-strong-scaling-action': {'integrated_clean_action_limit': 0, 'sufficient_for_fixed_positive_filter_action': False},
 }
 def predict(control): return KNOWN[control['id']]

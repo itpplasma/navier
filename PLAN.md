@@ -37,6 +37,8 @@ source_finite_L_lattice_persistence: proved-local-principal-author
 source_correlated_carrier_rounding: proved-exact-arithmetic
 source_physical_harmonic_protection: proved-local-physical-author
 source_local_decaying_branch_generation: closed-on-fixed-physical-pulse-window-author
+source_exterior_pressure_transmission: exact-cylinder-author-proof-audit-pending
+source_bounded_pressure_import: requires-thin-collar-or-larger-budget
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -329,6 +331,45 @@ A locally cut-off adjoint is already refuted and must not be reused.
 This parent-supply problem is now the first terminal dependency. Another frozen
 lattice, finite Fourier jet, local pulse inverse, or generic Fredholm theorem is
 not progress.
+
+### 8.1 Further exact channel tests and the surviving interface
+
+The later evidence already present on main sharpens the alternatives above.
+`2026-09-11-angular-heat-import.md` excludes passive early heat import at the
+source angular scale; `2026-09-11-source-exterior-characteristic-wall.md`
+excludes an inward conveyor in the exact passive source exterior. The latter's
+implicit definition `q-z^2 q^(2h)=1-t` has now been corrected and checked;
+its exterior sign is unchanged.
+
+A different, elliptic test now gives an exact whole-space Leray-tail estimate.
+For stress supported outside a radius-R cylinder and its angular-grade-n
+projected force g_n, harmonicity inside yields
+
+    ||g_n||_(L2(C_r)) <= (r/R)^abs(n) ||g_n||_(L2(C_R)).
+
+This retains the entire axial direction and has constant one. At the source
+scale `abs(n_j)>=c 2^(h j/2)`, a fixed-ratio radial gap suppresses the direct
+pressure input beyond the local `exp(-C j^2)` entry scale when the exterior
+input budget is at most `exp(C' j^2)`. A mechanism requiring that entry-scale
+input must instead satisfy
+
+    abs(n_j) log(R_j/r_j) <= C'' j^2,
+
+or violate the stipulated exterior budget. This conditional necessary collar
+bound is not a complete physical propagator or adjoint estimate. See
+`research/evidence/2026-09-11-exterior-pressure-transmission.md`.
+
+The other already recorded shortcuts remain blocked: a mean-only zero-wave
+startup cancels in the full equation; the factor-two four-parent relay emits
+cubic pollutants before its quartic daughter; the inherited linear unstable
+spectrum proliferates under rescaling. See the mean-assisted-cancellation,
+factor-two-pollution and rescaled-unstable-proliferation evidence packets.
+
+The next active test must therefore address actual correction-driven entry or
+in-core nonlinear generation with the inherited angular hierarchy retained,
+or estimate the complete physical adjoint including that hierarchy. No bound
+on the collar stress, exterior pressure budget or full-history gain has been
+obtained. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

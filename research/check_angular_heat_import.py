@@ -70,7 +70,12 @@ def source_scale():
         # On this subsequence Q^h=2^(-2k), Q^(h/2)=2^(-k).
         adv=F(ell*ell,2**(2*k))
         diff=F(ell,2**k)
-        if k>1:
+        if k==2:
+            # k/2^k is equal at k=1 and k=2, not strictly decreasing.
+            # Keep that exact equality as a regression control.
+            check(adv == rows[-1]['adv_fraction'],'advective equality at k=2')
+            check(diff == rows[-1]['diff_fraction'],'diffusive equality at k=2')
+        elif k>2:
             check(adv < rows[-1]['adv_fraction'],f'advective relative reach decays k={k}')
             check(diff < rows[-1]['diff_fraction'],f'diffusive relative reach decays k={k}')
         rows.append({'k':k,'ell':ell,'m':m,'heat_log2_exponent':str(heat_power),

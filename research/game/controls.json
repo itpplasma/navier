@@ -140,6 +140,39 @@
       "evidence": "REPOSITORY_POLICY",
       "rigor": "policy",
       "observation": {"numerical_orbit_proves_blowup": false, "numerical_orbit_proves_regularity": false}
+    },
+    {
+      "id": "exterior-pressure-transmission",
+      "scope": "direct Leray tail of exterior stress in a whole-space cylinder",
+      "evidence": "research/evidence/2026-09-11-exterior-pressure-transmission.md",
+      "rigor": "analytic-author-proof-exact-controls",
+      "observation": {
+        "norm_attenuation": "(r/R)^abs(n)",
+        "bounded_budget_import": "requires thin collar or fails entry scale",
+        "complete_physical_adjoint": false
+      }
+    },
+    {
+      "id": "clock-action-obstruction",
+      "scope": "strong 2D3C purifier scaling",
+      "evidence": "EXACT_IDENTITY",
+      "rigor": "exact",
+      "observation": {
+        "fixed_action_requires": "S/N^2 >= c0",
+        "slow_purifier_requires": "lambda*b >= eta0",
+        "bounded_fast_parent_requires": "lambda*sqrt(S) <= C0",
+        "all_three_with_N_over_b_to_infinity": false
+      }
+    },
+    {
+      "id": "old-strong-scaling-action",
+      "scope": "S~b^2 with N/b->infinity",
+      "evidence": "EXACT_IDENTITY",
+      "rigor": "exact",
+      "observation": {
+        "integrated_clean_action_limit": 0,
+        "sufficient_for_fixed_positive_filter_action": false
+      }
     }
   ]
 }

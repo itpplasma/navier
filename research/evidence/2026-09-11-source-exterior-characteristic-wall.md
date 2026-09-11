@@ -14,9 +14,16 @@ This excludes **passive transport by the prescribed source base flow** as the mi
 
 Use the source similarity variables
 
-    q=1-t/L,
-    eta=z/q^D,
+    tau=1-t=q(1-eta^2),    z=q^D eta,
+    D=1/2-h,    A=1/2+h,    L=1-2h eta^2,
     X=r^2/(2q),       A+D=1.                              (1.1)
+
+Equivalently, q is the positive preterminal solution of
+`q-z^2 q^(2h)=1-t`, not `1-t/L`. Here L is the geometric Jacobian factor,
+not the length of a fast-time pulse. For `0<h<1/2` and `abs(eta)<1`, L is
+positive. This definition was corrected on 2026-09-11; the material identity
+and exterior conclusion below are unchanged. The checker now derives the
+coordinate derivatives from this implicit definition rather than assuming them.
 
 The source coordinate identities give
 
