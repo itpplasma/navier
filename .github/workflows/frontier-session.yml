@@ -13,16 +13,18 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact discriminator
+      - name: Freeze exact phase discriminator
         run: cp research/check_phase_graded_factor_two.py /tmp/check_phase_graded_factor_two.py
       - name: Refresh authoritative main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Run complete phase-graded recurrence
+      - name: Replay complete frozen relay controls and phase invariant
         run: |
           python3 -m pip install sympy
+          python3 research/check_source_factor_two_relay.py
+          python3 research/check_source_factor_two_pollution.py
           python3 /tmp/check_phase_graded_factor_two.py
       - name: Structural verification
         run: |
