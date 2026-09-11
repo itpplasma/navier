@@ -1,0 +1,36 @@
+name: Parent-supply session verification
+on:
+  push:
+    branches: [research/session-parent-supply-20260911]
+    paths: ['.github/workflows/session-parent-supply.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Research-game fast gate first
+        run: python3 research/game/run.py fast
+      - name: Research-only verification
+        if: always()
+        run: |
+          python3 -m pip install PyYAML
+          python3 research/verify.py --research-only
+          git diff --check
+      - name: Export tracked source, not credentials or build products
+        if: always()
+        run: |
+          git archive --format=tar HEAD > /tmp/navier-source.tar
+          git rev-parse HEAD > /tmp/navier-source-commit.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: navier-parent-supply-source
+          retention-days: 1
+          path: |
+            /tmp/navier-source.tar
+            /tmp/navier-source-commit.txt
