@@ -100,6 +100,41 @@
       "observation": {"complete_O_N_target_response": "zero", "active_terminal_route": false}
     },
     {
+      "id": "source-spectral-cage",
+      "scope": "full frozen source convolution lattice",
+      "evidence": "AUTHOR_PROOF_EXACT_LATTICE",
+      "rigor": "exact",
+      "observation": {"unstable_positive_sites": "exactly four parent sites plus reality partners", "stable_complement_margin": "uniform negative"}
+    },
+    {
+      "id": "source-reference-unstable-manifold",
+      "scope": "complete frozen source-reference lattice",
+      "evidence": "AUTHOR_PROOF",
+      "rigor": "analytic",
+      "observation": {"full_lattice_causal_prehistory": true, "pure_decaying_target_generated": true, "stable_modes_reset": false}
+    },
+    {
+      "id": "source-finite-L-cage",
+      "scope": "actual unrounded finite-L principal phase system",
+      "evidence": "AUTHOR_PROOF_PLUS_EXACT_CHECKER",
+      "rigor": "analytic-exact",
+      "observation": {"rank_two_lattice_persists": true, "fixed_window_full_lattice_retuning": true, "global_parent_supply": false}
+    },
+    {
+      "id": "source-correlated-rounding",
+      "scope": "physical carrier arithmetic",
+      "evidence": "EXACT_ARITHMETIC",
+      "rigor": "exact",
+      "observation": {"two_pair_daughter_index_can_match_exactly": true, "forced_fourth_rounding_error": "bounded by 3/2"}
+    },
+    {
+      "id": "source-harmonic-protection",
+      "scope": "local physical source pulse",
+      "evidence": "AUTHOR_PROOF_PLUS_SOURCE_GRADING",
+      "rigor": "analytic-exact",
+      "observation": {"linear_O_epsilon_over_L_daughter_leakage": false, "first_physical_daughter_error": "O(epsilon^2/L)+O(epsilon^3)", "global_parent_supply": false}
+    },
+    {
       "id": "numerics-not-certificate",
       "scope": "terminal evidence",
       "evidence": "REPOSITORY_POLICY",
