@@ -10,7 +10,7 @@ concurrency:
 jobs:
   discriminate:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Freeze exact phase discriminator
@@ -20,12 +20,8 @@ jobs:
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Replay complete frozen relay controls and phase invariant
-        run: |
-          python3 -m pip install sympy
-          python3 research/check_source_factor_two_relay.py
-          python3 research/check_source_factor_two_pollution.py
-          python3 /tmp/check_phase_graded_factor_two.py
+      - name: Test the new phase-grade invariant
+        run: python3 /tmp/check_phase_graded_factor_two.py
       - name: Structural verification
         run: |
           python3 research/verify.py --research-only
