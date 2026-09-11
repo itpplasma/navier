@@ -25,7 +25,7 @@ jobs:
           git apply /tmp/checkpoint.patch
       - name: Replay exact and structural checks
         run: |
-          python3 -m pip install PyYAML sympy
+          python3 -m pip install PyYAML sympy numpy scipy
           python3 research/game/run.py fast
           python3 research/game/selftest.py
           python3 research/check_exterior_pressure_transmission.py
