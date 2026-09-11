@@ -3,7 +3,9 @@
 Date: 2026-09-11. Input: `itpplasma/navier@1a039958a7c2909933a59646df29269b7012b15f`.
 
 **Status:** author proof; independent mathematical audit, external novelty
-assessment and formal verification pending. This is a spatial transmission
+assessment and formal verification pending. A later checkpoint,
+`2026-09-11-exterior-pressure-energy.md`, removes the extra exterior-budget
+hypothesis below for finite-energy quadratic stresses. This is a spatial transmission
 estimate for the original whole-space Leray projection, not a complete
 physical adjoint estimate or a proof of UE1 / NS-R3.
 
@@ -153,8 +155,10 @@ The theorem excludes unattenuated *direct pressure transmission across a
 fixed radial gap*. It does not exclude a pressure budget of size
 `exp(c N_j)`, a source in the thin collar, advected entry, an interaction
 already inside the cylinder, or amplification by an uncontrolled full-history
-propagator. The canonical energy budget alone supplies none of these missing
-bounds. There is no cut-off adjoint and no omitted adjoint defect here.
+propagator. For generic exterior stress these bounds were not supplied at this
+checkpoint. The sequel proves that finite energy does bound the direct
+far-pressure input of quadratic velocity stress; it does not bound the collar
+or full-history gain. There is no cut-off adjoint and no omitted adjoint defect here.
 
 UE1 therefore remains nonlinear/global. The next discriminating question is
 whether the thin-collar or in-core stress can be generated from one Schwartz

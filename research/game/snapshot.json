@@ -2,7 +2,7 @@
   "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "0f7a4578130262a90e50894b41dd250a174b9441",
+    "PLAN.md": "94bf8b3f026a393eb0958451cf295bdb169e640e",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
     "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
     "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
@@ -11,9 +11,10 @@
     "research/evidence/2026-09-11-source-reference-unstable-manifold.md": "da7c9d0eb27cb412acefa90c739af97194b05d6d",
     "research/evidence/2026-09-11-source-finite-L-lattice-persistence.md": "e19e47c6cf341f5f524d75f1b113b2de8b343007",
     "research/evidence/2026-09-11-source-physical-harmonic-protection.md": "bdcc45d8670edd61e5a3746b5da8a876799903c9",
-    "research/evidence/2026-09-11-exterior-pressure-transmission.md": "64c770ea023ab42245dab482ff81492f3b02730c",
+    "research/evidence/2026-09-11-exterior-pressure-transmission.md": "187d4d7d8a1ae724d5db27d80758909f60d2af33",
     "research/evidence/2026-09-11-source-exterior-characteristic-wall.md": "b7639d562952afbe2b27cd9fe44105a9a5487826",
-    "research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md": "344974c4fe79aaa4fb7afd90e9f9d928f267592a"
+    "research/evidence/2026-09-11-strong-purifier-clock-action-obstruction.md": "344974c4fe79aaa4fb7afd90e9f9d928f267592a",
+    "research/evidence/2026-09-11-exterior-pressure-energy.md": "9ab847721c4d2ceaeab806c1a32820850874241e"
   },
   "cycle": [
     "DISCOVER",

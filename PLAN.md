@@ -39,6 +39,7 @@ source_physical_harmonic_protection: proved-local-physical-author
 source_local_decaying_branch_generation: closed-on-fixed-physical-pulse-window-author
 source_exterior_pressure_transmission: exact-cylinder-author-proof-audit-pending
 source_bounded_pressure_import: requires-thin-collar-or-larger-budget
+source_quadratic_far_pressure_budget: input-only-from-finite-energy-author
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -365,11 +366,26 @@ cubic pollutants before its quartic daughter; the inherited linear unstable
 spectrum proliferates under rescaling. See the mean-assisted-cancellation,
 factor-two-pollution and rescaled-unstable-proliferation evidence packets.
 
+The pressure channel has been strengthened in
+`research/evidence/2026-09-11-exterior-pressure-energy.md`. For an L1 exterior
+stress S, any `r<s<R` gives the explicit bound
+
+    ||Pi_n P div S||_(L2(C_r))
+      <= [3/sqrt(2 pi)] (r/s)^abs(n) (R-s)^(-5/2) ||S||_1.
+
+The optimal intermediate radius is `s=2 abs(n) R/(2 abs(n)+5)` when it exceeds
+r. For `S=chi_out v tensor v` and the total unforced solution, energy gives
+`||S||_1<=||d||_2^2`. Consequently no separate exterior-budget hypothesis is
+needed for this quadratic direct-pressure input; the necessary thin-collar
+bound follows with input-only constants. The prior generic-stress statement
+remains valid, but its larger-budget escape is unavailable under this energy
+hypothesis. Subsequent amplification by the complete history is not bounded.
+
 The next active test must therefore address actual correction-driven entry or
 in-core nonlinear generation with the inherited angular hierarchy retained,
 or estimate the complete physical adjoint including that hierarchy. No bound
-on the collar stress, exterior pressure budget or full-history gain has been
-obtained. UE1 and the terminal claim remain open.
+on the collar stress or full-history gain has been obtained; direct far-field
+quadratic pressure input now has the energy-only bound above. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

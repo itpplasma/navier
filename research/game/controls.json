@@ -173,6 +173,18 @@
         "integrated_clean_action_limit": 0,
         "sufficient_for_fixed_positive_filter_action": false
       }
+    },
+    {
+      "id": "energy-controlled-exterior-pressure",
+      "scope": "direct pressure of finite-energy quadratic exterior stress on R3",
+      "evidence": "research/evidence/2026-09-11-exterior-pressure-energy.md",
+      "rigor": "analytic-author-proof-exact-controls",
+      "observation": {
+        "L1_stress_to_L2_constant": "3/sqrt(2*pi)",
+        "optimal_intermediate_radius": "2*N*R/(2*N+5)",
+        "quadratic_far_input": "bounded by initial energy",
+        "full_history_gain": false
+      }
     }
   ]
 }
