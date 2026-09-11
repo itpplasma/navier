@@ -1,25 +1,48 @@
-name: Reference interstage discriminator
+name: Reference interstage integration
 on:
   push:
     branches: [research/navier-interstage-20260912]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: navier-reference-interstage-integration
+  cancel-in-progress: false
 jobs:
-  discriminate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact discriminator
-        run: cp research/check_reference_interstage_exponent.py /tmp/check_reference_interstage_exponent.py
-      - name: Refresh authoritative main and run fast gate first
+      - name: Freeze authorized checkpoint
+        run: |
+          cp research/integrate_reference_interstage_20260912.py /tmp/integrate.py
+          cp research/check_reference_interstage_exponent.py /tmp/check_interstage.py
+      - name: Refresh main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Test reference exponent
-        run: python3 /tmp/check_reference_interstage_exponent.py
-      - name: Structural verification
+      - name: Apply exact checkpoint
         run: |
+          cp /tmp/check_interstage.py research/check_reference_interstage_exponent.py
+          python3 /tmp/integrate.py
+      - name: Verify checkpoint
+        run: |
+          python3 research/check_reference_interstage_exponent.py
+          python3 research/check_phase_graded_factor_two.py
+          python3 research/check_correction_conveyor_scaling.py
+          python3 research/check_prefix_summability.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
+      - name: Commit and push without force
+        run: |
+          git add -- PLAN.md research/evidence/2026-09-12-reference-interstage-exponent.md research/check_reference_interstage_exponent.py research/game/snapshot.json
+          git diff --cached --check
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' -c commit.gpgsign=false commit -m 'Quantify passive factor-two reference interstage loss'
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+          git push origin HEAD:main
+          echo "Integrated commit: $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
