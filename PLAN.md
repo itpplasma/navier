@@ -43,6 +43,7 @@ source_quadratic_far_pressure_budget: input-only-from-finite-energy-author
 source_prefix_counting_obstruction: exponential-multiplicity-does-not-force-prefix-divergence
 source_correction_conveyor_scaling: energy-compatible-but-nondegenerate-conveyor-terminal-strength
 source_phase_graded_relay: first-doubling-separated-from-cubic-pollutant-fixed-order-infinite-relay-impossible
+source_reference_passive_interstage_carry: exp-minus-c-Qminus-h-damped-physical-adapter-open
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -422,11 +423,28 @@ relay. A viable cascade now needs a genuine finite-duration stagewise
 amplification/renormalization map for the full expanding returned state. See
 `research/evidence/2026-09-12-phase-graded-factor-two.md`.
 
-The next active test must therefore address that stagewise interstage map,
-sparse correction-driven thin-collar/nonlocal entry, or the complete physical
-adjoint including those mechanisms. No bound on the sparse collar stress or
-full-history gain has been obtained; direct far-field quadratic pressure input
-has the energy-only bound above. UE1 and the terminal claim remain open.
+The passive branch of that interstage map now has an exact reference-model
+answer. A doubled physical frequency born at scale `q_0` has normalized
+`z(x)=2x^(h/2)` at `q=xq_0` and reaches `z=1` only at
+`rho=2^(-2/h)`. Integrating the frozen positive-branch rate
+`a-bz^2`, `a=(1+s^2)^(-1/2)`, `b=(3/5)(1+s^2)`, with the self-similar
+physical prefactor gives
+
+    q_0^(-h)/h [3a-8b log 2] <= -c q_0^(-h).
+
+The sign is uniform because `log 2>2/3`. Thus passive carry is damped by
+`exp(-c Q^(-h))` in the continuously self-similar frozen reference, far below
+the local `exp(-C ell^2)` entry scale. What is **not** proved is the adapter to
+the actual source over the whole ratio `q_1/q_0=2^(-2/h)`: existing finite-`L`
+persistence controls only a fixed fast-time window. See
+`research/evidence/2026-09-12-reference-interstage-exponent.md`.
+
+The next active test must therefore construct continuous/late nonlinear
+stagewise feeding of the expanding state, prove a full physical interstage
+propagator/adjoint adapter that transfers the reference loss, address sparse
+thin-collar/nonlocal entry, or close the complete physical adjoint by another
+full-history mechanism. No bound on the sparse collar stress or full-history
+gain has been obtained. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
