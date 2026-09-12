@@ -56,6 +56,7 @@ source_adjoint_strain_sign: no-nonzero-solenoidal-sign-definite-nonlinear-certif
 source_adjoint_principal_stress_dual: high-frequency-solenoidal-force-has-order-one-over-k-symmetric-stress-potential
 source_half_grade_parent_carry: reference-super-amplified-passive-small-data-reuse-fails
 source_half_grade_six_mode_bridge: rank-four-quadratic-next-parent-map-local-reference-author
+source_half_grade_finite_time_bridge: full-infinite-lattice-fixed-horizon-rank-four-retuning-author
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -650,6 +651,30 @@ ancestors late from one physical history; freely prescribing them is not a
 global solution. The next discriminator is finite-duration persistence of the
 rank-four target map. The nonprincipal localized full-history adjoint remains
 the alternative. UE1 and the terminal claim remain open.
+
+
+The finite-duration part is favorable in the complete frozen reference lattice.
+For every fixed `T>0`, each next parent has exactly one nonzero positive
+half-grade cross pair; its only other positive decomposition is a self pair and
+vanishes identically by incompressibility. The four exact growth mismatches
+`D_K=lambda_a+lambda_b-lambda_K` are strictly positive, so every causal factor
+`(exp(D_K T)-1)/D_K` is nonzero. Hence the quadratic target map keeps rank four
+for every fixed positive horizon. Real-analytic dependence of the full
+semilinear parabolic flow on the six initial amplitudes then lets the ordinary
+real implicit-function theorem retune four complex ancestor amplitudes so that
+the **exact nonlinear infinite-lattice endpoint** realizes a prescribed nearby
+`epsilon^2` four-parent target quartet, with every generated sideband retained.
+See `research/evidence/2026-09-12-half-grade-finite-time-bridge.md`.
+
+This is the second serious checkpoint on the same local six-mode mechanism, so
+local bridge refinement stops here. The first unresolved dependency has moved
+backward to **causal late supply of the six half-grade ancestors from one
+physical history**. Passive reuse of the old four is already excluded by
+super-amplification. The next primary mechanism must therefore deplete/cancel
+old parents and regenerate the six-mode state late, or use a genuinely
+different parametric interaction with the actual source background. The
+nonprincipal localized full-history adjoint remains the alternative. UE1 and
+the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

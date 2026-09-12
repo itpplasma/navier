@@ -403,6 +403,20 @@
         "finite_duration_bridge": "open",
         "late_causal_six_mode_supply": false
       }
+    },
+    {
+      "id": "half-grade-finite-time-bridge",
+      "scope": "complete frozen source-reference infinite lattice on every fixed positive horizon near zero data",
+      "evidence": "research/evidence/2026-09-12-half-grade-finite-time-bridge.md",
+      "rigor": "analytic-exact-author-proof",
+      "observation": {
+        "quadratic_competitors": "only self pairs, identically zero",
+        "four_growth_mismatches": "strictly positive",
+        "finite_time_target_rank": 4,
+        "full_infinite_lattice_retuning": true,
+        "late_causal_six_mode_supply": false,
+        "physical_finite_L_lift": false
+      }
     }
   ]
 }

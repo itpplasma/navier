@@ -35,5 +35,6 @@ KNOWN={
     'adjoint-principal-stress-dual': {'symmetric_inverse_divergence': 'Ghat=-i(k⊗f+f⊗k)/|k|^2', 'stress_norm': 'sqrt(2)|f|/|k|', 'pairs_with_symmetric_strain': True, 'principal_high_frequency_adjoint_obstruction': False},
     'half-grade-parent-carry-wall': {'parent_reference_exponent_bracket': '>9/10', 'parent_carry_gain': 'exp(+c Q^(-h))', 'Qminus_h_over_L': 'diverges for L~ell^2', 'passive_small_data_parent_reuse': False, 'late_nonlinear_regeneration': 'open'},
     'half-grade-six-mode-bridge': {'half_grade_ancestors': '14,-13,5,-4,2,-1 all positive-branch growing', 'cubic_extremes': 'both +14 and -13 nonzero unique monomials', 'next_parent_quadratic_edges': 'all four nonzero', 'leading_target_rank': 4, 'finite_duration_bridge': 'open', 'late_causal_six_mode_supply': False},
+    'half-grade-finite-time-bridge': {'quadratic_competitors': 'only self pairs, identically zero', 'four_growth_mismatches': 'strictly positive', 'finite_time_target_rank': 4, 'full_infinite_lattice_retuning': True, 'late_causal_six_mode_supply': False, 'physical_finite_L_lift': False},
 }
 def predict(control): return KNOWN[control['id']]
