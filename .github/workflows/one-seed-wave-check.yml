@@ -1,34 +1,49 @@
-name: One-seed wave checks
+name: One-seed wave integration
 on:
   push:
     branches: [research/one-seed-wave-20260912]
     paths: ['.github/workflows/one-seed-wave-check.yml']
 permissions:
-  contents: read
+  contents: write
 jobs:
-  check:
+  integrate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          persist-credentials: false
-      - name: Direct current-contract checks
+      - name: Preserve exact research wave
         run: |
+          cp research/check_one_seed_ladder.py /tmp/check_one_seed_ladder.py
+          cp research/evidence/2026-09-12-one-seed-ladder-balance.md /tmp/one-seed-ladder-balance.md
+          cp tools/integrate_one_seed_wave.py /tmp/integrate_one_seed_wave.py
+      - name: Refresh authoritative main
+        run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
           python3 -m pip install sympy PyYAML
           python3 research/check_source_pump_half_grade_parity.py
           python3 research/check_half_grade_finite_time_bridge.py
           python3 research/verify.py --research-only
-          python3 research/verify.py --paper-only
-          git diff --check
-      - name: Export tracked public source only
+      - name: Apply research wave
         run: |
-          git archive HEAD > /tmp/navier-source.tar
-          git rev-parse HEAD > /tmp/navier-source-commit.txt
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: one-seed-source
-          retention-days: 1
-          path: |
-            /tmp/navier-source.tar
-            /tmp/navier-source-commit.txt
+          test ! -e research/check_one_seed_ladder.py
+          cp /tmp/check_one_seed_ladder.py research/check_one_seed_ladder.py
+          cp /tmp/one-seed-ladder-balance.md research/evidence/2026-09-12-one-seed-ladder-balance.md
+          python3 /tmp/integrate_one_seed_wave.py
+      - name: Verify integrated mathematics and structure
+        run: |
+          python3 research/check_one_seed_ladder.py
+          python3 research/check_source_pump_half_grade_parity.py
+          python3 research/check_half_grade_finite_time_bridge.py
+          python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
+          git add PLAN.md research/check_one_seed_ladder.py research/check_source_pump_half_grade_parity.py research/evidence/2026-09-12-one-seed-ladder-balance.md research/evidence/2026-09-12-source-pump-half-grade-parity.md
+          git diff --cached --check
+          git diff --cached --stat
+      - name: Coherent commit and ordinary push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Resolve one-seed ladder and expose causal bridge balance obstruction'
+          git push origin HEAD:main
+          git rev-parse HEAD
