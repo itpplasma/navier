@@ -30,7 +30,7 @@ jobs:
           python3 -m pip install sympy
           python3 research/check_half_grade_parent_carry.py
           python3 research/game/run.py fast
-          python3 research/game/run.py selftest
+          python3 research/game/run.py full
           python3 research/verify.py --research-only
           python3 research/verify.py --paper-only
           git diff --check
