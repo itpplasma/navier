@@ -5,16 +5,22 @@ on:
 permissions:
   contents: read
 jobs:
-  gate:
+  discriminate:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Freeze exact discriminator
+        run: cp research/check_half_grade_parent_carry.py /tmp/check_half_grade_parent_carry.py
       - name: Refresh authoritative main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
+      - name: Run exact half-grade carry discriminator
+        run: |
+          python3 -m pip install sympy
+          python3 /tmp/check_half_grade_parent_carry.py
       - name: Structural verification
         run: |
           python3 research/verify.py --research-only
