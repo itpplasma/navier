@@ -56,7 +56,12 @@ assert state['public_release'] is True
 # now points to navier-formal instead of duplicating the archived phase block.
 assert graph['phase_i_status'] == 'reopened-2026-09-06-in-progress'
 assert graph['phase_ii_status'] == 'reopened-2026-09-06-target'
-assert state['formal_status'] == 'unchanged-see-navier-formal-and-archived-plan'
+# PLAN metadata may also record the owner's partial identity draft (2b426ce).
+# Neither value promotes canonical formal phases or the terminal claim.
+assert state['formal_status'] in {
+    'unchanged-see-navier-formal-and-archived-plan',
+    'partial Hessian/Laplacian L2 identity drafted under explicit IBP data; paper-to-data bridge and critical producer remain open',
+}, 'unrecognized live formal-status metadata'
 assert by_id['NS-R3']['kind'] == 'gap', 'terminal promotion needs a new mathematical audit'
 candidates = graph.get('candidate_supplements', [])
 assert len({c['id'] for c in candidates}) == len(candidates), 'duplicate candidate IDs'

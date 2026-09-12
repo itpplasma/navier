@@ -60,6 +60,8 @@ source_half_grade_finite_time_bridge: full-infinite-lattice-fixed-horizon-rank-f
 source_pump_half_grade_parity: even-source-cannot-zero-seed-odd-half-grade-sector
 source_one_seed_ladder: exact-shortest-time-birth-survives-but-small-seed-free-bridge-composition-fails
 source_full_pump_chain_gain: infinite-tail-certified-charge-nine-extra-growth-and-decaying-pump-finite-time-gain
+source_weighted_primary_pump_action: whole-space-angular-gap-conditional-extra-exponent-O-L-three-quarters
+source_exact_angular_gap_reset: excluded-on-unforced-classical-branch-by-backward-uniqueness
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -690,7 +692,7 @@ pump does have nonzero Leray transfer in exactly three complementary pairs
 
     (14,-13),   (5,-4),   (2,-1),
 
-but in each two-mode block the directional growing coefficients have opposite
+but in each projected two-mode pair the directional growing coefficients have opposite
 signs and hence negative off-diagonal product. The pump transfers a pre-existing
 odd seed; it does not manufacture the first one. See
 `research/evidence/2026-09-12-source-pump-half-grade-parity.md`.
@@ -731,12 +733,52 @@ pump. Fixed pump amplitude gives only a fixed extra factor; an extra linear
 still prevents this linear mechanism from manufacturing the ninth-order
 ancestor from a zero charge-nine input.
 
-The active gap is now **source-specific pump action and nonlinear saturation
-with one inherited trace**, not another projected symbol or finite-section
-spectrum. Determine whether the needed growing pump-action regime is physically
-available with a controlled full correction, or switch to the localized
-full-history adjoint. The finite-time reference gain is not a completed
-regenerative turnover. UE1 and NS-R3 remain open.
+The physical pump-action wave supplies a whole-space pressure-retaining estimate,
+not a frozen-frame extrapolation. For an axisymmetric weight `phi` and scalar
+pressure with angular gap `N`, set `delta=||r grad phi||_infinity/N<1/2`. Then
+`||exp(-phi) grad p||_2 <= (1+2delta)/(1-2delta) ||exp(-phi)F||_2` whenever
+`-Delta p=div F`. The constant has no exponential dependence on the weight's
+amplitude. A compact pulse-clock primitive retains its endpoint and compensating
+broad remainder. Using the source's covariance-normalized peak `L^(1/4)` and
+Gaussian width `sqrt(L)`, it proves for a phase-coherent angular-gap band family
+
+    ||w(T)||_2 <= exp[int_0^T M_base + C L^(3/4)+o(1)] ||w(0)||_2,
+    0<=T<=C_T L.
+
+All physical copies and all sidebands within the assumed invariant angular
+sector are retained. A moving-bump counter-control shows why simply commuting
+spatial supremum and time integral would be false. The estimate does not assert
+that the complete source collection has this angular gap, nor compare to an
+unknown exact base propagator. See
+`research/evidence/2026-09-12-weighted-pump-action.md`.
+
+For the exact nonlinear even/odd system, the additional even feedback `Z`
+contributes the explicit action
+
+    B_Z=int [||S(Z)||_infinity+||Z.grad phi||_infinity
+               +4delta(1+2delta)/(1-2delta)||grad Z||_infinity].
+
+No bound on the actual `B_Z` is supplied. An extra `exp(eta L)` beyond the base
+strain budget cannot come from the prescribed primary pump alone while
+`B_Z=o(L)` and the angular-gap hypotheses hold.
+
+The same wave rules out an exact gap-reset repair in original unforced NS.
+For the difference of a classical solution and its rotation, the whole-space
+Dirichlet quotient satisfies `q' <= (M_0^2/nu)q+M_1^2`, which prevents the
+nonzero difference from vanishing at a finite regular time. Hence the exact
+rotational symmetry group is constant along the classical branch. Increasing
+exact rotational symmetries at successive handoffs would already have to hold
+at the initial time; unbounded symmetry orders would make the initial datum
+axisymmetric. Individual mode zeros and approximate depletion are not excluded.
+
+The first remaining constructive dependency is **quantitative approximate-gap
+and even-feedback control for one complete inherited physical history**. Old
+low angular sectors cannot be deleted at handoffs. Their pressure contribution,
+cross-label mixing, and the action `B_Z` must be controlled or used in a new
+full-state consumer. More independent local bridge data, principal symbols or
+finite-section spectra cannot supply this missing global input. The localized
+full-history adjoint and the arbitrary-data positive producer remain separate
+unresolved alternatives. UE1 and NS-R3 remain open.
 
 ## 9. UE2--UE4 after UE1
 
