@@ -352,6 +352,18 @@
         "universal_divergence_free_pressure_cancellation": false,
         "collar_parent_supply": "relocated-to-high-grade-ancestry"
       }
+    },
+    {
+      "id": "adjoint-strain-sign-wall",
+      "scope": "nonlinear full-adjoint de-forcing identity for arbitrary correction w",
+      "evidence": "research/evidence/2026-09-12-adjoint-strain-sign-wall.md",
+      "rigor": "exact-linear-algebra-Fourier-author-proof",
+      "observation": {
+        "solenoidal_strain_trace": 0,
+        "nonzero_strain_pointwise_indefinite": true,
+        "zero_strain_L2_solenoidal_adjoint": "zero",
+        "sign_only_nonlinear_certificate": false
+      }
     }
   ]
 }

@@ -52,6 +52,7 @@ source_single_label_interstage_adapter: refuted-by-unbounded-exact-lattice-defor
 source_recentered_z1_parent_adapter: refuted-by-multiset-and-hyperbolicity-wall
 source_sparse_collar_l3_threshold: pressure-energy-support-bound-nonobstructive-below-exponential-sparsity-threshold
 source_collar_angular_ancestry: target-grade-pressure-requires-half-grade-ancestor-no-symbol-cancellation
+source_adjoint_strain_sign: no-nonzero-solenoidal-sign-definite-nonlinear-certificate
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -563,11 +564,22 @@ This is the second serious sparse-collar mechanism. The first left a broad
 exponentially sparse noncritical window; the second shows direct pressure cannot
 bootstrap the target from low grades and merely relocates UE1 to a high-grade
 exterior ancestry hierarchy. Further local collar algebra would rename the same
-hard core. Per the diversification rule, the next primary attack is now the
-**complete physical adjoint / full-history minimum-control cost**, retaining
-exterior occupation and the nonlinear returned state. Grade-changing/nonparent
-late regeneration remains the constructive alternative. UE1 and the terminal
-claim remain open.
+hard core.
+
+The first diversified complete-adjoint test closes a sign shortcut. In the
+exact nonlinear adjoint identity the unknown term is `(w tensor w):S(z)`. For
+every solenoidal adjoint `tr S(z)=0`; a nonzero symmetric trace-free matrix is
+indefinite, while the whole-space Fourier identity
+`2||S(z)||_2^2=||grad z||_2^2` shows that an `L2` solenoidal adjoint with zero
+strain is itself zero. Hence no nonzero admissible adjoint can make the
+quadratic correction term one-signed for arbitrary `w`. See
+`research/evidence/2026-09-12-adjoint-strain-sign-wall.md`.
+
+A terminal adjoint attack must therefore control the **magnitude** of the
+nonlinear strain budget or exploit source-specific correction structure. The
+next exact discriminator tests the principal high-frequency source force in
+that same strain-dual norm. Grade-changing/nonparent late regeneration remains
+the constructive alternative. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
