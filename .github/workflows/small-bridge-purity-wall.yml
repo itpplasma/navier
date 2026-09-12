@@ -1,0 +1,42 @@
+name: Small-bridge purity wall integration
+on:
+  push:
+    branches: [research/small-bridge-purity-wall-20260912]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 2
+      - name: Freeze checkpoint
+        run: |
+          mkdir -p /tmp/small-bridge-purity-wave/research/evidence
+          cp research/evidence/2026-09-12-small-bridge-purity-wall.md /tmp/small-bridge-purity-wave/research/evidence/
+          cp tools/integrate_small_bridge_purity_wall_20260912.py /tmp/integrate_small_bridge_purity_wall.py
+      - name: Refresh authoritative main and apply checkpoint
+        run: |
+          git fetch origin main
+          git checkout -B integration origin/main
+          python3 /tmp/integrate_small_bridge_purity_wall.py
+      - name: Install dependencies
+        run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3
+      - name: Verify relevant controls
+        run: |
+          python3 research/check_half_grade_finite_time_bridge.py
+          python3 research/check_source_harmonic_protection.py
+          python3 research/check_approximate_gap_pressure.py
+          python3 research/check_feedback_form_bound.py
+          python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
+          git diff --check
+      - name: Commit and push
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PLAN.md research/evidence/2026-09-12-small-bridge-purity-wall.md
+          git commit -m 'Rule out perturbative angular cleanup at bridge handoff'
+          git push origin HEAD:main
