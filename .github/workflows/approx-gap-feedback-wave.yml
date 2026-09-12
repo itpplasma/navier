@@ -1,0 +1,56 @@
+name: Approximate-gap feedback integration
+on:
+  push:
+    branches: [research/approx-gap-feedback-wave-20260912]
+permissions:
+  contents: write
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 2
+      - name: Freeze research wave outside checkout
+        run: |
+          mkdir -p /tmp/approx-gap-feedback-wave/research/evidence /tmp/approx-gap-feedback-wave/research
+          cp research/check_approximate_gap_pressure.py /tmp/approx-gap-feedback-wave/research/
+          cp research/check_even_feedback_packets.py /tmp/approx-gap-feedback-wave/research/
+          cp research/check_feedback_form_bound.py /tmp/approx-gap-feedback-wave/research/
+          cp research/evidence/2026-09-12-approximate-gap-pressure.md /tmp/approx-gap-feedback-wave/research/evidence/
+          cp research/evidence/2026-09-12-even-feedback-packets.md /tmp/approx-gap-feedback-wave/research/evidence/
+          cp research/evidence/2026-09-12-feedback-critical-form.md /tmp/approx-gap-feedback-wave/research/evidence/
+          cp tools/integrate_approx_gap_feedback_wave_20260912.py /tmp/integrate_approx_gap_feedback_wave.py
+      - name: Refresh authoritative main and apply wave
+        run: |
+          git fetch origin main
+          git checkout -B integration origin/main
+          python3 /tmp/integrate_approx_gap_feedback_wave.py
+      - name: Install checker dependencies
+        run: python3 -m pip install --disable-pip-version-check PyYAML==6.0.2 sympy==1.13.3 numpy scipy
+      - name: Verify exact controls and structural interfaces
+        run: |
+          python3 research/check_one_seed_ladder.py
+          python3 research/check_full_pump_chain.py
+          python3 research/check_weighted_pump_action.py
+          python3 research/check_approximate_gap_pressure.py
+          python3 research/check_even_feedback_packets.py
+          python3 research/check_feedback_form_bound.py
+          python3 -m py_compile research/check_approximate_gap_pressure.py research/check_even_feedback_packets.py research/check_feedback_form_bound.py
+          python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
+          git diff --check
+      - name: Commit and push coherent checkpoint
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PLAN.md research/verify.py \
+            research/check_approximate_gap_pressure.py \
+            research/check_even_feedback_packets.py \
+            research/check_feedback_form_bound.py \
+            research/evidence/2026-09-12-approximate-gap-pressure.md \
+            research/evidence/2026-09-12-even-feedback-packets.md \
+            research/evidence/2026-09-12-feedback-critical-form.md
+          git commit -m 'Replace even-feedback Lipschitz action with critical-form control'
+          git push origin HEAD:main
