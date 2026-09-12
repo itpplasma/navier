@@ -376,6 +376,19 @@
         "pairs_with_symmetric_strain": true,
         "principal_high_frequency_adjoint_obstruction": false
       }
+    },
+    {
+      "id": "half-grade-parent-carry-wall",
+      "scope": "continuously self-similar carry of the four old z=1 parents to inherited z=1/2 modes",
+      "evidence": "research/evidence/2026-09-12-half-grade-parent-carry-wall.md",
+      "rigor": "exact-reference-exponent-author-proof",
+      "observation": {
+        "parent_reference_exponent_bracket": ">9/10",
+        "parent_carry_gain": "exp(+c Q^(-h))",
+        "Qminus_h_over_L": "diverges for L~ell^2",
+        "passive_small_data_parent_reuse": false,
+        "late_nonlinear_regeneration": "open"
+      }
     }
   ]
 }

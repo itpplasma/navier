@@ -54,6 +54,7 @@ source_sparse_collar_l3_threshold: pressure-energy-support-bound-nonobstructive-
 source_collar_angular_ancestry: target-grade-pressure-requires-half-grade-ancestor-no-symbol-cancellation
 source_adjoint_strain_sign: no-nonzero-solenoidal-sign-definite-nonlinear-certificate
 source_adjoint_principal_stress_dual: high-frequency-solenoidal-force-has-order-one-over-k-symmetric-stress-potential
+source_half_grade_parent_carry: reference-super-amplified-passive-small-data-reuse-fails
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -596,6 +597,31 @@ the diversification rule the next primary attack switches to the constructive
 **grade-changing/nonparent late-regeneration** route. The complete adjoint stays
 available only through nonprincipal localized whole-history structure. UE1 and
 the terminal claim remain open.
+
+
+The first grade-changing discriminator closes passive reuse of the old parents.
+During the same factor-two scale contraction, an old physical parent moves from
+normalized `z=1` to `z=1/2`. In the continuously self-similar reference its
+integrated positive-branch exponent is
+
+    Q^(-h)/h [3a-2b log 2],
+    a=(1+s^2)^(-1/2),    b=(3/5)(1+s^2).
+
+For all four caged parent tilts `|s|<=1/2`, the bracket is strictly larger than
+`9/10`. Thus passive carry amplifies every old parent by `exp(+c Q^(-h))`, while
+`Q^(-h)/L -> infinity` for `L~ell^2`. Any quasi-Gaussian small parent trace used
+at one stage therefore cannot simply be reused as a small half-grade ancestor at
+the next stage. See
+`research/evidence/2026-09-12-half-grade-parent-carry-wall.md`.
+
+This does not exclude the grade-changing route; it sharpens it to genuinely
+**late** regeneration. A surviving construction must cancel/deplete the old
+parents after use and regenerate the required half-grade/nonparent state near
+the next pulse, or use a nonlinear stage in which the huge positive linear
+action is balanced by transfer. The next active discriminator is therefore a
+local late-generation calculation with nonparent half-grade ancestry, not
+another passive interstage propagator. The nonprincipal localized full-history
+adjoint remains the alternative. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
