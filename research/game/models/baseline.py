@@ -32,5 +32,6 @@ KNOWN={
     'sparse-collar-l3-threshold': {'required_energy_exponent': '-(C-kappa/2) for kappa<2C', 'forced_L3_exponent': '-(C-kappa/2)/2+beta/6', 'L3_growth_threshold': 'beta>3(C-kappa/2)', 'sparse_support_alone_excludes_collar': False, 'quadratic_stress_attainability': 'open'},
     'collar-angular-ancestry': {'low_low_target_grade': False, 'required_velocity_ancestor': 'abs(m)>=N/2', 'target_stress_bound': '2 ||u_H||_2 ||u||_2', 'universal_divergence_free_pressure_cancellation': False, 'collar_parent_supply': 'relocated-to-high-grade-ancestry'},
     'adjoint-strain-sign-wall': {'solenoidal_strain_trace': 0, 'nonzero_strain_pointwise_indefinite': True, 'zero_strain_L2_solenoidal_adjoint': 'zero', 'sign_only_nonlinear_certificate': False},
+    'adjoint-principal-stress-dual': {'symmetric_inverse_divergence': 'Ghat=-i(k⊗f+f⊗k)/|k|^2', 'stress_norm': 'sqrt(2)|f|/|k|', 'pairs_with_symmetric_strain': True, 'principal_high_frequency_adjoint_obstruction': False},
 }
 def predict(control): return KNOWN[control['id']]

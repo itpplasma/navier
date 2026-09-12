@@ -364,6 +364,18 @@
         "zero_strain_L2_solenoidal_adjoint": "zero",
         "sign_only_nonlinear_certificate": false
       }
+    },
+    {
+      "id": "adjoint-principal-stress-dual",
+      "scope": "principal nonzero Fourier mode of projected solenoidal source force",
+      "evidence": "research/evidence/2026-09-12-adjoint-principal-stress-dual.md",
+      "rigor": "exact-Fourier-symbol-author-proof",
+      "observation": {
+        "symmetric_inverse_divergence": "Ghat=-i(k\u2297f+f\u2297k)/|k|^2",
+        "stress_norm": "sqrt(2)|f|/|k|",
+        "pairs_with_symmetric_strain": true,
+        "principal_high_frequency_adjoint_obstruction": false
+      }
     }
   ]
 }

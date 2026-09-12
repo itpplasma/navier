@@ -53,6 +53,7 @@ source_recentered_z1_parent_adapter: refuted-by-multiset-and-hyperbolicity-wall
 source_sparse_collar_l3_threshold: pressure-energy-support-bound-nonobstructive-below-exponential-sparsity-threshold
 source_collar_angular_ancestry: target-grade-pressure-requires-half-grade-ancestor-no-symbol-cancellation
 source_adjoint_strain_sign: no-nonzero-solenoidal-sign-definite-nonlinear-certificate
+source_adjoint_principal_stress_dual: high-frequency-solenoidal-force-has-order-one-over-k-symmetric-stress-potential
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -575,11 +576,26 @@ strain is itself zero. Hence no nonzero admissible adjoint can make the
 quadratic correction term one-signed for arbitrary `w`. See
 `research/evidence/2026-09-12-adjoint-strain-sign-wall.md`.
 
-A terminal adjoint attack must therefore control the **magnitude** of the
-nonlinear strain budget or exploit source-specific correction structure. The
-next exact discriminator tests the principal high-frequency source force in
-that same strain-dual norm. Grade-changing/nonparent late regeneration remains
-the constructive alternative. UE1 and the terminal claim remain open.
+The second complete-adjoint discriminator closes the principal-carrier
+shortcut. For a solenoidal Fourier force coefficient `f` at nonzero `k`, the
+symmetric symbol
+
+    H=(k tensor f+f tensor k)/|k|^2
+
+satisfies `H k=f`, `|H|_F=sqrt(2)|f|/|k|`, and
+`H:sym(k tensor z)=f.z`. Thus the principal high-frequency force is already a
+symmetric divergence with `O(1/|k|)` stress size in exactly the strain-dual
+variable used by the nonlinear correction term. High carrier frequency does
+not create a favorable adjoint mismatch; any terminal obstruction must come
+from localization/envelope, low-frequency, or genuinely full-history effects.
+See `research/evidence/2026-09-12-adjoint-principal-stress-dual.md`.
+
+This is a second serious return to simple complete-adjoint mechanisms: sign
+control fails structurally and the principal carrier is strain-dual cheap. Per
+the diversification rule the next primary attack switches to the constructive
+**grade-changing/nonparent late-regeneration** route. The complete adjoint stays
+available only through nonprincipal localized whole-history structure. UE1 and
+the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
