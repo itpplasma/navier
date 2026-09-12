@@ -1,0 +1,25 @@
+name: Adjoint strain-sign discriminator
+on:
+  push:
+    branches: [research/navier-adjoint-sign-20260912]
+permissions:
+  contents: read
+jobs:
+  discriminate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Freeze exact discriminator
+        run: cp research/check_adjoint_strain_sign_wall.py /tmp/check_adjoint_strain_sign_wall.py
+      - name: Refresh authoritative main and run fast gate first
+        run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
+          python3 research/game/run.py fast
+      - name: Run exact adjoint sign discriminator
+        run: python3 /tmp/check_adjoint_strain_sign_wall.py
+      - name: Structural verification
+        run: |
+          python3 research/verify.py --research-only
+          git diff --check
