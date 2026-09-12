@@ -1,4 +1,4 @@
-name: Full pump-chain wave integration
+name: Weighted pressure and no-reset integration
 on:
   push:
     branches: [research/one-seed-wave-20260912]
@@ -15,67 +15,92 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Preserve exact research wave
         run: |
-          cp research/check_full_pump_chain.py /tmp/check_full_pump_chain.py
-          cp research/evidence/2026-09-12-full-pump-chain-gain.md /tmp/full-pump-chain-gain.md
-      - name: Refresh authoritative main
+          cp research/check_weighted_pump_action.py /tmp/check_weighted_pump_action.py
+          cp research/evidence/2026-09-12-weighted-pump-action.md /tmp/weighted-pump-action.md
+      - name: Refresh authoritative main and relevant controls
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 -m pip install numpy scipy sympy PyYAML
-          python3 research/check_one_seed_ladder.py
+          python3 research/check_full_pump_chain.py
           python3 research/verify.py --research-only
-      - name: Apply research wave
+      - name: Apply research wave without replacing concurrent status
         run: |
-          test ! -e research/check_full_pump_chain.py
-          cp /tmp/check_full_pump_chain.py research/check_full_pump_chain.py
-          cp /tmp/full-pump-chain-gain.md research/evidence/2026-09-12-full-pump-chain-gain.md
+          test ! -e research/check_weighted_pump_action.py
+          cp /tmp/check_weighted_pump_action.py research/check_weighted_pump_action.py
+          cp /tmp/weighted-pump-action.md research/evidence/2026-09-12-weighted-pump-action.md
           python3 - <<'PY'
           from pathlib import Path
           p=Path('PLAN.md');s=p.read_text()
-          assert 'source_full_pump_chain_gain:' not in s
-          s=s.replace('source_one_seed_ladder: exact-shortest-time-birth-survives-but-small-seed-free-bridge-composition-fails','source_one_seed_ladder: exact-shortest-time-birth-survives-but-small-seed-free-bridge-composition-fails\nsource_full_pump_chain_gain: infinite-tail-certified-charge-nine-extra-growth-and-decaying-pump-finite-time-gain')
-          a=s.index('The next distinct attack is the **full pump-coupled linear chain**');b=s.index('\n## 9. UE2--UE4 after UE1',a)
-          s=s[:a]+'''The full pump-coupled chain resolves that spectral question positively. An
-          exact-rational residual/Jacobian certificate with the entire infinite tail
-          retained gives, at charge nine and pump amplitude 30, an eigenvalue in the
-          radius-`1e-6` disk about `5.049883304450+6.708966735593i`. Both transverse
-          polarizations and every axial sideband are included. A Duhamel estimate then
-          transfers this to the *freely decaying* reference pump: suitable real linearized
-          data gain more than `51/50` in physical velocity L2 at time `1/200`. Thus the
-          projected negative pair products did not imply full-chain stability. See
-          `research/evidence/2026-09-12-full-pump-chain-gain.md`.
+          assert 'source_weighted_primary_pump_action:' not in s
+          s=s.replace('source_full_pump_chain_gain: infinite-tail-certified-charge-nine-extra-growth-and-decaying-pump-finite-time-gain','source_full_pump_chain_gain: infinite-tail-certified-charge-nine-extra-growth-and-decaying-pump-finite-time-gain\nsource_weighted_primary_pump_action: whole-space-angular-gap-conditional-extra-exponent-O-L-three-quarters\nsource_exact_angular_gap_reset: excluded-on-unforced-classical-branch-by-backward-uniqueness')
+          a=s.index('The active gap is now **source-specific pump action and nonlinear saturation');b=s.index('\n## 9. UE2--UE4 after UE1',a)
+          s=s[:a]+'''The physical pump-action wave supplies a whole-space pressure-retaining estimate,
+          not a frozen-frame extrapolation. For an axisymmetric weight `phi` and scalar
+          pressure with angular gap `N`, set `delta=||r grad phi||_infinity/N<1/2`. Then
+          `||exp(-phi) grad p||_2 <= (1+2delta)/(1-2delta) ||exp(-phi)F||_2` whenever
+          `-Delta p=div F`. The constant has no exponential dependence on the weight's
+          amplitude. A compact pulse-clock primitive retains its endpoint and compensating
+          broad remainder. Using the source's covariance-normalized peak `L^(1/4)` and
+          Gaussian width `sqrt(L)`, it proves for a phase-coherent angular-gap band family
 
-          The same wave supplies the limiting budget. With
-          `c0=401/(200 sqrt(2))` and `kappa=20/sqrt(401)+1203/2000`, every charge obeys
-          `||v(T)||/||v(0)|| <= exp[T+c0 |B0|(1-exp(-kappa T))/kappa]` along the decaying
-          pump. Fixed pump amplitude gives only a fixed extra factor; an extra linear
-          `exp(eta L)` factor requires at least `|B0|>=eta kappa L/c0`. Charge separation
-          still prevents this linear mechanism from manufacturing the ninth-order
-          ancestor from a zero charge-nine input.
+              ||w(T)||_2 <= exp[int_0^T M_base + C L^(3/4)+o(1)] ||w(0)||_2,
+              0<=T<=C_T L.
 
-          The active gap is now **source-specific pump action and nonlinear saturation
-          with one inherited trace**, not another projected symbol or finite-section
-          spectrum. Determine whether the needed growing pump-action regime is physically
-          available with a controlled full correction, or switch to the localized
-          full-history adjoint. The finite-time reference gain is not a completed
-          regenerative turnover. UE1 and NS-R3 remain open.
+          All physical copies and all sidebands within the assumed invariant angular
+          sector are retained. A moving-bump counter-control shows why simply commuting
+          spatial supremum and time integral would be false. The estimate does not assert
+          that the complete source collection has this angular gap, nor compare to an
+          unknown exact base propagator. See
+          `research/evidence/2026-09-12-weighted-pump-action.md`.
+
+          For the exact nonlinear even/odd system, the additional even feedback `Z`
+          contributes the explicit action
+
+              B_Z=int [||S(Z)||_infinity+||Z.grad phi||_infinity
+                         +4delta(1+2delta)/(1-2delta)||grad Z||_infinity].
+
+          No bound on the actual `B_Z` is supplied. An extra `exp(eta L)` beyond the base
+          strain budget cannot come from the prescribed primary pump alone while
+          `B_Z=o(L)` and the angular-gap hypotheses hold.
+
+          The same wave rules out an exact gap-reset repair in original unforced NS.
+          For the difference of a classical solution and its rotation, the whole-space
+          Dirichlet quotient satisfies `q' <= (M_0^2/nu)q+M_1^2`, which prevents the
+          nonzero difference from vanishing at a finite regular time. Hence the exact
+          rotational symmetry group is constant along the classical branch. Increasing
+          exact rotational symmetries at successive handoffs would already have to hold
+          at the initial time; unbounded symmetry orders would make the initial datum
+          axisymmetric. Individual mode zeros and approximate depletion are not excluded.
+
+          The first remaining constructive dependency is **quantitative approximate-gap
+          and even-feedback control for one complete inherited physical history**. Old
+          low angular sectors cannot be deleted at handoffs. Their pressure contribution,
+          cross-label mixing, and the action `B_Z` must be controlled or used in a new
+          full-state consumer. More independent local bridge data, principal symbols or
+          finite-section spectra cannot supply this missing global input. The localized
+          full-history adjoint and the arbitrary-data positive producer remain separate
+          unresolved alternatives. UE1 and NS-R3 remain open.
           '''+s[b:]
+          s=s.replace('but in each two-mode block the directional growing coefficients have opposite','but in each projected two-mode pair the directional growing coefficients have opposite')
           p.write_text(s)
           PY
-      - name: Exact certificate and structural checks
+      - name: Verify exact controls and integrated structure
         run: |
+          python3 research/check_weighted_pump_action.py
           python3 research/check_full_pump_chain.py
           python3 research/check_one_seed_ladder.py
           python3 research/check_source_pump_half_grade_parity.py
+          python3 research/check_half_grade_finite_time_bridge.py
           python3 research/verify.py --research-only
           python3 research/verify.py --paper-only
-          git add PLAN.md research/check_full_pump_chain.py research/evidence/2026-09-12-full-pump-chain-gain.md
+          git add PLAN.md research/check_weighted_pump_action.py research/evidence/2026-09-12-weighted-pump-action.md
           git diff --cached --check
           git diff --cached --stat
       - name: Coherent commit and ordinary push
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Certify full pump-chain growth and decaying-pump finite-time gain'
+          git commit -m 'Control angular-gap pump action and exclude exact symmetry resets'
           git push origin HEAD:main
           git rev-parse HEAD
