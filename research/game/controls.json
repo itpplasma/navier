@@ -326,6 +326,19 @@
         "outer_parent_stable_by_multiplier": "a>=13/9",
         "general_grade_changing_adapter": "open"
       }
+    },
+    {
+      "id": "sparse-collar-l3-threshold",
+      "scope": "thin-collar direct pressure signal combined with energy, support volume and L3 continuation",
+      "evidence": "research/evidence/2026-09-12-sparse-collar-l3-threshold.md",
+      "rigor": "analytic-scaling-author-proof-exact-exponent-check",
+      "observation": {
+        "required_energy_exponent": "-(C-kappa/2) for kappa<2C",
+        "forced_L3_exponent": "-(C-kappa/2)/2+beta/6",
+        "L3_growth_threshold": "beta>3(C-kappa/2)",
+        "sparse_support_alone_excludes_collar": false,
+        "quadratic_stress_attainability": "open"
+      }
     }
   ]
 }

@@ -29,5 +29,6 @@ KNOWN={
     'counterterm-causal-mismatch': {'unstable_manifold_quadratic_coordinate': 'F/D', 'future_canceling_coordinate': '-F*(exp(D*T)-1)/D', 'ratio_for_T_positive': '1-exp(D*T)<0', 'four_parent_causal_counterterm_supply': False},
     'single-label-interstage-wall': {'same_label_fast_displacement_over_L': 'diverges like Q^(-h)/ell^2', 'parent_relative_lattice_deformation_lower_bound': 'sqrt(9/500)*abs(Delta v/L)', 'direct_fixed_label_adapter': False, 'recentered_multilabel_adapter': 'open'},
     'recenter-cage-wall': {'same_rational_cage_after_forward_shift': False, 'same_cage_multiset_condition': 'a=1', 'outer_parent_stable_by_multiplier': 'a>=13/9', 'general_grade_changing_adapter': 'open'},
+    'sparse-collar-l3-threshold': {'required_energy_exponent': '-(C-kappa/2) for kappa<2C', 'forced_L3_exponent': '-(C-kappa/2)/2+beta/6', 'L3_growth_threshold': 'beta>3(C-kappa/2)', 'sparse_support_alone_excludes_collar': False, 'quadratic_stress_attainability': 'open'},
 }
 def predict(control): return KNOWN[control['id']]

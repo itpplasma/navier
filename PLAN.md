@@ -50,6 +50,7 @@ source_stable_preload_balance: proved-local-reference-counterterm-repair-recursi
 source_four_parent_counterterm_supply: refuted-by-opposite-causal-stable-coordinate
 source_single_label_interstage_adapter: refuted-by-unbounded-exact-lattice-deformation
 source_recentered_z1_parent_adapter: refuted-by-multiset-and-hyperbolicity-wall
+source_sparse_collar_l3_threshold: pressure-energy-support-bound-nonobstructive-below-exponential-sparsity-threshold
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -525,10 +526,30 @@ Together with the single-label wall, this is a second serious return to the
 same physical-adapter obstruction. The active run must therefore leave simple
 `z=1` recentering. A surviving constructive source route must use a genuinely
 grade-changing/nonparent transition, additional inherited state with a new
-hyperbolic structure, or late nonlinear regeneration near the next pulse. Per
-the diversification rule the next primary attack is the distinct sparse
-thin-collar/nonlocal-entry mechanism; the complete full-history adjoint remains
-the alternative negative route. UE1 and the terminal claim remain open.
+hyperbolic structure, or late nonlinear regeneration near the next pulse.
+
+The first diversified sparse-collar test gives an exact wall to the obvious
+critical-norm exclusion. Write the required direct pressure-input scale as
+`A_L=exp(-C L+o(L))` and choose collar thickness
+`delta/r=kappa L/N`. The midpoint form of the existing pressure estimate has
+operator exponent `-kappa L/2+o(L)`, so for `kappa<2C` it only forces kinetic
+energy `exp(-(C-kappa/2)L+o(L))`. If the stress-bearing velocity occupies an
+`exp(-beta L)` fraction of the collar, Holder forces `L3` exponent
+
+    -(C-kappa/2)/2 + beta/6.
+
+Thus pressure+energy+support size implies critical growth only for
+`beta>3(C-kappa/2)`; a wide exponentially sparse window remains
+non-obstructive. See
+`research/evidence/2026-09-12-sparse-collar-l3-threshold.md`.
+
+The next exact collar discriminator is therefore **attainability**, not another
+support-size estimate: determine whether divergence-free quadratic stresses in
+the pressure-allowed collar can actually realize an entry-scale high-angular
+pressure/velocity trace, or prove an operator lower-bound/non-attainability
+theorem. If that second collar mechanism also returns to the uncontrolled full
+history, switch to the complete physical adjoint. UE1 and the terminal claim
+remain open.
 
 ## 9. UE2--UE4 after UE1
 
