@@ -44,8 +44,10 @@ def eigcoords_key(key,f):
     f=s.Matrix(f)
     return s.simplify((f[0]-f[1]/q)/2),s.simplify((f[0]+f[1]/q)/2)
 def exact_nonzero(expr):
-    expr=s.simplify(s.radsimp(expr))
-    if expr==0: return False
+    expr=s.factor(s.radsimp(s.simplify(expr)))
+    if expr==0 or expr.is_zero is True: return False
+    if expr.is_zero is False: return True
+    # Exact fallback only when SymPy's algebraic predicates are undecided.
     x=s.symbols('X')
     mp=s.Poly(s.minpoly(expr,x),x)
     return mp.eval(0)!=0
@@ -84,7 +86,6 @@ assert [len(U0),len(U1),len(U2)]==[8,28,60]
 for key in ((14,1),(-13,1)):
     assert key in U2
     cp,_=eigcoords_key(key,U2[key])
-    # Remove the universal i phase before exact algebraic nonzero certification.
     realcp=s.radsimp(-s.I*cp)
     assert exact_nonzero(realcp), (key,realcp)
 
@@ -98,7 +99,7 @@ late_hard=[
 for parent_key,cubic_key,target in late_hard:
     out=C(keyvec(parent_key),U0[parent_key],keyvec(cubic_key),U2[cubic_key])
     cp,_=eigcoords_key(target,out)
-    realcp=s.radsimp(s.I*cp)  # phase convention may differ by one i; exact zero is invariant
+    realcp=s.radsimp(s.I*cp)
     assert exact_nonzero(realcp), (parent_key,cubic_key,target,realcp)
 
 # Easy next parents are still born directly from two degree-one originals.
@@ -123,24 +124,19 @@ for key,val in U2.items():
 for target in (10,-8):
     assert not any(x+y==target for x in cubic_x for y in cubic_x), (target,cubic_x)
     assert any(x+y==target for x in original_x for y in cubic_x), (target,cubic_x)
-# The two easy targets already have original-original decompositions.
 assert 5+(-1)==4 and (-4)+2==-2
 
-# Half-scale linear rate after factor-two normalization.  It is strictly
-# decreasing in |s|.  The hard-producing extreme cubic sidebands have tilts
-# 7/5 and -13/10, while the corresponding easy partners have 1/5 and -1/10.
+# Half-scale linear rate after factor-two normalization is strictly decreasing
+# in |s|.  Hard-producing extreme cubic sidebands have |s|=7/5,13/10;
+# corresponding easy partners have |s|=1/5,1/10.
 def rate_half(sig):
     q2=1+sig*sig
     return s.simplify(1/s.sqrt(q2)-s.Rational(3,20)*q2)
 q=s.symbols('q',positive=True)
 f=1/q-s.Rational(3,20)*q*q
 assert s.simplify(s.diff(f,q)) == -1/q**2-s.Rational(3,10)*q
-assert abs(s.Rational(1,5)) < abs(s.Rational(7,5))
-assert abs(s.Rational(1,10)) < abs(s.Rational(13,10))
 assert rate_half(s.Rational(1,5)) > rate_half(s.Rational(7,5))
 assert rate_half(-s.Rational(1,10)) > rate_half(-s.Rational(13,10))
-# All four relevant half-scale ancestors are growing, so this is a genuine late
-# nonlinear-generation mechanism, not passive stable cargo.
 for sig in (s.Rational(-2,5),s.Rational(7,5),s.Rational(1,2),-s.Rational(13,10)):
     assert rate_half(sig)>0
 
