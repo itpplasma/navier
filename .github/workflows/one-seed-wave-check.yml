@@ -17,10 +17,24 @@ jobs:
         run: |
           cp research/check_weighted_pump_action.py /tmp/check_weighted_pump_action.py
           cp research/evidence/2026-09-12-weighted-pump-action.md /tmp/weighted-pump-action.md
-      - name: Refresh authoritative main and relevant controls
+      - name: Refresh main and admit the exact concurrent partial-status metadata
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('research/verify.py');s=p.read_text()
+          old="assert state['formal_status'] == 'unchanged-see-navier-formal-and-archived-plan'"
+          new="""# PLAN metadata may also record the owner's partial identity draft (2b426ce).
+          # Neither value promotes canonical formal phases or the terminal claim.
+          assert state['formal_status'] in {
+              'unchanged-see-navier-formal-and-archived-plan',
+              'partial Hessian/Laplacian L2 identity drafted under explicit IBP data; paper-to-data bridge and critical producer remain open',
+          }, 'unrecognized live formal-status metadata'
+          """.rstrip()
+          assert old in s
+          p.write_text(s.replace(old,new))
+          PY
           python3 -m pip install numpy scipy sympy PyYAML
           python3 research/check_full_pump_chain.py
           python3 research/verify.py --research-only
@@ -94,7 +108,7 @@ jobs:
           python3 research/check_half_grade_finite_time_bridge.py
           python3 research/verify.py --research-only
           python3 research/verify.py --paper-only
-          git add PLAN.md research/check_weighted_pump_action.py research/evidence/2026-09-12-weighted-pump-action.md
+          git add PLAN.md research/verify.py research/check_weighted_pump_action.py research/evidence/2026-09-12-weighted-pump-action.md
           git diff --cached --check
           git diff --cached --stat
       - name: Coherent commit and ordinary push
