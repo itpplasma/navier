@@ -1,0 +1,25 @@
+name: Adjoint principal stress-dual discriminator
+on:
+  push:
+    branches: [research/navier-adjoint-stress-dual-20260912]
+permissions:
+  contents: read
+jobs:
+  discriminate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Freeze exact discriminator
+        run: cp research/check_adjoint_principal_stress_dual.py /tmp/check_adjoint_principal_stress_dual.py
+      - name: Refresh authoritative main and run fast gate first
+        run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
+          python3 research/game/run.py fast
+      - name: Run exact stress-dual discriminator
+        run: python3 /tmp/check_adjoint_principal_stress_dual.py
+      - name: Structural verification
+        run: |
+          python3 research/verify.py --research-only
+          git diff --check
