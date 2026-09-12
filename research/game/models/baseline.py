@@ -36,5 +36,6 @@ KNOWN={
     'half-grade-parent-carry-wall': {'parent_reference_exponent_bracket': '>9/10', 'parent_carry_gain': 'exp(+c Q^(-h))', 'Qminus_h_over_L': 'diverges for L~ell^2', 'passive_small_data_parent_reuse': False, 'late_nonlinear_regeneration': 'open'},
     'half-grade-six-mode-bridge': {'half_grade_ancestors': '14,-13,5,-4,2,-1 all positive-branch growing', 'cubic_extremes': 'both +14 and -13 nonzero unique monomials', 'next_parent_quadratic_edges': 'all four nonzero', 'leading_target_rank': 4, 'finite_duration_bridge': 'open', 'late_causal_six_mode_supply': False},
     'half-grade-finite-time-bridge': {'quadratic_competitors': 'only self pairs, identically zero', 'four_growth_mismatches': 'strictly positive', 'finite_time_target_rank': 4, 'full_infinite_lattice_retuning': True, 'late_causal_six_mode_supply': False, 'physical_finite_L_lift': False},
+    'source-pump-half-grade-parity': {'source_background_phase_parity': 'even in half-grade m units', 'zero_odd_sector_invariant': True, 'pump_complement_pairs': '(14,-13),(5,-4),(2,-1)', 'all_directional_pump_coefficients_nonzero': True, 'pair_offdiagonal_products': 'strictly negative', 'zero_seed_parametric_half_grade_generation': False, 'nonlinear_cross_pair_seed_spread': 'open'},
 }
 def predict(control): return KNOWN[control['id']]

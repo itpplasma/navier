@@ -57,6 +57,7 @@ source_adjoint_principal_stress_dual: high-frequency-solenoidal-force-has-order-
 source_half_grade_parent_carry: reference-super-amplified-passive-small-data-reuse-fails
 source_half_grade_six_mode_bridge: rank-four-quadratic-next-parent-map-local-reference-author
 source_half_grade_finite_time_bridge: full-infinite-lattice-fixed-horizon-rank-four-retuning-author
+source_pump_half_grade_parity: even-source-cannot-zero-seed-odd-half-grade-sector
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -675,6 +676,31 @@ old parents and regenerate the six-mode state late, or use a genuinely
 different parametric interaction with the actual source background. The
 nonprincipal localized full-history adjoint remains the alternative. UE1 and
 the terminal claim remain open.
+
+
+The first actual-source pump test gives an exact parity obstruction. Measure
+physical phase in units of the half-grade ancestor integer `m`. The local source
+mean/background has grade zero and the previous pure daughter pump has grade
+`2m`; all source harmonics and residuals are therefore even. The complete
+correction equation preserves phase parity, so an initially zero odd sector can
+never create the required grade-`m` half-grade ancestors. The previous daughter
+pump does have nonzero Leray transfer in exactly three complementary pairs
+
+    (14,-13),   (5,-4),   (2,-1),
+
+but in each two-mode block the directional growing coefficients have opposite
+signs and hence negative off-diagonal product. The pump transfers a pre-existing
+odd seed; it does not manufacture the first one. See
+`research/evidence/2026-09-12-source-pump-half-grade-parity.md`.
+
+The surviving nonlinear repair is now sharper. A seed in the inner pair can
+produce its complement through the pump; that pair creates a grade-zero radial
+difference shear of key `3`, and shear feedback can shift half-grade keys by
+three. The next discriminator is the complete **one-odd-seed shear ladder**:
+determine the minimum seed degree of the four next parents after all pump and
+quadratic paths are admitted, rather than assuming the prescribed-shear theorem
+can simply be spliced in. The nonprincipal localized full-history adjoint
+remains the alternative. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 

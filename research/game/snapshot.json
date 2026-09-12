@@ -2,7 +2,7 @@
   "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "5b53004e0fc13664641d155c2aaec86f2cd90c0c",
+    "PLAN.md": "b68238753e537f81a70bf3671b1c7669a6eb27d1",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
     "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
     "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
@@ -31,7 +31,8 @@
     "research/evidence/2026-09-12-adjoint-principal-stress-dual.md": "1cd884364e1ed70b24ac885230a8ec60c39cf47d",
     "research/evidence/2026-09-12-half-grade-parent-carry-wall.md": "d443399dba112df8bfd6a6c96be7d0fbc054f9d2",
     "research/evidence/2026-09-12-half-grade-six-mode-bridge.md": "9326577ec1a7c774195126f37fd6a4af71a67e7d",
-    "research/evidence/2026-09-12-half-grade-finite-time-bridge.md": "2f1e50e7bdccdb41cce25b21d74c8ba827a94296"
+    "research/evidence/2026-09-12-half-grade-finite-time-bridge.md": "2f1e50e7bdccdb41cce25b21d74c8ba827a94296",
+    "research/evidence/2026-09-12-source-pump-half-grade-parity.md": "f5bd2e3a0950179ef31d1ca736ab70080fbb4045"
   },
   "cycle": [
     "DISCOVER",
@@ -44,6 +45,6 @@
     "serious_repeat_limit": 2,
     "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
   },
-  "active_frontier": "causal late supply of six half-grade ancestors from one physical history via depletion/regeneration or a distinct source-background parametric mechanism; nonprincipal localized full-history adjoint remains alternative",
+  "active_frontier": "complete one-odd-seed nonlinear shear ladder for causal late half-grade supply; nonprincipal localized full-history adjoint remains alternative",
   "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
 }

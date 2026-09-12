@@ -417,6 +417,21 @@
         "late_causal_six_mode_supply": false,
         "physical_finite_L_lift": false
       }
+    },
+    {
+      "id": "source-pump-half-grade-parity",
+      "scope": "actual physical phase parity plus frozen local previous-daughter pump acting on the six half-grade ancestors",
+      "evidence": "research/evidence/2026-09-12-source-pump-half-grade-parity.md",
+      "rigor": "exact-physical-grading-symbol-author-proof",
+      "observation": {
+        "source_background_phase_parity": "even in half-grade m units",
+        "zero_odd_sector_invariant": true,
+        "pump_complement_pairs": "(14,-13),(5,-4),(2,-1)",
+        "all_directional_pump_coefficients_nonzero": true,
+        "pair_offdiagonal_products": "strictly negative",
+        "zero_seed_parametric_half_grade_generation": false,
+        "nonlinear_cross_pair_seed_spread": "open"
+      }
     }
   ]
 }
