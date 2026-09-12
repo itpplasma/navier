@@ -1,0 +1,19 @@
+name: Recenter adapter session
+on:
+  push:
+    branches: [research/navier-recenter-wall-20260912]
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Refresh authoritative main and run fast gate first
+        run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
+          python3 research/game/run.py fast
+          python3 research/verify.py --research-only
+          git diff --check
