@@ -1,25 +1,42 @@
-name: Sparse collar discriminator
+name: Sparse collar integration
 on:
   push:
     branches: [research/navier-sparse-collar-20260912]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  discriminate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact discriminator
-        run: cp research/check_sparse_collar_l3_threshold.py /tmp/check_sparse_collar_l3_threshold.py
-      - name: Refresh authoritative main and run fast gate first
+      - name: Freeze authorized checkpoint
+        run: |
+          cp research/check_sparse_collar_l3_threshold.py /tmp/check_sparse_collar_l3_threshold.py
+          cp research/evidence/2026-09-12-sparse-collar-l3-threshold.md /tmp/sparse-collar-l3-threshold.md
+          cp tools/integrate_sparse_collar_l3_threshold_20260912.py /tmp/integrate_sparse_collar.py
+      - name: Refresh main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Run exact sparse-collar discriminator
-        run: python3 /tmp/check_sparse_collar_l3_threshold.py
-      - name: Structural verification
+      - name: Apply exact checkpoint
         run: |
+          cp /tmp/check_sparse_collar_l3_threshold.py research/check_sparse_collar_l3_threshold.py
+          cp /tmp/sparse-collar-l3-threshold.md research/evidence/2026-09-12-sparse-collar-l3-threshold.md
+          python3 /tmp/integrate_sparse_collar.py
+      - name: Verify checkpoint
+        run: |
+          python3 research/check_sparse_collar_l3_threshold.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
+      - name: Commit and push without force
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PLAN.md research/check_sparse_collar_l3_threshold.py research/evidence/2026-09-12-sparse-collar-l3-threshold.md research/game/controls.json research/game/models/baseline.py research/game/snapshot.json
+          git commit -m 'Quantify sparse-collar L3 threshold'
+          git push origin HEAD:main
