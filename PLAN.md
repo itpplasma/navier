@@ -68,7 +68,7 @@ full_physical_adjoint: not-computed
 nonlinear_deforcing_contraction: not-produced
 source_singularity_preservation_under_correction: not-proved
 regenerative_turnovers_certified: 0
-formal_status: partial Hessian/Laplacian L2 identity drafted under explicit IBP data; compact-support C3 adapter and bounded operator-norm gradient-interpolation consumer added, H2-to-pointwise-C3/IBP, norm-identification, and critical producer remain open; Sol/Astra review stopped at the missing compact-support regularity/cutoff and Hessian-to-Laplacian bridges
+formal_status: partial Hessian/Laplacian L2 identity replayed under explicit IBP data; compact-support C3 adapter and bounded operator-norm gradient-interpolation consumer replayed, H2-to-pointwise-C3/IBP, norm-identification, and critical producer remain open; Sol/Astra review stopped at the missing compact-support regularity/cutoff and Hessian-to-Laplacian bridges
 new_results_audit: author-proofs-independent-mathematical-audit-pending
 public_release: true
 ```
@@ -798,13 +798,15 @@ No numerical orbit is a certificate for these steps.
 The route-invariant formal programme remains incomplete. Current Lean status is
 owned by `itpplasma/navier-formal` and
 `navier-formal/docs/verification-status.md`; the bounded Jacobian
-Sobolev/interpolation consumer is now recorded there, while the
+Sobolev/interpolation consumer is now replayed there, while the
 H²-to-pointwise-C³/IBP bridge, norm identification, and critical producer
 remain open. The earlier frontier text is preserved in the archived PLANs.
 
 The 2026-09-12 Navier formalization pass repaired the Sobolev side condition:
 the domain dimension is `3` (the Jacobian is merely `ℝ⁹`-valued). The
-operator-norm interpolation oracle passes, but Astra review confirms that the
+The pinned target build now replays `HessianLaplacianL2`, the compact-support
+adapter, and `GradientInterpolation`; the Gaussian, bump-function, and
+operator-norm interpolation oracles pass. Astra review confirms that the
 first paper-level bridge is still applying the compact-support/C³ theorem to
 the manuscript field: generic `H²` does not provide pointwise `C³`, and compact
 support needs a cutoff/limit argument. The Hessian/Frobenius-to-Laplacian
