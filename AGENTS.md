@@ -52,9 +52,10 @@ regular-particle theorems to weak kinetic solutions without an adapter.
 
 ## Executable research game
 
-`research/game/` is the executable backend for the repository's existing
-math-frontier discipline. It does not replace `PLAN.md` or the canonical proof
-graph.
+The research game is deliberately lean. `PLAN.md` and the canonical proof graph
+are the state. The game exists only to run a small set of permanent hostile
+controls/checkers against a proposed mechanism and to force diversification when
+a route returns to the same uncontrolled critical quantity.
 
 At the start of a frontier run execute:
 
@@ -66,13 +67,12 @@ against the first unresolved terminal dependency.
 For each serious candidate mechanism:
 
 1. state the exact prediction or estimate before testing;
-2. replay every applicable frozen control;
-3. prefer the cheapest exact experiment that distinguishes surviving mechanisms;
-4. preserve exact counterexamples and route-changing failures as controls;
-5. classify numerical PDE experiments as heuristic/discriminating evidence only;
-6. never promote simulation, apparent singularity, resolution convergence or
+2. run only the applicable exact hostile controls;
+3. preserve exact counterexamples and route-changing failures as controls;
+4. classify numerical PDE experiments as heuristic/discriminating evidence only;
+5. never promote simulation, apparent singularity, resolution convergence or
    finite computation into a universal regularity/blowup theorem;
-7. after two serious returns to the same uncontrolled critical quantity or exact
+6. after two serious returns to the same uncontrolled critical quantity or exact
    obstruction, change mechanism, abstraction, representation or route.
 
 Current routes in PLAN are priorities, not a whitelist. New proof or
@@ -84,10 +84,15 @@ A theorem, obstruction, experiment or commit is a checkpoint, not a stopping
 condition. After a genuine mathematical delta, integrate it, run applicable
 checks, commit/push it, recompute the terminal frontier, and continue.
 
-If authoritative frontier files change, the fast gate may fail closed as stale.
-Read the new state, refresh the game projection/controls only where mathematically
-justified, then rerun the gate. Do not edit frozen observations merely to rescue
-a failed mechanism.
+Do not maintain a parallel snapshot/frontier model, baseline prediction model,
+or generic discrimination framework. Those are disabled. Do not add a game
+control for every positive lemma. Freeze only reusable exact obstructions,
+counterexamples, evidence-class traps, and terminal-interface regressions that
+future agents are likely to violate.
+
+A normal mathematical integration is one coherent commit: theorem/obstruction +
+PLAN/proof-graph update + at most one genuinely reusable hostile control/checker.
+Do not create separate commits merely to refresh game state.
 
 ## Formal phases and proof promotion
 
