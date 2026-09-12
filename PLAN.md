@@ -68,7 +68,7 @@ full_physical_adjoint: not-computed
 nonlinear_deforcing_contraction: not-produced
 source_singularity_preservation_under_correction: not-proved
 regenerative_turnovers_certified: 0
-formal_status: partial Hessian/Laplacian L2 identity drafted under explicit IBP data; compact-support C3 adapter added, H2-to-pointwise-C3 bridge and critical producer remain open
+formal_status: partial Hessian/Laplacian L2 identity drafted under explicit IBP data; compact-support C3 adapter and bounded operator-norm gradient-interpolation consumer added, H2-to-pointwise-C3, norm-identification, and critical producer remain open
 new_results_audit: author-proofs-independent-mathematical-audit-pending
 public_release: true
 ```
@@ -795,10 +795,12 @@ No numerical orbit is a certificate for these steps.
 
 ## 10. Verification, provenance, formal work
 
-The route-invariant formal programme is unchanged. Current Lean status remains
-owned by `itpplasma/navier-formal` and `navier-formal/docs/verification-status.md`;
-no new formal coverage is claimed by this PLAN update. The complete prior formal
-status and earlier frontier text are preserved in the archived PLANs.
+The route-invariant formal programme remains incomplete. Current Lean status is
+owned by `itpplasma/navier-formal` and
+`navier-formal/docs/verification-status.md`; the bounded Jacobian
+Sobolev/interpolation consumer is now recorded there, while the
+H²-to-pointwise-C³/IBP bridge, norm identification, and critical producer
+remain open. The earlier frontier text is preserved in the archived PLANs.
 
 All September 11 theorem/obstruction packets are author proofs unless their own
 files state otherwise; independent mathematical audit and novelty remain
