@@ -34,5 +34,6 @@ KNOWN={
     'adjoint-strain-sign-wall': {'solenoidal_strain_trace': 0, 'nonzero_strain_pointwise_indefinite': True, 'zero_strain_L2_solenoidal_adjoint': 'zero', 'sign_only_nonlinear_certificate': False},
     'adjoint-principal-stress-dual': {'symmetric_inverse_divergence': 'Ghat=-i(k⊗f+f⊗k)/|k|^2', 'stress_norm': 'sqrt(2)|f|/|k|', 'pairs_with_symmetric_strain': True, 'principal_high_frequency_adjoint_obstruction': False},
     'half-grade-parent-carry-wall': {'parent_reference_exponent_bracket': '>9/10', 'parent_carry_gain': 'exp(+c Q^(-h))', 'Qminus_h_over_L': 'diverges for L~ell^2', 'passive_small_data_parent_reuse': False, 'late_nonlinear_regeneration': 'open'},
+    'half-grade-six-mode-bridge': {'half_grade_ancestors': '14,-13,5,-4,2,-1 all positive-branch growing', 'cubic_extremes': 'both +14 and -13 nonzero unique monomials', 'next_parent_quadratic_edges': 'all four nonzero', 'leading_target_rank': 4, 'finite_duration_bridge': 'open', 'late_causal_six_mode_supply': False},
 }
 def predict(control): return KNOWN[control['id']]

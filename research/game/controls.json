@@ -389,6 +389,20 @@
         "passive_small_data_parent_reuse": false,
         "late_nonlinear_regeneration": "open"
       }
+    },
+    {
+      "id": "half-grade-six-mode-bridge",
+      "scope": "frozen local source-reference bridge from six z=1/2 ancestors to four next z=1 parents",
+      "evidence": "research/evidence/2026-09-12-half-grade-six-mode-bridge.md",
+      "rigor": "exact-algebra-spectral-author-proof",
+      "observation": {
+        "half_grade_ancestors": "14,-13,5,-4,2,-1 all positive-branch growing",
+        "cubic_extremes": "both +14 and -13 nonzero unique monomials",
+        "next_parent_quadratic_edges": "all four nonzero",
+        "leading_target_rank": 4,
+        "finite_duration_bridge": "open",
+        "late_causal_six_mode_supply": false
+      }
     }
   ]
 }

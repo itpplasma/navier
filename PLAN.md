@@ -55,6 +55,7 @@ source_collar_angular_ancestry: target-grade-pressure-requires-half-grade-ancest
 source_adjoint_strain_sign: no-nonzero-solenoidal-sign-definite-nonlinear-certificate
 source_adjoint_principal_stress_dual: high-frequency-solenoidal-force-has-order-one-over-k-symmetric-stress-potential
 source_half_grade_parent_carry: reference-super-amplified-passive-small-data-reuse-fails
+source_half_grade_six_mode_bridge: rank-four-quadratic-next-parent-map-local-reference-author
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -622,6 +623,33 @@ action is balanced by transfer. The next active discriminator is therefore a
 local late-generation calculation with nonparent half-grade ancestry, not
 another passive interstage propagator. The nonprincipal localized full-history
 adjoint remains the alternative. UE1 and the terminal claim remain open.
+
+
+That local nonparent discriminator is favorable once the inherited state is
+enlarged. Besides the four old half-grade keys `5,-4,2,-1`, the complete cubic
+dynamics supplies both extreme keys `14` and `-13`; each extreme has a unique
+cubic monomial and a nonzero growing coordinate, and both are linearly unstable
+at normalized `z=1/2`. The six half-grade modes have four exact quadratic
+next-parent edges
+
+    14+(-4)->5,   -13+5->-4,
+    5+(-1)->2,    -4+2->-1,
+
+where the arrows divide the input key sum by two when returning to `z=1`.
+Every full Leray growing projection is nonzero. Moreover, fixing nonzero shared
+ancestors `x_5,x_-4`, the leading four-target Jacobian in
+`(x_14,x_-13,x_-1,x_2)` has nonzero determinant. Thus the old two-hard/two-easy
+order mismatch is not intrinsic to a six-coordinate grade-changing state; the
+four next parents can all be generated quadratically with a rank-four leading
+map. See `research/evidence/2026-09-12-half-grade-six-mode-bridge.md`.
+
+The first unresolved object is now **finite-duration and causal realization of
+this six-mode bridge**. One must show that the rank-four map survives the full
+short-time infinite-lattice evolution and then supply the six half-grade
+ancestors late from one physical history; freely prescribing them is not a
+global solution. The next discriminator is finite-duration persistence of the
+rank-four target map. The nonprincipal localized full-history adjoint remains
+the alternative. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
