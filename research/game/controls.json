@@ -6,140 +6,207 @@
       "scope": "NS-R3",
       "evidence": "AUTHORITATIVE_PLAN",
       "rigor": "exact-status",
-      "observation": {"terminal_status": "not-proved", "unforced_counterexample": "not-constructed"}
+      "observation": {
+        "terminal_status": "not-proved",
+        "unforced_counterexample": "not-constructed"
+      }
     },
     {
       "id": "positive-consumer",
       "scope": "regularity route",
       "evidence": "REVIEWED_CONDITIONAL_CHAIN",
       "rigor": "exact",
-      "observation": {"needs": "input-only arbitrary-data critical producer", "consumer": "finite L^{3,q} or equivalent continuation bound"}
+      "observation": {
+        "needs": "input-only arbitrary-data critical producer",
+        "consumer": "finite L^{3,q} or equivalent continuation bound"
+      }
     },
     {
       "id": "finite-inverse-scope",
       "scope": "viscous mixed-trace inverse",
       "evidence": "PAPER_AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"finite_horizon_inverse": true, "common_physical_trace": false, "endpoint_uniformity": false}
+      "observation": {
+        "finite_horizon_inverse": true,
+        "common_physical_trace": false,
+        "endpoint_uniformity": false
+      }
     },
     {
       "id": "all-penalty-selector",
       "scope": "changed positive-normal initialization",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"all_nonnegative_penalties": true, "operator_lipschitz_in_history": true, "source_endpoint_control": false}
+      "observation": {
+        "all_nonnegative_penalties": true,
+        "operator_lipschitz_in_history": true,
+        "source_endpoint_control": false
+      }
     },
     {
       "id": "common-control-criterion",
       "scope": "accumulating pulse observations",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"common_finite_norm_control_iff": "uniformly bounded minimum-norm prefix controls", "source_passes_test": false}
+      "observation": {
+        "common_finite_norm_control_iff": "uniformly bounded minimum-norm prefix controls",
+        "source_passes_test": false
+      }
     },
     {
       "id": "source-local-entry-seed",
       "scope": "actual primary source pulse",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"entry_seed_cost": "comparable to P(0)=exp(-gamma_- L)", "peak_preserved_locally": true, "one_global_initial_trace": false}
+      "observation": {
+        "entry_seed_cost": "comparable to P(0)=exp(-gamma_- L)",
+        "peak_preserved_locally": true,
+        "one_global_initial_trace": false
+      }
     },
     {
       "id": "source-covariance-retuning",
       "scope": "actual two-pulse leading mean covariance",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"positive_weights_preserved": true, "relative_change": "O(sqrt(L) exp(-c L))", "full_mean_pressure_repaired": false}
+      "observation": {
+        "positive_weights_preserved": true,
+        "relative_change": "O(sqrt(L) exp(-c L))",
+        "full_mean_pressure_repaired": false
+      }
     },
     {
       "id": "source-zero-extension-gluing",
       "scope": "uncut locally seeded pulse extended by zero",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"unforced_full_NS_gluing": false, "obstruction": "nonzero solenoidal temporal delta impulses"}
+      "observation": {
+        "unforced_full_NS_gluing": false,
+        "obstruction": "nonzero solenoidal temporal delta impulses"
+      }
     },
     {
       "id": "localized-adjoint-shortcut",
       "scope": "actual source principal pulse",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"zero_initial_trace_cutoff_adjoint_valid": false, "defect_pairing": "exact half-unit cancellation"}
+      "observation": {
+        "zero_initial_trace_cutoff_adjoint_valid": false,
+        "defect_pairing": "exact half-unit cancellation"
+      }
     },
     {
       "id": "angular-homogeneous-preparation",
       "scope": "whole-space high angular mode preparation",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"trapped_homogeneous_preparation": "superalgebraically damped", "surviving_alternatives": "radial exterior occupation or large nonlinear supply"}
+      "observation": {
+        "trapped_homogeneous_preparation": "superalgebraically damped",
+        "surviving_alternatives": "radial exterior occupation or large nonlinear supply"
+      }
     },
     {
       "id": "angular-resonance-budget",
       "scope": "positive smooth-block route",
       "evidence": "AUTHOR_PROOF",
       "rigor": "exact",
-      "observation": {"input_only_weighted_moment_budget": true, "thin_resonance_slab_cost": "O(eta)", "RFq_producer": false}
+      "observation": {
+        "input_only_weighted_moment_budget": true,
+        "thin_resonance_slab_cost": "O(eta)",
+        "RFq_producer": false
+      }
     },
     {
       "id": "comparable-normal-form-wall",
       "scope": "heat-resonance split plus one normal form",
       "evidence": "EXACT_SCALING_OBSTRUCTION",
       "rigor": "exact",
-      "observation": {"boundary_primitive_over_entropy": "M/(nu eta)", "uniform_arbitrary_amplitude_coercivity": false}
+      "observation": {
+        "boundary_primitive_over_entropy": "M/(nu eta)",
+        "uniform_arbitrary_amplitude_coercivity": false
+      }
     },
     {
       "id": "raman-simultaneous-ordering",
       "scope": "preloaded Raman pairs",
       "evidence": "EXACT_LEADING_SYMBOL",
       "rigor": "exact",
-      "observation": {"claimed_leading_one_order_transfer_survives_full_time_ordering": false}
+      "observation": {
+        "claimed_leading_one_order_transfer_survives_full_time_ordering": false
+      }
     },
     {
       "id": "raman-dynamic-parent-birth",
       "scope": "2D3C autonomous parent birth repair",
       "evidence": "EXACT_LEADING_SYMBOL",
       "rigor": "exact",
-      "observation": {"complete_O_N_target_response": "zero", "active_terminal_route": false}
+      "observation": {
+        "complete_O_N_target_response": "zero",
+        "active_terminal_route": false
+      }
     },
     {
       "id": "source-spectral-cage",
       "scope": "full frozen source convolution lattice",
       "evidence": "AUTHOR_PROOF_EXACT_LATTICE",
       "rigor": "exact",
-      "observation": {"unstable_positive_sites": "exactly four parent sites plus reality partners", "stable_complement_margin": "uniform negative"}
+      "observation": {
+        "unstable_positive_sites": "exactly four parent sites plus reality partners",
+        "stable_complement_margin": "uniform negative"
+      }
     },
     {
       "id": "source-reference-unstable-manifold",
       "scope": "complete frozen source-reference lattice",
       "evidence": "AUTHOR_PROOF",
       "rigor": "analytic",
-      "observation": {"full_lattice_causal_prehistory": true, "pure_decaying_target_generated": true, "stable_modes_reset": false}
+      "observation": {
+        "full_lattice_causal_prehistory": true,
+        "pure_decaying_target_generated": true,
+        "stable_modes_reset": false
+      }
     },
     {
       "id": "source-finite-L-cage",
       "scope": "actual unrounded finite-L principal phase system",
       "evidence": "AUTHOR_PROOF_PLUS_EXACT_CHECKER",
       "rigor": "analytic-exact",
-      "observation": {"rank_two_lattice_persists": true, "fixed_window_full_lattice_retuning": true, "global_parent_supply": false}
+      "observation": {
+        "rank_two_lattice_persists": true,
+        "fixed_window_full_lattice_retuning": true,
+        "global_parent_supply": false
+      }
     },
     {
       "id": "source-correlated-rounding",
       "scope": "physical carrier arithmetic",
       "evidence": "EXACT_ARITHMETIC",
       "rigor": "exact",
-      "observation": {"two_pair_daughter_index_can_match_exactly": true, "forced_fourth_rounding_error": "bounded by 3/2"}
+      "observation": {
+        "two_pair_daughter_index_can_match_exactly": true,
+        "forced_fourth_rounding_error": "bounded by 3/2"
+      }
     },
     {
       "id": "source-harmonic-protection",
       "scope": "local physical source pulse",
       "evidence": "AUTHOR_PROOF_PLUS_SOURCE_GRADING",
       "rigor": "analytic-exact",
-      "observation": {"linear_O_epsilon_over_L_daughter_leakage": false, "first_physical_daughter_error": "O(epsilon^2/L)+O(epsilon^3)", "global_parent_supply": false}
+      "observation": {
+        "linear_O_epsilon_over_L_daughter_leakage": false,
+        "first_physical_daughter_error": "O(epsilon^2/L)+O(epsilon^3)",
+        "global_parent_supply": false
+      }
     },
     {
       "id": "numerics-not-certificate",
       "scope": "terminal evidence",
       "evidence": "REPOSITORY_POLICY",
       "rigor": "policy",
-      "observation": {"numerical_orbit_proves_blowup": false, "numerical_orbit_proves_regularity": false}
+      "observation": {
+        "numerical_orbit_proves_blowup": false,
+        "numerical_orbit_proves_regularity": false
+      }
     },
     {
       "id": "exterior-pressure-transmission",
@@ -246,6 +313,18 @@
         "parent_relative_lattice_deformation_lower_bound": "sqrt(9/500)*abs(Delta v/L)",
         "direct_fixed_label_adapter": false,
         "recentered_multilabel_adapter": "open"
+      }
+    },
+    {
+      "id": "recenter-cage-wall",
+      "scope": "recentered source-reference propagation constrained to the z=1 four-growing-parent class",
+      "evidence": "research/evidence/2026-09-12-recenter-cage-wall.md",
+      "rigor": "exact-source-phase-spectral-author-proof",
+      "observation": {
+        "same_rational_cage_after_forward_shift": false,
+        "same_cage_multiset_condition": "a=1",
+        "outer_parent_stable_by_multiplier": "a>=13/9",
+        "general_grade_changing_adapter": "open"
       }
     }
   ]

@@ -49,6 +49,7 @@ source_birth_linear_stage_balance: refuted-by-easy-product-and-rate-ordering
 source_stable_preload_balance: proved-local-reference-counterterm-repair-recursive-supply-open
 source_four_parent_counterterm_supply: refuted-by-opposite-causal-stable-coordinate
 source_single_label_interstage_adapter: refuted-by-unbounded-exact-lattice-deformation
+source_recentered_z1_parent_adapter: refuted-by-multiset-and-hyperbolicity-wall
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -510,12 +511,24 @@ unbounded across one factor-two scale change. The existing fixed-fast-window
 `O(L^-1)` cage theorem cannot be extrapolated on one fixed label/reference. See
 `research/evidence/2026-09-12-single-label-interstage-wall.md`.
 
-The physical adapter, if it exists, must therefore be **recentered /
-multi-label or genuinely nonperturbative**. It needs a transition map between
-overlapping local source frames which carries the entire inherited expanding
-state and stable counterterms without reset or temporal gluing defects. The
-other active mechanisms remain sparse thin-collar/nonlocal entry and the
-complete full-history adjoint. UE1 and the terminal claim remain open.
+The first exact recenter repair is also blocked. At fast-time ratio
+`tau=v/L`, the four `z=1` parent tilts are `c +/- a u_A,c +/- a u_B` with
+`a=1+tau`. Their second centered moment is exactly `a^2` times the frozen one,
+so equality with the proved rational cage after arbitrary parent permutation
+forces `a=1`: no nonzero forward shift returns exactly to that cage. If the
+new frame instead inherits the enlarged separations, the outer positive parent
+reaches tilt `7/10` already at `a=13/9`, where its certified reference growth
+rate is strictly negative, and monotonicity keeps it stable thereafter. See
+`research/evidence/2026-09-12-recenter-cage-wall.md`.
+
+Together with the single-label wall, this is a second serious return to the
+same physical-adapter obstruction. The active run must therefore leave simple
+`z=1` recentering. A surviving constructive source route must use a genuinely
+grade-changing/nonparent transition, additional inherited state with a new
+hyperbolic structure, or late nonlinear regeneration near the next pulse. Per
+the diversification rule the next primary attack is the distinct sparse
+thin-collar/nonlocal-entry mechanism; the complete full-history adjoint remains
+the alternative negative route. UE1 and the terminal claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
