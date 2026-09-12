@@ -1,25 +1,42 @@
-name: Adjoint strain-sign discriminator
+name: Adjoint sign-wall integration
 on:
   push:
     branches: [research/navier-adjoint-sign-20260912]
 permissions:
-  contents: read
+  contents: write
 jobs:
-  discriminate:
+  integrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-      - name: Freeze exact discriminator
-        run: cp research/check_adjoint_strain_sign_wall.py /tmp/check_adjoint_strain_sign_wall.py
-      - name: Refresh authoritative main and run fast gate first
+      - name: Freeze authorized checkpoint
+        run: |
+          cp research/check_adjoint_strain_sign_wall.py /tmp/check_adjoint_strain_sign_wall.py
+          cp research/evidence/2026-09-12-adjoint-strain-sign-wall.md /tmp/adjoint-strain-sign-wall.md
+          cp tools/integrate_adjoint_strain_sign_wall_20260912.py /tmp/integrate_adjoint_sign.py
+      - name: Refresh main and run fast gate first
         run: |
           git fetch origin main
           git checkout -B checked-main origin/main
           python3 research/game/run.py fast
-      - name: Run exact adjoint sign discriminator
-        run: python3 /tmp/check_adjoint_strain_sign_wall.py
-      - name: Structural verification
+      - name: Apply exact checkpoint
         run: |
+          cp /tmp/check_adjoint_strain_sign_wall.py research/check_adjoint_strain_sign_wall.py
+          cp /tmp/adjoint-strain-sign-wall.md research/evidence/2026-09-12-adjoint-strain-sign-wall.md
+          python3 /tmp/integrate_adjoint_sign.py
+      - name: Verify checkpoint
+        run: |
+          python3 research/check_adjoint_strain_sign_wall.py
+          python3 research/game/run.py fast
+          python3 research/game/selftest.py
           python3 research/verify.py --research-only
+          python3 research/verify.py --paper-only
           git diff --check
+      - name: Commit and push without force
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add PLAN.md research/check_adjoint_strain_sign_wall.py research/evidence/2026-09-12-adjoint-strain-sign-wall.md research/game/controls.json research/game/models/baseline.py research/game/snapshot.json
+          git commit -m 'Rule out sign-only nonlinear adjoint certificate'
+          git push origin HEAD:main
