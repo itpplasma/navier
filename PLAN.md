@@ -58,6 +58,7 @@ source_half_grade_parent_carry: reference-super-amplified-passive-small-data-reu
 source_half_grade_six_mode_bridge: rank-four-quadratic-next-parent-map-local-reference-author
 source_half_grade_finite_time_bridge: full-infinite-lattice-fixed-horizon-rank-four-retuning-author
 source_pump_half_grade_parity: even-source-cannot-zero-seed-odd-half-grade-sector
+source_one_seed_ladder: exact-shortest-time-birth-survives-but-small-seed-free-bridge-composition-fails
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -693,14 +694,32 @@ signs and hence negative off-diagonal product. The pump transfers a pre-existing
 odd seed; it does not manufacture the first one. See
 `research/evidence/2026-09-12-source-pump-half-grade-parity.md`.
 
-The surviving nonlinear repair is now sharper. A seed in the inner pair can
-produce its complement through the pump; that pair creates a grade-zero radial
-difference shear of key `3`, and shear feedback can shift half-grade keys by
-three. The next discriminator is the complete **one-odd-seed shear ladder**:
-determine the minimum seed degree of the four next parents after all pump and
-quadratic paths are admitted, rather than assuming the prescribed-shear theorem
-can simply be spliced in. The nonprincipal localized full-history adjoint
-remains the alternative. UE1 and the terminal claim remain open.
+The full one-odd-seed ladder has now been tested, not merely a selected shear
+path. With seed `h=(1/10,0,1/2)` and pump `d=(1/20,0,1)`, every output key
+`(x/20,0,z/2)` has additive seed charge `n=(2x-z)/3`. Full convolution and
+arbitrary pump insertions preserve this bookkeeping. Exact rational
+shortest-time recurrences prove that all six half-grade ancestors occur, at
+seed degrees `1,1,3,3,9,9`. The complete next-parent quartet has seed degrees
+`6,6,2,2`, and at any fixed sufficiently short positive horizon its outer/inner
+pair-product ratio is `O(|A|^8)`, with nonzero leading coefficients. It therefore
+cannot satisfy the existing consumer's fixed nonzero pair-product ratio as one
+seed tends to zero. Nonzero ladder outputs do not inherit the six-independent-
+input rank-four controls. See
+`research/evidence/2026-09-12-one-seed-ladder-balance.md`.
+
+The same wave corrects the single-pump two-mode wording: pump shifts produce
+infinite axial-grade chains and both polarizations. The six displayed transfers
+are projected coefficients, not closed blocks. Linear invariance separates
+charge classes `|n|=1,3,9`; their full spectra remain to be analyzed.
+
+The next distinct attack is the **full pump-coupled linear chain**, including
+both source branches: determine whether the projected negative coefficient
+products hid an actual parametric instability capable of changing the
+small-seed amplitude balance. Even a positive answer needs nonlinear saturation,
+independent charge-class supply or a new all-returned-state consumer, and a
+physical one-trace adapter. Further shortest-time ladder refinement is not the
+active task. The nonprincipal localized full-history adjoint remains distinct.
+UE1 and NS-R3 remain open.
 
 ## 9. UE2--UE4 after UE1
 
@@ -727,8 +746,8 @@ files state otherwise; independent mathematical audit and novelty remain
 pending. None of the new source-prehistory packets is promoted into the
 canonical proof graph.
 
-A full checkout is required for `python3 research/game/run.py fast`,
-`python3 research/verify.py --research-only`, paper checks and `git diff --check`.
-When only the connected GitHub interface is available, verify authoritative blob
-hashes and baseline controls there and state explicitly that this is not a local
-repository-wide verifier run.
+Use the directly relevant retained exact checkers,
+`python3 research/verify.py --research-only`, applicable paper checks and
+`git diff --check`. The generic game layer was removed by the current contract;
+do not recreate it. Report archive-based, remote-CI, structural and mathematical
+verification scopes separately.

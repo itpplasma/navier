@@ -65,7 +65,7 @@ assert set(pairs)=={(14,-13),(5,-4),(2,-1)}
 # mode through Y_(2m) times conjugate(w_m).  Compute both directional full Leray
 # growing projections.  In every pair one direction is positive and the other
 # negative, so the off-diagonal product is strictly negative: the pump coupling
-# itself is elliptic rather than an additional two-mode hyperbolic instability.
+# has an elliptic projected contribution, not a full-chain stability theorem.
 rows=[]
 for a,b in pairs:
     ka,kb=halfvec(a),halfvec(b)
@@ -81,11 +81,11 @@ for a,b in pairs:
     assert s.simplify(ga*gb)<0
     rows.append((a,b,ga,gb,alo,ahi,blo,bhi))
 
-# Linearized about this single pump, the three complementary pairs are block
-# diagonal.  An entirely zero pair stays zero even when the other two pairs are
-# nonzero.  Thus this specific parametric mechanism needs at least one odd seed
-# in each complementary pair; full nonlinear cross-pair generation is a
-# separate mechanism and is not excluded here.
+# The displayed half-grade projection has three complementary pairs, but the
+# full linearization also contains all pump shifts and both polarizations.
+# Exact invariant charge n=(2*x-z)/3, not a two-mode truncation, separates the
+# three reality-complete classes |n|=9,3,1. Nonlinear cross-class generation
+# remains a separate mechanism.
 for a,b in pairs:
     others=set(ancestors)-{a,b}
     assert all(d-halfvec(x) not in [halfvec(y) for y in others] for x in (a,b))
@@ -93,5 +93,6 @@ for a,b in pairs:
 print('PASS: even-grade source background cannot create the half-grade odd sector from zero.')
 for a,b,ga,gb,alo,ahi,blo,bhi in rows:
     print(f'pump pair ({a},{b}): forward growing coeff in [{alo},{ahi}], reverse in [{blo},{bhi}], product < 0')
-print('The old daughter pump transfers a nonzero seed within exactly three complementary pairs but does not create the first odd seed.')
+assert sorted({abs((2*x-1)//3) for x in ancestors})==[1,3,9]
+print('The six half-grade projected transfers lie in three independent charge classes; full pump chains are not two-mode blocks.')
 print('Scope: exact physical phase parity plus frozen local pump symbol; full nonlinear cross-pair seed reduction, exterior seed delivery, and global history remain open.')

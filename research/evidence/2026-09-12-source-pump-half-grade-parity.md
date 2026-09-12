@@ -91,11 +91,11 @@ Exact rational radical enclosures give
 
 Hence every directional transfer is genuinely present.
 
-For a fixed real pump phase, the two-mode system in variables `(x_a,conj x_b)` has off-diagonal product proportional to
+For a fixed real pump phase, the projected 2-by-2 submatrix in variables `(x_a,conj x_b)` has off-diagonal product proportional to
 
     gamma_a gamma_b <0
 
-in all three blocks. The source pump therefore gives an elliptic exchange contribution rather than an additional two-mode hyperbolic instability. The ordinary positive source-reference diagonal rates remain separate.
+in all three blocks. This projected pair contribution is elliptic. It is not a stability theorem for the full linearized system: both polarizations and the infinite chains of pump-shifted axial grades must also be retained. The ordinary source-reference rates remain separate.
 
 ## 5. Exact single-pump limitation
 
@@ -103,9 +103,9 @@ The pump complement map is
 
     a -> 1-a.
 
-On the six-key set it consists of exactly the three disjoint two-cycles above. Consequently, in the correction equation linearized about the old daughter pump alone, a pair initialized identically zero stays identically zero even if the other two pairs are nonzero.
+On the six-key set it consists of exactly the three disjoint two-cycles above. The six half-grade modes do not form a closed linearization: pump shifts also create other axial grades. The invariant linear classes are instead the additive charge n=(2x-z)/3 in integer keys k=(x/20,0,z/2). With reality the displayed pairs occupy |n|=9,3,1, respectively. An entire charge class initialized zero stays zero under the single-pump linearization; each class includes all of its pump-shifted sidebands. See the complete-chain correction in 2026-09-12-one-seed-ladder-balance.md.
 
-Thus this specific source-background mechanism can reduce six independent inputs to at most one seed per complementary pair, but it cannot eliminate odd-grade seeding altogether.
+Thus one seed confined to one charge class cannot linearly reach the other two classes. Nonzero projected pair transfer does not assert independent endpoint controllability within a class, and the source cannot eliminate odd-grade seeding altogether.
 
 This is deliberately scoped to the single-pump linearization. The full nonlinear correction can generate grade-zero difference shears from an occupied pair, and those shears can couple different half-grade keys. That is a genuinely different mechanism and is not excluded here.
 
