@@ -59,6 +59,7 @@ source_half_grade_six_mode_bridge: rank-four-quadratic-next-parent-map-local-ref
 source_half_grade_finite_time_bridge: full-infinite-lattice-fixed-horizon-rank-four-retuning-author
 source_pump_half_grade_parity: even-source-cannot-zero-seed-odd-half-grade-sector
 source_one_seed_ladder: exact-shortest-time-birth-survives-but-small-seed-free-bridge-composition-fails
+source_full_pump_chain_gain: infinite-tail-certified-charge-nine-extra-growth-and-decaying-pump-finite-time-gain
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -712,14 +713,30 @@ infinite axial-grade chains and both polarizations. The six displayed transfers
 are projected coefficients, not closed blocks. Linear invariance separates
 charge classes `|n|=1,3,9`; their full spectra remain to be analyzed.
 
-The next distinct attack is the **full pump-coupled linear chain**, including
-both source branches: determine whether the projected negative coefficient
-products hid an actual parametric instability capable of changing the
-small-seed amplitude balance. Even a positive answer needs nonlinear saturation,
-independent charge-class supply or a new all-returned-state consumer, and a
-physical one-trace adapter. Further shortest-time ladder refinement is not the
-active task. The nonprincipal localized full-history adjoint remains distinct.
-UE1 and NS-R3 remain open.
+The full pump-coupled chain resolves that spectral question positively. An
+exact-rational residual/Jacobian certificate with the entire infinite tail
+retained gives, at charge nine and pump amplitude 30, an eigenvalue in the
+radius-`1e-6` disk about `5.049883304450+6.708966735593i`. Both transverse
+polarizations and every axial sideband are included. A Duhamel estimate then
+transfers this to the *freely decaying* reference pump: suitable real linearized
+data gain more than `51/50` in physical velocity L2 at time `1/200`. Thus the
+projected negative pair products did not imply full-chain stability. See
+`research/evidence/2026-09-12-full-pump-chain-gain.md`.
+
+The same wave supplies the limiting budget. With
+`c0=401/(200 sqrt(2))` and `kappa=20/sqrt(401)+1203/2000`, every charge obeys
+`||v(T)||/||v(0)|| <= exp[T+c0 |B0|(1-exp(-kappa T))/kappa]` along the decaying
+pump. Fixed pump amplitude gives only a fixed extra factor; an extra linear
+`exp(eta L)` factor requires at least `|B0|>=eta kappa L/c0`. Charge separation
+still prevents this linear mechanism from manufacturing the ninth-order
+ancestor from a zero charge-nine input.
+
+The active gap is now **source-specific pump action and nonlinear saturation
+with one inherited trace**, not another projected symbol or finite-section
+spectrum. Determine whether the needed growing pump-action regime is physically
+available with a controlled full correction, or switch to the localized
+full-history adjoint. The finite-time reference gain is not a completed
+regenerative turnover. UE1 and NS-R3 remain open.
 
 ## 9. UE2--UE4 after UE1
 
