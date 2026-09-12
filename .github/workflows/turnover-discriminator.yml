@@ -7,47 +7,26 @@ permissions:
 jobs:
   discriminate:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Install numpy
         run: python3 -m pip install --disable-pip-version-check numpy
-      - name: Run legacy two-parent converged-window discriminator
-        run: |
-          python3 - <<'PY'
-          import json
-          from research.check_nonlinear_reference import run
-          cases=[(64,0.0004),(96,0.00025),(128,0.00015)]
-          rows=[]
-          for N,dt in cases:
-              out=run(N,dt,0.4,1.0,A=1.0,B=1.0)
-              obs=out['observations'][-1]
-              rows.append({'N':N,'dt':out['dt'],'energy':obs['energy'],
-                  'parent_energy':obs['parent_energy'],'doubled_energy':obs['doubled_energy'],
-                  'child_plus':obs['doubled_positive']['source_positive_coordinate_abs'],
-                  'edge_energy':obs['edge_energy']})
-          print(json.dumps(rows,indent=2))
-          for a,b in zip(rows[-2:-1],rows[-1:]):
-              for key in ('energy','parent_energy','doubled_energy','child_plus'):
-                  print('rel96_128',key,abs(a[key]-b[key])/max(abs(b[key]),1e-14))
-          print('candidate_at_128', rows[-1]['child_plus']>2.0,
-                rows[-1]['parent_energy']<0.5*rows[0]['parent_energy'])
-          PY
       - name: Run six-mode amplitude scan
         run: |
           python3 - <<'PY'
           import json
           from tools.turnover_six_mode_probe import run
-          for A in (0.25,0.5,1.0,1.5):
+          for A in (0.25,0.5,0.75,1.0,1.25):
               r=run(48,0.0005,0.8,A)
               print('SIX48',json.dumps({'A':A,'best':r['best'],'candidate':r['turnover_candidate']}))
           PY
-      - name: Refine six-mode best amplitudes
+      - name: Refine representative amplitudes
         run: |
           python3 - <<'PY'
           import json
           from tools.turnover_six_mode_probe import run
-          for A in (0.5,1.0):
+          for A in (0.5,0.75,1.0):
               rows=[]
               for N,dt in ((64,0.0004),(96,0.00025)):
                   r=run(N,dt,0.8,A)
