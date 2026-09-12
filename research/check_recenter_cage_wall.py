@@ -42,10 +42,11 @@ assert s_outer==s.Rational(7,10)
 mu=s.Rational(3,5)
 gamma=lambda sig: 1/s.sqrt(1+sig*sig)-mu*(1+sig*sig)
 wall_rate=s.simplify(gamma(s_outer))
-# Exact sign by squaring positive quantities: 10/sqrt(149) < 447/500.
+# Exact sign: 10/sqrt(149) < 447/500 iff 5000 < 447*sqrt(149).
 assert s.simplify(wall_rate-(10/s.sqrt(149)-s.Rational(447,500)))==0
-assert 100*500 < 447*s.sqrt(149)  # equivalent after multiplying by positives
-# SymPy can certify the sign directly as well.
+assert 5000 < 447*s.sqrt(149)
+# Squared integer certificate for the same positive inequality.
+assert 5000**2 < 447**2 * 149
 assert wall_rate.is_negative
 
 # For a>=13/9, s_outer increases and gamma_+ strictly decreases with |s|, so
