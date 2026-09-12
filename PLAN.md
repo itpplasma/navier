@@ -66,7 +66,7 @@ full_physical_adjoint: not-computed
 nonlinear_deforcing_contraction: not-produced
 source_singularity_preservation_under_correction: not-proved
 regenerative_turnovers_certified: 0
-formal_status: unchanged-see-navier-formal-and-archived-plan
+formal_status: partial Hessian/Laplacian L2 identity drafted under explicit IBP data; paper-to-data bridge and critical producer remain open
 new_results_audit: author-proofs-independent-mathematical-audit-pending
 public_release: true
 ```
