@@ -2,7 +2,7 @@
   "schema_version": 2,
   "terminal": "NS-R3",
   "authoritative_sources": {
-    "PLAN.md": "3f8c4cad59bc5573e06504e03da28b6f2738ae63",
+    "PLAN.md": "0bb277ab9d7bff83a1c4ceec4b55771ffdb0b867",
     "docs/proof-graph.yaml": "9f9fbee8cee5ada88ab981d64c70aa0ae7b92471",
     "research/evidence/2026-09-10-source-pulse-adjoint.md": "032f90f06a1ae316ac79bd1af297eb65ac93c82a",
     "research/evidence/2026-09-08-angular-preparation-obstruction.md": "e4338cd8ebc9d4ed303ceae58331b13c93fc9bc6",
@@ -25,7 +25,8 @@
     "research/evidence/2026-09-12-counterterm-causal-mismatch.md": "553839877587e0e644b1bfcbdbf34bb500c554bf",
     "research/evidence/2026-09-12-single-label-interstage-wall.md": "8a924d0794e1f485ed2e41db1310b1266cee6fa6",
     "research/evidence/2026-09-12-recenter-cage-wall.md": "3770c2b2940adf01df9131640da382cf40d26732",
-    "research/evidence/2026-09-12-sparse-collar-l3-threshold.md": "6e8dc2f287e26c79e6762bc60499688fbdfd47ac"
+    "research/evidence/2026-09-12-sparse-collar-l3-threshold.md": "6e8dc2f287e26c79e6762bc60499688fbdfd47ac",
+    "research/evidence/2026-09-12-collar-angular-ancestry.md": "bb4d2784baeffe0a0502595a81c629faa84354da"
   },
   "cycle": [
     "DISCOVER",
@@ -38,6 +39,6 @@
     "serious_repeat_limit": 2,
     "rule": "After two serious returns to the same uncontrolled critical quantity or exact obstruction, change mechanism, abstraction, representation, or route."
   },
-  "active_frontier": "explicit divergence-free quadratic-stress attainability/non-attainability in the pressure-allowed sparse collar, grade-changing/nonparent late regeneration, or complete full-history adjoint exclusion",
+  "active_frontier": "complete physical adjoint/full-history minimum-control cost as primary diversified attack, with grade-changing/nonparent late regeneration as constructive alternative",
   "evidence_rule": "Numerical experiments are heuristic/discriminating evidence only; terminal claims require rigorous analytic/exact proof interfaces."
 }

@@ -339,6 +339,19 @@
         "sparse_support_alone_excludes_collar": false,
         "quadratic_stress_attainability": "open"
       }
+    },
+    {
+      "id": "collar-angular-ancestry",
+      "scope": "axisymmetric-cutoff quadratic collar stress and target angular pressure grade N",
+      "evidence": "research/evidence/2026-09-12-collar-angular-ancestry.md",
+      "rigor": "exact-angular-algebra-plus-analytic-L1-author-proof",
+      "observation": {
+        "low_low_target_grade": false,
+        "required_velocity_ancestor": "abs(m)>=N/2",
+        "target_stress_bound": "2 ||u_H||_2 ||u||_2",
+        "universal_divergence_free_pressure_cancellation": false,
+        "collar_parent_supply": "relocated-to-high-grade-ancestry"
+      }
     }
   ]
 }

@@ -51,6 +51,7 @@ source_four_parent_counterterm_supply: refuted-by-opposite-causal-stable-coordin
 source_single_label_interstage_adapter: refuted-by-unbounded-exact-lattice-deformation
 source_recentered_z1_parent_adapter: refuted-by-multiset-and-hyperbolicity-wall
 source_sparse_collar_l3_threshold: pressure-energy-support-bound-nonobstructive-below-exponential-sparsity-threshold
+source_collar_angular_ancestry: target-grade-pressure-requires-half-grade-ancestor-no-symbol-cancellation
 source_global_growing_parent_supply: not-produced
 common_physical_initial_trace: not-produced
 full_physical_adjoint: not-computed
@@ -543,13 +544,30 @@ Thus pressure+energy+support size implies critical growth only for
 non-obstructive. See
 `research/evidence/2026-09-12-sparse-collar-l3-threshold.md`.
 
-The next exact collar discriminator is therefore **attainability**, not another
-support-size estimate: determine whether divergence-free quadratic stresses in
-the pressure-allowed collar can actually realize an entry-scale high-angular
-pressure/velocity trace, or prove an operator lower-bound/non-attainability
-theorem. If that second collar mechanism also returns to the uncontrolled full
-history, switch to the complete physical adjoint. UE1 and the terminal claim
-remain open.
+The second collar discriminator isolates exact angular ancestry. If `u_L`
+contains only grades `2|m|<N` and `u_H=u-u_L`, angular convolution gives
+`Pi_N(u_L tensor u_L)=0` exactly and
+
+    ||Pi_N(chi u tensor u)||_1
+      <= 2 ||u_H||_2 ||u||_2.
+
+Thus a grade-`N` direct pressure source must already contain a velocity ancestor
+of grade at least `N/2`. With finite energy and the collar pressure operator this
+only forces an exponentially small high-half ancestor; it does not close the
+route. Conversely an exact divergence-free two-wave example has nonzero
+quadratic pressure coefficient `-1`, so incompressibility supplies no universal
+symbol cancellation once such ancestors exist. See
+`research/evidence/2026-09-12-collar-angular-ancestry.md`.
+
+This is the second serious sparse-collar mechanism. The first left a broad
+exponentially sparse noncritical window; the second shows direct pressure cannot
+bootstrap the target from low grades and merely relocates UE1 to a high-grade
+exterior ancestry hierarchy. Further local collar algebra would rename the same
+hard core. Per the diversification rule, the next primary attack is now the
+**complete physical adjoint / full-history minimum-control cost**, retaining
+exterior occupation and the nonlinear returned state. Grade-changing/nonparent
+late regeneration remains the constructive alternative. UE1 and the terminal
+claim remain open.
 
 ## 9. UE2--UE4 after UE1
 
