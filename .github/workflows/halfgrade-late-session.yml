@@ -1,0 +1,27 @@
+name: Half-grade late-regeneration discriminator
+on:
+  push:
+    branches: [research/navier-halfgrade-late-20260912]
+permissions:
+  contents: read
+jobs:
+  discriminate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Freeze exact discriminator
+        run: cp research/check_halfgrade_late_regeneration.py /tmp/check_halfgrade_late_regeneration.py
+      - name: Refresh authoritative main and run fast gate first
+        run: |
+          git fetch origin main
+          git checkout -B checked-main origin/main
+          python3 research/game/run.py fast
+      - name: Run exact half-grade discriminator
+        run: |
+          python3 -m pip install sympy
+          python3 /tmp/check_halfgrade_late_regeneration.py
+      - name: Structural verification
+        run: |
+          python3 research/verify.py --research-only
+          git diff --check
