@@ -72,10 +72,18 @@ full_physical_adjoint: not-computed
 nonlinear_deforcing_contraction: not-produced
 source_singularity_preservation_under_correction: not-proved
 regenerative_turnovers_certified: 0
-formal_status: partial Hessian/Laplacian L2 identity replayed under explicit IBP data; compact-support C3 adapter and bounded operator-norm gradient-interpolation consumer replayed, H2-to-pointwise-C3/IBP, norm-identification, and critical producer remain open; Sol/Astra review stopped at the missing compact-support regularity/cutoff and Hessian-to-Laplacian bridges
+formal_status: partial Hessian/Laplacian L2 identity replayed under explicit IBP data; compact-support C3 adapter, bounded operator-norm gradient-interpolation consumer, eLpNorm operator/Frobenius norm bridge, and exact Hessian-to-Laplacian `ha2` enstrophy bookkeeping consumer replayed, while H2-to-pointwise-C3/IBP and the critical producer remain open; Sol/Astra review stopped at the missing compact-support regularity/cutoff bridge
 new_results_audit: author-proofs-independent-mathematical-audit-pending
 public_release: true
 ```
+
+The CP1 declarations `NavierFormal.CP1.L4L3_supercritical`,
+`NavierFormal.CP1.integral_scalar_obstruction`, and
+`NavierFormal.CP1.scalar_obstruction_exists` are now proved directly in the
+Mathlib-only `Challenge.lean` surface. Their independent exact-rational,
+quadrature, and ODE-witness oracles pass. This removes three scalar/bookkeeping
+placeholders, not the PDE scaling half, the finite-horizon critical `L³`
+producer, or the H²-to-pointwise-C³/compact-support bridge, which remain open.
 
 ## 1. Rigid target and terminal consumers
 
@@ -877,8 +885,15 @@ operator-norm interpolation oracles pass. Astra review confirms that the
 first paper-level bridge is still applying the compact-support/C³ theorem to
 the manuscript field: generic `H²` does not provide pointwise `C³`, and compact
 support needs a cutoff/limit argument. The Hessian/Frobenius-to-Laplacian
-comparison and integral bookkeeping are also not yet composed. No further
-escalation is made on this boundary.
+comparison and integral bookkeeping are now composed into the exact `ha2`
+consumer in `navier-formal/NavierFormal/HessianLaplacianEnstrophy.lean`, under
+the explicit IBP package. The disjoint
+`navier-formal/NavierFormal/CompactSupportIBP/BoundedEnstrophyConsumer.lean`
+now packages that `ha2` input with the bounded Jacobian interpolation and
+Jacobian norm-convention interfaces under the same explicit pointwise-C³
+package. The manuscript H²-to-C³/IBP bridge, second-derivative norm
+identification, and critical producer remain open. No further escalation is
+made on this boundary.
 
 All September 11 theorem/obstruction packets are author proofs unless their own
 files state otherwise; independent mathematical audit and novelty remain
