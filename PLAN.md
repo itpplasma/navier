@@ -82,8 +82,9 @@ The CP1 declarations `NavierFormal.CP1.L4L3_supercritical`,
 `NavierFormal.CP1.scalar_obstruction_exists` are now proved directly in the
 Mathlib-only `Challenge.lean` surface. Their independent exact-rational,
 quadrature, and ODE-witness oracles pass. This removes three scalar/bookkeeping
-placeholders, not the PDE scaling half, the finite-horizon critical `L³`
-producer, or the H²-to-pointwise-C³/compact-support bridge, which remain open.
+placeholders. The PDE scaling half is also checked. Estimate `eq:L4L3`, the
+finite-horizon critical `L³` producer, and the
+H²-to-pointwise-C³/compact-support bridge remain open.
 
 ## 1. Rigid target and terminal consumers
 

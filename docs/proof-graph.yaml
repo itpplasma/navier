@@ -64,6 +64,7 @@ nodes:
     paper_label: 'prop:scaling'
     evidence: research/evidence/cp02-energy-enstrophy.md
     review: cp02-review-energy-enstrophy-r2.md PASS; the norm half is machine-checked in navier-formal (eLpNorm_dilate).
+    formal: 'Partial: the PDE and norm-scaling halves are Phase II; eq:L4L3 remains open.'
   - id: ENSTROPHY
     title: Enstrophy differential bound
     statement: On a classical interval, one half Y prime plus nu over two times squared L2 Laplacian is at most C nu to the power minus three times Y cubed.
@@ -82,6 +83,7 @@ nodes:
     paper_label: 'prop:ode'
     evidence: research/evidence/cp02-energy-enstrophy.md
     review: Complete on the page; machine-checked in navier-formal (scalar_obstruction_exists). Not a Navier–Stokes blowup solution.
+    formal: 'Phase II complete: NavierFormal.CP1.scalar_obstruction_exists.'
   - id: PRESSURE
     title: Critical pressure balance
     statement: In integrated form on every compact classical interval, one third of the cubed L3 norm at time t minus at time s plus nu times the integrated weighted cubic dissipation D3 equals the integrated signed pressure work P3, with D3 and P3 defined through the transpose gradient applied to the velocity and vanishing integrands on the zero set.
@@ -172,6 +174,7 @@ nodes:
     paper_label: 'thm:continuation'
     evidence: research/evidence/cp02-continuation.md
     review: cp02-review-continuation-r2.md PASS. No L3 uniqueness theorem is imported; the identification step of the earlier manuscript is gone.
+    formal: 'Phase I under explicit hypotheses: NavierFormal.endpointContinuation_of_ess; ESS remains a literature axiom.'
   - id: CONDITIONAL
     title: Conditional global theorem
     statement: Assuming the critical bound for every admissible input, every Schwartz datum and viscosity give a global classical branch, smooth with the normalised pressure on R3 times the closed half-line, with kinetic energy never exceeding its initial value; this is Clay alternative A.
@@ -181,6 +184,7 @@ nodes:
     paper_label: 'thm:conditional'
     evidence: research/evidence/cp02-continuation.md
     review: cp02-review-continuation-r2.md PASS; Fefferman's clauses checked one by one. CRITICAL remains unproved.
+    formal: 'Phase I conditional theorem: NavierFormal.conditional_clay_A_of_tao, over the named local-theory and endpoint-continuation literature axioms.'
   - id: NS-R3
     title: Clay alternative A
     statement: Every smooth divergence-free rapidly decreasing initial velocity on R3 has a global smooth unforced Navier–Stokes velocity and pressure of uniformly bounded kinetic energy, for every positive viscosity.
@@ -190,6 +194,7 @@ nodes:
     paper_label: 'def:target'
     evidence: docs/proof.md
     review: Open. No complete proof or counterexample.
+    formal: 'Open: no unconditional Lean producer; the critical estimate remains unproved.'
   - id: LERAY-L3
     title: Leray projection on L3
     statement: The Leray projection extends from L2 to a bounded operator on L3 of R3 that annihilates gradients; Calderón–Zygmund boundedness of the Riesz transforms.
