@@ -1,4 +1,4 @@
-# Current research: Euler-prepared relativistic closure failure and the PDE gap
+# Current research: forcing-status comparison and the relativistic PDE frontier
 
 Updated 2026-10-07. This is the sole live task/status record. The active
 allocation is the user-requested relativistic companion. The original unforced

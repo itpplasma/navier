@@ -23,28 +23,27 @@ answer. The author packet `evidence/bdnk-transfer-20261007.md` gives two
 independent obstructions.
 
 **Energy obstruction.** In the weighted-C2 slow-shrinking class
-[
-gamma,wsim	au^{-a},qquad
-Thetasim	au^{-b},qquad
-0<eta_i<1,
-]
+
+    γ,w ~ τ^(-a),
+    Θ ~ τ^(-b),
+    0<β_i<1,
+
 the full BDNK energy equation excludes every profile with
-[
-b>-a/kappa,qquad
-kappa=(4chi_0+2lambda_0)/
-       (4chi_0/3+2lambda_0-4eta_0/3).
-]
-For frame A, (kappa=25/12). A source that stays smooth/bounded at the target
-time cannot cancel the leading dilation mismatch. Thus the noncooling direct
-lift fails even **with forcing enabled**.
+
+    b > -a/κ,
+    κ = (4χ0+2λ0)/(4χ0/3+2λ0-4η0/3).
+
+For frame A, κ=25/12. A source that stays smooth/bounded at the target time
+cannot cancel the leading dilation mismatch. Thus the noncooling direct lift
+fails even **with forcing enabled**.
 
 **Pulse obstruction.** The classical construction uses parabolic
 high-frequency damping. Causal BDNK shear is telegraphic: its high-wavenumber
-decay rate saturates rather than growing like (k^2). Hence the classical
+decay rate saturates rather than growing like k^2. Hence the classical
 pulse-preparation/damping argument cannot be imported unchanged.
 
-These results say “the released architecture is model-specific,” not “smooth
-relativistic forcing can never blow up BDNK.”
+These results say "the released architecture is model-specific," not "smooth
+relativistic forcing can never blow up BDNK."
 
 ## One active producer
 
@@ -61,8 +60,8 @@ singularity by becoming unbounded or nonsmooth.
 
 1. bounded physical velocity with gradient blow-up rather than diverging proper
    velocity;
-2. characteristic/shock scales (eta_ige1), outside the previous
-   slow-shrinking theorem;
+2. characteristic/shock scales β_i>=1, outside the previous slow-shrinking
+   theorem;
 3. a thermal profile at or below the cooling threshold;
 4. oscillatory/finer-scale profiles not covered by weighted-C2 convergence;
 5. a different smooth source design that uses the causal hyperbolic modes
