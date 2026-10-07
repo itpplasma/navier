@@ -1,4 +1,4 @@
-# Current research: relativistic closure failure versus actual PDE blow-up
+# Current research: Euler-prepared relativistic closure failure and the PDE gap
 
 Updated 2026-10-07. This is the sole live task/status record. The active
 allocation is the user-requested relativistic companion. The original unforced
@@ -6,8 +6,7 @@ whole-space NS-R3 target and its accepted proof graph are unchanged.
 
 The complete earlier classical plan is preserved byte-for-byte at
 [research/history/PLAN-before-bdnk-transfer-20261007.md](research/history/PLAN-before-bdnk-transfer-20261007.md).
-Its controls, author statuses, source adapters and formal provenance remain
-available; the relativistic work neither completes nor retracts that work.
+Its evidence, controls, author statuses and formal provenance remain available.
 
 ```yaml
 terminal_claim: NS-R3
@@ -18,79 +17,79 @@ checkpoint: CP1
 public_release: true
 formal_status: "Unchanged: partial classical formal interfaces; arbitrary-data critical producer and stated regularity bridges remain open. No new Lean replay."
 active_target: RNS-BDNK-companion
-active_task: RNS-BDNK-physical-admissibility-versus-singularity
+active_task: RNS-BDNK-003-audit-and-hot-core-alternative
 companion_status: author-proofs-independent-review-pending
 companion_results:
   - research/evidence/bdnk-virial-20261007.md
   - research/evidence/bdnk-kinetic-exit-20261007.md
+  - research/evidence/bdnk-euler-prepared-exit-20261007.md
 next_distinct_producer: actual-PDE-breakdown-or-controlled-hot-core-continuation
 new_results_audit: author-only-no-independent-promotion
 ```
 
-## Full-PDE physical obstruction
+## Strongest constructive result
 
-The [virial packet](research/evidence/bdnk-virial-20261007.md) gives explicit
-smooth unforced full-3D BDNK data in frame A: a temperature-32 hot plateau
-inside radius R/2 returning to a positive constant background outside R,
-with zero initial velocity and ideal-Euler-compatible time derivatives.
-All first constitutive corrections vanish initially.
+The [Euler-prepared exit theorem](research/evidence/bdnk-euler-prepared-exit-20261007.md)
+constructs common analytic Cauchy data across conformal causal BDNK frames at
+fixed positive shear viscosity. A0=Q0=0 everywhere; the initial full stress is
+realized by a smooth positive massless particle distribution and has nonnegative
+canonical entropy production. The full unforced solution becomes negative in
+one directional pressure during its smooth local lifespan. Temperature and all
+derivatives remain bounded; the dominant energy condition and positive entropy
+production still hold at the exit point. This applies to frame A and luminal
+frame B, with the stated fixed-frame/finite-frame-set quantifiers.
 
-Trace-free stress conservation gives I(t)=I(0)+2F(0)t+E t^2. The background
-characteristic speed is below 0.9, so a smooth perturbation remains inside
-radius R+0.9t. By time 20R, positivity of laboratory energy contradicts this
-virial identity. Classical/admissible continuation therefore fails OR negative
-energy appears with the stated quantitative bound. This does not select a
-shock. Initial gradient measures can be arbitrarily small; a large-flat-torus
-version has finite total energy. The argument extends to strictly causal
-conformal frames after adjusting amplitude, but not to luminal frame B.
-The nonlinear background-front support adapter remains a review obligation.
+This completes an author proof of failure to preserve the positive CLASSICAL
+KINETIC matter-stress cone. It does not prove PDE blow-up or global regularity.
+The initial shear anisotropy is order one. Small velocity amplitude, Euler
+preparation and A0=Q0=0 do not imply small inverse Reynolds number.
 
-## Actual smooth exit from the positive-particle stress cone
+A globally smooth positive free-streaming massless model realizes the same
+initial stress and never develops negative directional pressure. This is an
+exact stress-level separation, NOT a finite-viscosity hydrodynamic derivation,
+a Maxwell-Landau result, or a statement about all quantum/interacting matter.
+Electromagnetic field tension lies outside the matter-stress test used here.
 
-The [kinetic-exit packet](research/evidence/bdnk-kinetic-exit-20261007.md) now
-constructs a different analytic periodic family. Its complete initial stress
-is realized by a smooth nonnegative massless particle distribution, and its
-canonical entropy production is nonnegative initially. All four unforced BDNK
-conservation equations are retained. The local classical solution develops
-negative directional pressure while temperature, timelike velocity and all
-derivatives stay bounded. This applies to frame A AND luminal frame B; the
-coefficient calculation extends across the stated positive causal family.
+## Complementary global physical obstruction
 
-A global free-streaming kinetic solution has the same full initial stress
-and always nonnegative directional pressure, giving a precise stress-level
-model separation. It is NOT a finite-viscosity kinetic derivation of BDNK,
-a Maxwell-Landau theorem, or a claim about every microscopic theory.
-The new data have order-one shear anisotropy; they are not small-inverse-Reynolds
-preparations. The hot-core and kinetic-exit families cannot be combined into
-one stronger statement. Actual shock formation for the hot cores is unproved.
+The [virial packet](research/evidence/bdnk-virial-20261007.md) uses a DIFFERENT
+initial family: an ideal-stress hot plateau, temperature 32 times background,
+zero velocity and Euler-compatible derivatives. It has arbitrarily small
+initial gradient measures after scaling. Trace-free conservation and a strictly
+subluminal equilibrium front force breakdown OR negative laboratory energy by
+time 20R in frame A. A torus version has finite total energy. The result applies
+to strictly causal conformal frames, not the luminal case. The nonlinear
+background-front adapter is a load-bearing independent-review item.
 
-Executed this round: 31 + 48 exact SymPy checks, both Python compilations and
-new-file integrity checks. Actual logs and source hashes accompany each result.
-No independent reviewer, full repository tests, Lean, Comparator, LaTeX or CI.
+The new report also gives an explicit trace budget for a nonconformal repair,
+and an observer-uniform constitutive-correction bound: a smooth hot-core
+continuation must leave the regime Rcorr<1 before the deadline. Do not combine
+the ideal hot-core data with the anisotropic kinetic-exit data into one theorem.
 
-## First unresolved implication
+## Research frontier and verification
 
-The physical claims are now separated: strict-front conformal BDNK cannot
-preserve smooth positive-energy evolution for every ideal-prepared hot core;
-even luminal BDNK can smoothly leave the positive classical kinetic stress cone
-from physically realizable anisotropic data. Neither is an unconditional
-BDNK PDE singularity theorem. Determine which alternative the actual hot-core
-dynamics take, or derive an exact coupled steepening mechanism. Positivity
-propagation cannot be assumed as a shortcut.
+The [current contract](research/relativistic-breakdown-contract.md) fixes the
+remaining target: actual PDE breakdown or a controlled smooth continuation for
+a specified Euler-prepared hot core. The virial disjunction does not select its
+branch. The pressure-exit theorem shows that smooth loss of kinetic realizability
+is a genuine mechanism, but for different data. A positivity assumption is not
+a substitute for the missing nonlinear estimate.
 
-The [companion contract](research/relativistic-breakdown-contract.md) retains
-the full nonlinear steepening problem and its falsifiers. This PLAN records
-the newer pivots and allocation. Fresh independent reconstruction is required
-before any mathematical promotion. No canonical graph node is promoted.
+This round executed 117 distinct exact algebra checks (31+48+38), replayed all
+three checkers, compiled them, and checked new-file integrity. Actual logs and
+hash receipts accompany the proofs. No independent reviewer, repository-wide
+tests, Lean, Comparator, LaTeX or CI run is claimed. Mathematical promotion
+requires fresh reconstruction. No canonical proof-graph node is promoted.
 
-## Earlier transfer and classical targets
+The earlier [similarity-transfer packet](research/evidence/bdnk-transfer-20261007.md)
+and its 121-check historical receipt remain unchanged and are not prerequisites
+for the new theorems. The first heat-flux example remains a useful earlier stage;
+a prose-only rest-frame heat-scalar typo was corrected with its hash receipt.
 
-The [earlier transfer](research/evidence/bdnk-transfer-20261007.md) excludes a
-weighted-C2 accelerating similarity class, derives causal shear damping and
-rejects a scalar transverse-shear shortcut. Its 121-check receipt and pending
-review status are unchanged; it is not used to prove the new results.
+## Classical and sibling targets remain separate
 
 NS-R3 remains unforced incompressible Navier-Stokes on R3 with Schwartz data.
-Its positive route lacks a critical/Lorentz estimate; its negative route lacks
-one initial trace realizing an unforced viscous history and retaining a
-singularity. No edits to jc2, navier-formal, or vlasov-maxwell were made.
+Its critical/Lorentz producer and one-trace unforced blow-up construction remain
+missing. No edits were made to jc2, navier-formal, or vlasov-maxwell. The neutral
+conformal comparison has no proved massive Newtonian or collisional kinetic
+adapter; it cannot settle those sibling targets by analogy.

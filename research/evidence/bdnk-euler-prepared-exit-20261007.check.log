@@ -1,0 +1,25 @@
+PASS: full tensor: 5
+PASS: Euler energy preparation: 5
+PASS: Euler momentum preparation: 5
+PASS: exact expansion: 5
+PASS: rapidity mixed jet: 1
+PASS: full pressure time jet: 1
+PASS: outward kinetic derivative: 1
+PASS: cone boundary derivative: 1
+PASS: thermal curvature: 1
+PASS: velocity slope: 1
+PASS: initial theta: 1
+PASS: longitudinal margin: 1
+PASS: minimum margin coefficient: 1
+PASS: negative cosine margin: 1
+PASS: transverse margin: 1
+PASS: exit integration: 1
+PASS: initial entropy: 1
+PASS: noncharacteristic time block: 1
+PASS: frame A time block: 1
+PASS: frame B time block: 1
+PASS: observer ideal energy margin: 1
+PASS: trace-defect virial: 1
+TOTAL: 38 exact checks passed
+SCOPE: full tensor, Euler preparation, initial pressure jet and cone margins.
+NOT CHECKED: independent review, analytic local-existence replay, Lean or CI.

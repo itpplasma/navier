@@ -86,7 +86,7 @@ orthonormal basis (u,n,e2,e3), the complete stress is
 The pressure anisotropy is produced by the actual shear tensor. It is not an
 independent relaxation variable inserted into BDNK. To see (1), the expansion
 is p r_t+g d and the scalar rest-frame heat flux is
-lambda[g r_t+p d+p g (log Theta)_t]; solving these together with A0=0 gives
+lambda[g r_t+p d+p (log Theta)_t]; solving these together with A0=0 gives
 precisely (1). This proves the identities for all rapidities, not just the
 rational jets checked by the regression script.
 

@@ -6,7 +6,7 @@ whole space. **Global regularity for arbitrary Schwartz data is not proved,
 and no unforced counterexample has been constructed.**
 
 The main manuscript establishes a conditional route through a missing
-critical estimate. Current research also investigates whether a continuously
+critical estimate. Classical research also investigates whether a continuously
 prepared pulse family can arise from one smooth initial datum at fixed
 positive viscosity. [PLAN.md](PLAN.md) is the sole live task and status record.
 
@@ -31,11 +31,43 @@ kinetic and microscopic specifications; it is not the canonical proof graph.
 
 ## Relativistic viscous companion programme
 
-The original `NS-R3` contract above is unchanged. A separate programme now asks what becomes of finite-time breakdown when the fluid model is made relativistic and causal. The closest first-order constitutive analogue is BDNK relativistic viscous hydrodynamics; Müller--Israel--Stewart/DNMR and newer extended causal closures are comparison models rather than aliases.
+This programme asks whether causal relativistic viscosity prevents singularity
+or instead loses physical validity. Its model, literature and initial motivation
+are in [the programme](docs/relativistic-viscous-programme.md) and
+[the source ledger](literature/relativistic-viscous-status-2026-10-07.md).
+The original unforced NS-R3 contract is not replaced by a relativistic equation.
 
-The current literature does **not** support a universal statement that relativity heals blow-up. Rigorous Israel--Stewart-type results already show finite-time breakdown/gradient blow-up in restricted regimes, while BDNK has small-data global theory, numerical evidence of singularity formation for some smooth data, and numerical shock regularization for other data. Arbitrary large smooth (3+1)-dimensional BDNK data remain an open target in the source screen.
+Executed author results, all pending fresh independent reconstruction:
 
-See [the relativistic viscous programme](docs/relativistic-viscous-programme.md), [the current source ledger](literature/relativistic-viscous-status-2026-10-07.md), and [the first BDNK breakdown contract](research/relativistic-breakdown-contract.md). The programme deliberately combines two recent proof-design lessons: OpenAI's forced Navier--Stokes construction supplies a concrete collapse mechanism to test, while the independently reconstructed strategy in [`itpplasma/vlasov-maxwell`](https://github.com/itpplasma/vlasov-maxwell) says to isolate the exact failed estimate and preserve signed causal structure before taking norms.
+- [Strict-front virial obstruction](research/evidence/bdnk-virial-20261007.md):
+  explicit initially ideal hot cores force breakdown or negative energy by a
+  finite deadline; the result does not select a PDE singularity.
+- [Euler-prepared kinetic-cone exit](research/evidence/bdnk-euler-prepared-exit-20261007.md):
+  common smooth data across causal conformal BDNK frames develop negative matter
+  directional pressure while the solution remains smooth. Initial stress has
+  a positive particle realization; the shear anisotropy is order one.
+- [Earlier similarity transfer](research/evidence/bdnk-transfer-20261007.md):
+  a specified normalized collapse class is excluded, and classical heat damping
+  does not transfer to causal shear modes.
+
+The [current contract](research/relativistic-breakdown-contract.md) keeps actual
+PDE blow-up distinct from smooth loss of kinetic realizability. A positive free
+kinetic comparator is not a finite-viscosity derivation of BDNK, and negative
+matter pressure must not be confused with electromagnetic field tension.
+The independent OpenAI RVM reconstruction belongs to
+[`itpplasma/vlasov-maxwell`](https://github.com/itpplasma/vlasov-maxwell).
+
+Run the focused algebra checks from the repository root (requires SymPy):
+
+```sh
+python3 research/check_bdnk_virial.py
+python3 research/check_bdnk_kinetic_exit.py
+python3 research/check_bdnk_euler_prepared_exit.py
+```
+
+They check exact tensor and scalar identities, not the universal PDE arguments
+or independent mathematical acceptance. Logs and hash receipts are beside the
+research reports. No complete BDNK global regularity or shock theorem is claimed.
 
 ## Build the papers and check the repository
 
@@ -69,11 +101,10 @@ actually ran. Read [AGENTS.md](AGENTS.md); manuscript edits also follow
 independent-review process and owner integration. Lean changes belong in
 [navier-formal](https://github.com/itpplasma/navier-formal).
 
-The immediate research obstacle is one common Schwartz initial trace for an
-entire coupled viscous history. Euler preparation and signed pressure control
-provide useful clues; their positive-viscosity transfer is unproved. The
-regularity route still lacks an input-derived critical bound. Contributions
-should address the precise gates in PLAN rather than assume either gap away.
+For classical NS-R3 the immediate obstacle remains one common Schwartz initial
+trace for an entire coupled viscous history, or an input-derived critical bound
+on the regularity route. The relativistic current allocation is in PLAN.
+Neither gap may be replaced by a criterion that assumes the needed estimate.
 
 ## Public status and provenance
 

@@ -1,73 +1,74 @@
-# RNS-BDNK-001: executed transfer test and the remaining nonlinear question
+# RNS-BDNK-003: distinguish actual singularity from smooth closure failure
 
-Updated 2026-10-07. Authority: `PLAN.md`. The original NS-R3 theorem is unchanged.
-The original pre-test contract is preserved at
-[history/relativistic-breakdown-contract-before-test-20261007.md](history/relativistic-breakdown-contract-before-test-20261007.md).
+Updated 2026-10-07. Authority: `PLAN.md`. The original unforced NS-R3 target
+and its accepted graph are unchanged. Earlier contracts remain in Git history;
+the original pre-test contract is also archived in `research/history/`.
 
-## Executed result; independent reconstruction pending
+## Results to retain, not assumptions to strengthen
 
-See [the complete derivation](evidence/bdnk-transfer-20261007.md) and
-[the exact checker](check_bdnk_transfer.py). This is author evidence, not an
-accepted theorem or a global solution of relativistic viscous hydrodynamics.
+1. `evidence/bdnk-transfer-20261007.md`: a specified accelerating similarity
+   class is excluded; high-frequency causal shear does not have heat damping;
+   the scalar nonlinear transverse-shear shortcut violates another equation.
+2. `evidence/bdnk-virial-20261007.md`: ideal-prepared hot-core data in a strict
+   conformal frame must encounter PDE/state breakdown OR negative energy by
+   a finite deadline. Initially all constitutive corrections vanish and
+   gradient measures can be small. The support adapter needs independent review.
+3. `evidence/bdnk-euler-prepared-exit-20261007.md`: a different, anisotropic
+   Euler-prepared family actually leaves the positive-particle matter-stress
+   cone while the full PDE solution stays smooth, in both strict and luminal
+   frames. All initial moments are realized by a smooth positive distribution.
+   At the exit point entropy production and the dominant energy condition can
+   remain positive. This is not small-inverse-Reynolds data or a shock theorem.
 
-The fixed theory is the conformal neutral BDNK tensor with epsilon=Theta^4,
-eta,chi,lambda proportional to Theta^3 and the documented causal parameter
-inequalities. Frame A has chi0=25 eta0/2 and lambda0=25 eta0/3.
+All three are author results pending independent reconstruction. Tests and a
+correct local time jet do not substitute for checking the actual solution,
+initial constraints, uniform existence interval and moment realization.
 
-BEFORE: a normalized proper-velocity lift of the classical shrinking vortex
-and its heat-damped pulses were candidate adapters.
-AFTER: the energy equation excludes the weighted-C2 slow-shrinking profile
-class with a>0, beta_i<1 and b>-a/kappa, including every noncooling thermal
-power law. High-frequency BDNK shear damping saturates instead of growing
-as k^2. Constant-temperature pure transverse shear also fails a separate
-nonlinear momentum equation. Do not resume those unchanged adapters.
+## One active unresolved producer
 
-## Immediate audit
+**TARGET.** In the explicit unforced conformal frame A, determine whether a
+specified initially ideal hot-core Cauchy solution breaks down before the virial
+deadline, or continues smoothly and develops the negative energy forced by that
+identity. A theorem on a specified nonempty data family is sufficient to move
+this question. Universal BDNK regularity is not to be assumed.
 
-Freeze the result and checker at the publishing commit, then independently
-reconstruct the full tensor component, differentiated similarity limit,
-dilation argument at zeros of G, causal coefficient inequalities and source
-scope. Check the boundary b=a+1 where ideal and derivative stresses tie.
-The separate cooling threshold is only a necessary escape condition; it
-has not produced an admissible solution. No self-review counts as acceptance.
+**CARRIER.** Fix eta0=1, chi0=25/2, lambda0=25/3, R=1 and background Theta=1
+on a flat torus of side 64. One smooth profile is Theta0=1+31 H(2|x|-1),
+where H(s)=rho(1-s)/[rho(1-s)+rho(s)] and rho(s)=exp(-1/s) for s>0,
+rho(s)=0 otherwise. Thus H=1 for s<=0 and H=0 for s>=1. Set u0 at rest,
+Theta_t=0 and u_t spatial=-grad log Theta0. The profile is constant near the
+origin and exterior, so its radial notation is smooth and periodically extends.
+All first constitutive corrections vanish initially.
 
-## RNS-BDNK-002: the distinct producer after that audit
+**FIRST GAP.** Control the full evolving derivative state or construct an actual
+singular characteristic mechanism for this Cauchy problem. The virial identity
+alone gives no upper bound for derivative norms and does not propagate positive
+energy. The separate kinetic-exit family cannot choose the branch for this one.
 
-**TERMINAL QUESTION.** Does the specified full BDNK model admit smooth-data
-finite-time gradient breakdown while gamma stays bounded, Theta stays between
-two positive constants, and the relevant physical admissibility conditions
-remain satisfied? Alternatively, derive an unconditional estimate that excludes
-an explicit nonempty class of these characteristic-steepening scenarios.
-Forcing must be fixed as zero for the closed-system target; smooth-source
-variants require an explicitly separate statement.
+**CHEAPEST DISCRIMINATING WORK.** Derive the full radial coupled BDNK evolution,
+including frame energy, heat flux and anisotropic stresses, and extract the
+first signed evolution law capable of distinguishing a gradient singularity
+from smooth energy-condition exit. A numerical experiment may guide the choice
+but cannot select the branch as a theorem without a rigorous error enclosure.
+No unrelated solver architecture or remote campaign is authorized here.
 
-**FIRST GAP.** Derive the evolution of an actual compressive characteristic
-amplitude from the full coupled conservation laws and derivative constraints.
-Determine the signed quadratic/cubic steepening term and the relaxation terms.
-No scalar Burgers or independent shear equation is supplied by analogy.
+**FALSIFIERS.** A dropped conservation equation, a time derivative replaced by
+an ideal relation after t=0, a coefficient depending on an uncontrolled norm,
+loss of a claimed invariant at a smooth jet, or an unproved uniform lifespan.
+Do not treat a missing estimate as a proven singularity.
 
-**CHEAPEST TEST.** Insert a plane-wave/shear packet including its induced
-longitudinal flow and temperature perturbation. Retain the complete nonlinear
-residual and initial derivative data. Test whether the proposed compressive
-amplitude closes, is linearly degenerate, or feeds an uncontrolled coupled mode.
-Equation (10) of the result already falsifies the pure transverse,
-constant-temperature shortcut for generic time-dependent shear.
+## Model-comparison questions kept downstream
 
-**FALSIFIER.** A violated conservation/derivative constraint, a missing mode
-at the same order, a coefficient of the opposite sign, or an admissibility
-exit before the claimed singularity. Linear high-frequency damping alone
-proves neither shock formation nor nonlinear regularity.
+A classical positive-particle stress always has nonnegative directional
+pressure. The free kinetic comparator is explicit but is not the finite-viscosity
+parent of BDNK. A stronger comparison needs an actual collision operator,
+positive solution, matched initial physical moments and a controlled closure
+error. The chosen neutral conformal fluid has no proved massive Newtonian
+limit. Neither electromagnetic tension nor quantum stresses belong to the
+positive matter-stress cone used in the current theorem.
 
-**TRANSFER LIMITS.** The matched MIS and BDNK shear spectra agree only at the
-linearized level. A nonlinear model-separation result needs the actual MIS
-stress evolution. A kinetic comparison needs a positive distribution realizing
-the relevant moments, a specified collision operator and a controlled closure
-error. Collisionless Vlasov--Maxwell is not automatically the kinetic parent
-of this neutral conformal viscous fluid. The Galilean limit also needs an
-appropriate massive equation of state, not just substitution c -> infinity.
-
-**STOP/PIVOT.** If the full amplitude equation does not close, retain the first
-failed coupling and change the compression mechanism or model with a named
-new premise. Do not infer global healing from the excluded similarity class.
-No compute campaign, new solver architecture or parallel lane is authorized
-by this handoff.
+The trace-budget and front-speed obstruction constrain any proposed physical
+repair. A luminal front is not sufficient: frame B also has the smooth kinetic
+exit. Conversely, a new positive algebraic constitutive formula is not proof
+of causal well-posedness or global regularity. Attack the first new producer
+before adding a conditional suffix, and preserve forcing/model/domain status.

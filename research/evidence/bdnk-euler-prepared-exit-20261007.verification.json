@@ -1,0 +1,13 @@
+{
+  "status": "author-proof-independent-review-pending",
+  "base_commit": "a08f84bcb7d4e3b968659948d2db4e86ba3a7a73",
+  "executed": ["38 new exact algebra checks", "31 virial and 48 first-exit exact checks replayed", "Python compilation of all three checkers", "new-file control-character and whitespace checks"],
+  "not_executed": ["independent mathematical reconstruction", "formal Cauchy-Kowalevski/local Sobolev replay", "full repository verification", "Lean", "Comparator", "LaTeX", "CI"],
+  "sha256": {
+    "research/evidence/bdnk-euler-prepared-exit-20261007.md": "6b74dc0b6128d419934c0036ae3e524c8a4ebd227c47c1e8e0e197cc82857b81",
+    "research/check_bdnk_euler_prepared_exit.py": "df909820281c274dd98d0989b494706c85a84eea2a868713503cb70dde284bf9",
+    "research/evidence/bdnk-euler-prepared-exit-20261007.check.log": "d2b75ad592e872720a63e54e7789ee2c4b5ff2167c8ddb63291b08c66dc19843",
+    "research/evidence/bdnk-kinetic-exit-20261007.md": "13be97942005c030e1d8c734156721d5a6d752b3f24f116dab6af9d35676e973"
+  },
+  "scope": "117 distinct algebra checks; analytic proof obligations, dynamic kinetic parent, and actual large-data PDE singularity remain separate."
+}
