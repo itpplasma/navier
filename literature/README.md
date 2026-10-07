@@ -34,3 +34,7 @@ are outside this initial collection. Their omission does not hide an input
 to the selected whole-space route. New claims of a solution require checking
 the original equation, exact Clay data and force classes, full proof, and
 independent acceptance; a title or numerical trajectory is insufficient.
+
+## Relativistic viscous companion
+
+- [Relativistic viscous status, 2026-10-07](relativistic-viscous-status-2026-10-07.md): BDNK, Israel--Stewart/DNMR, large-gradient causal extensions, and the exact scope of the two recent OpenAI PDE inputs.
