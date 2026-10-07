@@ -1,0 +1,14 @@
+PASS: tensor invariants: 84 exact identities
+PASS: full energy component: 12 exact identities
+PASS: leading coefficients: 5 exact identities
+PASS: dilation identity: 1 exact identities
+PASS: critical thermal branch: 1 exact identities
+PASS: time scaling: 3 exact identities
+PASS: linear shear: 2 exact identities
+PASS: shear spectrum: 5 exact identities
+PASS: MIS matched shear: 2 exact identities
+PASS: nonlinear transverse closure: 3 exact identities
+PASS: source scale: 3 exact identities
+TOTAL: 121 exact identities passed
+SCOPE: algebraic regressions and an independent component construction only.
+NOT CHECKED: universal PDE quantifiers, independent mathematical review, Lean, or repository CI.

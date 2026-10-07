@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "base_commit": "9b1a66486e3d6d5e49fadcb40b95eea49315b0b7",
+  "status": "author-proof-independent-review-pending",
+  "python_environment": {"sympy": "1.14.0"},
+  "executed": [
+    "python3 research/check_bdnk_transfer.py: 121 exact algebraic checks passed",
+    "python3 -m py_compile research/check_bdnk_transfer.py: passed",
+    "new-file control-character/whitespace checks and new PLAN YAML terminal metadata: passed"
+  ],
+  "not_executed": ["independent mathematical review", "research/verify.py", "LaTeX build", "Lean build", "Comparator", "GitHub CI"],
+  "repository_snapshot_attempt": "Read-only codeload archive download failed: DNS resolution unavailable in execution container.",
+  "sha256": {
+    "research/evidence/bdnk-transfer-20261007.md": "d87290b7c3f9d8c4653dd5f746420b9df20b790b185e1b425869ae07524d1887",
+    "research/check_bdnk_transfer.py": "694126f8bb6dd791f0e2e1d9254d6e043f80020d20535d13998763a460734d7b",
+    "research/evidence/bdnk-transfer-20261007.check.log": "6479b884a43dd9a9d8e2dde66113b1712c7512a7882640ee0d334827f4c3dbb5"
+  },
+  "preserved_blobs": {
+    "previous_PLAN": "4a6f6b8249d6bf2e1f8c41693198b60236ccfb2f",
+    "previous_relativistic_contract": "15ee40dda78dd3561e9c4411f73b793d4f0f8fba",
+    "unchanged_canonical_proof_graph": "0bea9f002ca22fb4a23bade0576f0f7788bd6657"
+  },
+  "scope": "Exact algebraic regression does not establish universal PDE quantifiers, a global theorem, novelty, or independent acceptance. No sibling repository changes."
+}
