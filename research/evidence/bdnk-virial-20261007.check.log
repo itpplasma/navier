@@ -1,0 +1,23 @@
+PASS: prepared data: 4
+PASS: principal matrix: 1
+PASS: full determinant: 1
+PASS: frame A polynomial: 1
+PASS: frame A roots: 2
+PASS: frame A speed bound: 4
+PASS: frame A shear bound: 1
+PASS: frame B light root: 1
+PASS: frame B slow root: 1
+PASS: ball volume: 1
+PASS: background allowance: 1
+PASS: virial acceleration: 1
+PASS: explicit positive margin: 1
+PASS: margin sign: 1
+PASS: negative energy lower bound: 1
+PASS: general strict-front gap: 1
+PASS: luminal failure: 1
+PASS: massless speed: 1
+PASS: isotropic first moment: 3
+PASS: isotropic pressure: 3
+TOTAL: 31 exact checks passed
+SCOPE: tensor/spectrum/virial constants and kinetic moments only.
+NOT CHECKED: nonlinear domain-of-dependence proof, independent review, Lean, or CI.

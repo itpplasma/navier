@@ -1,0 +1,11 @@
+{
+  "status": "author-proof-independent-review-pending",
+  "base_commit": "0dd54e036d14c30ed6ad5a77ef8e229eaf717fe1",
+  "executed": ["31 exact SymPy checks", "Python compilation", "control-character and trailing-whitespace checks"],
+  "not_executed": ["independent review", "nonlinear support lemma verification by proof assistant", "repository-wide tests", "Lean", "Comparator", "CI"],
+  "sha256": {
+    "research/evidence/bdnk-virial-20261007.md": "43eba881e89740e613d764075a84530c90e9d85b7a9f0a2c07826d898906717c",
+    "research/check_bdnk_virial.py": "9f0c05ab054d27e37240656d5fadfb918693a3fa569692dbd009ccee2767906a",
+    "research/evidence/bdnk-virial-20261007.check.log": "b920b0b5c56e29e414d9c9559f3daff1aba831fd0f618959e5b68273ce960598"
+  }
+}
