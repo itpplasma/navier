@@ -6,6 +6,11 @@ preserved verbatim at
 `research/history/PLAN-before-finite-L-parent-supply-2026-09-11.md`.
 Historical plans are evidence/history only, not parallel task queues.
 
+A separate relativistic-viscous model-comparison programme is recorded in
+`docs/relativistic-viscous-programme.md`. It does **not** change `NS-R3`,
+its forcing status, or this file's authority over the original unforced target.
+Its first contract is `research/relativistic-breakdown-contract.md`.
+
 ```yaml
 terminal_claim: NS-R3
 terminal_status: not-proved

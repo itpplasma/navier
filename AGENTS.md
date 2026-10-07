@@ -39,7 +39,7 @@ Stop an argument at the first unsupported inference. Do not rename an equivalent
 
 When a proposed mechanism has an exact computable consequence, state the prediction **before** testing it. If competing mechanisms predict different exact outcomes, choose the cheapest exact or rigorous test that separates them. Exact finite-mode/symbolic calculations can falsify an interaction mechanism; numerical simulations remain heuristic unless accompanied by a rigorous error enclosure at the exact needed scope.
 
-When review defeats a route, blacklist the failed inference rather than the whole framework. Reopen it only if a new prerequisite directly addresses the obstruction. After two serious cycles returning to the same uncontrolled critical quantity or exact obstruction, change mechanism materially: geometry, representation, scale decomposition, kinetic interface, pressure mechanism, material dynamics, rigorous computer-assisted route, or another genuinely distinct framework.
+When review defeats a route, blacklist the failed inference rather than the whole framework. Reopen it only if a new prerequisite directly addresses the obstruction. There is no fixed failure quota: a decisive falsifier can stop the first test, while a productive mechanism may justify many steps. When several variants return to the same exact loss, retrieve that common failure and continue only with a named new premise or a changed inference that pays that loss.
 
 Evidence discipline:
 
@@ -52,6 +52,18 @@ special class != arbitrary-data theorem
 literature theorem != verified applicability
 review verdict != project promotion
 ```
+
+## Win gate, exact-loss design, and model separation
+
+Keep at most **one unsupported hard producer** in an active attempt. For a regularity route, a continuation criterion is a consumer until the original data are proved to produce its critical hypothesis. For a blow-up route, a profile, finite interaction model, forced history or singular ansatz is a consumer until an actual solution of the stated PDE with the stated data and forcing status is constructed. For a model-comparison route, analogy and formal limits do not count: the same physical state must be transported through a proved source/model adapter.
+
+A durable mathematical delta must do at least one of: complete the exact terminal claim; construct an exact counterexample in its stated model; exclude a nonempty surviving breakdown/regularity class by an unconditional theorem; or decisively refute a serious proposed bridge. State the BEFORE/AFTER surviving class when that language applies.
+
+Design new machinery around the **exact loss**. Write the missing power, sign, derivative, compactness, source term or scale before introducing a representation. Temporary structure earns use only if it compensates for that named deficit. Preserve vector signs, coupled equations and common-source information until their loss is justified. Separate construction from closure/rigidity, record the order in which parameters and scales are chosen, and inspect equality/extremal profiles when a sharp estimate makes them informative.
+
+Relativistic and kinetic companion problems live under separate contracts; see `docs/relativistic-viscous-programme.md`. BDNK, Müller--Israel--Stewart/DNMR, extended causal closures, classical Navier--Stokes and kinetic equations are not interchangeable. State the exact stress tensor, frame, equation of state, transport coefficients, forcing/source, domain, data class and admissibility regime before transferring a result. A nonrelativistic or hydrodynamic limit counts only with the uniform estimate needed by the proposed inference. Distinguish three conclusions: PDE regularity of a closure, remaining inside the closure's validity regime, and regularity of an underlying kinetic model.
+
+OpenAI's forced Navier--Stokes construction is a source of mechanisms and hostile controls, not a solution of this repository's unforced `NS-R3` target. Likewise the archived OpenAI Vlasov--Maxwell result in `itpplasma/vlasov-maxwell` is an external claim under independent reconstruction; its exact-loss/signed-impulse strategy may motivate a test without importing its theorem.
 
 Use symbolic/numerical/search/proof tools only against named information targets. Preserve tested scope, error control and non-claims. One controller owns authoritative promotion; parallel workers, when used, return evidence and should attack genuinely different mechanisms rather than correlated variants.
 

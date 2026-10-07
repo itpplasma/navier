@@ -29,6 +29,14 @@ Lean verification are different evidence statuses. The
 [programme graph](docs/programme-graph.yaml) describes additional unproved
 kinetic and microscopic specifications; it is not the canonical proof graph.
 
+## Relativistic viscous companion programme
+
+The original `NS-R3` contract above is unchanged. A separate programme now asks what becomes of finite-time breakdown when the fluid model is made relativistic and causal. The closest first-order constitutive analogue is BDNK relativistic viscous hydrodynamics; Müller--Israel--Stewart/DNMR and newer extended causal closures are comparison models rather than aliases.
+
+The current literature does **not** support a universal statement that relativity heals blow-up. Rigorous Israel--Stewart-type results already show finite-time breakdown/gradient blow-up in restricted regimes, while BDNK has small-data global theory, numerical evidence of singularity formation for some smooth data, and numerical shock regularization for other data. Arbitrary large smooth (3+1)-dimensional BDNK data remain an open target in the source screen.
+
+See [the relativistic viscous programme](docs/relativistic-viscous-programme.md), [the current source ledger](literature/relativistic-viscous-status-2026-10-07.md), and [the first BDNK breakdown contract](research/relativistic-breakdown-contract.md). The programme deliberately combines two recent proof-design lessons: OpenAI's forced Navier--Stokes construction supplies a concrete collapse mechanism to test, while the independently reconstructed strategy in [`itpplasma/vlasov-maxwell`](https://github.com/itpplasma/vlasov-maxwell) says to isolate the exact failed estimate and preserve signed causal structure before taking norms.
+
 ## Build the papers and check the repository
 
 On Debian/Ubuntu, install `latexmk`, `texlive-latex-extra`,
