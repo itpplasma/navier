@@ -1,0 +1,12 @@
+{
+  "status": "author-proof-independent-review-pending",
+  "base_commit": "00bf4614cb2e2412c376787e7461ed936afca32f",
+  "executed": ["48 exact SymPy checks", "Python compilation", "new-file control-character and whitespace checks"],
+  "not_executed": ["independent mathematical review", "Cauchy-Kowalevski or Sobolev local theory formal replay", "kinetic moment realization formal replay", "Lean", "Comparator", "repository-wide tests", "CI"],
+  "sha256": {
+    "research/evidence/bdnk-kinetic-exit-20261007.md": "94a435e2e29d2c96ca4d6518b2202a29cb88939208425e991d75d7cb29f27ae1",
+    "research/check_bdnk_kinetic_exit.py": "1ae8a44bca59dabaf233a9857b3c3e5b449204d4dfd5ab87bc816b787ef2eabd",
+    "research/evidence/bdnk-kinetic-exit-20261007.check.log": "44faf1e228d6493e13c47c447df78ddd507405883f1d27f9084ff42e9c27fae2"
+  },
+  "scope": "Actual local PDE existence is supplied by the explicitly stated analytic Cauchy theorem; exact algebra is not independent theorem acceptance. No shock or hydrodynamic limit claimed."
+}

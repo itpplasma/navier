@@ -1,0 +1,29 @@
+PASS: full prepared tensor: 6
+PASS: zero scalar correction: 6
+PASS: prescribed heat flux: 6
+PASS: expansion identity: 6
+PASS: origin pressure jet: 1
+PASS: negative origin derivative: 1
+PASS: boundary derivative: 1
+PASS: small flux bound: 2
+PASS: expansion upper bound: 2
+PASS: universal flux margin: 1
+PASS: universal expansion margin: 1
+PASS: differentiated Cauchy jet: 1
+PASS: positive-cosine deficit: 1
+PASS: PSD margin: 1
+PASS: negative-cosine PSD margin: 1
+PASS: transverse pressure margin: 1
+PASS: origin initial pressure: 1
+PASS: exit time integration: 1
+PASS: heat profile derivative: 1
+PASS: rapidity factor lower bound: 1
+PASS: initial entropy margin: 1
+PASS: kinetic total weight: 1
+PASS: kinetic first moment: 1
+PASS: kinetic longitudinal pressure: 1
+PASS: kinetic transverse pressure: 1
+PASS: DEC-only nonrealizable control: 1
+TOTAL: 48 exact checks passed
+SCOPE: full four-tensor, spatial cone margins, conserved time jets, positive moment representation.
+NOT CHECKED: local-existence theorem replay, independent review, Lean, or CI.
