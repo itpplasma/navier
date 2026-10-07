@@ -23,13 +23,12 @@ The first screen may allow a smooth covariant source to test compatibility. The 
 - Existing BDNK numerics do not settle arbitrary large data: one study reports apparent singular steepening outside first-order validity, another reports shock regularization for selected data in a frame-robust small-Knudsen regime.
 - Relativistic causal viscous theories can develop rigorous shocks/breakdown in Israel--Stewart-type reductions, so no universal “relativity heals” premise is allowed.
 
-**FIRST GAP.** Construct a faithful covariant scaling adapter from the classical collapse variables to the full chosen BDNK stress tensor. Compute the leading orders of every term in (partial_mu T^{mu
-u}=0) with timelike normalization and Lorentz factor retained. We do not yet know whether the classical balance survives, fails by one exact power/sign, or leaves the BDNK validity region before the singular scale.
+**FIRST GAP.** Construct a faithful covariant scaling adapter from the classical collapse variables to the full chosen BDNK stress tensor. Compute the leading orders of every term in the conservation law ∂_μ T^{μν}=0 with timelike normalization and Lorentz factor retained. We do not yet know whether the classical balance survives, fails by one exact power/sign, or leaves the BDNK validity region before the singular scale.
 
 **CHEAPEST FALSIFIERS.**
 
 - an unavoidable BDNK term has a leading order incompatible with the collapse balance;
-- the proposed profile violates (u^mu u_mu=-1), positivity/thermodynamic admissibility, or the chosen causal/stability inequalities;
+- the proposed profile violates the timelike normalization u·u = -1, positivity/thermodynamic admissibility, or the chosen causal/stability inequalities;
 - the only balance requires a forcing/source singular at the target time;
 - the Knudsen/inverse-Reynolds measures necessarily become order one before the claimed BDNK mechanism, so the claim is only a closure-breakdown statement;
 - conversely, an exact leading-order solution with all residuals lower order falsifies a proposed relativistic exclusion and justifies deeper construction work.
@@ -37,7 +36,7 @@ u}=0) with timelike normalization and Lorentz factor retained. We do not yet kno
 **FORBIDDEN INFERENCES.**
 
 - bounded three-velocity implies bounded derivatives or Lorentz factor;
-- formal (c\to\infty) convergence transfers a singular solution;
+- formal c → ∞ convergence transfers a singular solution;
 - BDNK shock regularization for one data family implies global regularity;
 - numerical loss of convergence proves blow-up;
 - Israel--Stewart breakdown proves BDNK breakdown;
@@ -91,4 +90,4 @@ Ranked by information value rather than expected ease:
 2. **A model-separation theorem**: matched low-gradient physics, different finite-time behavior.
 3. **A kinetic-escape theorem**: fluid closure singular/invalid, kinetic model regular.
 4. **A broad closure breakdown theorem** for a causal hyperbolic viscous class.
-5. **A classical back-transfer**: identify a physically motivated correction with a nontrivial (c\to\infty) limit that removes the collapse class. Any claimed uniform NS-limit regularity must confront the forced NS breakdown control quantitatively.
+5. **A classical back-transfer**: identify a physically motivated correction with a nontrivial c → ∞ limit that removes the collapse class. Any claimed uniform NS-limit regularity must confront the forced NS breakdown control quantitatively.
