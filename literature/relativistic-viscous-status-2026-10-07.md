@@ -58,6 +58,35 @@ https://doi.org/10.1103/PhysRevD.111.083014
 
 Constructs bulk-viscous models that reduce to Israel--Stewart at small viscous stress but adjust at large stress so that the equations remain symmetric hyperbolic and causal throughout the thermodynamic state space along (C^1) flows, with an exact second law. The paper explicitly qualifies this as behavior “away from singularities”; it does not prove global smoothness. This is nevertheless a concrete candidate for testing whether better far-from-equilibrium constitutive physics changes breakdown.
 
+## Forcing-status matrix and robustness of the OpenAI construction
+
+The forcing status must be retained explicitly:
+
+| System | Forced singularity | Unforced singularity |
+| --- | --- | --- |
+| classical incompressible Navier--Stokes | released OpenAI construction | unresolved |
+| conformal causal BDNK | unresolved | unresolved for actual PDE singularity |
+
+The project transfer calculation now sharpens the comparison. It does **not**
+show that “relativity prevents blow-up.” It shows that the *specific classical
+construction is not structurally robust* under the tested causal relativistic
+completion.
+
+The direct proper-velocity lift fails for two mathematically different reasons.
+First, BDNK contains causal first-gradient frame/heat-flow terms whose time
+derivatives enter the conserved energy at leading order on the OpenAI
+slow-shrinking scales. The resulting dilation identity forces the tested
+noncooling profile to vanish; a source remaining smooth at the target time
+cannot pay the missing leading order. Second, the classical pulse bookkeeping
+uses parabolic `k^2` viscous damping, whereas causal BDNK shear has telegraph
+dispersion and high-frequency damping saturates. Thus increasing the
+wavenumber no longer buys arbitrarily strong damping.
+
+This is the precise basis for saying the released OpenAI forcing is finely
+crafted for classical Navier--Stokes. It is a robustness statement, not a
+novelty or physical-naturalness theorem: another smooth BDNK forcing may still
+produce finite-time singularity.
+
 ## OpenAI inputs
 
 **OpenAI, Finite Time Blowup for Navier--Stokes (2026).**  

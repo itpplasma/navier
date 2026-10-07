@@ -4,7 +4,18 @@ Updated 2026-10-07. This is a companion research contract. It does not alter the
 
 ## Scientific question
 
-Classical Navier--Stokes now has a released smooth-forcing finite-time breakdown construction. Relativistic Vlasov--Maxwell has a released claim of the opposite kind: arbitrary admissible collisionless data remain globally classical, with the proof organized around a causal signed-impulse estimate. The comparative question is therefore sharper than “does relativity regularize fluids?”:
+Classical Navier--Stokes now has a released **smooth-forcing** finite-time
+breakdown construction; the corresponding **unforced** classical problem is
+still unresolved. No forced BDNK finite-time singularity theorem is currently
+established here, and the unforced BDNK singularity problem is also open.
+Relativistic Vlasov--Maxwell has a released claim of the opposite kind:
+arbitrary admissible collisionless data remain globally classical, with the
+proof organized around a causal signed-impulse estimate.
+
+The exact comparison is therefore two-dimensional: forcing status and model.
+The immediate apples-to-apples question is “does the released forced
+Navier--Stokes singularity mechanism survive a causal relativistic viscous
+completion?” The broader question is:
 
 > For a specified causal relativistic viscous closure, does a genuine finite-time breakdown mechanism survive? If it does not, which exact relativistic identity excludes it? Is that obstruction model-independent, or does changing the closure change the answer?
 
@@ -34,19 +45,47 @@ Thus “relativity + viscosity always heals blow-up” is already untenable as a
 
 ## Input from the two OpenAI PDE results
 
-### Forced Navier--Stokes: construction side
+### Forced Navier--Stokes: construction side and the first relativistic failure
 
-The released Navier--Stokes result provides a concrete shrinking/spiralling vortex architecture whose residual is supplied by smooth forcing. In this repository that theorem remains a **forced** control; it does not settle `NS-R3`.
+The released Navier--Stokes result provides a concrete shrinking/spiralling
+vortex architecture whose residual is supplied by smooth forcing. In this
+repository that theorem remains a **forced** control; it does not settle
+`NS-R3`, whose unforced status remains open.
 
-For relativistic work, use it as a stress test:
+The first BDNK transfer has now been executed. Two independent pieces of the
+classical construction fail to transport unchanged:
 
-1. write the full relativistic stress-energy conservation law;
-2. insert a covariant analogue of the collapsing profile with the Lorentz factor retained;
-3. compute the first term whose scaling differs from the classical construction;
-4. determine whether that term can be balanced by admissible constitutive stress or smooth covariant forcing;
-5. only then attempt a full singular solution.
+1. **Nonlinear energy-balance failure.** For a normalized proper-velocity lift
+   with `gamma,w ~ tau^(-a)`, spatial scales `tau^beta_i` with
+   `0<beta_i<1`, and temperature `Theta ~ tau^(-b)`, the full BDNK
+   time-derivative constitutive stress dominates the spatial transport in the
+   tested regime. Energy conservation forces a dilation equation whose only
+   bounded nonnegative profile is trivial whenever
+   `b > -a/kappa` (frame A: `kappa=25/12`). In particular a constant-scale
+   or heating thermal completion cannot support the direct lifted vortex.
+   A bounded smooth source is lower order and cannot repair this leading
+   mismatch; maintaining the same profile would require leaving the hypotheses
+   (for example sufficiently strong cooling/finer scales) or a source singular
+   at the target scale.
+2. **Parabolic pulse-damping failure.** The classical pulse design raises
+   wavenumber until viscous `k^2` damping overtakes amplification. Linearized
+   causal BDNK shear satisfies a telegraph equation
+   `lambda v_tt+h0 v_t-eta v_xx=0`; above its crossover wavenumber the decay
+   rate has constant real part `-h0/(2 lambda)`, not `-D k^2`. Therefore
+   the high-frequency heat-semigroup bookkeeping used by the classical
+   construction is unavailable.
 
-The first useful result can be either survival of the leading balance or an exact exclusion of the whole OpenAI collapse class.
+These facts justify calling the released forcing **finely tuned to the
+classical parabolic Navier--Stokes dynamics**. “Artificial” is a reasonable
+informal description of this lack of robustness, but the mathematical claim is
+the scoped one above: the direct forcing/profile architecture is not invariant
+under this causal relativistic completion. They do **not** prove that every
+smooth relativistic forcing fails or that BDNK is globally regular.
+
+The next forced task is therefore constructive: redesign the relativistic
+profile/source around the full causal stress rather than transplant the
+classical pulse machinery. See
+[`openai-forcing-relativistic-failure.md`](openai-forcing-relativistic-failure.md).
 
 ### Relativistic Vlasov--Maxwell: obstruction side
 

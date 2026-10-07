@@ -1,74 +1,95 @@
-# RNS-BDNK-003: distinguish actual singularity from smooth closure failure
+# RNS-BDNK-F001: forced relativistic singularity after failure of the direct lift
 
 Updated 2026-10-07. Authority: `PLAN.md`. The original unforced NS-R3 target
-and its accepted graph are unchanged. Earlier contracts remain in Git history;
-the original pre-test contract is also archived in `research/history/`.
+and its accepted graph are unchanged.
 
-## Results to retain, not assumptions to strengthen
+## Forcing-status invariant
 
-1. `evidence/bdnk-transfer-20261007.md`: a specified accelerating similarity
-   class is excluded; high-frequency causal shear does not have heat damping;
-   the scalar nonlinear transverse-shear shortcut violates another equation.
-2. `evidence/bdnk-virial-20261007.md`: ideal-prepared hot-core data in a strict
-   conformal frame must encounter PDE/state breakdown OR negative energy by
-   a finite deadline. Initially all constitutive corrections vanish and
-   gradient measures can be small. The support adapter needs independent review.
-3. `evidence/bdnk-euler-prepared-exit-20261007.md`: a different, anisotropic
-   Euler-prepared family actually leaves the positive-particle matter-stress
-   cone while the full PDE solution stays smooth, in both strict and luminal
-   frames. All initial moments are realized by a smooth positive distribution.
-   At the exit point entropy production and the dominant energy condition can
-   remain positive. This is not small-inverse-Reynolds data or a shock theorem.
+The released OpenAI Navier--Stokes finite-time breakdown theorem uses **smooth
+forcing**. The classical **unforced** problem is still open. Consequently the
+first like-for-like relativistic problem is:
 
-All three are author results pending independent reconstruction. Tests and a
-correct local time jet do not substitute for checking the actual solution,
-initial constraints, uniform existence interval and moment realization.
+> Does a fixed causal BDNK model admit smooth initial data and a smooth
+> covariant source for which the classical solution loses regularity in finite
+> time?
 
-## One active unresolved producer
+The corresponding unforced BDNK problem remains open and is downstream, not a
+premise.
 
-**TARGET.** In the explicit unforced conformal frame A, determine whether a
-specified initially ideal hot-core Cauchy solution breaks down before the virial
-deadline, or continues smoothly and develops the negative energy forced by that
-identity. A theorem on a specified nonempty data family is sufficient to move
-this question. Universal BDNK regularity is not to be assumed.
+## What has already been ruled out
 
-**CARRIER.** Fix eta0=1, chi0=25/2, lambda0=25/3, R=1 and background Theta=1
-on a flat torus of side 64. One smooth profile is Theta0=1+31 H(2|x|-1),
-where H(s)=rho(1-s)/[rho(1-s)+rho(s)] and rho(s)=exp(-1/s) for s>0,
-rho(s)=0 otherwise. Thus H=1 for s<=0 and H=0 for s>=1. Set u0 at rest,
-Theta_t=0 and u_t spatial=-grad log Theta0. The profile is constant near the
-origin and exterior, so its radial notation is smooth and periodically extends.
-All first constitutive corrections vanish initially.
+The direct normalized lift of the released shrinking vortex is not an available
+answer. The author packet `evidence/bdnk-transfer-20261007.md` gives two
+independent obstructions.
 
-**FIRST GAP.** Control the full evolving derivative state or construct an actual
-singular characteristic mechanism for this Cauchy problem. The virial identity
-alone gives no upper bound for derivative norms and does not propagate positive
-energy. The separate kinetic-exit family cannot choose the branch for this one.
+**Energy obstruction.** In the weighted-C2 slow-shrinking class
+[
+gamma,wsim	au^{-a},qquad
+Thetasim	au^{-b},qquad
+0<eta_i<1,
+]
+the full BDNK energy equation excludes every profile with
+[
+b>-a/kappa,qquad
+kappa=(4chi_0+2lambda_0)/
+       (4chi_0/3+2lambda_0-4eta_0/3).
+]
+For frame A, (kappa=25/12). A source that stays smooth/bounded at the target
+time cannot cancel the leading dilation mismatch. Thus the noncooling direct
+lift fails even **with forcing enabled**.
 
-**CHEAPEST DISCRIMINATING WORK.** Derive the full radial coupled BDNK evolution,
-including frame energy, heat flux and anisotropic stresses, and extract the
-first signed evolution law capable of distinguishing a gradient singularity
-from smooth energy-condition exit. A numerical experiment may guide the choice
-but cannot select the branch as a theorem without a rigorous error enclosure.
-No unrelated solver architecture or remote campaign is authorized here.
+**Pulse obstruction.** The classical construction uses parabolic
+high-frequency damping. Causal BDNK shear is telegraphic: its high-wavenumber
+decay rate saturates rather than growing like (k^2). Hence the classical
+pulse-preparation/damping argument cannot be imported unchanged.
 
-**FALSIFIERS.** A dropped conservation equation, a time derivative replaced by
-an ideal relation after t=0, a coefficient depending on an uncontrolled norm,
-loss of a claimed invariant at a smooth jet, or an unproved uniform lifespan.
-Do not treat a missing estimate as a proven singularity.
+These results say “the released architecture is model-specific,” not “smooth
+relativistic forcing can never blow up BDNK.”
 
-## Model-comparison questions kept downstream
+## One active producer
 
-A classical positive-particle stress always has nonnegative directional
-pressure. The free kinetic comparator is explicit but is not the finite-viscosity
-parent of BDNK. A stronger comparison needs an actual collision operator,
-positive solution, matched initial physical moments and a controlled closure
-error. The chosen neutral conformal fluid has no proved massive Newtonian
-limit. Neither electromagnetic tension nor quantum stresses belong to the
-positive matter-stress cone used in the current theorem.
+**TARGET.** Construct an actual forced finite-time singular BDNK solution for
+one explicit causal conformal frame, or prove an unconditional no-go for a
+strictly larger nonempty family of smooth forced collapse profiles.
 
-The trace-budget and front-speed obstruction constrain any proposed physical
-repair. A luminal front is not sufficient: frame B also has the smooth kinetic
-exit. Conversely, a new positive algebraic constitutive formula is not proof
-of causal well-posedness or global regularity. Attack the first new producer
-before adding a conditional suffix, and preserve forcing/model/domain status.
+**FIRST GAP.** Find a relativistic collapse ansatz whose leading conservation
+balance is compatible with the full BDNK time-derivative stress and whose source
+extends smoothly to the singular time. The source is not allowed to hide the
+singularity by becoming unbounded or nonsmooth.
+
+**NATURAL ESCAPES TO TEST.**
+
+1. bounded physical velocity with gradient blow-up rather than diverging proper
+   velocity;
+2. characteristic/shock scales (eta_ige1), outside the previous
+   slow-shrinking theorem;
+3. a thermal profile at or below the cooling threshold;
+4. oscillatory/finer-scale profiles not covered by weighted-C2 convergence;
+5. a different smooth source design that uses the causal hyperbolic modes
+   rather than relying on heat-semigroup damping.
+
+**CHEAPEST FALSIFIER.** For each candidate, compute the full BDNK residual
+before choosing the source. If its leading residual diverges at the target
+time, that candidate cannot yield the desired smooth-forcing theorem.
+
+## Retained unforced results
+
+The separate virial hot-core theorem gives, for initially ideal data in strict
+causal frames, finite-time **breakdown OR negative laboratory energy**. It does
+not select a PDE singularity. A different Euler-prepared family smoothly exits
+the positive classical-particle stress cone. Those are meaningful closure
+results but do not prove either forced or unforced BDNK blow-up.
+
+Do not merge the data families or promote smooth closure failure to singularity.
+
+## Model-robustness interpretation
+
+If a redesigned forced BDNK singularity is constructed, then the classical
+phenomenon survives relativity, though possibly by a different mechanism. If a
+broad causal-relativistic no-go ultimately excludes all smooth-forcing
+singularities of the relevant type, that would identify a genuine relativistic
+regularization mechanism. At present neither outcome is established.
+
+A kinetic comparison requires an actual microscopic parent with a specified
+collision operator and controlled closure error; collisionless Vlasov--Maxwell
+is not automatically that parent.

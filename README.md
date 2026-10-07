@@ -37,6 +37,22 @@ are in [the programme](docs/relativistic-viscous-programme.md) and
 [the source ledger](literature/relativistic-viscous-status-2026-10-07.md).
 The original unforced NS-R3 contract is not replaced by a relativistic equation.
 
+Current forcing-status comparison:
+
+| Model | Forced | Unforced |
+| --- | --- | --- |
+| classical incompressible Navier--Stokes | released finite-time breakdown construction | unresolved |
+| causal conformal BDNK | unresolved | unresolved for actual PDE singularity |
+
+The first relativistic target is therefore the **forced** BDNK analogue. The
+direct OpenAI-vortex lift has already failed a nontrivial robustness test:
+the full BDNK energy equation forbids the tested noncooling slow-shrinking
+proper-velocity profile even with bounded smooth forcing, while causal shear
+has damped-wave rather than heat-semigroup high-frequency behavior. See
+[the mechanism note](docs/openai-forcing-relativistic-failure.md). This is
+evidence that the released forcing is tailored to the classical parabolic
+equations; it is not a theorem that all smooth relativistic forcing fails.
+
 Executed author results, all pending fresh independent reconstruction:
 
 - [Strict-front virial obstruction](research/evidence/bdnk-virial-20261007.md):
