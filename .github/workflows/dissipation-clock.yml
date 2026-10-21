@@ -1,11 +1,13 @@
 name: Build papers and verify proof map
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths: ['paper/**', 'docs/proof-graph.yaml', 'docs/proof_map.tex', 'tools/generate_map.py', 'research/verify.py', 'PLAN.md', '.github/workflows/dissipation-clock.yml']
   pull_request:
     paths: ['paper/**', 'docs/proof-graph.yaml', 'docs/proof_map.tex', 'tools/generate_map.py', 'research/verify.py', 'PLAN.md', '.github/workflows/dissipation-clock.yml']
   workflow_dispatch:
+  merge_group:
 permissions:
   contents: read
 jobs:
@@ -41,3 +43,8 @@ jobs:
         with:
           name: paper-build-logs
           path: paper/**/*.log
+    if: >-
+      github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.actor != 'github-merge-queue[bot]') || (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'full-ci'))
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || format('{0}-{1}', github.ref, github.run_id) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
