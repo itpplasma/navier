@@ -97,7 +97,7 @@ No terminal proof or counterexample is claimed.
 ''', 'Graph SHA-256: ' + r'\texttt{' + digest[:32] + '}' + r'\texttt{' + digest[32:] + '}.\n']
 for n in nodes:
     out += [r'\Needspace{10\baselineskip}\section*{' + esc(n['id'] + ': ' + n['title']) + '}' + r'\phantomsection\label{node:' + n['id'] + '}\n',
-            r'\textbf{Class:} ' + tags[n['kind']] + r'. \textbf{Formal:} ' + esc(n.get('formal', 'not started')) + '.' + '\n\n',
+            r'\textbf{Class:} ' + tags[n['kind']] + r'. \textbf{Formal:} ' + esc(n.get('formal', 'not started').rstrip('.')) + '.' + '\n\n',
             esc(n['statement']) + '\n\n',
             r'\textbf{Mechanism:} ' + esc(n['mechanism']) + '.\n\n',
             r'\textbf{Review:} ' + esc(n['review']) + '\n\n',
