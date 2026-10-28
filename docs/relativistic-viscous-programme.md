@@ -146,3 +146,44 @@ A win is not “BDNK looks safer”. It is one of:
 - a precise source-derived continuation estimate that genuinely removes a surviving breakdown class;
 - or a decisive falsifier of the proposed transfer.
 
+
+## Results so far
+
+The following are author results, not yet independently reconstructed.
+
+- [Strict-front virial obstruction](../research/evidence/bdnk-virial-20261007.md):
+  explicit, initially ideal hot cores must either break down or develop
+  negative energy by a finite deadline. This does not select a PDE
+  singularity.
+- [Euler-prepared kinetic-cone exit](../research/evidence/bdnk-euler-prepared-exit-20261007.md):
+  common smooth data across causal conformal BDNK frames develop negative
+  directional matter pressure while the solution stays smooth. The initial
+  stress has a positive particle realization; the shear anisotropy is of
+  order one.
+- [Similarity transfer](../research/evidence/bdnk-transfer-20261007.md): a
+  specified normalized collapse class is excluded, and classical heat damping
+  does not carry over to causal shear modes.
+- [Forced-vortex lift](openai-forcing-relativistic-failure.md): the direct
+  lift of the released forced Navier-Stokes construction fails a robustness
+  test. The full BDNK energy equation forbids the tested non-cooling,
+  slowly shrinking proper-velocity profile even with bounded smooth forcing,
+  and causal shear behaves like a damped wave rather than a heat semigroup at
+  high frequency. This indicates that the released forcing is tailored to the
+  parabolic equations; it is not a theorem that every smooth relativistic
+  forcing fails.
+
+The [breakdown contract](../research/relativistic-breakdown-contract.md)
+keeps actual PDE blow-up separate from smooth loss of kinetic realizability.
+No BDNK global regularity or shock theorem is claimed.
+
+The algebraic identities behind the first two results can be checked with
+SymPy from the repository root:
+
+```sh
+python3 research/check_bdnk_virial.py
+python3 research/check_bdnk_kinetic_exit.py
+python3 research/check_bdnk_euler_prepared_exit.py
+```
+
+These scripts check exact tensor and scalar identities, not the PDE
+arguments.
